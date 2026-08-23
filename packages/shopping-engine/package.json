@@ -1,0 +1,22 @@
+{
+  "name": "@storefront/shopping-engine",
+  "version": "1.0.0",
+  "description": "Razorpay AI Commerce Autonomous Shopping Engine & Agent Framework",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "ai-commerce",
+    "shopping-agent",
+    "autonomous-shopping"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.15.21",
+    "typescript": "^5.9.3"
+  }
+}

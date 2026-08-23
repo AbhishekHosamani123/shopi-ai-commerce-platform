@@ -1,0 +1,503 @@
+/**
+ * Mock UCP Merchant Server
+ *
+ * A fully functional UCP-compliant mock merchant for testing shopping agents.
+ * Serves a UCP profile at /.well-known/ucp and provides REST API endpoints
+ * for browsing products, managing cart, and completing checkout.
+ *
+ * Usage:
+ *   const merchant = new MockMerchant({ port: 3456 });
+ *   await merchant.start();
+ *   // ... run agent tests against merchant.baseUrl ...
+ *   await merchant.stop();
+ */
+
+import type { Server } from 'node:http';
+import type {
+  MockMerchantOptions,
+  MockProduct,
+  MockOrder,
+  CartItem,
+  WebhookEvent,
+  OrderUpdateEvent,
+} from '../types/index.js';
+import {
+  DEFAULT_PRODUCTS,
+  buildMockProfile,
+  buildMockOpenApiSchema,
+} from './fixtures.js';
+
+export class MockMerchant {
+  private server: Server | null = null;
+  private port: number;
+  private readonly name: string;
+  private readonly products: MockProduct[];
+  private readonly latencyMs: number;
+  private readonly errorRate: number;
+
+  // Server-side state
+  private orders: Map<string, MockOrder> = new Map();
+  private checkoutSessions: Map<string, { items: CartItem[]; createdAt: string }> =
+    new Map();
+
+  // Webhook state
+  private webhookSubscriptions: Map<
+    string,
+    { callbackUrl: string; secret?: string; orderId: string }
+  > = new Map();
+  private lifecycleTimers: ReturnType<typeof setTimeout>[] = [];
+
+  constructor(options: MockMerchantOptions = {}) {
+    this.port = options.port ?? 0;
+    this.name = options.name ?? 'Mock Merchant';
+    this.products = options.products ?? DEFAULT_PRODUCTS;
+    this.latencyMs = options.latencyMs ?? 0;
+    this.errorRate = options.errorRate ?? 0;
+  }
+
+  /**
+   * Start the mock merchant server.
+   */
+  async start(): Promise<void> {
+    // Dynamic import of express to keep it as optional peer dep
+    const { default: express } = await import('express');
+    const app = express();
+    app.use(express.json());
+
+    // Simulate latency
+    if (this.latencyMs > 0) {
+      app.use((_req, _res, next) => {
+        setTimeout(next, this.latencyMs);
+      });
+    }
+
+    // Simulate errors
+    if (this.errorRate > 0) {
+      app.use((_req, res, next) => {
+        if (Math.random() < this.errorRate) {
+          res.status(500).json({ error: 'Simulated server error' });
+          return;
+        }
+        next();
+      });
+    }
+
+    // ─── UCP Discovery ───
+    app.get('/.well-known/ucp', (_req, res) => {
+      res.json(buildMockProfile(this.baseUrl, this.name));
+    });
+
+    app.get('/.well-known/ucp.json', (_req, res) => {
+      res.json(buildMockProfile(this.baseUrl, this.name));
+    });
+
+    // ─── OpenAPI Schema ───
+    app.get('/ucp/schema/openapi.json', (_req, res) => {
+      res.json(buildMockOpenApiSchema(this.baseUrl));
+    });
+
+    // ─── Product API ───
+    app.get('/ucp/v1/products', (req, res) => {
+      let filtered = [...this.products];
+      const category = req.query.category as string | undefined;
+      if (category) {
+        filtered = filtered.filter(
+          p => p.category?.toLowerCase() === category.toLowerCase()
+        );
+      }
+      res.json({ products: filtered, total: filtered.length });
+    });
+
+    app.get('/ucp/v1/products/search', (req, res) => {
+      const q = ((req.query.q as string) ?? '').toLowerCase();
+      const filtered = this.products.filter(
+        p =>
+          p.name.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          (p.category?.toLowerCase().includes(q) ?? false)
+      );
+      res.json({ products: filtered, total: filtered.length, query: q });
+    });
+
+    app.get('/ucp/v1/products/:id', (req, res) => {
+      const product = this.products.find(p => p.id === req.params.id);
+      if (!product) {
+        res.status(404).json({ error: `Product not found: ${req.params.id}` });
+        return;
+      }
+      res.json(product);
+    });
+
+    // ─── Checkout API ───
+    app.post('/ucp/v1/checkout', (req, res) => {
+      const items = (req.body.items ?? []) as CartItem[];
+      if (items.length === 0) {
+        res.status(400).json({ error: 'Cart is empty' });
+        return;
+      }
+
+      // Enrich items with product data
+      const enrichedItems = items.map(item => {
+        const product = this.products.find(p => p.id === item.productId);
+        return {
+          ...item,
+          name: product?.name ?? item.name,
+          price: product?.price ?? item.price,
+        };
+      });
+
+      const sessionId = `sess_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      this.checkoutSessions.set(sessionId, {
+        items: enrichedItems,
+        createdAt: new Date().toISOString(),
+      });
+
+      const subtotal = enrichedItems.reduce(
+        (sum, item) => sum + parseFloat(item.price.amount) * item.quantity,
+        0
+      );
+
+      res.json({
+        sessionId,
+        items: enrichedItems,
+        subtotal: { amount: subtotal.toFixed(2), currency: 'USD' },
+        shipping: {
+          options: [
+            { id: 'standard', name: 'Standard Shipping', price: { amount: '5.99', currency: 'USD' }, estimatedDays: '5-7' },
+            { id: 'express', name: 'Express Shipping', price: { amount: '12.99', currency: 'USD' }, estimatedDays: '2-3' },
+          ],
+        },
+      });
+    });
+
+    app.post('/ucp/v1/checkout/complete', (req, res) => {
+      const { sessionId, payment, shippingAddress } = req.body;
+
+      const session = sessionId ? this.checkoutSessions.get(sessionId) : null;
+      const items = session?.items ?? (req.body.items as CartItem[]) ?? [];
+
+      if (items.length === 0) {
+        res.status(400).json({ error: 'No items in checkout session' });
+        return;
+      }
+
+      // Simulate payment validation
+      if (payment?.token === 'tok_mock_failure') {
+        res.status(402).json({ error: 'Payment declined' });
+        return;
+      }
+
+      const subtotal = items.reduce(
+        (sum: number, item: CartItem) =>
+          sum + parseFloat(item.price.amount) * item.quantity,
+        0
+      );
+
+      const orderId = `ord_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      const order: MockOrder = {
+        id: orderId,
+        status: 'confirmed',
+        items,
+        subtotal: { amount: subtotal.toFixed(2), currency: 'USD' },
+        total: { amount: (subtotal + 5.99).toFixed(2), currency: 'USD' }, // + standard shipping
+        shippingAddress,
+        createdAt: new Date().toISOString(),
+      };
+
+      this.orders.set(orderId, order);
+
+      // Clean up session
+      if (sessionId) {
+        this.checkoutSessions.delete(sessionId);
+      }
+
+      res.json({
+        orderId,
+        status: 'confirmed',
+        order,
+      });
+    });
+
+    // ─── Product Reviews API ───
+    app.get('/ucp/v1/products/:id/reviews', (req, res) => {
+      const product = this.products.find(p => p.id === req.params.id);
+      if (!product) {
+        res.status(404).json({ error: `Product not found: ${req.params.id}` });
+        return;
+      }
+
+      // Generate deterministic mock reviews based on product ID
+      const seed = req.params.id.length;
+      const ratings = [5, 4, 4, 5, 3];
+      const reviewers = ['Alex M.', 'Sam K.', 'Jordan T.', 'Casey R.', 'Pat L.'];
+      const reviews = reviewers.slice(0, Math.min(5, seed)).map((author, i) => ({
+        id: `rev_${req.params.id}_${i}`,
+        author,
+        rating: ratings[i],
+        title: `${ratings[i] === 5 ? 'Excellent' : ratings[i] === 4 ? 'Great' : 'Good'} product`,
+        body: `Really ${ratings[i] >= 4 ? 'happy' : 'satisfied'} with this ${product.name}. ${ratings[i] === 5 ? 'Highly recommend!' : 'Would buy again.'}`,
+        date: new Date(Date.now() - i * 86400000 * 7).toISOString().split('T')[0],
+        verified: i < 3,
+      }));
+
+      const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
+
+      res.json({
+        productId: req.params.id,
+        averageRating: Math.round(avg * 10) / 10,
+        totalReviews: reviews.length,
+        reviews,
+      });
+    });
+
+    // ─── Discount Code API ───
+    app.post('/ucp/v1/checkout/discount', (req, res) => {
+      const { sessionId, code } = req.body;
+
+      if (!sessionId) {
+        res.status(400).json({ error: 'Missing sessionId' });
+        return;
+      }
+
+      const session = this.checkoutSessions.get(sessionId);
+      if (!session) {
+        res.status(404).json({ error: 'Checkout session not found' });
+        return;
+      }
+
+      // Simulate discount codes
+      const discounts: Record<string, number> = {
+        'SAVE10': 0.10,
+        'SAVE20': 0.20,
+        'WELCOME': 0.15,
+        'FREESHIP': 0,
+      };
+
+      const discount = discounts[code?.toUpperCase()];
+      if (discount === undefined) {
+        res.status(400).json({ error: `Invalid discount code: ${code}` });
+        return;
+      }
+
+      const subtotal = session.items.reduce(
+        (sum, item) => sum + parseFloat(item.price.amount) * item.quantity,
+        0
+      );
+
+      const discountAmount = subtotal * discount;
+      const newTotal = subtotal - discountAmount;
+
+      res.json({
+        success: true,
+        code: code.toUpperCase(),
+        discount: {
+          type: 'percentage',
+          value: discount * 100,
+          amount: { amount: discountAmount.toFixed(2), currency: 'USD' },
+        },
+        newSubtotal: { amount: newTotal.toFixed(2), currency: 'USD' },
+      });
+    });
+
+    // ─── Webhook Registration API ───
+    app.post('/ucp/v1/webhooks/subscribe', (req, res) => {
+      const { orderId, callbackUrl, secret } = req.body;
+
+      if (!orderId || !callbackUrl) {
+        res.status(400).json({ error: 'Missing orderId or callbackUrl' });
+        return;
+      }
+
+      const order = this.orders.get(orderId);
+      if (!order) {
+        res.status(404).json({ error: `Order not found: ${orderId}` });
+        return;
+      }
+
+      const subscriptionId = `sub_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      this.webhookSubscriptions.set(subscriptionId, {
+        callbackUrl,
+        secret,
+        orderId,
+      });
+
+      // Start simulated order lifecycle
+      this.simulateOrderLifecycle(orderId, subscriptionId);
+
+      res.json({
+        subscriptionId,
+        orderId,
+        callbackUrl,
+        status: 'active',
+      });
+    });
+
+    app.delete('/ucp/v1/webhooks/:subscriptionId', (req, res) => {
+      const sub = this.webhookSubscriptions.get(req.params.subscriptionId);
+      if (!sub) {
+        res.status(404).json({ error: `Subscription not found: ${req.params.subscriptionId}` });
+        return;
+      }
+      this.webhookSubscriptions.delete(req.params.subscriptionId);
+      res.json({ deleted: true, subscriptionId: req.params.subscriptionId });
+    });
+
+    // ─── Order API ───
+    app.get('/ucp/v1/orders/:id', (req, res) => {
+      const order = this.orders.get(req.params.id);
+      if (!order) {
+        res.status(404).json({ error: `Order not found: ${req.params.id}` });
+        return;
+      }
+      res.json({ order });
+    });
+
+    // ─── Health Check ───
+    app.get('/health', (_req, res) => {
+      res.json({ status: 'ok', merchant: this.name });
+    });
+
+    // Start listening
+    return new Promise<void>((resolve) => {
+      this.server = app.listen(this.port, () => {
+        const addr = this.server!.address();
+        if (typeof addr === 'object' && addr) {
+          this.port = addr.port;
+        }
+        resolve();
+      });
+    });
+  }
+
+  /**
+   * Stop the mock merchant server.
+   */
+  async stop(): Promise<void> {
+    // Cancel pending lifecycle timers
+    for (const timer of this.lifecycleTimers) {
+      clearTimeout(timer);
+    }
+    this.lifecycleTimers = [];
+
+    return new Promise<void>((resolve, reject) => {
+      if (!this.server) {
+        resolve();
+        return;
+      }
+      this.server.close((err) => {
+        this.server = null;
+        if (err) reject(err);
+        else resolve();
+      });
+    });
+  }
+
+  /**
+   * Get the base URL of the running server.
+   */
+  get baseUrl(): string {
+    return `http://localhost:${this.port}`;
+  }
+
+  /**
+   * Get the domain (host:port) for UCP discovery.
+   */
+  get domain(): string {
+    return `localhost:${this.port}`;
+  }
+
+  /**
+   * Get all orders placed.
+   */
+  getOrders(): MockOrder[] {
+    return [...this.orders.values()];
+  }
+
+  /**
+   * Reset server state (orders, checkout sessions, webhook subscriptions).
+   */
+  reset(): void {
+    this.orders.clear();
+    this.checkoutSessions.clear();
+    this.webhookSubscriptions.clear();
+    for (const timer of this.lifecycleTimers) {
+      clearTimeout(timer);
+    }
+    this.lifecycleTimers = [];
+  }
+
+  /**
+   * Simulate an order lifecycle: confirmed → shipped → delivered.
+   * Sends webhook notifications at each transition.
+   */
+  private simulateOrderLifecycle(orderId: string, subscriptionId: string): void {
+    const transitions: Array<{
+      delay: number;
+      newStatus: MockOrder['status'];
+      eventType: WebhookEvent['type'];
+      trackingNumber?: string;
+    }> = [
+      { delay: 100, newStatus: 'shipped', eventType: 'order.shipped', trackingNumber: 'TRACK-123456' },
+      { delay: 200, newStatus: 'delivered', eventType: 'order.delivered' },
+    ];
+
+    for (const transition of transitions) {
+      const timer = setTimeout(() => {
+        const order = this.orders.get(orderId);
+        const sub = this.webhookSubscriptions.get(subscriptionId);
+        if (!order || !sub) return;
+
+        const previousStatus = order.status;
+        order.status = transition.newStatus;
+
+        const updateEvent: OrderUpdateEvent = {
+          orderId,
+          previousStatus,
+          newStatus: transition.newStatus,
+          timestamp: new Date().toISOString(),
+          merchantDomain: this.domain,
+          trackingNumber: transition.trackingNumber,
+        };
+
+        const webhookEvent: WebhookEvent = {
+          type: transition.eventType,
+          data: updateEvent,
+        } as WebhookEvent;
+
+        // Deliver webhook
+        this.deliverWebhook(sub.callbackUrl, webhookEvent, sub.secret).catch(() => {
+          // Webhook delivery failure — silently ignore in mock
+        });
+      }, transition.delay);
+
+      this.lifecycleTimers.push(timer);
+    }
+  }
+
+  /**
+   * Deliver a webhook event to a callback URL.
+   */
+  private async deliverWebhook(
+    callbackUrl: string,
+    event: WebhookEvent,
+    secret?: string
+  ): Promise<void> {
+    const body = JSON.stringify(event);
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+
+    if (secret) {
+      // Dynamic import to avoid issues with non-Node environments
+      const { createHmac } = await import('node:crypto');
+      const signature = createHmac('sha256', secret).update(body).digest('hex');
+      headers['X-Webhook-Signature'] = signature;
+    }
+
+    await fetch(callbackUrl, {
+      method: 'POST',
+      headers,
+      body,
+    });
+  }
+}
