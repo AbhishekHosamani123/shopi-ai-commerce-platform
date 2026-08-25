@@ -41,9 +41,9 @@ const SignIn = () => {
                 <div className='flex lg:h-[650px] justify-between items-center gap-10'>
                     <div className='h-full lg:flex lg:flex-col w-auto hidden lg:justify-between'>
                         <div>
-                            <Link href="#" className="flex items-center text-2xl mb-2 font-semibold text-gray-900">
-                                <span className="text-2xl mr-2">⚡</span>
-                                Razorpay AI Commerce    
+                            <Link href="/" className="flex items-center text-2xl mb-2 font-bold text-[#0D94FB]">
+                                <span className="text-2xl mr-2">✨</span>
+                                Shopi    
                             </Link>
                             <div className='flex flex-col gap-5'>
                                 {loginFeatures.map((each,index)=>
@@ -66,9 +66,9 @@ const SignIn = () => {
                         
                     </div>
                     <div className="flex flex-col items-center justify-center min-w-[500px] px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    <Link href="#" className="flex items-center text-2xl font-semibold text-gray-900 dark:text-white lg:hidden">
-                        <span className="text-2xl mr-2">⚡</span>
-                        Razorpay AI Commerce    
+                    <Link href="/" className="flex items-center text-2xl font-bold text-[#0D94FB] lg:hidden">
+                        <span className="text-2xl mr-2">✨</span>
+                        Shopi    
                     </Link>
                         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

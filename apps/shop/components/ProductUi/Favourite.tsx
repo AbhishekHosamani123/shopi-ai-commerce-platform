@@ -133,7 +133,7 @@ export default function Favourite() {
                           {/* or{' '} */}
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="font-medium text-[#0D94FB] hover:text-[#012652] transition-colors"
                             onClick={toggleFav}
                           >
                             Continue Shopping

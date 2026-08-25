@@ -168,8 +168,8 @@ router.get('/product/:productID',productIDSchema,async (req:Request,res:Response
                 sizes:sizes,
                 reviews
             }
-            const updateViewQuery = `UPDATE productparams SET views = views + 1 WHERE productid = $1`
-            await client.query(updateViewQuery,[productID])
+            const updateViewQuery = `UPDATE productparams SET views = views + 1 WHERE productid = $1`;
+            client.query(updateViewQuery, [productID]).catch((err) => console.error('View count update error:', err));
             res.status(200).json({data});
         } catch (error) {
             res.status(404).json({message:'Not Found'});

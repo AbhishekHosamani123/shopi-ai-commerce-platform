@@ -137,39 +137,30 @@ const ProductPage = () => {
       productName:data.title,
       productPrice:parseInt(data.discountedprice),
     };
-    async function dataRequest(){
-      const response = await productDataHandler({productID:params.productID});
-      
-      switch (response.status) {
-        case 200:
-        dataVar.current = response.data.data;
-        if(response.data.data != undefined) totalQuantity.current=response.data.data.stock;
-        setdataChecked(true);
-        break;
-        case 500:
+    useEffect(() => {
+      let isMounted = true;
+      async function loadData() {
+        if (!params?.productID) return;
+        const response = await productDataHandler({ productID: params.productID });
+        if (!isMounted) return;
+        if (response.status === 200 && response.data?.data) {
+          const prod = response.data.data;
+          dataVar.current = prod;
+          if (prod.stock !== undefined) totalQuantity.current = prod.stock;
+          if (prod.colors?.length > 0) setSelectedColor(prod.colors[0]);
+          if (prod.sizes?.length > 0) setSelectedSize(prod.sizes[0]);
+          setselectedImage({ imgLink: prod.imglink, imgAlt: prod.imgalt });
+          found.current = true;
+        } else {
           found.current = false;
-          setdataChecked(true);
-          break;
         }
+        setdataChecked(true);
       }
-    async function setUpData(){
-      if(data != undefined){
-        data.colors.length > 0 && setSelectedColor(data.colors[0]);
-        data.sizes.length > 0 && setSelectedSize(data.sizes[0]);
-        setselectedImage({imgLink:data.imglink,imgAlt:data.imgalt})
-        if(data.sizes.length > 0 && data.colors.length > 0){
-          cartItemData.productColor = data.colors[0].colorname;
-          cartItemData.productSize = data.sizes[0].sizename;
-        }
-      }
-    };
-    async function dataInitializer(){
-      !dataChecked && await dataRequest();
-      dataChecked && await setUpData();
-    }
-    useLayoutEffect(() => {
-      dataInitializer();
-    }, [dataChecked])
+      loadData();
+      return () => {
+        isMounted = false;
+      };
+    }, [params?.productID]);
     
     const changeValue = (action:string)=>{
       switch (action) {
@@ -211,11 +202,45 @@ const ProductPage = () => {
     }
     return (
       <>
-      {loading && <div className='w-full h-[500px]'>{loading && <div className='absolute left-0 right-0 top-[30%] z-50'><Loading/></div>}</div> }
       <ProductDialogs dialogType={dialogType} setdialogType={setdialogType} setloading={setloading} productID={data.productid} selectedReview={selectedReview} selectedRating={selectedRating} setselectedRating={setselectedRating}/>
     <div className='flex flex-col gap-5 border-t-[1px] w-[100%]'>
-      {!dataChecked && <Loading/>}
-      {(dataChecked && data!=undefined) && <>{found.current && <>
+      {!dataChecked && (
+        <div className="w-full max-w-7xl mx-auto px-4 py-8 animate-pulse">
+          <div className="w-48 h-4 bg-slate-200 rounded mb-8" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="flex flex-col gap-4 items-center">
+              <div className="w-full max-w-[540px] aspect-square bg-slate-200 rounded-2xl" />
+              <div className="flex gap-3 justify-center">
+                <div className="w-16 h-16 bg-slate-200 rounded-lg" />
+                <div className="w-16 h-16 bg-slate-200 rounded-lg" />
+                <div className="w-16 h-16 bg-slate-200 rounded-lg" />
+              </div>
+            </div>
+            <div className="flex flex-col gap-6 p-6 border border-slate-100 rounded-2xl">
+              <div className="space-y-3">
+                <div className="w-3/4 h-8 bg-slate-200 rounded-md" />
+                <div className="w-1/3 h-4 bg-slate-200 rounded" />
+              </div>
+              <div className="flex items-baseline gap-4 py-4 border-y border-slate-100">
+                <div className="w-32 h-10 bg-slate-200 rounded-md" />
+              </div>
+              <div className="space-y-4">
+                <div className="w-24 h-4 bg-slate-200 rounded" />
+                <div className="flex gap-2">
+                  <div className="w-8 h-8 rounded-full bg-slate-200" />
+                  <div className="w-8 h-8 rounded-full bg-slate-200" />
+                </div>
+              </div>
+              <div className="flex gap-4 pt-4">
+                <div className="w-48 h-12 bg-slate-200 rounded-xl" />
+                <div className="w-48 h-12 bg-slate-200 rounded-xl" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {(dataChecked && !found.current) && <ProductNotFound />}
+      {(dataChecked && data!=undefined && found.current) && <>
       <div className='flex items-center flex-col justify-center'>
             <div className='w-[80%] mb-5 mt-5'>
                 <p>{data.categories.maincategory} {'>'} {data.categories.subcategory}</p>
@@ -272,27 +297,27 @@ const ProductPage = () => {
                   <Options sizes={data.sizes} colors={data.colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} selectedSize={selectedSize} setSelectedSize={setSelectedSize} colRef={colRef} sizeRef={sizeRef} cartItemData={cartItemData}/>
                 {/*  */}
                 <div className='flex gap-5'>
-                    <button disabled={btnLoading} onClick={()=>itemStateUpdate('cart')} className='w-[200px] h-[50px] bg-yellow-400 rounded-lg hover:border-yellow-400 hover:border-2 hover:bg-white transition-colors duration-300 font-semibold'>
+                    <button disabled={btnLoading} onClick={()=>itemStateUpdate('cart')} className='w-[200px] h-[50px] bg-[#012652] text-white rounded-lg hover:bg-[#0D94FB] transition-colors duration-300 font-semibold'>
                     {btnLoading ? <div className="relative"><div className=''>
         <div className='drop-shadow-custom-xl rounded-xl w-[120px] mx-auto'>
-            <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-blue-600" />
+            <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-[#0D94FB]" />
         </div>
         
     </div></div> : "ADD TO CART"}
                       </button>
-                    <button onClick={()=>router.push(`/checkout/${data.productid}/${selectedSize.sizeid}/${selectedColor.colorid}`)} className='w-[200px] h-[50px] rounded-lg font-semibold border-yellow-400 hover:bg-yellow-400 transition-colors duration-300 border-[2px]'>BUY NOW</button>
+                    <button onClick={()=>router.push(`/checkout/${data.productid}/${selectedSize.sizeid}/${selectedColor.colorid}`)} className='w-[200px] h-[50px] rounded-lg font-semibold border-[#0D94FB] bg-[#0D94FB] text-white hover:bg-[#012652] hover:border-[#012652] transition-colors duration-300 border-[2px]'>BUY NOW</button>
                 </div>
                 <div className='flex gap-10 text-silver text-sm border-b-[1px] pb-10'>
-                    <button disabled={btnLoading} onClick={()=>itemStateUpdate('wishlist')} className='flex hover:text-yellow-400 transition-colors duration-300 items-center gap-1 cursor-pointer'>
+                    <button disabled={btnLoading} onClick={()=>itemStateUpdate('wishlist')} className='flex hover:text-[#0D94FB] transition-colors duration-300 items-center gap-1 cursor-pointer'>
                         <HeartIcon width={25}/>
                         <div>{btnLoading ? <div className="relative"><div className=''>
                         <div className='drop-shadow-custom-xl rounded-xl w-[120px] mx-auto'>
-                            <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-blue-600" />
+                            <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-[#0D94FB]" />
                         </div>
                         
                       </div></div> : "Add to wishlist"}</div>
                     </button>
-                    <Link href={categoryLink(data.categories.maincategory,data.categories.subcategory)} className='flex hover:text-yellow-400 transition-colors duration-300 items-center gap-1 cursor-pointer'>
+                    <Link href={categoryLink(data.categories.maincategory,data.categories.subcategory)} className='flex hover:text-[#0D94FB] transition-colors duration-300 items-center gap-1 cursor-pointer'>
                         <GlobeAltIcon width={25}/>
                         <p>Find alternate products</p>
                     </Link>
@@ -304,19 +329,19 @@ const ProductPage = () => {
                 </div> */}
                 <div className='flex gap-4 flex-wrap mb-10 border-b-[1px] pb-5 text-sm'>
                     <div className='flex gap-2'>
-                        <div className='bg-yellow-300 rounded-full px-2 py-2'>
+                        <div className='bg-blue-50 text-[#012652] rounded-full px-2 py-2'>
                         <ShoppingCartIcon width={30}/>
                         </div>
                         <p className='w-[135px]'>Get it by Thu, 20 Aug</p>
                     </div>
                     <div className='flex gap-2'>
-                        <div className='bg-yellow-300 rounded-full px-2 py-2'>
+                        <div className='bg-blue-50 text-[#012652] rounded-full px-2 py-2'>
                         <ReceiptRefundIcon width={30}/>
                         </div>
                         <p className='w-[135px]'>Easy returns available</p>
                     </div>
                     <div className='flex gap-1'>
-                        <div className='bg-yellow-300 rounded-full px-2 py-2'>
+                        <div className='bg-blue-50 text-[#012652] rounded-full px-2 py-2'>
                         <CurrencyRupeeIcon width={30}/>
                         </div>
                         <p className='w-[135px]'>Cash on delivery available</p>
@@ -330,13 +355,13 @@ const ProductPage = () => {
             </div>
         </div>
         <div ref={ref}>
-        <ReviewSection data={data.reviews} setdialogType={setdialogType} setloading={setloading} reviewCount={data.reviewcount} setselectedReview={setselectedReview}  setselectedRating={setselectedRating} allReview={false} productID={data.productid}/>
-        </div></>
-        }</>}
-        {(dataChecked && !found.current) && <ProductNotFound/>}
+          <ReviewSection data={data.reviews} setdialogType={setdialogType} setloading={setloading} reviewCount={data.reviewcount} setselectedReview={setselectedReview} setselectedRating={setselectedRating} allReview={false} productID={data.productid}/>
+        </div>
+      </>
+      }
     </div>
     </>
-  )
+  );
 }
 
 export default ProductPage

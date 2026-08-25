@@ -673,6 +673,19 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
   }
 
   /**
+   * 9b. Clear All Items in User's Cart
+   */
+  async clearCart(userId: number): Promise<{ success: boolean; message: string; cart: RealCartState }> {
+    await client.query('DELETE FROM cartitems WHERE userid = $1', [userId]);
+    const updatedCart = await this.getCart(userId);
+    return {
+      success: true,
+      message: 'Your cart has been cleared.',
+      cart: updatedCart,
+    };
+  }
+
+  /**
    * 10. Real Addresses: Get All Saved Addresses for a User
    */
   async getUserAddresses(userId: number): Promise<UserAddress[]> {

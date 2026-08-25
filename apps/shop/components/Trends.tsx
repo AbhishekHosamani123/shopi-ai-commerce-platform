@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { topCat } from '@/app/data';
 
 const Trends = () => {
@@ -13,7 +14,7 @@ const Trends = () => {
                         </div>
                             <div className='ml-4'>
                                 <p className='text-[14px] font-bold text-gray-800 tracking-[1px]'>{Cat.name}</p>
-                                <a href={Cat.showLink} className='text-[14px] font-semibold tracking-[0.5px] text-[#ff91a4]'>Show All</a>
+                                <Link href={Cat.showLink} prefetch={true} className='text-[14px] font-semibold tracking-[0.5px] text-[#0D94FB] hover:text-[#012652] transition-colors'>Show All</Link>
                             </div>
                         </div>
                     <div className='h-[60%] mr-5'>

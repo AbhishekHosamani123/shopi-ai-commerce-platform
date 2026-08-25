@@ -1,110 +1,152 @@
-"use client"
-import React, { useLayoutEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import { leftStatus } from '@/app/data';
 import Stars from '../ProductUi/Stars';
 import Link from 'next/link';
 import { sidebarDataHandler } from '@/app/api/homeData';
-import Loading from '../Loading';
+
 interface Product {
-    productid: number;
-    title: string;
-    price: number;
-    discount: number;
-    imglink: string;
-    imgalt: string;
-    category_name: string;
-    stars: number;
-    rating: number;
+  productid: number;
+  title: string;
+  price: number;
+  discount: number;
+  imglink: string;
+  imgalt: string;
+  category_name: string;
+  stars: number;
+  rating: number;
 }
+
+const BestSellersSkeleton = () => (
+  <div className="space-y-4 py-2 animate-pulse">
+    {[...Array(4)].map((_, i) => (
+      <div key={i} className="flex items-center gap-3">
+        <div className="w-[80px] h-[80px] bg-slate-200 rounded-md shrink-0" />
+        <div className="flex-1 space-y-2">
+          <div className="w-4/5 h-3.5 bg-slate-200 rounded" />
+          <div className="w-1/2 h-3 bg-slate-200 rounded" />
+          <div className="w-1/3 h-4 bg-slate-200 rounded" />
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 const SidebarS = () => {
-    const data = useRef<Product[]>([]);
-    const [loading, setloading] = useState(true)
-    const [collapsedIndex, setCollapsedIndex] = useState<number | null>(null);
-    const handleToggle = (index: number) => {
-        setCollapsedIndex((prevIndex) => (prevIndex === index ? null : index));
-    };
-    async function sync(){
-        const res = await sidebarDataHandler();
-        switch (res.status) {
-          case 200:
-            data.current = res.data.data;
-            setloading(false);
-            break;
-          default:
-    
-            break;
-        }
+  const [data, setData] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [collapsedIndex, setCollapsedIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setCollapsedIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+    async function sync() {
+      const res = await sidebarDataHandler();
+      if (!isMounted) return;
+      if (res.status === 200 && res.data?.data) {
+        setData(res.data.data);
+      }
+      setLoading(false);
     }
-    useLayoutEffect(() => {
-      sync();
-    }, [])
-    return (
-        <>
-            <div className='hidden lg:flex-col lg:flex ml-auto'>
-                <div className='border-[1px] rounded-xl h-auto w-[220px] xl:w-[320px] p-[15px]'>
-                    <p className='tracking-[2px] font-semibold text-davysilver mb-4'>CATEGORY</p>
-                    {leftStatus.map((stat, index) =>
-                        <div key={index}>
-                            <div
-                                className={`flex text-base mb-4 cursor-pointer ${collapsedIndex === index ? 'border-b-[1px]' : ''}`}
-                                onClick={() => {handleToggle(index)}}>
-                                <div className='flex justify-between items-center w-[100%] text-[20px]'>
-                                    <div className='flex justify-center items-center'>
-                                        <img className='h-[20px] w-[20px] mr-2' src={stat.imgLink} alt={stat.title} />
-                                        <p className='text-[16px] font-medium text-silver tracking-[1px]'>{stat.title}</p>
-                                    </div>
-                                    <p className='text-silver'>{collapsedIndex === index ? '-' : '+'}</p>
-                                </div>
-                            </div>
-                            <div
-                                className={`transition-[max-height] duration-[400ms] ease-linear overflow-hidden ${
-                                    collapsedIndex === index ? 'max-h-[160px]' : 'max-h-0'
-                                }`}
-                            >
-                                {(
-                                    <div className='border-b-[1px] pb-2'>
-                                        {stat.links.map((link, linkIndex) =>
-                                            <a href={link.link} key={linkIndex} className='flex justify-between mt-1 items-center text-silver hover:text-black'>
-                                                <p className='tracking-[1px]'>{link.title}</p>
-                                                {/* <p className='text-[17px]'>{link.quantity}</p> */}
-                                                <p className='text-[17px]'>{'>'}</p>
-                                            </a>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    )}
+    sync();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return (
+    <>
+      <div className="hidden lg:flex-col lg:flex ml-auto">
+        {/* Category Accordion */}
+        <div className="border border-slate-200 rounded-xl h-auto w-[220px] xl:w-[320px] p-[15px] bg-white">
+          <p className="tracking-[2px] font-semibold text-slate-700 mb-4 text-xs uppercase">CATEGORY</p>
+          {leftStatus.map((stat, index) => (
+            <div key={index}>
+              <div
+                className={`flex text-base mb-3 cursor-pointer select-none ${
+                  collapsedIndex === index ? 'border-b border-slate-100 pb-2' : ''
+                }`}
+                onClick={() => handleToggle(index)}
+              >
+                <div className="flex justify-between items-center w-[100%] text-[20px]">
+                  <div className="flex justify-center items-center">
+                    <img className="h-[20px] w-[20px] mr-2" src={stat.imgLink} alt={stat.title} />
+                    <p className="text-sm font-medium text-slate-700 tracking-tight">{stat.title}</p>
+                  </div>
+                  <p className="text-slate-400 text-sm font-bold">{collapsedIndex === index ? '−' : '+'}</p>
                 </div>
-                <div className='h-[500px] mt-10 relative'>
-                    <p className='font-semibold text-gray-700 tracking-wider text-[17px]'>BEST SELLERS</p>
-                    {loading && <div className='w-[100px] h-[350px]'>{loading && <div className='absolute left-0 right-8 top-0 z-50'><Loading/></div>}</div> }
-                    <div className='flex flex-col'>
-                        {data.current.map((each, index) =>
-                            <div key={index} className='flex mt-5'>
-                                <Link href={`/product/${each.productid}`}>
-                                    <img className='w-[80px] h-[80px] rounded-md' src={each.imglink} alt={each.title} />
-                                </Link>
-                                <div className='ml-5 max-w-[250px]'>
-                                    <Link href={`/product/${each.productid}`} className='tracking-[1px] text-[16px] text-davysilver hover:text-black'>
-                                        {each.title}
-                                    </Link>
-                                    <div className='flex items-center gap-2'>
-                                        <Stars stars={each.stars}/>
-                                        {each.rating > 0 && <p className='text-sm text-silver'>{each.rating}</p>}
-                                    </div>
-                                    <div className='flex items-center'>
-                                        <p className='text-sm line-through text-silver'>₹{each.price}</p>
-                                        <p className='text-base font-semibold ml-4 text-davysilver'>₹{each.discount}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>
+              </div>
+              <div
+                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
+                  collapsedIndex === index ? 'max-h-[160px]' : 'max-h-0'
+                }`}
+              >
+                <div className="border-b border-slate-100 pb-2 pl-6">
+                  {stat.links.map((link, linkIndex) => (
+                    <Link
+                      href={link.link}
+                      key={linkIndex}
+                      prefetch={true}
+                      className="flex justify-between py-1 items-center text-slate-500 hover:text-[#0D94FB] text-xs transition-colors"
+                    >
+                      <p className="tracking-tight">{link.title}</p>
+                      <span className="text-[10px] text-slate-400">›</span>
+                    </Link>
+                  ))}
                 </div>
+              </div>
             </div>
-        </>
-    );
+          ))}
+        </div>
+
+        {/* Best Sellers Section */}
+        <div className="h-[500px] mt-8 relative">
+          <p className="font-semibold text-slate-800 tracking-wider text-xs uppercase mb-3">BEST SELLERS</p>
+          {loading ? (
+            <BestSellersSkeleton />
+          ) : (
+            <div className="flex flex-col space-y-4">
+              {data.map((each, index) => (
+                <div key={each.productid || index} className="flex items-center">
+                  <Link href={`/product/${each.productid}`} prefetch={true}>
+                    <img
+                      className="w-[75px] h-[75px] object-cover rounded-lg border border-slate-100"
+                      src={each.imglink}
+                      alt={each.title}
+                      loading="lazy"
+                      decoding="async"
+                      width={75}
+                      height={75}
+                    />
+                  </Link>
+                  <div className="ml-3 max-w-[210px]">
+                    <Link
+                      href={`/product/${each.productid}`}
+                      prefetch={true}
+                      className="tracking-tight text-xs font-semibold text-slate-800 hover:text-[#0D94FB] truncate block transition-colors"
+                    >
+                      {each.title}
+                    </Link>
+                    <div className="flex items-center gap-1 mt-0.5">
+                      <Stars stars={each.stars} />
+                      {each.rating > 0 && <p className="text-[11px] text-slate-400">({each.rating})</p>}
+                    </div>
+                    <div className="flex items-baseline gap-2 mt-1">
+                      <p className="text-sm font-bold text-slate-900">₹{each.discount}</p>
+                      <p className="text-xs line-through text-slate-400">₹{each.price}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default SidebarS;

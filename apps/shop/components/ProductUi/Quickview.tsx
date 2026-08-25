@@ -256,17 +256,17 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
 }
                           <button
                             onClick={addCart}
-                            className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-[#012652] hover:bg-[#0D94FB] px-8 py-3 text-base font-medium text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#0D94FB] focus:ring-offset-2"
                           >
                             {btnLoading ? <div className="relative"><div className=''>
                             <div className='drop-shadow-custom-xl rounded-xl w-[120px] mx-auto'>
-                                <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-blue-600" />
+                                <div className="border-gray-300 my-auto mx-auto h-8 w-8 animate-spin rounded-full border-8 border-t-[#0D94FB]" />
                             </div>
                             
                         </div></div> : "Add to bag"}
                           </button>
                           <div className='w-full flex justify-center mt-2'>
-                          <Link href={`/product/${product.productid}`} className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                          <Link href={`/product/${product.productid}`} className="text-sm font-medium text-[#0D94FB] hover:text-[#012652] transition-colors">
                               Go to Product Site
                           </Link>
                           </div>

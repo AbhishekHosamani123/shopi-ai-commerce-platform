@@ -22,7 +22,7 @@ const DialogBoxes = () => {
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
             <DialogPanel className="max-w-lg space-y-4 border bg-white p-8 rounded-xl text-center">
                 <DialogTitle className="font-bold">Sign Up Agreement</DialogTitle>
-                <Description>By signing up, you are creating a Razorpay AI Commerce account, and you agree to our <a className='text-primary-700 font-medium' href='/policy/terms&conditions'>Terms & Conditions</a> and <a className='text-primary-700 font-medium' href='/policy/privacypolicy'>Privacy Policy.</a></Description>
+                <Description>By signing up, you are creating a Shopi account, and you agree to our <a className='text-primary-700 font-medium' href='/policy/terms&conditions'>Terms & Conditions</a> and <a className='text-primary-700 font-medium' href='/policy/privacypolicy'>Privacy Policy.</a></Description>
                 <div className="flex justify-center gap-4">
                 <button className='border-[1.5px] hover:bg-black transition-colors duration-300 hover:text-white py-2 px-6 rounded-xl' onClick={() => toggleIsOpenAgreement}>Cancel</button>
                 <button className='bg-primary-600 text-white py-2 hover:bg-primary-800 transition-colors duration-300 px-8 rounded-xl' onClick={() => {toggleIsOpenAgreement();toggleAgreement();}}>Accept</button>

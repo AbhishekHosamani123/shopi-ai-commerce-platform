@@ -151,13 +151,13 @@ export default function Cart() {
                       <div className="mt-6">
                         {isLogged ? <Link
                         href={`/cart-checkout`}
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-[#012652] hover:bg-[#0D94FB] px-6 py-3 text-base font-medium text-white shadow-sm transition-colors duration-200"
                         >
                           Checkout
                         </Link>:
                         <Link
                         href={'/sign-in'}
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-[#012652] hover:bg-[#0D94FB] px-6 py-3 text-base font-medium text-white shadow-sm transition-colors duration-200"
                         >
                           Login to Checkout
                         </Link>
@@ -168,7 +168,7 @@ export default function Cart() {
                           or{' '}
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="font-medium text-[#0D94FB] hover:text-[#012652] transition-colors"
                             onClick={toggleCart}
                           >
                             Continue Shopping

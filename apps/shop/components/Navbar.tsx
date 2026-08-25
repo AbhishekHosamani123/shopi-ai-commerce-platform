@@ -39,9 +39,9 @@ const Navbar = () => {
             <div className='flex justify-evenly items-center w-[100%] flex-col sm:flex-row gap-2 sm:gap-0'>
                 <div className='w-[80%] flex justify-between items-center flex-col sm:flex-row sm:gap-0'>
                     <div>
-                        <Link className='mr-2.5 text-[22px] font-bold tracking-tight text-slate-900 flex items-center gap-1.5' href={"/"}>
-                            <span className='text-blue-600 text-[26px] font-black'>⚡</span>
-                            <span>Razorpay <span className='text-blue-600 font-semibold'>AI</span> Commerce</span>
+                        <Link className='mr-2.5 text-[24px] font-extrabold tracking-tight text-[#0D94FB] flex items-center gap-1.5' href={"/"}>
+                            <span className='text-[#0D94FB] text-[26px] font-black'>✨</span>
+                            <span>Shopi</span>
                         </Link>
                     </div>
                     <form onSubmit={searchRedirect} className='border-[1.5px] rounded-[10px] h-[42px] w-[90%] sm:w-[600px] mb-5 sm:mb-0 flex justify-between items-center'>
@@ -61,7 +61,7 @@ const Navbar = () => {
             <div className='flex'>
                 {navBtns.map((btn,index)=>
                 <div key={index} onMouseEnter={()=>{setDropdownVisible(true);setselectIndex(index)}} onMouseLeave={()=>{setDropdownVisible(false);setselectIndex(null)}} className="relative items-center">
-                    <button onClick={() => router.push(btn.catLink)} key={index} className='button-with-border text-[16px] m-6 text-gray-700 font-semibold tracking-wide hover:text-salmon'>{btn.name.toUpperCase()}</button>
+                    <Link href={btn.catLink} prefetch={true} className='button-with-border text-[16px] m-6 text-gray-700 font-semibold tracking-wide hover:text-[#0D94FB] transition-colors'>{btn.name.toUpperCase()}</Link>
                     {selectIndex === index && isDropdownVisible && btn.name==='Categories' && (<Category/>)}
                     {selectIndex === index && btn.isExtendable && isDropdownVisible && (
                     <Product options={btn.extendables} />

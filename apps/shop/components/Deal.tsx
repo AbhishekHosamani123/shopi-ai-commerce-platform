@@ -1,77 +1,113 @@
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import DealTime from './DealTime';
 import ProgressBar from './ProgressBar';
 import Stars from './ProductUi/Stars';
 import { dealDataHandler } from '@/app/api/homeData';
 import Link from 'next/link';
-import Loading from './Loading';
+
 interface DealProduct {
-    productid: number;
-    title: string;
-    stars: number;
-    description: string;
-    price: number;
-    discount: number;
-    sold: number;
-    available: number;
-    rating: number;
-    imglink: string;
-    imgalt: string;
-    end_time:string;
-}
-const Deal = () => {
-    const data = useRef<DealProduct[]>([]);
-    const [loading, setloading] = useState(true);
-    async function sync(){
-        const res = await dealDataHandler();
-        switch (res.status) {
-          case 200:
-            data.current = res.deals.data;
-            setloading(false);
-            break;
-          default:
-    
-            break;
-        }
-    }
-    useLayoutEffect(() => {
-      sync();
-    }, [])
-  return (
-    
-    <div className=' mt-10 sm:ml-4 ml-auto mr-auto max-w-[350px] md:max-w-[800px] xl:max-w-[1000px] flex flex-col justify-center'>
-        <p className='border-b-[1px] leading-[50px] tracking-[1.5px] font-semibold text-[18px]'> Deal of The Day</p>
-        <div className='p-[30px] border-[1px] mt-8 rounded-xl overflow-auto snap-x snap-proximity flex gap-20 relative'>
-        {loading && <div className='w-screen h-[350px]'>{loading && <div className='absolute left-0 right-0 top-16 z-50'><Loading/></div>}</div> }
-            {data.current.map((each,index)=><div key={index} className='flex flex-col rounded-xl min-w-full gap-5 h-auto items-center lg:pl-10 snap-center lg:flex-row'>
-                <a href={`/product/${each.productid}`}><img className='max-w-[450px] min-w-[200px] rounded-md' alt={each.imgalt} src={each.imglink}/></a>
-                <div className='flex flex-col gap-4 w-full'>
-                    <div className='flex items-center gap-2'>
-                        <Stars stars={each.stars}/>
-                        {each.rating > 0 && <p className='text-sm text-silver'>{each.rating}</p>}
-                    </div>
-                    <a href={`/product/${each.productid}`}>
-                        <p className='text-base font-bold w-full'>{each.title}</p>
-                    </a>
-                    <p className='text-base tracking-normal text-silver'>{each.description}</p>
-                    <div className='flex items-center'>
-                        <p className='text-2xl font-bold text-salmon'>₹{each.discount}</p>
-                        <p className='text-xl line-through ml-4 text-silver'>₹{each.price}</p>
-                    </div>
-                    <Link href={`/product/${each.productid}`}><button className='bg-salmon p-2 rounded-xl w-[165px] h-[45px] text-white font-bold text-lg hover:bg-black hover:text-white transition-colors duration-200'>Visit Product</button></Link>
-                    <div className='flex justify-between'>
-                        <p className='text-sm'>ALREADY SOLD: <span className='font-bold'>{each.sold}</span></p>
-                        <p className='text-sm'>AVAILABLE: <span className='font-bold'>{each.available}</span></p>
-                    </div>
-                    <ProgressBar sold={each.sold} total={each.available}/>
-                    <p className='text-sm font-semibold'>HURRY UP! OFFER ENDS IN:</p>
-                    <DealTime endTime={each.end_time}/>
-                </div>
-            </div>
-            )}
-        </div>
-    </div>
-  )
+  productid: number;
+  title: string;
+  stars: number;
+  description: string;
+  price: number;
+  discount: number;
+  sold: number;
+  available: number;
+  rating: number;
+  imglink: string;
+  imgalt: string;
+  end_time: string;
 }
 
-export default Deal
+const DealSkeleton = () => (
+  <div className="flex flex-col lg:flex-row gap-8 items-center w-full p-4 animate-pulse">
+    <div className="w-[300px] lg:w-[400px] h-[300px] bg-slate-200 rounded-xl shrink-0" />
+    <div className="flex-1 space-y-4 w-full">
+      <div className="w-1/4 h-4 bg-slate-200 rounded" />
+      <div className="w-3/4 h-6 bg-slate-200 rounded" />
+      <div className="w-full h-12 bg-slate-200 rounded" />
+      <div className="w-1/3 h-8 bg-slate-200 rounded" />
+      <div className="w-40 h-11 bg-slate-200 rounded-xl" />
+    </div>
+  </div>
+);
+
+const Deal = () => {
+  const [deals, setDeals] = useState<DealProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function sync() {
+      const res = await dealDataHandler();
+      if (!isMounted) return;
+      if (res.status === 200 && res.deals?.data) {
+        setDeals(res.deals.data);
+      }
+      setLoading(false);
+    }
+    sync();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return (
+    <div className="mt-10 sm:ml-4 ml-auto mr-auto max-w-[350px] md:max-w-[800px] xl:max-w-[1000px] flex flex-col justify-center">
+      <p className="border-b-[1px] leading-[50px] tracking-[1.5px] font-semibold text-[18px]">Deal of The Day</p>
+      <div className="p-6 md:p-8 border border-slate-200 mt-6 rounded-xl overflow-auto snap-x snap-proximity flex gap-20 relative bg-white">
+        {loading && <DealSkeleton />}
+        {!loading &&
+          deals.map((each, index) => (
+            <div
+              key={each.productid || index}
+              className="flex flex-col rounded-xl min-w-full gap-6 h-auto items-center lg:pl-6 snap-center lg:flex-row"
+            >
+              <Link href={`/product/${each.productid}`} prefetch={true}>
+                <img
+                  className="max-w-[450px] min-w-[200px] h-[300px] object-cover rounded-xl border border-slate-100"
+                  alt={each.imgalt}
+                  src={each.imglink}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Link>
+              <div className="flex flex-col gap-3.5 w-full">
+                <div className="flex items-center gap-2">
+                  <Stars stars={each.stars} />
+                  {each.rating > 0 && <p className="text-xs text-slate-400">({each.rating})</p>}
+                </div>
+                <Link href={`/product/${each.productid}`} prefetch={true}>
+                  <p className="text-lg font-bold text-slate-900 hover:text-[#0D94FB] transition-colors">{each.title}</p>
+                </Link>
+                <p className="text-sm tracking-normal text-slate-500 line-clamp-2 leading-relaxed">{each.description}</p>
+                <div className="flex items-baseline gap-3">
+                  <p className="text-2xl font-extrabold text-slate-900">₹{each.discount}</p>
+                  <p className="text-sm line-through text-slate-400">₹{each.price}</p>
+                </div>
+                <Link href={`/product/${each.productid}`} prefetch={true}>
+                  <button className="bg-[#0D94FB] hover:bg-[#012652] px-6 py-2.5 rounded-xl text-white font-bold text-sm transition-colors duration-200 shadow-md shadow-[#0D94FB]/20 cursor-pointer">
+                    Visit Product
+                  </button>
+                </Link>
+                <div className="flex justify-between text-xs text-slate-600 font-medium mt-1">
+                  <p>
+                    ALREADY SOLD: <span className="font-bold text-slate-900">{each.sold}</span>
+                  </p>
+                  <p>
+                    AVAILABLE: <span className="font-bold text-slate-900">{each.available}</span>
+                  </p>
+                </div>
+                <ProgressBar sold={each.sold} total={each.available} />
+                <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">HURRY UP! OFFER ENDS IN:</p>
+                <DealTime endTime={each.end_time} />
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default Deal;

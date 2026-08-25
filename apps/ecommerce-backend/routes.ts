@@ -11,6 +11,7 @@ import razorpay from './routes/razorpay'
 import homeData from './routes/homeData'
 import support from './routes/support'
 import aiShopping from './routes/aiShopping'
+import merchant from './routes/merchant'
 import { authRateLimiterMiddleware } from './middleware/rateLimit';
 const router = express.Router();
 router.use('/user/signup', authRateLimiterMiddleware);
@@ -31,4 +32,5 @@ router.use('/razorpay', razorpay);
 router.use('/',homeData);
 router.use('/',support);
 router.use('/ai', aiShopping);
+router.use('/merchant', merchant);
 export default router;

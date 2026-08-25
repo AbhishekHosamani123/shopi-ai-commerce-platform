@@ -1,37 +1,31 @@
-import React, { useLayoutEffect, useState,useRef, useEffect } from 'react'
-import { HomeIcon, ChevronDoubleRightIcon } from '@heroicons/react/24/outline'
+import React, { useEffect, useState, useRef } from 'react';
+import { HomeIcon, ChevronDoubleRightIcon } from '@heroicons/react/24/outline';
 import SubProducts from './SubProducts';
-import { useParams } from "next/navigation"
+import { useParams } from 'next/navigation';
 import FilterSidebar from '@/components/FilterSidebar';
-import categoryDataHandler from '@/app/api/mainCategory';
-import Loading from '@/components/Loading';
 import SearchMSidebar from '../Mobile-Interface/SearchMSidebar';
-import searchProductHandler, { searchFilteredHandler } from '@/app/api/search';
 import subCategoryDataHandler, { subCategoryFilteredHandler } from '@/app/api/subCategory';
-interface categories{
-    categoryid: number;
-    name: string;
-};
+
 interface Color {
-  colorid:number;
+  colorid: number;
   name: string;
   colorname: string;
   colorclass: string;
 }
 
 interface Size {
-  sizeid:number;
+  sizeid: number;
   name: string;
-  sizename:string;
+  sizename: string;
   instock: boolean;
 }
+
 interface ProductImage {
   imageid: number;
   imglink: string;
   imgalt: string;
 }
-  
-  // Interface for products
+
 interface Product {
   productid: number;
   title: string;
@@ -42,88 +36,109 @@ interface Product {
   isnew: boolean;
   issale: boolean;
   isdiscount: boolean;
-  colors: Color[]; // assuming colors is an array of strings
-  sizes: Size[];  // assuming sizes is an array of strings
+  colors: Color[];
+  sizes: Size[];
   reviewCount: number;
   images: ProductImage;
 }
+
 const SubCategory = () => {
-    const categoryCapture = useParams();
-    const specficMainCategory:any = categoryCapture.maincategory;
-    const specificCategory:any = categoryCapture.subcategory;
-    const currDirectory = ['Categories',specficMainCategory,specificCategory];
-    const [loading, setloading] = useState(true)
-    const productsData = useRef<Product[]>([]);
-    const dataChecked = useRef(false);
-    const categoryID = useRef<number>(0);
-    const [clear, setClear] = useState(false);
-    const [isMenu, setIsMenu] = useState(false);
-    async function filterSubmit(e:any){
-      e.preventDefault();
-      productsData.current = [];
-      dataChecked.current = false;
-      setloading(true);
-      const values = {
-        minPrice:e.target.pricefrom.value,
-        maxPrice:e.target.priceto.value,
-        rating:e.target.rating.value
+  const categoryCapture = useParams();
+  const specficMainCategory: any = categoryCapture.maincategory || 'all';
+  const specificCategory: any = categoryCapture.subcategory || 'all';
+  const currDirectory = ['Categories', specficMainCategory, specificCategory];
+
+  const [loading, setLoading] = useState(true);
+  const [productsData, setProductsData] = useState<Product[]>([]);
+  const [dataChecked, setDataChecked] = useState(false);
+  const categoryID = useRef<number>(0);
+  const [clear, setClear] = useState(false);
+  const [isMenu, setIsMenu] = useState(false);
+
+  async function filterSubmit(e: any) {
+    e.preventDefault();
+    setDataChecked(false);
+    setLoading(true);
+    const values = {
+      minPrice: e.target.pricefrom.value,
+      maxPrice: e.target.priceto.value,
+      rating: e.target.rating.value,
+    };
+    const response = await subCategoryFilteredHandler({
+      categoryID: categoryID.current,
+      minPrice: values.minPrice,
+      maxPrice: values.maxPrice,
+      rating: values.rating,
+    });
+    if (response.status === 200 && response.data?.data) {
+      setProductsData(response.data.data);
+    }
+    setDataChecked(true);
+    setLoading(false);
+  }
+
+  async function fetchData() {
+    setLoading(true);
+    const response = await subCategoryDataHandler(specficMainCategory, specificCategory);
+    if (response.status === 200 && response.data?.data) {
+      setProductsData(response.data.data);
+      if (response.data.categoryid) {
+        categoryID.current = response.data.categoryid;
       }
-      const response = await subCategoryFilteredHandler({categoryID:categoryID.current,minPrice:values.minPrice,maxPrice:values.maxPrice,rating:values.rating});
-      switch (response.status) {
-        case 200:
-          productsData.current = response.data.data;
-          dataChecked.current = true;
-          setloading(false);
-          break;
-      }
     }
-    async function fetchData(){
-      if(productsData.current.length != 0) productsData.current=[];
-      if(!loading) setloading(true);
-        const response = await subCategoryDataHandler(specficMainCategory,specificCategory);
-        switch (response.status) {
-            case 200:
-                if(response.data.data.length > 0) {productsData.current = response.data.data;categoryID.current = response.data.categoryid;}
-                dataChecked.current = true;
-                setloading(false);
-                break;
-            default:
-                break;
-        }
-    }
-    function toggleClear(){
-      setClear(!clear);
-    }
-    useLayoutEffect(() => {
-      fetchData();
-    }, [clear]);
-    const formatedName = specificCategory.split('-').join(' ');
+    setDataChecked(true);
+    setLoading(false);
+  }
+
+  function toggleClear() {
+    setClear(!clear);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [specficMainCategory, specificCategory, clear]);
+
+  const formatedName = typeof specificCategory === 'string' ? specificCategory.split('-').join(' ') : specificCategory;
+
   return (
     <>
-    <SearchMSidebar isMenu={isMenu} setIsMenu={setIsMenu} dataChecked={dataChecked.current} filterSubmit={filterSubmit} toggleClear={toggleClear} />
-    <section className='flex flex-col gap-6 min-h-[1000px]'>
-        {/* <CategoryBanner banners={filterOut[0]}/> */}
-        <div className='flex items-center gap-5'>
-            <HomeIcon width={35}/>
-            {currDirectory.map((each,index)=>
-            <div className='flex gap-5' key={index}>
-                <ChevronDoubleRightIcon width={20}/>
-                <p className='font-medium capitalize'>{each===specificCategory ? formatedName : each}</p>
+      <SearchMSidebar
+        isMenu={isMenu}
+        setIsMenu={setIsMenu}
+        dataChecked={dataChecked}
+        filterSubmit={filterSubmit}
+        toggleClear={toggleClear}
+      />
+      <section className="flex flex-col gap-6 min-h-[1000px] w-full max-w-7xl px-4 py-6">
+        <div className="flex items-center gap-3 text-sm text-slate-500">
+          <HomeIcon width={20} className="text-slate-400" />
+          {currDirectory.map((each, index) => (
+            <div className="flex items-center gap-2" key={index}>
+              <ChevronDoubleRightIcon width={14} className="text-slate-300" />
+              <p className="font-medium capitalize text-slate-700">{each === specificCategory ? formatedName : each}</p>
             </div>
-            )}
+          ))}
         </div>
         <button
-        onClick={()=>setIsMenu(true)}
-            className="rounded-full lg:hidden px-2 py-2 border-2 font-semibold text-md text-primary-600 whitespace-nowrap w-[200px] mx-auto text-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-500 hover:text-white">Filter Products</button>
-        <section className='flex'>
-            <div className='relative ml-4'>
-            <FilterSidebar dataChecked={dataChecked.current} filterSubmit={filterSubmit} toggleClear={toggleClear} mobileMode={false}/>
-            </div>
-            <SubProducts dataChecked={dataChecked.current} products={productsData.current} loading={loading}/>
+          onClick={() => setIsMenu(true)}
+          className="rounded-xl lg:hidden px-4 py-2.5 border border-[#0D94FB] font-semibold text-sm text-[#0D94FB] whitespace-nowrap w-[200px] mx-auto text-center shadow-sm transition-all hover:bg-[#0D94FB] hover:text-white"
+        >
+          Filter Products
+        </button>
+        <section className="flex gap-8">
+          <div className="relative">
+            <FilterSidebar
+              dataChecked={dataChecked}
+              filterSubmit={filterSubmit}
+              toggleClear={toggleClear}
+              mobileMode={false}
+            />
+          </div>
+          <SubProducts dataChecked={dataChecked} products={productsData} loading={loading} />
         </section>
-    </section>
+      </section>
     </>
-  )
-}
+  );
+};
 
 export default SubCategory;

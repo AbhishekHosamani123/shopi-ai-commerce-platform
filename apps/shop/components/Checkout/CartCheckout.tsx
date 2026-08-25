@@ -174,7 +174,7 @@ const CartCheckout = () => {
                 key: key || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_51MockRazorpayKeyId2026',
                 amount: amount,
                 currency: currency || 'INR',
-                name: 'Razorpay AI Commerce',
+                name: 'Shopi',
                 description: `Cart Checkout (${data.length} items)`,
                 order_id: razorpayOrderId,
                 image: '/deliveryboxes.png',

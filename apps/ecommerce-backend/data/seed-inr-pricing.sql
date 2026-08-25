@@ -37,7 +37,7 @@ UPDATE products SET price = 1999.00, discount = 1499.00 WHERE productid = 200000
 UPDATE products SET price = 1299.00, discount = 799.00 WHERE productid = 20000020; -- Men Leather Reversible Belt (Formal)
 UPDATE products SET price = 3999.00, discount = 2499.00 WHERE productid = 20000021; -- Platinum Zircon Classic Ring (Couple Rings)
 UPDATE products SET price = 4999.00, discount = 2999.00 WHERE productid = 20000022; -- Smart Watche Vital Plus (Smart Watch)
-UPDATE products SET price = 799.00, discount = 499.00 WHERE productid = 20000023; -- Shampoo Conditioner Packs (Hair Care)
+UPDATE products SET price = 799.00, discount = 499.00, categoryid = 133633789 WHERE productid = 20000023; -- Shampoo Conditioner Packs (Shampoo / Cosmetics)
 UPDATE products SET price = 1499.00, discount = 899.00 WHERE productid = 20000024; -- Rose Gold Peacock Earrings (Earrings)
 UPDATE products SET price = 899.00, discount = 499.00 WHERE productid = 30000025; -- Baby Fabric Shoes (Casual)
 UPDATE products SET price = 1499.00, discount = 899.00 WHERE productid = 30000026; -- Men Hoodies T-Shirt (TShirt)

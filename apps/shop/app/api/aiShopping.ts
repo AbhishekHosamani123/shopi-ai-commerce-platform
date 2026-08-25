@@ -30,7 +30,9 @@ export interface RealCartStateData {
 }
 
 export interface AiProductCardData {
-  id: string;
+  id?: string;
+  productId: string;
+  title?: string;
   name: string;
   price: number;
   currency: string;

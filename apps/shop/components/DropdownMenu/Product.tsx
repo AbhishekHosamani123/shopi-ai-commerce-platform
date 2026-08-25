@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-interface option{
-    title: string,
-    link: string,
+import Link from 'next/link';
+
+interface option {
+  title: string;
+  link: string;
 }
-const Product = ({ options }:{options:option[]}) => {
+
+const Product = ({ options }: { options: option[] }) => {
   const [margin, setMargin] = useState(10);
   const [opacity, setOpacity] = useState(0);
 
@@ -13,7 +16,6 @@ const Product = ({ options }:{options:option[]}) => {
       setOpacity(1);
     }, 5);
 
-    // Cleanup function to clear the timeout if the component unmounts
     return () => clearTimeout(timer);
   }, []);
 
@@ -23,16 +25,20 @@ const Product = ({ options }:{options:option[]}) => {
       style={{
         marginTop: `${margin * 0.25}rem`,
         opacity: opacity,
-        transition: 'margin-top 0.2s ease-in-out, opacity 0.3s ease-in-out'
+        transition: 'margin-top 0.2s ease-in-out, opacity 0.3s ease-in-out',
       }}
       className="z-30 bg-white divide-y divide-gray-100 rounded-lg absolute shadow drop-shadow-xl w-52 py-4 px-2"
     >
       <ul className="py-0 text-sm" aria-labelledby="dropdownUserAvatarButton">
         {options.map((each, index) => (
           <li key={index}>
-            <a href={each.link} className="block px-4 py-2 text-base text-silver hover:text-salmon">
+            <Link
+              href={each.link}
+              prefetch={true}
+              className="block px-4 py-2 text-sm text-slate-600 hover:text-[#0D94FB] transition-colors"
+            >
               {each.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
