@@ -1,0 +1,259 @@
+{
+    "product_id": "SNEAKER-008",
+    "sku": "B0C5HLHSJW",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "SPARX Mens SM 323",
+    "brand": "SPARX",
+    "pricing": {
+        "mrp": 749,
+        "selling_price": 722,
+        "currency": "INR",
+        "discount_percent": 4
+    },
+    "description": "A lightweight SPARX men's sneaker designed for casual and everyday use, with a lace-up closure, flat heel, round toe and road-oriented outsole. The product is positioned as an affordable casual and athletic-style shoe.",
+    "attributes": {
+        "material": null,
+        "upper_material": null,
+        "sole_material": null,
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "toe_style": "Round Toe",
+        "water_resistance": true,
+        "water_resistance_level": "Water Resistant",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "occasion": "Casual",
+        "shoe_type": "Athletic Shoe",
+        "surface_recommendation": "Road",
+        "pronation_correction": "Neutral",
+        "special_feature": "Lightweight",
+        "country_of_origin": "India",
+        "weight_grams": 890
+    },
+    "colors": [
+        {
+            "name": "Black",
+            "available": true
+        },
+        {
+            "name": "Navy Blue White",
+            "available": true
+        },
+        {
+            "name": "White",
+            "available": true
+        }
+    ],
+    "sizes": [
+        {
+            "size": "6 UK",
+            "available": true
+        },
+        {
+            "size": "7 UK",
+            "available": true
+        },
+        {
+            "size": "8 UK",
+            "available": true
+        },
+        {
+            "size": "9 UK",
+            "available": true
+        },
+        {
+            "size": "10 UK",
+            "available": true
+        }
+    ],
+    "features": [
+        "Lightweight construction",
+        "Lace-up closure",
+        "Flat heel",
+        "Round toe",
+        "Water resistant",
+        "Neutral pronation support",
+        "Road suitable",
+        "Suitable for casual use",
+        "Suitable for sports use"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "College",
+        "Casual outings",
+        "Travel",
+        "Road walking",
+        "Lifestyle"
+    ],
+    "ratings": {
+        "average_rating": 4.0,
+        "rating_count": 8803,
+        "rating_distribution": {
+            "5_star_percent": 51,
+            "4_star_percent": 25,
+            "3_star_percent": 11,
+            "2_star_percent": 4,
+            "1_star_percent": 9
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Best daily use shoes",
+            "text": "The reviewer found the shoes suitable for daily commute and college, and reported that a previous pair lasted around two years. After a week, they recommended buying one size bigger and noted that the black colour attracts dirt easily.",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black White"
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable and stylish",
+            "text": "The shoes were described as good quality, comfortable, with a perfect fit and stylish appearance. The reviewer considered the quality good for the price.",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "Black White"
+        },
+        {
+            "rating": 5,
+            "title": "Great Comfort & Value for Money",
+            "text": "The reviewer reported a comfortable fit, cushioning suitable for long hours of walking and daily use, durable and breathable material, and a stylish design suitable for casual and office use.",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 3,
+            "title": "Amazing shoes value for money",
+            "text": "The reviewer considered the shoes good value for money.",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 5,
+            "title": "Fabulous",
+            "text": "The reviewer liked the trendy appearance and reported a perfect fit, although the packaging arrived damaged.",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 1,
+            "title": "Not comfortable for daily use",
+            "text": "The reviewer reported significant toe pain after several days of use and felt that the shoes were not comfortable for daily wear.",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "Black White"
+        },
+        {
+            "rating": 4,
+            "title": "Worth it",
+            "text": "A college-going buyer considered the shoes stylish, durable enough for regular use and good value for money. They felt the cushioning and insole support could be improved for long hours.",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 5,
+            "title": "Comfortable and clean",
+            "text": "The reviewer described the shoes as nice and comfortable.",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 4,
+            "title": "Thik h",
+            "text": "The reviewer considered the appearance good but felt the quality was only average.",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "White Black"
+        },
+        {
+            "rating": 3,
+            "title": "Size and condition issue",
+            "text": "The reviewer reported that the size felt small and that the received product appeared used, with a dirty white sole.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 3,
+            "title": "Ok",
+            "text": "The reviewer gave a brief neutral assessment.",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Navy Blue White"
+        }
+    ],
+    "review_insights": {
+        "positive": [
+            "Good value for money",
+            "Stylish appearance",
+            "Suitable for daily use",
+            "Comfortable according to many reviewers",
+            "Good for college and commuting",
+            "Lightweight",
+            "Some reviewers reported good durability"
+        ],
+        "negative": [
+            "Some users reported toe discomfort",
+            "Some users recommended buying one size bigger",
+            "Some quality concerns",
+            "Black colour can attract dirt easily",
+            "Some complaints about product condition",
+            "Cushioning may not be sufficient for prolonged use"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "College students",
+            "Daily commuting",
+            "Casual wear",
+            "Short to moderate walking",
+            "Users looking for an affordable branded sneaker"
+        ],
+        "not_ideal_for": [
+            "Users requiring guaranteed all-day comfort",
+            "Long-duration walking without testing the fit",
+            "Users with sensitive toes",
+            "Customers expecting premium construction"
+        ]
+    },
+    "manufacturer": "RELAXO FOOTWEARS LIMITED",
+    "packer": "VIRAJ ENTERPRISES",
+    "importer": null,
+    "images": [
+        {
+            "file": "black.jpg",
+            "color": "Black",
+            "is_primary": false
+        },
+        {
+            "file": "NAVY BLUE WHITE.jpg",
+            "color": "Navy Blue White",
+            "is_primary": false
+        },
+        {
+            "file": "white.jpg",
+            "color": "White",
+            "is_primary": true
+        }
+    ],
+    "ai_attributes": {
+        "comfort": "Mixed",
+        "value_for_money": "High",
+        "appearance": "Good",
+        "weight": "Lightweight",
+        "fit": "Mixed",
+        "durability": "Generally positive",
+        "cleanliness": "Black may show dirt easily",
+        "weather_suitability": "Water resistant",
+        "recommendation": "Recommended as a budget casual sneaker for college, commuting and everyday use, but buyers should pay attention to sizing and should not assume it is ideal for prolonged walking."
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0C5HLHSJW",
+        "url": "https://www.amazon.in/dp/B0C5HLHSJW",
+        "collected_at": "2026-08-26"
+    }
+}

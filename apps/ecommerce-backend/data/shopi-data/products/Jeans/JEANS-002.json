@@ -1,0 +1,254 @@
+{
+    "product_id": "JEANS-002",
+    "product": {
+        "name": "URBAN POCKETS Men's Jeans for Men | Denim Pants with Classic Straight Cut",
+        "brand": "URBAN POCKETS",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Denim Jeans",
+        "description": "Classic men's denim jeans with a straight-leg design, loose fit and high-rise style. Features a solid pattern, button closure and standard length, suitable for casual, comfortable, evening and formal wear.",
+        "fit": "Loose Fit",
+        "pattern": "Solid",
+        "leg_style": "Straight",
+        "rise_style": "High Rise",
+        "closure": "Button",
+        "length": "Standard Length",
+        "material": "Denim",
+        "fabric_weight": "Not specified",
+        "stretch": "Not specified",
+        "care": "Machine Wash",
+        "style_tags": [
+            "classic",
+            "casual",
+            "denim",
+            "straight fit",
+            "solid",
+            "everyday wear",
+            "comfortable"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "hangouts",
+            "evening wear",
+            "comfortable wear",
+            "formal wear"
+        ],
+        "season_tags": [
+            "all season"
+        ],
+        "sizes": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "colors": [
+            "Blue",
+            "Dark Blue"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 499
+    },
+    "pricing": {
+        "mrp": 4999,
+        "selling_price": 799,
+        "currency": "INR",
+        "discount_percentage": 84,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Blue",
+            "image": "products/Jeans/JEANS-002/Blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/Jeans/JEANS-002/Dark Blue.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.1,
+        "rating_count": 214,
+        "review_count": 214
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers have mixed opinions about these jeans. The classic straight-cut denim design, affordable price and casual styling make the product attractive, but the low 3.1 rating indicates significant dissatisfaction among buyers. Quality, fit and colour consistency should be considered before purchasing.",
+        "positive": [
+            "Classic straight-cut design",
+            "Denim material",
+            "Loose and comfortable fit",
+            "Suitable for casual wear",
+            "Solid and versatile styling",
+            "Available in Blue and Dark Blue",
+            "Wide size range from 30 to 38",
+            "Affordable selling price",
+            "Good option for budget-conscious buyers"
+        ],
+        "negative": [
+            "Low overall rating of 3.1/5",
+            "Mixed customer satisfaction",
+            "Material quality concerns",
+            "Some colour-related complaints",
+            "Possible colour mismatch between listing and received product",
+            "Fit consistency may vary",
+            "Quality may not meet expectations of premium denim buyers"
+        ],
+        "main_concern": "The main concern is product consistency. Despite the attractive price and classic styling, the 3.1/5 rating suggests that buyers should have realistic expectations regarding quality, colour accuracy and fit."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        },
+        "comfort": {
+            "sentiment": "mixed",
+            "confidence": "medium"
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The product uses denim, but the overall rating and customer feedback indicate that material quality may not be consistent."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The product is listed as loose fit with a straight leg, but customers should check the size chart before purchasing."
+        },
+        "colour_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Blue and Dark Blue variants are available, but colour consistency should be treated cautiously because of reported colour-related concerns."
+        },
+        "value_for_money": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "The ₹799 selling price makes the product attractive for budget-conscious customers, but the low rating reduces confidence in overall value."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        }
+    },
+    "pros": [
+        "Classic straight-leg design",
+        "Loose and comfortable fit",
+        "Versatile solid pattern",
+        "Denim construction",
+        "Two useful colour options",
+        "Sizes 30 through 38",
+        "Suitable for casual and everyday outfits",
+        "Affordable ₹799 selling price",
+        "High listed discount of 84%"
+    ],
+    "cons": [
+        "Low 3.1/5 customer rating",
+        "Mixed material-quality feedback",
+        "Possible colour mismatch",
+        "Fit may vary between customers",
+        "Not suitable for customers expecting premium denim quality",
+        "Limited confidence due to mixed customer feedback"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 6.2,
+        "best_for": [
+            "Budget-conscious buyers",
+            "Casual wear",
+            "Daily wear",
+            "Classic denim styling",
+            "Loose-fit preference",
+            "Straight-leg jeans preference",
+            "Customers wanting Blue or Dark Blue jeans"
+        ],
+        "not_ideal_for": [
+            "Customers wanting premium denim",
+            "Customers prioritizing consistent fabric quality",
+            "Customers highly sensitive to colour accuracy",
+            "Customers wanting a slim or skinny fit",
+            "Customers unwilling to accept mixed reviews"
+        ],
+        "size_advice": "Check the size chart before purchasing. The product is officially listed as a loose fit with sizes 30, 32, 34, 36 and 38.",
+        "quality_advice": "Treat this as a budget-oriented jeans option rather than a premium denim product because the overall customer rating is only 3.1/5.",
+        "sales_advice": "Lead with the classic straight-leg design, loose fit, two blue colour options and ₹799 price. If the customer asks about quality, be transparent about the mixed reviews and 3.1/5 rating."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "men jeans",
+            "men's jeans",
+            "blue jeans",
+            "dark blue jeans",
+            "denim jeans",
+            "straight fit jeans",
+            "straight leg jeans",
+            "loose fit jeans",
+            "classic jeans",
+            "casual jeans",
+            "everyday jeans",
+            "budget jeans",
+            "affordable jeans",
+            "solid jeans"
+        ],
+        "negative_keywords": [
+            "premium jeans",
+            "premium denim",
+            "skinny jeans",
+            "slim fit jeans",
+            "high quality jeans",
+            "luxury denim",
+            "perfect colour accuracy"
+        ],
+        "strong_attributes": [
+            "denim",
+            "classic",
+            "straight leg",
+            "loose fit",
+            "solid",
+            "casual",
+            "blue",
+            "dark blue",
+            "affordable"
+        ],
+        "warning_attributes": [
+            "mixed quality",
+            "low rating",
+            "possible colour mismatch",
+            "possible fit inconsistency"
+        ]
+    },
+    "reviews": [],
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0FJRSJ4P2",
+        "date_first_available": "2025-07-23",
+        "manufacturer": "Urban Pockets",
+        "packer": "Urban Pockets_Ahmedabad"
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering style, fit, fabric, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the classic styling, loose straight fit and low price, while clearly mentioning the 3.1/5 rating and mixed quality feedback.",
+        "when_customer_asks_about_quality": "Do not describe this as premium denim. Explain that the product has mixed quality feedback and a 3.1/5 average rating.",
+        "when_customer_asks_about_fit": "Explain that the product is officially a loose fit with a straight leg. Recommend checking the size chart before purchasing.",
+        "when_customer_asks_about_colors": "Explain that Blue and Dark Blue variants are available. Do not invent additional colours.",
+        "when_customer_asks_about_price": "State the snapshot selling price as ₹799 against an MRP of ₹4,999, representing an 84% listed discount.",
+        "when_customer_asks_for_alternatives": "Prioritize products with similar classic or straight-fit styling but stronger quality and rating signals if the customer prioritizes durability or premium quality.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its low price. Consider the customer's budget, preferred fit, colour, quality expectations and intended use."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "Product has a relatively low 3.1/5 average rating.",
+            "Customer feedback is mixed regarding quality.",
+            "Colour-related complaints are present in the source data.",
+            "Fit consistency should be treated cautiously.",
+            "No fabric-weight or stretch information is available from the source.",
+            "Only Blue.jpg and Dark Blue.jpg are available as local product images.",
+            "Do not claim premium denim quality."
+        ]
+    }
+}

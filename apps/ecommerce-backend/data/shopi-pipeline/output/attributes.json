@@ -1,0 +1,7347 @@
+[
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "capacity",
+    "attribute_value": "15L"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "material",
+    "attribute_value": "500D fabric"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "lining",
+    "attribute_value": "Premium lining fabric"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Screen printing with reflective tape"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "style",
+    "attribute_value": "Casual / Functional"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "laptop_compatible",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "season",
+    "attribute_value": "All season"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "main_compartments",
+    "attribute_value": "2"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "laptop_sleeve",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "bottle_pocket",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "organization",
+    "attribute_value": "Two spacious compartments with a dedicated padded laptop sleeve and one fabric bottle pocket on the side"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "strap_type",
+    "attribute_value": "Padded shoulder straps"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "straps_detachable",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "back_panel",
+    "attribute_value": "Padded back mesh"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "handle_type",
+    "attribute_value": "Webbing grab handle"
+  },
+  {
+    "product_id": "BAG-001",
+    "attribute_name": "key_features",
+    "attribute_value": "Padded laptop sleeve, Two spacious compartments, Fabric bottle pocket, Padded shoulder straps, Padded back mesh, Double-stitched strap construction, Reflective tape, Premium lining fabric, Shoulder strap reinforcement"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "laptop_compatible",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "laptop_size",
+    "attribute_value": "15.6 inch"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "style",
+    "attribute_value": "Anti-theft / Laptop Backpack"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "laptop_compartment",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "laptop_compartment_size",
+    "attribute_value": "15.6 inch"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "organizer_pocket",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "main_compartment",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "bottle_pocket",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "strap_type",
+    "attribute_value": "Shoulder straps"
+  },
+  {
+    "product_id": "BAG-002",
+    "attribute_name": "handle",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "laptop_compatible",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "laptop_size",
+    "attribute_value": "15.6 inch"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "capacity",
+    "attribute_value": "30L"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "water_resistant",
+    "attribute_value": "Semi water resistant"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "style",
+    "attribute_value": "Travel / Business / Laptop Backpack"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "laptop_compartment",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "laptop_compartment_size",
+    "attribute_value": "15.6 inch"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "main_compartments",
+    "attribute_value": "2"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "total_compartments",
+    "attribute_value": "3"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "small_accessory_compartment",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "strap_type",
+    "attribute_value": "Adjustable shoulder straps"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "back_panel",
+    "attribute_value": "Padded"
+  },
+  {
+    "product_id": "BAG-003",
+    "attribute_name": "handle",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "capacity",
+    "attribute_value": "28L"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "style",
+    "attribute_value": "Sleek / Functional"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "laptop_compatible",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "laptop_size",
+    "attribute_value": "17 inch"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "season",
+    "attribute_value": "All season"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "main_compartments",
+    "attribute_value": "2"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "laptop_sleeve",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "organization",
+    "attribute_value": "Two main compartments with a dedicated 17-inch laptop compartment and space for office supplies and accessories"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "straps_detachable",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "BAG-004",
+    "attribute_name": "key_features",
+    "attribute_value": "28L capacity, 17-inch laptop compartment, Two main compartments, Multiple storage compartments, Suitable for college and office use, Suitable for men and women, 1-year global warranty, Warranty coverage across 120 countries"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "capacity",
+    "attribute_value": "25L"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "material",
+    "attribute_value": "Premium durable fabric"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "color",
+    "attribute_value": "Black & Brown"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "style",
+    "attribute_value": "Casual / Functional"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "laptop_compatible",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "laptop_size",
+    "attribute_value": "17 inch claimed compatibility"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "water_resistant",
+    "attribute_value": "Mixed customer feedback"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "weight",
+    "attribute_value": "350 g"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "dimensions",
+    "attribute_value": "30 x 11 x 45 cm"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "season",
+    "attribute_value": "All season"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "main_compartments",
+    "attribute_value": "2"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "laptop_sleeve",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "bottle_pocket",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "organization",
+    "attribute_value": "Two main compartments with a padded laptop compartment and side bottle pocket"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "strap_type",
+    "attribute_value": "Shoulder straps"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "straps_detachable",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "back_panel",
+    "attribute_value": "Padded back panel"
+  },
+  {
+    "product_id": "BAG-005",
+    "attribute_name": "key_features",
+    "attribute_value": "25L capacity, 17-inch laptop compatibility claim, Two compartments, Side bottle pocket, Padded back panel, Premium durable fabric, Suitable for office use, Suitable for travel, Lightweight at 350 g"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "fit",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Block Print"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "sleeve",
+    "attribute_value": "Elbow Length Sleeve"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "neck",
+    "attribute_value": "High Neck"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "closure",
+    "attribute_value": "Pull On"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "length",
+    "attribute_value": "Calf Length"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "material",
+    "attribute_value": "Viscose Blend"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "style_tags",
+    "attribute_value": "ethnic, printed, straight kurta, kurta set, palazzo, casual, office wear, comfortable"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "office wear, casual outings, travel, parties, get-togethers, traditional occasions, everyday wear"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-001",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "350"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Printed"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "sleeve",
+    "attribute_value": "3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "collar",
+    "attribute_value": "V Neck"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "collar_style",
+    "attribute_value": "V Neck"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "closure",
+    "attribute_value": "Pull On"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "length",
+    "attribute_value": "Calf Length"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "material",
+    "attribute_value": "Rayon"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Viscose"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "stretch",
+    "attribute_value": "Low Stretch"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "care",
+    "attribute_value": "Dry Clean Only"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "set_includes",
+    "attribute_value": "Anarkali Kurta, Pant, Printed Dupatta"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "style_tags",
+    "attribute_value": "anarkali, ethnic, printed, kurta set, traditional, elegant, festive, casual"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, office wear, family gatherings, festive occasions, small functions, semi-formal occasions, traditional occasions"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, all season, rainy season"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-002",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "300"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit / Straight Kurta"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Printed"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "sleeve",
+    "attribute_value": "3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "length",
+    "attribute_value": "Ankle Length"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "material",
+    "attribute_value": "100% Viscose"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "care",
+    "attribute_value": "Hand Wash Only"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "style_tags",
+    "attribute_value": "ethnic, printed, traditional, elegant, casual, festive, semi-formal, kurta set"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "daily wear, casual outings, festive wear, ethnic occasions, semi-formal occasions, family gatherings"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, all season"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-003",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "450"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Abstract"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "sleeve",
+    "attribute_value": "3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "collar",
+    "attribute_value": "Boat Neck"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "collar_style",
+    "attribute_value": "Boat Neck"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "closure",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "length",
+    "attribute_value": "Standard Anarkali Length"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "material",
+    "attribute_value": "Rayon"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "fabric_type",
+    "attribute_value": "100% Viscose"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "set_contents",
+    "attribute_value": "Anarkali Kurta, Pant, Dupatta"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "style_tags",
+    "attribute_value": "anarkali, printed, ethnic, elegant, stylish, comfortable, lightweight"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, office wear, college wear, festivals, family functions, small occasions, special occasions"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, all season"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-004",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "450"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "pattern",
+    "attribute_value": "Printed"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "sleeve",
+    "attribute_value": "Short Sleeve"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "collar",
+    "attribute_value": "High Neck"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "closure",
+    "attribute_value": "Pull On"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "length",
+    "attribute_value": "Calf Length"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "material",
+    "attribute_value": "Rayon Viscose"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight to Medium Weight"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "care",
+    "attribute_value": "Dry Clean Only"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "style_tags",
+    "attribute_value": "ethnic, A-line, printed, stylish, casual, traditional"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "traditional wear, casual wear, party wear, evening wear, daily office wear, festival wear"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, warm weather, mild weather"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-005",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "350"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "fit",
+    "attribute_value": "Regular / Relaxed Fit"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "pattern",
+    "attribute_value": "Floral"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "sleeve",
+    "attribute_value": "3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "collar",
+    "attribute_value": "V-Neck"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "collar_style",
+    "attribute_value": "V-Neck"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "closure",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "length",
+    "attribute_value": "Calf Length"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "material",
+    "attribute_value": "Cotton"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight / Thin"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "style_tags",
+    "attribute_value": "ethnic, floral, printed, traditional, casual, comfortable"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "traditional wear, casual wear, party wear, evening wear, ethnic occasions"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, warm weather, all season"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-006",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "360"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "fit",
+    "attribute_value": "A-Line"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid with Embroidery"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "care",
+    "attribute_value": "All Type Wash"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "style_tags",
+    "attribute_value": "ethnic, embroidered, elegant, festive, party wear, A-line, traditional, premium looking"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "festive occasions, family functions, parties, weddings, office wear, casual outings, celebrations"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season"
+  },
+  {
+    "product_id": "DRESS-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "fit",
+    "attribute_value": "Regular / Straight"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "pattern",
+    "attribute_value": "Floral"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "sleeve",
+    "attribute_value": "Bell Sleeve"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "sleeve_length",
+    "attribute_value": "Three-Quarter"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "neck_style",
+    "attribute_value": "V-Neck"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "length",
+    "attribute_value": "Floor Length"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "material",
+    "attribute_value": "Cotton"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "style_tags",
+    "attribute_value": "floral, printed, cotton, ethnic, casual, regular fit, A-line, comfortable, everyday wear"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, office wear, daytime events, everyday wear, festive gatherings, engagement, Haldi"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, warm weather"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-008",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "fit",
+    "attribute_value": "Semi-Stitched"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "sleeve",
+    "attribute_value": "Three-Quarter Sleeve"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "sleeve_length",
+    "attribute_value": "3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "neck_style",
+    "attribute_value": "Round Neck"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "material",
+    "attribute_value": "Silk Blend"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Silk"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "weave_type",
+    "attribute_value": "Plain"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "construction_type",
+    "attribute_value": "Semi-Stitched"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "embroidery",
+    "attribute_value": "Kasuti"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "work",
+    "attribute_value": "Sequence Work, Thread Work"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "weave_method",
+    "attribute_value": "Powerloom"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "care",
+    "attribute_value": "Dry Clean Only"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "style",
+    "attribute_value": "Traditional"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "style_tags",
+    "attribute_value": "lehenga, lehenga choli, ethnic, traditional, festival, embroidered, sequence work, thread work, semi-stitched, silk"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "festivals, anniversary, wedding events, traditional functions, party wear"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "season_tags",
+    "attribute_value": "festival season, wedding season, all season"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "250"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "net_quantity",
+    "attribute_value": "3"
+  },
+  {
+    "product_id": "DRESS-009",
+    "attribute_name": "included_components",
+    "attribute_value": "Lehenga, Blouse, Dupatta"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "fit",
+    "attribute_value": "Unstitched / Free Size"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "pattern",
+    "attribute_value": "Floral"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve / 3/4 Sleeve"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "neck",
+    "attribute_value": "V-Neck"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "closure",
+    "attribute_value": "Unstitched"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "length",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "material",
+    "attribute_value": "Faux Silk"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Art Silk"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "care",
+    "attribute_value": "Dry Clean Only"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "weave",
+    "attribute_value": "Jacquard"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "weave_method",
+    "attribute_value": "Powerloom"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "construction_type",
+    "attribute_value": "Handloom Banarasi Weave"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "embroidery",
+    "attribute_value": "Zari Work"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "style_tags",
+    "attribute_value": "traditional, ethnic, festive, lehenga, lehenga choli, zari work, floral, south indian, wedding wear, party wear"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "wedding, festival, party, cultural events, traditional occasions"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, festive season"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "DRESS-010",
+    "attribute_name": "included_components",
+    "attribute_value": "Lehenga, Choli, Dupatta"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "style",
+    "attribute_value": "Derby"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "occasion",
+    "attribute_value": "Formal, Office, Business"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "heel_type",
+    "attribute_value": "No Heel"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "strap_type",
+    "attribute_value": "Strapless"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "asin",
+    "attribute_value": "B096BGXWKT"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "model_number",
+    "attribute_value": "8216133"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "generic_name",
+    "attribute_value": "Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "sole_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "insole_material",
+    "attribute_value": "Genuine Leather"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "cushioning",
+    "attribute_value": "Moderate to high"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "lightweight",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "durable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "comfort_features",
+    "attribute_value": "Cushioned insole, Lightweight build"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "attribute_name": "special_features",
+    "attribute_value": "Durable"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "style",
+    "attribute_value": "Derby"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "occasion",
+    "attribute_value": "Formal, Office, Business, Business Casual, Casual, Travel"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "color",
+    "attribute_value": "Black, Brown, Tan"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "default_color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "toe_style",
+    "attribute_value": "Closed Toe"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "heel_type",
+    "attribute_value": "Cone Heel"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "asin",
+    "attribute_value": "B0CFY32GFF"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "model_number",
+    "attribute_value": "64055-1"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "generic_name",
+    "attribute_value": "Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "sole_material",
+    "attribute_value": "Leather"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "insole_material",
+    "attribute_value": "Foam"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "lining_material",
+    "attribute_value": "Breathable material"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "cushioning",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Foam"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "lightweight",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "slip_resistant",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "breathable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "comfortable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "durable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "attribute_name": "features",
+    "attribute_value": "Breathable, Comfortable, Cushioned, Durable"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "style",
+    "attribute_value": "Oxford"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Oxford"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "occasion",
+    "attribute_value": "Formal, Office, Business"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "color",
+    "attribute_value": "Dark Brown"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "default_color",
+    "attribute_value": "Dark Brown"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "toe_style",
+    "attribute_value": "Pointed Toe"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "heel_type",
+    "attribute_value": "No Heel"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "asin",
+    "attribute_value": "B0CKFL1GTH"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "model_number",
+    "attribute_value": "8214062"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "generic_name",
+    "attribute_value": "Oxford"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "upper_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "sole_material",
+    "attribute_value": "Rubber"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "insole_material",
+    "attribute_value": "Foam"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "cushioning",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Foam"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "comfortable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "adjustable",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "special_features",
+    "attribute_value": "Comfortable"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "pronation_correction",
+    "attribute_value": "Neutral"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "attribute_name": "specific_uses",
+    "attribute_value": "Formal"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "style",
+    "attribute_value": "Formal"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "occasion",
+    "attribute_value": "Formal, Office, Business, College, Interviews"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "color",
+    "attribute_value": "Black, Brown"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "default_color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "formality_level",
+    "attribute_value": "Formal"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "asin",
+    "attribute_value": "B0987P8D21"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "model_number",
+    "attribute_value": "8216226"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "generic_name",
+    "attribute_value": "Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "sole_material",
+    "attribute_value": "Rubber"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "cushioning",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "special_features",
+    "attribute_value": "Comfortable"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "pronation_correction",
+    "attribute_value": "Neutral"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "attribute_name": "specific_uses",
+    "attribute_value": "Formal, Office, Walking"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "style",
+    "attribute_value": "Moccasin"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Loafer"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "occasion",
+    "attribute_value": "Formal, Business, Business Casual, Office, Party, Travel"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "color",
+    "attribute_value": "Black, Brown"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "default_color",
+    "attribute_value": "Black"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "toe_style",
+    "attribute_value": "Closed Toe"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "closure",
+    "attribute_value": "Pull-On"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "formality_level",
+    "attribute_value": "Business Formal"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "asin",
+    "attribute_value": "B0FNRMR7Y7"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "model_number",
+    "attribute_value": "9564-1"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "generic_name",
+    "attribute_value": "Centrino Men's Glossy Formal Shoes"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "outer_material",
+    "attribute_value": "Faux Leather"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "lining",
+    "attribute_value": "Breathable fabric"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "insole",
+    "attribute_value": "Cushioned"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "cushioning",
+    "attribute_value": "Cushioned"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Maximum"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "slip_resistant",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "all_weather_grip",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "breathable_lining",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "moisture_wicking",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "attribute_name": "special_features",
+    "attribute_value": "All Weather Grip, Cushioned, Slip Resistant"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "collar",
+    "attribute_value": "Standing Collar"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "collar_style",
+    "attribute_value": "Ribbed Standing Collar"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "closure",
+    "attribute_value": "Zipper"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "material",
+    "attribute_value": "80% Polyester, 20% Cotton"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "stretch",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "lining",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, bomber jacket, track jacket, stylish, regular fit, zip-up, minimal, everyday wear"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, college wear, travel, evening wear, hangouts, streetwear"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "season_tags",
+    "attribute_value": "winter, cooler weather, cold weather"
+  },
+  {
+    "product_id": "JACKET-001",
+    "attribute_name": "features",
+    "attribute_value": "Regular fit, Ribbed standing collar, Smooth zipper closure, Multiple pockets, Long sleeves, Standard length, Machine washable, Polyester-cotton construction"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "generic_name",
+    "attribute_value": "mens jacket"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Colour Block"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "collar",
+    "attribute_value": "Hooded"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "closure",
+    "attribute_value": "Full-Zip"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "length",
+    "attribute_value": "Hip Length"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "silhouette",
+    "attribute_value": "Anorak"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "material",
+    "attribute_value": "Polyester Blend"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "material_composition",
+    "attribute_value": "Polyester Blend"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "stretch",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "lining",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "care",
+    "attribute_value": "{\"washing\":\"Machine Wash Cold With Similar Colours\",\"bleach\":\"Do Not Bleach\",\"drying\":\"Tumble Dry Low\",\"ironing\":\"Iron On Low Heat\",\"dry_cleaning\":\"Do Not Dry Clean\"}"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "manufacturer",
+    "attribute_value": "LUXE ENTERRPISES"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "packer",
+    "attribute_value": "Luxe Enterprises"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, streetwear, sporty, athletic-inspired, colour block, hooded, zip-up, modern, trendy, everyday wear"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, weekend outings, everyday wear, travel, college wear, streetwear, light outdoor activities"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "season_tags",
+    "attribute_value": "winter, cold weather, mild outdoor weather"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "weather_suitability",
+    "attribute_value": "cold weather, mild outdoor weather, light wind, light drizzle"
+  },
+  {
+    "product_id": "JACKET-002",
+    "attribute_name": "features",
+    "attribute_value": "White base colour, Red contrast sleeve stripes, Adjustable hood, Full-length front zipper, Two front flap pockets, Button-fastening pocket flaps, Elasticated cuffs, Regular fit, Hip length, Colour-block design, Long sleeves"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "generic_name",
+    "attribute_value": "Men Jacket"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "collar",
+    "attribute_value": "Band"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "closure",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "silhouette",
+    "attribute_value": "Bomber"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "material",
+    "attribute_value": "Polyester"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "material_composition",
+    "attribute_value": "Polyester"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "stretch",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "lining",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "care",
+    "attribute_value": "{\"washing\":\"Machine Wash\"}"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "manufacturer",
+    "attribute_value": "J B Fashion"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "packer",
+    "attribute_value": "J B Fashion_Surat-394107"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "importer",
+    "attribute_value": "J B Fashion_Surat-394107"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "1050"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, sportswear, bomber, lightweight, winter, everyday wear, minimal, solid, regular fit"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, college wear, everyday wear, travel, weekend outings, light outdoor activities"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "season_tags",
+    "attribute_value": "winter, mild weather, cool weather"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "weather_suitability",
+    "attribute_value": "mild weather, slightly cool weather, early winter"
+  },
+  {
+    "product_id": "JACKET-003",
+    "attribute_name": "features",
+    "attribute_value": "Lightweight bomber design, Solid pattern, Regular fit, Long sleeves, Standard length, Band collar, Polyester construction, Machine washable"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "generic_name",
+    "attribute_value": "Jacket"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "fit",
+    "attribute_value": "Comfort Fit"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "collar",
+    "attribute_value": "Band / Low-Cut Standing Collar"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "closure",
+    "attribute_value": "Zipper"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "silhouette",
+    "attribute_value": "Quilted Bomber"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "style",
+    "attribute_value": "Bomber Jacket"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "material",
+    "attribute_value": "Polyester 80%, Cotton 20%"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "material_composition",
+    "attribute_value": "{\"polyester\":80,\"cotton\":20}"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "stretch",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "lining",
+    "attribute_value": "Not Specified"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "care",
+    "attribute_value": "{\"washing\":\"Machine Wash\",\"additional\":\"Source also states machine/hand washable and tumble dry low.\"}"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "manufacturer",
+    "attribute_value": "TIFFNY CORPORATION"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "packer",
+    "attribute_value": "TIFFNY CORPORATION"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "importer",
+    "attribute_value": "TIFFNY CORPORATION"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "features",
+    "attribute_value": "Bomber jacket design, Comfort fit, Low-cut standing/band collar, Long sleeves, Standard length, Solid pattern, Zip closure, Multiple pockets, Lightweight construction, Machine washable"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, bomber, winter, solid, quilted, lightweight, streetwear, everyday wear, sporty, minimal"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, college wear, daily wear, travel, winter rides, weekend outings"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "season_tags",
+    "attribute_value": "winter, cold weather, mild-to-cold weather"
+  },
+  {
+    "product_id": "JACKET-004",
+    "attribute_name": "weather_suitability",
+    "attribute_value": "cold weather, winter, winter rides"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "leg_style",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "rise",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, modern, classic, streetwear, daily wear, rugged"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, hangouts, parties, streetwear, outdoor wear"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, summer, autumn, cooler weather"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-001",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "fit",
+    "attribute_value": "Loose Fit"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "leg_style",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "rise_style",
+    "attribute_value": "High Rise"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "material",
+    "attribute_value": "Denim"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "style_tags",
+    "attribute_value": "classic, casual, denim, straight fit, solid, everyday wear, comfortable"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, hangouts, evening wear, comfortable wear, formal wear"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-002",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "499"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "fit",
+    "attribute_value": "Boot Cut"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "leg_style",
+    "attribute_value": "Trouser"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "rise_style",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "fabric_composition",
+    "attribute_value": "Cotton Poly Lycra"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "front_style",
+    "attribute_value": "Flat Front"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "style_tags",
+    "attribute_value": "bootcut, denim, classic, casual, stretchable, comfortable, solid, mid-rise, everyday wear"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, hangouts, semi-casual events, evening wear"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-003",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "480"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "fit",
+    "attribute_value": "Relaxed"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "leg_style",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "rise_style",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "front_style",
+    "attribute_value": "Flat Front"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "length",
+    "attribute_value": "Standard"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "material",
+    "attribute_value": "100% Cotton"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Soft Cotton Denim"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "season",
+    "attribute_value": "All Season"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "style_tags",
+    "attribute_value": "straight fit, relaxed fit, denim, cotton, mid-rise, casual, everyday wear, comfortable, solid"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, weekend wear, travel, hangouts"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "450"
+  },
+  {
+    "product_id": "JEANS-004",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":34,\"width\":29,\"height\":3}"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "fit",
+    "attribute_value": "Slim"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "leg_style",
+    "attribute_value": "Tapered"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "rise_style",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "length",
+    "attribute_value": "Ankle Length"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "style",
+    "attribute_value": "Classic"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "front_style",
+    "attribute_value": "Flat Front"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton-Blend Denim"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "stretch",
+    "attribute_value": "Soft Stretch"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "care_instructions",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "style_tags",
+    "attribute_value": "slim fit, tapered, ankle length, mid rise, cotton blend, denim, classic, solid, casual"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, travel, weekend wear"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "JEANS-005",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "fit",
+    "attribute_value": "Anti Fit"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "style",
+    "attribute_value": "Cargo"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "rise",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "leg_style",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Poly Lycra Blend"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "fabric_composition",
+    "attribute_value": "Cotton, Polyester, Lycra"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretch"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "closure",
+    "attribute_value": "Button and Zipper"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "340"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, anti fit, cargo, straight leg, mid rise, relaxed, streetwear, everyday wear, comfortable, stretch"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, college wear, hangouts, weekend wear, streetwear, travel, casual parties"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, all season"
+  },
+  {
+    "product_id": "JEANS-006",
+    "attribute_name": "lifestyle_tags",
+    "attribute_value": "casual, comfort, street style, everyday fashion"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "style",
+    "attribute_value": "Carrot"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "rise",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "leg_style",
+    "attribute_value": "Tapered"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "material",
+    "attribute_value": "Denim"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "fabric_composition",
+    "attribute_value": "{\"cotton\":\"88%\",\"viscose\":\"7%\",\"polyester\":\"5%\"}"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretch"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "closure",
+    "attribute_value": "Button / Zipper Fly"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "waist_line",
+    "attribute_value": "Natural"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "finish",
+    "attribute_value": "Washed"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "pocket",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, regular fit, carrot fit, tapered, mid rise, washed denim, everyday wear, casual fashion, comfortable, men's jeans"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, college wear, hangouts, weekend wear, travel, casual parties, smart casual"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, summer, winter"
+  },
+  {
+    "product_id": "JEANS-007",
+    "attribute_name": "lifestyle_tags",
+    "attribute_value": "casual, everyday, street style, relaxed fashion, smart casual"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "fit",
+    "attribute_value": "Straight Fit"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "style",
+    "attribute_value": "Modern"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "rise",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "leg_style",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "fabric_composition",
+    "attribute_value": "Cotton and Lycra blend"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretch"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "pockets",
+    "attribute_value": "Two deep side pockets"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "style_tags",
+    "attribute_value": "straight fit, mid rise, modern, cotton blend, stretch, casual, everyday wear, comfortable, versatile, men's jeans"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, college wear, weekend wear, travel, casual parties, smart casual"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, summer, winter"
+  },
+  {
+    "product_id": "JEANS-008",
+    "attribute_name": "lifestyle_tags",
+    "attribute_value": "casual, everyday, street style, modern casual, smart casual"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "style",
+    "attribute_value": "Retro"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "rise",
+    "attribute_value": "High Rise"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "leg_style",
+    "attribute_value": "Wide / Flared"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "material",
+    "attribute_value": "Cotton"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Denim"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "pockets",
+    "attribute_value": "{\"total\":5,\"front_pockets\":2,\"back_pockets\":2,\"coin_pocket\":1}"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "style_tags",
+    "attribute_value": "bell bottom, bootcut, wide leg, flared, retro, high rise, stretch, casual, streetwear, vintage inspired"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, college wear, parties, weekend wear, casual events, retro themed outfits"
+  },
+  {
+    "product_id": "JEANS-009",
+    "attribute_name": "lifestyle_tags",
+    "attribute_value": "retro fashion, street style, casual, college fashion, statement outfits"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "fit",
+    "attribute_value": "Slim Fit"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "style",
+    "attribute_value": "Jeans"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "rise",
+    "attribute_value": "Mid Rise"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "leg_style",
+    "attribute_value": "Wide"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "length",
+    "attribute_value": "Full Length"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "material",
+    "attribute_value": "Cotton"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton + Lycra"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "stretch",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "front_pleat",
+    "attribute_value": "Flat Front"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "care",
+    "attribute_value": "Wash dark colors separately"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "350"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "item_dimensions",
+    "attribute_value": "30 x 25 x 1 cm"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "style_tags",
+    "attribute_value": "slim fit, stretch jeans, mid rise, solid, casual, everyday wear, lightweight, denim, budget jeans"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, office wear, college wear, parties, everyday wear"
+  },
+  {
+    "product_id": "JEANS-010",
+    "attribute_name": "lifestyle_tags",
+    "attribute_value": "casual, everyday fashion, budget fashion, urban style, comfortable wear"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Textured"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "collar",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "collar_style",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "material",
+    "attribute_value": "Polycotton"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "stretch",
+    "attribute_value": "Low Stretch"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, textured, stylish, resort wear, daily wear"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, parties, hangouts, resort wear, festival wear, evening wear"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "season_tags",
+    "attribute_value": "all season, cooler weather"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "300"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "collar",
+    "attribute_value": "Mandarin Collar"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "collar_style",
+    "attribute_value": "Mandarin Collar"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "neck_style",
+    "attribute_value": "Mandarin Neck"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "closure",
+    "attribute_value": "Pull On"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "length",
+    "attribute_value": "Short Length"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "top_style",
+    "attribute_value": "Kurta Style"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Plain Hem"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "style_tags",
+    "attribute_value": "kurta style, Indo-Western, ethnic, casual, festive, solid, Mandarin collar"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual wear, daily wear, office wear, party wear, festive wear, weddings, formal events, business meetings, traditional events, regular outings"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "250"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "sleeve_length",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "collar",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "collar_style",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "top_style",
+    "attribute_value": "Collared Long Sleeve Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Button Cuff"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "fabric_stretch",
+    "attribute_value": "Medium Stretch"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "pockets",
+    "attribute_value": "{\"count\":2,\"type\":\"Flap Pocket\",\"description\":\"Dual Flap Pockets\"}"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "care",
+    "attribute_value": "{\"instructions\":\"Hand Wash Only\"}"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "season",
+    "attribute_value": "Winter"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual wear, office wear, outing wear, daily wear, birthday, Christmas, date night, New Year, Valentine's Day"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, button-down, full sleeve, dual pocket, flap pocket, western, regular fit, cotton blend"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "230"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "item_dimensions_cm",
+    "attribute_value": "{\"length\":23,\"width\":22,\"height\":1.8}"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "attribute_name": "unit_count",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Striped"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Cuff Sleeve"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "collar",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "collar_style",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "style",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "top_style",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Single"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "pockets",
+    "attribute_value": "{\"count\":0,\"type\":\"No Pocket\"}"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton Mix 220 GSM"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "fabric_gsm",
+    "attribute_value": "220"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "fabric_stretch",
+    "attribute_value": "No Stretch"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "stretchability",
+    "attribute_value": "Non-stretchable"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "care",
+    "attribute_value": "{\"instructions\":\"Hand Wash Only\"}"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "season",
+    "attribute_value": "All Season"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual wear, daily wear, outings, party wear, semi-formal wear, ceremony"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, striped, button-down, regular fit, long sleeve, cuff sleeve, cotton mix, 220 GSM"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "item_dimensions_cm",
+    "attribute_value": "{\"length\":30,\"width\":20,\"height\":2}"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "attribute_name": "unit_count",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "collar_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "length",
+    "attribute_value": "Standard"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "top_style",
+    "attribute_value": "Blouson"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Single Cuff"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "season",
+    "attribute_value": "All Season"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "material",
+    "attribute_value": "Polyester"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Soft Polyester"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "fabric_stretch",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "stretchability",
+    "attribute_value": "Stretchable"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "features",
+    "attribute_value": "Soft fabric, Breathable fabric, Wrinkle-resistant, Lightweight, Stretchable, Easy-care fabric"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "care",
+    "attribute_value": "{\"instructions\":[\"Hand Wash\",\"Gentle Machine Wash\",\"Do Not Bleach\"]}"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "230"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "item_dimensions_cm",
+    "attribute_value": "{\"length\":23,\"width\":22,\"height\":1.8}"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "unit_count",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "brand_status",
+    "attribute_value": "Top Brand"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "positive_ratings",
+    "attribute_value": "79%"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "customer_count",
+    "attribute_value": "10K+"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "recent_orders",
+    "attribute_value": "100K+"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "attribute_name": "amazon_presence",
+    "attribute_value": "8+ years"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "collar_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "length",
+    "attribute_value": "Standard"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "shirt_form_type",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "top_style",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Barrel Cuff"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "hemline",
+    "attribute_value": "Curved"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "back_style",
+    "attribute_value": "T Back"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "season",
+    "attribute_value": "All Season"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "material",
+    "attribute_value": "{\"listed_material\":\"Linen Cotton\",\"material_status\":\"Disputed\",\"customer_reported_material\":\"Polyester\",\"ai_display_rule\":\"Do not make an unqualified linen/cotton claim.\"}"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "weight_grams",
+    "attribute_value": "170"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "occasion",
+    "attribute_value": "Business Casual, Casual Wear, Office Wear, Formal Wear"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "manufacturer",
+    "attribute_value": "SUNRISE ENTERPRISE"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "packer",
+    "attribute_value": "SUNRISE ENTERPRISE"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "importer",
+    "attribute_value": "SUNRISE ENTERPRISE"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "model_name",
+    "attribute_value": "LINEN COTTON SHIRT FOR MEN'S"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "manufacturer_part_number",
+    "attribute_value": "75"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "attribute_name": "asin",
+    "attribute_value": "B0DXCZ8FCH"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "collar_style",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "shirt_form_type",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "top_style",
+    "attribute_value": "Polo Style"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "season",
+    "attribute_value": "Summer"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "style_name",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "back_style",
+    "attribute_value": "T Back"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "material",
+    "attribute_value": "{\"composition\":\"Polyester\",\"material_status\":\"Confirmed by listing\"}"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "weight_grams",
+    "attribute_value": "240"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":33,\"width\":26,\"height\":1}"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual Wear, Daily Wear, Summer Wear, Birthday, Bachelor Party, Christmas"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "manufacturer",
+    "attribute_value": "Men Rocks Pvt Ltd"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "packer",
+    "attribute_value": "Men Rocks Pvt Ltd"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "importer",
+    "attribute_value": "Men Rocks Pvt Ltd"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "model_name",
+    "attribute_value": "SH115"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "style_number",
+    "attribute_value": "SH115-PH"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "manufacturer_part_number",
+    "attribute_value": "L-SH115-PH"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "generic_name",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "attribute_name": "asin",
+    "attribute_value": "B0DB1RW363"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "sleeve",
+    "attribute_value": "Full Sleeve"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Full Sleeve"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "collar",
+    "attribute_value": "Mandarin Collar"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "collar_style",
+    "attribute_value": "Mandarin Collar"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "neck_style",
+    "attribute_value": "Mandarin Neck"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "length",
+    "attribute_value": "Waist Length"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "style",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "material",
+    "attribute_value": "{\"composition\":\"Cotton Polyester Blend\",\"material_status\":\"Confirmed by listing\"}"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "weight_grams",
+    "attribute_value": "230"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":22,\"width\":27,\"height\":1.8}"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual Wear, Daily Wear, Regular Outing, Party Wear, Wedding, Sangeet, Mehendi, Evening Wear, Work Wear, Formal Wear, Business Wear, Professional Wear, Birthday, Anniversary, Independence Day, Honeymoon"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "manufacturer",
+    "attribute_value": "THE ZB"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "packer",
+    "attribute_value": "THE ZB"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "importer",
+    "attribute_value": "THE ZB"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "asin",
+    "attribute_value": "B0D3XL4Z8Z"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "included_component",
+    "attribute_value": "Kurta"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "attribute_name": "generic_name",
+    "attribute_value": "Dress Shirt"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "sleeve",
+    "attribute_value": "Full Sleeve"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "collar_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "neck_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "style",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "pocket",
+    "attribute_value": "{\"present\":true,\"count\":1,\"type\":\"V-Design Pocket\",\"design\":\"V\"}"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "material",
+    "attribute_value": "{\"composition\":\"80% Cotton, 20% Silk\",\"cotton_percentage\":80,\"silk_percentage\":20,\"material_description\":\"Soft Touch Cotton Fabric\",\"material_status\":\"Confirmed by listing\"}"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "weight_grams",
+    "attribute_value": "270"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":23,\"width\":23,\"height\":2}"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "manufacturer",
+    "attribute_value": "CB-COLEBROOK"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "packer",
+    "attribute_value": "CB-COLEBROOK"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "importer",
+    "attribute_value": "CB-COLEBROOK, India"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "asin",
+    "attribute_value": "B0CGLNJT2H"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "item_model_number",
+    "attribute_value": "10030"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "attribute_name": "generic_name",
+    "attribute_value": "Shirt"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "fit",
+    "attribute_value": "Slim Fit"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "pattern",
+    "attribute_value": "Checkered"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "collar_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "neck_style",
+    "attribute_value": "Regular Collar"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Plain Hem"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "style",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "length",
+    "attribute_value": "Standard"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "season",
+    "attribute_value": "Summer"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "material",
+    "attribute_value": "{\"listing_highlight\":\"100% Cotton\",\"description_claim\":\"Poly Cotton\",\"review_claim\":\"One customer reported nylon-mixed fabric\",\"resolved_material\":null,\"material_status\":\"CONFLICTING_SOURCE_DATA\",\"ai_rule\":\"Do not make an unqualified fabric-composition claim until verified.\"}"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "weight_grams",
+    "attribute_value": "300"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":26,\"width\":25,\"height\":2}"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "model_name",
+    "attribute_value": "HLSH011340"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "style_number",
+    "attribute_value": "HLSH011340"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "attribute_name": "generic_name",
+    "attribute_value": "Shirt"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "fit",
+    "attribute_value": "Slim Fit"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "collar",
+    "attribute_value": "Regular Collar"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "neck_style",
+    "attribute_value": "Button Front"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "closure",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Round Cut Cuff"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "style",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "style_name",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "season",
+    "attribute_value": "Winter"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "material",
+    "attribute_value": "{\"composition\":\"100% Cotton\",\"description\":\"100% premium cotton\",\"confidence\":\"high\"}"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "weight_grams",
+    "attribute_value": "300"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":26,\"width\":21,\"height\":2}"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "model_name",
+    "attribute_value": "Van Heusen Men's Solid Casual Shirt_SS23"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "style_number",
+    "attribute_value": "VSSFWSLBZ44674"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "manufacturer",
+    "attribute_value": "ABFRL"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "attribute_name": "generic_name",
+    "attribute_value": "Shirt"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "texture",
+    "attribute_value": "Slight Vertical Ribbing / Textured"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar / Button Down"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "cuff_style",
+    "attribute_value": "Plain Hem"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "length",
+    "attribute_value": "Untucked-friendly"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "season",
+    "attribute_value": "All Seasons"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "material",
+    "attribute_value": "{\"listed_composition\":\"Popcorn\",\"marketing_description\":\"Premium textured fabric\",\"linen_claim\":\"Product is marketed as a linen shirt\",\"verified_fiber_composition\":false,\"confidence\":\"low\",\"ai_rule\":\"Do not claim 100% linen, pure linen or 100% cotton.\"}"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "fabric_characteristics",
+    "attribute_value": "Lightweight, Breathable according to product description, Soft according to product description, Skin-friendly according to product description, Textured, Slight vertical ribbing"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "weight_grams",
+    "attribute_value": "230"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":18,\"width\":16,\"height\":2}"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "model_name",
+    "attribute_value": "POP911_LINEN_RED_F.SLEEVE_4XL"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "style_number",
+    "attribute_value": "POP911_LINEN_RED_F.SLEEVE_4XL"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "manufacturer",
+    "attribute_value": "DEELMO"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "packer",
+    "attribute_value": "DEELMO"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "importer",
+    "attribute_value": "DEELMO"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "generic_name",
+    "attribute_value": "Shirt"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "attribute_name": "asin",
+    "attribute_value": "B0F9TNQC8M"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "season",
+    "attribute_value": "All Seasons"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "material",
+    "attribute_value": "{\"listed_composition\":\"Cotton\",\"description_material\":\"Satin\",\"marketing_description\":\"Premium Cotton Fabric\",\"verified_fiber_composition\":false,\"confidence\":\"low\",\"ai_rule\":\"Do not claim 100% cotton or pure cotton.\"}"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "fabric_characteristics",
+    "attribute_value": "Smooth, Soft according to product description, Comfortable according to product description, Satin-like appearance according to product description, Elegant look, Shiny appearance according to product description"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "weight_grams",
+    "attribute_value": "330"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":23,\"width\":15,\"height\":3}"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "manufacturer",
+    "attribute_value": "INDOPRIMO, IndoPrimo, India"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "packer",
+    "attribute_value": "IndoPrimo, India"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "importer",
+    "attribute_value": "IndoPrimo PVT LTD, Surat"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "330"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "item_dimensions_cm",
+    "attribute_value": "23 x 15 x 3"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "attribute_name": "asin",
+    "attribute_value": "B0GSZWRGKC"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "collar",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "style",
+    "attribute_value": "Classic / Casual"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "season",
+    "attribute_value": "All Seasons"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "material",
+    "attribute_value": "{\"composition\":\"Cotton Blend\",\"material_type\":\"Cotton Blend\",\"confidence\":\"high\",\"note\":\"The product details explicitly list Cotton Blend.\"}"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "attribute_name": "asin",
+    "attribute_value": "B0CWTRBWV8, B0CWTRV9BQ"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "fit",
+    "attribute_value": "Classic Fit"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "collar",
+    "attribute_value": "Button Down"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "style",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "season",
+    "attribute_value": "All Seasons"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "manufacturer",
+    "attribute_value": "Arangya"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "packer",
+    "attribute_value": "Arangya"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "importer",
+    "attribute_value": "Arangya"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "asin",
+    "attribute_value": "B0CW1W6NLB"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "item_model_number",
+    "attribute_value": "modal1"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "manufacturer_part_number",
+    "attribute_value": "MNB-ST07-XL"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "100"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "attribute_name": "item_dimensions_cm",
+    "attribute_value": "10 x 9 x 3"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "upper_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "sole_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "heel_type",
+    "attribute_value": "No Heel"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "style",
+    "attribute_value": "Classic"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "weight_grams",
+    "attribute_value": "890"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "attribute_name": "key_features",
+    "attribute_value": "Durable build, Strong stitching, Soft cushioned footbed, Suitable for all-day wear, Suitable for casual outings, Suitable for travel, Breathable structure"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "sole_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "heel_type",
+    "attribute_value": "Platform Heel"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Memory Foam"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "special_features",
+    "attribute_value": "All Weather Grip, Flexible, Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "key_features",
+    "attribute_value": "Lightweight construction, Breathable upper, Lace-up closure, Flexible outsole, Air-cushioned sole, Memory foam insole, Moderate cushioning, Non-slip grip, Shockproof design, Suitable for casual wear"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "positive_rating_percentage",
+    "attribute_value": "83"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "customer_base",
+    "attribute_value": "100K+ customers"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "recent_orders",
+    "attribute_value": "100K+"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "attribute_name": "amazon_presence_years",
+    "attribute_value": "11"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual, Travel, Everyday Use"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "attribute_name": "weight_category",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "style",
+    "attribute_value": "Casual Sneakers"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic Leather"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "accent_material",
+    "attribute_value": "Suede"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "lining",
+    "attribute_value": "Lycra"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "sole_material",
+    "attribute_value": "TRP"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "outsole_material",
+    "attribute_value": "Rubber"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "cushioning",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "shock_absorption",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "grip",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual, Daily Wear, Commute, Light Activity"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "upper_material",
+    "attribute_value": "PVC, Mesh"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "sole_material",
+    "attribute_value": "Thermoplastic Elastomers"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "special_feature",
+    "attribute_value": "Anti Slip Sole Design"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "insole",
+    "attribute_value": "Memory Insole"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Athletic Shoe"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "uses",
+    "attribute_value": "Casual, Sports"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "pattern",
+    "attribute_value": "No Pattern"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "item_weight",
+    "attribute_value": "750 g"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "dimensions",
+    "attribute_value": "30.5 x 21.5 x 11.2 cm"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "amazon_top_brand",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "positive_rating_percent",
+    "attribute_value": "86"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "customer_base",
+    "attribute_value": "100K+ customers"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "recent_orders",
+    "attribute_value": "100K+"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "attribute_name": "years_on_amazon",
+    "attribute_value": "12+ years"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "sole_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "heel_type",
+    "attribute_value": "Platform Heel"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "water_resistance",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "insole",
+    "attribute_value": "Foam"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "arch_type",
+    "attribute_value": "Medium Arch"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "cushioning",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "weight",
+    "attribute_value": "400 g"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "features",
+    "attribute_value": "Breathable, Cushioned, Flexible, Lightweight, Slip Resistant"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "sport_type",
+    "attribute_value": "Casual Sportswear, Gym Training, Lifestyle Sports"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual, College, Everyday Use, Travel, Walking, Light Outdoor Activities, Street Fashion, Party Wear, Dancing"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "material",
+    "attribute_value": "Polyurethane"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "upper_material",
+    "attribute_value": "Polyurethane"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "outsole_material",
+    "attribute_value": "EVA and TPR"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "theme",
+    "attribute_value": "Sport"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "sport_type",
+    "attribute_value": "General Athletic"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "arch_type",
+    "attribute_value": "Medium Arch"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Maximum"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Air/Gel Cushioning"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "special_features",
+    "attribute_value": "All Weather Grip, Breathable, Cushioned, Flexible, Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "weight_grams",
+    "attribute_value": "546"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "attribute_name": "key_features",
+    "attribute_value": "Anti-slip sole, Yoga Max cushioned insole, Maximum cushioning, Lightweight construction, Breathable fit, Flexible design, Lace-up closure, EVA and TPR outsole, All-weather grip"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "water_resistance",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Athletic Shoe"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "pronation_correction",
+    "attribute_value": "Neutral"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "special_feature",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "weight_grams",
+    "attribute_value": "890"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "attribute_name": "key_features",
+    "attribute_value": "Lightweight construction, Lace-up closure, Flat heel, Round toe, Water resistant, Neutral pronation support, Road suitable, Suitable for casual use, Suitable for sports use"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "upper_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "theme",
+    "attribute_value": "Minimalist"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "toe_style",
+    "attribute_value": "Closed Toe"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "strap_type",
+    "attribute_value": "Laces"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Air"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Maximum"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "special_features",
+    "attribute_value": "Bubble Yoga Max Insole, Anti-Slip Sole Design"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "sport_type",
+    "attribute_value": "Running, Walking"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual, Running, Walking"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "weight_grams",
+    "attribute_value": "546"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "attribute_name": "key_features",
+    "attribute_value": "Bubble Yoga Max Insole, Anti-slip sole design, Air cushioning, Maximum cushioning, Lace-up closure, Lightweight construction, Comfortable for walking, Minimalist solid design, Suitable for casual wear, Suitable for running and walking"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "material",
+    "attribute_value": "Polyurethane"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "upper_material",
+    "attribute_value": "Polyurethane"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "toe_style",
+    "attribute_value": "Apron Toe"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "occasion_lifestyle",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "formality_level",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Air/Gel"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Maximum"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "sport_type",
+    "attribute_value": "Running, Walking"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Athletic Shoe"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "pronation_correction",
+    "attribute_value": "Neutral"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "adjustable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "special_features",
+    "attribute_value": "Comfortable"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "weight_grams",
+    "attribute_value": "528"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "attribute_name": "key_features",
+    "attribute_value": "Sleek PU upper, Lace-up closure, Adjustable fit, Comfortable cushioning, Air/Gel insole cushioning, Maximum cushioning, Flat heel, Checkered side detailing, Easy to clean, Road suitable, Suitable for walking, Suitable for running"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "sole_material",
+    "attribute_value": "Polyvinyl Chloride"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "toe_shape",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "heel_type",
+    "attribute_value": "Platform Heel"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Athletic Shoe"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "weight_grams",
+    "attribute_value": "400"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":29.3,\"width\":16.2,\"height\":10.9}"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "adjustable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "special_features",
+    "attribute_value": "All Weather Grip, Breathable, Flexible, Lightweight"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "benefits",
+    "attribute_value": "Arch support, Slip-resistant, Lightweight, Casual styling, All-day comfort"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "attribute_name": "key_features",
+    "attribute_value": "Synthetic upper, PVC outsole, Lace-up closure, Round toe, Platform heel, Lightweight construction, Breathable, Flexible, Slip-resistant, Arch support, All Weather Grip"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "closure",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "style",
+    "attribute_value": "Sneaker"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "theme",
+    "attribute_value": "Sport"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "formality",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "water_resistance",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "water_resistance_level",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "sport_type",
+    "attribute_value": "Walking"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "specific_use",
+    "attribute_value": "Sports"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "shoe_type",
+    "attribute_value": "Athletic Shoe"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "insole_cushioning",
+    "attribute_value": "Viscoelastic Foam"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "arch_type",
+    "attribute_value": "Medium Arch"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "special_features",
+    "attribute_value": "Breathable, Cushioned, Flexible, Lightweight, Slip Resistant"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "attribute_name": "key_features",
+    "attribute_value": "Street-ready design, Lace-up fit, Cushioned insole, Viscoelastic foam insole, Breathable, Flexible, Lightweight, Slip resistant, Medium arch support, Moderate cushioning"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "closure_type",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "arch_type",
+    "attribute_value": "Medium Arch"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "insole",
+    "attribute_value": "Memory Foam"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Maximum"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "water_resistance",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "pronation_correction",
+    "attribute_value": "Underpronation"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "adjustability",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "features",
+    "attribute_value": "Breathable, Cushioned, Flexible, Lightweight, Slip Resistant"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "mrp",
+    "attribute_value": "999"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "selling_price",
+    "attribute_value": "599"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "currency",
+    "attribute_value": "INR"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "discount_percentage",
+    "attribute_value": "40"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "availability",
+    "attribute_value": "in_stock"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "source_product_id",
+    "attribute_value": "B01N54ZM9W"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "model_number",
+    "attribute_value": "WONDER-13"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "manufacturer",
+    "attribute_value": "ASIAN / Asian Footwear Pvt Ltd"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "price_range",
+    "attribute_value": "under_1000"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "budget_friendly",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "comfort",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "weight",
+    "attribute_value": "lightweight"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "breathability",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "grip",
+    "attribute_value": "good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "cushioning",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "intensity",
+    "attribute_value": "light_to_moderate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "attribute_name": "recommended_for",
+    "attribute_value": "daily running, walking, casual wear, gym, light workouts, travel"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "material_type",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "upper_material",
+    "attribute_value": "Synthetic Leather"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "sole_material",
+    "attribute_value": "Ethylene Vinyl Acetate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "closure_type",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "heel_type",
+    "attribute_value": "No Heel"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "water_resistance",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "washable",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "features",
+    "attribute_value": "Lightweight, Comfortable, Washable, Budget Friendly"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "mrp",
+    "attribute_value": "2499"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "selling_price",
+    "attribute_value": "494"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "currency",
+    "attribute_value": "INR"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "discount_percentage",
+    "attribute_value": "80"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "availability",
+    "attribute_value": "in_stock"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "source_product_id",
+    "attribute_value": "B0F4KSHS9K"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "price_range",
+    "attribute_value": "under_500"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "budget_friendly",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "comfort",
+    "attribute_value": "mixed"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "weight",
+    "attribute_value": "very_light"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "durability",
+    "attribute_value": "mixed"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "running_suitability",
+    "attribute_value": "light_running"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "walking_suitability",
+    "attribute_value": "good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "cushioning",
+    "attribute_value": "mixed"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "quality_confidence",
+    "attribute_value": "medium_low"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "recommended_for",
+    "attribute_value": "walking, casual wear, light jogging, light workouts, budget buyers"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "attribute_name": "avoid_recommending_for",
+    "attribute_value": "premium running, heavy training, buyers prioritizing durability"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "material_type",
+    "attribute_value": "Synthetic"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "closure_type",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "heel_type",
+    "attribute_value": "No Heel"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "arch_type",
+    "attribute_value": "Medium Arch"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "insole",
+    "attribute_value": "Memory Foam"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate to High"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "sole_material",
+    "attribute_value": "Phylon"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Road"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "water_resistance",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "adjustability",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "features",
+    "attribute_value": "Breathable, Flexible, Lightweight, Shock Resistant, Slip Resistant, All Weather Grip"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "mrp",
+    "attribute_value": "1799"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "selling_price",
+    "attribute_value": "899"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "currency",
+    "attribute_value": "INR"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "discount_percentage",
+    "attribute_value": "50"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "availability",
+    "attribute_value": "in_stock"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "source_product_id",
+    "attribute_value": "B0DDTGFY68"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "model_number",
+    "attribute_value": "SIGNATURE-B.WHT/BROWNIE"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "manufacturer",
+    "attribute_value": "JQR SPORTS (INDIA) PVT. LTD."
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "price_range",
+    "attribute_value": "under_1000"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "budget_friendly",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "comfort",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "weight",
+    "attribute_value": "lightweight"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "breathability",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "grip",
+    "attribute_value": "good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "cushioning",
+    "attribute_value": "moderate_to_high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "durability",
+    "attribute_value": "mixed"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "intensity",
+    "attribute_value": "light_to_moderate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "recommended_for",
+    "attribute_value": "daily walking, casual wear, light running, gym, light workouts, travel"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "attribute_name": "avoid_recommending_for",
+    "attribute_value": "heavy training, buyers prioritizing maximum durability, premium running performance"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "material",
+    "attribute_value": "{\"upper\":\"Mesh\",\"sole\":\"Ethylene Vinyl Acetate (EVA)\"}"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "closure_type",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "toe_style",
+    "attribute_value": "Round Toe"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "insole",
+    "attribute_value": "Memory Tech Lite"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "cushioning_level",
+    "attribute_value": "Moderate to High"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "General Running / Everyday Surfaces"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "water_resistance",
+    "attribute_value": "Not Water Resistant"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "adjustability",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "features",
+    "attribute_value": "Breathable, Cushioned, Lightweight, Good Grip, Athletic, Everyday Wear"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "technologies",
+    "attribute_value": "Memory Tech Lite insole, Pillofoam technology"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "mrp",
+    "attribute_value": "2199"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "selling_price",
+    "attribute_value": "1084"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "currency",
+    "attribute_value": "INR"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "discount_percentage",
+    "attribute_value": "51"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "availability",
+    "attribute_value": "unknown"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "source_product_id",
+    "attribute_value": "B0H25WMZK2"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "manufacturer",
+    "attribute_value": "Campus Activewear Ltd"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "generic_name",
+    "attribute_value": "Running Shoe"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "price_range",
+    "attribute_value": "1000_to_1500"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "budget_friendly",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "comfort",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "weight",
+    "attribute_value": "lightweight"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "breathability",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "grip",
+    "attribute_value": "good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "cushioning",
+    "attribute_value": "moderate_to_high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "intensity",
+    "attribute_value": "light_to_moderate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "fit_warning",
+    "attribute_value": "Potentially narrow for wide feet"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "water_resistant",
+    "attribute_value": "false"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "recommended_for",
+    "attribute_value": "daily running, beginner running, walking, morning walks, casual wear, gym, light workouts, travel"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "attribute_name": "not_recommended_for",
+    "attribute_value": "wide feet, users requiring water resistance"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "closure_type",
+    "attribute_value": "Lace-Up"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "strap_type",
+    "attribute_value": "Lace"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "heel_type",
+    "attribute_value": "Flat"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "surface_recommendation",
+    "attribute_value": "Running / General Sports"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "adjustability",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "features",
+    "attribute_value": "Lightweight, Comfortable, Good Grip, Sporty Design, Running Suitable"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "review_derived_features",
+    "attribute_value": "Soft, Comfortable, Good Fit, Good Grip, Durable, Value for Money"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "mrp",
+    "attribute_value": "1099"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "selling_price",
+    "attribute_value": "729"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "currency",
+    "attribute_value": "INR"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "discount_percentage",
+    "attribute_value": "34"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "availability",
+    "attribute_value": "in_stock"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "source_product_id",
+    "attribute_value": "B08K9QDH7Q"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "model_number",
+    "attribute_value": "SM 648"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "manufacturer",
+    "attribute_value": "RELAXO FOOTWEARS LIMITED"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "generic_name",
+    "attribute_value": "Running Shoe"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "price_range",
+    "attribute_value": "under_1000"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "budget_friendly",
+    "attribute_value": "true"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "comfort",
+    "attribute_value": "high"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "weight",
+    "attribute_value": "lightweight"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "grip",
+    "attribute_value": "good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "durability",
+    "attribute_value": "mixed_to_good"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "quality",
+    "attribute_value": "good_for_price"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "fit",
+    "attribute_value": "generally_good_but_somewhat_narrow"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "intensity",
+    "attribute_value": "light_to_moderate"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "recommended_for",
+    "attribute_value": "daily running, normal running, walking, casual sports, daily wear, budget buyers"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "fit_warning",
+    "attribute_value": "Some reviews report a narrow fit."
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "quality_warning",
+    "attribute_value": "Some reviews report poor mesh/inner-layer durability."
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "attribute_name": "comfort_warning",
+    "attribute_value": "Most reviews are positive, but some customers found the comfort below expectations."
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "fit",
+    "attribute_value": "Loose Fit"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "pattern",
+    "attribute_value": "Striped"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "closure",
+    "attribute_value": "Zipper"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "fabric",
+    "attribute_value": "Polyester"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Lightweight"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "season",
+    "attribute_value": "Summer"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "shirt_form",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "sport_type",
+    "attribute_value": "Cycling, Walking"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "cuff",
+    "attribute_value": "No Cuff"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "weight_grams",
+    "attribute_value": "150"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":17,\"width\":15,\"height\":7}"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "style_name",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "pattern",
+    "attribute_value": "Colorblock"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "closure",
+    "attribute_value": "Pull On"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "fabric",
+    "attribute_value": "70% Cotton, 30% Polyester"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Knit"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "cuff",
+    "attribute_value": "No Cuff"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "hemline",
+    "attribute_value": "Straight"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "season",
+    "attribute_value": "All, Autumn, Spring, Summer, Winter"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "occasion",
+    "attribute_value": "Business Casual"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "shirt_form",
+    "attribute_value": "T-Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "style_name",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "model_name",
+    "attribute_value": "AUSKG-04046-S"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "style_number",
+    "attribute_value": "AUSKG-04046-S"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "manufacturer_part_number",
+    "attribute_value": "AUSKG-04046-S"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":30,\"width\":25,\"height\":2}"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "fabric",
+    "attribute_value": "50% Cotton, 50% Polyester"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton Polyester Blend"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "length",
+    "attribute_value": "Regular"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "cuff",
+    "attribute_value": "Short Sleeves"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "shirt_form",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "style_name",
+    "attribute_value": "Single"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "model_name",
+    "attribute_value": "POLO 40 to 43"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "style_number",
+    "attribute_value": "POLO 40 to 43"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "weight_grams",
+    "attribute_value": "300"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":28,\"width\":24,\"height\":1}"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "fabric",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "fabric_type",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "cuff",
+    "attribute_value": "Short Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "occasion",
+    "attribute_value": "Casual"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "shirt_form",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "top_style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "style_name",
+    "attribute_value": "Polo T-Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "model_name",
+    "attribute_value": "Polo-51-54"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "style_number",
+    "attribute_value": "POLO-54-Orange-M"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "weight_grams",
+    "attribute_value": "1050"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":20,\"width\":14,\"height\":1}"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "attribute_name": "generic_name",
+    "attribute_value": "T-Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "collar",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "pattern",
+    "attribute_value": "Graphic"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "fabric",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "style_name",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "shirt_form",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "top_style",
+    "attribute_value": "Pullover"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "season",
+    "attribute_value": "Summer"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "style",
+    "attribute_value": "Western"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "material_composition",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "fit_type",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "sleeve_type",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "collar_style",
+    "attribute_value": "Spread Collar"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "neck_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "200"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":30,\"width\":25,\"height\":2}"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "net_quantity",
+    "attribute_value": "1"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "attribute_name": "generic_name",
+    "attribute_value": "T-Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "collar",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "neck",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "pattern",
+    "attribute_value": "Solid"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "fabric",
+    "attribute_value": "Polyester"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "season",
+    "attribute_value": "All"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "shirt_form",
+    "attribute_value": "Polo Shirt"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "cuff",
+    "attribute_value": "No Cuff"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "weight_grams",
+    "attribute_value": "1050"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "dimensions_cm",
+    "attribute_value": "{\"length\":20,\"width\":14,\"height\":1}"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "department",
+    "attribute_value": "Men"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "style",
+    "attribute_value": "Polo"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "style_name",
+    "attribute_value": "Single"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "pattern",
+    "attribute_value": "Textured Striped"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "sleeve",
+    "attribute_value": "Long Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "collar",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "collar_style",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "closure",
+    "attribute_value": "Zipper"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "material",
+    "attribute_value": "Cotton Blend"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "stretch",
+    "attribute_value": "Flexible"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, textured, striped, stylish, smart casual, daily wear"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, parties, hangouts, birthday, new year, valentine's day"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "season_tags",
+    "attribute_value": "summer, all season"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "360"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "fit",
+    "attribute_value": "Regular Fit"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "pattern",
+    "attribute_value": "Geometric"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "sleeve",
+    "attribute_value": "Half Sleeve"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "collar",
+    "attribute_value": "Collared Neck"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "collar_style",
+    "attribute_value": "Polo Collar"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "closure",
+    "attribute_value": "Button"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "length",
+    "attribute_value": "Standard Length"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "material",
+    "attribute_value": "Cotton"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "fabric_weight",
+    "attribute_value": "Medium Weight"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "stretch",
+    "attribute_value": "Not specified"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "care",
+    "attribute_value": "Machine Wash"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "style_tags",
+    "attribute_value": "casual, smart casual, polo, geometric, modern, stylish, everyday wear"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "occasion_tags",
+    "attribute_value": "casual outings, daily wear, college, office casual, parties, hangouts"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "season_tags",
+    "attribute_value": "winter, all season"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "country_of_origin",
+    "attribute_value": "India"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "attribute_name": "item_weight_grams",
+    "attribute_value": "300"
+  }
+]

@@ -14,6 +14,8 @@
 
 import { client } from '../data/DB';
 import { rankAndFilterProducts, extractSemanticIntent } from './SemanticProductMatcher';
+import ShopiCatalogService, { FormattedProduct } from '../data/shopiCatalogService';
+import { ProductIntelligenceService } from '../shopi-assistant/productIntelligence';
 
 export interface MoneyAmount {
   amount: string;
@@ -176,6 +178,53 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     };
   }
 
+  private formatShopiProduct(p: FormattedProduct): MockProduct {
+    const finalPrice = Number(p.selling_price || 0).toFixed(2);
+    const variants: Array<{ id: string; name: string; price?: MoneyAmount }> = [];
+
+    if (p.colors.length > 0 && p.sizes.length > 0) {
+      for (const col of p.colors) {
+        for (const sz of p.sizes) {
+          variants.push({
+            id: `${col.colorid}-${sz.sizeid}`,
+            name: `${col.colorname} / ${sz.sizename}`,
+            price: { amount: finalPrice, currency: this.defaultCurrency }
+          });
+        }
+      }
+    } else if (p.colors.length > 0) {
+      for (const col of p.colors) {
+        variants.push({
+          id: String(col.colorid),
+          name: col.colorname,
+          price: { amount: finalPrice, currency: this.defaultCurrency }
+        });
+      }
+    } else if (p.sizes.length > 0) {
+      for (const sz of p.sizes) {
+        variants.push({
+          id: String(sz.sizeid),
+          name: sz.sizename,
+          price: { amount: finalPrice, currency: this.defaultCurrency }
+        });
+      }
+    }
+
+    return {
+      id: String(p.sku || p.productid),
+      name: p.title,
+      description: p.description,
+      price: {
+        amount: finalPrice,
+        currency: this.defaultCurrency
+      },
+      category: `${p.categories.maincategory} > ${p.categories.subcategory}`,
+      inStock: p.stock > 0,
+      imageUrl: p.imglink,
+      variants
+    };
+  }
+
   /**
    * 2. List Products with Pagination and Optional Category Filtering
    */
@@ -188,43 +237,21 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     const limit = Math.min(Math.max(options?.limit || 10, 1), 50);
     const offset = (page - 1) * limit;
 
-    let whereClause = 'WHERE 1=1';
-    const params: any[] = [];
+    let allProds = await ShopiCatalogService.listProducts();
 
     if (options?.category && options.category.trim() !== '') {
-      params.push(`%${options.category.trim()}%`);
-      whereClause += ` AND (c.name ILIKE $${params.length} OR c.maincategory ILIKE $${params.length})`;
+      const catFilter = options.category.trim().toLowerCase();
+      allProds = allProds.filter(p =>
+        p.category?.toLowerCase().includes(catFilter) ||
+        p.maincategory?.toLowerCase().includes(catFilter) ||
+        p.categories.subcategory.toLowerCase().includes(catFilter) ||
+        p.categories.maincategory.toLowerCase().includes(catFilter)
+      );
     }
 
-    const countQuery = `
-      SELECT COUNT(DISTINCT p.productid) as total
-      FROM products p
-      LEFT JOIN categories c ON p.categoryid = c.categoryid
-      ${whereClause};
-    `;
-    const countRes = await client.query(countQuery, params);
-    const total = parseInt(countRes.rows[0]?.total || '0', 10);
-
-    const listQuery = `
-      SELECT p.productid, p.title, p.description, p.price, p.discount, p.stock,
-             c.name AS category_name, c.maincategory,
-             pi.imglink, pi.imgalt,
-             pp.stars
-      FROM products p
-      LEFT JOIN categories c ON p.categoryid = c.categoryid
-      LEFT JOIN productimages pi ON p.productid = pi.productid AND pi.isprimary = true
-      LEFT JOIN productparams pp ON p.productid = pp.productid
-      ${whereClause}
-      ORDER BY p.productid ASC
-      LIMIT $${params.length + 1} OFFSET $${params.length + 2};
-    `;
-
-    const queryParams = [...params, limit, offset];
-    const res = await client.query(listQuery, queryParams);
-
-    const products: MockProduct[] = await Promise.all(
-      res.rows.map((row: any) => this.formatProductRow(row))
-    );
+    const total = allProds.length;
+    const paginated = allProds.slice(offset, offset + limit);
+    const products = paginated.map(p => this.formatShopiProduct(p));
 
     return { products, total };
   }
@@ -239,9 +266,9 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     const maxLimit = Math.min(Math.max(limit || 10, 1), 50);
     const rawQuery = (query || '').trim();
 
-    // Extract price constraints if present (e.g. "under 3000", "under ₹2000", "below 1500", "less than 500")
-    let maxPriceConstraint: number | null = null;
-    let minPriceConstraint: number | null = null;
+    // Extract price constraints if present
+    let maxPriceConstraint: number | undefined = undefined;
+    let minPriceConstraint: number | undefined = undefined;
     let cleanedKeywords = rawQuery;
 
     const underMatch = rawQuery.match(/(?:under|below|less than|within)\s*(?:₹|rs\.?|inr)?\s*(\d+(?:\.\d+)?)/i);
@@ -256,113 +283,13 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
       cleanedKeywords = cleanedKeywords.replace(aboveMatch[0], ' ').trim();
     }
 
-    // Exact price match (e.g. "₹2299", "2299 rs", "price 2499")
-    let exactPriceConstraint: number | null = null;
-    const exactMatch = rawQuery.match(/(?:₹|rs\.?|inr)\s*(\d+(?:\.\d+)?)/i);
-    if (exactMatch && exactMatch[1] && maxPriceConstraint === null && minPriceConstraint === null) {
-      exactPriceConstraint = parseFloat(exactMatch[1]);
-      cleanedKeywords = cleanedKeywords.replace(exactMatch[0], ' ').trim();
-    }
-
-    // Stop words to ignore during natural language search
-    const STOP_WORDS = new Set([
-      'show', 'find', 'get', 'give', 'me', 'some', 'all', 'any', 'the', 'a', 'an',
-      'product', 'products', 'item', 'items', 'thing', 'things', 'something', 'anything',
-      'everything', 'one', 'ones', 'good', 'best', 'cheap', 'affordable', 'for', 'with',
-      'in', 'on', 'at', 'to', 'of', 'and', 'or', 'is', 'are', 'want', 'need', 'looking'
-    ]);
-
-    // Clean search tokens and filter out stop words
-    const tokens = cleanedKeywords
-      .replace(/[^\w\s'-]/g, ' ')
-      .split(/\s+/)
-      .map(t => t.trim().toLowerCase())
-      .filter(t => t.length > 1 && !STOP_WORDS.has(t));
-
-    const params: any[] = [];
-    let whereConditions: string[] = [];
-
-    if (tokens.length > 0) {
-      // Build word conditions across title, description, tags, category name, and maincategory
-      const tokenClauses = tokens.map(token => {
-        // Strip trailing 's' for simple plural matching (e.g. tops -> top, shoes -> shoe)
-        const singular = token.endsWith('s') && token.length > 3 ? token.slice(0, -1) : token;
-        params.push(`%${singular}%`);
-        const idx = params.length;
-        return `(p.title ILIKE $${idx} OR p.description ILIKE $${idx} OR p.tags ILIKE $${idx} OR c.name ILIKE $${idx} OR c.maincategory ILIKE $${idx})`;
-      });
-      whereConditions.push(`(${tokenClauses.join(' OR ')})`);
-    }
-
-    if (maxPriceConstraint !== null) {
-      params.push(maxPriceConstraint);
-      whereConditions.push(`CAST(p.discount AS numeric) <= $${params.length}`);
-    }
-
-    if (minPriceConstraint !== null) {
-      params.push(minPriceConstraint);
-      whereConditions.push(`CAST(p.discount AS numeric) >= $${params.length}`);
-    }
-
-    if (exactPriceConstraint !== null) {
-      params.push(exactPriceConstraint);
-      whereConditions.push(`(CAST(p.discount AS numeric) = $${params.length} OR CAST(p.price AS numeric) = $${params.length})`);
-    }
-
-    const whereClause = whereConditions.length > 0 ? `WHERE ${whereConditions.join(' AND ')}` : '';
-
-    const orderByClause = tokens.length > 0
-      ? `ORDER BY 
-          CASE 
-            WHEN p.title ILIKE $1 THEN 1
-            WHEN p.tags ILIKE $1 THEN 2
-            ELSE 3
-          END ASC,
-          pp.stars DESC NULLS LAST,
-          p.productid ASC`
-      : `ORDER BY CAST(p.discount AS numeric) ASC, pp.stars DESC NULLS LAST, p.productid ASC`;
-
-    const searchQuery = `
-      SELECT p.productid, p.title, p.description, p.price, p.discount, p.stock,
-             c.name AS category_name, c.maincategory,
-             pi.imglink, pi.imgalt,
-             pp.stars
-      FROM products p
-      LEFT JOIN categories c ON p.categoryid = c.categoryid
-      LEFT JOIN productimages pi ON p.productid = pi.productid AND pi.isprimary = true
-      LEFT JOIN productparams pp ON p.productid = pp.productid
-      ${whereClause}
-      ${orderByClause}
-      LIMIT $${params.length + 1};
-    `;
-
-    const candidateFetchLimit = Math.max(maxLimit * 3, 30);
-
-    // If no search tokens provided, fallback to standard listing
-    let res: any;
-    if (params.length === 0) {
-      res = await client.query(
-        `SELECT p.productid, p.title, p.description, p.price, p.discount, p.stock,
-                c.name AS category_name, c.maincategory,
-                pi.imglink, pi.imgalt,
-                pp.stars
-         FROM products p
-         LEFT JOIN categories c ON p.categoryid = c.categoryid
-         LEFT JOIN productimages pi ON p.productid = pi.productid AND pi.isprimary = true
-         LEFT JOIN productparams pp ON p.productid = pp.productid
-         ORDER BY pp.stars DESC NULLS LAST
-         LIMIT $1`,
-        [candidateFetchLimit]
-      );
-    } else {
-      res = await client.query(searchQuery, [...params, candidateFetchLimit]);
-    }
-
-    const rawCandidates: MockProduct[] = await Promise.all(
-      res.rows.map((row: any) => this.formatProductRow(row))
+    const matchedProds = await ShopiCatalogService.searchProducts(
+      cleanedKeywords,
+      minPriceConstraint,
+      maxPriceConstraint
     );
 
-    // Apply semantic scoring, demographic alignment, and relevance ranking
+    const rawCandidates: MockProduct[] = matchedProds.map(p => this.formatShopiProduct(p));
     const ranked = rankAndFilterProducts(rawCandidates, rawQuery);
     const finalProducts = ranked.length > 0 ? ranked.slice(0, maxLimit) : rawCandidates.slice(0, maxLimit);
 
@@ -377,29 +304,12 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
    * 4. Get Full Product Details by ID
    */
   async getProduct(productId: string): Promise<MockProduct> {
-    const id = parseInt(productId, 10);
-    if (isNaN(id)) {
-      throw new Error(`Invalid product ID format: "${productId}". Must be an integer.`);
-    }
-
-    const query = `
-      SELECT p.productid, p.title, p.description, p.price, p.discount, p.stock,
-             c.name AS category_name, c.maincategory,
-             pi.imglink, pi.imgalt,
-             pp.stars
-      FROM products p
-      LEFT JOIN categories c ON p.categoryid = c.categoryid
-      LEFT JOIN productimages pi ON p.productid = pi.productid AND pi.isprimary = true
-      LEFT JOIN productparams pp ON p.productid = pp.productid
-      WHERE p.productid = $1;
-    `;
-
-    const res = await client.query(query, [id]);
-    if (res.rows.length === 0) {
+    const prod = await ShopiCatalogService.getProduct(productId);
+    if (!prod) {
       throw new Error(`Product with ID "${productId}" was not found in catalog.`);
     }
 
-    return this.formatProductRow(res.rows[0], true);
+    return this.formatShopiProduct(prod);
   }
 
   /**
@@ -409,53 +319,32 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     productId: string,
     limit: number = 10
   ): Promise<ProductReviewResult> {
-    const id = parseInt(productId, 10);
-    if (isNaN(id)) {
-      throw new Error(`Invalid product ID format: "${productId}". Must be an integer.`);
+    const maxLimit = Math.min(Math.max(limit || 10, 1), 50);
+    const prod = await ShopiCatalogService.getProduct(productId);
+
+    if (!prod) {
+      return {
+        productId: productId.toString(),
+        averageRating: 4.0,
+        totalReviews: 0,
+        reviews: []
+      };
     }
 
-    const maxLimit = Math.min(Math.max(limit || 10, 1), 50);
-
-    const reviewsQuery = `
-      SELECT r.reviewid, r.userid, r.rating, r.title, r.comment, r.createdat,
-             u.username
-      FROM reviews r
-      LEFT JOIN users u ON r.userid = u.userid
-      WHERE r.productid = $1
-      ORDER BY r.createdat DESC
-      LIMIT $2;
-    `;
-
-    const [reviewsRes, ratingRes] = await Promise.all([
-      client.query(reviewsQuery, [id, maxLimit]),
-      client.query(
-        `SELECT stars, rating FROM productparams WHERE productid = $1;`,
-        [id]
-      )
-    ]);
-
-    const averageRating = ratingRes.rows[0]?.stars
-      ? parseFloat(ratingRes.rows[0].stars)
-      : reviewsRes.rows.length > 0
-        ? reviewsRes.rows.reduce((acc: number, r: any) => acc + parseFloat(r.rating || 0), 0) / reviewsRes.rows.length
-        : 4.5;
-
-    const totalReviews = reviewsRes.rows.length;
-
-    const reviews: ProductReview[] = reviewsRes.rows.map((row: any) => ({
-      id: row.reviewid ? row.reviewid.toString() : `rev_${Math.random()}`,
-      author: row.username || 'Verified Customer',
-      rating: parseFloat(row.rating || 5),
-      title: row.title || 'Product Review',
-      body: row.comment || 'Great quality product.',
-      date: row.createdat ? new Date(row.createdat).toISOString() : new Date().toISOString(),
+    const reviews: ProductReview[] = (prod.reviews || []).slice(0, maxLimit).map((r: any) => ({
+      id: String(r.reviewid),
+      author: r.username || 'Verified Customer',
+      rating: Number(r.rating || 5),
+      title: r.title || 'Product Review',
+      body: r.comment || 'Verified customer review.',
+      date: r.createdat || new Date().toISOString(),
       verified: true
     }));
 
     return {
       productId: productId.toString(),
-      averageRating: parseFloat(averageRating.toFixed(1)),
-      totalReviews,
+      averageRating: prod.stars,
+      totalReviews: prod.reviewcount,
       reviews
     };
   }
@@ -472,11 +361,21 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
              pc.colorname,
              ps.sizename
       FROM cartitems c
-      INNER JOIN products p ON c.productid = p.productid
+      LEFT JOIN products p ON c.productid = p.productid
       LEFT JOIN categories cat ON p.categoryid = cat.categoryid
-      LEFT JOIN productimages pi ON p.productid = pi.productid AND pi.isprimary = true
-      LEFT JOIN productcolors pc ON c.colorid = pc.colorid
-      LEFT JOIN productsizes ps ON c.sizeid = ps.sizeid
+      LEFT JOIN (
+        SELECT DISTINCT ON (productid) productid, imglink, imgalt
+        FROM productimages
+        ORDER BY productid, isprimary DESC
+      ) pi ON p.productid = pi.productid
+      LEFT JOIN (
+        SELECT DISTINCT ON (productid, colorid) productid, colorid, colorname
+        FROM productcolors
+      ) pc ON c.colorid = pc.colorid AND c.productid = pc.productid
+      LEFT JOIN (
+        SELECT DISTINCT ON (productid, sizeid) productid, sizeid, sizename
+        FROM productsizes
+      ) ps ON c.sizeid = ps.sizeid AND c.productid = ps.productid
       WHERE c.userid = $1
       ORDER BY c.cartitemid ASC;
     `;
@@ -485,28 +384,70 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     let total = 0;
     let itemCount = 0;
 
-    const items: RealCartItem[] = res.rows.map((row: any) => {
-      const unitPrice = parseFloat(row.discount || row.price || 0);
+    const items: RealCartItem[] = await Promise.all(res.rows.map(async (row: any) => {
+      // Look up canonical Supabase catalog product by numeric ID or SKU
+      const supProd = await ShopiCatalogService.getProduct(String(row.productid));
+
+      const canonicalSku = supProd?.sku || String(row.productid);
+      const canonicalTitle = supProd?.title || row.title || 'Product';
+      const unitPrice = supProd?.selling_price !== undefined 
+        ? supProd.selling_price 
+        : parseFloat(row.discount || row.price || 0);
       const qty = parseInt(row.quantity || 1, 10);
       const itemTotal = unitPrice * qty;
 
       total += itemTotal;
       itemCount += qty;
 
+      // Color resolution: check row.colorname first, then match row.colorid in supProd.colors, fallback to first color
+      let selectedColor = row.colorname;
+      if (!selectedColor && row.colorid && supProd?.colors) {
+        const matchedColById = supProd.colors.find((c: any) => c.colorid === row.colorid);
+        if (matchedColById) selectedColor = matchedColById.colorname;
+      }
+      if (!selectedColor && supProd?.colors && supProd.colors.length > 0 && row.colorid) {
+        selectedColor = supProd.colors[0].colorname;
+      }
+      if (selectedColor && (selectedColor.toLowerCase() === 'undefined' || selectedColor.toLowerCase() === 'null')) {
+        selectedColor = undefined;
+      }
+
+      // Size resolution: check row.sizename first, then match row.sizeid in supProd.sizes, fallback to first size
+      let selectedSize = row.sizename;
+      if (!selectedSize && row.sizeid && supProd?.sizes) {
+        const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === row.sizeid);
+        if (matchedSzById) selectedSize = matchedSzById.sizename;
+      }
+      if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0 && row.sizeid) {
+        selectedSize = supProd.sizes[0].sizename;
+      }
+      if (selectedSize && (selectedSize.toLowerCase() === 'undefined' || selectedSize.toLowerCase() === 'null')) {
+        selectedSize = undefined;
+      }
+
+      // Image resolution: variant image first, then canonical image, then DB image
+      let finalImg = supProd?.imglink || row.imglink;
+      if (selectedColor && supProd?.colors) {
+        const matchedCol = supProd.colors.find(c => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
+        if (matchedCol && matchedCol.imglink) {
+          finalImg = matchedCol.imglink;
+        }
+      }
+
       return {
         cartItemId: row.cartitemid,
-        productId: row.productid.toString(),
-        name: row.title || 'Product',
+        productId: canonicalSku,
+        name: canonicalTitle,
         price: unitPrice,
         quantity: qty,
         currency: this.defaultCurrency,
-        imageUrl: row.imglink || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
-        category: row.category_name || row.maincategory,
-        color: row.colorname || undefined,
-        size: row.sizename || undefined,
+        imageUrl: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+        category: supProd?.category || row.category_name || row.maincategory || 'Clothing',
+        color: selectedColor || undefined,
+        size: selectedSize || undefined,
         itemTotal: parseFloat(itemTotal.toFixed(2)),
       };
-    });
+    }));
 
     return {
       items,
@@ -517,21 +458,47 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
   }
 
   /**
-   * 7. Real Cart: Add Product to Cart for User
+   * 7. Real Cart: Add Product to Cart for User with Full Variant Support
    */
   async addToCart(
     userId: number,
     productId: string,
     quantity: number = 1,
     colorId?: number,
-    sizeId?: number
+    sizeId?: number,
+    colorName?: string,
+    sizeName?: string
   ): Promise<{ success: boolean; message: string; cart: RealCartState; addedItem?: RealCartItem }> {
-    const id = parseInt(productId, 10);
+    const fullIntel = await ProductIntelligenceService.getProductBySkuOrId(productId);
+    const supProd = await ShopiCatalogService.getProduct(productId);
+    let id = parseInt(productId, 10);
     if (isNaN(id)) {
-      throw new Error(`Invalid product ID: "${productId}". Must be an integer.`);
+      if (fullIntel?.product?.product_id) {
+        id = fullIntel.product.product_id;
+      } else if (supProd && typeof (supProd as any).product_id === 'number') {
+        id = (supProd as any).product_id;
+      } else if (supProd && typeof supProd.productid === 'number') {
+        id = supProd.productid;
+      }
+    }
+    if (isNaN(id) || !id) {
+      throw new Error(`Invalid product ID: "${productId}". Could not resolve to a catalog product.`);
     }
 
     const qty = Math.max(1, Math.min(quantity || 1, 10));
+
+    // Ensure user exists in users table with required NOT NULL columns to prevent FK violation
+    try {
+      const userMobile = ('9' + String(Math.abs(userId)).padStart(9, '0')).slice(-10);
+      await client.query(
+        `INSERT INTO users (userid, email, username, password, mobile_number, dob)
+         VALUES ($1, $2, $3, 'demo_secure_pass_2026', $4, '2000-01-01')
+         ON CONFLICT (userid) DO NOTHING;`,
+        [userId, `user_${userId}@shopi.ai`, `Customer ${userId}`, userMobile]
+      );
+    } catch (uErr: any) {
+      console.warn('[User auto-provision warning]:', uErr.message);
+    }
 
     // Verify product exists and is in stock
     const prodQuery = `
@@ -544,26 +511,120 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
       WHERE p.productid = $1;
     `;
 
-    const prodRes = await client.query(prodQuery, [id]);
-    if (prodRes.rows.length === 0) {
+    let prodRes = await client.query(prodQuery, [id]);
+    let prod = prodRes.rows[0];
+
+    // Ensure product and all its colors and sizes are synced to local DB
+    if (supProd) {
+      try {
+        await client.query(
+          `INSERT INTO products (productid, title, price, discount, stock, description, categoryid)
+           VALUES ($1, $2, $3, $4, $5, $6, $7)
+           ON CONFLICT (productid) DO UPDATE SET title = EXCLUDED.title, price = EXCLUDED.price, discount = EXCLUDED.discount, stock = EXCLUDED.stock;`,
+          [
+            id,
+            supProd.title,
+            supProd.mrp || supProd.price || 999,
+            supProd.selling_price || supProd.discountedprice || 499,
+            supProd.stock || 50,
+            supProd.description || supProd.title,
+            1
+          ]
+        );
+
+        if (supProd.imglink) {
+          await client.query(
+            `INSERT INTO productimages (productid, imglink, imgalt, isprimary)
+             VALUES ($1, $2, $3, true)
+             ON CONFLICT DO NOTHING;`,
+            [id, supProd.imglink, supProd.title]
+          );
+        }
+
+        if (supProd.colors && supProd.colors.length > 0) {
+          for (const col of supProd.colors) {
+            await client.query(
+              `INSERT INTO productcolors (colorid, productid, colorname, colorclass)
+               VALUES ($1, $2, $3, $4)
+               ON CONFLICT DO NOTHING;`,
+              [col.colorid, id, col.colorname, col.colorclass || 'bg-slate-700']
+            );
+          }
+        }
+
+        if (supProd.sizes && supProd.sizes.length > 0) {
+          for (const sz of supProd.sizes) {
+            await client.query(
+              `INSERT INTO productsizes (sizeid, productid, sizename, instock)
+               VALUES ($1, $2, $3, $4)
+               ON CONFLICT DO NOTHING;`,
+              [sz.sizeid, id, sz.sizename, sz.instock !== false]
+            );
+          }
+        }
+
+        const reQuery = await client.query(prodQuery, [id]);
+        if (reQuery.rows.length > 0) {
+          prod = reQuery.rows[0];
+        }
+      } catch (syncErr: any) {
+        console.warn('[Sync Supabase product to DB warning]:', syncErr.message);
+      }
+    }
+
+    if (!prod) {
       throw new Error(`Product with ID "${productId}" does not exist in catalog.`);
     }
 
-    const prod = prodRes.rows[0];
     if (prod.stock !== null && prod.stock !== undefined && prod.stock <= 0) {
       throw new Error(`Product "${prod.title}" is currently out of stock.`);
     }
 
-    const finalColorId = colorId !== undefined ? colorId : prod.default_colorid;
-    const finalSizeId = sizeId !== undefined ? sizeId : prod.default_sizeid;
+    // Resolve explicit color ID
+    let finalColorId = colorId;
+    if (finalColorId === undefined && colorName) {
+      const colQuery = await client.query(
+        `SELECT colorid FROM productcolors WHERE productid = $1 AND LOWER(colorname) = LOWER($2) LIMIT 1`,
+        [id, colorName.trim()]
+      );
+      if (colQuery.rows.length > 0) {
+        finalColorId = colQuery.rows[0].colorid;
+      } else if (supProd?.colors) {
+        const matchedCol = supProd.colors.find((c: any) => c.colorname && c.colorname.toLowerCase() === colorName.trim().toLowerCase());
+        if (matchedCol?.colorid) finalColorId = matchedCol.colorid;
+      }
+    }
+    if (finalColorId === undefined) {
+      finalColorId = prod.default_colorid;
+    }
 
-    // Check if item is already in user's cart
+    // Resolve explicit size ID
+    let finalSizeId = sizeId;
+    if (finalSizeId === undefined && sizeName) {
+      const szQuery = await client.query(
+        `SELECT sizeid FROM productsizes WHERE productid = $1 AND LOWER(sizename) = LOWER($2) LIMIT 1`,
+        [id, sizeName.trim()]
+      );
+      if (szQuery.rows.length > 0) {
+        finalSizeId = szQuery.rows[0].sizeid;
+      } else if (supProd?.sizes) {
+        const matchedSz = supProd.sizes.find((s: any) => s.sizename && s.sizename.toLowerCase() === sizeName.trim().toLowerCase());
+        if (matchedSz?.sizeid) finalSizeId = matchedSz.sizeid;
+      }
+    }
+    if (finalSizeId === undefined) {
+      finalSizeId = prod.default_sizeid;
+    }
+
+    // Check if item with the EXACT same variant (color + size) is already in user's cart
     const checkQuery = `
       SELECT cartitemid, quantity 
       FROM cartitems 
-      WHERE userid = $1 AND productid = $2;
+      WHERE userid = $1 AND productid = $2 
+        AND (colorid = $3 OR ($3 IS NULL AND colorid IS NULL))
+        AND (sizeid = $4 OR ($4 IS NULL AND sizeid IS NULL));
     `;
-    const checkRes = await client.query(checkQuery, [userId, id]);
+    const checkRes = await client.query(checkQuery, [userId, id, finalColorId, finalSizeId]);
 
     if (checkRes.rows.length > 0) {
       const existingCartItemId = checkRes.rows[0].cartitemid;
@@ -584,7 +645,11 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     }
 
     const updatedCart = await this.getCart(userId);
-    const addedItem = updatedCart.items.find(i => i.productId === productId);
+    const addedItem = updatedCart.items.find(i => 
+      (i.productId === (supProd?.sku || String(id))) &&
+      (!colorName || (i.color || '').toLowerCase() === colorName.toLowerCase()) &&
+      (!sizeName || (i.size || '').toLowerCase() === sizeName.toLowerCase())
+    ) || updatedCart.items[updatedCart.items.length - 1];
 
     return {
       success: true,
@@ -601,17 +666,25 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
     userId: number,
     productIdOrCartItemId: string | number
   ): Promise<{ success: boolean; message: string; cart: RealCartState }> {
-    const id = typeof productIdOrCartItemId === 'string' ? parseInt(productIdOrCartItemId, 10) : productIdOrCartItemId;
-    if (isNaN(id)) {
-      throw new Error(`Invalid ID: "${productIdOrCartItemId}".`);
+    let id = typeof productIdOrCartItemId === 'string' ? parseInt(productIdOrCartItemId, 10) : productIdOrCartItemId;
+    let targetSku = typeof productIdOrCartItemId === 'string' ? productIdOrCartItemId : '';
+
+    if (isNaN(id) && typeof productIdOrCartItemId === 'string') {
+      const supProd = await ShopiCatalogService.getProduct(productIdOrCartItemId);
+      if (supProd) {
+        id = typeof (supProd as any).product_id === 'number'
+          ? (supProd as any).product_id
+          : (typeof supProd.productid === 'number' ? supProd.productid : 59);
+        targetSku = supProd.sku || productIdOrCartItemId;
+      }
     }
 
     const deleteQuery = `
       DELETE FROM cartitems 
-      WHERE userid = $1 AND (productid = $2 OR cartitemid = $2)
+      WHERE userid = $1 AND (productid = $2 OR cartitemid = $2 OR productid IN (SELECT productid FROM products WHERE title ILIKE $3))
       RETURNING cartitemid, productid;
     `;
-    const res = await client.query(deleteQuery, [userId, id]);
+    const res = await client.query(deleteQuery, [userId, id || -1, `%${targetSku || 'none'}%`]);
 
     const updatedCart = await this.getCart(userId);
     if (res.rows.length === 0) {
@@ -776,7 +849,7 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
       },
       category: row.category_name || row.maincategory || 'Apparel',
       inStock: (row.stock === null || row.stock === undefined) ? true : row.stock > 0,
-      imageUrl: row.imglink || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80',
+      imageUrl: row.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
       variants: variants.length > 0 ? variants : undefined
     };
   }

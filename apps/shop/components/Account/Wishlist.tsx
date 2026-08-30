@@ -5,7 +5,7 @@ import { useApp } from '@/Helpers/AccountDialog';
 import React from 'react'
 interface Wishlist{
   wishlistItemID:number;
-  productID:number;
+  productID:number | string;
   productImg:string;
   productAlt:string;
   productName:string;
@@ -16,7 +16,7 @@ const Wishlist = ({Component,loading,setLoading}:{Component:Wishlist[],loading:b
   const dispatch = useAppDispatch();
   const { appState } = useApp();
   const isLogged = appState.loggedIn;
-  async function removeItem(wishlistItemID:number,productID:number){
+  async function removeItem(wishlistItemID:number,productID:number | string){
     setLoading(true);
     isLogged && await wishlistDeleteHandler({wishlistItemID, userID:defaultAccount.userID})
     dispatch(removeItemFromWishlist(productID));

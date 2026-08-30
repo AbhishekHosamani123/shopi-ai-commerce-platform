@@ -1,6 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   MERCHANT DASHBOARD PRESENTATION TYPOGRAPHY SCALE
+   Scoped to .merchant-ui (AppShell root) — the customer-facing
+   storefront is unaffected. Bumps every text tier by ~1px for
+   live-presentation readability on 1080p displays while keeping
+   the Linear-style hierarchy, spacing and density unchanged.
+
+   Selectors repeat the utility name inside :is() so Tailwind's
+   JIT scanner sees the literal class and emits the base rules;
+   the .merchant-ui ancestor wins on specificity without
+   touching component code.
+   ============================================================ */
+.merchant-ui {
+  font-size: 17px; /* root 16 → 17: unclassed text and em-based sizing */
+}
+.merchant-ui :is(.text-\[8px\])  { font-size: 9px; }
+.merchant-ui :is(.text-\[9px\])  { font-size: 10px; }
+.merchant-ui :is(.text-\[10px\]) { font-size: 11px; }
+.merchant-ui :is(.text-\[11px\]) { font-size: 12px; }
+.merchant-ui :is(.text-\[12px\]) { font-size: 13px; }
+.merchant-ui :is(.text-xs)    { font-size: 13px; line-height: 1.25rem; } /* 12 → 13 */
+.merchant-ui :is(.text-sm)    { font-size: 15px; line-height: 1.5rem;  } /* 14 → 15 */
+.merchant-ui :is(.text-base)  { font-size: 17px; line-height: 1.65rem; } /* 16 → 17 */
+.merchant-ui :is(.text-lg)    { font-size: 19px; line-height: 1.75rem; } /* 18 → 19 */
+.merchant-ui :is(.text-xl)    { font-size: 21px; line-height: 1.9rem;  } /* 20 → 21 */
+.merchant-ui :is(.text-2xl)   { font-size: 26px; line-height: 2.1rem;  } /* 24 → 26 */
+.merchant-ui :is(.text-3xl)   { font-size: 31px; line-height: 2.35rem; } /* 30 → 31 */
+
 :root {
   --color-canvas: #010102;
   --color-surface-1: #0f1011;

@@ -49,35 +49,19 @@ export default function ReturnsPage() {
   const [isCopilotOpen, setIsCopilotOpen] = useState<boolean>(false);
 
   const [returnsData, setReturnsData] = useState<ReturnsData>({
-    totalDeliveredItems: 1637,
-    totalReturnedItems: 105,
-    overallReturnRatePct: 6.41,
-    totalRefundAmount: 247372,
-    reasonBreakdown: [
-      { reason: 'defective', count: 32, totalRefundAmount: 79660, percentageOfReturns: 30.48 },
-      { reason: 'wrong_size', count: 27, totalRefundAmount: 66766, percentageOfReturns: 25.71 },
-      { reason: 'not_as_described', count: 23, totalRefundAmount: 61970, percentageOfReturns: 21.9 },
-      { reason: 'changed_mind', count: 23, totalRefundAmount: 38976, percentageOfReturns: 21.9 }
-    ],
-    highestReturnProducts: [
-      { productId: 301, title: 'Baby Fabric Soft Shoes', unitsSold: 66, returnsCount: 9, returnRatePct: 13.64, refundAmount: 4990 },
-      { productId: 104, title: 'Running Breathable Socks', unitsSold: 64, returnsCount: 8, returnRatePct: 12.5, refundAmount: 20388 },
-      { productId: 101, title: 'Aero Glide Running Shoes', unitsSold: 30, returnsCount: 3, returnRatePct: 10.0, refundAmount: 13293 },
-      { productId: 204, title: 'Classic Leather Jacket', unitsSold: 22, returnsCount: 2, returnRatePct: 9.09, refundAmount: 6998 },
-      { productId: 92, title: 'Winter Thermal Beanie', unitsSold: 13, returnsCount: 1, returnRatePct: 7.69, refundAmount: 999 }
-    ]
+    totalDeliveredItems: 0,
+    totalReturnedItems: 0,
+    overallReturnRatePct: 0,
+    totalRefundAmount: 0,
+    reasonBreakdown: [],
+    highestReturnProducts: []
   });
 
   const [cancellationsData, setCancellationsData] = useState<CancellationsData>({
-    totalOrders: 1019,
-    totalCancellations: 21,
-    cancellationRatePct: 2.06,
-    reasonBreakdown: [
-      { reason: 'Delay in delivery preference', count: 7, percentageOfCancels: 33.33 },
-      { reason: 'Found better price', count: 6, percentageOfCancels: 28.57 },
-      { reason: 'Changed mind before shipping', count: 6, percentageOfCancels: 28.57 },
-      { reason: 'Ordered by mistake', count: 2, percentageOfCancels: 9.52 }
-    ]
+    totalOrders: 0,
+    totalCancellations: 0,
+    cancellationRatePct: 0,
+    reasonBreakdown: []
   });
 
   const fetchReturnsData = useCallback(async () => {
@@ -254,7 +238,15 @@ export default function ReturnsPage() {
               <TrustBadge tag="[AI INSIGHT]" />
             </div>
             <p className="text-ink-muted leading-relaxed font-body">
-              Defective and sizing issues account for <strong className="text-ink">{qualityAndSizeShare.pct.toFixed(1)}%</strong> of all returned items ({qualityAndSizeShare.sumCount} of {returnsData.totalReturnedItems} units, ₹{qualityAndSizeShare.sumRefund.toLocaleString('en-IN')} refund exposure). Addressing quality packaging and product sizing charts will eliminate over half of current return friction.
+              {returnsData.totalReturnedItems > 0 && topReason ? (
+                topReason.percentageOfReturns >= 99.9 ? (
+                  <>All <strong className="text-ink">{returnsData.totalReturnedItems} observed returns</strong> in this period were attributed to <strong className="text-ink">{formatReasonLabel(topReason.reason)}</strong> (100.0% share, ₹{returnsData.totalRefundAmount.toLocaleString('en-IN')} total refund capital). Improving sizing charts and fit recommendations on affected shoe SKUs directly targets this specific root cause.</>
+                ) : (
+                  <><strong className="text-ink">{formatReasonLabel(topReason.reason)}</strong> accounts for <strong className="text-ink">{topReason.percentageOfReturns.toFixed(1)}%</strong> of returned items ({topReason.count} of {returnsData.totalReturnedItems} units, ₹{topReason.totalRefundAmount.toLocaleString('en-IN')} refund exposure) in the selected period.</>
+                )
+              ) : (
+                <>Zero returns recorded in this reporting period. Delivered units maintain 100% order completion without customer return friction.</>
+              )}
             </p>
           </div>
         </div>

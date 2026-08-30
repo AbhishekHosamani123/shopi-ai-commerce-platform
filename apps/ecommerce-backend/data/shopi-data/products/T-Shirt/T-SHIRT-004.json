@@ -1,0 +1,333 @@
+{
+    "product_id": "T-SHIRT-004",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54)",
+        "brand": "Lymio",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Polo",
+        "style_name": "Polo T-Shirt",
+        "description": "Men's regular-fit polo T-shirt featuring a classic collared neckline, half sleeves and a solid design. Made with a cotton-blend fabric and suitable for casual, daily and sports wear.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0DRFLRF2K",
+        "source_url": "https://www.amazon.in/Lymio-T-Shirt-Polo-Shirt-POLO-52-Olivegreen-M/dp/B0DRFLRF2K"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2999.00,
+        "current_price": 529.00,
+        "discount_percent": 82
+    },
+    "rating": {
+        "average": 3.5,
+        "review_count": 847,
+        "distribution_percent": {
+            "5_star": 49,
+            "4_star": 9,
+            "3_star": 13,
+            "2_star": 7,
+            "1_star": 22
+        }
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "amazon_name": "Black",
+                "images": [
+                    "black.jpg"
+                ]
+            },
+            {
+                "name": "Blue",
+                "amazon_name": "Blue",
+                "images": [
+                    "blue.jpg"
+                ]
+            },
+            {
+                "name": "Brown",
+                "amazon_name": "Brown",
+                "images": [
+                    "brown.jpg"
+                ]
+            },
+            {
+                "name": "Olive Green",
+                "amazon_name": "Olivegreen",
+                "images": [
+                    "olive green.jpg"
+                ]
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Regular Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Polo Collar",
+        "neck": "Collared Neck",
+        "pattern": "Solid",
+        "closure": "Button",
+        "fabric": "Cotton Blend",
+        "fabric_type": "Cotton Blend",
+        "length": "Standard Length",
+        "cuff": "Short Sleeve",
+        "season": [
+            "All"
+        ],
+        "occasion": "Casual",
+        "shirt_form": "Polo Shirt",
+        "top_style": "Polo"
+    },
+    "product_details": {
+        "model_name": "Polo-51-54",
+        "style_number": "POLO-54-Orange-M",
+        "weight_grams": 1050,
+        "dimensions_cm": {
+            "length": 20,
+            "width": 14,
+            "height": 1
+        },
+        "net_quantity": 1,
+        "generic_name": "T-Shirt"
+    },
+    "manufacturer": {
+        "manufacturer": "J B Fashion",
+        "packer": "J B Fashion",
+        "importer": "J B Fashion",
+        "address": "Surat-395004"
+    },
+    "inventory_signals": {
+        "in_stock_at_source": true,
+        "maximum_order_quantity": 5,
+        "fulfilled_by": "Amazon"
+    },
+    "reviews": {
+        "total_ratings": 847,
+        "displayed_review_count": 419,
+        "customer_sentiment": {
+            "overall": "Mixed",
+            "positive": [
+                "Comfortable fabric",
+                "Stylish appearance",
+                "Good fit",
+                "Suitable for daily wear",
+                "Good value for money",
+                "Breathable fabric",
+                "Color stability after washing"
+            ],
+            "negative": [
+                "Poor stitching reported by some buyers",
+                "Mixed fabric-quality feedback",
+                "Some buyers reported low overall quality",
+                "Some sizing and quality complaints"
+            ]
+        },
+        "sample_reviews": [
+            {
+                "review_id": "R25X9DYKAZMPVV",
+                "rating": 5,
+                "title": "must buy it ☺️",
+                "variant": {
+                    "size": "L",
+                    "color": "Olivegreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-18",
+                "summary": "Reviewer praised the comfort, soft cotton-rich fabric, collar design, relaxed fit, stitching and overall value."
+            },
+            {
+                "review_id": "REP5J5ECSYKLL",
+                "rating": 1,
+                "title": "Very Disappointed – Feels Like a ₹99 T-Shirt",
+                "variant": {
+                    "size": "XL",
+                    "color": "Blue"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-06-28",
+                "summary": "Reviewer strongly criticized the fabric and overall quality, considering it poor value."
+            },
+            {
+                "review_id": "RHFR96KRF11K8",
+                "rating": 5,
+                "title": "The comfort and fabric is superb",
+                "variant": {
+                    "size": "L",
+                    "color": "Olivegreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-04",
+                "summary": "Reviewer praised the breathable fabric, color stability after three washes, machine washability, comfort and appearance."
+            },
+            {
+                "review_id": "RMQBQZQKZS6TT",
+                "rating": 3,
+                "title": "Cloth is good but stitching issue",
+                "variant": {
+                    "size": "2XL",
+                    "color": "OliveGreen-Orange"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-23",
+                "summary": "Reviewer liked the cloth material but reported that the stitching came undone within three days."
+            },
+            {
+                "review_id": "R2BDWBGFS6X5VO",
+                "rating": 5,
+                "title": "Smart and Comfortable Polo T-Shirt",
+                "variant": {
+                    "size": "M",
+                    "color": "Olivegreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-12",
+                "summary": "Reviewer liked the classic collar, comfortable fabric, decent fit, neat appearance and value for money."
+            },
+            {
+                "review_id": "R11UTG170UNJN9",
+                "rating": 4,
+                "title": "Nice fitting",
+                "variant": {
+                    "size": "M",
+                    "color": "Olivegreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-18",
+                "summary": "Reviewer reported good fitting and described the fabric as matty."
+            },
+            {
+                "review_id": "R1E9EJEJNB0PRW",
+                "rating": 1,
+                "title": "Don't beg for free suggetion",
+                "variant": {
+                    "size": "M",
+                    "color": "Orange"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-07-26",
+                "summary": "Reviewer reported low quality and recommended buying from another merchant or offline."
+            },
+            {
+                "review_id": "R3UEGQUDRZUNF1",
+                "rating": 2,
+                "title": "Not recommend",
+                "variant": {
+                    "size": "XL",
+                    "color": "Black-OliveGreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-16",
+                "summary": "Reviewer reported that the fabric quality was not good."
+            },
+            {
+                "review_id": "R2EAPENCLCD8FM",
+                "rating": 3,
+                "title": "Quality of the T shirt",
+                "variant": {
+                    "size": "XL",
+                    "color": "Olivegreen"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-22",
+                "summary": "Reviewer reported rough fabric and dissatisfaction with the overall quality."
+            },
+            {
+                "review_id": "R24U7EYRX9UPV1",
+                "rating": 4,
+                "title": "T SHIRT",
+                "variant": {
+                    "size": "2XL",
+                    "color": "Orange"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-16",
+                "summary": "Reviewer said the T-shirt was fine and the color matched."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "casual wear",
+            "daily wear",
+            "smart casual",
+            "sports activities"
+        ],
+        "strong_positive_attributes": [
+            "regular fit",
+            "cotton blend",
+            "polo collar",
+            "half sleeves",
+            "solid design",
+            "comfortable fabric",
+            "breathable fabric",
+            "casual styling"
+        ],
+        "risk_attributes": [
+            "mixed quality feedback",
+            "stitching complaints",
+            "rough fabric complaints",
+            "low-quality complaints",
+            "3.5 average rating"
+        ],
+        "recommendation_keywords": [
+            "men polo t-shirt",
+            "Lymio polo t-shirt",
+            "cotton blend polo",
+            "regular fit polo",
+            "solid polo t-shirt",
+            "half sleeve polo",
+            "casual polo t-shirt",
+            "men collar t-shirt",
+            "olive green polo",
+            "black polo t-shirt",
+            "blue polo t-shirt",
+            "brown polo t-shirt"
+        ],
+        "buyer_advice": "A budget regular-fit polo with a cotton-blend fabric and classic styling. Customer feedback is mixed: many buyers like the comfort, fit and appearance, but there are recurring complaints about stitching and fabric quality."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-004/",
+        "primary_image": "black.jpg",
+        "variants": {
+            "black": [
+                "black.jpg"
+            ],
+            "blue": [
+                "blue.jpg"
+            ],
+            "brown": [
+                "brown.jpg"
+            ],
+            "olive_green": [
+                "olive green.jpg"
+            ]
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "The supplied Amazon page is currently displaying the Orange variant.",
+            "The local product directory contains Black, Blue, Brown and Olive Green images.",
+            "The exact fabric percentage is not provided; the listing only states Cotton Blend.",
+            "The Amazon listing has a 3.5/5 rating from 847 global ratings.",
+            "Customer feedback is mixed, with both positive comfort/fit reviews and negative quality/stitching reviews.",
+            "Some Amazon variants contain compound colors such as OliveGreen-Orange and Black-OliveGreen that do not correspond to the four local image files."
+        ]
+    }
+}

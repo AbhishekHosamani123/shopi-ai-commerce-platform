@@ -1,0 +1,125 @@
+{
+    "product_id": "SNEAKER-005",
+    "sku": "B0GDGFLTQX",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Campus Men's Vulture Sneakers",
+    "brand": "Campus",
+    "model": "Vulture",
+    "model_number": "22G-13400",
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 999,
+        "currency": "INR",
+        "discount_percent": 62
+    },
+    "description": "Campus VULTURE men's sneakers featuring an off-white base with maroon accents, a PVC upper, breathable mesh around the tongue, TPR sole with anti-slip design, and Memory Insole cushioning. Designed for casual everyday styling with a balance of structure, airflow and comfort.",
+    "colors": [
+        {
+            "name": "Off White/Red",
+            "image": "Off White & red.jpg",
+            "price": 999
+        },
+        {
+            "name": "Black",
+            "image": "black.jpg",
+            "price": 989
+        },
+        {
+            "name": "Brown/Beige",
+            "image": "Brown&Beige.jpg",
+            "price": 1179
+        },
+        {
+            "name": "Black/White",
+            "image": "Black & White.jpg",
+            "price": 1109
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK"
+    ],
+    "selected_variant": {
+        "color": "Off White/Red",
+        "size": "9 UK"
+    },
+    "attributes": {
+        "style": "Sneaker",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "upper_material": [
+            "PVC",
+            "Mesh"
+        ],
+        "sole_material": "Thermoplastic Elastomers",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "special_feature": "Anti Slip Sole Design",
+        "insole": "Memory Insole",
+        "shoe_type": "Athletic Shoe",
+        "uses": [
+            "Casual",
+            "Sports"
+        ],
+        "occasion": "Casual",
+        "season": "All",
+        "pattern": "No Pattern",
+        "country_of_origin": "India"
+    },
+    "physical_details": {
+        "item_weight": "750 g",
+        "dimensions": "30.5 x 21.5 x 11.2 cm",
+        "net_quantity": 1
+    },
+    "ratings": {
+        "average_rating": 5.0,
+        "rating_count": 1,
+        "distribution": {
+            "5_star_percent": 100,
+            "4_star_percent": 0,
+            "3_star_percent": 0,
+            "2_star_percent": 0,
+            "1_star_percent": 0
+        }
+    },
+    "reviews": [],
+    "brand_information": {
+        "amazon_top_brand": true,
+        "positive_rating_percent": 86,
+        "customer_base": "100K+ customers",
+        "recent_orders": "100K+",
+        "years_on_amazon": "12+ years"
+    },
+    "delivery": {
+        "status": "In stock",
+        "delivery_location": "Bengaluru 562123",
+        "delivery_date": "2026-09-01",
+        "free_delivery": true,
+        "pay_on_delivery": true
+    },
+    "returns": {
+        "return_exchange_window": "10 days"
+    },
+    "purchase_limits": {
+        "max_units_per_customer": 3
+    },
+    "seller": {
+        "sold_by": "Campusactivewear",
+        "fulfilled_by": "Amazon"
+    },
+    "manufacturer": {
+        "name": "Campus Activewear Ltd",
+        "country": "India"
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0GDGFLTQX",
+        "asin": "B0GDGFLTQX",
+        "collected_at": "2026-08-26"
+    }
+}

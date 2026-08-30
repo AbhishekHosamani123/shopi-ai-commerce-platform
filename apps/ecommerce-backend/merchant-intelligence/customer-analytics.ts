@@ -6,6 +6,10 @@ export interface CustomerSummaryResult {
   repeatBuyersCount: number;
   oneTimeBuyersCount: number;
   repeatCustomerRatePct: number;
+  totalLifetimeBuyers: number;
+  lifetimeRepeatBuyersCount: number;
+  lifetimeOneTimeBuyersCount: number;
+  lifetimeRepeatCustomerRatePct: number;
   averageOrdersPerCustomer: number;
   averageCustomerLifetimeValue: number;
   topCity: string;
@@ -22,10 +26,11 @@ export interface RepeatCustomersResult {
   repeatRatePct: number;
   totalRepeatBuyers: number;
   totalOneTimeBuyers: number;
+  repeatRevenueSharePct: number;
   cohorts: RepeatCustomerCohort[];
   topRepeatCustomers: Array<{
-    userId: number;
-    username: string;
+    customerId: string;
+    customerName: string;
     email: string;
     totalOrders: number;
     totalSpend: number;
@@ -35,43 +40,49 @@ export interface RepeatCustomersResult {
 }
 
 /**
- * Returns high-level customer health and buying behavior summary
+ * Returns high-level customer health and buying behavior summary from canonical shopi_* tables
+ * Distinguishes lifetime repeat classification (>=2 completed orders) and active purchasers in the reporting period.
  */
 export async function getCustomerSummary(period: string = 'last_12_months'): Promise<CustomerSummaryResult> {
-  const days = period.includes('30') ? 30 : period.includes('90') ? 90 : 365;
+  const days = period.includes('7') ? 7 : period.includes('30') ? 30 : period.includes('90') ? 90 : 365;
 
   const query = `
-    WITH customer_stats AS (
+    WITH customer_lifetime AS (
       SELECT 
-        u.userid,
-        COUNT(o.orderid)::int as orders_count,
-        COALESCE(SUM(o.totalamount), 0) as total_spend
-      FROM users u
-      LEFT JOIN orders o 
-        ON u.userid = o.userid AND o.createdat >= CURRENT_DATE - ($1 || ' days')::interval
-      WHERE u.role = 'customer'
-      GROUP BY u.userid
+        c.customer_id,
+        c.city,
+        COUNT(o.order_id)::int as lifetime_orders,
+        COALESCE(SUM(o.total_amount), 0)::numeric(14,2) as lifetime_spend,
+        COUNT(CASE WHEN o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval THEN o.order_id END)::int as period_orders
+      FROM shopi_customers c
+      LEFT JOIN shopi_orders o 
+        ON c.customer_id = o.customer_id AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY c.customer_id, c.city
     ),
     city_stats AS (
       SELECT 
-        a.city,
-        COUNT(o.orderid) as city_orders
-      FROM orders o
-      JOIN addresses a ON o.userid = a.userid
-      WHERE o.createdat >= CURRENT_DATE - ($1 || ' days')::interval
-      GROUP BY a.city
+        c.city,
+        COUNT(o.order_id) as city_orders
+      FROM shopi_orders o
+      JOIN shopi_customers c ON o.customer_id = c.customer_id
+      WHERE o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY c.city
       ORDER BY city_orders DESC
       LIMIT 1
     )
     SELECT 
-      (SELECT COUNT(*)::int FROM users WHERE role = 'customer') as total_reg,
-      COUNT(DISTINCT cs.userid) FILTER (WHERE cs.orders_count > 0)::int as active_buyers,
-      COUNT(DISTINCT cs.userid) FILTER (WHERE cs.orders_count > 1)::int as repeat_buyers,
-      COUNT(DISTINCT cs.userid) FILTER (WHERE cs.orders_count = 1)::int as onetime_buyers,
-      ROUND(AVG(cs.orders_count) FILTER (WHERE cs.orders_count > 0), 2)::numeric(8,2) as avg_orders,
-      ROUND(AVG(cs.total_spend) FILTER (WHERE cs.orders_count > 0), 2)::numeric(12,2) as avg_clv,
-      COALESCE((SELECT city FROM city_stats), 'Mumbai') as top_city
-    FROM customer_stats cs;
+      (SELECT COUNT(*)::int FROM shopi_customers) as total_reg,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.period_orders > 0)::int as active_buyers,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.period_orders > 0 AND cl.lifetime_orders > 1)::int as repeat_buyers,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.period_orders > 0 AND cl.lifetime_orders = 1)::int as onetime_buyers,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.lifetime_orders > 0)::int as lifetime_buyers,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.lifetime_orders > 1)::int as lifetime_repeat_buyers,
+      COUNT(DISTINCT cl.customer_id) FILTER (WHERE cl.lifetime_orders = 1)::int as lifetime_onetime_buyers,
+      ROUND(AVG(cl.lifetime_orders) FILTER (WHERE cl.period_orders > 0), 2)::numeric(8,2) as avg_orders,
+      ROUND(AVG(cl.lifetime_spend) FILTER (WHERE cl.period_orders > 0), 2)::numeric(12,2) as avg_clv,
+      COALESCE((SELECT city FROM city_stats), 'Bengaluru') as top_city
+    FROM customer_lifetime cl;
   `;
 
   const res = await client.query(query, [days]);
@@ -81,12 +92,21 @@ export async function getCustomerSummary(period: string = 'last_12_months'): Pro
   const repeatBuyers = parseInt(row.repeat_buyers || '0', 10);
   const repeatRate = activeBuyers > 0 ? parseFloat(((repeatBuyers / activeBuyers) * 100).toFixed(2)) : 0;
 
+  const lifetimeBuyers = parseInt(row.lifetime_buyers || '0', 10);
+  const lifetimeRepeatBuyers = parseInt(row.lifetime_repeat_buyers || '0', 10);
+  const lifetimeOneTimeBuyers = parseInt(row.lifetime_onetime_buyers || '0', 10);
+  const lifetimeRepeatRate = lifetimeBuyers > 0 ? parseFloat(((lifetimeRepeatBuyers / lifetimeBuyers) * 100).toFixed(2)) : 0;
+
   return {
     totalRegisteredCustomers: parseInt(row.total_reg, 10),
     totalActiveBuyers: activeBuyers,
     repeatBuyersCount: repeatBuyers,
     oneTimeBuyersCount: parseInt(row.onetime_buyers || '0', 10),
     repeatCustomerRatePct: repeatRate,
+    totalLifetimeBuyers: lifetimeBuyers,
+    lifetimeRepeatBuyersCount: lifetimeRepeatBuyers,
+    lifetimeOneTimeBuyersCount: lifetimeOneTimeBuyers,
+    lifetimeRepeatCustomerRatePct: lifetimeRepeatRate,
     averageOrdersPerCustomer: parseFloat(row.avg_orders || '0'),
     averageCustomerLifetimeValue: parseFloat(row.avg_clv || '0'),
     topCity: row.top_city
@@ -94,24 +114,24 @@ export async function getCustomerSummary(period: string = 'last_12_months'): Pro
 }
 
 /**
- * Returns deep breakdown of repeat purchase rates, cohorts, and top buyers
+ * Returns deep breakdown of repeat purchase rates, cohorts, and top buyers from canonical shopi_* tables
  */
 export async function getRepeatCustomers(period: string = 'last_12_months'): Promise<RepeatCustomersResult> {
-  const days = period.includes('30') ? 30 : period.includes('90') ? 90 : 365;
+  const days = period.includes('7') ? 7 : period.includes('30') ? 30 : period.includes('90') ? 90 : 365;
 
   const topBuyersQuery = `
     SELECT 
-      u.userid as user_id,
-      u.username,
-      u.email,
-      COUNT(o.orderid)::int as total_orders,
-      SUM(o.totalamount)::numeric(14,2) as total_spend,
-      MIN(o.createdat)::date::text as first_purchase,
-      MAX(o.createdat)::date::text as last_purchase
-    FROM users u
-    JOIN orders o ON u.userid = o.userid
-    WHERE o.createdat >= CURRENT_DATE - ($1 || ' days')::interval
-    GROUP BY u.userid, u.username, u.email
+      c.customer_id,
+      c.first_name || ' ' || c.last_name as customer_name,
+      c.email,
+      COUNT(o.order_id)::int as total_orders,
+      SUM(o.total_amount)::numeric(14,2) as total_spend,
+      MIN(o.order_placed_at)::date::text as first_purchase,
+      MAX(o.order_placed_at)::date::text as last_purchase
+    FROM shopi_customers c
+    JOIN shopi_orders o ON c.customer_id = o.customer_id AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+    GROUP BY c.customer_id, c.first_name, c.last_name, c.email
+    HAVING COUNT(o.order_id) >= 1
     ORDER BY total_orders DESC, total_spend DESC
     LIMIT 5;
   `;
@@ -119,13 +139,13 @@ export async function getRepeatCustomers(period: string = 'last_12_months'): Pro
   const cohortsQuery = `
     WITH customer_orders AS (
       SELECT 
-        u.userid,
-        COUNT(o.orderid)::int as order_count,
-        COALESCE(SUM(o.totalamount), 0) as spend
-      FROM users u
-      JOIN orders o ON u.userid = o.userid
-      WHERE o.createdat >= CURRENT_DATE - ($1 || ' days')::interval
-      GROUP BY u.userid
+        c.customer_id,
+        COUNT(o.order_id)::int as order_count,
+        COALESCE(SUM(o.total_amount), 0)::numeric(14,2) as spend
+      FROM shopi_customers c
+      JOIN shopi_orders o ON c.customer_id = o.customer_id AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY c.customer_id
+      HAVING COUNT(o.order_id) >= 1
     ),
     cohort_buckets AS (
       SELECT 
@@ -150,13 +170,13 @@ export async function getRepeatCustomers(period: string = 'last_12_months'): Pro
   `;
 
   const [topRes, cohortsRes] = await Promise.all([
-    client.query(topBuyersQuery, [days]),
-    client.query(cohortsQuery, [days])
+    client.query(topBuyersQuery),
+    client.query(cohortsQuery)
   ]);
 
   const topBuyers = topRes.rows.map((r: any) => ({
-    userId: parseInt(r.user_id, 10),
-    username: r.username,
+    customerId: r.customer_id,
+    customerName: r.customer_name,
     email: r.email,
     totalOrders: parseInt(r.total_orders, 10),
     totalSpend: parseFloat(r.total_spend),
@@ -172,14 +192,19 @@ export async function getRepeatCustomers(period: string = 'last_12_months'): Pro
   }));
 
   const totalBuyers = cohorts.reduce((sum, c) => sum + c.customersCount, 0);
+  const totalRevenue = cohorts.reduce((sum, c) => sum + c.totalRevenueContribution, 0);
   const oneTime = cohorts.find(c => c.orderCountRange.includes('One-Time'))?.customersCount || 0;
+  const oneTimeRevenue = cohorts.find(c => c.orderCountRange.includes('One-Time'))?.totalRevenueContribution || 0;
   const repeatBuyers = totalBuyers - oneTime;
+  const repeatRevenue = totalRevenue - oneTimeRevenue;
   const repeatRate = totalBuyers > 0 ? parseFloat(((repeatBuyers / totalBuyers) * 100).toFixed(2)) : 0;
+  const repeatRevenueShare = totalRevenue > 0 ? parseFloat(((repeatRevenue / totalRevenue) * 100).toFixed(2)) : 0;
 
   return {
     repeatRatePct: repeatRate,
     totalRepeatBuyers: repeatBuyers,
     totalOneTimeBuyers: oneTime,
+    repeatRevenueSharePct: repeatRevenueShare,
     cohorts,
     topRepeatCustomers: topBuyers
   };

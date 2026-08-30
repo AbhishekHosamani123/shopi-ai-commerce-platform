@@ -37,7 +37,8 @@ export async function getCachedData<T>(
   const fetchPromise = (async () => {
     try {
       const data = await fetcher();
-      if (data !== undefined && data !== null) {
+      const isError = (data as any)?.status >= 400 || (data as any)?.error;
+      if (data !== undefined && data !== null && !isError) {
         memoryCache.set(key, {
           data,
           timestamp: Date.now(),

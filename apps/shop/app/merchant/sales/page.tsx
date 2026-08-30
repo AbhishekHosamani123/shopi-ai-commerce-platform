@@ -6,6 +6,8 @@ import { AnalyticalChartCard } from '../../../components/Merchant/v2/AnalyticalC
 import { TrustBadge } from '../../../components/Merchant/v2/TrustBadge';
 import { CopilotDrawer } from '../../../components/Merchant/v2/CopilotDrawer';
 
+import { formatSignPercentage, getGrowthColorClass } from '../../../components/Merchant/v2/formatters';
+
 interface SalesDataPoint {
   date: string;
   orders: number;
@@ -35,24 +37,26 @@ export default function SalesAnalyticsPage() {
   // Live Grounded Sales Metrics
   const [salesKpis, setSalesKpis] = useState<{
     grossRevenue: number;
+    prevRevenue: number;
     netRevenue: number;
     totalOrders: number;
     unitsSold: number;
     aov: number;
-    revenueGrowthPct: number;
-    ordersGrowthPct: number;
-    unitsGrowthPct: number;
-    aovGrowthPct: number;
+    revenueGrowthPct: number | null;
+    ordersGrowthPct: number | null;
+    unitsGrowthPct: number | null;
+    aovGrowthPct: number | null;
   }>({
-    grossRevenue: 4128460.00,
-    netRevenue: 3980000.00,
-    totalOrders: 1053,
-    unitsSold: 1580,
-    aov: 3920.66,
-    revenueGrowthPct: 14.2,
-    ordersGrowthPct: 8.1,
-    unitsGrowthPct: 9.4,
-    aovGrowthPct: 5.6,
+    grossRevenue: 0,
+    prevRevenue: 0,
+    netRevenue: 0,
+    totalOrders: 0,
+    unitsSold: 0,
+    aov: 0,
+    revenueGrowthPct: null,
+    ordersGrowthPct: null,
+    unitsGrowthPct: null,
+    aovGrowthPct: null,
   });
 
   const [salesTrend, setSalesTrend] = useState<SalesDataPoint[]>([]);
@@ -74,19 +78,27 @@ export default function SalesAnalyticsPage() {
         }),
       ]);
 
+      let previousPeriodRev: number | null = null;
+      let revGrowthPct: number | null = null;
+      let ordGrowthPct: number | null = null;
+      let untGrowthPct: number | null = null;
+      let aovGrowthPct: number | null = null;
+
       if (salesRes.ok) {
         const sData = await salesRes.json();
         if (sData.dataPoints && Array.isArray(sData.dataPoints)) {
           setSalesTrend(sData.dataPoints);
         }
+        if (sData.comparisons?.mom?.previousPeriod?.revenue !== undefined) {
+          previousPeriodRev = sData.comparisons.mom.previousPeriod.revenue;
+        } else if (sData.growth?.monthOverMonth?.previousRevenue !== undefined) {
+          previousPeriodRev = sData.growth.monthOverMonth.previousRevenue;
+        }
         if (sData.growth?.monthOverMonth) {
-          setSalesKpis(prev => ({
-            ...prev,
-            revenueGrowthPct: sData.growth.monthOverMonth.revenueChangePct ?? prev.revenueGrowthPct,
-            ordersGrowthPct: sData.growth.monthOverMonth.ordersChangePct ?? prev.ordersGrowthPct,
-            unitsGrowthPct: sData.growth.monthOverMonth.unitsChangePct ?? prev.unitsGrowthPct,
-            aovGrowthPct: sData.growth.monthOverMonth.aovChangePct ?? prev.aovGrowthPct,
-          }));
+          revGrowthPct = sData.growth.monthOverMonth.revenueChangePct ?? null;
+          ordGrowthPct = sData.growth.monthOverMonth.ordersChangePct ?? null;
+          untGrowthPct = sData.growth.monthOverMonth.unitsChangePct ?? null;
+          aovGrowthPct = sData.growth.monthOverMonth.aovChangePct ?? null;
         }
       }
 
@@ -96,10 +108,15 @@ export default function SalesAnalyticsPage() {
           setSalesKpis(prev => ({
             ...prev,
             grossRevenue: oData.kpis.grossRevenue ?? prev.grossRevenue,
+            prevRevenue: oData.kpis.previousPeriodGrossRevenue ?? (previousPeriodRev !== null ? previousPeriodRev : prev.prevRevenue),
             netRevenue: oData.kpis.netRevenue ?? prev.netRevenue,
             totalOrders: oData.kpis.totalOrders ?? prev.totalOrders,
             unitsSold: oData.kpis.unitsSold ?? prev.unitsSold,
             aov: oData.kpis.averageOrderValue ?? prev.aov,
+            revenueGrowthPct: revGrowthPct ?? oData.kpis.revenueGrowthPct ?? prev.revenueGrowthPct,
+            ordersGrowthPct: ordGrowthPct ?? oData.kpis.ordersGrowthPct ?? prev.ordersGrowthPct,
+            unitsGrowthPct: untGrowthPct ?? oData.kpis.unitsGrowthPct ?? prev.unitsGrowthPct,
+            aovGrowthPct: aovGrowthPct ?? oData.kpis.aovGrowthPct ?? prev.aovGrowthPct,
           }));
         }
       }
@@ -203,20 +220,34 @@ export default function SalesAnalyticsPage() {
           <div className="space-y-1">
             <div className="flex items-center gap-2.5 flex-wrap">
               <span className="text-[11px] font-medium text-ink-subtle uppercase tracking-[0.4px] font-display">
-                Gross Revenue Realized
+                Gross Revenue Realized (Last 30 Days)
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs text-[10px] font-mono font-semibold bg-semantic-success/10 text-semantic-success border border-semantic-success/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-semantic-success animate-pulse" />
-                MOMENTUM EXPANDING
+              <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs text-[10px] font-mono font-semibold border ${
+                salesKpis.revenueGrowthPct === null
+                  ? 'bg-purple-500/10 text-purple-300 border-purple-500/30'
+                  : salesKpis.revenueGrowthPct >= 0
+                  ? 'bg-semantic-success/10 text-semantic-success border-semantic-success/30'
+                  : 'bg-rose-500/10 text-rose-400 border-rose-500/30'
+              }`}>
+                <span className={`w-1.5 h-1.5 rounded-full ${
+                  salesKpis.revenueGrowthPct === null ? 'bg-purple-400' : salesKpis.revenueGrowthPct >= 0 ? 'bg-semantic-success' : 'bg-rose-400'
+                } animate-pulse`} />
+                {salesKpis.revenueGrowthPct === null ? 'BASELINE ESTABLISHED' : salesKpis.revenueGrowthPct >= 0 ? 'MOMENTUM EXPANDING' : 'REVENUE CONTRACTION'}
               </span>
-              <TrustBadge tag="[FACT]" />
+              <TrustBadge tag="[OBSERVED]" formula="SUM(gross_revenue)" />
             </div>
-            <div className="flex items-baseline gap-3">
+            <div className="flex items-baseline gap-3 flex-wrap">
               <div className="text-2xl sm:text-3xl font-semibold font-mono text-ink tracking-tight">
                 ₹{salesKpis.grossRevenue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </div>
-              <div className="flex items-center text-xs font-mono font-medium text-semantic-success">
-                ↑ +{salesKpis.revenueGrowthPct}% vs previous period
+              <div className={`flex items-center text-xs font-mono font-medium ${getGrowthColorClass(salesKpis.revenueGrowthPct)}`}>
+                {salesKpis.revenueGrowthPct !== null ? (
+                  `${formatSignPercentage(salesKpis.revenueGrowthPct, { includeArrow: true })} vs preceding 30d baseline (₹${salesKpis.prevRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })})`
+                ) : (
+                  salesKpis.prevRevenue === 0
+                    ? '+₹' + salesKpis.grossRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 }) + ' (New / No comparable baseline)'
+                    : 'Baseline period evaluated'
+                )}
               </div>
             </div>
           </div>
@@ -226,36 +257,38 @@ export default function SalesAnalyticsPage() {
             <div className="p-3 bg-surface-2 rounded-md border border-hairline">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Net Revenue</span>
-                <TrustBadge tag="[FACT]" />
+                <TrustBadge tag="[OBSERVED]" />
               </div>
               <div className="text-base font-bold font-mono text-ink mt-0.5">
                 ₹{salesKpis.netRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
               </div>
-              <div className="text-[10px] text-ink-tertiary font-mono mt-0.5">After refunds & discounts</div>
+              <div className="text-[10px] text-ink-tertiary font-mono mt-0.5">After discounts, before refunds</div>
             </div>
 
             <div className="p-3 bg-surface-2 rounded-md border border-hairline">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Orders & Units</span>
-                <TrustBadge tag="[FACT]" />
+                <TrustBadge tag="[OBSERVED]" />
               </div>
               <div className="text-base font-bold font-mono text-ink mt-0.5">
                 {salesKpis.totalOrders.toLocaleString()} <span className="text-xs text-ink-subtle font-sans">({salesKpis.unitsSold.toLocaleString()} units)</span>
               </div>
-              <div className="text-[10px] text-semantic-success font-mono mt-0.5">
-                +{salesKpis.ordersGrowthPct}% volume growth
+              <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(salesKpis.ordersGrowthPct)}`}>
+                {salesKpis.ordersGrowthPct !== null ? `${formatSignPercentage(salesKpis.ordersGrowthPct, { includeArrow: true })} volume` : `${salesKpis.totalOrders} total orders`}
               </div>
             </div>
 
             <div className="p-3 bg-surface-2 rounded-md border border-hairline col-span-2 sm:col-span-1">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Average Order Value</span>
-                <TrustBadge tag="[FACT]" />
+                <TrustBadge tag="[CALCULATED]" />
               </div>
               <div className="text-base font-bold font-mono text-ink mt-0.5">
                 ₹{salesKpis.aov.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </div>
-              <div className="text-[10px] text-semantic-success font-mono mt-0.5">+{salesKpis.aovGrowthPct}% basket expansion</div>
+              <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(salesKpis.aovGrowthPct)}`}>
+                {salesKpis.aovGrowthPct !== null ? `${formatSignPercentage(salesKpis.aovGrowthPct, { includeArrow: true })} basket` : `₹${salesKpis.aov.toFixed(0)} avg order`}
+              </div>
             </div>
           </div>
         </div>
@@ -270,12 +303,16 @@ export default function SalesAnalyticsPage() {
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
               <span className="font-medium text-ink uppercase tracking-[0.4px] text-[11px] font-display">
-                Why Did Revenue Change?
+                AI Diagnostic: {salesKpis.revenueGrowthPct !== null ? `Why Did Revenue Move ${formatSignPercentage(salesKpis.revenueGrowthPct)}?` : 'Store Sales Trajectory Breakdown'}
               </span>
-              <TrustBadge tag="[AI INSIGHT]" />
+              <TrustBadge tag="[MODEL ESTIMATE]" />
             </div>
             <p className="text-ink-muted leading-relaxed font-body">
-              Revenue expanded <strong className="text-ink">+14.2%</strong> driven by Footwear & Athletic volume (+24.0%) which contributed 44.7% of total sales. AOV expansion (+5.6%) offset slight transaction dips in Kids apparel (-4.2%).
+              {salesKpis.revenueGrowthPct !== null ? (
+                <>Store revenue moved <strong className="text-ink">{formatSignPercentage(salesKpis.revenueGrowthPct)}</strong> (realized ₹{salesKpis.grossRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })} in current period vs ₹{salesKpis.prevRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })} in preceding 30-day baseline). Primary operational drivers: Order volume ({formatSignPercentage(salesKpis.ordersGrowthPct)}) and basket AOV ({formatSignPercentage(salesKpis.aovGrowthPct)}).</>
+              ) : (
+                <>Store realized <strong className="text-ink">₹{salesKpis.grossRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</strong> gross revenue across {salesKpis.totalOrders} orders ({salesKpis.unitsSold} units sold, ₹{salesKpis.aov.toFixed(2)} AOV) in the reporting period. Preceding comparison baseline had ₹{salesKpis.prevRevenue.toLocaleString('en-IN')} revenue.</>
+              )}
             </p>
           </div>
         </div>
@@ -293,7 +330,7 @@ export default function SalesAnalyticsPage() {
         onIntervalChange={setSalesInterval}
         loading={isFetching}
         currentTotal={salesKpis.grossRevenue}
-        prevTotal={salesKpis.netRevenue}
+        prevTotal={salesKpis.prevRevenue}
         growthPct={salesKpis.revenueGrowthPct}
       />
 

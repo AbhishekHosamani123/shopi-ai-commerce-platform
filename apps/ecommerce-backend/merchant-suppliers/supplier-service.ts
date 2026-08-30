@@ -25,8 +25,8 @@ export class SupplierService {
   async ensureDefaultSuppliers(merchantId: string = 'default_merchant'): Promise<void> {
     const res = await client.query('SELECT COUNT(*)::int as count FROM merchant_suppliers WHERE merchant_id = $1', [merchantId]);
     if (res.rows[0].count === 0) {
-      const prods = await client.query('SELECT productid FROM products LIMIT 5');
-      const pids = prods.rows.map(r => r.productid);
+      const prods = await client.query('SELECT product_id FROM shopi_products LIMIT 5');
+      const pids = prods.rows.map(r => r.product_id);
 
       const defaults = [
         {

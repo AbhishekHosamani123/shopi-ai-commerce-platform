@@ -1,0 +1,239 @@
+{
+    "product_id": "BAG-001",
+    "basic_info": {
+        "name": "Aristocrat Nova 15L Laptop Backpack",
+        "brand": "Aristocrat",
+        "category": "Bags",
+        "subcategory": "Laptop Backpack",
+        "product_type": "Backpack",
+        "gender": "Unisex",
+        "description": "Laptop-compatible backpack designed for everyday office, college and travel use, with multiple compartments, a padded laptop sleeve, padded shoulder straps, padded back panel, bottle pocket and webbing grab handle."
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 999,
+        "selling_price": 499,
+        "discount_amount": 500,
+        "discount_percentage": 50
+    },
+    "attributes": {
+        "capacity": "15L",
+        "material": "500D fabric",
+        "lining": "Premium lining fabric",
+        "color": "Black",
+        "pattern": "Screen printing with reflective tape",
+        "style": "Casual / Functional",
+        "use_cases": [
+            "Daily use",
+            "College",
+            "Office",
+            "Travel"
+        ],
+        "laptop_compatible": true,
+        "laptop_size": null,
+        "water_resistant": null,
+        "weight": null,
+        "dimensions": null,
+        "season": "All season"
+    },
+    "storage": {
+        "main_compartments": 2,
+        "laptop_sleeve": true,
+        "bottle_pocket": true,
+        "additional_pockets": null,
+        "organization": "Two spacious compartments with a dedicated padded laptop sleeve and one fabric bottle pocket on the side"
+    },
+    "carrying": {
+        "strap_type": "Padded shoulder straps",
+        "straps_adjustable": null,
+        "straps_detachable": false,
+        "back_panel": "Padded back mesh",
+        "handle_type": "Webbing grab handle"
+    },
+    "features": [
+        "Padded laptop sleeve",
+        "Two spacious compartments",
+        "Fabric bottle pocket",
+        "Padded shoulder straps",
+        "Padded back mesh",
+        "Double-stitched strap construction",
+        "Reflective tape",
+        "Premium lining fabric",
+        "Shoulder strap reinforcement"
+    ],
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "available": true,
+                "image": "black.jpg"
+            },
+            {
+                "name": "Blue",
+                "available": true,
+                "image": "blue.jpg"
+            },
+            {
+                "name": "Blue & Black",
+                "available": true,
+                "image": "Blue & Black.jpg"
+            },
+            {
+                "name": "Grey & Black",
+                "available": true,
+                "image": "Grey & Black.jpg"
+            }
+        ],
+        "sizes": [
+            {
+                "name": "15L",
+                "available": true
+            }
+        ]
+    },
+    "images": {
+        "primary": "black.jpg",
+        "gallery": [
+            "black.jpg",
+            "Blue & Black.jpg",
+            "blue.jpg",
+            "Grey & Black.jpg"
+        ],
+        "image_directory": "products/Bags/BAG-001/"
+    },
+    "reviews": {
+        "average_rating": 4.1,
+        "total_ratings": 3392,
+        "rating_distribution": {
+            "5": 55,
+            "4": 22,
+            "3": 10,
+            "2": 4,
+            "1": 9
+        },
+        "representative_reviews": [
+            {
+                "rating": 5,
+                "title": "Awesome bag",
+                "text": "Fantastic bag in this price range, looking good and durable. Good for college or coaching.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "price",
+                    "appearance",
+                    "durability",
+                    "college"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Worth the money",
+                "text": "Small size backpack with two compartments and a laptop sleeve. Material quality is good and zips work fine.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "size",
+                    "compartments",
+                    "laptop",
+                    "material",
+                    "zips",
+                    "value"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Gr8, best buy",
+                "text": "Classy, stylish, durable, lots of space and value for money.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "style",
+                    "durability",
+                    "space",
+                    "value"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Awesome For Corporate Sector Employees",
+                "text": "Worth the price with good quality. Reviewer also mentions a 1-year warranty from VIP.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "office",
+                    "quality",
+                    "warranty"
+                ]
+            },
+            {
+                "rating": 3,
+                "title": "Good",
+                "text": "Material quality is good, but the stitching quality was reported as poor in some places. The bottle pocket was also reported as unable to fit a 1 litre steel bottle. Reviewer considered it good below ₹350.",
+                "verified_purchase": true,
+                "sentiment": "mixed",
+                "topics": [
+                    "material",
+                    "stitching",
+                    "bottle_pocket",
+                    "price"
+                ]
+            }
+        ]
+    },
+    "sales_intelligence": {
+        "best_for": [
+            "College students",
+            "Office employees",
+            "Daily commuters",
+            "Light travel"
+        ],
+        "strengths": [
+            "Affordable",
+            "Laptop sleeve",
+            "Two compartments",
+            "Padded shoulder straps",
+            "Padded back mesh",
+            "Compact and lightweight according to customer feedback",
+            "Good value at the selling price"
+        ],
+        "potential_limitations": [
+            "Small backpack size may not be suitable for extended travel",
+            "Bottle pocket may not accommodate a 1 litre steel bottle",
+            "One customer reported loose stitching"
+        ],
+        "recommendation_profile": {
+            "budget": "Budget",
+            "primary_use": "Daily / Office / College",
+            "travel_suitability": "Light travel",
+            "laptop_use": true,
+            "value_for_money": "High"
+        },
+        "customer_questions_supported": [
+            "Is this good for college?",
+            "Is this good for office?",
+            "Can I carry a laptop?",
+            "Does it have multiple compartments?",
+            "Does it have a bottle pocket?",
+            "Is it good for daily use?",
+            "Is it worth the price?",
+            "Is it suitable for travel?",
+            "What do customers say about the quality?",
+            "What are the drawbacks?"
+        ]
+    },
+    "availability": {
+        "status": "In stock",
+        "stock_quantity": null
+    },
+    "policies": {
+        "return_policy": null,
+        "exchange_policy": null,
+        "warranty": null
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0D8BG7S4P",
+        "url": "https://www.amazon.in/Aristocrat-25L-Nova-Laptop-Backpack/dp/B0D8BG7S4P",
+        "source_product_name": "Aristocrat Nova 15L Laptop Backpack for Men & Women with Bottle Pocket | Padded Shoulder Straps, Multi Compartments | Travel & College Bag | Dark Black"
+    }
+}

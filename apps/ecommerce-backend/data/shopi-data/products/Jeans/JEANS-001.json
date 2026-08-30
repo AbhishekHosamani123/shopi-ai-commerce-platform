@@ -1,0 +1,276 @@
+{
+    "product_id": "JEANS-001",
+    "product": {
+        "name": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans",
+        "brand": "KOTTY",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Regular Fit Jeans",
+        "description": "A regular-fit, straight-leg, mid-rise cotton-blend jeans designed for casual and daily wear with stretchable comfort.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "leg_style": "Straight",
+        "rise": "Mid Rise",
+        "closure": "Button",
+        "length": "Standard Length",
+        "material": "Cotton Blend",
+        "fabric_weight": "Medium Weight",
+        "stretch": "Stretchable",
+        "care": "Machine Wash",
+        "style_tags": [
+            "casual",
+            "modern",
+            "classic",
+            "streetwear",
+            "daily wear",
+            "rugged"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "hangouts",
+            "parties",
+            "streetwear",
+            "outdoor wear"
+        ],
+        "season_tags": [
+            "all season",
+            "summer",
+            "autumn",
+            "cooler weather"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "colors": [
+            "Carbon Black",
+            "Dark Blue",
+            "Light Blue",
+            "Light Grey"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 400
+    },
+    "pricing": {
+        "mrp": 1999,
+        "selling_price": 480,
+        "currency": "INR",
+        "discount_percentage": 76,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Carbon Black",
+            "image": "products/JEANS-001/carbon black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/JEANS-001/dark blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/JEANS-001/light blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Grey",
+            "image": "products/JEANS-001/light grey.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.7,
+        "rating_count": 2597,
+        "review_count": 622
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers generally like the jeans for their soft fabric, comfort, stretchability, daily-wear suitability and value. The main concerns are color fading after washing, inconsistent color compared with expectations, mixed feedback on length and some complaints about fit and men's sizing.",
+        "positive": [
+            "Good perceived fabric quality",
+            "Soft fabric",
+            "Comfortable fit for many customers",
+            "Good stretchability",
+            "Suitable for daily wear",
+            "Good value for money",
+            "Stylish appearance",
+            "Lightweight enough for comfortable everyday use"
+        ],
+        "negative": [
+            "Color may fade after washing",
+            "Some colors may differ from product images or expectations",
+            "Mixed feedback on length",
+            "Some customers report fit issues",
+            "One customer reported insufficient crotch and waist space",
+            "Some customers questioned whether the construction was suitable for men's fit"
+        ],
+        "main_concern": "Fit consistency and color durability are the biggest concerns, despite generally positive feedback about comfort and fabric quality."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The product is officially regular fit, but customer feedback includes both comfortable-fit reports and complaints about men's waist, crotch and leg construction."
+        },
+        "summer_suitability": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Customers report that the jeans are suitable for daily wear and some specifically mention summer comfort, but color durability after washing is a concern."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "color_durability": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple customer-review signals mention fading after washing."
+        }
+    },
+    "pros": [
+        "Soft cotton-blend fabric",
+        "Comfortable for daily wear",
+        "Stretchable",
+        "Good perceived quality",
+        "Stylish and versatile",
+        "Good value for money"
+    ],
+    "cons": [
+        "Color may fade after washing",
+        "Color may not exactly match expectations",
+        "Length feedback is mixed",
+        "Fit may not work for every body type",
+        "Potential men's fit and crotch-space concerns"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.0,
+        "best_for": [
+            "Casual wear",
+            "Daily wear",
+            "Streetwear",
+            "Budget-conscious shoppers",
+            "Customers wanting stretchable jeans",
+            "Customers prioritizing comfort"
+        ],
+        "not_ideal_for": [
+            "Customers demanding premium color durability",
+            "Customers who are very particular about men's crotch and waist fit",
+            "Customers expecting exact color matching with product images"
+        ],
+        "size_advice": "Check the size chart carefully before purchasing because customer feedback indicates some fit inconsistency.",
+        "care_advice": "Machine wash according to the care instructions, but expect that color fading may occur over time based on customer feedback.",
+        "sales_advice": "Lead with the jeans' comfort, stretchability, everyday versatility and low price, but disclose the color-fading and fit-consistency concerns when relevant."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "comfortable jeans",
+            "stretchable jeans",
+            "regular fit jeans",
+            "straight leg jeans",
+            "mid rise jeans",
+            "casual jeans",
+            "daily wear jeans",
+            "budget jeans",
+            "cotton blend jeans",
+            "comfortable men's jeans"
+        ],
+        "negative_keywords": [
+            "fade resistant jeans",
+            "no fading jeans",
+            "premium color durability",
+            "perfect men's fit",
+            "slim fit jeans",
+            "exact color match"
+        ],
+        "strong_attributes": [
+            "regular fit",
+            "straight leg",
+            "mid rise",
+            "stretchable",
+            "cotton blend",
+            "casual",
+            "daily wear",
+            "comfortable"
+        ],
+        "warning_attributes": [
+            "possible color fading",
+            "mixed length feedback",
+            "possible fit inconsistency",
+            "crotch and waist fit concerns"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "32",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance",
+                "satisfaction"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "30",
+            "sentiment": "positive_with_fading_concern",
+            "themes": [
+                "quality",
+                "comfortable fit",
+                "daily wear",
+                "possible fading"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "34",
+            "sentiment": "negative",
+            "themes": [
+                "men's fit concern",
+                "waist fit",
+                "crotch space",
+                "leg fit",
+                "stretching comfort"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering style, fit, fabric, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the strong comfort, stretchability, quality and value signals, while mentioning the color-fading and fit concerns.",
+        "when_customer_asks_about_color": "Mention that four colors are available, but customer feedback indicates that some buyers experienced fading or differences between expected and actual color.",
+        "when_customer_asks_about_fit": "Explain that it is officially regular fit with a straight leg and mid rise, but recommend checking the size chart because some customers reported fit and crotch-space issues.",
+        "when_customer_asks_about_daily_wear": "Recommend it for casual and daily wear because customer feedback is generally positive about comfort and stretchability.",
+        "when_customer_asks_for_alternatives": "Prioritize products with similar price and comfort characteristics but better evidence for color durability and consistent men's fit.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its sales rank or rating. Consider the customer's budget, preferred fit, color expectations, comfort requirements and intended use."
+    }
+}

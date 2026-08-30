@@ -5,14 +5,10 @@ import { ProductSimilarity, SubstitutionConfidence } from './cannibalization-typ
  * Calculates attribute similarity and substitution likelihood between two products.
  */
 export function calculateProductSimilarity(p1: any, p2: any): ProductSimilarity {
-  const categoryMatch = p1.categoryid === p2.categoryid;
+  const categoryMatch = (p1.category || '').toLowerCase() === (p2.category || '').toLowerCase();
 
-  const tags1 = (p1.tags || '').toLowerCase().split(',').map((t: string) => t.trim()).filter(Boolean);
-  const tags2 = (p2.tags || '').toLowerCase().split(',').map((t: string) => t.trim()).filter(Boolean);
-  const tagOverlap = tags1.filter((t: string) => tags2.includes(t)).length;
-
-  const price1 = parseFloat(p1.price || '0');
-  const price2 = parseFloat(p2.price || '0');
+  const price1 = parseFloat(p1.selling_price || p1.price || '0');
+  const price2 = parseFloat(p2.selling_price || p2.price || '0');
   const maxPrice = Math.max(price1, price2, 1);
   const priceDiff = Math.abs(price1 - price2);
   const priceRatio = Math.max(0, 1 - (priceDiff / maxPrice)); // 1.0 means identical price
@@ -24,9 +20,8 @@ export function calculateProductSimilarity(p1: any, p2: any): ProductSimilarity 
 
   // Composite Similarity Score (0.0 to 1.0)
   let score = 0;
-  if (categoryMatch) score += 0.40;
-  score += Math.min(0.25, tagOverlap * 0.10);
-  score += Math.min(0.20, wordOverlap * 0.10);
+  if (categoryMatch) score += 0.50;
+  score += Math.min(0.35, wordOverlap * 0.15);
   score += (priceRatio * 0.15);
 
   const similarityScore = parseFloat(Math.min(0.99, score).toFixed(2));
@@ -36,12 +31,12 @@ export function calculateProductSimilarity(p1: any, p2: any): ProductSimilarity 
   else if (similarityScore >= 0.45) confidence = 'MEDIUM';
 
   return {
-    productIdA: p1.productid,
+    productIdA: p1.product_id || p1.productid,
     productTitleA: p1.title,
-    productIdB: p2.productid,
+    productIdB: p2.product_id || p2.productid,
     productTitleB: p2.title,
     categoryMatch,
-    tagOverlapCount: tagOverlap,
+    tagOverlapCount: wordOverlap,
     priceRatio: parseFloat(priceRatio.toFixed(2)),
     similarityScore,
     substitutionConfidence: confidence
@@ -52,11 +47,11 @@ export function calculateProductSimilarity(p1: any, p2: any): ProductSimilarity 
  * Finds top substitutable / similar products across the catalog for a given SKU.
  */
 export async function findSimilarProducts(productId: number, limit: number = 5): Promise<ProductSimilarity[]> {
-  const targetRes = await client.query('SELECT * FROM products WHERE productid = $1', [productId]);
+  const targetRes = await client.query('SELECT * FROM shopi_products WHERE product_id = $1', [productId]);
   if (targetRes.rows.length === 0) return [];
   const target = targetRes.rows[0];
 
-  const allRes = await client.query('SELECT * FROM products WHERE productid != $1', [productId]);
+  const allRes = await client.query('SELECT * FROM shopi_products WHERE product_id != $1', [productId]);
   const similarities = allRes.rows.map(p => calculateProductSimilarity(target, p));
 
   return similarities

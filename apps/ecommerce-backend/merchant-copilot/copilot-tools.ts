@@ -15,6 +15,7 @@ import {
   getCancellationAnalytics,
   getBusinessAlerts
 } from '../merchant-intelligence';
+import { MerchantSupabaseService } from '../data/merchantSupabaseService';
 import { ToolDefinition } from '../ai-adapter/GroqAdapter';
 
 /**
@@ -429,6 +430,21 @@ export async function executeCopilotTool(toolName: string, args: Record<string, 
 
     case 'investigate_why_sales_changed':
       return await investigateWhySalesChanged(period);
+
+    case 'get_high_intent_customers':
+      return await MerchantSupabaseService.getHighIntentCustomers();
+
+    case 'get_cart_abandoners':
+      return await MerchantSupabaseService.getCartAbandoners();
+
+    case 'get_checkout_abandoners':
+      return await MerchantSupabaseService.getCheckoutAbandoners();
+
+    case 'get_dormant_customers':
+      return await MerchantSupabaseService.getDormantCustomers(args.daysThreshold || 60);
+
+    case 'get_stock_runway':
+      return await MerchantSupabaseService.getStockRunway(args.productId || 1);
 
     default:
       throw new Error(`Unknown copilot tool: ${toolName}`);

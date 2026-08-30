@@ -1,0 +1,436 @@
+{
+    "product_id": "JACKET-004",
+    "product": {
+        "name": "TAGAS Men's Regular Fit Zip-Up Casual Bomber Jacket",
+        "brand": "TAGAS",
+        "category": "Jackets",
+        "subcategory": "Bomber Jackets",
+        "gender": "Men",
+        "product_type": "Casual Bomber Jacket",
+        "generic_name": "Jacket",
+        "description": "A men's casual bomber jacket with a low-cut standing collar, full sleeves, comfort fit and standard length. It is positioned as a stylish winter/cold-weather casual jacket with multiple pockets and a zip closure.",
+        "fit": "Comfort Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Band / Low-Cut Standing Collar",
+        "closure": "Zipper",
+        "length": "Standard Length",
+        "silhouette": "Quilted Bomber",
+        "style": "Bomber Jacket",
+        "material": "Polyester 80%, Cotton 20%",
+        "material_composition": {
+            "polyester": 80,
+            "cotton": 20
+        },
+        "stretch": "Not Specified",
+        "lining": "Not Specified",
+        "care": {
+            "washing": "Machine Wash",
+            "additional": "Source also states machine/hand washable and tumble dry low."
+        },
+        "country_of_origin": "India",
+        "manufacturer": "TIFFNY CORPORATION",
+        "packer": "TIFFNY CORPORATION",
+        "importer": "TIFFNY CORPORATION",
+        "item_weight_grams": 200,
+        "net_quantity": 1,
+        "features": [
+            "Bomber jacket design",
+            "Comfort fit",
+            "Low-cut standing/band collar",
+            "Long sleeves",
+            "Standard length",
+            "Solid pattern",
+            "Zip closure",
+            "Multiple pockets",
+            "Lightweight construction",
+            "Machine washable"
+        ],
+        "style_tags": [
+            "casual",
+            "bomber",
+            "winter",
+            "solid",
+            "quilted",
+            "lightweight",
+            "streetwear",
+            "everyday wear",
+            "sporty",
+            "minimal"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "college wear",
+            "daily wear",
+            "travel",
+            "winter rides",
+            "weekend outings"
+        ],
+        "season_tags": [
+            "winter",
+            "cold weather",
+            "mild-to-cold weather"
+        ],
+        "weather_suitability": [
+            "cold weather",
+            "winter",
+            "winter rides"
+        ]
+    },
+    "variants": [
+        {
+            "color": "Black",
+            "color_family": "Black",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL",
+                "4XL"
+            ],
+            "image": "products/JACKET-004/black.jpg"
+        },
+        {
+            "color": "Grey",
+            "color_family": "Grey",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL",
+                "4XL"
+            ],
+            "image": "products/JACKET-004/grey.jpg"
+        },
+        {
+            "color": "Navy",
+            "color_family": "Navy",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL",
+                "4XL"
+            ],
+            "image": "products/JACKET-004/navy.jpg"
+        }
+    ],
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/JACKET-004/black.jpg",
+            "is_primary": true,
+            "variant": "Black"
+        },
+        {
+            "color": "Grey",
+            "image": "products/JACKET-004/grey.jpg",
+            "is_primary": false,
+            "variant": "Grey"
+        },
+        {
+            "color": "Navy",
+            "image": "products/JACKET-004/navy.jpg",
+            "is_primary": false,
+            "variant": "Navy"
+        }
+    ],
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 699,
+        "currency": "INR",
+        "discount_percentage": 53,
+        "price_type": "snapshot"
+    },
+    "rating": {
+        "average": 3.8,
+        "rating_count": 2720,
+        "review_count": 633
+    },
+    "rating_distribution": {
+        "5_star_percentage": 46,
+        "4_star_percentage": 23,
+        "3_star_percentage": 13,
+        "2_star_percentage": 6,
+        "1_star_percentage": 12
+    },
+    "review_summary": {
+        "overall_sentiment": "positive_with_zipper_concerns",
+        "summary": "Customers generally appreciate the jacket's value, appearance, fit and comfort. Warmth receives mixed feedback: some customers find it suitable for winter and cold-weather rides, while others say it is not suitable for very cold conditions. The most consistent negative issue is zipper quality.",
+        "positive": [
+            "Strong value-for-money sentiment",
+            "Positive feedback on style",
+            "Positive feedback on fit",
+            "Positive feedback on comfort",
+            "Customers generally like the colors",
+            "Some customers report good material and finishing",
+            "Some customers describe it as warm enough for winter",
+            "Some customers report good quality at the price",
+            "Some customers report good fit when the correct size is selected"
+        ],
+        "negative": [
+            "Multiple complaints about zipper quality",
+            "Plastic zipper is considered inferior to a metal zipper",
+            "Some customers describe the zipper as flimsy",
+            "Some reports say the zipper may not last",
+            "Size feedback is mixed",
+            "Some customers report the jacket runs slightly smaller than expected",
+            "Warmth is not universally considered sufficient for very cold weather",
+            "Some negative reviews report poor cloth quality"
+        ],
+        "main_concern": "Zipper durability and quality are the clearest recurring weakness."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers frequently praise the style and appearance."
+        },
+        "fit": {
+            "sentiment": "mostly_positive",
+            "confidence": "high",
+            "note": "Fit receives positive feedback overall, although some reviews report the jacket being slightly smaller than expected."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers frequently mention comfort and suitability for casual daily wear."
+        },
+        "fabric_quality": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Several reviews praise the material and finishing, but some negative reviews report poor cloth quality."
+        },
+        "stitching_quality": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "The available reviews do not show the same level of repeated stitching complaints seen with JACKET-003."
+        },
+        "zipper_quality": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "This is the dominant product weakness. Multiple customers specifically mention the plastic zipper, flimsy feel or poor zipper performance."
+        },
+        "value_for_money": {
+            "sentiment": "strongly_positive",
+            "confidence": "high",
+            "note": "Value for money is one of the strongest recurring themes in the review data."
+        },
+        "warmth": {
+            "sentiment": "mixed_to_positive",
+            "confidence": "medium",
+            "note": "Some customers describe it as warm and suitable for winter rides/cold weather, while the source also contains feedback saying it is not suitable for very cold conditions."
+        },
+        "durability": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "General quality is often praised, but zipper durability is a clear concern."
+        },
+        "weather_suitability": {
+            "sentiment": "mixed_to_positive",
+            "confidence": "medium",
+            "note": "The listing positions it for cold weather and winter, and some customers find it warm enough for winter rides. Do not position it as an extreme-cold jacket."
+        },
+        "water_resistance": {
+            "sentiment": "limited_positive",
+            "confidence": "low",
+            "note": "The product description claims the material is water-resistant, but the supplied customer evidence does not establish real-world waterproof performance."
+        }
+    },
+    "pros": [
+        "₹699 selling price",
+        "53% discount from listed MRP",
+        "3.8/5 rating",
+        "2,720 ratings",
+        "Strong value-for-money feedback",
+        "Comfortable fit",
+        "Stylish bomber design",
+        "Polyester/cotton blend",
+        "Multiple pockets",
+        "Three color options",
+        "S through 4XL size range",
+        "Suitable for casual daily wear",
+        "Suitable for winter/cold weather",
+        "Lightweight at 200 g",
+        "Machine washable"
+    ],
+    "cons": [
+        "Zipper quality is the biggest weakness",
+        "Plastic zipper rather than metal",
+        "Some customers report flimsy zipper construction",
+        "Potential zipper durability issue",
+        "Mixed sizing feedback",
+        "Some customers report slightly smaller sizing",
+        "Not necessarily warm enough for extreme cold",
+        "Some negative reviews criticize cloth quality"
+    ],
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_ZIPPER_CAVEAT",
+        "score": 7.8,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Men looking for a casual bomber",
+            "College wear",
+            "Daily wear",
+            "Travel",
+            "Winter rides",
+            "Cold-weather casual use",
+            "Shoppers needing extended sizes",
+            "Customers wanting a jacket under ₹1000",
+            "Customers prioritizing style and value"
+        ],
+        "not_ideal_for": [
+            "Customers demanding premium zipper hardware",
+            "Customers expecting premium construction",
+            "Extreme cold conditions",
+            "Customers who strongly prioritize long-term zipper durability"
+        ],
+        "size_advice": "The listing states comfort/regular fit and provides S through 4XL. Reviews are generally positive about fit, but some users report the jacket running slightly smaller. Checking the size chart is advisable.",
+        "weather_advice": "Better suited to winter and cold-weather casual use than summer. Some customers specifically report good warmth during winter rides. Do not market it as an extreme-cold or heavily insulated jacket.",
+        "quality_advice": "Overall quality sentiment is substantially better than JACKET-003, but the zipper is a recurring weak point. Shopi should not describe the zipper as premium or heavy-duty.",
+        "sales_advice": "Lead with ₹699, 3.8/5 rating, 2,720 ratings, comfort fit, bomber styling, three colors and S-4XL sizing. The value proposition is stronger than JACKET-003.",
+        "risk_advice": "If a shopper specifically asks about durability, mention that the zipper receives repeated criticism. Otherwise, the overall review record supports recommending the product for budget casual/winter use."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "black bomber jacket",
+            "grey bomber jacket",
+            "navy bomber jacket",
+            "men's bomber jacket",
+            "mens bomber jacket",
+            "casual bomber jacket",
+            "winter bomber jacket",
+            "jacket under 1000",
+            "jacket under 700",
+            "budget winter jacket",
+            "budget bomber",
+            "college jacket",
+            "casual winter jacket",
+            "lightweight winter jacket",
+            "jacket for winter rides",
+            "jacket for cold weather",
+            "plus size jacket",
+            "4XL jacket",
+            "stylish men's jacket",
+            "value for money jacket"
+        ],
+        "negative_keywords": [
+            "premium bomber",
+            "metal zipper jacket",
+            "premium zipper",
+            "heavy duty zipper",
+            "extreme cold jacket",
+            "heavy insulated jacket",
+            "luxury jacket",
+            "premium winter jacket"
+        ],
+        "strong_attributes": [
+            "black",
+            "grey",
+            "navy",
+            "bomber",
+            "casual",
+            "winter",
+            "solid",
+            "quilted",
+            "comfort fit",
+            "polyester cotton",
+            "lightweight",
+            "multiple pockets",
+            "budget",
+            "extended sizes"
+        ],
+        "warning_attributes": [
+            "zipper quality",
+            "plastic zipper",
+            "flimsy zipper",
+            "mixed sizing",
+            "not extreme cold"
+        ]
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe it as a budget-friendly men's bomber jacket with a polyester/cotton blend, comfort fit, band/standing collar, long sleeves, standard length, multiple pockets and zip closure.",
+        "when_customer_asks_if_good": "Yes, it is a reasonable budget recommendation. Its 3.8/5 rating from 2,720 ratings and generally positive feedback on fit, comfort, style and value make it stronger than many low-cost alternatives. Mention the zipper caveat if discussing quality.",
+        "when_customer_asks_about_fit": "The listing describes a comfort/regular fit and sizes S through 4XL. Reviews are mostly positive about fit, but some customers report it running slightly smaller. Recommend checking the size chart.",
+        "when_customer_asks_about_winter": "It is positioned for cold weather and winter use. Some customers report good warmth for winter rides, but do not claim that it is suitable for extreme cold.",
+        "when_customer_asks_about_quality": "Overall quality feedback is mostly positive for the price, but zipper quality is a recurring complaint. Do not describe the zipper as premium.",
+        "when_customer_asks_about_zipper": "Be transparent: the jacket uses a plastic-based zipper and multiple customers have criticized its quality or durability. This is the main known weakness.",
+        "when_customer_asks_about_colors": "The supplied variants are Black, Grey and Navy.",
+        "when_customer_asks_about_pockets": "The product description states that it has multiple pockets. Do not invent an exact pocket count.",
+        "when_customer_asks_about_waterproofing": "The source describes the material as water-resistant, but do not upgrade that claim to waterproof without additional evidence.",
+        "when_customer_asks_about_care": "The product is listed as machine washable. The description also states that it can be hand washed and tumble dried on low.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes value, JACKET-004 is a strong candidate. If they prioritize zipper durability or premium construction, recommend another jacket instead.",
+        "when_customer_asks_for_best_product": "Among budget jackets, JACKET-004 can rank highly because of its 3.8/5 rating, 2,720 ratings, ₹699 price, strong value sentiment and broad S-4XL size range. Do not rank it first when premium hardware is the primary requirement.",
+        "when_customer_asks_about_reliability": "Overall reliability appears reasonable for the price, but the zipper should be treated as the primary reliability risk.",
+        "when_customer_asks_about_value": "Strong value proposition at ₹699. Customer feedback repeatedly describes the jacket as good value for money."
+    },
+    "comparison_signals": {
+        "vs_jacket_003": {
+            "overall_preference": "JACKET-004",
+            "reason": "Higher rating, much larger review sample, lower selling price, more sizes, three colors, and fewer prominent quality-control complaints. JACKET-004's main recurring weakness is zipper quality."
+        },
+        "ranking_priority": {
+            "value_for_money": "strong",
+            "style": "strong",
+            "fit": "strong",
+            "comfort": "strong",
+            "warmth": "medium",
+            "durability": "medium",
+            "zipper_quality": "weak",
+            "premium_quality": "weak"
+        }
+    },
+    "data_quality": {
+        "source": "Amazon India product listing and customer reviews",
+        "asin": "B0CQ8LFM7M",
+        "style_number": "MJ-9015",
+        "current_variant": "GREY / XL",
+        "source_rating": 3.8,
+        "source_rating_count": 2720,
+        "review_sample_count": 633,
+        "local_image_variants": 3,
+        "local_images": [
+            "products/JACKET-004/black.jpg",
+            "products/JACKET-004/grey.jpg",
+            "products/JACKET-004/navy.jpg"
+        ],
+        "verified_attributes": [
+            "brand",
+            "product name",
+            "gender",
+            "category",
+            "product type",
+            "fit",
+            "length",
+            "material composition",
+            "sleeve type",
+            "collar",
+            "pattern",
+            "care instruction",
+            "country of origin",
+            "weight",
+            "price",
+            "MRP",
+            "available sizes",
+            "available colors",
+            "rating",
+            "rating distribution",
+            "review count"
+        ],
+        "not_verified_attributes": [
+            "exact insulation thickness",
+            "thermal rating",
+            "waterproof performance",
+            "exact pocket count",
+            "exact zipper material beyond customer descriptions",
+            "long-term zipper lifespan",
+            "consistent sizing across every variant"
+        ]
+    }
+}

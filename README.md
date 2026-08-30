@@ -124,7 +124,7 @@ streamlit run app.py
 | Role | Email | Password |
 | :--- | :--- | :--- |
 | **Admin** | `admin@test.com` | `supersecret` |
-| **Customer** | `customer@test.com` | `password123` |
+| **Customer (Demo)** | `demo@demo.com` | `12345678` |
 
 ---
 

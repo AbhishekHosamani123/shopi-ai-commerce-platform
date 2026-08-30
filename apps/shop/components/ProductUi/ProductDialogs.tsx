@@ -60,7 +60,7 @@ interface Product {
   sizes: ProductSize[] | [];
   reviews: Review[] | [];
 }
-const ProductDialogs = ({dialogType,setdialogType,setloading,productID,selectedReview,selectedRating,setselectedRating}:{dialogType:string | null,setdialogType:React.Dispatch<React.SetStateAction<string | null>>,setloading:React.Dispatch<React.SetStateAction<boolean>>,productID:number,selectedReview:Review|null,selectedRating:number,setselectedRating:React.Dispatch<React.SetStateAction<number>>}) => {
+const ProductDialogs = ({dialogType,setdialogType,setloading,productID,selectedReview,selectedRating,setselectedRating}:{dialogType:string | null,setdialogType:React.Dispatch<React.SetStateAction<string | null>>,setloading:React.Dispatch<React.SetStateAction<boolean>>,productID:number | string,selectedReview:Review|null,selectedRating:number,setselectedRating:React.Dispatch<React.SetStateAction<number>>}) => {
     const [stars, setstars] = useState(5);
     const defaultAccount = useAppSelector((state) => state.userState.defaultAccount);
     const [starWarning, setstarWarning] = useState(false);

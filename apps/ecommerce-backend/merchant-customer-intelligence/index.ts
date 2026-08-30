@@ -8,3 +8,4 @@ export * from './customer-value-history';
 export * from './clv-engine';
 export * from './retention-opportunity-engine';
 export * from './customer-campaign-simulator';
+export * from './customer-intelligence-service';

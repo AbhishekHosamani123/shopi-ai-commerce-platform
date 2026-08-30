@@ -19,19 +19,21 @@ const ShopiAiAssistant = dynamic(() => import('@/components/AI/ShopiAiAssistant'
 
 const App = () => {
   return (
-    <main className="h-screen w-screen flex items-center flex-col overflow-x-hidden">
+    <div className="min-h-screen w-full flex items-center flex-col overflow-x-hidden">
       <Cart />
       <Favourite />
       <Menubar />
       <Navbar />
-      <Banner />
-      <Trends />
-      <Status />
-      <Details />
-      <Tabs />
+      <main className="w-full flex-1 flex flex-col items-center">
+        <Banner />
+        <Trends />
+        <Status />
+        <Details />
+        <Tabs />
+      </main>
       <Footer />
       <ShopiAiAssistant />
-    </main>
+    </div>
   );
 };
 

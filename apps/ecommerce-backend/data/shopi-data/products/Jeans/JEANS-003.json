@@ -1,0 +1,426 @@
+{
+    "product_id": "JEANS-003",
+    "product": {
+        "name": "Highlander Men Bootcut Denim Jeans",
+        "brand": "Highlander",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Bootcut Jeans",
+        "description": "Highlander men's bootcut denim jeans featuring a mid-rise design, stretchable cotton-blend fabric, regular length and a comfortable bootcut fit. The jeans have a solid pattern and are designed for casual, daily and semi-casual wear.",
+        "fit": "Boot Cut",
+        "pattern": "Solid",
+        "leg_style": "Trouser",
+        "rise_style": "Mid Rise",
+        "closure": "Button",
+        "length": "Standard Length",
+        "material": "Cotton Blend",
+        "fabric_composition": "Cotton Poly Lycra",
+        "fabric_weight": "Lightweight",
+        "stretch": "Stretchable",
+        "care": "Machine Wash",
+        "front_style": "Flat Front",
+        "style_tags": [
+            "bootcut",
+            "denim",
+            "classic",
+            "casual",
+            "stretchable",
+            "comfortable",
+            "solid",
+            "mid-rise",
+            "everyday wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "hangouts",
+            "semi-casual events",
+            "evening wear"
+        ],
+        "season_tags": [
+            "all season"
+        ],
+        "sizes": [
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "colors": [
+            "Black",
+            "Light Blue"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 480
+    },
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 650,
+        "currency": "INR",
+        "discount_percentage": 75,
+        "price_type": "snapshot",
+        "variant_pricing": {
+            "Light Blue": {
+                "selling_price": 650,
+                "mrp": 2599,
+                "discount_percentage": 75
+            },
+            "Black": {
+                "selling_price": 751,
+                "mrp": 2399,
+                "discount_percentage": 69
+            }
+        }
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/Jeans/JEANS-003/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/Jeans/JEANS-003/light blue.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.9,
+        "rating_count": 29,
+        "review_count": 15
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers have mixed but generally positive opinions about these jeans. Many reviewers praise the soft fabric, stretch, comfort, bootcut shape, appearance and value for money. However, some customers reported loose or unusual fitting, and one customer reported that the black colour faded after one wash. The 3.9/5 rating reflects this mixed experience.",
+        "positive": [
+            "Soft fabric",
+            "Good stretch",
+            "Comfortable for long hours",
+            "Stylish bootcut shape",
+            "Good casual appearance",
+            "Good value for money",
+            "Comfortable mid-rise design",
+            "Light Blue colour received positive feedback",
+            "Black colour received positive feedback from several buyers",
+            "Suitable for everyday wear"
+        ],
+        "negative": [
+            "Some customers found the fit too loose",
+            "One customer disliked the fit of the Light Blue variant",
+            "One customer reported colour fading after one wash",
+            "Length may require alteration for some customers",
+            "Fit experience is inconsistent across buyers"
+        ],
+        "main_concern": "Fit consistency is the biggest concern. While several buyers describe the jeans as comfortable and well-fitting, other buyers reported that the jeans were too loose or had an undesirable fit."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple customers described the jeans as stylish, good-looking and suitable for casual outfits."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Reviews repeatedly mention comfort, soft fabric and suitability for long periods of wear."
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Customers reported good material quality, soft fabric and comfortable stretch."
+        },
+        "stretch": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers specifically praised the stretchable fabric."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several customers reported a good or perfect fit, while others complained that the jeans were too loose or had an unusual fit."
+        },
+        "length": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "One customer liked the product but noted that the length needed to be shortened."
+        },
+        "colour": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Black and Light Blue received positive comments, but one customer reported that the black colour faded after one wash."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple customers described the product as good or worth the price."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The bootcut design and casual styling received positive feedback."
+        }
+    },
+    "pros": [
+        "Stylish bootcut design",
+        "Stretchable cotton-blend fabric",
+        "Soft and comfortable material",
+        "Mid-rise construction",
+        "Suitable for long hours of wear",
+        "Good casual styling",
+        "Available in Black and Light Blue",
+        "Sizes 30 through 38",
+        "Good value for money",
+        "Suitable for daily and semi-casual wear"
+    ],
+    "cons": [
+        "Fit may be looser than expected",
+        "Some customers disliked the fit",
+        "Black colour fading complaint",
+        "Length may need alteration",
+        "Customer fit experience is inconsistent",
+        "Only moderate 3.9/5 rating"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.3,
+        "best_for": [
+            "Bootcut jeans preference",
+            "Casual wear",
+            "Daily wear",
+            "Customers wanting stretchable jeans",
+            "Customers prioritizing comfort",
+            "Customers wanting mid-rise jeans",
+            "Budget-conscious buyers",
+            "Customers who like Black or Light Blue jeans"
+        ],
+        "not_ideal_for": [
+            "Customers wanting slim-fit jeans",
+            "Customers wanting skinny jeans",
+            "Customers who dislike bootcut styling",
+            "Customers requiring very precise fit without alteration",
+            "Customers highly concerned about black colour durability"
+        ],
+        "size_advice": "Check the size chart carefully before ordering. Fit feedback is mixed, with some customers reporting a comfortable or perfect fit and others reporting that the jeans were too loose.",
+        "care_advice": "Machine wash according to the product instructions. Use cold water and a gentle cycle, avoid bleach and wash inside out to help protect the colour and fabric.",
+        "sales_advice": "Lead with the stretchable fabric, comfortable bootcut shape, mid-rise construction and affordable pricing. If the customer asks about fit, disclose that some reviews report a loose fit and recommend checking the size chart."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "men jeans",
+            "men's jeans",
+            "bootcut jeans",
+            "boot cut jeans",
+            "black jeans",
+            "light blue jeans",
+            "stretchable jeans",
+            "stretch jeans",
+            "comfortable jeans",
+            "mid-rise jeans",
+            "casual jeans",
+            "daily wear jeans",
+            "denim jeans",
+            "budget jeans",
+            "cotton blend jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "slim fit jeans",
+            "straight fit jeans",
+            "tight jeans",
+            "non-stretch jeans",
+            "premium rigid denim",
+            "no bootcut",
+            "regular straight jeans"
+        ],
+        "strong_attributes": [
+            "bootcut",
+            "stretchable",
+            "comfortable",
+            "mid-rise",
+            "cotton blend",
+            "solid",
+            "casual",
+            "daily wear",
+            "black",
+            "light blue"
+        ],
+        "warning_attributes": [
+            "possible loose fit",
+            "colour fading concern",
+            "possible length alteration",
+            "mixed fit feedback"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "34",
+            "sentiment": "negative_fit",
+            "themes": [
+                "poor fit",
+                "unusual fit",
+                "not recommended"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Black",
+            "size": "32",
+            "sentiment": "negative_colour",
+            "themes": [
+                "colour fading",
+                "wash durability"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Black",
+            "size": "30",
+            "sentiment": "negative_fit",
+            "themes": [
+                "loose fit",
+                "size issue"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "34",
+            "sentiment": "positive_with_length_concern",
+            "themes": [
+                "quality",
+                "comfortable",
+                "good material",
+                "length alteration"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "34",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "38",
+            "sentiment": "positive",
+            "themes": [
+                "good fit",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "34",
+            "sentiment": "positive",
+            "themes": [
+                "stylish",
+                "comfortable",
+                "casual wear",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Light Blue",
+            "size": "32",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable",
+                "mid-rise",
+                "stretchable",
+                "bootcut",
+                "casual style"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "34",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfortable",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "32",
+            "sentiment": "positive",
+            "themes": [
+                "fabric quality",
+                "comfortable",
+                "perfect fit",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "34",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "stretch",
+                "bootcut shape",
+                "comfort",
+                "value for money"
+            ]
+        }
+    ],
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0F494STGB",
+        "item_model_number": "PHJN000201",
+        "date_first_available": "2025-04-09",
+        "manufacturer": "Brand Studio Lifestyle Pvt Ltd",
+        "packer": "Brand Studio Lifestyle Pvt Ltd",
+        "importer": "Brand Studio Lifestyle Pvt Ltd",
+        "net_quantity": 1
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering bootcut style, mid-rise fit, stretchable cotton-blend fabric, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the comfortable stretchable fabric, bootcut design and strong value-for-money feedback, while mentioning the mixed fit feedback and colour-fading complaint.",
+        "when_customer_asks_about_quality": "Explain that several customers praised the fabric quality, softness and comfort, but do not guarantee durability because one customer reported black colour fading after one wash.",
+        "when_customer_asks_about_fit": "Explain that the product is officially Boot Cut with a Mid Rise. Some customers reported a good or perfect fit, while others found it too loose. Recommend checking the size chart before purchase.",
+        "when_customer_asks_about_colors": "The available product images represent Black and Light Blue variants. Do not invent additional colours.",
+        "when_customer_asks_about_price": "Use the current pricing snapshot carefully because the source shows different prices by listing or variant state: ₹650 with ₹2,599 MRP for one state and ₹751 with ₹2,399 MRP for another.",
+        "when_customer_asks_about_washing": "Recommend machine washing with cold water on a gentle cycle, mild detergent and no bleach. Washing inside out can help protect the colour.",
+        "when_customer_asks_for_alternatives": "Prioritize other bootcut or stretchable jeans with stronger fit consistency if the customer is concerned about sizing.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its price or positive reviews. Consider the customer's preferred fit, bootcut preference, colour, budget and tolerance for fit variation."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "Pricing differs between listing or variant states.",
+            "Fit feedback is inconsistent.",
+            "One customer reported black colour fading after one wash.",
+            "One customer reported needing to shorten the length.",
+            "Overall rating is 3.9/5 from 29 global ratings.",
+            "The review page exposes 15 customer reviews, so review_count should not be confused with rating_count.",
+            "The source describes the fabric as Cotton Blend and also specifically as Cotton Poly Lycra."
+        ]
+    }
+}

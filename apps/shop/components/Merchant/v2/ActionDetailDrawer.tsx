@@ -8,6 +8,10 @@ export interface ActionDetailItem {
   merchantId: string;
   actionType: 'RESTOCK' | 'DISCOUNT' | 'PROMOTION' | string;
   status: 'PENDING_APPROVAL' | 'APPROVED' | 'COMPLETED' | 'REJECTED' | 'EXPIRED' | 'ROLLED_BACK';
+  targetType?: 'PRODUCT' | 'CUSTOMER' | 'CUSTOMER_SEGMENT' | 'SUPPLIER';
+  targetCustomer?: string;
+  productTitle?: string;
+  productSku?: string;
   productId?: number | null;
   productName?: string;
   quantity?: number | null;
@@ -227,14 +231,32 @@ export function ActionDetailDrawer({
           <div className="bg-surface-2 border border-hairline rounded-lg p-4 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-mono uppercase text-ink-subtle font-medium">
-                Target Entity
+                {action.targetType === 'CUSTOMER' ? 'Target Customer Entity' : 'Target Catalog SKU'}
               </span>
               <span className="text-[11px] font-mono text-ink-muted">
-                {action.productId ? `SKU-${action.productId}` : 'CATALOG SCOPE'}
+                {action.targetType === 'CUSTOMER'
+                  ? (action.productId ? `CUSTOMER • SKU-${action.productId}` : 'CUSTOMER RETENTION')
+                  : (action.productId ? `SKU-${action.productId}` : 'CATALOG SCOPE')}
               </span>
             </div>
             <div className="text-sm font-semibold text-ink">
-              {action.productName || `Product #${action.productId || 'Catalog'}`}
+              {action.targetType === 'CUSTOMER' && (action.targetCustomer || action.productName) ? (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-1.5 py-0.5 rounded-xs text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                      CUSTOMER
+                    </span>
+                    <span>{action.targetCustomer || action.productName}</span>
+                  </div>
+                  {action.productTitle && (
+                    <div className="text-xs text-ink-subtle font-normal font-sans">
+                      Associated Product: {action.productTitle} {action.productSku ? `(${action.productSku})` : ''}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                action.productName || (action.productId ? `SKU-${action.productId}` : 'Catalog-wide')
+              )}
             </div>
             <div className="bg-surface-1/70 border border-hairline rounded-md p-3 text-ink-muted font-body leading-relaxed">
               {action.reason}

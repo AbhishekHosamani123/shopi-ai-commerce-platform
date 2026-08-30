@@ -1,0 +1,238 @@
+{
+    "product_id": "BAG-004",
+    "basic_info": {
+        "name": "American Tourister Valex 28L Backpack",
+        "brand": "American Tourister",
+        "category": "Bags",
+        "subcategory": "Laptop Backpack",
+        "product_type": "Backpack",
+        "gender": "Unisex",
+        "description": "Sleek and spacious backpack with a 17-inch laptop compartment and multiple compartments, designed for college, office and everyday use. Includes a 1-year global warranty across 120 countries."
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2500,
+        "selling_price": 1299,
+        "discount_amount": 1201,
+        "discount_percentage": 48
+    },
+    "attributes": {
+        "capacity": "28L",
+        "material": null,
+        "lining": null,
+        "color": "Black",
+        "pattern": null,
+        "style": "Sleek / Functional",
+        "use_cases": [
+            "College",
+            "Office",
+            "Daily use",
+            "Travel"
+        ],
+        "laptop_compatible": true,
+        "laptop_size": "17 inch",
+        "water_resistant": null,
+        "weight": null,
+        "dimensions": null,
+        "season": "All season"
+    },
+    "storage": {
+        "main_compartments": 2,
+        "laptop_sleeve": true,
+        "bottle_pocket": null,
+        "additional_pockets": null,
+        "organization": "Two main compartments with a dedicated 17-inch laptop compartment and space for office supplies and accessories"
+    },
+    "carrying": {
+        "strap_type": null,
+        "straps_adjustable": null,
+        "straps_detachable": false,
+        "back_panel": null,
+        "handle_type": null
+    },
+    "features": [
+        "28L capacity",
+        "17-inch laptop compartment",
+        "Two main compartments",
+        "Multiple storage compartments",
+        "Suitable for college and office use",
+        "Suitable for men and women",
+        "1-year global warranty",
+        "Warranty coverage across 120 countries"
+    ],
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "available": true,
+                "image": "black.jpg"
+            },
+            {
+                "name": "Blue",
+                "available": true,
+                "image": "blue.jpg"
+            },
+            {
+                "name": "Navy",
+                "available": true,
+                "image": "navy.jpg"
+            }
+        ],
+        "sizes": [
+            {
+                "name": "28L",
+                "available": true
+            }
+        ]
+    },
+    "images": {
+        "primary": "black.jpg",
+        "gallery": [
+            "black.jpg",
+            "blue.jpg",
+            "navy.jpg"
+        ],
+        "image_directory": "products/Bags/BAG-004/"
+    },
+    "reviews": {
+        "average_rating": 4.3,
+        "total_ratings": 12022,
+        "rating_distribution": null,
+        "customer_signals": {
+            "positive": [
+                "Spacious backpack",
+                "Good value for money",
+                "Good appearance",
+                "Good material according to customer feedback",
+                "Suitable for gaming laptops according to customer feedback",
+                "Suitable for office use",
+                "Suitable for college use"
+            ],
+            "negative": [
+                "Some customers criticized the laptop holder strength",
+                "Some customers reported comfort issues",
+                "Some customers criticized the outer material quality"
+            ]
+        },
+        "representative_reviews": [
+            {
+                "rating": null,
+                "title": null,
+                "text": null,
+                "verified_purchase": null,
+                "sentiment": "positive",
+                "topics": [
+                    "space",
+                    "value_for_money"
+                ]
+            },
+            {
+                "rating": null,
+                "title": null,
+                "text": null,
+                "verified_purchase": null,
+                "sentiment": "positive",
+                "topics": [
+                    "appearance",
+                    "material"
+                ]
+            },
+            {
+                "rating": null,
+                "title": null,
+                "text": null,
+                "verified_purchase": null,
+                "sentiment": "positive",
+                "topics": [
+                    "gaming_laptop",
+                    "laptop"
+                ]
+            },
+            {
+                "rating": null,
+                "title": null,
+                "text": null,
+                "verified_purchase": null,
+                "sentiment": "negative",
+                "topics": [
+                    "laptop_holder"
+                ]
+            },
+            {
+                "rating": null,
+                "title": null,
+                "text": null,
+                "verified_purchase": null,
+                "sentiment": "negative",
+                "topics": [
+                    "comfort",
+                    "outer_material"
+                ]
+            }
+        ]
+    },
+    "sales_intelligence": {
+        "best_for": [
+            "College students",
+            "Office employees",
+            "Laptop users",
+            "Daily commuters",
+            "Light travel"
+        ],
+        "strengths": [
+            "28L capacity",
+            "17-inch laptop compatibility",
+            "Two main compartments",
+            "Spacious design",
+            "Good value for money",
+            "Suitable for office and college",
+            "Suitable for gaming laptops according to customer feedback",
+            "1-year global warranty"
+        ],
+        "potential_limitations": [
+            "Some customers questioned the strength of the laptop holder",
+            "Some customers reported comfort issues",
+            "Some customers criticized the outer material quality"
+        ],
+        "recommendation_profile": {
+            "budget": "Budget / Mid-range",
+            "primary_use": "College / Office / Daily use",
+            "travel_suitability": "Light travel",
+            "laptop_use": true,
+            "laptop_size": "17 inch",
+            "space_priority": "High",
+            "value_for_money": "High",
+            "warranty_value": "High"
+        },
+        "customer_questions_supported": [
+            "Does it fit a 17-inch laptop?",
+            "How much capacity does it have?",
+            "Is it good for college?",
+            "Is it good for office?",
+            "Is it suitable for travel?",
+            "How many compartments does it have?",
+            "Is it spacious?",
+            "Is it suitable for a gaming laptop?",
+            "Is it comfortable to carry?",
+            "How is the material quality?",
+            "Does it have a warranty?",
+            "How long is the warranty?",
+            "Is it worth ₹1,299?"
+        ]
+    },
+    "availability": {
+        "status": null,
+        "stock_quantity": null
+    },
+    "policies": {
+        "return_policy": null,
+        "exchange_policy": null,
+        "warranty": "1 year global warranty across 120 countries"
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0BTD4S4XF",
+        "url": "https://www.amazon.in/dp/B0BTD4S4XF",
+        "source_product_name": "American Tourister Valex | 28L Backpack | 17\" Laptop Bag | 2 Compartments | College & Office Backpack for Men and Women | Black | 1 Year Global Warranty"
+    }
+}

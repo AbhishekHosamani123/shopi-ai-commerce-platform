@@ -1,0 +1,109 @@
+{
+    "product_id": "SNEAKER-002",
+    "sku": "B0DJD7RTW2",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker",
+    "brand": "ASIAN",
+    "model": "THUNDER-07",
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 749,
+        "currency": "INR",
+        "discount_percent": 50
+    },
+    "description": "Stylish casual mid-top sneakers with a lightweight design, breathable upper, air-cushioned sole and flexible construction for casual wear, college, parties and outings.",
+    "attributes": {
+        "material": "Synthetic",
+        "upper_material": "Synthetic",
+        "sole_material": "Polyvinyl Chloride",
+        "closure": "Lace-Up",
+        "heel_type": "Platform Heel",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Sneaker",
+        "occasion": "Casual",
+        "season": "All",
+        "country_of_origin": "India",
+        "weight_grams": 400,
+        "insole_cushioning": "Memory Foam",
+        "cushioning_level": "Moderate",
+        "special_features": [
+            "All Weather Grip",
+            "Flexible",
+            "Lightweight"
+        ]
+    },
+    "colors": [
+        {
+            "name": "BEIGELGRN",
+            "image": "BEIGELGRN.jpg"
+        },
+        {
+            "name": "FULL WHITE",
+            "image": "FULL WHITE.jpg"
+        },
+        {
+            "name": "OFFWHITE SKY",
+            "image": "OFFWHITE SKY.jpg"
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK",
+        "11 UK",
+        "12 UK"
+    ],
+    "features": [
+        "Lightweight construction",
+        "Breathable upper",
+        "Lace-up closure",
+        "Flexible outsole",
+        "Air-cushioned sole",
+        "Memory foam insole",
+        "Moderate cushioning",
+        "Non-slip grip",
+        "Shockproof design",
+        "Suitable for casual wear"
+    ],
+    "use_cases": [
+        "Daily casual wear",
+        "College",
+        "Parties",
+        "Outings",
+        "Lifestyle"
+    ],
+    "ratings": {
+        "average_rating": 3.7,
+        "rating_count": 1311
+    },
+    "brand_info": {
+        "positive_rating_percentage": 83,
+        "customer_base": "100K+ customers",
+        "recent_orders": "100K+",
+        "amazon_presence_years": 11
+    },
+    "manufacturer": "Asian Footwear PVT.LTD",
+    "packer": "Asian Retail Ventures",
+    "net_quantity": 1,
+    "dimensions": {
+        "length_cm": 29.3,
+        "width_cm": 16.2,
+        "height_cm": 10.9
+    },
+    "images": [
+        "BEIGELGRN.jpg",
+        "FULL WHITE.jpg",
+        "OFFWHITE SKY.jpg"
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0DJD7RTW2",
+        "url": "https://www.amazon.in/dp/B0DJD7RTW2",
+        "collected_at": "2026-08-26"
+    }
+}

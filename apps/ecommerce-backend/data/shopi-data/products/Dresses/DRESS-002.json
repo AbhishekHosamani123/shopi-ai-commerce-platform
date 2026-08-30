@@ -1,0 +1,676 @@
+{
+    "product_id": "DRESS-002",
+    "product": {
+        "name": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set",
+        "brand": "KLOSIA",
+        "category": "Dresses",
+        "subcategory": "Women's Ethnic Wear",
+        "gender": "Women",
+        "product_type": "Anarkali Kurta Pant Dupatta Set",
+        "description": "A printed Anarkali kurta set for women featuring a coordinated kurta, ankle-length pants and matching printed dupatta. The outfit has a flowing Anarkali silhouette, V-neck, 3/4 sleeves and a regular fit, making it suitable for casual, office, festive and semi-formal occasions.",
+        "fit": "Regular Fit",
+        "pattern": "Printed",
+        "sleeve": "3/4 Sleeve",
+        "collar": "V Neck",
+        "collar_style": "V Neck",
+        "closure": "Pull On",
+        "length": "Calf Length",
+        "material": "Rayon",
+        "fabric_type": "Viscose",
+        "fabric_weight": "Lightweight",
+        "stretch": "Low Stretch",
+        "care": "Dry Clean Only",
+        "set_includes": [
+            "Anarkali Kurta",
+            "Pant",
+            "Printed Dupatta"
+        ],
+        "style_tags": [
+            "anarkali",
+            "ethnic",
+            "printed",
+            "kurta set",
+            "traditional",
+            "elegant",
+            "festive",
+            "casual"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "office wear",
+            "family gatherings",
+            "festive occasions",
+            "small functions",
+            "semi-formal occasions",
+            "traditional occasions"
+        ],
+        "season_tags": [
+            "summer",
+            "all season",
+            "rainy season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+        ],
+        "colors": [
+            "Maroon",
+            "Black",
+            "Teal Blue"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 300
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 799,
+        "currency": "INR",
+        "discount_percentage": 73,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/DRESS-002/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/DRESS-002/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Teal Blue",
+            "image": "products/DRESS-002/teal blue.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.1,
+        "rating_count": 9395,
+        "review_count": 2719
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally like the outfit for its appearance, comfort, fit, quality and value for money. The Anarkali design, printed pattern and overall look receive strong positive feedback. Several customers find the fabric soft and comfortable, with some specifically describing it as suitable for summer. However, fabric feedback is mixed, with some customers describing the material as synthetic or too thin. There are also isolated complaints about colour differences, image accuracy, dupatta quality, packaging and the outfit not looking exactly like the product photos.",
+        "positive": [
+            "Attractive Anarkali design",
+            "Elegant printed appearance",
+            "Soft and comfortable fabric reported by several customers",
+            "Good fit according to many reviews",
+            "Suitable for summer according to several customers",
+            "Good for casual and festive occasions",
+            "Suitable for office and everyday wear",
+            "Good value for money",
+            "Matching pant and dupatta complete the outfit",
+            "Several customers praised the stitching and finish",
+            "Multiple customers reported receiving compliments while wearing it"
+        ],
+        "negative": [
+            "Some customers found the fabric synthetic",
+            "Fabric opinions are mixed",
+            "One review described the fabric as very thin",
+            "Some customers reported colour differences from the product images",
+            "One review said the outfit was not as umbrella-shaped as shown",
+            "One review complained that the images were misleading",
+            "Some feedback suggests the dupatta quality could be better",
+            "One review mentioned colour fading after washing",
+            "Packaging complaints",
+            "One review reported a tight fabric/fit"
+        ],
+        "main_concern": "The biggest uncertainty is fabric and visual consistency. While many customers like the comfort and quality, some report synthetic or thin fabric and differences between the actual product and the listing images."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Most sampled reviews describe the outfit as attractive, elegant or beautiful."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple customers specifically describe the outfit as comfortable and soft."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "high",
+            "note": "Many customers praise the fabric, but some describe it as synthetic or thin."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several customers report good or perfect fitting, although one review reported tight fabric. Checking the size chart is still recommended."
+        },
+        "summer_suitability": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several customers describe it as breathable or suitable for summer, while other reviews disagree about the fabric."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The Anarkali silhouette, print and overall appearance receive consistently positive feedback."
+        },
+        "colour_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some customers liked the colour, but others reported that the actual colour looked different or duller than the product image."
+        },
+        "print_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "One customer specifically reported that the actual product did not match the images and that expected golden work was missing."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several customers describe the product as worth the price or good for the price."
+        },
+        "dupattas": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The set includes a dupatta, but one customer felt its quality could be better."
+        }
+    },
+    "pros": [
+        "Elegant Anarkali silhouette",
+        "Attractive printed design",
+        "Soft and comfortable according to many customers",
+        "Good fit according to several reviews",
+        "Suitable for summer according to multiple customers",
+        "Good for office, casual and festive wear",
+        "Includes kurta, pant and dupatta",
+        "Multiple colour options",
+        "Wide size range",
+        "Good value for money",
+        "Several customers praised the stitching and finish"
+    ],
+    "cons": [
+        "Fabric feedback is mixed",
+        "Some customers describe the material as synthetic",
+        "One review reported very thin fabric",
+        "Actual colour may differ from listing images",
+        "Some customers reported image/product mismatch",
+        "Dupatta quality may not satisfy everyone",
+        "Some colour fading reported after washing",
+        "Packaging complaints",
+        "One review reported tight fabric/fit"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY",
+        "score": 8.0,
+        "best_for": [
+            "Casual ethnic wear",
+            "Office wear",
+            "Family gatherings",
+            "Festive occasions",
+            "Small functions",
+            "Summer ethnic wear",
+            "Everyday traditional wear",
+            "Customers looking for a complete kurta set"
+        ],
+        "not_ideal_for": [
+            "Customers expecting premium or luxury fabric",
+            "Customers who require exact colour matching with product photos",
+            "Customers who strongly prefer thick fabric",
+            "Customers who expect the outfit to look exactly like styled product images"
+        ],
+        "size_advice": "The product is listed as regular fit and many customers report good or perfect fitting, but customers should still check the size chart before ordering.",
+        "weather_advice": "Several customers find the outfit comfortable and suitable for summer, but fabric opinions vary. If the customer specifically wants very lightweight or highly breathable fabric, mention that the reviews are mixed.",
+        "quality_advice": "The majority of sampled reviews are positive about quality, but do not describe the fabric as premium with certainty because some customers reported synthetic or thin material.",
+        "colour_advice": "The product is available in Maroon, Black and Teal Blue. Warn customers that some reviews report colour differences compared with the listing images.",
+        "sales_advice": "Lead with the complete three-piece set, elegant Anarkali silhouette, attractive print, comfort, wide size range and strong value for money. If the customer cares about exact colour or premium fabric quality, disclose the mixed feedback before recommending it."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "women's kurta set",
+            "anarkali kurta set",
+            "printed kurta set",
+            "kurta pant dupatta set",
+            "ethnic wear",
+            "festive kurta",
+            "office wear kurta",
+            "summer ethnic wear",
+            "comfortable kurta set",
+            "affordable kurta set",
+            "traditional outfit",
+            "three piece kurta set"
+        ],
+        "negative_keywords": [
+            "premium luxury kurta",
+            "exact colour match",
+            "thick fabric kurta",
+            "heavy fabric",
+            "designer luxury ethnic wear",
+            "guaranteed image match"
+        ],
+        "strong_attributes": [
+            "anarkali",
+            "printed",
+            "ethnic",
+            "kurta set",
+            "pant",
+            "dupatta",
+            "regular fit",
+            "comfortable",
+            "lightweight",
+            "festive",
+            "office wear"
+        ],
+        "warning_attributes": [
+            "mixed fabric feedback",
+            "synthetic fabric reports",
+            "thin fabric reports",
+            "possible colour difference",
+            "possible image mismatch",
+            "dupattas quality concern",
+            "possible colour fading"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "soft fabric",
+                "Anarkali design",
+                "family function",
+                "stitching",
+                "value",
+                "fit"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "L",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "appearance",
+                "synthetic material",
+                "rainy season",
+                "fast drying",
+                "dupatta quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "comfort",
+                "breathability",
+                "summer",
+                "fit",
+                "colour"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fit",
+                "design",
+                "quality",
+                "value"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Maroon",
+            "size": "2XL",
+            "sentiment": "neutral",
+            "themes": [
+                "general_satisfaction"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fabric",
+                "print",
+                "fit",
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fit",
+                "appearance",
+                "quality",
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "compliments",
+                "comfort",
+                "quality",
+                "fit",
+                "style"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "S",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "fit",
+                "colour_accuracy",
+                "office_wear",
+                "image_accuracy"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "S",
+            "sentiment": "negative_image_accuracy",
+            "themes": [
+                "fabric",
+                "image_mismatch",
+                "missing_golden_work"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "comfort"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "2XL",
+            "sentiment": "mixed",
+            "themes": [
+                "colour_accuracy",
+                "colour_naming"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "colour"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "general_quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "3XL",
+            "sentiment": "positive",
+            "themes": [
+                "general_quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "L",
+            "sentiment": "neutral",
+            "themes": [
+                "delivery_experience"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "stitching",
+                "design"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "XL",
+            "sentiment": "mixed",
+            "themes": [
+                "fit",
+                "fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "delivery"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "design",
+                "office_wear"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "colour_fading"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "summer",
+                "cotton_claim"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "3XL",
+            "sentiment": "negative_colour_signal",
+            "themes": [
+                "colour_difference",
+                "image_difference",
+                "dull_colour"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "design",
+                "office_wear",
+                "daily_wear"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "general_quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "design",
+                "fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "S",
+            "sentiment": "negative",
+            "themes": [
+                "thin_fabric",
+                "packaging"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the Anarkali design, kurta-pant-dupatta set, fabric, fit, price, colours, sizes, occasions and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend it as a strong value-oriented option. Highlight the attractive Anarkali design, comfort, fit, versatility and generally positive customer feedback, while mentioning that fabric feedback is mixed.",
+        "when_customer_asks_about_quality": "Explain that most sampled reviews are positive about quality and comfort, but some customers describe the fabric as synthetic or thin. Do not claim premium fabric quality with certainty.",
+        "when_customer_asks_about_fit": "Explain that the listed fit is regular and many customers report good or perfect fitting. Recommend checking the size chart before ordering because fit can vary.",
+        "when_customer_asks_about_summer": "This can be recommended for summer because several customers describe it as breathable and comfortable in summer. However, mention that fabric opinions are mixed if the customer specifically asks about breathability or fabric thickness.",
+        "when_customer_asks_about_colour": "Explain that the available colours are Maroon, Black and Teal Blue. Mention that some customers reported the actual colour looking different or duller than the listing image.",
+        "when_customer_asks_about_dupatta": "Confirm that the set includes a printed dupatta. If asked about quality, mention that one review specifically felt the dupatta could be better quality.",
+        "when_customer_asks_about_image_accuracy": "Do not guarantee that the physical product will look exactly like the listing images because some customers reported differences in colour, styling and decorative details.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes premium fabric, exact colour matching or highly consistent image-to-product accuracy, prioritize products with stronger review signals for those attributes.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its 4.1 rating. Consider the customer's budget, occasion, preferred colour, fabric expectations, fit preference and weather requirements.",
+        "when_customer_has_a_budget": "Highlight the current ₹799 selling price and compare it against similar ethnic sets in the customer's budget. Focus on total outfit value because this product includes a kurta, pant and dupatta.",
+        "when_customer_wants_a_complete_outfit": "This product is a strong recommendation because it already includes the coordinated kurta, pant and dupatta, reducing the need to purchase separate pieces.",
+        "when_customer_wants_office_wear": "Recommend the product as a suitable office and everyday ethnic option, especially when the customer wants a comfortable traditional look without heavy styling.",
+        "when_customer_wants_festive_wear": "Recommend it for small festive occasions, family gatherings and semi-formal events. Highlight the Anarkali silhouette and coordinated dupatta.",
+        "when_customer_is_price_sensitive": "Position the product as a value-for-money complete three-piece ethnic set at the current snapshot price of ₹799."
+    }
+}

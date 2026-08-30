@@ -1,0 +1,552 @@
+{
+    "product_id": "DRESS-004",
+    "product": {
+        "name": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta",
+        "brand": "Nermosa",
+        "category": "Dresses",
+        "subcategory": "Kurta Sets",
+        "gender": "Women",
+        "product_type": "Anarkali Kurta Pant Set with Dupatta",
+        "description": "A printed Anarkali kurta set featuring a kurta, matching pants and dupatta, designed for casual wear, festivals, family functions and other occasions.",
+        "fit": "Regular Fit",
+        "pattern": "Abstract",
+        "sleeve": "3/4 Sleeve",
+        "collar": "Boat Neck",
+        "collar_style": "Boat Neck",
+        "closure": "Not specified",
+        "length": "Standard Anarkali Length",
+        "material": "Rayon",
+        "fabric_type": "100% Viscose",
+        "fabric_weight": "Lightweight",
+        "stretch": "Not specified",
+        "care": "Machine Wash",
+        "set_contents": [
+            "Anarkali Kurta",
+            "Pant",
+            "Dupatta"
+        ],
+        "style_tags": [
+            "anarkali",
+            "printed",
+            "ethnic",
+            "elegant",
+            "stylish",
+            "comfortable",
+            "lightweight"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "office wear",
+            "college wear",
+            "festivals",
+            "family functions",
+            "small occasions",
+            "special occasions"
+        ],
+        "season_tags": [
+            "summer",
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+        ],
+        "colors": [
+            "Black",
+            "Green",
+            "Maroon",
+            "Yellow"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 450
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 728,
+        "currency": "INR",
+        "discount_percentage": 76,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/DRESS-004/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/DRESS-004/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/DRESS-004/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Yellow",
+            "image": "products/DRESS-004/yellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.3,
+        "rating_count": 658,
+        "review_count": 388
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally like the set's appearance, print, comfort, lightweight fabric and value for money. Many reviewers describe it as suitable for summer, festivals, family functions and everyday wear. The main concerns are inconsistent descriptions of the fabric, with some reviewers calling it cotton despite the listed specification being 100% viscose, and sizing differences between the kurta and bottom for some customers.",
+        "positive": [
+            "Beautiful printed design",
+            "Elegant Anarkali appearance",
+            "Soft and comfortable fabric",
+            "Lightweight feel",
+            "Breathable according to several reviewers",
+            "Good for summer",
+            "Good fit reported by many customers",
+            "Suitable for festivals and family functions",
+            "Good for daily, office and college wear",
+            "Good value for money",
+            "Dupatta complements the outfit well",
+            "Color generally matches expectations"
+        ],
+        "negative": [
+            "Some reviewers felt the material could be better",
+            "One reviewer specifically said it is not pure cotton",
+            "Some reviews describe the fabric as cotton despite the listed specification being 100% viscose",
+            "One reviewer found the bottom smaller than the kurta",
+            "Kurta and bottom sizing may not suit customers who need different sizes for top and bottom"
+        ],
+        "main_concern": "The biggest practical concern is sizing consistency between the kurta and pants, while fabric descriptions are inconsistent between the official specification and some customer reviews."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Most reviewers describe the fabric as soft, comfortable and good quality, although one reviewer felt the material could be better."
+        },
+        "fabric_composition": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The listed product specification identifies the fabric as 100% viscose, while multiple customer reviews describe it as cotton. One reviewer explicitly stated that it is not pure cotton."
+        },
+        "fit": {
+            "sentiment": "positive_with_sizing_concern",
+            "confidence": "medium",
+            "note": "Many customers report a good fit, but one detailed review found that the kurta fit best in L while the bottom would have been better in XL."
+        },
+        "summer_suitability": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews describe the set as lightweight, breathable and suitable for summer."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "wash_performance": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Some reviewers reported that the fabric retained its appearance and shape after washing, and one reviewer reported no color loss after washing."
+        }
+    },
+    "pros": [
+        "Beautiful printed Anarkali design",
+        "Elegant and stylish appearance",
+        "Soft and comfortable fabric",
+        "Lightweight and suitable for summer",
+        "Breathable according to several reviews",
+        "Good for festivals and family functions",
+        "Versatile for daily and casual wear",
+        "Good value for money",
+        "Includes kurta, pants and dupatta"
+    ],
+    "cons": [
+        "Some customers felt the material could be better",
+        "Fabric composition is described inconsistently in reviews",
+        "Not confirmed as pure cotton; listed specification says 100% viscose",
+        "Bottom may fit differently from the kurta",
+        "Separate top and bottom sizing is not available"
+    ],
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_SIZE_CHECK",
+        "score": 8.3,
+        "best_for": [
+            "Summer wear",
+            "Casual wear",
+            "Daily wear",
+            "Office wear",
+            "College wear",
+            "Festivals",
+            "Family functions",
+            "Small occasions",
+            "Customers looking for a complete ethnic outfit"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for pure cotton",
+            "Customers who need different sizes for the kurta and pants",
+            "Customers expecting premium fabric quality"
+        ],
+        "size_advice": "Check the size chart carefully before purchasing. One detailed review reported that the kurta fit best in L while the bottom would have been better in XL, so customers with different top and bottom measurements should be cautious.",
+        "weather_advice": "This is a strong option for summer because multiple reviewers describe it as lightweight, soft and breathable.",
+        "fabric_advice": "The official specification lists rayon with 100% viscose fabric. Do not describe it as pure cotton even though some customer reviews refer to it as cotton.",
+        "sales_advice": "Lead with the elegant printed Anarkali design, lightweight feel, complete kurta-pant-dupatta combination and strong value for money. Mention the sizing caveat when the customer is between sizes or has different top and bottom measurements."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "women kurta set",
+            "anarkali kurta set",
+            "printed kurta set",
+            "kurta pant dupatta set",
+            "summer kurta set",
+            "lightweight kurta set",
+            "breathable ethnic wear",
+            "festival outfit",
+            "family function outfit",
+            "casual ethnic wear",
+            "daily wear kurta set",
+            "stylish ethnic outfit"
+        ],
+        "negative_keywords": [
+            "pure cotton kurta set",
+            "100% cotton suit",
+            "separate kurta and pant sizes",
+            "premium cotton ethnic wear"
+        ],
+        "strong_attributes": [
+            "anarkali",
+            "printed",
+            "regular fit",
+            "3/4 sleeve",
+            "boat neck",
+            "rayon",
+            "100% viscose",
+            "lightweight",
+            "summer suitable",
+            "kurta pant dupatta",
+            "ethnic",
+            "casual"
+        ],
+        "warning_attributes": [
+            "possible top-bottom size mismatch",
+            "not confirmed as cotton",
+            "material quality feedback is slightly mixed"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "3XL",
+            "sentiment": "positive",
+            "themes": [
+                "beautiful print",
+                "elegant appearance",
+                "comfortable fabric",
+                "good fitting",
+                "casual wear",
+                "small occasions",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "lightweight",
+                "comfort",
+                "good fitting",
+                "daily wear",
+                "casual outings",
+                "wash durability"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable",
+                "design",
+                "appearance",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "cotton perception",
+                "festival wear",
+                "family functions",
+                "comfort",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "good fitting",
+                "festival wear",
+                "family functions",
+                "comfort",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "good quality",
+                "soft fabric",
+                "breathability",
+                "unique color combination",
+                "floral design"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "mixed",
+            "themes": [
+                "good appearance",
+                "fabric composition concern",
+                "not pure cotton"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "summer suitability",
+                "lightweight",
+                "soft fabric",
+                "good fit",
+                "affordable"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "good value",
+                "comfortable",
+                "season suitability",
+                "soft fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive_with_sizing_concern",
+            "themes": [
+                "good design",
+                "good fabric",
+                "kurta-pant size mismatch",
+                "bottom smaller than expected"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "lightweight",
+                "summer suitability",
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "pretty print",
+                "comfortable",
+                "family functions",
+                "festivals",
+                "matching outfit"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "pure cotton perception",
+                "premium appearance",
+                "comfort",
+                "all occasions"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "summer suitability",
+                "comfortable fabric",
+                "pretty print",
+                "dupatta design",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable",
+                "breathable",
+                "good appearance",
+                "good color"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "smooth fabric",
+                "clean stitching",
+                "tailored appearance",
+                "premium look"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "beautiful print",
+                "comfortable fabric",
+                "good fitting",
+                "Anarkali flare",
+                "elegant appearance",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "beautiful design",
+                "affordable",
+                "good quality",
+                "dupatta"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "good quality",
+                "summer suitability",
+                "good fit",
+                "color retention after wash"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "breathability",
+                "summer suitability",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "gorgeous appearance",
+                "soft fabric",
+                "season suitability"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the Anarkali style, kurta-pant-dupatta combination, fit, fabric, price, colors, sizes and the strongest review insights.",
+        "when_customer_asks_if_good": "Recommend it. Highlight the strong signals around appearance, comfort, lightweight fabric, summer suitability and value, while mentioning the kurta-versus-pant sizing concern.",
+        "when_customer_asks_about_summer": "Recommend this product as a strong summer option because multiple reviews describe it as lightweight, soft and breathable.",
+        "when_customer_asks_about_fit": "Explain that it is officially regular fit and many buyers report good fitting, but advise checking the size chart because one detailed review found the bottom smaller than the kurta.",
+        "when_customer_asks_about_fabric": "State that the official specification lists rayon and 100% viscose lightweight fabric. Do not claim that it is pure cotton because some reviews conflict with the listed specification.",
+        "when_customer_asks_for_alternatives": "Prioritize similar lightweight printed Anarkali or kurta sets with strong comfort, breathability and summer-suitability signals.",
+        "when_customer_asks_for_best_product": "Consider the customer's requirements, budget, weather preference, intended occasion and sizing needs. This product should rank strongly for summer, ethnic occasions, comfort and value, but lower for customers specifically requesting pure cotton or separate top-and-bottom sizing."
+    }
+}

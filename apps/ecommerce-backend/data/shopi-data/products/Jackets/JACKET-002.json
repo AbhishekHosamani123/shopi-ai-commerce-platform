@@ -1,0 +1,345 @@
+{
+    "product_id": "JACKET-002",
+    "product": {
+        "name": "Men's Casual White Jacket with Red Stripe Detail",
+        "brand": "Generic",
+        "category": "Jackets",
+        "subcategory": "Casual Jackets",
+        "gender": "Men",
+        "product_type": "Casual Hooded Jacket",
+        "generic_name": "mens jacket",
+        "description": "A men's casual streetwear jacket featuring a clean white base with bold red contrast stripes running along the sleeves. It has a hooded construction, full-length front zipper, two front flap pockets and elasticated cuffs. Designed for casual outings, weekend wear and light outdoor activities.",
+        "fit": "Regular Fit",
+        "pattern": "Colour Block",
+        "sleeve": "Long Sleeve",
+        "collar": "Hooded",
+        "closure": "Full-Zip",
+        "length": "Hip Length",
+        "silhouette": "Anorak",
+        "material": "Polyester Blend",
+        "material_composition": "Polyester Blend",
+        "stretch": "Not Specified",
+        "lining": "Not Specified",
+        "care": {
+            "washing": "Machine Wash Cold With Similar Colours",
+            "bleach": "Do Not Bleach",
+            "drying": "Tumble Dry Low",
+            "ironing": "Iron On Low Heat",
+            "dry_cleaning": "Do Not Dry Clean"
+        },
+        "country_of_origin": "India",
+        "manufacturer": "LUXE ENTERRPISES",
+        "packer": "Luxe Enterprises",
+        "item_weight_grams": 200,
+        "net_quantity": 1,
+        "style_tags": [
+            "casual",
+            "streetwear",
+            "sporty",
+            "athletic-inspired",
+            "colour block",
+            "hooded",
+            "zip-up",
+            "modern",
+            "trendy",
+            "everyday wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "weekend outings",
+            "everyday wear",
+            "travel",
+            "college wear",
+            "streetwear",
+            "light outdoor activities"
+        ],
+        "season_tags": [
+            "winter",
+            "cold weather",
+            "mild outdoor weather"
+        ],
+        "weather_suitability": [
+            "cold weather",
+            "mild outdoor weather",
+            "light wind",
+            "light drizzle"
+        ],
+        "features": [
+            "White base colour",
+            "Red contrast sleeve stripes",
+            "Adjustable hood",
+            "Full-length front zipper",
+            "Two front flap pockets",
+            "Button-fastening pocket flaps",
+            "Elasticated cuffs",
+            "Regular fit",
+            "Hip length",
+            "Colour-block design",
+            "Long sleeves"
+        ]
+    },
+    "variant": {
+        "color": "White With Red Stripe",
+        "color_family": "White",
+        "accent_color": "Red",
+        "available_sizes": [
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    "images": [
+        {
+            "color": "White With Red Stripe",
+            "image": "products/JACKET-002/white with red stripe.jpg",
+            "is_primary": true,
+            "variant": "White With Red Stripe"
+        }
+    ],
+    "pricing": {
+        "mrp": 1299,
+        "selling_price": 499,
+        "currency": "INR",
+        "discount_percentage": 62,
+        "price_type": "snapshot"
+    },
+    "rating": {
+        "average": 4.0,
+        "rating_count": 1,
+        "review_count": 1
+    },
+    "review_summary": {
+        "overall_sentiment": "positive_but_insufficient_data",
+        "summary": "The product has a 4.0 out of 5 rating from a single customer rating. This is too little review data to make strong claims about quality, durability, comfort or fit.",
+        "positive": [
+            "Overall rating is 4.0 out of 5",
+            "Sporty colour-block design",
+            "White and red contrast gives the jacket a distinctive appearance",
+            "Regular-fit construction",
+            "Hood provides additional coverage",
+            "Two functional front pockets",
+            "Suitable for casual and streetwear styling",
+            "Low selling price"
+        ],
+        "negative": [
+            "Only one customer rating is available",
+            "Insufficient review volume to establish product quality",
+            "No reliable evidence about long-term durability",
+            "No reliable evidence about comfort across different body types",
+            "No reliable evidence about warmth or insulation performance"
+        ],
+        "main_concern": "The biggest data limitation is the extremely small review sample. Do not describe the jacket as highly rated or customer-proven based on a single 4-star rating."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "supported_by_product_description",
+            "confidence": "high",
+            "note": "The listing explicitly emphasizes the bold white base and red sleeve stripes as a sporty, eye-catching design."
+        },
+        "fit": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The official specification says regular fit, but there is not enough review evidence to determine whether it runs true to size."
+        },
+        "comfort": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The source does not provide enough customer feedback to establish comfort."
+        },
+        "fabric_quality": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The source only identifies the material as a polyester blend and does not provide enough review evidence to judge fabric quality."
+        },
+        "weight": {
+            "sentiment": "neutral",
+            "confidence": "medium",
+            "note": "The listed item weight is 200 grams."
+        },
+        "value_for_money": {
+            "sentiment": "potentially_positive",
+            "confidence": "medium",
+            "note": "The selling price is ₹499 against an MRP of ₹1,299, but customer review volume is too low to establish value-for-money satisfaction."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The listing explicitly positions the product as casual and streetwear, with a sporty colour-block design."
+        },
+        "weather_suitability": {
+            "sentiment": "supported_by_listing",
+            "confidence": "medium",
+            "note": "The listing identifies winter and cold-weather suitability and describes the hood as providing protection against light wind and drizzle."
+        },
+        "waterproofing": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The listing mentions protection against light wind and drizzle but does not establish waterproof or water-resistant performance."
+        },
+        "durability": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "There is insufficient review evidence to make a durability claim."
+        }
+    },
+    "pros": [
+        "Distinctive white and red colour-block design",
+        "Sporty streetwear aesthetic",
+        "Regular fit",
+        "Adjustable hood",
+        "Full-zip closure",
+        "Two front flap pockets",
+        "Elasticated cuffs",
+        "Long sleeves",
+        "Hip-length construction",
+        "Machine washable",
+        "Low selling price",
+        "Suitable for casual and outdoor styling"
+    ],
+    "cons": [
+        "Very limited customer-review data",
+        "Only one customer rating",
+        "No established durability evidence",
+        "No established comfort evidence",
+        "No established fabric-quality evidence",
+        "Waterproofing is not verified",
+        "Only M, L and XL are shown in the supplied product data"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_FOR_STYLE_AND_BUDGET",
+        "score": 7.2,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual streetwear",
+            "Sporty styling",
+            "College wear",
+            "Weekend outings",
+            "Travel",
+            "Light outdoor activities",
+            "Customers who prefer hooded jackets",
+            "Customers who want a bold colour-block design"
+        ],
+        "not_ideal_for": [
+            "Customers looking for premium outerwear",
+            "Customers requiring proven waterproof performance",
+            "Customers requiring heavy insulation",
+            "Customers who prioritize extensive customer-review evidence",
+            "Customers seeking a wide range of sizes"
+        ],
+        "size_advice": "The product is listed as regular fit. The supplied product data shows M, L and XL variants. Customers should refer to the size chart before purchasing rather than assuming it runs true to size.",
+        "weather_advice": "The listing identifies the jacket for winter, cold weather and mild outdoor use. The hood is described as providing coverage against light wind and drizzle. Do not market it as a waterproof or heavily insulated winter jacket.",
+        "quality_advice": "The product is best positioned around its styling, functionality and ₹499 price point. There is not enough customer evidence to claim premium quality or durability.",
+        "sales_advice": "Lead with the white-and-red colour-block design, hood, full-zip construction, two front pockets, regular fit and affordable price. Avoid using phrases such as 'highly rated', 'premium quality' or 'proven durable'."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "white jacket",
+            "red stripe jacket",
+            "white red jacket",
+            "men's casual jacket",
+            "men's streetwear jacket",
+            "hooded jacket",
+            "hoodie jacket",
+            "zip-up jacket",
+            "sporty jacket",
+            "colour block jacket",
+            "color block jacket",
+            "casual winter jacket",
+            "jacket under 500",
+            "budget jacket",
+            "jacket for college",
+            "jacket for travel",
+            "jacket for casual wear"
+        ],
+        "negative_keywords": [
+            "premium jacket",
+            "luxury jacket",
+            "heavy winter jacket",
+            "thick insulated jacket",
+            "waterproof jacket",
+            "fully waterproof jacket",
+            "heavy-duty outdoor jacket",
+            "premium fabric jacket"
+        ],
+        "strong_attributes": [
+            "white",
+            "red stripe",
+            "colour block",
+            "streetwear",
+            "casual",
+            "hooded",
+            "regular fit",
+            "full zip",
+            "long sleeve",
+            "hip length",
+            "front pockets",
+            "sporty"
+        ],
+        "warning_attributes": [
+            "only one customer rating",
+            "limited review evidence",
+            "waterproofing not verified",
+            "insulation not verified",
+            "durability not established",
+            "comfort not established"
+        ]
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the white-and-red colour-block design, regular fit, hood, full-zip closure, two front pockets, polyester blend construction, sizes M-L-XL and ₹499 selling price.",
+        "when_customer_asks_if_good": "Describe it as a budget-oriented casual/streetwear option with useful features and distinctive styling. Clearly state that there is only one customer rating, so product quality cannot be strongly validated from reviews.",
+        "when_customer_asks_about_fit": "Explain that the listed fit is regular. Available product data shows M, L and XL. Recommend checking the size chart before ordering.",
+        "when_customer_asks_about_winter": "Explain that the listing identifies the jacket for winter and cold weather, but do not describe it as heavily insulated because insulation specifications are not provided.",
+        "when_customer_asks_about_quality": "State that the material is listed as a polyester blend, but there is insufficient customer feedback to make a strong quality or durability claim.",
+        "when_customer_asks_about_colors": "The supplied product variant is White With Red Stripe.",
+        "when_customer_asks_about_hood": "Yes. The product is listed as hooded and the description states that it has an adjustable hood.",
+        "when_customer_asks_about_waterproofing": "Do not call it waterproof. The listing only describes the hood as providing protection against light wind and drizzle.",
+        "when_customer_asks_about_pockets": "The jacket has two front button-flap pockets according to the product listing.",
+        "when_customer_asks_about_care": "Machine wash cold with similar colours. Do not bleach. Tumble dry low. Iron on low heat. Do not dry clean.",
+        "when_customer_asks_for_alternatives": "Prioritize men's casual, streetwear or sporty hooded jackets with similar colour-block styling and a comparable budget. If the customer requires waterproofing or heavy insulation, select a product with explicitly verified specifications.",
+        "when_customer_asks_for_best_product": "Do not rank this jacket highly based on its 4.0 rating because the rating comes from only one customer. Compare actual features, price, review volume and the customer's intended use."
+    },
+    "data_quality": {
+        "source": "Amazon India product listing",
+        "asin": "B0H8B96Q8Y",
+        "style_number": "Mcj-white-001",
+        "part_number": "Mens-cas-wht-jkt-001",
+        "source_rating": 4.0,
+        "source_rating_count": 1,
+        "local_image_variants": 1,
+        "local_images": [
+            "products/JACKET-002/white with red stripe.jpg"
+        ],
+        "verified_attributes": [
+            "brand",
+            "product name",
+            "gender",
+            "category",
+            "style",
+            "fit",
+            "length",
+            "material type",
+            "sleeve type",
+            "hood",
+            "closure",
+            "pattern",
+            "care instructions",
+            "country of origin",
+            "weight",
+            "price",
+            "MRP",
+            "available sizes",
+            "colour"
+        ],
+        "not_verified_attributes": [
+            "exact polyester percentage",
+            "stretch",
+            "lining",
+            "insulation thickness",
+            "thermal rating",
+            "waterproofing",
+            "long-term durability",
+            "true-to-size performance",
+            "comfort across body types"
+        ]
+    }
+}

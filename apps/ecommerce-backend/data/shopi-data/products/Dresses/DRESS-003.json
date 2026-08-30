@@ -1,0 +1,491 @@
+{
+    "product_id": "DRESS-003",
+    "product": {
+        "name": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set",
+        "brand": "KLOSIA",
+        "category": "Dresses",
+        "subcategory": "Women's Ethnic Wear / Kurta Sets",
+        "gender": "Women",
+        "product_type": "Straight Kurta Pant and Dupatta Set",
+        "description": "A printed straight kurta set for women consisting of a straight kurta, ankle-length pants and a printed dupatta. Designed for casual, festive and semi-formal occasions.",
+        "fit": "Regular Fit / Straight Kurta",
+        "pattern": "Printed",
+        "sleeve": "3/4 Sleeve",
+        "collar": null,
+        "collar_style": null,
+        "closure": null,
+        "length": "Ankle Length",
+        "material": "100% Viscose",
+        "fabric_weight": null,
+        "stretch": null,
+        "care": "Hand Wash Only",
+        "style_tags": [
+            "ethnic",
+            "printed",
+            "traditional",
+            "elegant",
+            "casual",
+            "festive",
+            "semi-formal",
+            "kurta set"
+        ],
+        "occasion_tags": [
+            "daily wear",
+            "casual outings",
+            "festive wear",
+            "ethnic occasions",
+            "semi-formal occasions",
+            "family gatherings"
+        ],
+        "season_tags": [
+            "summer",
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+        ],
+        "colors": [
+            "Black",
+            "Blue",
+            "Green",
+            "Grey",
+            "Maroon",
+            "Morepeach",
+            "Orange"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 450
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 699,
+        "currency": "INR",
+        "discount_percentage": 77,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/DRESS-003/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Blue",
+            "image": "products/DRESS-003/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/DRESS-003/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/DRESS-003/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/DRESS-003/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Morepeach",
+            "image": "products/DRESS-003/morepeach.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Orange",
+            "image": "products/DRESS-003/orange.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.2,
+        "rating_count": 1461,
+        "review_count": 582
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally respond positively to the kurta set, especially for comfort, fabric, appearance, fit, colours and value for money. Several reviewers describe it as suitable for daily wear and summer. The main concerns are that one reviewer found the colour faded, another said the fabric was not pure cotton and described it as mixed cotton, and one reviewer felt the dupatta could have been longer. The product listing itself specifies 100% viscose, so the cotton-related review should be treated as customer feedback rather than the official material specification.",
+        "positive": [
+            "Comfortable fabric",
+            "Soft fabric reported by reviewers",
+            "Good perceived quality",
+            "Elegant printed design",
+            "Good fit according to several reviewers",
+            "Suitable for daily wear",
+            "Suitable for summer according to multiple reviewers",
+            "Good value for money",
+            "Wide size range from S to 5XL",
+            "Multiple colour options",
+            "Dupatta adds a complete traditional look"
+        ],
+        "negative": [
+            "One reviewer reported that the black colour appeared faded",
+            "One reviewer said the fabric was not pure cotton and described it as mixed cotton",
+            "One reviewer felt the dupatta could have been longer",
+            "Material description in customer feedback does not fully align with the official 100% viscose specification"
+        ],
+        "main_concern": "The biggest uncertainty is the difference between the official 100% viscose material specification and customer feedback describing the fabric as cotton or mixed cotton."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Reviewers frequently describe the set as beautiful, elegant and attractive, particularly the printed design and colours."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviewers specifically mention comfort and soft or good-quality fabric."
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Most reviews describe the material positively, although one reviewer questioned the cotton composition. The official listing specifies 100% viscose."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviewers reported good or perfect fitting, and the listing identifies the fit as regular with a straight kurta."
+        },
+        "summer_suitability": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Multiple reviewers describe the set as suitable or comfortable for summer."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The printed ethnic design, straight kurta silhouette and coordinated dupatta are consistently viewed positively."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several reviewers describe the product as good or worth the price."
+        },
+        "color_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Most colour feedback is positive, but one reviewer specifically reported that the black colour looked faded."
+        },
+        "dupatta": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several reviewers liked the dupatta, while one reviewer felt its length could have been longer."
+        }
+    },
+    "pros": [
+        "Elegant printed ethnic design",
+        "Comfortable fabric",
+        "Soft fabric reported by several customers",
+        "Good fit reported by several customers",
+        "Suitable for daily wear",
+        "Suitable for summer",
+        "Good value for money",
+        "Wide range of sizes",
+        "Seven colour options",
+        "Complete kurta, pant and dupatta set"
+    ],
+    "cons": [
+        "One reviewer reported faded-looking colour",
+        "One reviewer questioned the fabric composition",
+        "Dupatta may feel shorter than expected to some customers",
+        "Official material specification and one customer description differ"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY",
+        "score": 8.2,
+        "best_for": [
+            "Daily wear",
+            "Casual outings",
+            "Summer wear",
+            "Ethnic styling",
+            "Festive occasions",
+            "Family gatherings",
+            "Customers wanting a complete kurta set"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for pure cotton",
+            "Customers who require a very long dupatta",
+            "Customers who strongly prioritize very bright colour tones"
+        ],
+        "size_advice": "The product is available from S through 5XL and several reviewers reported good or accurate sizing. Customers should still check the size chart before ordering.",
+        "weather_advice": "Several reviewers describe the set as comfortable and suitable for summer, making it a reasonable option for warm weather.",
+        "sales_advice": "Lead with the elegant printed design, comfortable feel, broad size range, seven colour choices and strong value. If the customer specifically asks for pure cotton, disclose that the official listing specifies 100% viscose and that one customer described it as mixed cotton."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "women's kurta set",
+            "printed kurta set",
+            "ethnic wear",
+            "straight kurta",
+            "kurta pant dupatta set",
+            "summer ethnic wear",
+            "comfortable kurta",
+            "daily wear kurta",
+            "festive kurta set",
+            "affordable kurta set",
+            "plus size kurta set",
+            "viscose kurta set"
+        ],
+        "negative_keywords": [
+            "pure cotton kurta",
+            "100% cotton kurta",
+            "very long dupatta",
+            "bright black colour",
+            "cotton-only ethnic wear"
+        ],
+        "strong_attributes": [
+            "printed",
+            "straight kurta",
+            "regular fit",
+            "3/4 sleeve",
+            "ankle length",
+            "100% viscose",
+            "comfortable",
+            "summer suitable",
+            "wide size range",
+            "multiple colours",
+            "complete set"
+        ],
+        "warning_attributes": [
+            "one faded-colour complaint",
+            "mixed-cotton claim in one review",
+            "dupatt​a length concern"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "3XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "soft fabric",
+                "quality",
+                "print",
+                "daily wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "elegant print",
+                "comfort",
+                "fit",
+                "dupatta",
+                "casual wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "5XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "quality",
+                "design",
+                "fit"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Orange",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "comfort",
+                "value"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "soft fabric",
+                "value",
+                "faded colour"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "print",
+                "comfort",
+                "ethnic style",
+                "summer suitability"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "quality",
+                "lightweight",
+                "fit",
+                "fabric"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Grey",
+            "size": "4XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "summer suitability",
+                "size range"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Orange",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "appearance",
+                "fabric composition",
+                "mixed cotton claim"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "L",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "appearance",
+                "value",
+                "dupatta length"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Grey",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "colour"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Grey",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "colour",
+                "repeat purchase"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "quality",
+                "dupatta length"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Orange",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Green",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "size accuracy"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "colour",
+                "fit",
+                "summer suitability"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Grey",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "overall quality"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the printed ethnic style, straight regular fit, 100% viscose material, 3/4 sleeves, ankle-length pants, price, colours, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend it for customers looking for an affordable, comfortable ethnic kurta set. Highlight the positive comfort, design, fit and value feedback while disclosing the colour, dupatta-length and material-composition concerns when relevant.",
+        "when_customer_asks_about_summer": "This is a reasonable summer option because multiple reviewers describe it as comfortable or suitable for summer. Do not claim it is guaranteed to be cool or breathable.",
+        "when_customer_asks_about_fit": "Explain that the official fit is regular with a straight kurta and that the product is available from S to 5XL. Several reviewers reported good or accurate sizing, but customers should still check the size chart.",
+        "when_customer_asks_about_material": "State that the official product specification lists 100% viscose and Rayon as the material type. If the customer asks specifically about cotton, disclose that one verified review described it as mixed cotton rather than pure cotton.",
+        "when_customer_asks_about_colors": "Mention that the collected product variants include Black, Blue, Green, Grey, Maroon, Morepeach and Orange. If the customer asks about colour brightness, mention that one reviewer found the black colour somewhat faded.",
+        "when_customer_asks_about_dupatta": "Explain that the set includes a printed dupatta. Several reviewers liked it, although one reviewer felt the dupatta could have been longer.",
+        "when_customer_asks_for_alternatives": "Prioritize other ethnic sets with similar pricing and styling, but prefer products with clearer material specifications if the customer's requirement is specifically pure cotton.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its 4.2 rating. Consider the customer's budget, preferred material, size, colour, weather, occasion and requirement for dupatta length.",
+        "when_customer_asks_for_pure_cotton": "Do not describe this product as pure cotton. The official listing specifies 100% viscose, despite some customer feedback using cotton terminology.",
+        "when_customer_asks_about_price": "Use the stored snapshot price of ₹699 against an MRP of ₹2,999. Treat this as the collected dataset price snapshot rather than a permanent price."
+    }
+}

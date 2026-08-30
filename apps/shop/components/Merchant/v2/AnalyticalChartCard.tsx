@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { TrustBadge } from './TrustBadge';
+import { formatSignPercentage, getGrowthColorClass, formatCompactINR } from './formatters';
 
 export interface SalesPoint {
   date: string;
@@ -86,21 +87,11 @@ export function AnalyticalChartCard({
   loading = false,
   currentTotal,
   prevTotal,
-  growthPct = 14.2,
+  growthPct = 0,
 }: AnalyticalChartCardProps) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
-  const fallbackPoints: SalesPoint[] = [
-    { date: '2026-08-01', amount: 124500, ordersCount: 32, prevAmount: 108000 },
-    { date: '2026-08-05', amount: 148200, ordersCount: 38, prevAmount: 119000 },
-    { date: '2026-08-10', amount: 132400, ordersCount: 35, prevAmount: 128000 },
-    { date: '2026-08-15', amount: 165800, ordersCount: 44, prevAmount: 141000 },
-    { date: '2026-08-20', amount: 182300, ordersCount: 48, prevAmount: 153000 },
-    { date: '2026-08-25', amount: 195600, ordersCount: 52, prevAmount: 162000 },
-    { date: '2026-08-30', amount: 210400, ordersCount: 56, prevAmount: 176000 },
-  ];
-
-  const chartPoints: SalesPoint[] = data.length > 0 ? data : fallbackPoints;
+  const chartPoints: SalesPoint[] = data;
 
   // Chart coordinate geometry (Large, commanding analytical canvas)
   const svgWidth = 960;
@@ -201,6 +192,10 @@ export function AnalyticalChartCard({
     }
   }, [interval]);
 
+  const activeDaysCount = useMemo(() => {
+    return chartPoints.filter(p => (Number(p.amount) || 0) > 0).length;
+  }, [chartPoints]);
+
   return (
     <div className="bg-surface-1 p-5 sm:p-6 rounded-lg border border-hairline hover:border-hairline-strong transition-colors text-ink space-y-4 sm:space-y-5">
       {/* 1. Header with Proper Breathing Room */}
@@ -211,6 +206,9 @@ export function AnalyticalChartCard({
               Revenue Performance
             </h2>
             <TrustBadge tag="[FACT]" formula="SUM(gross_revenue)" />
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-xs bg-surface-2 text-ink-muted border border-hairline">
+              {activeDaysCount} Active Sales Days ({chartPoints.length} Days Window)
+            </span>
           </div>
           <p className="text-[11px] sm:text-xs text-ink-subtle font-body">
             {subtitleText}
@@ -328,6 +326,25 @@ export function AnalyticalChartCard({
                 />
               )}
 
+              {/* Discrete Transaction Dots for Days with Sales */}
+              {chartPoints.map((p, i) => {
+                if (p.amount <= 0) return null;
+                const cx = getX(i);
+                const cy = getY(p.amount);
+                return (
+                  <circle
+                    key={`dot-${i}`}
+                    cx={cx}
+                    cy={cy}
+                    r={hoverIndex === i ? 5 : 3}
+                    fill="#5E6AD2"
+                    stroke="#010102"
+                    strokeWidth="1.5"
+                    className="transition-all pointer-events-none"
+                  />
+                );
+              })}
+
               {/* Adaptive X-Axis Tick Labels */}
               {visibleXTicks.map(({ point, index }) => (
                 <text
@@ -374,7 +391,7 @@ export function AnalyticalChartCard({
                   <circle
                     cx={activeCoord.x}
                     cy={activeCoord.y}
-                    r="5"
+                    r="5.5"
                     fill="#5E6AD2"
                     stroke="#010102"
                     strokeWidth="2"
@@ -409,6 +426,12 @@ export function AnalyticalChartCard({
                       ₹{activePoint.amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                     </span>
                   </div>
+
+                  {activePoint.amount === 0 && (
+                    <div className="text-[10px] text-ink-subtle font-sans italic pt-0.5 pb-0.5">
+                      No customer orders on this day.
+                    </div>
+                  )}
 
                   {activePoint.prevAmount !== undefined && (
                     <div className="flex items-center justify-between gap-3 text-ink-muted text-[10px]">
@@ -447,8 +470,8 @@ export function AnalyticalChartCard({
           </div>
         </div>
 
-        <div className="flex items-center gap-2 font-mono text-xs font-semibold text-semantic-success self-start sm:self-auto">
-          <span>↑ +{growthPct}% Trajectory Lift</span>
+        <div className={`flex items-center gap-2 font-mono text-xs font-semibold ${getGrowthColorClass(growthPct)} self-start sm:self-auto`}>
+          <span>{formatSignPercentage(growthPct, { includeArrow: true })} Trajectory Movement</span>
         </div>
       </div>
     </div>

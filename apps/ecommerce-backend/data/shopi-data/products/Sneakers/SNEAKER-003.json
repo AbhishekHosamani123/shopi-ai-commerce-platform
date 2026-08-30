@@ -1,0 +1,226 @@
+{
+    "product_id": "SNEAKER-003",
+    "sku": "B0DT93JVR2",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "ASIAN Men's Vegas-01 Sneakers",
+    "brand": "ASIAN",
+    "model": "VEGAS-01",
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 699,
+        "currency": "INR",
+        "discount_percent": 53
+    },
+    "description": "Stylish and lightweight lace-up sneakers designed for comfortable everyday use and travel.",
+    "colors": [
+        {
+            "name": "BLACK DGREY",
+            "image": "BLACK DGREY.jpg"
+        },
+        {
+            "name": "BLACK OLIVE",
+            "image": "BLACK OLIVE.jpg"
+        },
+        {
+            "name": "CREAM BROWN BEEJ",
+            "image": "CREAM BROWN BEEJ.jpg"
+        },
+        {
+            "name": "OFF WHITE MOUSE",
+            "image": "OFF WHITE MOUSE.jpg"
+        },
+        {
+            "name": "WHITE SLATE ORANGE",
+            "image": "WHITE SLATE ORANGE.jpg"
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK",
+        "11 UK",
+        "12 UK"
+    ],
+    "attributes": {
+        "style": "Sneaker",
+        "closure": "Lace-Up",
+        "occasion": [
+            "Casual",
+            "Travel",
+            "Everyday Use"
+        ],
+        "weight_category": "Lightweight"
+    },
+    "ratings": {
+        "average_rating": 3.6,
+        "rating_count": 112
+    },
+    "review_summary": {
+        "rating_distribution": {
+            "5_star_percent": 42,
+            "4_star_percent": 23,
+            "3_star_percent": 9,
+            "2_star_percent": 5,
+            "1_star_percent": 21
+        },
+        "positive_points": [
+            "Good for daily use",
+            "Good appearance",
+            "Good quality according to some customers",
+            "Good fitting according to some customers",
+            "Lightweight"
+        ],
+        "negative_points": [
+            "Some customers reported poor comfort during long periods of use",
+            "Some customers reported poor build quality",
+            "Some customers reported poor sole quality",
+            "Some customers reported incorrect or different color received",
+            "Some customers reported packaging issues",
+            "Some customers reported sizing problems"
+        ],
+        "ai_summary": "Customer feedback is mixed. The shoes are considered lightweight and suitable for daily use by some buyers, but reviews also mention inconsistent comfort, sole/build quality, sizing issues, packaging problems and occasional color mismatch."
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Good",
+            "variant": {
+                "size": "7 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Good item",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Quality of shoos",
+            "variant": {
+                "size": "6 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "All is perfect in this price but they delivered on size bigger than I ordered. Lightweight, nice, ok ok quality. Packaging is not perfect.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 1,
+            "title": "Give same pics",
+            "variant": {
+                "size": "8 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "I don't receive the shoes I ordered. The colour is not same, it's different but quality is good.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "I don't know",
+            "variant": {
+                "size": "6 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Nice",
+            "verified_purchase": true
+        },
+        {
+            "rating": 3,
+            "title": "Moderate",
+            "variant": {
+                "size": "8 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Good",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Very good quality",
+            "variant": {
+                "size": "7 UK",
+                "color": "WHITE SLATE ORANGE"
+            },
+            "comment": "Good for daily use",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "variant": {
+                "size": "9 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Best quality",
+            "verified_purchase": true
+        },
+        {
+            "rating": 1,
+            "title": "Poor quality",
+            "variant": {
+                "size": "9 UK",
+                "color": "CREAM BROWN BEEJ"
+            },
+            "comment": "By looks it is very good but while wearing them for long periods, it's worst. Shoes are not at all comfortable. And the build quality is poor.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Njeb",
+            "variant": {
+                "size": "9 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Product was good but need to work on packing",
+            "verified_purchase": true
+        },
+        {
+            "rating": 2,
+            "title": "Product quality is not that much good",
+            "variant": {
+                "size": "10 UK",
+                "color": "BLACK DGREY"
+            },
+            "comment": "It's ok ok product. Shoe sole is not that much good. I would recommend adding 100-200 more and getting a good shoe from other companies.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Fitting and quality is awesome",
+            "comment": "I have ordered this for my friend and he loved it!! Specially the fitting is superb and quality is superb as expected.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Shoes",
+            "variant": {
+                "size": "9 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Good quality",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Size",
+            "variant": {
+                "size": "8 UK",
+                "color": "OFF WHITE MOUSE"
+            },
+            "comment": "Size small",
+            "verified_purchase": true
+        }
+    ],
+    "use_cases": [
+        "Daily casual wear",
+        "Travel",
+        "College",
+        "Outings"
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0DT93JVR2",
+        "collected_at": "2026-08-26"
+    }
+}

@@ -1,0 +1,271 @@
+{
+    "product_id": "T-SHIRT-005",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "AUSK Men Printed Polo Neck Cotton Blend T-Shirt (Regular Fit, Half Sleeve) || Tshirts for Mens",
+        "brand": "AUSK",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Western",
+        "description": "Men's regular-fit printed polo-style T-shirt with a cotton-blend fabric, half sleeves and a collared neckline.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0GKTWV4SM",
+        "source_url": "https://www.amazon.in/dp/B0GKTWV4SM"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1499.00,
+        "current_price": 298.00,
+        "discount_percent": 80
+    },
+    "rating": {
+        "average": 3.0,
+        "global_rating_count": 123
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "images": [
+                    "black.jpg"
+                ]
+            },
+            {
+                "name": "Green",
+                "images": [
+                    "green.jpg"
+                ]
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Regular Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Spread Collar",
+        "neck": "Collared Neck",
+        "pattern": "Graphic",
+        "fabric": "Cotton Blend",
+        "style_name": "Western",
+        "shirt_form": "Polo Shirt",
+        "top_style": "Pullover",
+        "season": "Summer",
+        "closure": "Button"
+    },
+    "product_details": {
+        "material_composition": "Cotton Blend",
+        "pattern": "Graphic",
+        "fit_type": "Regular Fit",
+        "sleeve_type": "Half Sleeve",
+        "collar_style": "Spread Collar",
+        "neck_style": "Collared Neck",
+        "country_of_origin": "India",
+        "item_weight_grams": 200,
+        "dimensions_cm": {
+            "length": 30,
+            "width": 25,
+            "height": 2
+        },
+        "net_quantity": 1,
+        "generic_name": "T-Shirt"
+    },
+    "manufacturer": {
+        "manufacturer": "Frost Clothings",
+        "address": "E-67, Sector-7, Noida, Uttar Pradesh 201301",
+        "packer": "E-67, Sector-7, Noida, Uttar Pradesh 201301",
+        "importer": "E-67, Sector-7, Noida, Uttar Pradesh 201301"
+    },
+    "care": {
+        "washing": "Machine wash cold",
+        "special_instruction": "Wash inside out to protect the print"
+    },
+    "reviews": {
+        "overall_sentiment": "Negative / mixed",
+        "rating_distribution_percent": {
+            "5_star": 34,
+            "4_star": 13,
+            "3_star": 9,
+            "2_star": 13,
+            "1_star": 31
+        },
+        "positive_feedback": [
+            "Good fitting",
+            "Good design",
+            "Comfortable to wear",
+            "Some customers considered it a nice product"
+        ],
+        "negative_feedback": [
+            "Poor material quality",
+            "Poor overall quality",
+            "Size may run smaller than expected",
+            "Colour may differ from the listing",
+            "Some customers reported receiving a product different from the images",
+            "Packaging complaints",
+            "Colour bleeding reported by some buyers"
+        ],
+        "sample_reviews": [
+            {
+                "rating": 5,
+                "title": "Nice",
+                "variant": {
+                    "size": "M",
+                    "color": "White"
+                },
+                "verified_purchase": true,
+                "summary": "Customer reported good fitting."
+            },
+            {
+                "rating": 1,
+                "title": "3rd class quality",
+                "variant": {
+                    "size": "XL",
+                    "color": "White"
+                },
+                "verified_purchase": true,
+                "summary": "Customer complained about very poor quality and receiving the wrong colour."
+            },
+            {
+                "rating": 2,
+                "title": "Poor Quality",
+                "variant": {
+                    "size": "2XL",
+                    "color": "Black"
+                },
+                "verified_purchase": true,
+                "summary": "Customer reported poor quality, improper sizing and poor packaging."
+            },
+            {
+                "rating": 5,
+                "title": "Very nice",
+                "variant": {
+                    "size": "XL",
+                    "color": "Black"
+                },
+                "verified_purchase": true,
+                "summary": "Customer described the product positively."
+            },
+            {
+                "rating": 1,
+                "title": "Extremely Poor Quality! Mismatched Color and Fake Images",
+                "variant": {
+                    "size": "M",
+                    "color": "White"
+                },
+                "verified_purchase": true,
+                "summary": "Customer claimed the delivered product differed significantly from the listing images in appearance, fabric, colour and quality."
+            },
+            {
+                "rating": 3,
+                "title": "So so",
+                "variant": {
+                    "size": "M",
+                    "color": "Black"
+                },
+                "verified_purchase": true,
+                "summary": "Customer reported very low quality."
+            },
+            {
+                "rating": 3,
+                "title": "Colour seems different then actual thing but still it's nice to wear.",
+                "variant": {
+                    "size": "2XL",
+                    "color": "White"
+                },
+                "verified_purchase": true,
+                "summary": "Customer found it comfortable but said the actual colour differed from the listing."
+            },
+            {
+                "rating": 3,
+                "title": "Colour chodta hai, size imperfect",
+                "variant": {
+                    "size": "L",
+                    "color": "Black"
+                },
+                "verified_purchase": true,
+                "summary": "Customer said the design was good but the product ran about one size smaller and the colour bled."
+            },
+            {
+                "rating": 2,
+                "title": "Poor material quality",
+                "variant": {
+                    "size": null,
+                    "color": null
+                },
+                "verified_purchase": true,
+                "summary": "Customer liked the design and fit but considered the material very poor."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "casual wear",
+            "summer wear",
+            "streetwear",
+            "everyday wear"
+        ],
+        "positive_attributes": [
+            "regular fit",
+            "cotton blend",
+            "graphic print",
+            "half sleeves",
+            "collared neckline",
+            "casual styling"
+        ],
+        "risk_attributes": [
+            "3.0 average rating",
+            "31% one-star ratings",
+            "poor material complaints",
+            "colour mismatch complaints",
+            "size inconsistency",
+            "image-versus-product mismatch complaints",
+            "colour bleeding complaints"
+        ],
+        "recommendation_keywords": [
+            "AUSK t-shirt",
+            "AUSK polo t-shirt",
+            "men printed polo",
+            "men graphic t-shirt",
+            "cotton blend polo t-shirt",
+            "regular fit t-shirt",
+            "half sleeve polo",
+            "black polo t-shirt",
+            "green polo t-shirt",
+            "casual men's t-shirt"
+        ],
+        "buyer_advice": "A low-priced printed cotton-blend polo-style T-shirt with a regular fit. The product has attractive styling and some positive fit feedback, but the 3.0 rating and recurring complaints about material quality, colour mismatch and sizing make quality consistency a significant concern."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-005/",
+        "primary_image": "black.jpg",
+        "variants": {
+            "black": [
+                "black.jpg"
+            ],
+            "green": [
+                "green.jpg"
+            ]
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The listing title says Printed Polo Neck, while detailed attributes identify the style as Western with a Spread Collar and Graphic pattern.",
+            "The source currently shows Green as the selected colour, while the supplied local images are Black and Green.",
+            "Customer reviews contain additional variants such as White that do not have local image files.",
+            "The exact cotton/polyester percentage is not provided; only Cotton Blend is stated.",
+            "Customer feedback is significantly mixed, with recurring quality and colour complaints.",
+            "Do not claim the product is premium despite the product description using premium-style marketing language."
+        ]
+    }
+}

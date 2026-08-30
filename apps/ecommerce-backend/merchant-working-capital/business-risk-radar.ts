@@ -26,14 +26,15 @@ export class BusinessRiskRadar {
     // 1. SKU Concentration Check (Revenue share of top 2 SKUs)
     const skuRes = await client.query(`
       SELECT 
-        p.productid,
+        p.product_id,
         p.title,
-        COALESCE(SUM(oi.quantity * COALESCE(p.discount, p.price)), 0) as sku_revenue
-      FROM products p
-      JOIN orderitems oi ON p.productid = oi.productid
-      JOIN orders o ON oi.orderid = o.orderid
-      WHERE o.createdat >= CURRENT_TIMESTAMP - INTERVAL '90 days'
-      GROUP BY p.productid, p.title
+        COALESCE(SUM(oi.line_total), 0)::numeric as sku_revenue
+      FROM shopi_products p
+      JOIN shopi_order_items oi ON p.product_id = oi.product_id
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '90 days'
+        AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
+      GROUP BY p.product_id, p.title
       ORDER BY sku_revenue DESC;
     `);
 
@@ -55,11 +56,12 @@ export class BusinessRiskRadar {
     // 2. Customer Concentration Check
     const custRes = await client.query(`
       SELECT 
-        u.userid,
-        COALESCE(SUM(o.totalamount), 0) as user_spend
-      FROM users u
-      JOIN orders o ON u.userid = o.userid
-      GROUP BY u.userid
+        c.customer_id,
+        COALESCE(SUM(o.total_amount), 0)::numeric as user_spend
+      FROM shopi_customers c
+      JOIN shopi_orders o ON c.customer_id = o.customer_id
+      WHERE o.order_status NOT IN ('CANCELLED', 'Cancelled')
+      GROUP BY c.customer_id
       ORDER BY user_spend DESC;
     `);
     const totalCustSpend = custRes.rows.reduce((acc, r) => acc + parseFloat(r.user_spend), 0);
@@ -122,9 +124,9 @@ export class BusinessRiskRadar {
     // 5. Discount Dependency Check
     const discRes = await client.query(`
       SELECT 
-        COUNT(CASE WHEN discount IS NOT NULL AND discount < price THEN 1 END)::int as discounted_skus,
-        COUNT(productid)::int as total_skus
-      FROM products;
+        COUNT(CASE WHEN discount_percentage > 0 THEN 1 END)::int as discounted_skus,
+        COUNT(product_id)::int as total_skus
+      FROM shopi_products;
     `);
     const discountedSkus = discRes.rows[0]?.discounted_skus || 0;
     const totalSkus = discRes.rows[0]?.total_skus || 40;

@@ -1,0 +1,530 @@
+{
+  "evaluated_at": "2026-08-26T18:57:04.656Z",
+  "total_queries": 22,
+  "metrics": {
+    "mean_precision_at_5": 0.86,
+    "mean_recall_at_5": 1,
+    "mean_recall_at_10": 1,
+    "mean_mrr": 0.95
+  },
+  "queries": [
+    {
+      "id": "Q01",
+      "type": "Category Search",
+      "query": "Show me casual shirts for men",
+      "inferred_filters": {
+        "category": "Shirts"
+      },
+      "total_retrieved": 15,
+      "top_candidate": "SHIRT-015: Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt (₹399, Score: 60.3)",
+      "top_5_skus": [
+        "SHIRT-015",
+        "SHIRT-010",
+        "SHIRT-011",
+        "SHIRT-001",
+        "SHIRT-003"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q02",
+      "type": "Budget Search",
+      "query": "Show me shoes under ₹1000",
+      "inferred_filters": {
+        "max_price": 1000,
+        "category": [
+          "Sneakers",
+          "Sports-Shoes",
+          "Formal-Shoes"
+        ]
+      },
+      "total_retrieved": 23,
+      "top_candidate": "SPORTS-SHOE-002: BRUTON EVA Lite Sport Shoes Running Shoes for Men - White (₹494, Score: 62.3)",
+      "top_5_skus": [
+        "SPORTS-SHOE-002",
+        "SPORTS-SHOE-007",
+        "SPORTS-SHOE-001",
+        "SPORTS-SHOE-006",
+        "SPORTS-SHOE-003"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q03",
+      "type": "Color Search",
+      "query": "I want a white sneaker",
+      "inferred_filters": {
+        "category": "Sneakers",
+        "color": "white"
+      },
+      "total_retrieved": 12,
+      "top_candidate": "SNEAKER-006: ASIAN Nexus-11 Men's Printed Sneakers (₹799, Score: 61.9)",
+      "top_5_skus": [
+        "SNEAKER-006",
+        "SNEAKER-005",
+        "SNEAKER-011",
+        "SNEAKER-004",
+        "SNEAKER-009"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q04",
+      "type": "Brand Search",
+      "query": "Show me SPARX sneakers",
+      "inferred_filters": {
+        "category": "Sneakers",
+        "brand": "sparx"
+      },
+      "total_retrieved": 2,
+      "top_candidate": "SNEAKER-008: SPARX Mens SM 323 (₹722, Score: 43.8)",
+      "top_5_skus": [
+        "SNEAKER-008",
+        "SNEAKER-001"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q05",
+      "type": "Size Search",
+      "query": "Running shoes size 8 UK",
+      "inferred_filters": {
+        "category": "Sports-Shoes",
+        "size": "8 UK"
+      },
+      "total_retrieved": 6,
+      "top_candidate": "SPORTS-SHOE-002: BRUTON EVA Lite Sport Shoes Running Shoes for Men - White (₹494, Score: 75.9)",
+      "top_5_skus": [
+        "SPORTS-SHOE-002",
+        "SPORTS-SHOE-006",
+        "SPORTS-SHOE-001",
+        "SPORTS-SHOE-007",
+        "SPORTS-SHOE-003"
+      ],
+      "precision_at_5": 0.2,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": false
+    },
+    {
+      "id": "Q06",
+      "type": "Occasion Search",
+      "query": "I need a dress for party wear",
+      "inferred_filters": {
+        "category": "Dresses"
+      },
+      "total_retrieved": 10,
+      "top_candidate": "DRESS-006: PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta (₹749, Score: 61.7)",
+      "top_5_skus": [
+        "DRESS-006",
+        "DRESS-005",
+        "DRESS-007",
+        "DRESS-004",
+        "DRESS-003"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q07",
+      "type": "Use-Case Search",
+      "query": "Find running shoes for daily walking",
+      "inferred_filters": {
+        "category": "Sports-Shoes"
+      },
+      "total_retrieved": 6,
+      "top_candidate": "SPORTS-SHOE-002: BRUTON EVA Lite Sport Shoes Running Shoes for Men - White (₹494, Score: 69.1)",
+      "top_5_skus": [
+        "SPORTS-SHOE-002",
+        "SPORTS-SHOE-006",
+        "SPORTS-SHOE-007",
+        "SPORTS-SHOE-001",
+        "SPORTS-SHOE-004"
+      ],
+      "precision_at_5": 0.8,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q08",
+      "type": "Material Search",
+      "query": "Pure cotton shirts for men",
+      "inferred_filters": {
+        "category": "Shirts"
+      },
+      "total_retrieved": 15,
+      "top_candidate": "SHIRT-013: IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt (₹395, Score: 60.6)",
+      "top_5_skus": [
+        "SHIRT-013",
+        "SHIRT-009",
+        "SHIRT-002",
+        "SHIRT-012",
+        "SHIRT-014"
+      ],
+      "precision_at_5": 0.8,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q09",
+      "type": "Discount Search",
+      "query": "Show me dresses with big discounts",
+      "inferred_filters": {
+        "category": "Dresses"
+      },
+      "total_retrieved": 10,
+      "top_candidate": "DRESS-009: Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli (₹998, Score: 49.7)",
+      "top_5_skus": [
+        "DRESS-009",
+        "DRESS-007",
+        "DRESS-002",
+        "DRESS-004",
+        "DRESS-003"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q10",
+      "type": "Comparative Query",
+      "query": "Which shoes are best for running?",
+      "inferred_filters": {
+        "category": [
+          "Sneakers",
+          "Sports-Shoes",
+          "Formal-Shoes"
+        ]
+      },
+      "total_retrieved": 24,
+      "top_candidate": "SPORTS-SHOE-002: BRUTON EVA Lite Sport Shoes Running Shoes for Men - White (₹494, Score: 69.3)",
+      "top_5_skus": [
+        "SPORTS-SHOE-002",
+        "SPORTS-SHOE-004",
+        "SPORTS-SHOE-006",
+        "SPORTS-SHOE-007",
+        "SPORTS-SHOE-001"
+      ],
+      "precision_at_5": 0.8,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 0.5,
+      "first_relevant_rank": 2,
+      "passed": true
+    },
+    {
+      "id": "Q11",
+      "type": "Vague Natural Language",
+      "query": "I need something comfortable for summer travel",
+      "inferred_filters": {},
+      "total_retrieved": 76,
+      "top_candidate": "T-SHIRT-001: London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar (₹396.99, Score: 51.7)",
+      "top_5_skus": [
+        "T-SHIRT-001",
+        "SPORTS-SHOE-004",
+        "SNEAKER-010",
+        "JEANS-001",
+        "SPORTS-SHOE-001"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q12",
+      "type": "Multi-Constraint Query",
+      "query": "I need black running shoes under ₹1000",
+      "inferred_filters": {
+        "max_price": 1000,
+        "category": "Sports-Shoes",
+        "color": "black"
+      },
+      "total_retrieved": 6,
+      "top_candidate": "SPORTS-SHOE-001: ASIAN Wonder-13 Men's Running Shoe (₹599, Score: 72.3)",
+      "top_5_skus": [
+        "SPORTS-SHOE-001",
+        "SPORTS-SHOE-006",
+        "SPORTS-SHOE-007",
+        "SPORTS-SHOE-002",
+        "SPORTS-SHOE-003"
+      ],
+      "precision_at_5": 0.6,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q13",
+      "type": "Budget Formal Query",
+      "query": "Show me formal shoes under ₹800",
+      "inferred_filters": {
+        "max_price": 800,
+        "category": "Formal-Shoes"
+      },
+      "total_retrieved": 6,
+      "top_candidate": "FORMAL-SHOE-006: FORMAL-SHOE-006 (₹399, Score: 56.7)",
+      "top_5_skus": [
+        "FORMAL-SHOE-006",
+        "FORMAL-SHOE-004",
+        "FORMAL-SHOE-001",
+        "FORMAL-SHOE-003",
+        "FORMAL-SHOE-002"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q14",
+      "type": "Specific Size & Color",
+      "query": "I want a white shirt in M",
+      "inferred_filters": {
+        "category": "Shirts",
+        "color": "white",
+        "size": "M"
+      },
+      "total_retrieved": 15,
+      "top_candidate": "SHIRT-010: Highlander Men's Slim Fit Casual Checkered Shirt (₹503, Score: 72.5)",
+      "top_5_skus": [
+        "SHIRT-010",
+        "SHIRT-015",
+        "SHIRT-005",
+        "SHIRT-004",
+        "SHIRT-002"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q15",
+      "type": "Feature Specific",
+      "query": "Laptop backpack 15L with bottle pocket",
+      "inferred_filters": {
+        "category": "Bags"
+      },
+      "total_retrieved": 5,
+      "top_candidate": "BAG-001: Aristocrat Nova 15L Laptop Backpack (₹499, Score: 65.5)",
+      "top_5_skus": [
+        "BAG-001",
+        "BAG-005",
+        "BAG-002",
+        "BAG-004",
+        "BAG-003"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q16",
+      "type": "Office Casual Query",
+      "query": "Smart casual shirt for office meetings",
+      "inferred_filters": {
+        "category": "Shirts"
+      },
+      "total_retrieved": 15,
+      "top_candidate": "SHIRT-015: Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt (₹399, Score: 64.7)",
+      "top_5_skus": [
+        "SHIRT-015",
+        "SHIRT-010",
+        "SHIRT-013",
+        "SHIRT-012",
+        "SHIRT-011"
+      ],
+      "precision_at_5": 0.4,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 0.33,
+      "first_relevant_rank": 3,
+      "passed": false
+    },
+    {
+      "id": "Q17",
+      "type": "Stretch Denim Query",
+      "query": "Stretchable black jeans under ₹1500",
+      "inferred_filters": {
+        "max_price": 1500,
+        "category": "Jeans",
+        "color": "black"
+      },
+      "total_retrieved": 10,
+      "top_candidate": "JEANS-003: Highlander Men Bootcut Denim Jeans (₹650, Score: 65.9)",
+      "top_5_skus": [
+        "JEANS-003",
+        "JEANS-010",
+        "JEANS-009",
+        "JEANS-006",
+        "JEANS-007"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q18",
+      "type": "Ethnic Festive Query",
+      "query": "Traditional kurta set for family function",
+      "inferred_filters": {
+        "category": "Dresses"
+      },
+      "total_retrieved": 10,
+      "top_candidate": "DRESS-004: Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta (₹728, Score: 62.1)",
+      "top_5_skus": [
+        "DRESS-004",
+        "DRESS-007",
+        "DRESS-009",
+        "DRESS-003",
+        "DRESS-006"
+      ],
+      "precision_at_5": 0.8,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q19",
+      "type": "Budget Sneaker Query",
+      "query": "Casual sneakers under ₹800",
+      "inferred_filters": {
+        "max_price": 800,
+        "category": "Sneakers"
+      },
+      "total_retrieved": 6,
+      "top_candidate": "SNEAKER-006: ASIAN Nexus-11 Men's Printed Sneakers (₹799, Score: 62.7)",
+      "top_5_skus": [
+        "SNEAKER-006",
+        "SNEAKER-011",
+        "SNEAKER-002",
+        "SNEAKER-003",
+        "SNEAKER-001"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q20",
+      "type": "Review Quality Query",
+      "query": "Which products have the best customer reviews?",
+      "inferred_filters": {},
+      "total_retrieved": 76,
+      "top_candidate": "DRESS-004: Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta (₹728, Score: 49.6)",
+      "top_5_skus": [
+        "DRESS-004",
+        "DRESS-009",
+        "JACKET-003",
+        "DRESS-002",
+        "DRESS-010"
+      ],
+      "precision_at_5": 0.6,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q21",
+      "type": "Light Jacket Query",
+      "query": "Lightweight bomber jacket for casual outings",
+      "inferred_filters": {
+        "category": "Jackets"
+      },
+      "total_retrieved": 4,
+      "top_candidate": "JACKET-003: Lymio Men's Lightweight Outwear Sportswear Bomber Jacket (₹799, Score: 63.2)",
+      "top_5_skus": [
+        "JACKET-003",
+        "JACKET-004",
+        "JACKET-001",
+        "JACKET-002"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    },
+    {
+      "id": "Q22",
+      "type": "Daily Wear Jeans",
+      "query": "Comfortable straight fit jeans for everyday wear",
+      "inferred_filters": {
+        "category": "Jeans"
+      },
+      "total_retrieved": 10,
+      "top_candidate": "JEANS-008: KOTTY Men's Straight Fit Jeans (₹599, Score: 67.4)",
+      "top_5_skus": [
+        "JEANS-008",
+        "JEANS-003",
+        "JEANS-006",
+        "JEANS-001",
+        "JEANS-004"
+      ],
+      "precision_at_5": 1,
+      "recall_at_5": 1,
+      "recall_at_10": 1,
+      "mrr": 1,
+      "first_relevant_rank": 1,
+      "passed": true
+    }
+  ]
+}

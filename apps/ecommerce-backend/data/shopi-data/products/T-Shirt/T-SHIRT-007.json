@@ -1,0 +1,343 @@
+{
+    "product_id": "T-SHIRT-007",
+    "product": {
+        "name": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys",
+        "brand": "Enitor",
+        "category": "T-Shirt",
+        "subcategory": "Casual T-Shirts",
+        "gender": "Men",
+        "product_type": "Full Sleeve T-Shirt",
+        "description": "A stylish regular-fit textured striped full-sleeve T-shirt with a collared neck and half-zip closure, designed for casual, daily and smart-casual wear.",
+        "fit": "Regular Fit",
+        "pattern": "Textured Striped",
+        "sleeve": "Long Sleeve",
+        "collar": "Collared Neck",
+        "collar_style": "Collared Neck",
+        "closure": "Zipper",
+        "length": "Standard Length",
+        "material": "Cotton Blend",
+        "fabric_weight": "Medium Weight",
+        "stretch": "Flexible",
+        "care": "Machine Wash",
+        "style_tags": [
+            "casual",
+            "textured",
+            "striped",
+            "stylish",
+            "smart casual",
+            "daily wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "parties",
+            "hangouts",
+            "birthday",
+            "new year",
+            "valentine's day"
+        ],
+        "season_tags": [
+            "summer",
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "Blue&White",
+            "Brown& White",
+            "Teal& White",
+            "White&Beige",
+            "White&Black"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 360
+    },
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 359,
+        "currency": "INR",
+        "discount_percentage": 76,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Blue&White",
+            "image": "products/T-Shirt/T-SHIRT-007/Blue&White.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Brown& White",
+            "image": "products/T-Shirt/T-SHIRT-007/Brown& White.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Teal& White",
+            "image": "products/T-Shirt/T-SHIRT-007/Teal& White.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White&Beige",
+            "image": "products/T-Shirt/T-SHIRT-007/White&Beige.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White&Black",
+            "image": "products/T-Shirt/T-SHIRT-007/White&Black.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.8,
+        "rating_count": 71,
+        "review_count": 20
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers generally like the shirt's quality, appearance, comfort and fabric. The main concerns are sizing and fit, with several reviews indicating that the shirt can run small or require ordering one to two sizes larger. Some customers also reported inconsistent sizing and delivery issues.",
+        "positive": [
+            "Good fabric quality",
+            "Comfortable to wear",
+            "Stylish appearance",
+            "Good value for money",
+            "Excellent fitting reported by some customers",
+            "Classy design",
+            "Suitable for casual wear"
+        ],
+        "negative": [
+            "Several customers reported size issues",
+            "Some customers found the shirt smaller than expected",
+            "Some buyers recommended ordering a larger size",
+            "One review reported receiving the wrong size",
+            "Some negative feedback about product quality"
+        ],
+        "main_concern": "Sizing consistency is the biggest concern, so customers should check the size chart carefully before purchasing."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The product is officially regular fit, but multiple reviews mention sizing issues and recommend ordering one or more sizes larger."
+        },
+        "summer_suitability": {
+            "sentiment": "mixed",
+            "confidence": "low",
+            "note": "The available reviews do not provide enough consistent evidence to classify this product as specifically suitable or unsuitable for hot weather."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        }
+    },
+    "pros": [
+        "Stylish textured striped design",
+        "Good fabric quality",
+        "Comfortable for many users",
+        "Good appearance",
+        "Good value for money",
+        "Suitable for casual wear"
+    ],
+    "cons": [
+        "Sizing may run small",
+        "Some buyers experienced fit issues",
+        "May need to order one or two sizes larger",
+        "Some inconsistent size-delivery feedback"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.2,
+        "best_for": [
+            "Casual wear",
+            "Daily wear",
+            "Smart casual outfits",
+            "Style-focused outfits",
+            "Parties and outings"
+        ],
+        "not_ideal_for": [
+            "Customers who are unsure about their size",
+            "Customers who require highly consistent sizing"
+        ],
+        "size_advice": "Check the size chart carefully before purchasing. Multiple reviews indicate that the shirt can fit smaller than expected, with some customers recommending ordering one or two sizes larger.",
+        "weather_advice": "The available reviews do not provide enough evidence to strongly classify the shirt for a specific weather condition.",
+        "sales_advice": "Lead with the shirt's stylish textured design, comfort and value, while clearly mentioning the sizing concern."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "stylish t-shirt",
+            "textured t-shirt",
+            "striped t-shirt",
+            "casual t-shirt",
+            "full sleeve t-shirt",
+            "cotton blend t-shirt",
+            "daily wear t-shirt",
+            "smart casual t-shirt",
+            "zip t-shirt"
+        ],
+        "negative_keywords": [
+            "perfect sizing",
+            "consistent sizing",
+            "small fit",
+            "exact fit"
+        ],
+        "strong_attributes": [
+            "textured",
+            "striped",
+            "casual",
+            "stylish",
+            "full sleeve",
+            "regular fit",
+            "cotton blend",
+            "daily wear",
+            "zip closure"
+        ],
+        "warning_attributes": [
+            "size inconsistency",
+            "possible small fit",
+            "may require larger size"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown& White",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit",
+                "appearance",
+                "value",
+                "comfort",
+                "fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue&White",
+            "size": "2XL",
+            "sentiment": "positive_with_fit_concern",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Beige&Black",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Teal& White",
+            "size": "XL",
+            "sentiment": "negative",
+            "themes": [
+                "wrong size"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White&Black",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Teal& White",
+            "size": "XL",
+            "sentiment": "negative_fit_signal",
+            "themes": [
+                "size issue"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal& White",
+            "size": "L",
+            "sentiment": "negative_fit_signal",
+            "themes": [
+                "small fit",
+                "size issue"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White&Beige",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fitting",
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White&Black",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Teal& White",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "quality"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering style, fit, fabric, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the strong styling, comfort, quality and value signals, while mentioning the sizing concern.",
+        "when_customer_asks_about_summer": "Do not make a strong summer suitability claim because the available reviews do not provide enough consistent evidence.",
+        "when_customer_asks_about_fit": "Explain that it is officially regular fit, but recommend checking the size chart because multiple buyers reported that it fits smaller than expected.",
+        "when_customer_asks_for_alternatives": "Prioritize products with similar style and price but better sizing consistency if the customer's requirement is reliable fit.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its rating. Consider the customer's requirements, budget, size preference, weather preference and intended occasion."
+    }
+}

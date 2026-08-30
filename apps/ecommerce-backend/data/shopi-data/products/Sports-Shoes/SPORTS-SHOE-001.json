@@ -1,0 +1,347 @@
+{
+    "product": {
+        "id": "SPORTS-SHOE-001",
+        "sku": "SHOPI-SPORTS-001",
+        "name": "ASIAN Wonder-13 Men's Running Shoe",
+        "brand": "ASIAN",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Men's Running Shoes",
+        "gender": "Men",
+        "description": "Lightweight men's running shoes designed for running, walking, casual use, travel and light workouts. Features a breathable construction, cushioning, flexible design and slip-resistant grip.",
+        "mrp": 999,
+        "selling_price": 599,
+        "currency": "INR",
+        "discount_percentage": 40,
+        "availability": "in_stock",
+        "source": "Amazon India",
+        "source_product_id": "B01N54ZM9W",
+        "model_number": "WONDER-13",
+        "country_of_origin": "India",
+        "manufacturer": "ASIAN / Asian Footwear Pvt Ltd",
+        "department": "Men"
+    },
+    "catalog": {
+        "main_category": "Footwear",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Running Shoes",
+        "use_cases": [
+            "Running",
+            "Walking",
+            "Cross Training",
+            "Gym",
+            "Casual Wear",
+            "Travel",
+            "Light Workouts"
+        ],
+        "occasion": [
+            "Casual",
+            "Sports",
+            "Everyday"
+        ],
+        "season": "All Season",
+        "style": "Running",
+        "pattern": "Solid",
+        "shoe_type": "Athletic Shoe"
+    },
+    "attributes": {
+        "closure_type": "Lace-Up",
+        "strap_type": "Lace",
+        "heel_type": "Flat",
+        "toe_style": "Round Toe",
+        "arch_type": "Medium Arch",
+        "insole": "Memory Foam",
+        "cushioning_level": "Maximum",
+        "surface_recommendation": "Road",
+        "water_resistance": "Not Water Resistant",
+        "pronation_correction": "Underpronation",
+        "adjustability": false,
+        "features": [
+            "Breathable",
+            "Cushioned",
+            "Flexible",
+            "Lightweight",
+            "Slip Resistant"
+        ]
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "BLACK RED",
+                "slug": "black-red"
+            },
+            {
+                "name": "BLACK SILVER",
+                "slug": "black-silver"
+            },
+            {
+                "name": "GREEN GREY",
+                "slug": "green-grey"
+            },
+            {
+                "name": "GREY",
+                "slug": "grey"
+            },
+            {
+                "name": "TURQUOISE",
+                "slug": "turquoise"
+            },
+            {
+                "name": "WHITE BLACK",
+                "slug": "white-black"
+            },
+            {
+                "name": "WHITE SALTE BLUE",
+                "slug": "white-salte-blue"
+            }
+        ],
+        "sizes_observed": [
+            "7 UK",
+            "8 UK",
+            "9 UK",
+            "10 UK",
+            "11 UK",
+            "12 UK"
+        ],
+        "variant_note": "These sizes are observed in the supplied product/review data. Do not treat them as confirmed complete inventory until availability is manually verified."
+    },
+    "images": [
+        {
+            "id": "SPORTS-SHOE-001-IMG-01",
+            "file": "BLACK RED.jpg",
+            "color": "BLACK RED",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-02",
+            "file": "BLACK SILVER.jpg",
+            "color": "BLACK SILVER",
+            "is_primary": true
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-03",
+            "file": "GREEN GREY.jpg",
+            "color": "GREEN GREY",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-04",
+            "file": "GREY.jpg",
+            "color": "GREY",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-05",
+            "file": "Turquoise.jpg",
+            "color": "TURQUOISE",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-06",
+            "file": "WHITE BLACK.jpg",
+            "color": "WHITE BLACK",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-001-IMG-07",
+            "file": "WHITE SALTE BLUE.jpg",
+            "color": "WHITE SALTE BLUE",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 4.0,
+        "global_rating_count": 112181,
+        "distribution": {
+            "5_star": 47,
+            "4_star": 26,
+            "3_star": 13,
+            "2_star": 5,
+            "1_star": 9
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "positive_themes": [
+            "Lightweight",
+            "Comfortable",
+            "Good value for money",
+            "Good grip",
+            "Breathable",
+            "Stylish design",
+            "Suitable for everyday running and walking"
+        ],
+        "negative_themes": [
+            "Some customers report hard or insufficient cushioning",
+            "Some reports of initial tightness",
+            "Some quality/detailing complaints",
+            "One review alleges receiving a duplicate or counterfeit product",
+            "Not considered ideal for very intense sports activities"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "Casual running",
+            "Walking",
+            "Light workouts",
+            "Daily wear"
+        ],
+        "not_ideal_for": [
+            "Very intense sports activities"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Stylish, Comfortable and Good Quality Shoes",
+            "date": "2026-08-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "11 UK",
+                "color": "BLACK SILVER"
+            },
+            "summary": "Customer found the shoes stylish, comfortable for running and everyday use, and good in terms of design and product quality."
+        },
+        {
+            "rating": 4,
+            "title": "Best for running and sports",
+            "date": "2026-03-04",
+            "verified_purchase": true,
+            "summary": "Customer described the shoes as lightweight and comfortable for daily wear and light workouts, with decent cushioning, good grip and breathable material. They were considered unsuitable for very intense sports."
+        },
+        {
+            "rating": 5,
+            "title": "Cheap in cost but quality is top notch",
+            "date": "2026-08-04",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer reported that the shoes were lightweight and comfortable with satisfactory quality."
+        },
+        {
+            "rating": 3,
+            "title": "Fantastic comfort and value",
+            "date": "2026-08-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "GREEN GREY"
+            },
+            "summary": "Customer praised the build quality, grip, breathability and arch support, while describing the product as budget-friendly and reliable."
+        },
+        {
+            "rating": 5,
+            "title": "Price worthy",
+            "date": "2026-08-17",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer considered the shoes worth the price and washable, but noted that the soles lacked cushioning."
+        },
+        {
+            "rating": 1,
+            "title": "Fack product (duplicate), don't buy it",
+            "date": "2026-08-16",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "GREEN GREY"
+            },
+            "summary": "Customer alleged that the received product lacked expected ASIAN branding and appeared to be a low-quality duplicate."
+        },
+        {
+            "rating": 4,
+            "title": "If your budget is tight then go for it",
+            "date": "2026-07-21",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "GREY"
+            },
+            "summary": "Customer considered the product good for its low price, but reported that the initial fit felt tight and mentioned minor detailing issues."
+        },
+        {
+            "rating": 5,
+            "title": "Value for Money",
+            "date": "2026-08-09",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "GREEN GREY"
+            },
+            "summary": "Customer described the product as lightweight with good foam quality."
+        },
+        {
+            "rating": 4,
+            "title": "Worth every penny",
+            "date": "2026-08-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "GREY"
+            },
+            "summary": "Customer found the shoes comfortable and suitable for the price range but described the sole as hard."
+        },
+        {
+            "rating": 4,
+            "title": "Does the job for the price",
+            "date": "2026-08-09",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "GREEN GREY"
+            },
+            "summary": "Customer highlighted value for money, lightweight construction, reasonable traction, breathability and suitability for teenagers."
+        }
+    ],
+    "tags": [
+        "sports shoes",
+        "running shoes",
+        "men's shoes",
+        "athletic shoes",
+        "lightweight",
+        "comfortable",
+        "breathable",
+        "cushioned",
+        "flexible",
+        "slip resistant",
+        "memory foam",
+        "road running",
+        "walking",
+        "gym",
+        "casual",
+        "budget",
+        "value for money",
+        "ASIAN",
+        "Wonder-13"
+    ],
+    "ai_search_attributes": {
+        "price_range": "under_1000",
+        "budget_friendly": true,
+        "comfort": "high",
+        "weight": "lightweight",
+        "breathability": "high",
+        "grip": "good",
+        "cushioning": "high",
+        "intensity": "light_to_moderate",
+        "recommended_for": [
+            "daily running",
+            "walking",
+            "casual wear",
+            "gym",
+            "light workouts",
+            "travel"
+        ]
+    },
+    "source_metadata": {
+        "source": "Amazon India",
+        "asin": "B01N54ZM9W",
+        "model": "WONDER-13",
+        "first_available": "2016-11-21",
+        "product_dimensions": "31 x 21 x 10 cm",
+        "product_weight": "400 g",
+        "return_policy_observed": "10 days Return & Exchange"
+    }
+}

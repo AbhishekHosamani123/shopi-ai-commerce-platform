@@ -1,0 +1,531 @@
+{
+    "product_id": "SHIRT-009",
+    "product": {
+        "name": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design",
+        "brand": "CB-COLEBROOK",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A men's solid regular-fit casual shirt made from soft-touch 80% cotton and 20% silk fabric. It features full sleeves, a spread collar, button closure and a V-design pocket. Designed primarily for casual wear, while the brand also positions it for office and formal styling.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Full Sleeve",
+        "sleeve_type": "Long Sleeve",
+        "collar": "Spread Collar",
+        "collar_style": "Spread Collar",
+        "neck_style": "Spread Collar",
+        "closure": "Button",
+        "length": "Standard Length",
+        "style": "Regular",
+        "lifestyle": "Casual",
+        "pocket": {
+            "present": true,
+            "count": 1,
+            "type": "V-Design Pocket",
+            "design": "V"
+        },
+        "material": {
+            "composition": "80% Cotton, 20% Silk",
+            "cotton_percentage": 80,
+            "silk_percentage": 20,
+            "material_description": "Soft Touch Cotton Fabric",
+            "material_status": "Confirmed by listing"
+        },
+        "weight_grams": 270,
+        "dimensions_cm": {
+            "length": 23,
+            "width": 23,
+            "height": 2
+        },
+        "country_of_origin": "India"
+    },
+    "pricing": {
+        "selling_price": 495,
+        "mrp": 1849,
+        "currency": "INR",
+        "discount_percentage": 73,
+        "price_type": "snapshot"
+    },
+    "pricing_note": "The captured listing shows ₹495 against an MRP of ₹1,849. Price should be treated as a catalog snapshot because Amazon pricing can change.",
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-009/black.jpg"
+            },
+            {
+                "color": "Grey",
+                "image": "products/shirts/SHIRT-009/grey.jpg"
+            },
+            {
+                "color": "Light Blue",
+                "image": "products/shirts/SHIRT-009/light blue.jpg"
+            },
+            {
+                "color": "Maroon",
+                "image": "products/shirts/SHIRT-009/maroon.jpg"
+            },
+            {
+                "color": "Pink",
+                "image": "products/shirts/SHIRT-009/pink.jpg"
+            },
+            {
+                "color": "Wine",
+                "image": "products/shirts/SHIRT-009/wine.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "size_chart": {
+            "S": "38",
+            "M": "40",
+            "L": "42",
+            "XL": "44",
+            "2XL": "46"
+        },
+        "variant_status": "Six storefront color images were supplied. The source listing contains additional color variants such as Navy Blue, Cadet Grey, Pistachio and Dusty Pink, but those colors are not included because corresponding SHIRT-009 images were not supplied."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-009/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/shirts/SHIRT-009/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/shirts/SHIRT-009/light blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-009/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pink",
+            "image": "products/shirts/SHIRT-009/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Wine",
+            "image": "products/shirts/SHIRT-009/wine.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 4590,
+        "rating_distribution_percent": {
+            "5_star": 43,
+            "4_star": 18,
+            "3_star": 13,
+            "2_star": 7,
+            "1_star": 19
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "The shirt gets positive feedback for its material, color, appearance and value from some buyers, but sizing and stitching are recurring weaknesses. Multiple verified buyers report that the shirt fits smaller than the stated size. Other reviews praise the fabric, color and correct fit, so the quality experience is inconsistent.",
+        "positive": [
+            "Soft-touch cotton fabric",
+            "Some customers praise material quality",
+            "Some customers report correct fit",
+            "Good color and finish according to several reviews",
+            "Some customers consider it good value for money",
+            "Color appears to hold well according to one review",
+            "Machine washable",
+            "Suitable for casual wear",
+            "Can be styled with jeans or chinos",
+            "Available in plus sizes"
+        ],
+        "negative": [
+            "Multiple complaints about inaccurate sizing",
+            "Some customers report XL fitting like L",
+            "4XL sizing complaints",
+            "Stitching can be weak",
+            "One review reports buttons coming loose after washing",
+            "Fabric may feel less suitable for summer",
+            "Material is reported as relatively thin and non-stretchable by one reviewer",
+            "Some color variants may differ from expectations",
+            "Some customers consider the product poor value"
+        ],
+        "main_strength": "Soft-touch cotton-rich fabric combined with a classic solid regular-fit design.",
+        "main_risk": "Sizing reliability and stitching quality."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed_to_negative",
+            "confidence": "high",
+            "note": "Several verified reviews specifically report that the shirt runs smaller than the stated size. One reviewer said XL was effectively L, and another reported that 4XL was too small."
+        },
+        "comfort": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some reviewers praise comfort, while another says the shirt is not ideal for summer."
+        },
+        "fabric": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Several buyers describe the fabric positively, but one review describes it as thinner and non-stretchable."
+        },
+        "stitching": {
+            "sentiment": "negative_to_mixed",
+            "confidence": "medium",
+            "note": "One verified review reports losing buttons after a few washes and specifically calls for better stitching."
+        },
+        "appearance": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Several reviews praise the colors, although one review reports that the expected color/fitting did not match the listing presentation."
+        },
+        "value": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Cadet Grey",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer described the shirt as good quality and good value for money."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "4XL",
+            "color": "Cadet Grey",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "sizing"
+            ],
+            "summary": "Reviewer said the shirt was too small compared with the stated size and advised against buying it."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Navy Blue",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "finish",
+                "fabric",
+                "comfort"
+            ],
+            "summary": "Reviewer liked the color and finish but said the fabric was not especially good and was less suitable as a summer-comfort shirt."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "color",
+                "stitching",
+                "fit"
+            ],
+            "summary": "Reviewer reported good material, good stitching, correct fit and matching color."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Pistachio",
+            "sentiment": "mixed",
+            "themes": [
+                "value",
+                "stitching",
+                "washing",
+                "fabric"
+            ],
+            "summary": "Reviewer considered it a value purchase with acceptable fit, but reported loose buttons after a few washes. Color did not fade and the shirt handled machine washing well. Material was described as slightly thin and non-stretchable."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Cadet Grey",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "color",
+                "fabric"
+            ],
+            "summary": "Reviewer praised the comfort, color and fabric."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "L",
+            "color": "Pistachio",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer simply described the product as not good and a waste of money."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "4XL",
+            "color": "Wine",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "quality"
+            ],
+            "summary": "Reviewer reported incorrect sizing and low quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "S",
+            "color": "Dark Pink",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer gave a positive rating with a short positive comment."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "Cadet Grey",
+            "sentiment": "mixed",
+            "themes": [
+                "material",
+                "fit"
+            ],
+            "summary": "Reviewer said the material was good but reported that XL fitted more like L."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "2XL",
+            "color": "Dusty Pink",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "fit",
+                "appearance"
+            ],
+            "summary": "Reviewer said the shirt was good but the color was not as expected and the fitting did not match the presentation."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Black",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer described the cloth positively."
+        }
+    ],
+    "pros": [
+        "80% cotton, 20% silk composition",
+        "Soft-touch fabric",
+        "Regular fit",
+        "Solid design",
+        "Full sleeves",
+        "Spread collar",
+        "Button closure",
+        "One V-design pocket",
+        "Standard length",
+        "Machine washable",
+        "Six supplied storefront colors",
+        "Sizes S through 4XL listed",
+        "Suitable for casual styling",
+        "Can work with jeans or chinos",
+        "Plus-size availability"
+    ],
+    "cons": [
+        "Sizing appears inconsistent",
+        "Multiple reports of shirts running one size smaller",
+        "4XL sizing complaints",
+        "Stitching quality is questionable",
+        "Buttons may loosen after washing",
+        "Fabric may feel thin to some buyers",
+        "Non-stretchable",
+        "Not ideal for very hot weather according to one review",
+        "Some customers report disappointing value"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "office wear",
+        "work wear",
+        "formal wear",
+        "business casual",
+        "evening wear",
+        "outing"
+    ],
+    "style_tags": [
+        "casual shirt",
+        "solid shirt",
+        "spread collar",
+        "full sleeve",
+        "regular fit",
+        "cotton shirt",
+        "cotton silk blend",
+        "soft touch",
+        "pocket shirt",
+        "classic shirt",
+        "business casual"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "cotton shirt",
+            "cotton silk shirt",
+            "soft touch shirt",
+            "solid shirt",
+            "regular fit shirt",
+            "spread collar shirt",
+            "full sleeve shirt",
+            "pocket shirt",
+            "office casual shirt",
+            "business casual shirt",
+            "formal casual shirt",
+            "plus size shirt"
+        ],
+        "negative_keywords": [
+            "summer shirt",
+            "breathable summer shirt",
+            "slim fit shirt",
+            "stretch shirt",
+            "oversized shirt",
+            "premium formal shirt",
+            "guaranteed accurate sizing"
+        ],
+        "strong_attributes": [
+            "80% cotton",
+            "20% silk",
+            "soft touch",
+            "solid",
+            "regular fit",
+            "spread collar",
+            "full sleeve",
+            "V-design pocket",
+            "button closure",
+            "plus size",
+            "casual",
+            "office appropriate"
+        ],
+        "warning_attributes": [
+            "sizing consistency",
+            "stitching quality",
+            "button durability",
+            "summer comfort",
+            "color expectation"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "BUY_WITH_SIZE_CHECK",
+        "score": 6.9,
+        "best_for": [
+            "Everyday casual wear",
+            "Office casual outfits",
+            "Business casual outfits",
+            "Customers who prefer cotton-rich fabric",
+            "Customers wanting a classic solid shirt",
+            "Customers who prefer spread collars",
+            "Customers needing larger sizes",
+            "Jeans and chinos styling"
+        ],
+        "not_ideal_for": [
+            "Very hot-weather wear",
+            "Customers wanting stretch fabric",
+            "Customers who need highly reliable sizing",
+            "Customers expecting premium stitching",
+            "Customers wanting slim or modern oversized fits"
+        ],
+        "size_advice": "The listing provides S–4XL, with S-38, M-40, L-42, XL-44 and XXL-46 in the displayed size chart. However, verified reviews repeatedly report that actual sizing can run smaller. Shopi should strongly recommend checking garment measurements rather than relying only on the nominal size.",
+        "fabric_advice": "Describe the material accurately as 80% cotton and 20% silk. Do not simplify this to 100% cotton.",
+        "quality_advice": "Position it as a good-value cotton-rich casual shirt rather than a premium shirt. Review feedback supports the value proposition but not a blanket premium-quality claim.",
+        "occasion_advice": "Recommend it primarily for casual, office-casual and business-casual settings. The source also markets it for formal wear, but the 3.6 rating and mixed quality feedback make 'formal' a secondary recommendation.",
+        "price_advice": "Use ₹495 as the captured selling-price snapshot and ₹1,849 as the captured MRP."
+    },
+    "care_instructions": {
+        "wash": [
+            "Machine Wash"
+        ],
+        "special_instructions": []
+    },
+    "brand_information": {
+        "brand": "CB-COLEBROOK",
+        "manufacturer": "CB-COLEBROOK",
+        "packer": "CB-COLEBROOK",
+        "importer": "CB-COLEBROOK, India",
+        "asin": "B0CGLNJT2H",
+        "item_model_number": "10030",
+        "country_of_origin": "India",
+        "net_quantity": 1,
+        "generic_name": "Shirt"
+    },
+    "data_quality": {
+        "rating_count": 4590,
+        "price_available": true,
+        "stock_available": true,
+        "complete_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level stock quantities",
+            "Variant-specific prices",
+            "Complete measurement chart for 3XL and 4XL",
+            "Exact garment measurements for each size"
+        ],
+        "source_inconsistencies": [
+            "The listing promotes the shirt as premium quality, but the 3.6/5 rating and review feedback show mixed quality.",
+            "The listing says Regular Fit and provides a size chart, but multiple verified reviews report that the actual garment runs smaller than the stated size.",
+            "The listing markets the shirt for summer/casual use through soft-touch cotton positioning, but one verified review specifically says it should be avoided as a summer-comfort shirt.",
+            "The listing contains additional color variants not represented by the six SHIRT-009 image files supplied for the storefront."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a classic cotton-rich solid casual shirt for everyday, office-casual and business-casual styling.",
+        "material_rule": "State the material as 80% Cotton, 20% Silk. Never describe it as 100% cotton.",
+        "quality_rule": "Do not call it premium-quality without qualification. Review evidence is mixed and the overall rating is 3.6/5.",
+        "fit_rule": "Use Regular Fit as the catalog attribute, but strongly advise checking the size chart because multiple verified reviews report smaller-than-expected sizing.",
+        "occasion_rule": "Prioritize casual, office-casual and business-casual recommendations. Formal wear can be secondary.",
+        "summer_rule": "Do not recommend it specifically as a summer shirt. One verified reviewer explicitly found the fabric unsuitable for summer comfort.",
+        "color_rule": "Only expose Black, Grey, Light Blue, Maroon, Pink and Wine in the storefront because those are the six colors with supplied SHIRT-009 images.",
+        "stitching_rule": "Do not promise exceptional stitching or button durability.",
+        "price_rule": "Use ₹495 as the current captured price snapshot, not a permanent price.",
+        "variant_rule": "Do not add Navy Blue, Cadet Grey, Pistachio or Dusty Pink to the storefront unless corresponding SHIRT-009 images are added."
+    }
+}

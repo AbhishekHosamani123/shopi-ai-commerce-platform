@@ -1,0 +1,584 @@
+{
+    "product": {
+        "id": "SPORTS-SHOE-007",
+        "sku": "SHOPI-SPORTS-007",
+        "name": "SPARX Men's SM-648 Sports Shoes",
+        "brand": "SPARX",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Men's Running Shoes",
+        "gender": "Men",
+        "description": "Men's running and sports shoes designed for running, walking, sports and everyday use. Customer reviews highlight comfort, lightweight construction, good fit, grip and value for money, while some reviews report concerns about material quality, narrow fit and durability.",
+        "mrp": 1099,
+        "selling_price": 729,
+        "currency": "INR",
+        "discount_percentage": 34,
+        "availability": "in_stock",
+        "source": "Amazon India",
+        "source_product_id": "B08K9QDH7Q",
+        "model_number": "SM 648",
+        "country_of_origin": "India",
+        "manufacturer": "RELAXO FOOTWEARS LIMITED",
+        "department": "Men",
+        "generic_name": "Running Shoe"
+    },
+    "catalog": {
+        "main_category": "Footwear",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Running Shoes",
+        "use_cases": [
+            "Running",
+            "Walking",
+            "Sports",
+            "Casual Wear",
+            "Daily Wear"
+        ],
+        "occasion": [
+            "Casual",
+            "Sports",
+            "Everyday"
+        ],
+        "season": "All Season",
+        "style": "Running",
+        "pattern": "Solid",
+        "shoe_type": "Athletic Shoe"
+    },
+    "attributes": {
+        "closure_type": "Lace-Up",
+        "strap_type": "Lace",
+        "heel_type": "Flat",
+        "toe_style": null,
+        "arch_type": null,
+        "insole": null,
+        "cushioning_level": null,
+        "surface_recommendation": "Running / General Sports",
+        "water_resistance": null,
+        "pronation_correction": null,
+        "adjustability": true,
+        "features": [
+            "Lightweight",
+            "Comfortable",
+            "Good Grip",
+            "Sporty Design",
+            "Running Suitable"
+        ],
+        "review_derived_features": [
+            "Soft",
+            "Comfortable",
+            "Good Fit",
+            "Good Grip",
+            "Durable",
+            "Value for Money"
+        ]
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "DARK GREY NEON ORANGE",
+                "slug": "dark-grey-neon-orange"
+            },
+            {
+                "name": "BLACK GOLD",
+                "slug": "black-gold"
+            },
+            {
+                "name": "NAVY BLUE RED",
+                "slug": "navy-blue-red"
+            }
+        ],
+        "sizes_observed": [
+            "6 UK",
+            "7 UK",
+            "8 UK",
+            "9 UK",
+            "10 UK"
+        ],
+        "variant_note": "These sizes and colors are observed in the supplied Amazon product/review data. Do not treat them as complete size-level inventory unless separately verified."
+    },
+    "images": [
+        {
+            "id": "SPORTS-SHOE-007-IMG-01",
+            "file": "BLACK GOLD1.jpg",
+            "color": "BLACK GOLD",
+            "is_primary": true
+        },
+        {
+            "id": "SPORTS-SHOE-007-IMG-02",
+            "file": "DARK GREY NEON ORANGE.jpg",
+            "color": "DARK GREY NEON ORANGE",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-007-IMG-03",
+            "file": "DARK GREY NEON ORANGE4.jpg",
+            "color": "DARK GREY NEON ORANGE",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-007-IMG-04",
+            "file": "NAVY BLUE RED1.jpg",
+            "color": "NAVY BLUE RED",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-007-IMG-05",
+            "file": "NAVY BLUE RED2.jpg",
+            "color": "NAVY BLUE RED",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 4.1,
+        "global_rating_count": 11148,
+        "distribution": {
+            "5_star": 51,
+            "4_star": 27,
+            "3_star": 10,
+            "2_star": 3,
+            "1_star": 9
+        },
+        "distribution_unit": "percent"
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "positive_themes": [
+            "Comfortable",
+            "Soft",
+            "Lightweight",
+            "Good for running",
+            "Good for walking",
+            "Good fit",
+            "Good grip",
+            "Stylish",
+            "Good quality",
+            "Durable",
+            "Value for money",
+            "Affordable"
+        ],
+        "negative_themes": [
+            "Some customers report poor material quality",
+            "Some reports of mesh and inner-layer damage",
+            "Some customers report narrow fit",
+            "Some edge-finishing/detailing complaints",
+            "Some customers found the shoe less comfortable than expected",
+            "Packaging complaints"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "Normal running",
+            "Walking",
+            "Daily use",
+            "Casual sports",
+            "Light sports activities"
+        ],
+        "not_ideal_for": [
+            "Users needing a wide fit",
+            "Users expecting premium material quality",
+            "Users requiring highly durable construction"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Best value for money shoes I've ever purchased",
+            "date": "2026-08-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer compared the shoes favorably with much more expensive ₹3,000 shoes and described them as soft, very comfortable and suitable for walking, running and daily use.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable",
+            "date": "2026-07-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer found the shoes comfortable and well suited for normal running.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Stylish and Worth It",
+            "date": "2026-08-07",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer praised the quality and affordability.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Thanks Amazon for a perfect brand",
+            "date": "2026-07-02",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer reported very good comfort, value for money, durability, suitability for rough use and a perfect fit.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 3,
+            "title": "Nice",
+            "date": "2026-07-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer described the shoes as comfortable.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 1,
+            "title": "Worst quality matarial",
+            "date": "2026-08-01",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer reported poor-quality mesh and inner-layer material and said the shoes were damaged within one month.",
+            "sentiment": "negative"
+        },
+        {
+            "rating": 4,
+            "title": "Very Good",
+            "date": "2026-06-06",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer considered the product value for money.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "good",
+            "date": "2026-08-13",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer considered the shoes good for the price.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "No",
+            "date": "2026-08-10",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer reported proper fitting and acceptable grip and color.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-07-28",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer described the product as very good quality.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Ok product",
+            "date": "2026-07-27",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer considered the product acceptable but not particularly good.",
+            "sentiment": "mixed"
+        },
+        {
+            "rating": 4,
+            "title": "Average",
+            "date": "2026-07-02",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer gave an average assessment without additional detail.",
+            "sentiment": "neutral"
+        },
+        {
+            "rating": 3,
+            "title": "Ok",
+            "date": "2026-08-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer described the product as nice.",
+            "sentiment": "neutral"
+        },
+        {
+            "rating": 3,
+            "title": "Quality is average, but good for price",
+            "date": "2026-07-31",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer liked the appearance but reported that the shoes felt narrow and had poorly finished small edges.",
+            "sentiment": "mixed"
+        },
+        {
+            "rating": 4,
+            "title": "Lightweight and comfortable",
+            "date": "2026-06-12",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer described the shoes as lightweight and stylish.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-06-09",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "NAVY BLUE RED"
+            },
+            "summary": "Customer described the product as very nice.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable was good",
+            "date": "2026-06-05",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer gave a short positive assessment.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Product",
+            "date": "2026-06-05",
+            "verified_purchase": true,
+            "variant": {},
+            "summary": "Customer described the product as nice.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good Product",
+            "date": "2026-08-16",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer described the product positively.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good quality",
+            "date": "2026-08-12",
+            "verified_purchase": true,
+            "variant": {},
+            "summary": "Customer described the product as value for money.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Best product",
+            "date": "2026-05-28",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "NAVY BLUE RED"
+            },
+            "summary": "Customer described the product as very good.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Nice",
+            "date": "2026-08-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer considered the shoes worth the price.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Value for money",
+            "date": "2026-05-24",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer reported good quality for the price point.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good quality",
+            "date": "2026-08-07",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer described the shoes as good and value for money.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Over worthy",
+            "date": "2026-05-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer reported using the shoes for sports for two years but said the sole had been replaced twice.",
+            "sentiment": "mixed"
+        },
+        {
+            "rating": 4,
+            "title": "Not comfort one",
+            "date": "2026-05-25",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer said the comfort was below expectations.",
+            "sentiment": "negative"
+        },
+        {
+            "rating": 3,
+            "title": "Packaging worst",
+            "date": "2026-06-10",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer said the shoes themselves were good but complained about poor packaging.",
+            "sentiment": "mixed"
+        },
+        {
+            "rating": 5,
+            "title": "Comfortable",
+            "date": "2026-07-26",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK GOLD"
+            },
+            "summary": "Customer described the shoes as comfortable and long lasting.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Nice",
+            "date": "2026-04-30",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK GREY NEON ORANGE"
+            },
+            "summary": "Customer gave a short positive assessment.",
+            "sentiment": "positive"
+        }
+    ],
+    "tags": [
+        "sports shoes",
+        "running shoes",
+        "men's shoes",
+        "athletic shoes",
+        "SPARX",
+        "SM-648",
+        "lightweight",
+        "comfortable",
+        "soft",
+        "good grip",
+        "good fit",
+        "stylish",
+        "durable",
+        "running",
+        "walking",
+        "sports",
+        "casual",
+        "daily wear",
+        "budget",
+        "value for money",
+        "affordable"
+    ],
+    "ai_search_attributes": {
+        "price_range": "under_1000",
+        "budget_friendly": true,
+        "comfort": "high",
+        "weight": "lightweight",
+        "grip": "good",
+        "durability": "mixed_to_good",
+        "quality": "good_for_price",
+        "fit": "generally_good_but_somewhat_narrow",
+        "intensity": "light_to_moderate",
+        "recommended_for": [
+            "daily running",
+            "normal running",
+            "walking",
+            "casual sports",
+            "daily wear",
+            "budget buyers"
+        ],
+        "fit_warning": "Some reviews report a narrow fit.",
+        "quality_warning": "Some reviews report poor mesh/inner-layer durability.",
+        "comfort_warning": "Most reviews are positive, but some customers found the comfort below expectations."
+    },
+    "source_metadata": {
+        "source": "Amazon India",
+        "asin": "B08K9QDH7Q",
+        "model": "SM 648",
+        "first_available": "2020-09-28",
+        "product_dimensions": "31.5 x 21.5 x 12 cm",
+        "product_weight": "890 g",
+        "return_policy_observed": null,
+        "manufacturer": "RELAXO FOOTWEARS LIMITED",
+        "packer": "Relaxo Footwears Ltd.",
+        "country_of_origin": "India",
+        "net_quantity": "2.0 Count",
+        "included_components": "1 Pair of Sports Shoes",
+        "global_rating_count": 11148,
+        "review_count_displayed": 1342
+    }
+}

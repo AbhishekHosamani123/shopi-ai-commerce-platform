@@ -1,0 +1,223 @@
+{
+    "product_id": "SNEAKER-004",
+    "sku": "B0FYQD4JVX",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Boldfit Sneakers for Men DripBloc",
+    "brand": "Boldfit",
+    "model": "DripBloc",
+    "pricing": {
+        "mrp": 4499,
+        "selling_price": 899,
+        "currency": "INR",
+        "discount_percent": 80
+    },
+    "description": "Boldfit DripBloc men's sneakers with a premium synthetic leather upper, soft suede accents, Lycra lining, lightweight TRP sole and rubber outsole. Designed for casual wear, daily commutes and light activity.",
+    "colors": [
+        {
+            "name": "Beige",
+            "image": "beige.jpg"
+        },
+        {
+            "name": "Black",
+            "image": "black.jpg"
+        },
+        {
+            "name": "Navy",
+            "image": "Navy.jpg"
+        },
+        {
+            "name": "NavyBlazer-White-CayenneRed",
+            "image": "NavyBlazer-White-CayenneRed.jpg"
+        },
+        {
+            "name": "White-DawnGrey",
+            "image": "White-DawnGrey.jpg"
+        },
+        {
+            "name": "White-MarigoldYellow",
+            "image": "White-MarigoldYellow.jpg"
+        },
+        {
+            "name": "White-NavyBlazer-Arctic",
+            "image": "White-NavyBlazer-Arctic.jpg"
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK",
+        "11 UK"
+    ],
+    "attributes": {
+        "style": "Casual Sneakers",
+        "closure": "Lace-Up",
+        "upper_material": "Synthetic Leather",
+        "accent_material": "Suede",
+        "lining": "Lycra",
+        "sole_material": "TRP",
+        "outsole_material": "Rubber",
+        "cushioning": true,
+        "shock_absorption": true,
+        "grip": true,
+        "weight": "Lightweight",
+        "occasion": [
+            "Casual",
+            "Daily Wear",
+            "Commute",
+            "Light Activity"
+        ]
+    },
+    "ratings": {
+        "average_rating": 3.9,
+        "rating_count": 316
+    },
+    "review_summary": {
+        "rating_distribution": {
+            "5_star_percent": 55,
+            "4_star_percent": 15,
+            "3_star_percent": 9,
+            "2_star_percent": 8,
+            "1_star_percent": 13
+        },
+        "positive_points": [
+            "Stylish appearance",
+            "Comfortable according to many buyers",
+            "Good value for money",
+            "Good fit reported by some customers",
+            "Good material quality reported by some customers",
+            "Suitable for daily use",
+            "Ventilated while driving",
+            "Some buyers received an extra pair of soles and a shoe pouch"
+        ],
+        "negative_points": [
+            "Some customers reported poor stitching durability",
+            "Some customers reported discomfort",
+            "Some customers reported packaging problems",
+            "Some customers reported color differences",
+            "Some customers found the shoes heavier than expected",
+            "One review reported sole noise on marble flooring"
+        ],
+        "ai_summary": "Overall customer feedback is moderately positive at 3.9/5. Buyers frequently mention stylish looks, comfort, fit and value for money. However, there are complaints about stitching durability, packaging, color differences, weight and comfort from some variants."
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Boldfit stylist and comfort.",
+            "variant": {
+                "size": "8 UK",
+                "color": "Navy"
+            },
+            "comment": "Looks fantastic and impressive. Material and quality are excellent. Very comfortable and fits perfectly. Great value for money.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Value for money, Comfortable, best for daily use",
+            "variant": {
+                "size": "9 UK",
+                "color": "Navy"
+            },
+            "comment": "Awesome, value for money and top-notch comfort. Best for daily use. Customer also mentioned receiving an extra pair of shoe soles and a pouch.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Nice shoes",
+            "variant": {
+                "size": "10 UK",
+                "color": "Navy"
+            },
+            "comment": "Shoe feels ventilated while driving. Looks and feels good. Quality and stitching is good but not great. Shoes are a bit heavy. Sole makes a weird noise while walking on marble.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 1,
+            "title": "Bad Quality",
+            "variant": {
+                "size": "8 UK",
+                "color": "White-MarigoldYellow"
+            },
+            "comment": "Quality of product is not good. After wearing the shoe for 3 hours, its stitching came apart. Shoe looks good, but quality was reported as very bad.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Stylish and comfortable",
+            "variant": {
+                "size": "11 UK",
+                "color": "Navy"
+            },
+            "comment": "Great shoes and worth it.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 3,
+            "title": "Packaging",
+            "variant": {
+                "size": "8 UK",
+                "color": "Beige"
+            },
+            "comment": "Customer complained about poor packaging but said the product itself was good, fit nicely and had good material. Customer also mentioned the color was slightly different.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 2,
+            "title": "Not comfortable",
+            "variant": {
+                "size": "7 UK",
+                "color": "White-DawnGrey"
+            },
+            "comment": "Customer reported that the shoes were not very comfortable.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Amazing product for sneakers lovers",
+            "variant": {
+                "size": "8 UK",
+                "color": "White-MarigoldYellow"
+            },
+            "comment": "Excellent material quality, comfortable fit and great value for money.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Budget friendly",
+            "variant": {
+                "size": "6 UK",
+                "color": "White-NavyBlazer-Arctic"
+            },
+            "comment": "Pretty good compared to the price.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Comfortable",
+            "variant": {
+                "size": "8 UK",
+                "color": "NavyBlazer-White-CayenneRed"
+            },
+            "comment": "Perfect shoes. Must buy.",
+            "verified_purchase": true
+        }
+    ],
+    "use_cases": [
+        "Daily casual wear",
+        "Daily commute",
+        "Casual outings",
+        "Light activity",
+        "Driving"
+    ],
+    "return_policy": {
+        "return_exchange_window": "10 days"
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0FYQD4JVX",
+        "collected_at": "2026-08-26"
+    }
+}

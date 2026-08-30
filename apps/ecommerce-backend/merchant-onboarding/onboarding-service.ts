@@ -122,10 +122,10 @@ export class MerchantOnboardingService {
    */
   async computeAiReadiness(merchantId: string = 'default_merchant'): Promise<AiReadinessReport> {
     const [ordRes, prodRes, custRes, cogsRes, whRes, supRes] = await Promise.all([
-      client.query(`SELECT COUNT(*)::int as order_count FROM orders`),
-      client.query(`SELECT COUNT(*)::int as product_count FROM products`),
-      client.query(`SELECT COUNT(*)::int as customer_count FROM users`),
-      client.query(`SELECT COUNT(*)::int as cogs_count FROM merchant_product_cogs`),
+      client.query(`SELECT COUNT(*)::int as order_count FROM shopi_orders WHERE order_status NOT IN ('CANCELLED', 'Cancelled')`),
+      client.query(`SELECT COUNT(*)::int as product_count FROM shopi_products`),
+      client.query(`SELECT COUNT(*)::int as customer_count FROM shopi_customers`),
+      client.query(`SELECT COUNT(*)::int as cogs_count FROM shopi_product_cogs`),
       client.query(`SELECT COUNT(*)::int as wh_count FROM merchant_warehouses`),
       client.query(`SELECT COUNT(*)::int as sup_count FROM merchant_suppliers`)
     ]);

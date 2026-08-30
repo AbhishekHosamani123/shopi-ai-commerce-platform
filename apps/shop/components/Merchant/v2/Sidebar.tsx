@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -10,12 +10,73 @@ interface SidebarProps {
   collapsed?: boolean;
 }
 
+/**
+ * Pending-decision count from the canonical Decision Center sources:
+ * campaigns awaiting review + operational actions awaiting approval.
+ * Mirrors the "PENDING DECISIONS" headline on the Actions page.
+ * Renders no badge when the count is unavailable — never a fabricated number.
+ */
+function usePendingDecisionCount(): number | null {
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [actionsRes, campaignsRes] = await Promise.all([
+          fetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
+          fetch('/api/merchant/campaigns/recommendations', { headers: { 'x-merchant-id': 'default_merchant' } })
+        ]);
+
+        let pendingActions = 0;
+        if (actionsRes.ok) {
+          const data = await actionsRes.json();
+          const kpiCount = data?.kpis?.pendingCount;
+          if (typeof kpiCount === 'number' && Number.isFinite(kpiCount)) {
+            pendingActions = Math.max(0, Math.round(kpiCount));
+          } else if (Array.isArray(data?.actions)) {
+            pendingActions = data.actions.filter(
+              (a: any) =>
+                a?.status === 'PENDING_APPROVAL' ||
+                a?.status === 'READY_FOR_REVIEW' ||
+                a?.status === 'DRAFT'
+            ).length;
+          }
+        }
+
+        let pendingCampaigns = 0;
+        if (campaignsRes.ok) {
+          const data = await campaignsRes.json();
+          if (Array.isArray(data?.campaigns)) {
+            pendingCampaigns = data.campaigns.filter(
+              (c: any) => c?.status === 'READY_FOR_REVIEW' || c?.status === 'DRAFT'
+            ).length;
+          }
+        }
+
+        if (cancelled) return;
+        if (actionsRes.ok || campaignsRes.ok) {
+          setCount(pendingActions + pendingCampaigns);
+        }
+      } catch {
+        // Unavailable → badge stays hidden. Never display a made-up count.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return count;
+}
+
 export const Sidebar = React.memo(function Sidebar({
   onOpenCopilot,
   onNavigate,
   collapsed = false,
 }: SidebarProps) {
   const pathname = usePathname();
+  const pendingCount = usePendingDecisionCount();
 
   const handleLinkClick = () => {
     if (onNavigate) {
@@ -242,7 +303,7 @@ export const Sidebar = React.memo(function Sidebar({
               <span>Actions & Outcomes</span>
             </div>
             <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              3
+              {pendingCount !== null ? pendingCount : ''}
             </span>
           </Link>
         </div>

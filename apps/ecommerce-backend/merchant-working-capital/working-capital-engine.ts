@@ -20,9 +20,10 @@ export class WorkingCapitalEngine {
     // 1. Total inventory value and units
     const invRes = await client.query(`
       SELECT 
-        COALESCE(SUM(p.stock), 0)::int as total_units,
-        COALESCE(SUM(p.stock * COALESCE(p.discount, p.price)), 0)::numeric(14,2) as total_value
-      FROM products p;
+        COALESCE(SUM(p.stock_quantity), 0)::int as total_units,
+        COALESCE(SUM(p.stock_quantity * COALESCE(cg.total_unit_cost, p.selling_price * 0.45)), 0)::numeric(14,2) as total_value
+      FROM shopi_products p
+      LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id;
     `);
     const totalCatalogUnits = invRes.rows[0]?.total_units || 0;
     const totalInventoryCapitalValue = parseFloat(invRes.rows[0]?.total_value) || 0;
@@ -30,14 +31,16 @@ export class WorkingCapitalEngine {
     // 2. Slow-moving stock (0 sales in last 60 days with stock > 10)
     const slowRes = await client.query(`
       SELECT 
-        COALESCE(SUM(p.stock), 0)::int as slow_units,
-        COALESCE(SUM(p.stock * COALESCE(p.discount, p.price)), 0)::numeric(14,2) as slow_value
-      FROM products p
-      WHERE p.stock > 10 AND p.productid NOT IN (
-        SELECT DISTINCT oi.productid 
-        FROM orderitems oi
-        JOIN orders o ON oi.orderid = o.orderid
-        WHERE o.createdat >= CURRENT_TIMESTAMP - INTERVAL '60 days'
+        COALESCE(SUM(p.stock_quantity), 0)::int as slow_units,
+        COALESCE(SUM(p.stock_quantity * COALESCE(cg.total_unit_cost, p.selling_price * 0.45)), 0)::numeric(14,2) as slow_value
+      FROM shopi_products p
+      LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id
+      WHERE p.stock_quantity > 10 AND p.product_id NOT IN (
+        SELECT DISTINCT oi.product_id 
+        FROM shopi_order_items oi
+        JOIN shopi_orders o ON oi.order_id = o.order_id
+        WHERE o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '60 days'
+          AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
       );
     `);
     const slowStockUnitsCount = slowRes.rows[0]?.slow_units || 0;
@@ -46,11 +49,11 @@ export class WorkingCapitalEngine {
     // 3. 30-day sales volume for turnover & DIO calculation
     const salesRes = await client.query(`
       SELECT 
-        COALESCE(SUM(oi.quantity * COALESCE(p.discount, p.price)), 0)::numeric(14,2) as revenue_30d
-      FROM orderitems oi
-      JOIN products p ON oi.productid = p.productid
-      JOIN orders o ON oi.orderid = o.orderid
-      WHERE o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days';
+        COALESCE(SUM(oi.line_total), 0)::numeric(14,2) as revenue_30d
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'
+        AND o.order_status NOT IN ('CANCELLED', 'Cancelled');
     `);
     const monthlySales = parseFloat(salesRes.rows[0]?.revenue_30d) || 10000;
     const annualRunRate = monthlySales * 12;
@@ -67,9 +70,10 @@ export class WorkingCapitalEngine {
 
     // 4. Low stock replenishment capital needed
     const restockRes = await client.query(`
-      SELECT COALESCE(SUM((25 - p.stock) * COALESCE(p.discount, p.price)), 0)::numeric(14,2) as restock_needed
-      FROM products p
-      WHERE p.stock <= 10;
+      SELECT COALESCE(SUM((25 - p.stock_quantity) * COALESCE(cg.total_unit_cost, p.selling_price * 0.45)), 0)::numeric(14,2) as restock_needed
+      FROM shopi_products p
+      LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id
+      WHERE p.stock_quantity <= 10;
     `);
     const capitalRequiredImmediateRestock = parseFloat(restockRes.rows[0]?.restock_needed) || 0;
 

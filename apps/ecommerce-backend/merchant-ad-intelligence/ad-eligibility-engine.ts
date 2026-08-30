@@ -5,30 +5,31 @@ export class AdEligibilityEngine {
   /**
    * Evaluates a SKU for paid advertising suitability against strict inventory, return rate, and margin guardrails.
    */
-  async evaluateProductAdEligibility(productId: number, merchantId: string = 'default_merchant'): Promise<AdEligibilityResult | null> {
+  async evaluateProductAdEligibility(
+    productId: number,
+    merchantId: string = 'default_merchant'
+  ): Promise<AdEligibilityResult | null> {
     const prodRes = await client.query(`
       SELECT 
-        p.productid,
+        p.product_id,
+        p.sku,
         p.title,
-        p.price,
-        p.discount,
-        p.stock,
-        c.name as category_name,
+        p.stock_quantity as stock,
+        p.category,
         COALESCE(
-          (SELECT COUNT(oi.orderitemid)::numeric / 30.0 
-           FROM orderitems oi 
-           JOIN orders o ON oi.orderid = o.orderid 
-           WHERE oi.productid = p.productid AND o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days'), 0.5
+          (SELECT SUM(oi.quantity)::numeric / 30.0 
+           FROM shopi_order_items oi 
+           JOIN shopi_orders o ON oi.order_id = o.order_id 
+           WHERE oi.product_id = p.product_id AND o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.order_status NOT IN ('CANCELLED', 'Cancelled')), 0.5
         ) as daily_demand,
         COALESCE(
-          (SELECT COUNT(r.return_id)::numeric / NULLIF(COUNT(oi.orderitemid), 0)
-           FROM orderitems oi
-           LEFT JOIN order_returns r ON oi.productid = r.productid
-           WHERE oi.productid = p.productid), 0.05
+          (SELECT COUNT(r.return_id)::numeric / NULLIF(COUNT(oi.order_item_id), 0)
+           FROM shopi_order_items oi
+           LEFT JOIN shopi_order_returns r ON oi.order_id = r.order_id
+           WHERE oi.product_id = p.product_id), 0.05
         ) as return_rate
-      FROM products p
-      LEFT JOIN categories c ON p.categoryid = c.categoryid
-      WHERE p.productid = $1;
+      FROM shopi_products p
+      WHERE p.product_id = $1;
     `, [productId]);
 
     if (prodRes.rows.length === 0) return null;
@@ -92,11 +93,11 @@ export class AdEligibilityEngine {
    * Scans entire catalog and lists eligible products for advertising campaigns.
    */
   async listEligibleProducts(merchantId: string = 'default_merchant'): Promise<AdEligibilityResult[]> {
-    const prodRes = await client.query('SELECT productid FROM products ORDER BY stock DESC LIMIT 20');
+    const prodRes = await client.query('SELECT product_id FROM shopi_products ORDER BY stock_quantity DESC LIMIT 20');
     const results: AdEligibilityResult[] = [];
 
     for (const p of prodRes.rows) {
-      const evalRes = await this.evaluateProductAdEligibility(p.productid, merchantId);
+      const evalRes = await this.evaluateProductAdEligibility(p.product_id, merchantId);
       if (evalRes) results.push(evalRes);
     }
 

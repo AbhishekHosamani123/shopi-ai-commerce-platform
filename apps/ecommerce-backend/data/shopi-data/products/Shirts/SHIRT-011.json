@@ -1,0 +1,501 @@
+{
+    "product_id": "SHIRT-011",
+    "product": {
+        "name": "Van Heusen Men's Solid Slim Fit Casual Shirt",
+        "brand": "Van Heusen",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A solid-color men's casual shirt made from 100% premium cotton, featuring a slim fit, long sleeves and a regular collar. Designed for casual outings, weekends and relaxed workdays, and easy to pair with jeans, chinos or shorts.",
+        "fit": "Slim Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Regular Collar",
+        "neck_style": "Button Front",
+        "closure": "Button Down",
+        "cuff_style": "Round Cut Cuff",
+        "length": "Standard Length",
+        "style": "Casual",
+        "style_name": "Western",
+        "season": "Winter",
+        "lifestyle": "Casual",
+        "material": {
+            "composition": "100% Cotton",
+            "description": "100% premium cotton",
+            "confidence": "high"
+        },
+        "country_of_origin": "India",
+        "weight_grams": 300,
+        "dimensions_cm": {
+            "length": 26,
+            "width": 21,
+            "height": 2
+        }
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2099,
+        "captured_prices": [
+            1000,
+            1029
+        ],
+        "current_source_price": 1000,
+        "price_type": "snapshot",
+        "price_note": "The supplied listing shows ₹1,000 and another option at ₹1,029 against an MRP of ₹2,099. Treat these as captured offer prices rather than permanent prices."
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "source_color_name": "Black",
+                "image": "products/shirts/SHIRT-011/black.jpg"
+            },
+            {
+                "color": "Cream",
+                "source_color_name": "Cream",
+                "image": "products/shirts/SHIRT-011/cream.jpg"
+            },
+            {
+                "color": "Navy",
+                "source_color_name": "Navy",
+                "image": "products/shirts/SHIRT-011/navy.jpg"
+            },
+            {
+                "color": "Olive",
+                "source_color_name": "Olive",
+                "image": "products/shirts/SHIRT-011/olive.jpg"
+            },
+            {
+                "color": "White",
+                "source_color_name": "White",
+                "image": "products/shirts/SHIRT-011/white.jpg"
+            }
+        ],
+        "sizes": [
+            "36",
+            "38",
+            "39",
+            "40",
+            "42",
+            "44",
+            "46",
+            "48",
+            "50"
+        ],
+        "variant_status": "Only the five supplied SHIRT-011 color images should be exposed."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-011/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Cream",
+            "image": "products/shirts/SHIRT-011/cream.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy",
+            "image": "products/shirts/SHIRT-011/navy.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Olive",
+            "image": "products/shirts/SHIRT-011/olive.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-011/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.1,
+        "rating_count": 817,
+        "rating_distribution_percent": {
+            "5_star": 52,
+            "4_star": 26,
+            "3_star": 11,
+            "2_star": 2,
+            "1_star": 9
+        },
+        "positive_rating_percent": 78
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "summary": "The shirt receives generally positive feedback for its quality, color, fabric and fit. The biggest recurring criticism is price/value, with some buyers feeling the shirt is overpriced. There are also isolated complaints about stitching and incorrect item delivery.",
+        "positive": [
+            "Good overall quality",
+            "Good fabric",
+            "100% cotton according to listing",
+            "Good summer suitability mentioned by customers",
+            "Good fit mentioned by multiple customers",
+            "Colors receive positive feedback",
+            "Suitable for casual wear",
+            "Suitable for everyday wear",
+            "Good pairing flexibility with jeans and chinos",
+            "Strong overall customer rating"
+        ],
+        "negative": [
+            "Some customers consider it overpriced",
+            "One review says stitching does not justify the brand",
+            "One customer valued it closer to ₹450–₹500",
+            "One review reports receiving the wrong item and color",
+            "Some review variants do not correspond to the five supplied SHIRT-011 images"
+        ]
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mostly_positive",
+            "confidence": "high",
+            "evidence": "Multiple reviews describe the shirt as good or very good quality."
+        },
+        "fabric": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The listing explicitly identifies the fabric as 100% premium cotton and describes it as breathable."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several customers report good sizing/fit, but there is not enough evidence to claim universally consistent sizing."
+        },
+        "color": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews specifically praise the color, including Olive."
+        },
+        "stitching": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "One customer specifically criticized the stitching quality."
+        },
+        "value": {
+            "sentiment": "mixed_to_negative",
+            "confidence": "high",
+            "note": "Several reviews say the shirt is expensive or overpriced despite being good quality."
+        },
+        "summer_use": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "One customer explicitly said the fabric is good for summer, while the listing itself emphasizes breathability."
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "40",
+            "color": "Olive",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color"
+            ],
+            "summary": "Reviewer praised the shirt's quality and color."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "42",
+            "color": "Teal",
+            "sentiment": "mixed",
+            "themes": [
+                "value"
+            ],
+            "summary": "Reviewer considered the shirt good but overpriced."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "40",
+            "color": "Olive",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "fabric",
+                "size"
+            ],
+            "summary": "Reviewer praised the color, fabric and sizing."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "40",
+            "color": "Light Green",
+            "sentiment": "mixed",
+            "themes": [
+                "fabric",
+                "stitching",
+                "value"
+            ],
+            "summary": "Reviewer said the fabric is good for summer but criticized the stitching and considered the shirt worth around ₹450–₹500."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "42",
+            "color": "Teal",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer considered the product satisfactory."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "39",
+            "color": "Light Green",
+            "sentiment": "negative",
+            "themes": [
+                "wrong_item",
+                "quality"
+            ],
+            "summary": "Reviewer complained about receiving a different item, color and company, along with poor quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "42",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "fit"
+            ],
+            "summary": "Reviewer described the fit as good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "42",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer recommended the product."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "42",
+            "color": "Olive",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the product as good quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "39",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described it as a nice shirt."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "44",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the quality as good despite giving 3 stars."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "44",
+            "color": "Black",
+            "sentiment": "neutral_positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the shirt simply as good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "40",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the quality as nice."
+        }
+    ],
+    "pros": [
+        "4.1/5 average rating",
+        "817 ratings",
+        "78% of ratings are 4 or 5 stars",
+        "100% cotton according to product specification",
+        "Premium cotton positioning",
+        "Solid design",
+        "Slim fit",
+        "Long sleeves",
+        "Regular collar",
+        "Standard length",
+        "Good color feedback",
+        "Good fabric feedback",
+        "Good fit feedback",
+        "Suitable for casual wear",
+        "Suitable for weekend wear",
+        "Suitable for relaxed workdays",
+        "Pairs with jeans",
+        "Pairs with chinos",
+        "Pairs with shorts"
+    ],
+    "cons": [
+        "Some buyers consider it overpriced",
+        "One review criticizes stitching quality",
+        "One review estimates fair value around ₹450–₹500",
+        "One review reports receiving the wrong item",
+        "Review data contains colors not represented in the supplied image set"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "weekend wear",
+        "casual office",
+        "relaxed workday",
+        "outing",
+        "summer wear"
+    ],
+    "style_tags": [
+        "solid shirt",
+        "plain shirt",
+        "slim fit shirt",
+        "cotton shirt",
+        "casual shirt",
+        "long sleeve shirt",
+        "regular collar shirt",
+        "button-down shirt",
+        "western shirt"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's solid shirt",
+            "plain shirt",
+            "solid color shirt",
+            "cotton shirt",
+            "100% cotton shirt",
+            "slim fit shirt",
+            "casual cotton shirt",
+            "office casual shirt",
+            "weekend shirt",
+            "summer cotton shirt",
+            "shirt for jeans",
+            "shirt for chinos",
+            "shirt for shorts",
+            "long sleeve shirt"
+        ],
+        "negative_keywords": [
+            "check shirt",
+            "checked shirt",
+            "striped shirt",
+            "printed shirt",
+            "oversized shirt",
+            "relaxed fit shirt",
+            "regular fit shirt",
+            "short sleeve shirt"
+        ],
+        "strong_attributes": [
+            "100% cotton",
+            "solid",
+            "slim fit",
+            "long sleeve",
+            "regular collar",
+            "casual",
+            "breathable",
+            "versatile",
+            "classic"
+        ],
+        "warning_attributes": [
+            "price sensitivity",
+            "stitching quality"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED",
+        "score": 8.2,
+        "best_for": [
+            "Men wanting a classic solid shirt",
+            "Everyday casual wear",
+            "Weekend outfits",
+            "Casual office outfits",
+            "Relaxed workdays",
+            "Summer use",
+            "Jeans",
+            "Chinos",
+            "Shorts",
+            "Customers who prefer slim fits",
+            "Customers who prefer cotton shirts"
+        ],
+        "not_ideal_for": [
+            "Customers looking for oversized or relaxed fits",
+            "Customers with a strict low-budget requirement",
+            "Customers expecting premium-level stitching solely because of the brand"
+        ],
+        "size_advice": "The listing provides sizes 36 through 50. Use the regular size chart before purchase. The source contains positive fit feedback, but Shopi should not guarantee fit without measurements.",
+        "fabric_advice": "The source explicitly lists 100% cotton and describes it as premium cotton and breathable. This can be safely surfaced as a product attribute.",
+        "quality_advice": "Position it as a good-quality everyday cotton shirt rather than a luxury/premium construction product. The stitching criticism means Shopi should avoid claims such as 'exceptional craftsmanship'.",
+        "value_advice": "The main weakness is price perception. Multiple reviews consider it expensive, and one reviewer says ₹450–₹500 would be a more appropriate price. At a lower promotional price, its value proposition becomes much stronger.",
+        "occasion_advice": "Prioritize casual, weekend, relaxed office and everyday recommendations.",
+        "color_advice": "Black, Navy and White are the safest versatile recommendations. Olive and Cream are better for users asking for earthy, muted or less conventional colors."
+    },
+    "care_instructions": {
+        "source_status": "The supplied product source does not provide enough explicit care-instruction detail in the retrieved product specification.",
+        "ai_rule": "Do not invent specific washing instructions."
+    },
+    "brand_information": {
+        "brand": "Van Heusen",
+        "model_name": "Van Heusen Men's Solid Casual Shirt_SS23",
+        "style_number": "VSSFWSLBZ44674",
+        "manufacturer": "ABFRL",
+        "country_of_origin": "India",
+        "net_quantity": 1,
+        "generic_name": "Shirt"
+    },
+    "data_quality": {
+        "rating_count": 817,
+        "price_available": true,
+        "stock_available": true,
+        "complete_supplied_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level inventory",
+            "Variant-level current price",
+            "Exact garment measurements by size",
+            "Explicit care instructions"
+        ],
+        "source_inconsistencies": [
+            "The product page is for a solid shirt, but review data contains additional colors such as Teal and Light Green.",
+            "The supplied SHIRT-011 image set contains Black, Cream, Navy, Olive and White only.",
+            "Some structured Amazon fields are clearly malformed, including Shirt Form Type = T-Shirt and Apparel Closure Type = Slim. These should not be used as meaningful product attributes."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a classic solid slim-fit cotton casual shirt.",
+        "material_rule": "100% cotton can be stated because it is explicitly specified in the product details.",
+        "fit_rule": "Describe the fit as Slim Fit. Recommend checking the size chart rather than guaranteeing fit.",
+        "occasion_rule": "Prioritize casual, everyday, weekend and relaxed office recommendations.",
+        "summer_rule": "Summer recommendations are supported by the product's breathable-cotton positioning and customer feedback.",
+        "quality_rule": "Call it good quality/value-oriented rather than luxury or premium construction.",
+        "price_rule": "Do not hard-code ₹1,000 as a permanent price. Treat it as a captured offer price.",
+        "color_rule": "Only expose Black, Cream, Navy, Olive and White because those are the five supplied SHIRT-011 images.",
+        "review_color_rule": "Do not create Teal, Light Green or other review-only variants without corresponding SHIRT-011 product images.",
+        "structured_data_rule": "Ignore malformed fields such as Shirt Form Type = T-Shirt and Apparel Closure Type = Slim.",
+        "value_rule": "If the user has a low budget, do not rank this above cheaper shirts purely because of brand name. Price/value is its clearest weakness."
+    }
+}

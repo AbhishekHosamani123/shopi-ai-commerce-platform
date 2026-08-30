@@ -103,30 +103,28 @@ const SidebarS = () => {
         </div>
 
         {/* Best Sellers Section */}
-        <div className="h-[500px] mt-8 relative">
-          <p className="font-semibold text-slate-800 tracking-wider text-xs uppercase mb-3">BEST SELLERS</p>
+        <div className="mt-8 relative border border-slate-200 rounded-xl p-4 bg-white shadow-xs">
+          <p className="font-semibold text-slate-800 tracking-wider text-xs uppercase mb-4 pb-2 border-b border-slate-100">BEST SELLERS</p>
           {loading ? (
             <BestSellersSkeleton />
           ) : (
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col">
               {data.map((each, index) => (
-                <div key={each.productid || index} className="flex items-center">
-                  <Link href={`/product/${each.productid}`} prefetch={true}>
+                <div key={each.productid || index} className="flex items-center py-3 border-b border-slate-100 last:border-b-0 last:pb-1">
+                  <Link href={`/product/${each.productid}`} prefetch={true} className="w-[80px] h-[80px] bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center p-1.5 shrink-0 group hover:border-[#0D94FB]/40 transition-colors">
                     <img
-                      className="w-[75px] h-[75px] object-cover rounded-lg border border-slate-100"
+                      className="max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105"
                       src={each.imglink}
                       alt={each.title}
                       loading="lazy"
                       decoding="async"
-                      width={75}
-                      height={75}
                     />
                   </Link>
-                  <div className="ml-3 max-w-[210px]">
+                  <div className="ml-3.5 max-w-[200px] flex flex-col gap-0.5">
                     <Link
                       href={`/product/${each.productid}`}
                       prefetch={true}
-                      className="tracking-tight text-xs font-semibold text-slate-800 hover:text-[#0D94FB] truncate block transition-colors"
+                      className="tracking-tight text-xs font-semibold text-slate-800 hover:text-[#0D94FB] line-clamp-2 transition-colors leading-snug"
                     >
                       {each.title}
                     </Link>
@@ -134,9 +132,16 @@ const SidebarS = () => {
                       <Stars stars={each.stars} />
                       {each.rating > 0 && <p className="text-[11px] text-slate-400">({each.rating})</p>}
                     </div>
-                    <div className="flex items-baseline gap-2 mt-1">
+                    <div className="flex items-baseline gap-2 mt-1 flex-wrap">
                       <p className="text-sm font-bold text-slate-900">₹{each.discount}</p>
-                      <p className="text-xs line-through text-slate-400">₹{each.price}</p>
+                      {each.price > each.discount && (
+                        <p className="text-xs line-through text-slate-400">₹{each.price}</p>
+                      )}
+                      {each.price > each.discount && (
+                        <span className="text-[10px] font-bold text-emerald-600">
+                          {Math.round(((each.price - each.discount) / each.price) * 100)}% OFF
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -1,0 +1,199 @@
+{
+    "product_id": "SNEAKER-012",
+    "sku": "B0F4DFFCQM",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Campus Men Pod Sneakers",
+    "brand": "Campus",
+    "pricing": {
+        "mrp": 2499,
+        "selling_price": 999,
+        "currency": "INR",
+        "discount_percent": 60
+    },
+    "description": "Campus Men Pod Sneakers with a street-ready design, lace-up closure, cushioned insole and lightweight construction. Suitable for casual wear, walking and light workouts.",
+    "attributes": {
+        "material": "Ethylene Vinyl Acetate",
+        "sole_material": "Ethylene Vinyl Acetate",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "toe_style": "Round Toe",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "theme": "Sport",
+        "occasion": "Casual",
+        "formality": "Casual",
+        "season": "All",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "sport_type": "Walking",
+        "specific_use": "Sports",
+        "shoe_type": "Athletic Shoe",
+        "insole_cushioning": "Viscoelastic Foam",
+        "arch_type": "Medium Arch",
+        "cushioning_level": "Moderate",
+        "special_features": [
+            "Breathable",
+            "Cushioned",
+            "Flexible",
+            "Lightweight",
+            "Slip Resistant"
+        ]
+    },
+    "variants": [
+        {
+            "color": "WHT/SIL",
+            "image": "white.jpg"
+        },
+        {
+            "color": "WHT/L.GRY",
+            "image": "white.jpg"
+        },
+        {
+            "color": "BLK/D.GRY",
+            "image": "black.jpg"
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK"
+    ],
+    "features": [
+        "Street-ready design",
+        "Lace-up fit",
+        "Cushioned insole",
+        "Viscoelastic foam insole",
+        "Breathable",
+        "Flexible",
+        "Lightweight",
+        "Slip resistant",
+        "Medium arch support",
+        "Moderate cushioning"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "Walking",
+        "Light workouts",
+        "Gym",
+        "School"
+    ],
+    "ratings": {
+        "average_rating": 4.2,
+        "rating_count": 788,
+        "rating_distribution": {
+            "5_star_percent": 58,
+            "4_star_percent": 24,
+            "3_star_percent": 9,
+            "2_star_percent": 2,
+            "1_star_percent": 7
+        }
+    },
+    "review_insights": {
+        "positive": [
+            "Good comfort",
+            "Lightweight",
+            "Good appearance",
+            "Good value for money",
+            "Suitable for walking",
+            "Flexible sole",
+            "Good grip",
+            "Suitable for casual and daily wear"
+        ],
+        "negative": [
+            "Some users report discomfort during long hours",
+            "Some reports of color bleeding after washing",
+            "Durability feedback is mixed",
+            "Some users report stitching or material issues",
+            "White material may crack with frequent daily use"
+        ],
+        "best_for": [
+            "Daily casual wear",
+            "Walking",
+            "Light workouts",
+            "Budget-conscious buyers",
+            "College and school"
+        ],
+        "not_ideal_for": [
+            "Very long periods of continuous wear",
+            "Buyers prioritizing maximum long-term durability"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Great Quality & Very Comfortable – 2-in-1 Shoes",
+            "variant": "WHT/SIL",
+            "text": "Good material quality, strong and flexible sole, comfortable fit and good grip for walking. Suitable for casual wear and light workouts."
+        },
+        {
+            "rating": 4,
+            "title": "Shoe is OK to Buy",
+            "variant": "WHT/SIL",
+            "text": "Good for walking with a soft sole and provides additional height. Long-duration wear caused minor toe discomfort. Customer also reported color bleeding after the first wash."
+        },
+        {
+            "rating": 5,
+            "title": "Value for money",
+            "variant": "BLK/D.GRY",
+            "text": "Comfortable for daily use with good quality, durability and style."
+        },
+        {
+            "rating": 5,
+            "title": "Good quality and comfort",
+            "variant": "WHT/SIL",
+            "text": "Very comfortable and lightweight."
+        },
+        {
+            "rating": 5,
+            "title": "A nice value for money",
+            "variant": "BLK/D.GRY",
+            "text": "Good shoes for school, described as sturdy, tough and durable."
+        },
+        {
+            "rating": 4,
+            "title": "Comfort",
+            "variant": "WHT/SIL",
+            "text": "Comfortable and stylish for casual and daily wear. Good sole comfort and support while walking, although long-term durability may be limited."
+        },
+        {
+            "rating": 5,
+            "title": "Durability",
+            "variant": "BLK/D.GRY",
+            "text": "Customer reported using the shoes regularly for six months without damage."
+        },
+        {
+            "rating": 1,
+            "title": "Waste of money",
+            "variant": "BLK/D.GRY",
+            "text": "Customer reported poor quality."
+        }
+    ],
+    "manufacturer": "Campus Activewear Ltd",
+    "packer": "Campus Activewear Ltd.",
+    "importer": "Campus Activewear Limited",
+    "country_of_origin": "India",
+    "item_weight_grams": 546,
+    "dimensions_cm": {
+        "length": 30.5,
+        "width": 21.5,
+        "height": 11.5
+    },
+    "net_quantity": "1 Set",
+    "generic_name": "Sneaker",
+    "model": "22G-1321",
+    "images": [
+        "black.jpg",
+        "white.jpg"
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "asin": "B0F4DFFCQM",
+        "url": "https://www.amazon.in/dp/B0F4DFFCQM",
+        "collected_at": "2026-08-26"
+    }
+}

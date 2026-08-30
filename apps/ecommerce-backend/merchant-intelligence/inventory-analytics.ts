@@ -2,6 +2,7 @@ import { client } from '../data/DB';
 
 export interface LowStockProductItem {
   productId: number;
+  sku?: string;
   title: string;
   categoryName: string;
   currentStock: number;
@@ -10,10 +11,13 @@ export interface LowStockProductItem {
   estimatedDaysRemaining: number | null;
   restockRecommendedUnits: number;
   urgency: 'CRITICAL' | 'WARNING' | 'HEALTHY';
+  price?: number;
+  unitCogs?: number;
 }
 
 export interface InventoryVelocityItem {
   productId: number;
+  sku?: string;
   title: string;
   categoryName: string;
   currentStock: number;
@@ -24,77 +28,103 @@ export interface InventoryVelocityItem {
 }
 
 /**
- * Returns products with low stock levels below or near threshold
+ * Returns products with stock below threshold or with low sales runway
  */
 export async function getLowStockProducts(threshold: number = 100): Promise<LowStockProductItem[]> {
   const query = `
     WITH recent_velocity AS (
       SELECT 
-        productid,
-        ROUND(AVG(units_sold), 2) as daily_vel_7d
-      FROM merchant_product_daily_metrics
-      WHERE metric_date >= CURRENT_DATE - INTERVAL '7 days'
-      GROUP BY productid
+        oi.product_id,
+        ROUND(COALESCE(SUM(oi.quantity), 0)::numeric / 30.0, 3)::numeric(8,3) as daily_vel_30d
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_DATE - INTERVAL '30 days'
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY oi.product_id
     )
     SELECT 
-      p.productid as product_id,
+      p.product_id,
+      p.sku,
       p.title,
-      COALESCE(c.name, 'General') as category_name,
-      p.stock as current_stock,
-      COALESCE(v.daily_vel_7d, 0.5)::numeric(8,2) as daily_vel_7d
-    FROM products p
-    LEFT JOIN categories c ON p.categoryid = c.categoryid
-    LEFT JOIN recent_velocity v ON p.productid = v.productid
-    WHERE p.stock <= $1
-    ORDER BY p.stock ASC;
+      COALESCE(p.category, 'General') as category_name,
+      p.stock_quantity as current_stock,
+      p.selling_price::numeric(10,2) as price,
+      cg.total_unit_cost::numeric(10,2) as unit_cogs,
+      COALESCE(v.daily_vel_30d, 0.000)::numeric(8,3) as daily_vel_30d
+    FROM shopi_products p
+    LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id
+    LEFT JOIN recent_velocity v ON p.product_id = v.product_id
+    WHERE p.stock_quantity <= $1
+    ORDER BY p.stock_quantity ASC;
   `;
 
   const res = await client.query(query, [threshold]);
 
   return res.rows.map((r: any) => {
     const stock = parseInt(r.current_stock, 10);
-    const vel = parseFloat(r.daily_vel_7d) || 0.5;
-    const daysRemaining = vel > 0 ? Math.max(0, Math.round(stock / vel)) : null;
+    const vel = parseFloat(r.daily_vel_30d) || 0;
+    const price = r.price ? parseFloat(r.price) : 0;
+    const unitCogs = r.unit_cogs ? parseFloat(r.unit_cogs) : undefined;
 
+    let daysRemaining: number | null = null;
     let urgency: 'CRITICAL' | 'WARNING' | 'HEALTHY' = 'HEALTHY';
-    if (daysRemaining !== null && daysRemaining <= 14) urgency = 'CRITICAL';
-    else if (daysRemaining !== null && daysRemaining <= 30) urgency = 'WARNING';
+    let recommendedUnits = 0;
 
-    const recommendedUnits = Math.max(100, Math.round(vel * 45) - stock); // 45-day target buffer
+    if (vel > 0.05) {
+      daysRemaining = Math.max(0, Math.round(stock / vel));
+      if (daysRemaining <= 14) {
+        urgency = 'CRITICAL';
+        recommendedUnits = Math.max(0, Math.ceil(45 * vel - stock));
+      } else if (daysRemaining <= 30) {
+        urgency = 'WARNING';
+        recommendedUnits = Math.max(0, Math.ceil(30 * vel - stock));
+      } else {
+        urgency = 'HEALTHY';
+        recommendedUnits = 0;
+      }
+    } else {
+      // Near-zero / zero velocity: Not measurable runway, healthy stock cover
+      daysRemaining = null;
+      urgency = 'HEALTHY';
+      recommendedUnits = 0;
+    }
 
     return {
       productId: parseInt(r.product_id, 10),
+      sku: r.sku,
       title: r.title,
       categoryName: r.category_name,
       currentStock: stock,
       threshold,
       dailyVelocity7d: vel,
       estimatedDaysRemaining: daysRemaining,
-      restockRecommendedUnits: recommendedUnits > 0 ? recommendedUnits : 0,
-      urgency
+      restockRecommendedUnits: recommendedUnits,
+      urgency,
+      price,
+      unitCogs
     };
   });
 }
 
 /**
- * Calculates turnover rate, sales velocity, and stockout risks per product
+ * Calculates turnover rate, sales velocity, and stockout risks per canonical product
  */
 export async function getInventoryVelocity(period: string = 'last_30_days'): Promise<InventoryVelocityItem[]> {
   const days = period.includes('7') ? 7 : period.includes('90') ? 90 : 30;
 
   const query = `
     SELECT 
-      p.productid as product_id,
+      p.product_id,
+      p.sku,
       p.title,
-      COALESCE(c.name, 'General') as category_name,
-      p.stock as current_stock,
-      COALESCE(SUM(m.units_sold), 0)::int as total_sold,
-      ROUND(COALESCE(SUM(m.units_sold), 0)::numeric / $1::numeric, 2)::numeric(8,2) as daily_velocity
-    FROM products p
-    LEFT JOIN categories c ON p.categoryid = c.categoryid
-    LEFT JOIN merchant_product_daily_metrics m 
-      ON p.productid = m.productid AND m.metric_date >= CURRENT_DATE - ($1 || ' days')::interval
-    GROUP BY p.productid, p.title, c.name, p.stock
+      COALESCE(p.category, 'General') as category_name,
+      p.stock_quantity as current_stock,
+      COALESCE(SUM(oi.quantity), 0)::int as total_sold,
+      ROUND(COALESCE(SUM(oi.quantity), 0)::numeric / $1::numeric, 2)::numeric(8,2) as daily_velocity
+    FROM shopi_products p
+    LEFT JOIN shopi_order_items oi ON p.product_id = oi.product_id
+    LEFT JOIN shopi_orders o ON oi.order_id = o.order_id AND o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+    GROUP BY p.product_id, p.sku, p.title, p.category, p.stock_quantity
     ORDER BY daily_velocity DESC;
   `;
 
@@ -113,6 +143,7 @@ export async function getInventoryVelocity(period: string = 'last_30_days'): Pro
 
     return {
       productId: parseInt(r.product_id, 10),
+      sku: r.sku,
       title: r.title,
       categoryName: r.category_name,
       currentStock: stock,

@@ -24,7 +24,7 @@ function mapRowToAction(r: any): MerchantAiActionRecord {
       observationWindowDays: r.observation_window_days ? parseInt(r.observation_window_days, 10) : 14,
       evaluatedAt: r.evaluated_at,
       negativeAnalysis: negativeAnalysis || undefined,
-      confidenceAtRecommendation: r.confidence_at_recommendation ? parseFloat(r.confidence_at_recommendation) : 0.85,
+      confidenceAtRecommendation: r.confidence_at_recommendation ? parseFloat(r.confidence_at_recommendation) : undefined,
       learningTransparency: {
         learningMode: 'MERCHANT_SPECIFIC_TUNED',
         observationCount: 48,
@@ -49,7 +49,7 @@ function mapRowToAction(r: any): MerchantAiActionRecord {
       actualImpact: undefined,
       impactDeltaPct: undefined,
       observationWindowDays: 14,
-      confidenceAtRecommendation: undefined,
+      confidenceAtRecommendation: r.confidence_at_recommendation ? parseFloat(r.confidence_at_recommendation) : undefined,
       learningTransparency: {
         learningMode: 'MERCHANT_SPECIFIC_TUNED',
         observationCount: 34,
@@ -59,13 +59,16 @@ function mapRowToAction(r: any): MerchantAiActionRecord {
   }
 
 
+  const prodId = r.product_id ? parseInt(r.product_id, 10) : null;
+  const prodName = r.product_name || (prodId ? `SKU-${prodId}` : 'Catalog-wide Customer Re-engagement');
+
   return {
     actionId: r.action_id,
     merchantId: r.merchant_id,
     actionType: r.action_type,
     status: r.status,
-    productId: r.product_id ? parseInt(r.product_id, 10) : null,
-    productName: r.product_name,
+    productId: prodId,
+    productName: prodName,
     quantity: r.quantity !== null && r.quantity !== undefined ? parseInt(r.quantity, 10) : null,
     payload: typeof r.payload === 'string' ? JSON.parse(r.payload) : r.payload || {},
     reason: r.reason,
@@ -149,16 +152,20 @@ export async function getActionSummaryKpis(merchantId: string = 'default_merchan
       COUNT(*) FILTER (WHERE status = 'EXPIRED')::int as expired_count,
       COUNT(*) FILTER (WHERE status = 'ROLLED_BACK')::int as rolled_back_count
     FROM merchant_ai_actions
-    WHERE merchant_id = $1 OR $1 = 'merchant_admin';
+    WHERE (merchant_id = $1 OR $1 = 'merchant_admin')
+      AND (is_test = FALSE OR is_test IS NULL);
   `;
 
   const impactQuery = `
     SELECT 
       COALESCE(SUM((actual_impact->>'observedRevenueDelta')::numeric), 0)::numeric(14,2) as total_verified_value,
+      COUNT(CASE WHEN outcome_status IN ('POSITIVE', 'NEUTRAL', 'NEGATIVE') AND observation_window_days >= 14 THEN 1 END)::int as verified_action_count,
+      COUNT(CASE WHEN outcome_status = 'PENDING' THEN 1 END)::int as pending_observation_count,
       COUNT(CASE WHEN outcome_status = 'POSITIVE' THEN 1 END)::int as positive_count,
       COUNT(CASE WHEN outcome_status IN ('POSITIVE', 'NEUTRAL', 'NEGATIVE') THEN 1 END)::int as evaluated_count
     FROM merchant_business_impact_ledger
-    WHERE merchant_id = $1 OR $1 = 'merchant_admin';
+    WHERE (merchant_id = $1 OR $1 = 'merchant_admin')
+      AND (is_test = FALSE OR is_test IS NULL);
   `;
 
   const [res, impactRes] = await Promise.all([
@@ -182,7 +189,11 @@ export async function getActionSummaryKpis(merchantId: string = 'default_merchan
     expiredCount: parseInt(row.expired_count || '0', 10),
     rolledBackCount: parseInt(row.rolled_back_count || '0', 10),
     totalVerifiedValueCreated: parseFloat(impactRow?.total_verified_value || '0'),
-    positiveOutcomeRatePct: positiveRate
+    positiveOutcomeRatePct: positiveRate,
+    verifiedActionCount: parseInt(impactRow?.verified_action_count || '0', 10),
+    pendingObservationCount: parseInt(impactRow?.pending_observation_count || '0', 10),
+    verifiedRevenueDelta: parseFloat(impactRow?.total_verified_value || '0'),
+    outcomeAlignmentPct: positiveRate
   };
 }
 
@@ -206,7 +217,7 @@ export async function listActions(options: {
   const limit = Math.min(Math.max(options.limit || 50, 1), 100);
   const offset = Math.max(options.offset || 0, 0);
 
-  let whereClauses: string[] = [];
+  let whereClauses: string[] = ['(a.is_test = FALSE OR a.is_test IS NULL)'];
   const params: any[] = [];
 
   if (merchantId !== 'merchant_admin') {

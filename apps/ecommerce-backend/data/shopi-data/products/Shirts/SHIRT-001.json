@@ -1,0 +1,373 @@
+{
+    "product_id": "SHIRT-001",
+    "product": {
+        "name": "Leriya Fashion Textured Half Sleeve Shirt",
+        "brand": "Leriya Fashion",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Half Sleeve Shirt",
+        "description": "A regular-fit textured polycotton casual shirt with a button-down collar, designed for casual, daily and resort wear.",
+        "fit": "Regular Fit",
+        "pattern": "Textured",
+        "sleeve": "Half Sleeve",
+        "collar": "Collared Neck",
+        "collar_style": "Button Down",
+        "closure": "Button",
+        "length": "Standard Length",
+        "material": "Polycotton",
+        "fabric_weight": "Medium Weight",
+        "stretch": "Low Stretch",
+        "care": "Machine Wash",
+        "style_tags": [
+            "casual",
+            "textured",
+            "stylish",
+            "resort wear",
+            "daily wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "parties",
+            "hangouts",
+            "resort wear",
+            "festival wear",
+            "evening wear"
+        ],
+        "season_tags": [
+            "all season",
+            "cooler weather"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "Brown",
+            "Black",
+            "White"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 300
+    },
+    "pricing": {
+        "mrp": 1999,
+        "selling_price": 399,
+        "currency": "INR",
+        "discount_percentage": 80,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Brown",
+            "image": "products/SHIRT-001/brown.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Black",
+            "image": "products/SHIRT-001/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/SHIRT-001/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.9,
+        "rating_count": 338,
+        "review_count": 130
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers generally like the shirt's appearance, texture, comfort and perceived quality. The biggest concern is that several reviewers found the fabric thick and warm, making it less suitable for very hot weather. Some feedback also suggests the fit can feel loose or larger than expected.",
+        "positive": [
+            "Stylish textured appearance",
+            "Premium-looking design",
+            "Good perceived fabric quality",
+            "Comfortable for many customers",
+            "Soft fabric reported by several reviewers",
+            "Good for casual and daily wear",
+            "Good value according to several reviews",
+            "Suitable for resort and casual styling"
+        ],
+        "negative": [
+            "Fabric can feel thick",
+            "May feel hot in summer",
+            "Several reviewers consider it more suitable for cooler weather",
+            "Some sizing feedback indicates a loose or oversized fit",
+            "One reviewer reported a chipped button",
+            "One reviewer reported itching and excessive heat"
+        ],
+        "main_concern": "The shirt may be too warm for customers specifically looking for a lightweight summer shirt."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "mixed_positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The product is officially regular fit, but at least one reviewer reported that it felt larger and loose."
+        },
+        "summer_suitability": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple reviews describe the fabric as thick or warm."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        }
+    },
+    "pros": [
+        "Stylish textured design",
+        "Premium-looking appearance",
+        "Good fabric quality",
+        "Comfortable for many users",
+        "Good for casual and daily wear",
+        "Good value"
+    ],
+    "cons": [
+        "Can feel thick and warm",
+        "Not ideal for very hot weather",
+        "Fit may feel loose for some users",
+        "Minor button durability complaint"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.0,
+        "best_for": [
+            "Casual wear",
+            "Daily wear",
+            "Resort wear",
+            "Style-focused outfits",
+            "Cooler weather"
+        ],
+        "not_ideal_for": [
+            "Very hot weather",
+            "Customers wanting an extremely lightweight shirt",
+            "Customers who strongly prefer slim fits"
+        ],
+        "size_advice": "Check the size chart before purchasing because some feedback indicates the shirt may fit looser than expected.",
+        "weather_advice": "If the customer wants a lightweight shirt for hot summer weather, recommend another product instead.",
+        "sales_advice": "Lead with the shirt's textured premium appearance and versatility, but disclose the warm/thick fabric concern when weather or breathability matters."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "stylish shirt",
+            "textured shirt",
+            "casual shirt",
+            "half sleeve shirt",
+            "polycotton shirt",
+            "daily wear shirt",
+            "resort wear shirt",
+            "premium looking shirt"
+        ],
+        "negative_keywords": [
+            "lightweight summer shirt",
+            "cool shirt for hot weather",
+            "thin fabric shirt",
+            "very breathable shirt"
+        ],
+        "strong_attributes": [
+            "textured",
+            "casual",
+            "stylish",
+            "half sleeve",
+            "regular fit",
+            "polycotton",
+            "daily wear"
+        ],
+        "warning_attributes": [
+            "thick fabric",
+            "warm",
+            "possible loose fit"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "M",
+            "sentiment": "positive_with_temperature_concern",
+            "themes": [
+                "quality",
+                "premium appearance",
+                "thick fabric",
+                "cooler weather"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "soft fabric",
+                "fit",
+                "daily wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "fit",
+                "comfort",
+                "casual wear"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "breathability",
+                "durability"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "White",
+            "size": "S",
+            "sentiment": "negative_temperature_signal",
+            "themes": [
+                "thick fabric",
+                "warm",
+                "winter suitability"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "White",
+            "size": "M",
+            "sentiment": "negative",
+            "themes": [
+                "oversized fit",
+                "loose fit"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Brown",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "value",
+                "thick fabric",
+                "comfort",
+                "button durability"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "White",
+            "size": "2XL",
+            "sentiment": "mixed",
+            "themes": [
+                "fit",
+                "thick fabric",
+                "summer unsuitability"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "polycotton",
+                "appearance",
+                "daily wear",
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "breathability",
+                "daily wear",
+                "comfort",
+                "style"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "texture",
+                "waffle",
+                "resort wear",
+                "comfort",
+                "style"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "breathability",
+                "stretch",
+                "texture",
+                "premium appearance"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering style, fit, fabric, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the strong styling, comfort and quality signals, while mentioning the warm/thick fabric concern.",
+        "when_customer_asks_about_summer": "Do not call this an ideal summer shirt. Explain that multiple reviews describe the fabric as thick or warm.",
+        "when_customer_asks_about_fit": "Explain that it is officially regular fit, but recommend checking the size chart because some buyers experienced a loose fit.",
+        "when_customer_asks_for_alternatives": "Prioritize products with similar style and price but better lightweight/breathability signals if the customer's requirement is summer wear.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its rating. Consider the customer's requirements, budget, weather preference, fit preference and intended occasion."
+    }
+}

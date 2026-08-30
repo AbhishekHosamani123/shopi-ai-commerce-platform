@@ -1,0 +1,304 @@
+{
+    "product_id": "T-SHIRT-006",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62)",
+        "brand": "Lymio",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Polo",
+        "style_name": "Single",
+        "description": "Men's regular-fit half-sleeve polo T-shirt with a polo collar and button closure, made from polyester fabric.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0DWSFV5XD",
+        "source_url": "https://www.amazon.in/Lymio-T-Shirt-Polo-Shirt-Polo-61-Pista-L/dp/B0DWSFV5XD",
+        "date_first_available": "2025-02-11"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2999.00,
+        "current_price": 399.00,
+        "typical_variant_price": 399.00,
+        "discount_percent": 87,
+        "coupon": {
+            "available": false,
+            "discount_percent": 0
+        }
+    },
+    "rating": {
+        "average": 3.8,
+        "review_count": 708,
+        "distribution": {
+            "5_star_percent": 49,
+            "4_star_percent": 20,
+            "3_star_percent": 10,
+            "2_star_percent": 7,
+            "1_star_percent": 14
+        }
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Blue",
+                "image": "blue.jpg"
+            },
+            {
+                "name": "Brown",
+                "image": "brown.jpg"
+            },
+            {
+                "name": "Grey",
+                "image": "grey.jpg"
+            },
+            {
+                "name": "Pista",
+                "image": "pista.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Regular Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Polo Collar",
+        "neck": "Collared Neck",
+        "pattern": "Solid",
+        "closure": "Button",
+        "fabric": "Polyester",
+        "fabric_weight": null,
+        "stretch": null,
+        "season": "All",
+        "shirt_form": "Polo Shirt",
+        "cuff": "No Cuff",
+        "weight_grams": 1050,
+        "dimensions_cm": {
+            "length": 20,
+            "width": 14,
+            "height": 1
+        }
+    },
+    "occasions": [
+        "Casual Wear",
+        "Everyday Wear",
+        "Summer Wear",
+        "Sports Activities"
+    ],
+    "pairing": [
+        "Jeans",
+        "Chinos",
+        "Shorts",
+        "Joggers"
+    ],
+    "use_cases": [
+        "Everyday Wear",
+        "Casual Wear",
+        "Summer Wear",
+        "Travel",
+        "Sports Activities"
+    ],
+    "manufacturer": {
+        "name": "J B Fashion",
+        "email": null,
+        "packer": "J B Fashion_Surat_395004"
+    },
+    "inventory_signals": {
+        "recent_sales_signal": null,
+        "in_stock_at_source": true,
+        "maximum_order_quantity": 5
+    },
+    "reviews": {
+        "review_source_asin": "B0DWSFV5XD",
+        "review_source_count_displayed": 708,
+        "review_source_total_ratings": 708,
+        "ai_generated_customer_summary": {
+            "overall": "Customers generally like the comfort, fit, style and fabric softness of the polo T-shirt, especially for casual and summer wear. However, quality and fabric feedback is mixed, with some customers reporting poor durability, thin material and color bleeding.",
+            "positive_topics": [
+                "Comfort",
+                "Fit",
+                "Style",
+                "Fabric softness",
+                "Casual wear",
+                "Summer suitability"
+            ],
+            "negative_topics": [
+                "Fabric quality",
+                "Durability",
+                "Thin material",
+                "Color quality",
+                "Color bleeding"
+            ]
+        },
+        "topic_signals": {
+            "fit_mentions": 38,
+            "comfort_mentions": 34,
+            "design_mentions": 30,
+            "casual_wear_mentions": 20,
+            "fabric_softness_mentions": 15,
+            "quality_mentions": 127,
+            "fabric_quality_mentions": 49,
+            "color_mentions": 28
+        },
+        "sample_reviews": [
+            {
+                "review_id": "R2C80DWA387EVX",
+                "rating": 5,
+                "title": "Nice",
+                "variant": {
+                    "size": "S",
+                    "color": "Blue"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer liked the clean stylish look, comfort, soft breathable fabric, fit and value for the price."
+            },
+            {
+                "review_id": "R10DA5ZR2SJZ0G",
+                "rating": 4,
+                "title": "Amazing Product",
+                "variant": {
+                    "size": "S",
+                    "color": "Pista"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer found the material smooth and skin friendly and considered the fit comfortable."
+            },
+            {
+                "review_id": "R1P9788NE46SSP",
+                "rating": 5,
+                "title": "Perfect",
+                "variant": {
+                    "size": "2XL",
+                    "color": "Grey"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer praised the soft comfortable fabric, fit, color, style and value."
+            },
+            {
+                "review_id": "R3NIWJYE9THMOQ",
+                "rating": 1,
+                "title": "Abhi",
+                "variant": {
+                    "size": "2XL",
+                    "color": "Pista"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer reported extremely poor quality and said the T-shirt started tearing within two days."
+            },
+            {
+                "review_id": "RNOL8R7I10A7O",
+                "rating": 3,
+                "title": "Just okay quality",
+                "variant": {
+                    "size": "XL",
+                    "color": "Pista"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer considered the product quality only average."
+            },
+            {
+                "review_id": "R3GAPTPWWK3KAW",
+                "rating": 5,
+                "title": "Fantastic Tishirt anyone can buy",
+                "variant": {
+                    "size": "3XL",
+                    "color": "Pista"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer praised the fabric, design, fitting and overall product."
+            },
+            {
+                "review_id": "R2Y1B4S769AZK",
+                "rating": 2,
+                "title": "Quality problem.",
+                "variant": {
+                    "size": "4XL",
+                    "color": "Pista"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer complained that the shirt was very poor and thin, with incorrect colors and fabric that did not feel like cotton."
+            },
+            {
+                "review_id": "R6SG4YU9XHG1G",
+                "rating": 4,
+                "title": "It's not cotton cloth",
+                "variant": {
+                    "size": "XL",
+                    "color": "Blue"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer noted that the fabric is not cotton but considered the quality satisfactory."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "casual wear",
+            "summer wear",
+            "everyday wear",
+            "sports activities"
+        ],
+        "strong_positive_attributes": [
+            "comfortable",
+            "regular fit",
+            "soft fabric",
+            "stylish",
+            "casual",
+            "summer friendly"
+        ],
+        "risk_attributes": [
+            "polyester fabric",
+            "mixed fabric-quality feedback",
+            "durability concerns",
+            "thin material complaints",
+            "color quality concerns",
+            "color bleeding complaints"
+        ],
+        "recommendation_keywords": [
+            "men polo t-shirt",
+            "regular fit polo",
+            "men casual t-shirt",
+            "solid polo t-shirt",
+            "half sleeve polo",
+            "polo collar t-shirt",
+            "polyester polo",
+            "casual men's polo",
+            "summer polo t-shirt",
+            "everyday t-shirt"
+        ],
+        "buyer_advice": "Good option if the buyer wants an affordable regular-fit polo for casual or everyday use. Buyers who strongly prefer cotton or prioritize long-term durability should be aware of the mixed fabric-quality and durability feedback."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-006/",
+        "primary_image": "blue.jpg",
+        "variants": {
+            "blue": "blue.jpg",
+            "brown": "brown.jpg",
+            "grey": "grey.jpg",
+            "pista": "pista.jpg"
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The product page uses ASIN B0DWSFV5XD.",
+            "The source lists Polyester as the material composition.",
+            "The product has mixed customer feedback regarding fabric and overall quality.",
+            "Some customers reported poor durability and tearing.",
+            "Some customers reported thin fabric and color-quality issues.",
+            "The source contains additional color combinations in reviews, but only Blue, Brown, Grey and Pista have local image files.",
+            "Do not add image variants that do not exist in the local T-SHIRT-006 directory."
+        ]
+    }
+}

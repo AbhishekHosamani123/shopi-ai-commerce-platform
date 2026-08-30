@@ -1,0 +1,813 @@
+{
+  "timestamp": "2026-08-26T19:05:27.577Z",
+  "conversations_count": 32,
+  "total_turns": 52,
+  "metrics": {
+    "intent_accuracy": 1,
+    "constraint_preservation": 1,
+    "fact_grounding_accuracy": 1,
+    "hallucination_rate": 0,
+    "hard_constraint_violation_rate": 0,
+    "clarification_accuracy": 1,
+    "no_match_accuracy": 1,
+    "action_accuracy": 1
+  },
+  "conversations": [
+    {
+      "conversation_id": "CONV-01",
+      "name": "Search to Color Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me running shoes under ₹1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Only black ones",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 3,
+          "follow_up": "None",
+          "response_preview": "I found 3 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-02",
+      "name": "Search to Budget Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual shirts",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Under 500",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-03",
+      "name": "Search to Size Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me sports shoes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "In size 8 UK",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 1,
+          "follow_up": "None",
+          "response_preview": "I found 1 option matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-04",
+      "name": "Search to Brand Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual sneakers",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Show me SPARX",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 2,
+          "follow_up": "None",
+          "response_preview": "I found 2 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-05",
+      "name": "Search to Product Comparison",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me running shoes under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Compare the first two",
+          "intent": "PRODUCT_COMPARISON",
+          "intent_expected": "PRODUCT_COMPARISON",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Which one would you like to explore in more detail?",
+          "response_preview": "### Product Comparison  **BRUTON EVA Lite Sport Shoes Running Shoes for Men - White** is the budget-..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-06",
+      "name": "Search to Criterion Comparison",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me sports shoes under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Which is better for running?",
+          "intent": "PRODUCT_COMPARISON",
+          "intent_expected": "PRODUCT_COMPARISON",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Which one would you like to explore in more detail?",
+          "response_preview": "### Product Comparison  For running, **BRUTON EVA Lite Sport Shoes Running Shoes for Men - White** (..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-07",
+      "name": "Search to Review Comparison",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me sneakers under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Which one has better reviews?",
+          "intent": "PRODUCT_COMPARISON",
+          "intent_expected": "PRODUCT_COMPARISON",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Which one would you like to explore in more detail?",
+          "response_preview": "### Product Comparison  In terms of customer satisfaction, **Campus Men's Vulture Sneakers** leads w..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-08",
+      "name": "Search to Details via Pronoun",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me formal shoes under 800",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Tell me about this one",
+          "intent": "PRODUCT_DETAILS",
+          "intent_expected": "PRODUCT_DETAILS",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 1,
+          "follow_up": "Would you like to check customer reviews or compare this with another product?",
+          "response_preview": "**Bata Men's Lace-up Formal Shoes** • **Price:** ₹780 (22% off MRP ₹999) • **Brand:** Bata • **Categ..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-09",
+      "name": "Search to Details via Ordinal",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me denim jeans under 1500",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 2,
+          "follow_up": "None",
+          "response_preview": "I found 2 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What are the details of the second one?",
+          "intent": "PRODUCT_DETAILS",
+          "intent_expected": "PRODUCT_DETAILS",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 1,
+          "follow_up": "Would you like to check customer reviews or compare this with another product?",
+          "response_preview": "**TAGAS Men's Regular Fit Carrot Tapered Jeans** • **Price:** ₹779 (74% off MRP ₹2999) • **Brand:** ..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-10",
+      "name": "Search to Review Inquiry",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual shirts under 500",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What do customers say about the first one?",
+          "intent": "REVIEW_QUERY",
+          "intent_expected": "REVIEW_QUERY",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to add this to your cart or compare it with another item?",
+          "response_preview": "**Customer Feedback for SHIRT-007:** • **Overall Rating:** 3.4★ across 15 customer ratings. • **Key ..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-11",
+      "name": "Search to Review Complaints Inquiry",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me running shoes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What are the common complaints on it?",
+          "intent": "REVIEW_QUERY",
+          "intent_expected": "REVIEW_QUERY",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to add this to your cart or compare it with another item?",
+          "response_preview": "**Customer Feedback for SPORTS-SHOE-002:** • **Overall Rating:** 3.5★ across 873 customer ratings. •..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-12",
+      "name": "Search to Price Check",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me white sneakers",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "How much is the first one?",
+          "intent": "PRICE_QUERY",
+          "intent_expected": "PRICE_QUERY",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "None",
+          "response_preview": "**Campus Men's Vulture Sneakers** is currently priced at **₹999** (MRP: ₹2599, 62% discount)...."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-13",
+      "name": "Search to Size Check",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me formal shoes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What sizes are available in this?",
+          "intent": "SIZE_QUERY",
+          "intent_expected": "SIZE_QUERY",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "None",
+          "response_preview": "**Bata Men's Lace-up Formal Shoes** is available in the following verified sizes: **6 UK, 7 UK, 8 UK..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-14",
+      "name": "Search to Color Check",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual shirts",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What colors does it come in?",
+          "intent": "COLOR_QUERY",
+          "intent_expected": "COLOR_QUERY",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "None",
+          "response_preview": "**Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt** comes in: **Black, Military Green..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-15",
+      "name": "Generic Footwear Clarification",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "I need shoes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "CLARIFICATION_REQUIRED",
+          "products_returned": 0,
+          "follow_up": "Would you like running shoes, sneakers, or formal shoes?",
+          "response_preview": "We have a wide collection of footwear! What kind of shoes are you looking for? • **Sports & Running ..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-16",
+      "name": "Generic Apparel Clarification",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me clothes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "CLARIFICATION_REQUIRED",
+          "products_returned": 0,
+          "follow_up": "Which category would you like to explore?",
+          "response_preview": "I'd love to help you find the right outfit! What are you looking for today? • **Casual & Formal Shir..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-17",
+      "name": "Impossible Size & Color No-Match",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Red formal shoes size 12 UK under ₹500",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "NO_EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to adjust your price budget, color, or size?",
+          "response_preview": "I couldn't find an exact match for your request (category: Formal-Shoes, brand: null, min_price: nul..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-18",
+      "name": "Unrealistic Budget Relaxation",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Leather jacket under ₹300",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "NO_EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to adjust your price budget, color, or size?",
+          "response_preview": "I couldn't find an exact match for your request (category: Jackets, brand: null, min_price: null, ma..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-19",
+      "name": "Out of Catalog Entity",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Ray-Ban sunglasses under ₹500",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "NO_EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to adjust your price budget, color, or size?",
+          "response_preview": "I couldn't find an exact match for your request (category: OUT_OF_CATALOG, brand: null, min_price: n..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-20",
+      "name": "Search to Cheaper Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual sneakers",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Show me cheaper options",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-21",
+      "name": "Search to Highly Rated Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me running shoes",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Show me top rated",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-22",
+      "name": "Search to Color Shift Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me casual shirts under 700",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "What about white?",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 9 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-23",
+      "name": "Search to Size Constraint Refinement",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me sports shoes under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Only size 9 UK",
+          "intent": "PRODUCT_REFINEMENT",
+          "intent_expected": "PRODUCT_REFINEMENT",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 1,
+          "follow_up": "None",
+          "response_preview": "I found 1 option matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-24",
+      "name": "Search to Cart Action",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show me running shoes under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Add the first one to cart",
+          "intent": "CART_ADD",
+          "intent_expected": "CART_ADD",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Would you like to keep shopping or proceed to view your cart?",
+          "response_preview": "Added **BRUTON EVA Lite Sport Shoes Running Shoes for Men - White** (₹494) to your cart!..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-25",
+      "name": "Cart View Request",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Show my cart",
+          "intent": "CART_VIEW",
+          "intent_expected": "CART_VIEW",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "None",
+          "response_preview": "Here is your current shopping cart. Would you like to proceed to checkout?..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-26",
+      "name": "Checkout Start Request",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Proceed to pay",
+          "intent": "CHECKOUT_START",
+          "intent_expected": "CHECKOUT_START",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "None",
+          "response_preview": "Ready to proceed to checkout! Cart contents and address confirmation are ready...."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-27",
+      "name": "Single Turn Full Multi-Constraint",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "White sneakers under ₹1000 in size 8 UK",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-28",
+      "name": "Single Turn Material Search",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Cotton casual shirts under 600",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-29",
+      "name": "Single Turn Occasion Search",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Formal office shoes in brown under 800",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 4,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 4 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-30",
+      "name": "Single Turn Festive Ethnic Search",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Traditional kurta set for family function under 1000",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 10 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-31",
+      "name": "Single Turn Feature Backpack Search",
+      "turns_count": 1,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Laptop backpack below 600",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 3,
+          "follow_up": "None",
+          "response_preview": "I found 3 options matching your preferences:..."
+        }
+      ]
+    },
+    {
+      "conversation_id": "CONV-32",
+      "name": "Greeting to Search Hand-off",
+      "turns_count": 2,
+      "turns": [
+        {
+          "turn_number": 1,
+          "user_message": "Hi Shopi!",
+          "intent": "GENERAL_SHOPPING",
+          "intent_expected": "GENERAL_SHOPPING",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH",
+          "products_returned": 0,
+          "follow_up": "Tell me what you need, like 'black running shoes under ₹1000' or 'cotton casual shirts'.",
+          "response_preview": "Hello! I'm Shopi, your AI shopping assistant. I can help you find running shoes, shirts, jeans, snea..."
+        },
+        {
+          "turn_number": 2,
+          "user_message": "Find me casual sneakers under 800",
+          "intent": "PRODUCT_SEARCH",
+          "intent_expected": "PRODUCT_SEARCH",
+          "intent_passed": true,
+          "match_status": "EXACT_MATCH_FOUND",
+          "products_returned": 5,
+          "follow_up": "Want me to narrow these down by size, specific brand, or price?",
+          "response_preview": "I found 6 options matching your preferences:..."
+        }
+      ]
+    }
+  ]
+}

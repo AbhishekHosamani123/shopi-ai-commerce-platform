@@ -7,19 +7,19 @@ import { CustomerRfmSegment, CustomerGrowthSummary } from './optimization-types'
 export async function getCustomerGrowthAnalysis(): Promise<CustomerGrowthSummary> {
   const query = `
     SELECT 
-      u.userid,
-      u.username,
-      u.email,
-      COUNT(o.orderid)::int as total_orders,
-      COALESCE(SUM(o.totalamount), 0)::numeric(12,2) as total_spend,
-      ROUND(COALESCE(AVG(o.totalamount), 0), 2)::numeric(12,2) as avg_order_value,
-      MAX(o.createdat) as last_order_date,
-      EXTRACT(DAY FROM (NOW() - MAX(o.createdat)))::int as days_since_last_order
-    FROM users u
-    JOIN orders o ON u.userid = o.userid
-    WHERE u.role = 'customer'
-    GROUP BY u.userid, u.username, u.email
-    HAVING COUNT(o.orderid) > 0
+      c.customer_id as userid,
+      COALESCE(c.first_name || ' ' || c.last_name, 'Valued Customer') as username,
+      c.email,
+      COUNT(o.order_id)::int as total_orders,
+      COALESCE(SUM(o.total_amount), 0)::numeric(12,2) as total_spend,
+      ROUND(COALESCE(AVG(o.total_amount), 0), 2)::numeric(12,2) as avg_order_value,
+      MAX(o.order_placed_at) as last_order_date,
+      EXTRACT(DAY FROM (NOW() - MAX(o.order_placed_at)))::int as days_since_last_order
+    FROM shopi_customers c
+    JOIN shopi_orders o ON c.customer_id = o.customer_id
+    WHERE o.order_status NOT IN ('CANCELLED', 'Cancelled')
+    GROUP BY c.customer_id, c.first_name, c.last_name, c.email
+    HAVING COUNT(o.order_id) > 0
     ORDER BY total_spend DESC;
   `;
 

@@ -1,0 +1,272 @@
+{
+    "product_id": "BAG-003",
+    "basic_info": {
+        "name": "Wesley Zeus USB Charging Travel Laptop Backpack",
+        "brand": "Wesley",
+        "category": "Bags",
+        "subcategory": "Laptop Backpack",
+        "product_type": "Backpack",
+        "gender": "Unisex",
+        "description": "Wesley Zeus laptop backpack with a 15.6-inch laptop compartment, 30L capacity, multiple compartments, padded back, adjustable shoulder straps and an external USB charging port."
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1999,
+        "selling_price": 525,
+        "discount_percentage": 74,
+        "discount_amount": 1474
+    },
+    "attributes": {
+        "laptop_compatible": true,
+        "laptop_size": "15.6 inch",
+        "capacity": "30L",
+        "material": null,
+        "water_resistant": "Semi water resistant",
+        "weight": null,
+        "dimensions": null,
+        "style": "Travel / Business / Laptop Backpack",
+        "gender": "Unisex",
+        "use_cases": [
+            "Office",
+            "College",
+            "School",
+            "Travel",
+            "Daily use",
+            "Business"
+        ]
+    },
+    "design": {
+        "padded_back": true,
+        "adjustable_shoulder_straps": true,
+        "two_way_zipper": true,
+        "carry_on_suitable": true,
+        "tsa_approved": true
+    },
+    "storage": {
+        "laptop_compartment": true,
+        "laptop_compartment_size": "15.6 inch",
+        "main_compartments": 2,
+        "total_compartments": 3,
+        "small_accessory_compartment": true,
+        "additional_pockets": null
+    },
+    "connectivity": {
+        "usb_charging_port": true,
+        "usb_port_reliability": "Mixed / inconsistent customer feedback",
+        "charging_cable_included": null,
+        "power_bank_included": false
+    },
+    "carrying": {
+        "strap_type": "Adjustable shoulder straps",
+        "back_panel": "Padded",
+        "handle": true
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "available": true,
+                "image": "black.jpg"
+            },
+            {
+                "name": "Blue",
+                "available": true,
+                "image": "blue.jpg"
+            }
+        ]
+    },
+    "images": {
+        "primary": "blue.jpg",
+        "gallery": [
+            "black.jpg",
+            "blue.jpg"
+        ],
+        "image_directory": "products/Bags/BAG-003/"
+    },
+    "reviews": {
+        "average_rating": 4.2,
+        "total_ratings": 509,
+        "rating_distribution": {
+            "5": 56,
+            "4": 23,
+            "3": 11,
+            "2": 3,
+            "1": 7
+        },
+        "customer_review_count_in_source": 133,
+        "customer_signals": {
+            "positive": [
+                "Good overall quality",
+                "Strong and premium-feeling material according to several customers",
+                "Spacious storage",
+                "Suitable for laptop, books and daily items",
+                "Good for office use",
+                "Good for college",
+                "Good for travel",
+                "Comfortable padded laptop compartment",
+                "Lightweight according to multiple reviews",
+                "Smooth zippers reported by customers",
+                "Good value for money",
+                "Three compartments reported by customers",
+                "Simple and professional design"
+            ],
+            "negative": [
+                "USB charging port has inconsistent reliability",
+                "Some customers reported the USB port not working",
+                "One customer reported a rusted data cable",
+                "Some customers felt the material quality was not good",
+                "One customer reported the bag is larger than shown in the images",
+                "One customer reported a single-runner zipper where double-runner closure was expected",
+                "Design may feel bulky rather than compact",
+                "Some customers criticized chain/zipper quality",
+                "Water resistance received mixed feedback"
+            ]
+        },
+        "representative_reviews": [
+            {
+                "rating": 5,
+                "title": "Great Quality Bag!",
+                "sentiment": "positive",
+                "topics": [
+                    "material",
+                    "space",
+                    "laptop",
+                    "daily_use",
+                    "value"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Good for daily office use",
+                "sentiment": "positive",
+                "topics": [
+                    "office",
+                    "price",
+                    "value"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Excellent Product",
+                "sentiment": "positive",
+                "topics": [
+                    "fabric",
+                    "pockets",
+                    "office",
+                    "college",
+                    "travel"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Wesley Bag",
+                "sentiment": "positive",
+                "topics": [
+                    "space",
+                    "compartments",
+                    "USB",
+                    "material",
+                    "size"
+                ]
+            },
+            {
+                "rating": 2,
+                "title": "Wired not working",
+                "sentiment": "negative",
+                "topics": [
+                    "USB",
+                    "data_cable"
+                ]
+            },
+            {
+                "rating": 3,
+                "title": "Charging port not working",
+                "sentiment": "negative",
+                "topics": [
+                    "USB",
+                    "charging",
+                    "zipper",
+                    "comfort"
+                ]
+            },
+            {
+                "rating": 3,
+                "title": "USB port doesn't work",
+                "sentiment": "negative",
+                "topics": [
+                    "USB",
+                    "water_resistance",
+                    "chain_quality",
+                    "size",
+                    "comfort"
+                ]
+            }
+        ]
+    },
+    "sales_intelligence": {
+        "best_for": [
+            "College students",
+            "Office employees",
+            "Laptop users",
+            "Daily commuters",
+            "Budget-conscious travellers"
+        ],
+        "strengths": [
+            "30L capacity",
+            "15.6-inch laptop compartment",
+            "Multiple compartments",
+            "Padded back",
+            "Adjustable shoulder straps",
+            "Lightweight according to customer feedback",
+            "Low selling price",
+            "Professional appearance",
+            "Suitable for office and college"
+        ],
+        "potential_limitations": [
+            "USB charging port reliability is questionable",
+            "Some customers reported poor material quality",
+            "Can feel larger or bulkier than expected",
+            "Zipper/chain quality has mixed feedback",
+            "Water resistance is not consistently praised"
+        ],
+        "recommendation_profile": {
+            "budget": "Budget",
+            "primary_use": "Office / College / Daily use",
+            "laptop_use": true,
+            "storage_priority": "High",
+            "comfort_priority": "High",
+            "value_for_money": "High",
+            "weather_protection": "Moderate / Limited",
+            "USB_feature_confidence": "Low / Mixed"
+        },
+        "customer_questions_supported": [
+            "Does it fit a 15.6-inch laptop?",
+            "How much capacity does it have?",
+            "Is it good for college?",
+            "Is it good for office?",
+            "Is it suitable for travel?",
+            "How many compartments does it have?",
+            "Does it have a USB charging port?",
+            "Does the USB charging port work reliably?",
+            "Is it comfortable to carry?",
+            "Is it lightweight?",
+            "Is it water resistant?",
+            "Is it worth ₹525?",
+            "Is it suitable as a carry-on backpack?"
+        ]
+    },
+    "availability": {
+        "status": null,
+        "stock_quantity": null
+    },
+    "policies": {
+        "return_policy": "10 days Return & Exchange",
+        "exchange_policy": null,
+        "warranty": null
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0DFHC9W73",
+        "url": "https://www.amazon.in/Wesley-charging-Backpack-Compartment-business/dp/B0DFHC9W73"
+    }
+}

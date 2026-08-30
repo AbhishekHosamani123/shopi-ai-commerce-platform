@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 
 interface PropType {
-  endTime: string;
+  endTime?: string;
 }
 
 const DealTime: React.FC<PropType> = ({ endTime }) => {
-  const calculateTimeRemaining = () => {
+  const calculateTimeRemaining = (targetTime?: string) => {
     const now = new Date();
-    const end = new Date(endTime);
+    let end = targetTime ? new Date(targetTime) : null;
+
+    // If invalid date or in the past, fallback to end of current day (midnight)
+    if (!end || isNaN(end.getTime()) || end.getTime() <= now.getTime()) {
+      end = new Date();
+      end.setHours(23, 59, 59, 999);
+    }
+
     const timeDifference = end.getTime() - now.getTime();
 
     if (timeDifference <= 0) {
@@ -41,32 +48,32 @@ const DealTime: React.FC<PropType> = ({ endTime }) => {
   });
 
   useEffect(() => {
-    setTimeRemaining(calculateTimeRemaining());
+    setTimeRemaining(calculateTimeRemaining(endTime));
 
     const timer = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
+      setTimeRemaining(calculateTimeRemaining(endTime));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [endTime]);
 
   return (
-    <div className='flex gap-5'>
-      <div className='flex flex-col bg-gray-200 w-16 h-16 rounded-2xl items-center justify-center'>
-        <p className='text-xl font-semibold'>{timeRemaining.days}</p>
-        <p className='text-sm text-davysilver'>Days</p>
+    <div className='flex gap-3 sm:gap-4' role="timer" aria-label="Deal countdown timer">
+      <div className='flex flex-col bg-slate-100 w-14 h-14 sm:w-16 sm:h-16 rounded-xl items-center justify-center border border-slate-200'>
+        <p className='text-lg sm:text-xl font-bold text-slate-900'>{timeRemaining.days}</p>
+        <p className='text-[10px] sm:text-xs font-semibold text-slate-500 uppercase'>Days</p>
       </div>
-      <div className='flex flex-col bg-gray-200 w-16 h-16 rounded-2xl items-center justify-center'>
-        <p className='text-xl font-semibold'>{timeRemaining.hours}</p>
-        <p className='text-sm text-davysilver'>Hours</p>
+      <div className='flex flex-col bg-slate-100 w-14 h-14 sm:w-16 sm:h-16 rounded-xl items-center justify-center border border-slate-200'>
+        <p className='text-lg sm:text-xl font-bold text-slate-900'>{timeRemaining.hours}</p>
+        <p className='text-[10px] sm:text-xs font-semibold text-slate-500 uppercase'>Hours</p>
       </div>
-      <div className='flex flex-col bg-gray-200 w-16 h-16 rounded-2xl items-center justify-center'>
-        <p className='text-xl font-semibold'>{timeRemaining.minutes}</p>
-        <p className='text-sm text-davysilver'>Min</p>
+      <div className='flex flex-col bg-slate-100 w-14 h-14 sm:w-16 sm:h-16 rounded-xl items-center justify-center border border-slate-200'>
+        <p className='text-lg sm:text-xl font-bold text-slate-900'>{timeRemaining.minutes}</p>
+        <p className='text-[10px] sm:text-xs font-semibold text-slate-500 uppercase'>Min</p>
       </div>
-      <div className='flex flex-col bg-gray-200 w-16 h-16 rounded-2xl items-center justify-center'>
-        <p className='text-xl font-semibold'>{timeRemaining.seconds}</p>
-        <p className='text-sm text-davysilver'>Sec</p>
+      <div className='flex flex-col bg-slate-100 w-14 h-14 sm:w-16 sm:h-16 rounded-xl items-center justify-center border border-slate-200'>
+        <p className='text-lg sm:text-xl font-bold text-slate-900'>{timeRemaining.seconds}</p>
+        <p className='text-[10px] sm:text-xs font-semibold text-slate-500 uppercase'>Sec</p>
       </div>
     </div>
   );

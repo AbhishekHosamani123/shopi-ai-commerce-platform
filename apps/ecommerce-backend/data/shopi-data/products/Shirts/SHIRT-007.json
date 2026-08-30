@@ -1,0 +1,550 @@
+{
+    "product_id": "SHIRT-007",
+    "product": {
+        "name": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt",
+        "brand": "Noble Monk",
+        "category": "Shirts",
+        "subcategory": "Polo Shirts",
+        "gender": "Men",
+        "product_type": "Polo Shirt",
+        "description": "A men's regular-fit solid polo shirt made from polyester, featuring half sleeves, a polo collar and standard length. Designed primarily for casual and summer wear.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Half Sleeve",
+        "sleeve_type": "Half Sleeve",
+        "collar": "Polo Collar",
+        "collar_style": "Polo Collar",
+        "neck_style": "Collared Neck",
+        "closure": "Button",
+        "length": "Standard Length",
+        "shirt_form_type": "Polo Shirt",
+        "top_style": "Polo Style",
+        "season": "Summer",
+        "style_name": "Western",
+        "back_style": "T Back",
+        "material": {
+            "composition": "Polyester",
+            "material_status": "Confirmed by listing"
+        },
+        "weight_grams": 240,
+        "dimensions_cm": {
+            "length": 33,
+            "width": 26,
+            "height": 1
+        },
+        "country_of_origin": "India",
+        "occasion": [
+            "Casual Wear",
+            "Daily Wear",
+            "Summer Wear",
+            "Birthday",
+            "Bachelor Party",
+            "Christmas"
+        ]
+    },
+    "pricing": {
+        "selling_price": 270,
+        "mrp": 1299,
+        "currency": "INR",
+        "discount_percentage": 79,
+        "price_type": "snapshot"
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-007/black.jpg"
+            },
+            {
+                "color": "Military Green",
+                "image": "products/shirts/SHIRT-007/miltary green.jpg"
+            },
+            {
+                "color": "Navy Blue",
+                "image": "products/shirts/SHIRT-007/navy blue.jpg"
+            },
+            {
+                "color": "Peach",
+                "image": "products/shirts/SHIRT-007/peach.jpg"
+            },
+            {
+                "color": "White",
+                "image": "products/shirts/SHIRT-007/white.jpg"
+            },
+            {
+                "color": "Wine Red",
+                "image": "products/shirts/SHIRT-007/wine red.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "variant_status": "Exact variant-level stock is not available."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-007/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Military Green",
+            "image": "products/shirts/SHIRT-007/miltary green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Blue",
+            "image": "products/shirts/SHIRT-007/navy blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Peach",
+            "image": "products/shirts/SHIRT-007/peach.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-007/white.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Wine Red",
+            "image": "products/shirts/SHIRT-007/wine red.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.4,
+        "rating_count": 241,
+        "rating_distribution_percent": {
+            "5_star": 37,
+            "4_star": 20,
+            "3_star": 13,
+            "2_star": 8,
+            "1_star": 22
+        }
+    },
+    "brand_information": {
+        "brand": "Noble Monk",
+        "manufacturer": "Men Rocks Pvt Ltd",
+        "packer": "Men Rocks Pvt Ltd",
+        "importer": "Men Rocks Pvt Ltd",
+        "model_name": "SH115",
+        "style_number": "SH115-PH",
+        "manufacturer_part_number": "L-SH115-PH",
+        "generic_name": "Polo Shirt",
+        "asin": "B0DB1RW363",
+        "country_of_origin": "India"
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers frequently praise the shirt's soft, lightweight and comfortable feel, casual appearance, colors and value for money. However, quality consistency is a significant concern. Some verified buyers report fabric shagging after one wash, poor stitching, low-quality material, dull appearance and products not matching the displayed image.",
+        "positive": [
+            "Soft and comfortable fabric",
+            "Lightweight feel",
+            "Some customers describe the fabric as breathable",
+            "Good casual appearance",
+            "Modern and trendy look",
+            "Several customers like the colors",
+            "Some customers report good regular fit",
+            "Strong value-for-money feedback",
+            "Suitable for summer and daily wear"
+        ],
+        "negative": [
+            "Fabric may start shagging after one wash",
+            "Stitching quality is inconsistent",
+            "Some customers describe the product as low quality",
+            "Some customers report poor cutting and stitching",
+            "Some customers say the product does not match the picture",
+            "White variant has a reported button-area appearance issue",
+            "Some sizing feedback is inconsistent",
+            "Some customers consider it unsuitable for professional or office wear",
+            "Some customers report dull appearance"
+        ],
+        "main_strength": "Comfort, lightweight fabric and very low price.",
+        "main_risk": "Inconsistent material and stitching quality across customer experiences."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mostly_positive_but_inconsistent",
+            "confidence": "medium",
+            "note": "Several customers report proper or regular fit, but at least one customer found the L size too large."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "appearance": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "fabric": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Many reviews praise softness, lightness and comfort, while negative reviews report shagging and poor material quality."
+        },
+        "stitching": {
+            "sentiment": "mixed_to_negative",
+            "confidence": "high"
+        },
+        "description_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some customers say the product matches the picture, while others report that it does not."
+        },
+        "value": {
+            "sentiment": "positive",
+            "confidence": "high"
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "fabric",
+                "casual_wear"
+            ],
+            "summary": "Reviewer liked the trendy look, ribbed texture, modern fit, lightweight fabric and versatile navy color."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "2XL",
+            "color": "Wine Red",
+            "sentiment": "negative",
+            "themes": [
+                "fabric",
+                "durability"
+            ],
+            "summary": "Reviewer reported material shagging after one wash."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Wine Red",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "appearance",
+                "stitching",
+                "value"
+            ],
+            "summary": "Reviewer praised the soft comfortable fabric, premium-looking appearance, stitching and fit, while noting the material was slightly thin."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "White",
+            "sentiment": "mixed",
+            "themes": [
+                "comfort",
+                "appearance",
+                "fit"
+            ],
+            "summary": "Reviewer liked the look and comfort but reported visible button staining on the white variant and found L somewhat large."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "L",
+            "color": "5 Percent-71",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "description_accuracy"
+            ],
+            "summary": "Reviewer said the product was different from the picture and only so-so for the price."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Black",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort",
+                "appearance",
+                "fit"
+            ],
+            "summary": "Reviewer praised the soft lightweight fabric, regular fit and stylish ribbed texture."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "color",
+                "casual_wear"
+            ],
+            "summary": "Reviewer reported very good fabric quality and said the color matched the photo."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "S",
+            "color": "White",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "description_accuracy"
+            ],
+            "summary": "Reviewer described the product as very bad and low quality."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "L",
+            "color": "Charcoal Grey",
+            "sentiment": "negative",
+            "themes": [
+                "stitching",
+                "cut"
+            ],
+            "summary": "Reviewer reported poor cutting and stitching."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Wine Red",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fabric",
+                "fit"
+            ],
+            "summary": "Reviewer described the material as very comfortable and good quality with a perfect fit."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "5 Percent-71",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "stitching",
+                "fit",
+                "comfort",
+                "value"
+            ],
+            "summary": "Reviewer praised the quality, clean stitching, fit, comfort and cloth material."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort",
+                "summer",
+                "appearance"
+            ],
+            "summary": "Reviewer described the fabric as lightweight, breathable and soft, suitable for summer and casual or semi-formal looks."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Charcoal Grey",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort",
+                "summer",
+                "value"
+            ],
+            "summary": "Reviewer praised the fabric quality, comfort and value for money."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "M",
+            "color": "Navy Blue",
+            "sentiment": "negative",
+            "themes": [
+                "fabric",
+                "stitching"
+            ],
+            "summary": "Reviewer described the cloth and stitching as very bad."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "5 Percent-71",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "value",
+                "washability",
+                "color"
+            ],
+            "summary": "Reviewer praised comfort, color, washability and value for money."
+        }
+    ],
+    "pros": [
+        "Polyester fabric",
+        "Regular fit",
+        "Half sleeves",
+        "Polo collar",
+        "Standard length",
+        "Solid design",
+        "Button closure",
+        "Summer-oriented design",
+        "Six available color variants",
+        "Soft and lightweight feel reported by many customers",
+        "Good casual styling",
+        "Strong value-for-money feedback",
+        "Suitable for daily wear"
+    ],
+    "cons": [
+        "Quality is inconsistent",
+        "Some reports of fabric shagging after one wash",
+        "Stitching quality can be poor",
+        "Some reports of bad cutting",
+        "Some customers report low-quality material",
+        "Some customers report mismatch with product images",
+        "White variant has a button-area appearance complaint",
+        "Sizing feedback is not completely consistent",
+        "Not recommended by some customers for office/professional use",
+        "Some customers report dull appearance"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "summer wear",
+        "weekend wear",
+        "birthday",
+        "party wear"
+    ],
+    "style_tags": [
+        "solid",
+        "polo",
+        "regular fit",
+        "half sleeve",
+        "polo collar",
+        "button closure",
+        "summer",
+        "casual"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's polo shirt",
+            "solid polo shirt",
+            "regular fit polo",
+            "half sleeve polo",
+            "casual polo",
+            "summer polo",
+            "daily wear polo",
+            "lightweight polo",
+            "budget polo",
+            "comfortable polo"
+        ],
+        "negative_keywords": [
+            "premium polo",
+            "luxury polo",
+            "high durability polo",
+            "office formal shirt",
+            "professional business shirt",
+            "heavyweight fabric polo"
+        ],
+        "strong_attributes": [
+            "polo style",
+            "solid",
+            "half sleeve",
+            "regular fit",
+            "lightweight",
+            "casual",
+            "summer",
+            "low price",
+            "multiple colors"
+        ],
+        "warning_attributes": [
+            "stitching quality",
+            "fabric durability",
+            "image mismatch",
+            "inconsistent quality",
+            "size consistency"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "BUY_IF_BUDGET_AND_CASUAL_USE_ARE_PRIORITY",
+        "score": 6.5,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual daily wear",
+            "Summer wear",
+            "Weekend outfits",
+            "Customers wanting a lightweight polo",
+            "Customers prioritizing price over premium durability"
+        ],
+        "not_ideal_for": [
+            "Customers looking for premium fabric",
+            "Customers prioritizing long-term durability",
+            "Formal office wear",
+            "Customers who need highly consistent stitching quality"
+        ],
+        "size_advice": "The listing provides S through 2XL. Reviews generally describe the fit as regular or good, but at least one reviewer found L too large. Check the size chart before ordering.",
+        "fabric_advice": "The listing explicitly identifies the material as polyester. Do not market it as cotton or linen.",
+        "quality_advice": "Do not call this premium or highly durable. The review record contains both strong positive quality feedback and serious complaints about fabric and stitching.",
+        "value_assessment": "At the captured ₹270 price against an MRP of ₹1,299, affordability is the product's strongest commercial advantage.",
+        "office_wear_advice": "Do not prioritize this for formal office recommendations. One reviewer specifically said it was suitable for casual regular use but not office or professional wear."
+    },
+    "data_quality": {
+        "rating_count": 241,
+        "price_available": true,
+        "stock_available": true,
+        "complete_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level stock quantities",
+            "Exact size measurements",
+            "Care instructions",
+            "Detailed return conditions"
+        ],
+        "source_inconsistencies": [
+            "Customer experiences vary significantly on fabric and stitching quality.",
+            "Some customers say the product matches the displayed image while others report that it does not.",
+            "Fit is listed as regular, but individual customer experiences vary by size."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this primarily as a budget casual polo shirt, especially for summer and everyday use.",
+        "material_rule": "State the material as polyester. Do not describe it as cotton, linen or premium natural fabric.",
+        "quality_rule": "Do not claim premium or highly durable construction because customer feedback is inconsistent.",
+        "fit_rule": "Use Regular Fit as the catalog attribute but encourage users to check the size chart.",
+        "price_rule": "Use affordability and value for money as major selling points.",
+        "stitching_rule": "Do not promise strong or durable stitching.",
+        "summer_rule": "Summer recommendations are reasonable because the listing specifies Summer and multiple customers describe the fabric as lightweight, soft and breathable.",
+        "office_rule": "Avoid recommending this as formal office wear. Position it as casual or relaxed wear.",
+        "description_rule": "Do not guarantee that the physical product will perfectly match the listing images because reviews disagree on image accuracy.",
+        "comparison_rule": "When comparing with SHIRT-006, prefer SHIRT-007 for a polo-style, half-sleeve, budget casual/summer use case. Do not prefer it for long-sleeve button-down or business-casual needs."
+    }
+}

@@ -15,7 +15,7 @@ export default function Favourite() {
   const { appState } = useApp();
   const isLogged = appState.loggedIn;
   const wishlist = useAppSelector((state) => state.cartWishlist.wishlist);
-  async function removeItem(wishlistItemID:number,productID:number){
+  async function removeItem(wishlistItemID:number,productID:number | string){
     setloading(true);
     isLogged && await wishlistDeleteHandler({wishlistItemID, userID:defaultAccount.userID})
     dispatch(removeItemFromWishlist(productID));

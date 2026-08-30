@@ -21,31 +21,36 @@ export class WhatIfSimulatorEngine {
     if (input.productId) {
       const prodRes = await client.query(`
         SELECT 
-          p.productid,
+          p.product_id,
+          p.sku,
           p.title,
-          p.price,
-          p.discount,
-          p.stock,
+          p.selling_price::numeric(10,2) as price,
+          p.stock_quantity as stock,
+          cg.total_unit_cost::numeric(10,2) as unit_cogs,
           COALESCE(SUM(oi.quantity), 0)::int as units_30d,
-          COALESCE(SUM(p.price * oi.quantity), 0)::numeric(14,2) as rev_30d
-        FROM products p
-        LEFT JOIN orderitems oi ON p.productid = oi.productid
-        LEFT JOIN orders o ON oi.orderid = o.orderid AND o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.orderstatus NOT IN ('CANCELLED')
-        WHERE p.productid = $1
-        GROUP BY p.productid, p.title, p.price, p.discount, p.stock;
+          COALESCE(SUM(oi.line_total), 0)::numeric(14,2) as rev_30d
+        FROM shopi_products p
+        LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id
+        LEFT JOIN shopi_order_items oi ON p.product_id = oi.product_id
+        LEFT JOIN shopi_orders o ON oi.order_id = o.order_id 
+          AND o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' 
+          AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
+        WHERE p.product_id = $1
+        GROUP BY p.product_id, p.sku, p.title, p.selling_price, p.stock_quantity, cg.total_unit_cost;
       `, [input.productId]);
 
       if (prodRes.rows.length > 0) {
         prod = prodRes.rows[0];
-        basePrice = parseFloat(prod.discount || prod.price);
-        baseUnits = Math.max(5, prod.units_30d || 30);
-        baseRev = Math.max(10000, parseFloat(prod.rev_30d || '60000'));
+        basePrice = parseFloat(prod.price);
+        baseUnits = Math.max(1, prod.units_30d || 10);
+        baseRev = Math.max(1000, parseFloat(prod.rev_30d || String(baseUnits * basePrice)));
         baseStock = prod.stock;
       }
     }
 
-    const baseMarginPct = 48.5;
-    const baseWorkingCap = Math.round(baseStock * basePrice * 0.42);
+    const unitCogs = prod?.unit_cogs ? parseFloat(prod.unit_cogs) : Math.round(basePrice * 0.45);
+    const baseMarginPct = Math.round(((basePrice - unitCogs) / basePrice) * 1000) / 10;
+    const baseWorkingCap = Math.round(baseStock * unitCogs);
 
     switch (input.simulationType) {
       case 'PRICE_CHANGE': {

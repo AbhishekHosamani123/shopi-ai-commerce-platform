@@ -1,0 +1,1628 @@
+[
+  {
+    "product_id": "BAG-001",
+    "source_score": 82,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "College students",
+      "Office employees",
+      "Daily commuters",
+      "Light travel"
+    ],
+    "avoid_for": [
+      "Small backpack size may not be suitable for extended travel",
+      "Bottle pocket may not accommodate a 1 litre steel bottle",
+      "One customer reported loose stitching"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "BAG-002",
+    "source_score": 82,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "College students",
+      "Office employees",
+      "Laptop users",
+      "Travellers",
+      "Daily commuters"
+    ],
+    "avoid_for": [
+      "USB charging component may not be very durable",
+      "Handle and stitching have received durability complaints",
+      "Number lock may be difficult to use",
+      "Internal organization could be better",
+      "No rain cover reported",
+      "Not completely waterproof according to customer feedback"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "BAG-003",
+    "source_score": 84,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "College students",
+      "Office employees",
+      "Laptop users",
+      "Daily commuters",
+      "Budget-conscious travellers"
+    ],
+    "avoid_for": [
+      "USB charging port reliability is questionable",
+      "Some customers reported poor material quality",
+      "Can feel larger or bulkier than expected",
+      "Zipper/chain quality has mixed feedback",
+      "Water resistance is not consistently praised"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "BAG-004",
+    "source_score": 86,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "College students",
+      "Office employees",
+      "Laptop users",
+      "Daily commuters",
+      "Light travel"
+    ],
+    "avoid_for": [
+      "Some customers questioned the strength of the laptop holder",
+      "Some customers reported comfort issues",
+      "Some customers criticized the outer material quality"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "BAG-005",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Office employees",
+      "College students",
+      "Daily commuters",
+      "Budget-conscious travellers",
+      "Users with smaller laptops"
+    ],
+    "avoid_for": [
+      "17-inch laptop compatibility is disputed by customer feedback",
+      "16-inch laptops may be difficult to fit",
+      "Some customers reported poor zipper quality",
+      "Some customers reported insufficient padding",
+      "Some customers consider the bag too small",
+      "Water resistance has mixed customer feedback"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "source_score": 6,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Office wear",
+      "Everyday ethnic wear",
+      "Casual outings",
+      "Travel",
+      "Small gatherings",
+      "Customers looking for an affordable kurta set"
+    ],
+    "avoid_for": [
+      "Customers who require highly consistent sizing",
+      "Customers who prioritize premium fabric quality",
+      "Customers who specifically need functional pockets",
+      "Customers who are very sensitive to fit issues"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "DRESS-002",
+    "source_score": 8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual ethnic wear",
+      "Office wear",
+      "Family gatherings",
+      "Festive occasions",
+      "Small functions",
+      "Summer ethnic wear",
+      "Everyday traditional wear",
+      "Customers looking for a complete kurta set"
+    ],
+    "avoid_for": [
+      "Customers expecting premium or luxury fabric",
+      "Customers who require exact colour matching with product photos",
+      "Customers who strongly prefer thick fabric",
+      "Customers who expect the outfit to look exactly like styled product images"
+    ],
+    "source_recommendation": "BUY"
+  },
+  {
+    "product_id": "DRESS-003",
+    "source_score": 8.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Daily wear",
+      "Casual outings",
+      "Summer wear",
+      "Ethnic styling",
+      "Festive occasions",
+      "Family gatherings",
+      "Customers wanting a complete kurta set"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for pure cotton",
+      "Customers who require a very long dupatta",
+      "Customers who strongly prioritize very bright colour tones"
+    ],
+    "source_recommendation": "BUY"
+  },
+  {
+    "product_id": "DRESS-004",
+    "source_score": 8.3,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Summer wear",
+      "Casual wear",
+      "Daily wear",
+      "Office wear",
+      "College wear",
+      "Festivals",
+      "Family functions",
+      "Small occasions",
+      "Customers looking for a complete ethnic outfit"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for pure cotton",
+      "Customers who need different sizes for the kurta and pants",
+      "Customers expecting premium fabric quality"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_SIZE_CHECK"
+  },
+  {
+    "product_id": "DRESS-005",
+    "source_score": 6,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual ethnic wear",
+      "Daily office wear",
+      "Festival wear",
+      "Party wear",
+      "Evening wear",
+      "Customers looking for an affordable ethnic set"
+    ],
+    "avoid_for": [
+      "Customers specifically wanting genuine cotton",
+      "Customers prioritizing premium fabric quality",
+      "Customers who need highly durable stitching",
+      "Customers who are sensitive to sizing or shrinkage issues"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "DRESS-006",
+    "source_score": 7.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Summer wear",
+      "Casual ethnic wear",
+      "Daily wear",
+      "Traditional occasions",
+      "Party wear",
+      "Budget-conscious shoppers",
+      "Customers who prefer lightweight clothing"
+    ],
+    "avoid_for": [
+      "Customers wanting thick or heavyweight fabric",
+      "Customers expecting premium fabric quality",
+      "Customers who dislike thin clothing",
+      "Customers highly concerned about color bleeding",
+      "Customers wanting a heavily structured or lined outfit"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "DRESS-007",
+    "source_score": 8.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Festive wear",
+      "Family functions",
+      "Party wear",
+      "Wedding-related occasions",
+      "Office ethnic wear",
+      "Casual ethnic outings",
+      "Customers wanting a complete ethnic outfit"
+    ],
+    "avoid_for": [
+      "Customers who require exact color matching with product photos",
+      "Customers who specifically want premium fabric quality",
+      "Customers who strongly prefer a longer dupatta"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_CAVEATS"
+  },
+  {
+    "product_id": "DRESS-008",
+    "source_score": 6.4,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual everyday wear",
+      "Summer wear",
+      "Office casual wear",
+      "Customers who prioritize cotton comfort",
+      "Customers looking for an affordable floral kurta"
+    ],
+    "avoid_for": [
+      "Customers prioritizing long-term durability",
+      "Customers wanting consistently premium fabric quality",
+      "Customers who dislike quality uncertainty",
+      "Customers looking for a highly reliable product based on reviews"
+    ],
+    "source_recommendation": "BUY_WITH_CAUTION"
+  },
+  {
+    "product_id": "DRESS-009",
+    "source_score": 8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Festival wear",
+      "Wedding functions",
+      "Traditional events",
+      "Anniversary celebrations",
+      "Customers who want a customizable lehenga",
+      "Customers comfortable with tailoring adjustments"
+    ],
+    "avoid_for": [
+      "Customers wanting ready-to-wear clothing",
+      "Customers who do not want tailoring work",
+      "Customers looking for strong evidence of long-term durability",
+      "Customers who need a guaranteed fit straight out of the package"
+    ],
+    "source_recommendation": "BUY_IF_YOU_ARE_COMFORTABLE_WITH_TAILORING"
+  },
+  {
+    "product_id": "DRESS-010",
+    "source_score": 7,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Weddings",
+      "Festivals",
+      "Traditional celebrations",
+      "Party wear",
+      "Customers looking for an affordable lehenga",
+      "Customers who prefer traditional South Indian styling"
+    ],
+    "avoid_for": [
+      "Customers expecting premium silk quality",
+      "Customers who require an exact match to listing images",
+      "Customers who need a long dupatta",
+      "Customers who do not want to spend time tailoring an unstitched outfit"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "source_score": 74,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "source_score": 76,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-006",
+    "source_score": null,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual wear",
+      "Daily wear",
+      "College wear",
+      "Travel",
+      "Evening outings",
+      "Lightweight jacket preference",
+      "Customers wanting a bomber-style look"
+    ],
+    "avoid_for": [
+      "Customers seeking premium fabric quality",
+      "Customers looking for heavy insulated winter jackets",
+      "Customers requiring proven waterproof performance",
+      "Customers expecting high-end construction"
+    ],
+    "source_recommendation": "BUY_FOR_VALUE"
+  },
+  {
+    "product_id": "JACKET-002",
+    "source_score": 7.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual streetwear",
+      "Sporty styling",
+      "College wear",
+      "Weekend outings",
+      "Travel",
+      "Light outdoor activities",
+      "Customers who prefer hooded jackets",
+      "Customers who want a bold colour-block design"
+    ],
+    "avoid_for": [
+      "Customers looking for premium outerwear",
+      "Customers requiring proven waterproof performance",
+      "Customers requiring heavy insulation",
+      "Customers who prioritize extensive customer-review evidence",
+      "Customers seeking a wide range of sizes"
+    ],
+    "source_recommendation": "BUY_FOR_STYLE_AND_BUDGET"
+  },
+  {
+    "product_id": "JACKET-003",
+    "source_score": 6.4,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual everyday wear",
+      "College wear",
+      "Travel",
+      "Early winter",
+      "Mild weather",
+      "Slightly cool weather",
+      "Customers wanting a simple bomber jacket",
+      "Customers looking for a jacket under ₹1000"
+    ],
+    "avoid_for": [
+      "Customers prioritizing premium stitching",
+      "Customers expecting high durability",
+      "Customers needing heavy winter protection",
+      "Customers requiring waterproof performance",
+      "Customers who want highly consistent sizing",
+      "Customers unwilling to tolerate quality-control risk"
+    ],
+    "source_recommendation": "BUY_WITH_CAUTION"
+  },
+  {
+    "product_id": "JACKET-004",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Men looking for a casual bomber",
+      "College wear",
+      "Daily wear",
+      "Travel",
+      "Winter rides",
+      "Cold-weather casual use",
+      "Shoppers needing extended sizes",
+      "Customers wanting a jacket under ₹1000",
+      "Customers prioritizing style and value"
+    ],
+    "avoid_for": [
+      "Customers demanding premium zipper hardware",
+      "Customers expecting premium construction",
+      "Extreme cold conditions",
+      "Customers who strongly prioritize long-term zipper durability"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_ZIPPER_CAVEAT"
+  },
+  {
+    "product_id": "JEANS-001",
+    "source_score": 7,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Casual wear",
+      "Daily wear",
+      "Streetwear",
+      "Budget-conscious shoppers",
+      "Customers wanting stretchable jeans",
+      "Customers prioritizing comfort"
+    ],
+    "avoid_for": [
+      "Customers demanding premium color durability",
+      "Customers who are very particular about men's crotch and waist fit",
+      "Customers expecting exact color matching with product images"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-002",
+    "source_score": 6.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Casual wear",
+      "Daily wear",
+      "Classic denim styling",
+      "Loose-fit preference",
+      "Straight-leg jeans preference",
+      "Customers wanting Blue or Dark Blue jeans"
+    ],
+    "avoid_for": [
+      "Customers wanting premium denim",
+      "Customers prioritizing consistent fabric quality",
+      "Customers highly sensitive to colour accuracy",
+      "Customers wanting a slim or skinny fit",
+      "Customers unwilling to accept mixed reviews"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-003",
+    "source_score": 7.3,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Bootcut jeans preference",
+      "Casual wear",
+      "Daily wear",
+      "Customers wanting stretchable jeans",
+      "Customers prioritizing comfort",
+      "Customers wanting mid-rise jeans",
+      "Budget-conscious buyers",
+      "Customers who like Black or Light Blue jeans"
+    ],
+    "avoid_for": [
+      "Customers wanting slim-fit jeans",
+      "Customers wanting skinny jeans",
+      "Customers who dislike bootcut styling",
+      "Customers requiring very precise fit without alteration",
+      "Customers highly concerned about black colour durability"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-004",
+    "source_score": 6.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Customers who prefer relaxed jeans",
+      "Customers who prefer straight-leg jeans",
+      "Casual everyday wear",
+      "Travel",
+      "Weekend outfits",
+      "Customers who prefer cotton denim",
+      "Customers looking for an affordable pair of jeans"
+    ],
+    "avoid_for": [
+      "Customers wanting slim-fit jeans",
+      "Customers wanting skinny jeans",
+      "Customers who dislike loose or relaxed fits",
+      "Customers who require highly predictable sizing",
+      "Customers prioritizing proven premium fabric quality"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-005",
+    "source_score": 7.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Men who prefer slim jeans",
+      "Men who like tapered legs",
+      "Customers wanting ankle-length jeans",
+      "Customers who like modern casual silhouettes",
+      "Casual outings",
+      "Travel",
+      "Everyday wear",
+      "Customers who prefer some stretch"
+    ],
+    "avoid_for": [
+      "Customers wanting regular or relaxed jeans",
+      "Customers wanting full-length jeans",
+      "Customers highly sensitive to colour accuracy",
+      "Customers prioritizing premium fabric quality",
+      "Customers who dislike tapered legs"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-006",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.5,
+    "best_for": [
+      "Casual everyday wear",
+      "Relaxed outfits",
+      "Streetwear",
+      "College wear",
+      "Weekend outfits",
+      "Travel",
+      "Customers who prefer roomy fits",
+      "Customers who prefer straight-leg jeans"
+    ],
+    "avoid_for": [
+      "Customers looking for skinny jeans",
+      "Customers looking for slim-fit jeans",
+      "Customers who prefer a fitted silhouette",
+      "Customers requiring strong long-term review evidence"
+    ],
+    "source_recommendation": "BUY_WITH_LOW_REVIEW_CONFIDENCE"
+  },
+  {
+    "product_id": "JEANS-007",
+    "source_score": 6.5,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual everyday wear",
+      "Customers who prefer regular fit",
+      "Customers who like tapered jeans",
+      "Customers who prefer mid-rise jeans",
+      "College wear",
+      "Weekend outfits",
+      "Casual outings",
+      "Customers wanting multiple color choices"
+    ],
+    "avoid_for": [
+      "Customers who require highly consistent quality",
+      "Customers who need exact color matching with product photos",
+      "Customers who strongly prioritize stitching quality",
+      "Customers looking for premium denim",
+      "Customers who prefer slim or skinny jeans",
+      "Customers who want strong review confidence"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "JEANS-008",
+    "source_score": 7.4,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Customers who prefer straight-fit jeans",
+      "Customers who prefer mid-rise jeans",
+      "Daily casual wear",
+      "College wear",
+      "Travel",
+      "Weekend outfits",
+      "Customers looking for stretch and flexibility",
+      "Customers prioritizing price over premium finishing"
+    ],
+    "avoid_for": [
+      "Customers looking for premium denim",
+      "Customers demanding exact color matching",
+      "Customers who prioritize premium hardware and zipper quality",
+      "Customers wanting slim or skinny jeans",
+      "Customers requiring sizes above 36"
+    ],
+    "source_recommendation": "BUY_FOR_VALUE"
+  },
+  {
+    "product_id": "JEANS-009",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Retro fashion",
+      "Bell-bottom lovers",
+      "Wide-leg enthusiasts",
+      "College wear",
+      "Casual outings",
+      "Statement outfits",
+      "Customers wanting an affordable flared jean",
+      "Customers who want stretch and comfort"
+    ],
+    "avoid_for": [
+      "Customers wanting slim-fit jeans",
+      "Customers wanting straight-leg jeans",
+      "Customers who dislike high-rise jeans",
+      "Customers demanding highly durable color",
+      "Customers expecting premium denim quality",
+      "Customers who need extremely precise sizing"
+    ],
+    "source_recommendation": "BUY_FOR_STYLE_AND_VALUE"
+  },
+  {
+    "product_id": "JEANS-010",
+    "source_score": 6.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Casual everyday wear",
+      "College wear",
+      "Lightweight jeans",
+      "Customers wanting stretch",
+      "Customers who prioritize comfort over durability",
+      "Customers wanting a slim-fit look at a low price"
+    ],
+    "avoid_for": [
+      "Customers wanting premium denim",
+      "Customers prioritizing long-term durability",
+      "Customers highly concerned about color retention",
+      "Customers expecting exact slim-fit tailoring",
+      "Customers unwilling to hand-separate dark colors during washing"
+    ],
+    "source_recommendation": "BUY_FOR_BUDGET_CASUAL_USE"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "source_score": 7,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Daily wear",
+      "Resort wear",
+      "Style-focused outfits",
+      "Cooler weather"
+    ],
+    "avoid_for": [
+      "Very hot weather",
+      "Customers wanting an extremely lightweight shirt",
+      "Customers who strongly prefer slim fits"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "source_score": 8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Festive occasions",
+      "Indo-Western outfits",
+      "Office wear",
+      "Parties",
+      "Weddings and traditional events",
+      "Daily wear",
+      "Customers wanting a Mandarin collar"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for a conventional Western shirt",
+      "Customers who require highly precise tailoring without checking the size chart"
+    ],
+    "source_recommendation": "BUY"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "source_score": 6.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Office wear",
+      "Outings",
+      "Daily wear",
+      "Date nights",
+      "Birthday outfits",
+      "Festive casual styling",
+      "Customers wanting a button-down shirt with pockets"
+    ],
+    "avoid_for": [
+      "Customers requiring highly predictable sizing",
+      "Customers expecting the exact appearance shown in every product image",
+      "Customers looking for a lightweight summer shirt",
+      "Customers who require machine-washable clothing"
+    ],
+    "source_recommendation": "BUY_WITH_CAUTION"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "source_score": 6.7,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Daily wear",
+      "Casual outings",
+      "Party wear",
+      "Semi-formal styling",
+      "Customers looking for striped shirts",
+      "Customers looking for plus-size options"
+    ],
+    "avoid_for": [
+      "Customers expecting guaranteed color accuracy",
+      "Customers who prioritize long-term color retention",
+      "Customers wanting stretchable fabric",
+      "Customers who prefer machine-washable shirts",
+      "Customers wanting a highly tailored fit"
+    ],
+    "source_recommendation": "BUY_WITH_CAUTION"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "source_score": 8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual everyday wear",
+      "Office casual outfits",
+      "Party wear",
+      "Weekend outings",
+      "Semi-formal occasions",
+      "Customers wanting stretchable fabric",
+      "Customers wanting lightweight shirts",
+      "Customers looking for plus sizes"
+    ],
+    "avoid_for": [
+      "Customers who specifically want cotton",
+      "Customers who strongly prefer highly breathable summer fabric",
+      "Customers who want a slim fit"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_SIZE_CHECK"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "source_score": 5.5,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Customers prioritizing appearance over premium fabric",
+      "Casual wear",
+      "Business-casual styling",
+      "Customers wanting multiple color options"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for genuine linen",
+      "Customers prioritizing premium fabric quality",
+      "Customers needing highly durable stitching",
+      "Customers who require predictable sizing",
+      "Customers wanting a thick, opaque fabric"
+    ],
+    "source_recommendation": "BUY_ONLY_IF_PRICE_AND_STYLE_ARE_PRIORITY"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "source_score": 6.5,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual daily wear",
+      "Summer wear",
+      "Weekend outfits",
+      "Customers wanting a lightweight polo",
+      "Customers prioritizing price over premium durability"
+    ],
+    "avoid_for": [
+      "Customers looking for premium fabric",
+      "Customers prioritizing long-term durability",
+      "Formal office wear",
+      "Customers who need highly consistent stitching quality"
+    ],
+    "source_recommendation": "BUY_IF_BUDGET_AND_CASUAL_USE_ARE_PRIORITY"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "source_score": 6.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Casual ethnic outfits",
+      "Summer and warm-weather occasions",
+      "Parties",
+      "Weddings and related events",
+      "Festive outings",
+      "Daily casual wear",
+      "Customers wanting a Mandarin-collar style"
+    ],
+    "avoid_for": [
+      "Customers expecting premium fabric",
+      "Customers prioritizing flawless stitching",
+      "Customers needing guaranteed color accuracy",
+      "Customers expecting consistent sizing without checking measurements",
+      "Luxury ethnic-wear shoppers"
+    ],
+    "source_recommendation": "BUY_IF_BUDGET_AND_STYLE_ARE_PRIORITY"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "source_score": 6.9,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Everyday casual wear",
+      "Office casual outfits",
+      "Business casual outfits",
+      "Customers who prefer cotton-rich fabric",
+      "Customers wanting a classic solid shirt",
+      "Customers who prefer spread collars",
+      "Customers needing larger sizes",
+      "Jeans and chinos styling"
+    ],
+    "avoid_for": [
+      "Very hot-weather wear",
+      "Customers wanting stretch fabric",
+      "Customers who need highly reliable sizing",
+      "Customers expecting premium stitching",
+      "Customers wanting slim or modern oversized fits"
+    ],
+    "source_recommendation": "BUY_WITH_SIZE_CHECK"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Everyday wear",
+      "Casual outings",
+      "Weekend gatherings",
+      "Brunch",
+      "Smart-casual office outfits",
+      "Summer styling",
+      "Jeans and chinos",
+      "Customers who prefer slim fits",
+      "Customers looking for value"
+    ],
+    "avoid_for": [
+      "Customers who prefer relaxed or oversized fits",
+      "Customers who require guaranteed fabric composition",
+      "Customers who need highly predictable sizing"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_SIZE_CHECK"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "source_score": 8.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Men wanting a classic solid shirt",
+      "Everyday casual wear",
+      "Weekend outfits",
+      "Casual office outfits",
+      "Relaxed workdays",
+      "Summer use",
+      "Jeans",
+      "Chinos",
+      "Shorts",
+      "Customers who prefer slim fits",
+      "Customers who prefer cotton shirts"
+    ],
+    "avoid_for": [
+      "Customers looking for oversized or relaxed fits",
+      "Customers with a strict low-budget requirement",
+      "Customers expecting premium-level stitching solely because of the brand"
+    ],
+    "source_recommendation": "RECOMMENDED"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "source_score": 7.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Men wanting a relaxed regular-fit shirt",
+      "Vacation outfits",
+      "Beach outfits",
+      "Casual outings",
+      "Summer styling",
+      "Party outfits",
+      "Semi-formal outfits",
+      "Men who prefer textured fabrics",
+      "Men who want many color choices",
+      "Men looking for a budget-friendly shirt"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for pure linen",
+      "Customers specifically looking for 100% cotton",
+      "Customers expecting luxury fabric quality",
+      "Customers who need precise color matching",
+      "Customers who prefer slim fit"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_CAVEAT"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "source_score": 8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Men wanting a classic solid shirt",
+      "Office wear",
+      "Business casual outfits",
+      "Daily wear",
+      "Casual outings",
+      "Semi-formal occasions",
+      "Men wanting a regular fit",
+      "Men who prefer full sleeves",
+      "Budget-conscious shoppers"
+    ],
+    "avoid_for": [
+      "Customers specifically looking for verified pure cotton",
+      "Customers who dislike satin-like fabrics",
+      "Customers requiring exact color matching",
+      "Customers who prefer slim fit",
+      "Customers wanting a linen vacation shirt"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_MATERIAL_CAVEAT"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "source_score": 6.7,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Everyday casual wear",
+      "Men wanting a simple solid shirt",
+      "Men who prefer regular fit",
+      "Office-casual outfits",
+      "Men looking for a cotton-blend shirt under ₹500",
+      "Shoppers prioritizing price over premium quality"
+    ],
+    "avoid_for": [
+      "Customers demanding premium construction",
+      "Customers who require highly accurate product colors",
+      "Customers with strict fit requirements",
+      "Customers specifically looking for 100% cotton",
+      "Customers expecting luxury-shirt quality"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_CAUTION"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "source_score": 6.8,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious shoppers",
+      "Everyday wear",
+      "Office-casual outfits",
+      "Shoppers who want a classic-fit shirt",
+      "Shoppers wanting multiple color options",
+      "Customers prioritizing price over premium construction"
+    ],
+    "avoid_for": [
+      "Customers specifically demanding verified 100% cotton",
+      "Customers prioritizing stitching quality",
+      "Customers expecting premium construction",
+      "Customers looking for highly durable shirts",
+      "Customers unwilling to accept variability in fabric quality"
+    ],
+    "source_recommendation": "RECOMMENDED_WITH_CAUTION"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "source_score": 82,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Everyday casual wear",
+      "Budget-conscious buyers",
+      "Casual outfits",
+      "Travel"
+    ],
+    "avoid_for": [
+      "Running",
+      "Long-duration high-comfort use",
+      "Customers specifically seeking lightweight running shoes"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "source_score": 74,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "source_score": 78,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "source_score": 100,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "source_score": 84,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Everyday casual wear",
+      "College",
+      "Travel",
+      "Casual outings",
+      "Budget-conscious buyers",
+      "Users prioritizing comfort"
+    ],
+    "avoid_for": [
+      "Wet conditions",
+      "Heavy outdoor use",
+      "Users requiring maximum durability"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "College students",
+      "Daily commuting",
+      "Casual wear",
+      "Short to moderate walking",
+      "Users looking for an affordable branded sneaker"
+    ],
+    "avoid_for": [
+      "Users requiring guaranteed all-day comfort",
+      "Long-duration walking without testing the fit",
+      "Users with sensitive toes",
+      "Customers expecting premium construction"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Everyday casual wear",
+      "Walking",
+      "Casual outings",
+      "Budget-conscious buyers",
+      "Travel",
+      "Light gym use",
+      "Customers looking for stylish budget sneakers"
+    ],
+    "avoid_for": [
+      "Customers requiring highly durable footwear",
+      "Customers uncertain about their shoe size",
+      "Long-duration use where maximum comfort is essential",
+      "Customers expecting premium material quality"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "source_score": 82,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Everyday casual wear",
+      "Casual outings",
+      "Walking",
+      "Parties",
+      "Budget-conscious buyers",
+      "Customers prioritizing appearance and comfort"
+    ],
+    "avoid_for": [
+      "Customers requiring very high durability",
+      "Heavy long-term use",
+      "Customers specifically looking for highly durable running shoes"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "source_score": 76,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Everyday casual wear",
+      "College",
+      "Casual outings",
+      "Customers looking for lightweight sneakers"
+    ],
+    "avoid_for": [
+      "Heavy sports",
+      "Long periods of standing",
+      "Customers expecting premium build quality"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "source_score": 84,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.7,
+    "best_for": [
+      "Daily casual wear",
+      "Walking",
+      "Light workouts",
+      "Budget-conscious buyers",
+      "College and school"
+    ],
+    "avoid_for": [
+      "Very long periods of continuous wear",
+      "Buyers prioritizing maximum long-term durability"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Casual running",
+      "Walking",
+      "Light workouts",
+      "Daily wear"
+    ],
+    "avoid_for": [
+      "Very intense sports activities"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "source_score": 70,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Walking",
+      "Casual daily use",
+      "Light jogging",
+      "Light workouts"
+    ],
+    "avoid_for": [
+      "Buyers prioritizing long-term durability",
+      "Buyers wanting premium running performance",
+      "Buyers requiring consistently strong cushioning"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "source_score": 80,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Walking",
+      "Casual daily use",
+      "Light running",
+      "Light workouts",
+      "Travel"
+    ],
+    "avoid_for": [
+      "Heavy-duty training",
+      "Buyers prioritizing maximum durability",
+      "Buyers expecting premium running performance"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-004",
+    "source_score": 76,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Daily walking",
+      "Casual wear",
+      "Light running",
+      "Beginners",
+      "Light activity"
+    ],
+    "avoid_for": [
+      "Intense workouts",
+      "Heavy daily use",
+      "Long-term durability",
+      "Buyers expecting premium quality"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "source_score": 86,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Beginner runners",
+      "Casual running",
+      "Walking",
+      "Morning walks",
+      "Gym",
+      "Daily wear",
+      "Light workouts"
+    ],
+    "avoid_for": [
+      "People with wide feet",
+      "Users who need a wide toe box",
+      "Users specifically looking for water-resistant shoes"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "source_score": 82,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Budget-conscious buyers",
+      "Normal running",
+      "Walking",
+      "Daily use",
+      "Casual sports",
+      "Light sports activities"
+    ],
+    "avoid_for": [
+      "Users needing a wide fit",
+      "Users expecting premium material quality",
+      "Users requiring highly durable construction"
+    ],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "source_score": 76,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "summer",
+      "casual wear",
+      "travel",
+      "weekend wear",
+      "athleisure"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "casual wear",
+      "business casual",
+      "daily wear",
+      "smart casual"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "source_score": 72,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "casual wear",
+      "daily wear",
+      "sports activities",
+      "smart casual"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "source_score": 70,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "casual wear",
+      "daily wear",
+      "smart casual",
+      "sports activities"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "source_score": 60,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "casual wear",
+      "summer wear",
+      "streetwear",
+      "everyday wear"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "source_score": 76,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.2,
+    "best_for": [
+      "casual wear",
+      "summer wear",
+      "everyday wear",
+      "sports activities"
+    ],
+    "avoid_for": [],
+    "source_recommendation": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "source_score": 7.2,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Daily wear",
+      "Smart casual outfits",
+      "Style-focused outfits",
+      "Parties and outings"
+    ],
+    "avoid_for": [
+      "Customers who are unsure about their size",
+      "Customers who require highly consistent sizing"
+    ],
+    "source_recommendation": "CONDITIONAL_BUY"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "source_score": 8.3,
+    "quality_score": null,
+    "value_score": null,
+    "style_score": null,
+    "review_confidence": 0.9,
+    "best_for": [
+      "Casual wear",
+      "Daily wear",
+      "Smart casual outfits",
+      "College wear",
+      "Casual office wear",
+      "Parties and outings"
+    ],
+    "avoid_for": [
+      "Buyers looking for a very minimal or plain polo",
+      "Buyers who prioritize the lowest possible price",
+      "Buyers who prefer relaxed or oversized fits"
+    ],
+    "source_recommendation": "BUY"
+  }
+]

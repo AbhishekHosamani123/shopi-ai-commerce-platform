@@ -12,7 +12,7 @@ export async function GET(
     const subPath = path.join('/');
     const searchParams = request.nextUrl.searchParams.toString();
     const targetUrl = `${BACKEND_URL}/api/merchant/${subPath}${searchParams ? `?${searchParams}` : ''}`;
-    const merchantId = request.headers.get('x-merchant-id') || 'default_pilot_merchant';
+    const merchantId = request.headers.get('x-merchant-id') || 'default_merchant';
 
     const backendRes = await fetch(targetUrl, {
       method: 'GET',
@@ -44,7 +44,7 @@ export async function POST(
     const subPath = path.join('/');
     const body = await request.json().catch(() => ({}));
     const targetUrl = `${BACKEND_URL}/api/merchant/${subPath}`;
-    const merchantId = request.headers.get('x-merchant-id') || 'default_pilot_merchant';
+    const merchantId = request.headers.get('x-merchant-id') || 'default_merchant';
 
     const backendRes = await fetch(targetUrl, {
       method: 'POST',
@@ -61,6 +61,70 @@ export async function POST(
     return NextResponse.json(data, { status: backendRes.status });
   } catch (error: any) {
     console.error('Merchant POST proxy error:', error);
+    return NextResponse.json(
+      { success: false, error: error.message || 'Backend connection failed' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ path: string[] }> }
+) {
+  try {
+    const { path } = await params;
+    const subPath = path.join('/');
+    const body = await request.json().catch(() => ({}));
+    const targetUrl = `${BACKEND_URL}/api/merchant/${subPath}`;
+    const merchantId = request.headers.get('x-merchant-id') || 'default_merchant';
+
+    const backendRes = await fetch(targetUrl, {
+      method: 'PUT',
+      headers: {
+        'x-api-secret': API_SECRET,
+        'x-merchant-id': merchantId,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body),
+      cache: 'no-store'
+    });
+
+    const data = await backendRes.json().catch(() => ({}));
+    return NextResponse.json(data, { status: backendRes.status });
+  } catch (error: any) {
+    console.error('Merchant PUT proxy error:', error);
+    return NextResponse.json(
+      { success: false, error: error.message || 'Backend connection failed' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ path: string[] }> }
+) {
+  try {
+    const { path } = await params;
+    const subPath = path.join('/');
+    const targetUrl = `${BACKEND_URL}/api/merchant/${subPath}`;
+    const merchantId = request.headers.get('x-merchant-id') || 'default_merchant';
+
+    const backendRes = await fetch(targetUrl, {
+      method: 'DELETE',
+      headers: {
+        'x-api-secret': API_SECRET,
+        'x-merchant-id': merchantId,
+        'Content-Type': 'application/json'
+      },
+      cache: 'no-store'
+    });
+
+    const data = await backendRes.json().catch(() => ({}));
+    return NextResponse.json(data, { status: backendRes.status });
+  } catch (error: any) {
+    console.error('Merchant DELETE proxy error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Backend connection failed' },
       { status: 500 }

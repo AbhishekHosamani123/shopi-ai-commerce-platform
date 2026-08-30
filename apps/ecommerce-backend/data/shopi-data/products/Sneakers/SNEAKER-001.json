@@ -1,0 +1,200 @@
+{
+    "product_id": "SNEAKER-001",
+    "sku": "B09PVGTFV4",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "SPARX Men SM-734 Casual Shoes",
+    "brand": "SPARX",
+    "pricing": {
+        "mrp": 749,
+        "selling_price": 737,
+        "currency": "INR",
+        "discount_percent": 2
+    },
+    "description": "A classic casual sneaker from SPARX designed for everyday wear, casual outings and travel, featuring a durable build, cushioned footbed and breathable structure.",
+    "attributes": {
+        "material": "Polyvinyl Chloride",
+        "upper_material": "Polyvinyl Chloride",
+        "sole_material": "Polyvinyl Chloride",
+        "closure": "Lace-Up",
+        "heel_type": "No Heel",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Classic",
+        "country_of_origin": "India",
+        "weight_grams": 890
+    },
+    "colors": [
+        {
+            "name": "White",
+            "available": true
+        },
+        {
+            "name": "White Grey",
+            "available": true
+        },
+        {
+            "name": "Navy Blue",
+            "available": true
+        },
+        {
+            "name": "Black Neon Orange",
+            "available": true
+        }
+    ],
+    "sizes": [
+        {
+            "size": "6 UK",
+            "available": true
+        },
+        {
+            "size": "7 UK",
+            "available": true
+        },
+        {
+            "size": "8 UK",
+            "available": true
+        },
+        {
+            "size": "9 UK",
+            "available": true
+        },
+        {
+            "size": "10 UK",
+            "available": true
+        }
+    ],
+    "features": [
+        "Durable build",
+        "Strong stitching",
+        "Soft cushioned footbed",
+        "Suitable for all-day wear",
+        "Suitable for casual outings",
+        "Suitable for travel",
+        "Breathable structure"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "Travel",
+        "Lifestyle"
+    ],
+    "ratings": {
+        "average_rating": 4.1,
+        "rating_count": 6608,
+        "rating_distribution": {
+            "5_star_percent": 53,
+            "4_star_percent": 25,
+            "3_star_percent": 10,
+            "2_star_percent": 4,
+            "1_star_percent": 8
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "I love this sneakers",
+            "text": "Absolutely love these shoes! The design is clean, stylish, and goes well with almost any outfit. They are lightweight, comfortable to wear for long hours, and the quality feels excellent for the price. The fit is perfect, and the white finish gives them a premium look. Great value for money."
+        },
+        {
+            "rating": 4,
+            "title": "Good quality",
+            "text": "Quality is good according to the price."
+        },
+        {
+            "rating": 5,
+            "title": "Fitting is Quite Good",
+            "text": "Wonderful Product. Liked the Quality and Comfort."
+        },
+        {
+            "rating": 5,
+            "title": "Fabulous",
+            "text": "Value for money kindly go for it."
+        },
+        {
+            "rating": 3,
+            "title": "Choice is yours",
+            "text": "Easy to clean. Looks good with almost every outfit. Weighted on the heavier side. Insoles are decent. You can't wear it more than 2 hours. Each shoe is approximately 600 gms. Not so comfortable. It is a sneaker, not a running shoe."
+        },
+        {
+            "rating": 4,
+            "title": "The quality is good for the money.",
+            "text": "Quality is good. Comfortable."
+        },
+        {
+            "rating": 1,
+            "title": "Worst Shoe, Never buy",
+            "text": "Worst shoe, worst quality, after wearing inner sole came out in its first use only."
+        },
+        {
+            "rating": 5,
+            "title": "best under budget",
+            "text": "Best choice in the segment."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "text": "Good."
+        },
+        {
+            "rating": 4,
+            "title": "Good one",
+            "text": "Shoes is good one. But delivery was very slow."
+        }
+    ],
+    "review_insights": {
+        "positive": [
+            "Stylish design",
+            "Comfortable for everyday use",
+            "Good fit",
+            "Good value for money",
+            "Good quality for the price",
+            "Easy to clean"
+        ],
+        "negative": [
+            "Some customers found the shoe heavy",
+            "Some customers reported limited comfort for long wear",
+            "One customer reported the inner sole coming out during first use",
+            "One customer reported slow delivery"
+        ],
+        "best_for": [
+            "Everyday casual wear",
+            "Budget-conscious buyers",
+            "Casual outfits",
+            "Travel"
+        ],
+        "not_ideal_for": [
+            "Running",
+            "Long-duration high-comfort use",
+            "Customers specifically seeking lightweight running shoes"
+        ]
+    },
+    "manufacturer": "Relaxo Footwear Limited",
+    "packer": "Relaxo Footwear Limited",
+    "importer": "Relaxo Footwear Limited",
+    "images": [
+        {
+            "file": "Black Neon Orange.jpg",
+            "color": "Black Neon Orange"
+        },
+        {
+            "file": "navy blue.jpg",
+            "color": "Navy Blue"
+        },
+        {
+            "file": "white grey.jpg",
+            "color": "White Grey"
+        },
+        {
+            "file": "white.jpg",
+            "color": "White"
+        }
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B09PVGTFV4",
+        "url": "https://www.amazon.in/dp/B09PVGTFV4",
+        "collected_at": "2026-08-26"
+    }
+}

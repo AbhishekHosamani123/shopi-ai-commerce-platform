@@ -1,0 +1,265 @@
+{
+    "product_id": "BAG-002",
+    "basic_info": {
+        "name": "FUR JADEN Anti Theft Number Lock Backpack",
+        "brand": "FUR JADEN",
+        "category": "Bags",
+        "subcategory": "Laptop Backpack",
+        "product_type": "Backpack",
+        "gender": "Unisex",
+        "description": "Anti-theft laptop backpack with a 15.6-inch laptop compartment, USB charging port, organizer pocket and number lock."
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2000,
+        "selling_price": 699,
+        "discount_amount": 1301
+    },
+    "attributes": {
+        "laptop_compatible": true,
+        "laptop_size": "15.6 inch",
+        "material": null,
+        "capacity": null,
+        "water_resistant": null,
+        "weight": null,
+        "dimensions": null,
+        "style": "Anti-theft / Laptop Backpack",
+        "gender": "Unisex",
+        "use_cases": [
+            "College",
+            "Office",
+            "Travel",
+            "Daily use"
+        ]
+    },
+    "security": {
+        "anti_theft": true,
+        "number_lock": true,
+        "lock_type": "Number lock",
+        "lock_reliability": "Mixed customer feedback"
+    },
+    "storage": {
+        "laptop_compartment": true,
+        "laptop_compartment_size": "15.6 inch",
+        "organizer_pocket": true,
+        "main_compartment": true,
+        "bottle_pocket": true,
+        "additional_pockets": null
+    },
+    "connectivity": {
+        "usb_charging_port": true,
+        "charging_cable_included": null,
+        "power_bank_included": false
+    },
+    "carrying": {
+        "strap_type": "Shoulder straps",
+        "back_panel": null,
+        "handle": true
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Batman Black",
+                "available": true,
+                "image": "Batman Black.jpg"
+            },
+            {
+                "name": "Black",
+                "available": true,
+                "image": "black.jpg"
+            },
+            {
+                "name": "Grey",
+                "available": true,
+                "image": "Grey.jpg"
+            },
+            {
+                "name": "Grey 2",
+                "available": true,
+                "image": "grey2.jpg"
+            },
+            {
+                "name": "Navy",
+                "available": true,
+                "image": "Navy.jpg"
+            }
+        ]
+    },
+    "images": {
+        "primary": "black.jpg",
+        "gallery": [
+            "Batman Black.jpg",
+            "black.jpg",
+            "Grey.jpg",
+            "grey2.jpg",
+            "Navy.jpg"
+        ],
+        "image_directory": "products/Bags/BAG-002/"
+    },
+    "reviews": {
+        "average_rating": 4.1,
+        "total_ratings": 16381,
+        "rating_distribution": {
+            "5": 56,
+            "4": 20,
+            "3": 10,
+            "2": 4,
+            "1": 10
+        },
+        "customer_signals": {
+            "positive": [
+                "Spacious main compartment",
+                "Can accommodate one laptop, two tablets and a thin book according to one review",
+                "Front pocket useful for a tablet",
+                "Side bottle pocket has thick material",
+                "USB charging port is useful while travelling",
+                "Number lock can be useful while travelling",
+                "Good material and zips according to customer feedback",
+                "Good value for money",
+                "Suitable for college students"
+            ],
+            "negative": [
+                "USB charging hardware quality has been criticized",
+                "Bag handle durability has been criticized",
+                "Some customers reported stitching issues",
+                "Number lock has received negative usability feedback",
+                "No rain cover was reported by a customer",
+                "Some customers felt the internal organization could be better",
+                "One customer reported that the bag is not completely waterproof"
+            ]
+        },
+        "representative_reviews": [
+            {
+                "rating": 4,
+                "title": "Good bag, but could be better",
+                "sentiment": "mixed",
+                "topics": [
+                    "space",
+                    "laptop",
+                    "tablet",
+                    "bottle_pocket",
+                    "USB",
+                    "number_lock",
+                    "organization"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Quality",
+                "sentiment": "positive",
+                "topics": [
+                    "durability",
+                    "long_term_use"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Charging point needs improvement",
+                "sentiment": "mixed",
+                "topics": [
+                    "USB",
+                    "charging",
+                    "material",
+                    "space"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Good Bag for College Students",
+                "sentiment": "mixed",
+                "topics": [
+                    "college",
+                    "space",
+                    "books",
+                    "lunch_box",
+                    "USB",
+                    "value_for_money",
+                    "strap_stitching"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Number lock is a disaster",
+                "sentiment": "negative",
+                "topics": [
+                    "number_lock",
+                    "usability"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Not completely waterproof",
+                "sentiment": "mixed",
+                "topics": [
+                    "water_resistance",
+                    "material",
+                    "appearance",
+                    "value"
+                ]
+            }
+        ]
+    },
+    "sales_intelligence": {
+        "best_for": [
+            "College students",
+            "Office employees",
+            "Laptop users",
+            "Travellers",
+            "Daily commuters"
+        ],
+        "strengths": [
+            "15.6-inch laptop compartment",
+            "Anti-theft number lock",
+            "USB charging port",
+            "Spacious main compartment",
+            "Organizer pocket",
+            "Bottle pocket",
+            "Good value for money"
+        ],
+        "potential_limitations": [
+            "USB charging component may not be very durable",
+            "Handle and stitching have received durability complaints",
+            "Number lock may be difficult to use",
+            "Internal organization could be better",
+            "No rain cover reported",
+            "Not completely waterproof according to customer feedback"
+        ],
+        "recommendation_profile": {
+            "budget": "Budget / Mid-range",
+            "primary_use": "College / Office / Travel",
+            "laptop_use": true,
+            "security_priority": "High",
+            "organization_priority": "High",
+            "value_for_money": "High",
+            "weather_protection": "Limited"
+        },
+        "customer_questions_supported": [
+            "Does it fit a 15.6-inch laptop?",
+            "Does it have an anti-theft lock?",
+            "Does it have a USB charging port?",
+            "Is it good for college?",
+            "Is it good for office?",
+            "Is it suitable for travel?",
+            "Does it have a bottle pocket?",
+            "Is it spacious?",
+            "Is it waterproof?",
+            "Is the number lock reliable?",
+            "What do customers say about the USB charging port?",
+            "Is it worth the price?"
+        ]
+    },
+    "availability": {
+        "status": null,
+        "stock_quantity": null
+    },
+    "policies": {
+        "return_policy": "10 days Return & Exchange",
+        "exchange_policy": null,
+        "warranty": null
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B09VTC876Z",
+        "url": "https://www.amazon.in/Number-Backpack-Compartment-Charging-Organizer/dp/B09VTC876Z"
+    }
+}

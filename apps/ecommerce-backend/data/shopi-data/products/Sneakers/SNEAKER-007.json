@@ -1,0 +1,237 @@
+{
+    "product_id": "SNEAKER-007",
+    "sku": "B0DJQTYL21",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Campus Men OG-27 Sneakers",
+    "brand": "Campus",
+    "pricing": {
+        "mrp": 2699,
+        "selling_price": 1209,
+        "currency": "INR",
+        "discount_percent": 55,
+        "variant_pricing": [
+            {
+                "color": "WHT/BLK",
+                "selling_price": 1209,
+                "mrp": 2699,
+                "discount_percent": 55
+            },
+            {
+                "color": "WHT/D.GRN",
+                "selling_price": 1149,
+                "mrp": 2699,
+                "discount_percent": 57
+            }
+        ]
+    },
+    "description": "Campus OG-27 men's sneakers designed for everyday casual wear, featuring a PU upper, Yoga Max cushioned insole and anti-slip outsole. The sneakers are lightweight, breathable and suitable for casual outings, travel and everyday use.",
+    "attributes": {
+        "material": "Polyurethane",
+        "upper_material": "Polyurethane",
+        "sole_material": "Ethylene Vinyl Acetate",
+        "outsole_material": "EVA and TPR",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "toe_style": "Round Toe",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "theme": "Sport",
+        "occasion": "Casual",
+        "sport_type": "General Athletic",
+        "arch_type": "Medium Arch",
+        "cushioning_level": "Maximum",
+        "insole_cushioning": "Air/Gel Cushioning",
+        "special_features": [
+            "All Weather Grip",
+            "Breathable",
+            "Cushioned",
+            "Flexible",
+            "Lightweight"
+        ],
+        "country_of_origin": "India",
+        "weight_grams": 546
+    },
+    "colors": [
+        {
+            "name": "WHT/BLK",
+            "available": true
+        },
+        {
+            "name": "WHT/D.GRN",
+            "available": true
+        }
+    ],
+    "sizes": [
+        {
+            "size": "6 UK",
+            "available": true
+        },
+        {
+            "size": "7 UK",
+            "available": true
+        },
+        {
+            "size": "8 UK",
+            "available": true
+        },
+        {
+            "size": "9 UK",
+            "available": true
+        },
+        {
+            "size": "10 UK",
+            "available": true
+        }
+    ],
+    "features": [
+        "Anti-slip sole",
+        "Yoga Max cushioned insole",
+        "Maximum cushioning",
+        "Lightweight construction",
+        "Breathable fit",
+        "Flexible design",
+        "Lace-up closure",
+        "EVA and TPR outsole",
+        "All-weather grip"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "Travel",
+        "College",
+        "Lifestyle",
+        "Light athletic use"
+    ],
+    "ratings": {
+        "average_rating": 4.2,
+        "rating_count": 805,
+        "rating_distribution": {
+            "5_star_percent": 56,
+            "4_star_percent": 25,
+            "3_star_percent": 8,
+            "2_star_percent": 2,
+            "1_star_percent": 9
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Good quality at a reasonable price",
+            "text": "Feels really comfortable and good looking. Good fit and reasonable price.",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "WHT/D.GRN"
+        },
+        {
+            "rating": 4,
+            "title": "Looks decent",
+            "text": "Looks decent. Sole is very soft and comfortable. The size chart should be checked carefully because it mentions shoe length from heel to toe rather than foot length.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Good",
+            "text": "Good product in budget.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "I love this",
+            "text": "I love this.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable",
+            "text": "Comfortable to wear and lightweight. One drawback mentioned was limited ventilation, along with concerns about sole construction and durability.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 1,
+            "title": "Quality not good according to price",
+            "text": "The reviewer felt the quality was not good enough for the price and mentioned visible glue and construction concerns.",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "WHT/BLK"
+        },
+        {
+            "rating": 3,
+            "title": "Value for money",
+            "text": "Good pair of shoes as per price.",
+            "verified_purchase": true
+        },
+        {
+            "rating": 5,
+            "title": "Nice",
+            "text": "It's very soft and nice.",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "WHT/D.GRN"
+        }
+    ],
+    "review_insights": {
+        "positive": [
+            "Comfortable",
+            "Soft sole",
+            "Good appearance",
+            "Good value for money",
+            "Lightweight",
+            "Good for everyday use"
+        ],
+        "negative": [
+            "Mixed feedback about fit",
+            "Some durability concerns",
+            "Some finishing issues",
+            "Limited ventilation mentioned by one reviewer",
+            "Some quality concerns relative to price"
+        ],
+        "best_for": [
+            "Everyday casual wear",
+            "College",
+            "Travel",
+            "Casual outings",
+            "Budget-conscious buyers",
+            "Users prioritizing comfort"
+        ],
+        "not_ideal_for": [
+            "Wet conditions",
+            "Heavy outdoor use",
+            "Users requiring maximum durability"
+        ]
+    },
+    "manufacturer": "Campus Activewear Ltd.",
+    "packer": "Campus Activewear Ltd.",
+    "importer": "Campus Activewear Limited",
+    "images": [
+        {
+            "file": "WHT_BLK.jpg",
+            "color": "WHT/BLK",
+            "is_primary": true
+        },
+        {
+            "file": "WHT_D.GRN.jpg",
+            "color": "WHT/D.GRN",
+            "is_primary": false
+        }
+    ],
+    "ai_attributes": {
+        "comfort": "High",
+        "value_for_money": "High",
+        "appearance": "Good",
+        "weight": "Lightweight",
+        "fit": "Mixed",
+        "durability": "Mixed",
+        "weather_suitability": "Dry conditions",
+        "recommendation": "Recommended for everyday casual wear, college, travel and users looking for a comfortable budget sneaker."
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0DJQTYL21",
+        "url": "https://www.amazon.in/dp/B0DJQTYL21",
+        "collected_at": "2026-08-26"
+    }
+}

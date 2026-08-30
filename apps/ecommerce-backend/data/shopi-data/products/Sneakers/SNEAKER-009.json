@@ -1,0 +1,320 @@
+{
+    "product_id": "SNEAKER-009",
+    "sku": "B0DQDGM8MX",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Campus Men OG-34 Sneakers",
+    "brand": "Campus",
+    "pricing": {
+        "mrp": 2799,
+        "selling_price": 829,
+        "currency": "INR",
+        "discount_percent": 70
+    },
+    "description": "A casual men's sneaker from Campus designed for everyday wear, walking and light running, featuring a lace-up closure, cushioned insole, anti-slip sole design and a minimalist solid style.",
+    "attributes": {
+        "material": "Polyvinyl Chloride",
+        "upper_material": "Polyvinyl Chloride",
+        "sole_material": "Ethylene Vinyl Acetate",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "theme": "Minimalist",
+        "toe_style": "Closed Toe",
+        "strap_type": "Laces",
+        "insole_cushioning": "Air",
+        "cushioning_level": "Maximum",
+        "special_features": [
+            "Bubble Yoga Max Insole",
+            "Anti-Slip Sole Design"
+        ],
+        "sport_type": [
+            "Running",
+            "Walking"
+        ],
+        "occasion": [
+            "Casual",
+            "Running",
+            "Walking"
+        ],
+        "country_of_origin": "India",
+        "weight_grams": 546
+    },
+    "colors": [
+        {
+            "name": "White",
+            "available": true
+        },
+        {
+            "name": "Off White",
+            "available": true
+        }
+    ],
+    "sizes": [
+        {
+            "size": "6 UK",
+            "available": true
+        },
+        {
+            "size": "7 UK",
+            "available": true
+        },
+        {
+            "size": "8 UK",
+            "available": true
+        },
+        {
+            "size": "9 UK",
+            "available": true
+        },
+        {
+            "size": "10 UK",
+            "available": true
+        }
+    ],
+    "features": [
+        "Bubble Yoga Max Insole",
+        "Anti-slip sole design",
+        "Air cushioning",
+        "Maximum cushioning",
+        "Lace-up closure",
+        "Lightweight construction",
+        "Comfortable for walking",
+        "Minimalist solid design",
+        "Suitable for casual wear",
+        "Suitable for running and walking"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "Walking",
+        "Light running",
+        "Travel",
+        "Lifestyle"
+    ],
+    "ratings": {
+        "average_rating": 4.0,
+        "rating_count": 481,
+        "rating_distribution": {
+            "5_star_percent": 58,
+            "4_star_percent": 18,
+            "3_star_percent": 10,
+            "2_star_percent": 4,
+            "1_star_percent": 10
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Ek dam rapchandus maal !!!",
+            "text": "Best shoes with good comfort. Exactly as shown in the image and worth the money. The customer was pleasantly surprised by the quality and had a positive experience with Campus."
+        },
+        {
+            "rating": 5,
+            "title": "Overall review as daily usage",
+            "text": "Great quality and perfect fit for the price. The synthetic leather quality is better than expected in this budget. The fit and cushioning are comfortable and the overall structure is good. Durability seems good so far."
+        },
+        {
+            "rating": 4,
+            "title": "Packing",
+            "text": "The product is good, but the packaging was poor. The customer recommended checking the package before delivery."
+        },
+        {
+            "rating": 5,
+            "title": "Very nice product",
+            "text": "Value for money and long lasting."
+        },
+        {
+            "rating": 1,
+            "title": "Very bad quality",
+            "text": "The shoes stopped being usable after only 1-2 weeks of regular use."
+        },
+        {
+            "rating": 3,
+            "title": "Size issue",
+            "text": "The customer experienced sizing problems between sizes 7 and 8. One size was too large while the other was too tight for full-day use. When the correct size fits, the shoes are considered good in terms of appearance and comfort."
+        },
+        {
+            "rating": 5,
+            "title": "Excellent product, quality of material and comfort is excellent.",
+            "text": "Good product and the quality of the material is better."
+        },
+        {
+            "rating": 5,
+            "title": "Very good product",
+            "text": "Very good product."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "text": "The customer considered the product good."
+        },
+        {
+            "rating": 3,
+            "title": "Quality issue",
+            "text": "The customer reported that the quality was not good."
+        },
+        {
+            "rating": 4,
+            "title": "NICE",
+            "text": "Very nice shoes and good value for money."
+        },
+        {
+            "rating": 2,
+            "title": "Soul was not good",
+            "text": "The shoes look the same as shown, but the sole quality was reported as very bad."
+        },
+        {
+            "rating": 3,
+            "title": "It cuts",
+            "text": "The customer reported that the shoe started cutting at the front after approximately one month of use."
+        },
+        {
+            "rating": 4,
+            "title": "Budget friendly and good quality",
+            "text": "Good product."
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable and Stylish Everyday Sneakers",
+            "text": "Lightweight, comfortable and suitable for daily use. The cushioning feels good for walking, and the design looks modern. Good quality at an affordable price and suitable for casual wear."
+        },
+        {
+            "rating": 3,
+            "title": "Low quality",
+            "text": "The customer considered the product low quality and not good value for money."
+        },
+        {
+            "rating": 5,
+            "title": "According to price.. awesome",
+            "text": "Good product for the price."
+        },
+        {
+            "rating": 3,
+            "title": "Nice shoes",
+            "text": "Nice product for the price."
+        },
+        {
+            "rating": 5,
+            "title": "NICE",
+            "text": "Positive rating for the product."
+        },
+        {
+            "rating": 3,
+            "title": "Defective piece",
+            "text": "The sole was reported to be misaligned with a visible gap between the green and white parts. The customer reported poor bonding and finishing and requested replacement."
+        },
+        {
+            "rating": 4,
+            "title": "Product specifications",
+            "text": "The customer liked the product but felt that it matched only particular outfits. Quality seemed okay at the given price."
+        },
+        {
+            "rating": 4,
+            "title": "Best gift you can give",
+            "text": "Very good product. Comfortable for long walks, good grip on mountain roads and suitable for walking in the rain."
+        },
+        {
+            "rating": 2,
+            "title": "Not worth it",
+            "text": "The customer reported that the material scratches easily and did not consider the material quality good."
+        },
+        {
+            "rating": 5,
+            "title": "Worth it",
+            "text": "The customer considered the product worth the price."
+        },
+        {
+            "rating": 5,
+            "title": "Perfect for Daily Use",
+            "text": "Super comfortable shoes suitable for daily walking and gym use. The cushioning is soft and the grip is strong. Considered worth the money."
+        },
+        {
+            "rating": 4,
+            "title": "You can buy it",
+            "text": "Pretty good quality and nice looks, but the customer did not find it particularly comfortable."
+        },
+        {
+            "rating": 4,
+            "title": "Shoes is good",
+            "text": "The shoes were good, but the packaging was very poor and the shoe box arrived damaged."
+        },
+        {
+            "rating": 5,
+            "title": "Looks good",
+            "text": "Very nice looking shoes and worth the price. The customer considered it a good choice."
+        },
+        {
+            "rating": 5,
+            "title": "Quality is very good",
+            "text": "Best product and looks the same as shown in the picture."
+        },
+        {
+            "rating": 5,
+            "title": "Looking awesome",
+            "text": "Awesome shoes and the customer received many compliments."
+        }
+    ],
+    "review_insights": {
+        "positive": [
+            "Good appearance and modern design",
+            "Comfortable for many everyday uses",
+            "Good cushioning",
+            "Good fit when the correct size is selected",
+            "Good value for money",
+            "Lightweight construction",
+            "Good grip",
+            "Suitable for walking",
+            "Suitable for casual wear",
+            "Many customers liked the quality for the price"
+        ],
+        "negative": [
+            "Some customers reported poor durability",
+            "Some customers reported quality issues",
+            "Some customers experienced sizing problems",
+            "Some customers reported sole or bonding defects",
+            "Some customers found the shoes uncomfortable",
+            "Several customers reported poor packaging",
+            "Material may scratch easily according to one review",
+            "Some customers reported the sole quality was poor"
+        ],
+        "best_for": [
+            "Everyday casual wear",
+            "Walking",
+            "Casual outings",
+            "Budget-conscious buyers",
+            "Travel",
+            "Light gym use",
+            "Customers looking for stylish budget sneakers"
+        ],
+        "not_ideal_for": [
+            "Customers requiring highly durable footwear",
+            "Customers uncertain about their shoe size",
+            "Long-duration use where maximum comfort is essential",
+            "Customers expecting premium material quality"
+        ]
+    },
+    "manufacturer": "Campus Activewear Ltd",
+    "packer": "Campus Activewear Ltd.",
+    "importer": "Campus Activewear Ltd",
+    "images": [
+        {
+            "file": "Black & White.jpg",
+            "color": "White"
+        },
+        {
+            "file": "off white.jpg",
+            "color": "Off White"
+        }
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0DQDGM8MX",
+        "url": "https://www.amazon.in/dp/B0DQDGM8MX",
+        "collected_at": "2026-08-26"
+    }
+}

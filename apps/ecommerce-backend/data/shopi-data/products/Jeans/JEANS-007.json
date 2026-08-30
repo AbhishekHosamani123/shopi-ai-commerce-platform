@@ -1,0 +1,563 @@
+{
+    "product_id": "JEANS-007",
+    "product": {
+        "name": "TAGAS Men's Regular Fit Carrot Tapered Jeans",
+        "brand": "TAGAS",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Tapered / Carrot Fit Jeans",
+        "description": "Men's regular-fit denim jeans with a carrot-style tapered leg, mid-rise waist and washed finish. Made from a cotton-rich denim blend with viscose and polyester, designed for casual everyday wear.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "style": "Carrot",
+        "rise": "Mid Rise",
+        "leg_style": "Tapered",
+        "length": "Standard Length",
+        "material": "Denim",
+        "fabric_composition": {
+            "cotton": "88%",
+            "viscose": "7%",
+            "polyester": "5%"
+        },
+        "fabric_weight": "Medium Weight",
+        "stretch": "Stretch",
+        "closure": "Button / Zipper Fly",
+        "waist_line": "Natural",
+        "finish": "Washed",
+        "pocket": true,
+        "care": "Machine Wash",
+        "colors": [
+            "Black",
+            "Blue",
+            "Cream",
+            "Dark Blue",
+            "Green",
+            "Medium Blue"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40"
+        ],
+        "country_of_origin": "India",
+        "department": "Men",
+        "item_weight_grams": 400,
+        "net_quantity": 1,
+        "style_tags": [
+            "casual",
+            "regular fit",
+            "carrot fit",
+            "tapered",
+            "mid rise",
+            "washed denim",
+            "everyday wear",
+            "casual fashion",
+            "comfortable",
+            "men's jeans"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "college wear",
+            "hangouts",
+            "weekend wear",
+            "travel",
+            "casual parties",
+            "smart casual"
+        ],
+        "season_tags": [
+            "all season",
+            "summer",
+            "winter"
+        ],
+        "lifestyle_tags": [
+            "casual",
+            "everyday",
+            "street style",
+            "relaxed fashion",
+            "smart casual"
+        ]
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 779,
+        "currency": "INR",
+        "discount_percentage": 74,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/JEANS-007/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Blue",
+            "image": "products/JEANS-007/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Cream",
+            "image": "products/JEANS-007/cream.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/JEANS-007/dark blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/JEANS-007/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Medium Blue",
+            "image": "products/JEANS-007/meium blue.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.4,
+        "rating_count": 420,
+        "review_count": 152
+    },
+    "rating_distribution": {
+        "5_star_percentage": 39,
+        "4_star_percentage": 17,
+        "3_star_percentage": 16,
+        "2_star_percentage": 6,
+        "1_star_percentage": 22
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customer feedback is mixed. Several buyers praise the fabric, comfort, fit, color and stitching, while other buyers report color differences from the product images, oversized or inconsistent fitting, poor stitching quality, zipper problems and weak value for money.",
+        "positive": [
+            "Several buyers report good fabric quality",
+            "Soft and comfortable fabric mentioned in positive reviews",
+            "Good fit reported by multiple buyers",
+            "Some buyers praise the stitching quality",
+            "Some buyers like the color and overall appearance",
+            "Suitable for daily wear",
+            "Some customers consider the product good value",
+            "Regular tapered/carrot silhouette provides a modern casual look"
+        ],
+        "negative": [
+            "Some customers report the color is different from the product images",
+            "One buyer reported oversized fitting",
+            "One buyer reported defective stitching",
+            "One buyer reported a zipper that repeatedly opens",
+            "Some buyers describe quality as average or poor",
+            "Some buyers question the value for money",
+            "The 1-star rating share is relatively high at 22%"
+        ],
+        "main_concern": "The strongest concern is inconsistent product quality and presentation. Multiple reviews mention color mismatch, stitching issues or zipper problems, while other customers report good quality and fit."
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several buyers report good or perfect fitting, but at least one buyer reported an oversized fit. The listing officially describes the product as regular fit."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Positive reviewers describe the fabric as comfortable and suitable for extended wear."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some buyers describe the material as good, soft and comfortable, while other reviews describe the overall quality as average or poor."
+        },
+        "stitching_quality": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some buyers specifically praise strong and neat stitching, while negative reviews report defective or poor stitching."
+        },
+        "appearance": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some customers like the color and appearance, but multiple reviews indicate that certain colors may not look exactly like the listing images."
+        },
+        "color_accuracy": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "Multiple reviews mention that the received color or finishing differed from the product images."
+        },
+        "zipper_quality": {
+            "sentiment": "negative",
+            "confidence": "low",
+            "note": "One verified review specifically reports that the zipper repeatedly opens unexpectedly."
+        },
+        "value_for_money": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some buyers consider the jeans good value, while others explicitly say the product is not worth the money."
+        },
+        "daily_wear_suitability": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several positive reviews describe the jeans as suitable for daily or casual wear."
+        }
+    },
+    "pros": [
+        "Cotton-rich denim composition",
+        "88% cotton fabric",
+        "Regular fit",
+        "Tapered carrot silhouette",
+        "Mid-rise construction",
+        "Washed finish",
+        "Multiple color options",
+        "Sizes 28 to 40",
+        "Machine washable",
+        "Some positive feedback about comfort",
+        "Some positive feedback about stitching",
+        "Some positive feedback about fit",
+        "Low selling price compared with MRP"
+    ],
+    "cons": [
+        "3.4/5 overall rating",
+        "22% of ratings are 1-star",
+        "Color may differ from product images",
+        "Inconsistent fit feedback",
+        "Stitching complaints",
+        "Zipper complaint",
+        "Mixed quality feedback",
+        "Mixed value-for-money feedback"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 6.5,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual everyday wear",
+            "Customers who prefer regular fit",
+            "Customers who like tapered jeans",
+            "Customers who prefer mid-rise jeans",
+            "College wear",
+            "Weekend outfits",
+            "Casual outings",
+            "Customers wanting multiple color choices"
+        ],
+        "not_ideal_for": [
+            "Customers who require highly consistent quality",
+            "Customers who need exact color matching with product photos",
+            "Customers who strongly prioritize stitching quality",
+            "Customers looking for premium denim",
+            "Customers who prefer slim or skinny jeans",
+            "Customers who want strong review confidence"
+        ],
+        "size_advice": "The listing provides sizes 28 through 40. Because review feedback includes both perfect-fit and oversized-fit experiences, customers should check the size chart before ordering.",
+        "color_advice": "Customers should be aware that some reviewers reported receiving a color that looked different from the product images.",
+        "quality_advice": "Do not position this as premium-quality denim. The reviews are mixed, with both strong quality praise and complaints about stitching and overall finishing.",
+        "sales_advice": "Lead with the ₹779 price, cotton-rich denim, regular fit, tapered carrot silhouette, mid-rise design and six color choices. Do not hide the mixed review signal if the customer asks about quality or reliability.",
+        "review_advice": "The 3.4-star rating and 420 global ratings should be treated as a meaningful warning signal. The 22% 1-star share is particularly important when recommending this product."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "regular fit jeans",
+            "tapered jeans",
+            "carrot fit jeans",
+            "mid rise jeans",
+            "men's jeans",
+            "casual jeans",
+            "washed jeans",
+            "denim jeans",
+            "budget jeans",
+            "affordable jeans",
+            "daily wear jeans",
+            "comfortable jeans",
+            "cotton jeans",
+            "blue jeans",
+            "black jeans",
+            "green jeans",
+            "cream jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "slim fit jeans",
+            "straight fit jeans",
+            "premium denim",
+            "luxury jeans",
+            "exact color match",
+            "perfect stitching",
+            "high quality jeans"
+        ],
+        "strong_attributes": [
+            "regular fit",
+            "carrot",
+            "tapered",
+            "mid rise",
+            "denim",
+            "88% cotton",
+            "washed",
+            "machine washable",
+            "multiple colors",
+            "budget price"
+        ],
+        "warning_attributes": [
+            "3.4 rating",
+            "22% one-star ratings",
+            "color mismatch complaints",
+            "stitching complaints",
+            "zipper complaint",
+            "inconsistent fit",
+            "mixed quality",
+            "mixed value"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Deepanshu Yadav",
+            "date": "2026-02-17",
+            "color": "Green",
+            "size": "34",
+            "title": "The stitching is neat and strong, showing great attention to detail.",
+            "sentiment": "positive",
+            "themes": [
+                "fabric quality",
+                "comfort",
+                "stitching",
+                "fit",
+                "color",
+                "value for money"
+            ],
+            "summary": "Reviewer praised the soft and durable fabric, strong stitching, comfortable fit, classy color, practical pockets and overall value."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "reviewer": "Kalyan",
+            "date": "2026-07-23",
+            "color": "Blue",
+            "size": "32",
+            "title": "Not worth for money",
+            "sentiment": "negative",
+            "themes": [
+                "color mismatch",
+                "finishing",
+                "oversized fit",
+                "stitching quality",
+                "value for money"
+            ],
+            "summary": "Reviewer reported that the received color and finishing differed from the product images, described the fit as oversized and complained about stitching quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Richi kb",
+            "date": "2026-08-21",
+            "color": "Blue",
+            "size": "40",
+            "title": "Worth the money",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "material",
+                "value"
+            ],
+            "summary": "Reviewer liked the color and described the material positively."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Abhijith biju",
+            "date": "2026-07-14",
+            "color": "Dark Blue",
+            "size": "36",
+            "title": "Zipper problem",
+            "sentiment": "mixed_negative",
+            "themes": [
+                "fit",
+                "quality",
+                "zipper"
+            ],
+            "summary": "Reviewer said the fit was okay and quality average, but reported that the zipper repeatedly opened unexpectedly."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "sajal konar",
+            "date": "2026-07-01",
+            "color": "Black",
+            "size": "36",
+            "title": "Nice Quality",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fabric",
+                "fit",
+                "color",
+                "daily wear"
+            ],
+            "summary": "Reviewer praised the fabric comfort, fit, color and suitability for daily wear."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Mr Karnavat",
+            "date": "2026-05-29",
+            "color": "Dark Blue",
+            "size": "34",
+            "title": "mst",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit",
+                "appearance",
+                "durability",
+                "value"
+            ],
+            "summary": "Reviewer described the jeans as premium-looking, comfortable and soft, with durable stitching and a stylish dark-blue finish."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "reviewer": "Vishal",
+            "date": "2026-08-21",
+            "color": "Dark Blue",
+            "size": "36",
+            "title": ".",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "stitching"
+            ],
+            "summary": "Reviewer reported very poor product quality and stitching."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "reviewer": "Renjith Renju",
+            "date": "2026-07-08",
+            "color": "Charcol Black",
+            "size": "36",
+            "title": "The item is average.",
+            "sentiment": "negative",
+            "themes": [
+                "overall quality"
+            ],
+            "summary": "Reviewer described the product as average."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Johnson",
+            "date": "2026-08-18",
+            "color": "Medium Blue",
+            "size": "36",
+            "title": "Meterial is good",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "material",
+                "quality"
+            ],
+            "summary": "Reviewer gave a short positive comment about the material."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Sumit Yadav",
+            "date": "2026-05-30",
+            "color": "Green",
+            "size": "36",
+            "title": "Ok product",
+            "sentiment": "mixed",
+            "themes": [
+                "value for money"
+            ],
+            "summary": "Reviewer considered the product okay but said it was not value for money."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Rais Shaikh",
+            "date": "2026-03-14",
+            "color": "Medium Blue",
+            "size": "30",
+            "title": "Color different but size is perfect.",
+            "sentiment": "mixed",
+            "themes": [
+                "color mismatch",
+                "fit",
+                "sizing"
+            ],
+            "summary": "Reviewer said the color was not as shown in the picture but kept the jeans because the size and fitting were perfect."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Ramesh Prakasam",
+            "date": "2026-05-05",
+            "color": "Medium Blue",
+            "size": "32",
+            "title": "Average",
+            "sentiment": "neutral",
+            "themes": [
+                "overall experience"
+            ],
+            "summary": "Reviewer described the product as average."
+        }
+    ],
+    "manufacturer": {
+        "name": "TIFFNY CORPORATION",
+        "address": "Tiffny Corporation, Ankleshwar-393001, Gujarat, India"
+    },
+    "packer": {
+        "name": "Tiffny Corporation",
+        "address": "Tiffny Corporation, Ankleshwar-393001, Gujarat, India"
+    },
+    "importer": {
+        "name": "Tiffny Corporation",
+        "address": "Tiffny Corporation, Ankleshwar-393001, Gujarat, India"
+    },
+    "additional_information": {
+        "asin": "B0GCNMY4QK",
+        "model_number": "MDJ-1",
+        "model_name": "MDJ-1-MEIUM BLUE-32",
+        "style_number": "MDJ-1",
+        "manufacturer_part_number": "MDJ-1",
+        "generic_name": "Tagas Men's Tapered Fit Jeans | Carrot Fit Jeans for Men | High Rise Stretchable Casual Jeans | Relax Fit Denim for Men | Narrow Bottom Jeans",
+        "unit_count": 1,
+        "item_weight_grams": 400,
+        "country_of_origin": "India",
+        "date_first_available": "2025-12-26"
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the regular fit, carrot/tapered leg, mid-rise waist, denim composition, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the low ₹779 price, cotton-rich denim, regular tapered design and positive comfort/fit reviews, but clearly mention the 3.4 rating and complaints about color, stitching and zipper quality.",
+        "when_customer_asks_about_fit": "Explain that the official fit is regular with a tapered/carrot leg and mid-rise waist. Mention that some buyers reported a perfect fit while at least one buyer reported an oversized fit. Recommend checking the size chart.",
+        "when_customer_asks_about_quality": "Give a balanced answer. Some customers praise the fabric and stitching, while others report poor quality and stitching defects. Do not describe the product as premium quality.",
+        "when_customer_asks_about_color": "Explain that six local product images are available: Black, Blue, Cream, Dark Blue, Green and Medium Blue. Also disclose that some reviewers reported the received color looked different from the listing images.",
+        "when_customer_asks_about_comfort": "Mention that several positive reviews describe the fabric as soft and comfortable, but avoid claiming universally high comfort because the overall review sentiment is mixed.",
+        "when_customer_asks_about_reviews": "Explain that the product has a 3.4/5 rating from 420 global ratings and 152 customer reviews. Highlight both positive feedback about fabric, fit and comfort and negative feedback about color mismatch, stitching, zipper and value.",
+        "when_customer_asks_about_sizing": "Available sizes are 28, 30, 32, 34, 36, 38 and 40. Because fit feedback is mixed, recommend checking the size chart before purchase.",
+        "when_customer_asks_about_price": "The captured listing price is ₹779 against an MRP of ₹2,999, representing a 74% discount.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes reliability or premium quality, prefer products with stronger ratings and fewer quality complaints. If the customer prioritizes low price and casual tapered styling, this product can remain an option.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its low price. Consider the customer's preferred fit, color, quality expectations, budget and tolerance for mixed reviews.",
+        "when_customer_asks_about_daily_wear": "This product can be recommended for casual and daily wear because several reviewers describe it as comfortable and suitable for everyday use.",
+        "when_customer_asks_about_value": "The product is inexpensive at the captured price of ₹779, but value feedback is mixed. Some customers consider it worthwhile while others explicitly say it is not value for money."
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "Product rating is only 3.4/5.",
+            "22% of ratings are 1-star.",
+            "Customer feedback is mixed.",
+            "Some reviewers report color mismatch with product images.",
+            "Some reviewers report stitching problems.",
+            "One reviewer reports a zipper problem.",
+            "The listing uses 'MEIUM BLUE' as the Amazon variant spelling, while the local image filename is 'meium blue.jpg'.",
+            "The local product directory contains six color images.",
+            "The Amazon listing identifies the product as regular fit, carrot style and tapered leg."
+        ]
+    }
+}

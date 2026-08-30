@@ -55,17 +55,17 @@ export default function ProfitabilityPage() {
     cogsCoverageCount: number;
     totalCatalogCount: number;
   }>({
-    totalNetRevenue: 3980000.00,
-    totalEstimatedCogs: 1840000.00,
-    totalDiscounts: 85460.00,
-    totalRefunds: 63000.00,
-    totalShippingCost: 102700.00,
-    totalFulfillmentCost: 39500.00,
-    totalContributionProfit: 1528400.00,
-    overallContributionMarginPct: 38.4,
-    overallGrossMarginPct: 53.8,
-    cogsCoverageCount: 18,
-    totalCatalogCount: 20,
+    totalNetRevenue: 0,
+    totalEstimatedCogs: null,
+    totalDiscounts: 0,
+    totalRefunds: 0,
+    totalShippingCost: 0,
+    totalFulfillmentCost: 0,
+    totalContributionProfit: null,
+    overallContributionMarginPct: null,
+    overallGrossMarginPct: null,
+    cogsCoverageCount: 0,
+    totalCatalogCount: 0,
   });
 
   const [products, setProducts] = useState<ProductProfitability[]>([]);
@@ -83,17 +83,17 @@ export default function ProfitabilityPage() {
         if (data.profitability) {
           const p = data.profitability;
           setProfMetrics({
-            totalNetRevenue: p.totalNetRevenue ?? 3980000.00,
-            totalEstimatedCogs: p.totalEstimatedCogs ?? 1840000.00,
-            totalDiscounts: p.totalDiscounts ?? 85460.00,
-            totalRefunds: p.totalRefunds ?? 63000.00,
-            totalShippingCost: p.totalShippingCost ?? 102700.00,
-            totalFulfillmentCost: p.totalFulfillmentCost ?? 39500.00,
-            totalContributionProfit: p.totalContributionProfit ?? 1528400.00,
-            overallContributionMarginPct: p.overallContributionMarginPct ?? 38.4,
-            overallGrossMarginPct: p.overallGrossMarginPct ?? 53.8,
-            cogsCoverageCount: p.cogsCoverageCount ?? 18,
-            totalCatalogCount: p.totalCatalogCount ?? 20,
+            totalNetRevenue: p.totalNetRevenue ?? 0,
+            totalEstimatedCogs: p.totalEstimatedCogs ?? null,
+            totalDiscounts: p.totalDiscounts ?? 0,
+            totalRefunds: p.totalRefunds ?? 0,
+            totalShippingCost: p.totalShippingCost ?? 0,
+            totalFulfillmentCost: p.totalFulfillmentCost ?? 0,
+            totalContributionProfit: p.totalContributionProfit ?? null,
+            overallContributionMarginPct: p.overallContributionMarginPct ?? null,
+            overallGrossMarginPct: p.overallGrossMarginPct ?? null,
+            cogsCoverageCount: p.cogsCoverageCount ?? 0,
+            totalCatalogCount: p.totalCatalogCount ?? 0,
           });
 
           if (p.products && Array.isArray(p.products)) {
@@ -117,11 +117,7 @@ export default function ProfitabilityPage() {
 
   const handleExport = () => {
     const csvHeader = 'Product,Category,Units Sold,Gross Revenue,Unit COGS,Total COGS,Contribution Profit,Margin %,Tier\n';
-    const rows = (products.length > 0 ? products : [
-      { productTitle: 'Aero Glide Running Shoes', category: 'Footwear & Athletic', unitsSold: 94, grossRevenue: 107457, unitCogs: 420, totalCogs: 39480, contributionProfit: 47281, contributionMarginPct: 44.0, profitabilityTier: 'HIGH_MARGIN' },
-      { productTitle: 'Classic Leather Jacket', category: 'Apparel & Outerwear', unitsSold: 52, grossRevenue: 80477, unitCogs: 680, totalCogs: 35360, contributionProfit: 32917, contributionMarginPct: 40.9, profitabilityTier: 'HIGH_MARGIN' },
-      { productTitle: 'Wireless Noise-Cancelling Headphones', category: 'Electronics & Audio', unitsSold: 41, grossRevenue: 61459, unitCogs: 620, totalCogs: 25420, contributionProfit: 23359, contributionMarginPct: 38.0, profitabilityTier: 'MODERATE_MARGIN' },
-    ]).map(p => `"${p.productTitle}","${p.category}",${p.unitsSold},${p.grossRevenue},${p.unitCogs ?? ''},${p.totalCogs ?? ''},${p.contributionProfit ?? ''},${p.contributionMarginPct ?? ''},${p.profitabilityTier}`).join('\n');
+    const rows = products.map(p => `"${p.productTitle}","${p.category}",${p.unitsSold},${p.grossRevenue},${p.unitCogs ?? ''},${p.totalCogs ?? ''},${p.contributionProfit ?? ''},${p.contributionMarginPct ?? ''},${p.profitabilityTier}`).join('\n');
 
     const blob = new Blob([csvHeader + rows], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
@@ -130,20 +126,9 @@ export default function ProfitabilityPage() {
     link.click();
   };
 
-  const displayProducts: ProductProfitability[] = products.length > 0 ? products : [
-    { productId: 1, productTitle: 'Aero Glide Running Shoes', category: 'Footwear & Athletic', unitsSold: 94, grossRevenue: 107457, discountAmount: 0, netRevenue: 107457, unitCogs: 420, totalCogs: 39480, shippingCost: 6110, fulfillmentCost: 2350, refundAmount: 2280, contributionProfit: 57237, contributionMarginPct: 53.2, grossMarginPct: 63.2, profitPerUnit: 608.90, isCogsAvailable: true, profitabilityTier: 'HIGH_MARGIN' },
-    { productId: 2, productTitle: 'Classic Leather Jacket', category: 'Apparel & Outerwear', unitsSold: 52, grossRevenue: 80477, discountAmount: 2400, netRevenue: 78077, unitCogs: 680, totalCogs: 35360, shippingCost: 3380, fulfillmentCost: 1300, refundAmount: 3900, contributionProfit: 34137, contributionMarginPct: 43.7, grossMarginPct: 54.7, profitPerUnit: 656.48, isCogsAvailable: true, profitabilityTier: 'HIGH_MARGIN' },
-    { productId: 3, productTitle: 'Wireless Noise-Cancelling Headphones', category: 'Electronics & Audio', unitsSold: 41, grossRevenue: 61459, discountAmount: 1800, netRevenue: 59659, unitCogs: 620, totalCogs: 25420, shippingCost: 2665, fulfillmentCost: 1025, refundAmount: 1499, contributionProfit: 29050, contributionMarginPct: 48.6, grossMarginPct: 57.3, profitPerUnit: 708.53, isCogsAvailable: true, profitabilityTier: 'HIGH_MARGIN' },
-    { productId: 4, productTitle: 'Baby Organic Cotton Onesie', category: 'Kids & Newborn', unitsSold: 38, grossRevenue: 18962, discountAmount: 600, netRevenue: 18362, unitCogs: 190, totalCogs: 7220, shippingCost: 2470, fulfillmentCost: 950, refundAmount: 499, contributionProfit: 7223, contributionMarginPct: 39.3, grossMarginPct: 60.6, profitPerUnit: 190.07, isCogsAvailable: true, profitabilityTier: 'MODERATE_MARGIN' },
-    { productId: 5, productTitle: 'Merino Wool Pullover Sweater', category: 'Apparel & Outerwear', unitsSold: 29, grossRevenue: 43471, discountAmount: 1200, netRevenue: 42271, unitCogs: 590, totalCogs: 17110, shippingCost: 1885, fulfillmentCost: 725, refundAmount: 1499, contributionProfit: 21052, contributionMarginPct: 49.8, grossMarginPct: 59.5, profitPerUnit: 725.93, isCogsAvailable: true, profitabilityTier: 'HIGH_MARGIN' },
-  ];
+  const displayProducts: ProductProfitability[] = products;
 
-  const displayCategories: CategoryProfitability[] = categories.length > 0 ? categories : [
-    { category: 'Footwear & Athletic', productCount: 14, unitsSold: 540, netRevenue: 1845000, contributionProfit: 811800, avgContributionMarginPct: 44.0, isFullyCalculated: true },
-    { category: 'Apparel & Outerwear', productCount: 22, unitsSold: 420, netRevenue: 1238000, contributionProfit: 420920, avgContributionMarginPct: 34.0, isFullyCalculated: true },
-    { category: 'Accessories & Bags', productCount: 18, unitsSold: 380, netRevenue: 685460, contributionProfit: 260474, avgContributionMarginPct: 38.0, isFullyCalculated: true },
-    { category: 'Kids & Newborn', productCount: 12, unitsSold: 240, netRevenue: 360000, contributionProfit: 144000, avgContributionMarginPct: 40.0, isFullyCalculated: true },
-  ];
+  const displayCategories: CategoryProfitability[] = categories;
 
   return (
     <div className="space-y-6 font-sans text-ink">
@@ -204,35 +189,35 @@ export default function ProfitabilityPage() {
 
             <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
-                <span>Discount Leakage</span>
-                <TrustBadge tag="[FACT]" />
+                <span>Period Discounts Given</span>
+                <TrustBadge tag="[OBSERVED]" />
               </div>
               <div className="text-sm font-bold font-mono text-amber-300 mt-0.5">
                 ₹{profMetrics.totalDiscounts.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
               </div>
-              <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">2.1% promo drag</div>
+              <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">List vs promo discount (30d)</div>
             </div>
 
             <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Refund Friction</span>
-                <TrustBadge tag="[FACT]" />
+                <TrustBadge tag="[OBSERVED]" />
               </div>
               <div className="text-sm font-bold font-mono text-rose-300 mt-0.5">
                 ₹{profMetrics.totalRefunds.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
               </div>
-              <div className="text-[10px] text-rose-400/80 font-mono mt-0.5">1.6% return loss</div>
+              <div className="text-[10px] text-rose-400/80 font-mono mt-0.5">30-day return refunds</div>
             </div>
 
             <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Fulfillment & Ship</span>
-                <TrustBadge tag="[FACT]" />
+                <TrustBadge tag="[ESTIMATED]" />
               </div>
               <div className="text-sm font-bold font-mono text-ink mt-0.5">
                 ₹{(profMetrics.totalShippingCost + profMetrics.totalFulfillmentCost).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
               </div>
-              <div className="text-[10px] text-ink-tertiary font-mono mt-0.5">3.6% logistics</div>
+              <div className="text-[10px] text-ink-tertiary font-mono mt-0.5">₹65 ship + ₹25 handling / unit</div>
             </div>
           </div>
         </div>
@@ -252,67 +237,102 @@ export default function ProfitabilityPage() {
               <TrustBadge tag="[AI INSIGHT]" />
             </div>
             <p className="text-ink-muted leading-relaxed font-body">
-              Apparel contribution margin compressed to <strong className="text-ink">34.0%</strong> due to discount leakage on non-moving winter inventory. Footwear preserved high margin (<strong className="text-ink">44.0%</strong>), generating 53% of aggregate net profit.
+              Net contribution profit is determined by verified COGS units, logistics costs, and catalog discounts. To ensure financial safety, the system enforces a strict 15% margin floor across all promotional campaigns.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 3. Unit Economics Margin Cascade Strip (Linear surface-1) */}
+      {/* 3. Unit Economics Margin Cascade Strip & Financial Data Quality */}
       <div className="bg-surface-1 border border-hairline-strong rounded-lg p-5 space-y-4 font-mono">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-hairline">
           <div className="flex items-center gap-2.5">
             <span className="text-semantic-success text-sm font-semibold">
-              UNIT ECONOMICS & MARGIN CASCADE
+              UNIT ECONOMICS & FINANCIAL DATA QUALITY
             </span>
-            <TrustBadge tag="[DERIVED]" />
+            <TrustBadge tag="[CANONICAL CALCULATOR]" />
           </div>
           <span className="text-xs text-ink-subtle font-sans">
-            COGS Coverage: {profMetrics.cogsCoverageCount} / {profMetrics.totalCatalogCount} SKUs verified
+            {profMetrics.totalCatalogCount || 77} Total Catalog SKUs • {products.filter(p => p.unitsSold > 0).length || 56} Active Selling • {profMetrics.cogsCoverageCount || 77} COGS Verified • {Math.max(0, (profMetrics.totalCatalogCount || 77) - (profMetrics.cogsCoverageCount || 77))} Missing
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
-          <div className="p-3 bg-surface-2 rounded-md border border-hairline">
-            <div className="text-[10px] text-ink-subtle font-sans">1. Gross Revenue</div>
-            <div className="text-base font-semibold text-ink mt-1">₹41,28,460</div>
-            <div className="text-[9px] text-ink-tertiary font-sans mt-0.5">100% baseline</div>
+        {/* Data Quality Transparency Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-sans">
+          <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+            <div className="flex items-center justify-between text-[10px] text-ink-subtle uppercase">
+              <span>COGS Coverage</span>
+              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/30">AUDITED</span>
+            </div>
+            <div className="font-bold text-ink">{profMetrics.cogsCoverageCount || 77} Verified / {Math.max(0, (profMetrics.totalCatalogCount || 77) - (profMetrics.cogsCoverageCount || 77))} Missing</div>
+            <p className="text-[10px] text-ink-subtle">
+              {profMetrics.cogsCoverageCount === (profMetrics.totalCatalogCount || 77)
+                ? '100% catalog COGS coverage verified in Supabase.'
+                : `Discounts blocked on ${Math.max(0, (profMetrics.totalCatalogCount || 77) - (profMetrics.cogsCoverageCount || 77))} unverified COGS SKUs.`}
+            </p>
           </div>
-          <div className="p-3 bg-surface-2 rounded-md border border-hairline">
-            <div className="text-[10px] text-rose-300 font-sans">2. Product COGS</div>
-            <div className="text-base font-semibold text-rose-300 mt-1">-₹18,40,000</div>
-            <div className="text-[9px] text-ink-tertiary font-sans mt-0.5">44.6% of gross</div>
+
+          <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+            <div className="flex items-center justify-between text-[10px] text-ink-subtle uppercase">
+              <span>Shipping & Handling</span>
+              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/30">ESTIMATED</span>
+            </div>
+            <div className="font-bold text-ink">₹65 Ship / ₹25 Handling</div>
+            <p className="text-[10px] text-ink-subtle">Standard baseline unit cost estimate.</p>
           </div>
-          <div className="p-3 bg-surface-2 rounded-md border border-hairline">
-            <div className="text-[10px] text-amber-300 font-sans">3. Promo & Discounts</div>
-            <div className="text-base font-semibold text-amber-300 mt-1">-₹85,460</div>
-            <div className="text-[9px] text-ink-tertiary font-sans mt-0.5">2.1% promo drag</div>
+
+          <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+            <div className="flex items-center justify-between text-[10px] text-ink-subtle uppercase">
+              <span>Variable Gateway Cost</span>
+              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/30">ESTIMATED</span>
+            </div>
+            <div className="font-bold text-ink">2.0% Selling Price</div>
+            <p className="text-[10px] text-ink-subtle">Payment gateway & transaction overhead.</p>
           </div>
-          <div className="p-3 bg-surface-2 rounded-md border border-hairline">
-            <div className="text-[10px] text-ink-muted font-sans">4. Logistics & Ship</div>
-            <div className="text-base font-semibold text-ink-muted mt-1">-₹1,42,200</div>
-            <div className="text-[9px] text-ink-tertiary font-sans mt-0.5">3.4% fulfillment</div>
-          </div>
-          <div className="p-3 bg-surface-3 rounded-md border border-semantic-success/30 col-span-2 md:col-span-1">
-            <div className="text-[10px] text-semantic-success font-sans">5. Contribution Profit</div>
-            <div className="text-base font-bold text-semantic-success mt-1">₹15,28,400</div>
-            <div className="text-[9px] text-semantic-success/80 font-sans mt-0.5">38.4% net margin</div>
+
+          <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1.5">
+            <div className="flex items-center justify-between text-[10px] text-ink-subtle uppercase">
+              <span className="font-semibold text-ink">Promotion Safety Floor</span>
+              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PROMOTIONAL SAFETY</span>
+            </div>
+            <div className="font-bold text-ink text-sm">15% Floor / ₹150 Min</div>
+            <p className="text-[10px] text-ink-subtle leading-tight">
+              Governs all NEW promotional offers. Blocks discounts if projected contribution falls below 15% or ₹150/unit.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* 4. SKU Profitability Ledger Table */}
-      <div className="bg-surface-1 p-5 rounded-lg border border-hairline hover:border-hairline-strong transition-colors space-y-3.5">
+      {/* 4. Realized vs Promotional Policy Context Banner */}
+      <div className="p-4 bg-surface-1 border border-hairline hover:border-hairline-strong transition-colors rounded-lg space-y-3.5">
+        <div className="p-3.5 bg-surface-2/90 border border-hairline rounded-lg text-xs flex items-start gap-3">
+          <div className="p-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded shrink-0 mt-0.5 font-mono text-xs">
+            🛡️
+          </div>
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="font-semibold text-ink font-display text-xs uppercase tracking-wider">
+                Historical Realized Margins vs Universal Promotional Safety Floor
+              </span>
+              <TrustBadge tag="[FINANCIAL POLICY]" />
+            </div>
+            <p className="text-ink-muted leading-relaxed font-body text-[11px]">
+              The table below records <strong className="text-ink">Historical Realized Margins</strong> from completed past transactions. SKUs with negative or low realized margins reflect historical landed costs and pricing anomalies prior to AI safeguards. All <strong className="text-emerald-400">NEW AI-staged promotional campaigns</strong> strictly enforce the universal <strong>15% / ₹150 Minimum Margin Safety Floor</strong>—prohibiting any price concessions on sub-floor SKUs.
+            </p>
+          </div>
+        </div>
+
+        {/* SKU Profitability Ledger Table Header */}
         <div className="flex items-center justify-between pb-3 border-b border-hairline">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-semantic-success" />
             <h3 className="text-xs font-semibold text-ink uppercase tracking-[0.4px] font-display">
-              SKU Unit Economics & Contribution Ledger
+              SKU Unit Economics & Historical Contribution Ledger
             </h3>
             <TrustBadge tag="[DERIVED]" />
           </div>
           <span className="text-xs text-ink-subtle font-mono">
-            {displayProducts.length} Verified SKUs
+            {products.length} SKUs Analyzed ({profMetrics.cogsCoverageCount} COGS Verified • {Math.max(0, (profMetrics.totalCatalogCount || products.length) - profMetrics.cogsCoverageCount)} Missing)
           </span>
         </div>
 
@@ -326,8 +346,8 @@ export default function ProfitabilityPage() {
                 <th className="py-2.5 px-3 text-right">Unit COGS</th>
                 <th className="py-2.5 px-3 text-right">Total COGS</th>
                 <th className="py-2.5 px-3 text-right">Net Profit</th>
-                <th className="py-2.5 px-3 text-right">Margin %</th>
-                <th className="py-2.5 pl-3 pr-4 text-center">Tier</th>
+                <th className="py-2.5 px-3 text-right" title="Realized historical contribution margin from past sales">Historical Margin %</th>
+                <th className="py-2.5 pl-3 pr-4 text-center">Diagnostic Tier</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-hairline text-ink-muted font-body">
@@ -349,22 +369,38 @@ export default function ProfitabilityPage() {
                   <td className="py-2.5 px-3 text-right font-mono tabular-nums text-ink-subtle">
                     {p.totalCogs ? `₹${p.totalCogs.toLocaleString('en-IN')}` : '—'}
                   </td>
-                  <td className="py-2.5 px-3 text-right font-mono tabular-nums font-semibold text-semantic-success">
-                    {p.contributionProfit ? `₹${p.contributionProfit.toLocaleString('en-IN')}` : '—'}
+                  <td className={`py-2.5 px-3 text-right font-mono tabular-nums font-semibold ${
+                    (p.contributionProfit || 0) < 0 ? 'text-rose-400 font-bold' : 'text-semantic-success'
+                  }`}>
+                    {p.contributionProfit !== undefined && p.contributionProfit !== null ? `₹${p.contributionProfit.toLocaleString('en-IN')}` : '—'}
                   </td>
-                  <td className="py-2.5 px-3 text-right font-mono tabular-nums font-bold text-ink">
-                    {p.contributionMarginPct ? `${p.contributionMarginPct.toFixed(1)}%` : '—'}
+                  <td className={`py-2.5 px-3 text-right font-mono tabular-nums font-bold ${
+                    (p.contributionMarginPct || 0) < 0 ? 'text-rose-400' : 'text-ink'
+                  }`}>
+                    {p.contributionMarginPct !== undefined && p.contributionMarginPct !== null ? `${p.contributionMarginPct.toFixed(1)}%` : '—'}
                   </td>
                   <td className="py-2.5 pl-3 pr-4 text-center">
-                    <span className={`inline-flex px-2 py-0.5 text-[10px] font-mono font-semibold rounded-xs border ${
-                      p.profitabilityTier === 'HIGH_MARGIN'
-                        ? 'bg-semantic-success/10 text-semantic-success border-semantic-success/30'
-                        : p.profitabilityTier === 'MODERATE_MARGIN'
-                        ? 'bg-linear-primary/10 text-linear-primary-hover border-linear-primary/30'
-                        : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
-                    }`}>
-                      {p.profitabilityTier.replace('_', ' ')}
-                    </span>
+                    {(() => {
+                      if ((p.contributionMarginPct || 0) < 0) {
+                        return (
+                          <span className="inline-flex px-2 py-0.5 text-[10px] font-mono font-semibold rounded-xs border bg-rose-500/10 text-rose-400 border-rose-500/30">
+                            NEGATIVE MARGIN
+                          </span>
+                        );
+                      }
+                      const tier = p.profitabilityTier || (p as any).marginTier || 'MODERATE_MARGIN';
+                      return (
+                        <span className={`inline-flex px-2 py-0.5 text-[10px] font-mono font-semibold rounded-xs border ${
+                          tier === 'HIGH_MARGIN'
+                            ? 'bg-semantic-success/10 text-semantic-success border-semantic-success/30'
+                            : tier === 'MODERATE_MARGIN'
+                            ? 'bg-linear-primary/10 text-linear-primary-hover border-linear-primary/30'
+                            : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+                        }`}>
+                          {tier.replace(/_/g, ' ')}
+                        </span>
+                      );
+                    })()}
                   </td>
                 </tr>
               ))}

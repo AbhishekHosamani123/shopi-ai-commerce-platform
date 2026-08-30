@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { TrustBadge } from './TrustBadge';
+import SafeMarkdownRenderer from '@/components/AI/SafeMarkdownRenderer';
+
 
 interface Message {
   id: string;
@@ -102,7 +104,19 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
       const data = await res.json();
 
       let replyText = data.message || 'I processed your request against the live PostgreSQL merchant database.';
-      let trustTag = '[AI INSIGHT]';
+      let trustTag: '[OBSERVED]' | '[CALCULATED]' | '[MODEL ESTIMATE]' | '[RECOMMENDATION]' | '[SIMULATION]' = '[CALCULATED]';
+      
+      const lowerReply = replyText.toLowerCase();
+      if (lowerReply.includes('recommend') || lowerReply.includes('suggest') || lowerReply.includes('campaign') || lowerReply.includes('approve')) {
+        trustTag = '[RECOMMENDATION]';
+      } else if (lowerReply.includes('intent') || lowerReply.includes('estimate') || lowerReply.includes('project') || lowerReply.includes('score')) {
+        trustTag = '[MODEL ESTIMATE]';
+      } else if (lowerReply.includes('order') || lowerReply.includes('recorded') || lowerReply.includes('database') || lowerReply.includes('catalog')) {
+        trustTag = '[OBSERVED]';
+      } else if (lowerReply.includes('revenue') || lowerReply.includes('margin') || lowerReply.includes('profit') || lowerReply.includes('aov')) {
+        trustTag = '[CALCULATED]';
+      }
+
       let suggestedAction;
 
       if (data.actionPreview) {
@@ -201,13 +215,18 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
               </div>
 
               <div
-                className={`p-3.5 rounded-md max-w-[88%] leading-relaxed whitespace-pre-line text-xs font-body ${
+                className={`p-3.5 rounded-md max-w-[88%] leading-relaxed text-xs font-body ${
                   msg.sender === 'user'
-                    ? 'bg-surface-3 text-ink border border-hairline-strong'
-                    : 'bg-surface-2 text-ink-muted border border-hairline'
+                    ? 'bg-surface-3 text-ink border border-hairline-strong whitespace-pre-wrap'
+                    : 'bg-surface-2 text-ink border border-hairline'
                 }`}
               >
-                {msg.text}
+                {msg.sender === 'user' ? (
+                  msg.text
+                ) : (
+                  <SafeMarkdownRenderer content={msg.text} variant="merchant" />
+                )}
+
 
                 {/* Suggested Action Embedded Card */}
                 {msg.suggestedAction && (

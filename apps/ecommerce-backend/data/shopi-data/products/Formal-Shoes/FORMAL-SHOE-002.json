@@ -1,0 +1,308 @@
+{
+    "id": "FORMAL-SHOE-002",
+    "category": "Formal Shoes",
+    "subcategory": "Men's Formal Shoes",
+    "product": {
+        "name": "Centrino Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear",
+        "brand": "Centrino",
+        "gender": "Men",
+        "style": "Derby",
+        "shoe_type": "Formal Shoes",
+        "occasion": [
+            "Formal",
+            "Office",
+            "Business",
+            "Business Casual",
+            "Casual",
+            "Travel"
+        ],
+        "pattern": "Solid",
+        "color": [
+            "Black",
+            "Brown",
+            "Tan"
+        ],
+        "default_color": "Black",
+        "toe_style": "Closed Toe",
+        "closure": "Lace-Up",
+        "heel_type": "Cone Heel",
+        "strap_type": "Lace",
+        "country_of_origin": "India",
+        "asin": "B0CFY32GFF",
+        "model_number": "64055-1",
+        "generic_name": "Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear"
+    },
+    "pricing": {
+        "currency": "INR",
+        "selling_price": 499,
+        "mrp": 2199,
+        "discount_percentage": 77,
+        "price_display": "₹499",
+        "tax_inclusive": true
+    },
+    "materials": {
+        "upper_material": "Synthetic",
+        "sole_material": "Leather",
+        "insole_material": "Foam",
+        "lining_material": "Breathable material"
+    },
+    "comfort_and_features": {
+        "cushioning": "Moderate",
+        "cushioning_level": "Moderate",
+        "insole_cushioning": "Foam",
+        "lightweight": true,
+        "water_resistant": false,
+        "slip_resistant": true,
+        "breathable": true,
+        "comfortable": true,
+        "durable": true,
+        "features": [
+            "Breathable",
+            "Comfortable",
+            "Cushioned",
+            "Durable"
+        ]
+    },
+    "sizes": {
+        "available_uk_sizes": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ],
+        "size_system": "UK"
+    },
+    "dimensions": {
+        "weight_grams": 700,
+        "length_cm": 28,
+        "width_cm": 6,
+        "height_cm": 9
+    },
+    "ratings": {
+        "average_rating": 3.6,
+        "total_ratings": 1437,
+        "rating_distribution": {
+            "5_star": 44,
+            "4_star": 17,
+            "3_star": 15,
+            "2_star": 4,
+            "1_star": 20
+        }
+    },
+    "review_insights": {
+        "overall_sentiment": "Mixed",
+        "positive_topics": [
+            "Appearance",
+            "Comfort",
+            "Versatility",
+            "Value for money",
+            "Fit"
+        ],
+        "negative_topics": [
+            "Durability",
+            "Material quality",
+            "Stitching",
+            "Heel quality",
+            "Fit consistency"
+        ],
+        "amazon_customer_summary": "Customers generally like the shoes for their appearance, comfort, versatility and low price. However, durability is a major concern, with multiple customers reporting sole, stitching, heel and material failures within weeks or months of use.",
+        "ai_generated_topic_counts": {
+            "appearance": 31,
+            "versatility": 20,
+            "comfort": 12,
+            "value_for_money": 72,
+            "fit": 37,
+            "material_quality": 16,
+            "durability": 55,
+            "creasing": 11
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Nn",
+            "date": "2026-08-21",
+            "reviewer": "prasanna",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Brown",
+            "text": "Good."
+        },
+        {
+            "rating": 1,
+            "title": "Durability of shoes is not even one month.",
+            "date": "2026-07-22",
+            "reviewer": "Gopal Singh",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The shoes did not last even one month. The reviewer strongly advised against buying them.",
+            "helpful_votes": 1
+        },
+        {
+            "rating": 4,
+            "title": "Aryan",
+            "date": "2026-08-15",
+            "reviewer": "Aryan",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "It is okay and can be bought."
+        },
+        {
+            "rating": 3,
+            "title": "Bad Shoes stitching and heels",
+            "date": "2026-06-26",
+            "reviewer": "Neelesh Prabhu",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "The reviewer reported that the shoes last a maximum of around six months, the heels bend to one side, and the glue comes off, requiring repair by a cobbler. The reviewer did not recommend the product.",
+            "helpful_votes": 1
+        },
+        {
+            "rating": 5,
+            "title": "Good. Worth your money",
+            "date": "2026-07-21",
+            "reviewer": "Shaheen",
+            "verified_purchase": true,
+            "size": "11 UK",
+            "color": "Tan",
+            "text": "Good, comfortable and worth the money.",
+            "helpful_votes": 1
+        },
+        {
+            "rating": 5,
+            "title": "Sleek and premium",
+            "date": "2026-03-02",
+            "reviewer": "Parth",
+            "verified_purchase": true,
+            "size": "11 UK",
+            "color": "Black",
+            "text": "The reviewer praised the sleek and premium appearance, polished finish, clean stitching and classic design. They considered the shoes suitable for office wear, formal events and interviews and found them comfortable and good value for the price.",
+            "helpful_votes": 4
+        },
+        {
+            "rating": 1,
+            "title": "fake and very bad",
+            "date": "2026-07-16",
+            "reviewer": "fake and very bad",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Brown",
+            "text": "The reviewer reported that the received shoes appeared fake and defective and requested a refund or replacement.",
+            "helpful_votes": 4
+        },
+        {
+            "rating": 5,
+            "title": "So gentle",
+            "date": "2026-07-31",
+            "reviewer": "Basanta K.",
+            "verified_purchase": true,
+            "size": "11 UK",
+            "color": "Black",
+            "text": "Nice.",
+            "helpful_votes": 2
+        }
+    ],
+    "inventory": {
+        "in_stock": true,
+        "available_quantity": null,
+        "maximum_order_quantity": 3
+    },
+    "delivery": {
+        "free_delivery": true,
+        "return_exchange": "10 days Return & Exchange",
+        "pay_on_delivery": true,
+        "amazon_delivered": true
+    },
+    "seller": {
+        "platform": "Amazon India",
+        "sold_by": "Cocoblu Retail",
+        "fulfilled_by": "Amazon"
+    },
+    "manufacturer": {
+        "name": "Cona Footwear India Pvt Ltd",
+        "address": "C29/1 Site-C UPSIDC Sikandra, Agra, Uttar Pradesh - 282007",
+        "packer": "Cona Footwear India Pvt Ltd",
+        "importer": "Cona Footwear India Pvt Ltd"
+    },
+    "images": {
+        "primary": "black.jpg",
+        "variants": {
+            "black": "black.jpg",
+            "brown": "brown.jpg",
+            "tan": "tan.jpg"
+        },
+        "customer_images_available": true,
+        "product_video_available": true
+    },
+    "source": {
+        "platform": "Amazon India",
+        "source_product_id": "B0CFY32GFF",
+        "product_url": "https://www.amazon.in/dp/B0CFY32GFF"
+    },
+    "additional_metadata": {
+        "date_first_available": "2023-09-02",
+        "best_sellers_rank": {
+            "shoes_and_handbags": 48,
+            "mens_formal_shoes": 2
+        },
+        "surface_recommendation": "Road",
+        "pronation_correction": "Neutral",
+        "adjustable": true,
+        "specific_uses": [
+            "Formal",
+            "Business",
+            "Casual",
+            "Travel",
+            "Leisure",
+            "Work",
+            "Walking"
+        ],
+        "season": "All"
+    },
+    "data_quality_notes": [
+        "Amazon title and top highlights identify the product as a Lace-Up Derby.",
+        "Product specifications also list Shoe Type as Oxford, creating a classification conflict.",
+        "Product description says Closure is Slip-On despite the title and top highlights specifying Lace-Up.",
+        "The description contains generic/template text mentioning multiple unrelated shoe types.",
+        "The product description claims high-quality synthetic material and long durability, but customer reviews contain significant durability complaints.",
+        "Water Resistance Level is explicitly listed as Not Water Resistant.",
+        "The page claims Special Features include Durable, but customer reviews provide mixed evidence for durability.",
+        "Do not treat manufacturer marketing claims about durability as verified product performance."
+    ],
+    "ai_recommendation_profile": {
+        "best_for": [
+            "Budget-conscious buyers",
+            "Office wear",
+            "Business casual",
+            "Formal occasions",
+            "Interviews",
+            "Occasional use"
+        ],
+        "strengths": [
+            "Very low price",
+            "Classic formal appearance",
+            "Multiple colors",
+            "Multiple UK sizes",
+            "Lace-up design",
+            "Cushioned foam insole",
+            "Breathable construction",
+            "Good appearance feedback"
+        ],
+        "weaknesses": [
+            "Low overall rating",
+            "20% 1-star ratings",
+            "Significant durability complaints",
+            "Reports of stitching failure",
+            "Reports of heel deformation",
+            "Reports of glue/sole failure",
+            "Mixed material-quality feedback"
+        ],
+        "recommendation_summary": "An inexpensive formal shoe with strong appearance and comfort feedback, but its durability record is inconsistent. Shopi should recommend it primarily when price is the priority and should disclose the durability concerns.",
+        "recommendation_score": 6.3
+    }
+}

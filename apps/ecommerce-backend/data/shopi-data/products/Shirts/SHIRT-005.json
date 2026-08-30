@@ -1,0 +1,525 @@
+{
+    "product_id": "SHIRT-005",
+    "product": {
+        "name": "DEELMO Men's Regular Fit Button Down Shirt",
+        "brand": "DEELMO",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Button-Down Shirt",
+        "description": "A regular-fit men's button-down shirt made from soft, lightweight polyester fabric. It features a solid design, long sleeves and a spread collar, making it suitable for casual, office, party and semi-formal occasions.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "sleeve_type": "Long Sleeve",
+        "collar": "Spread Collar",
+        "collar_style": "Spread Collar",
+        "neck_style": "Collared Neck",
+        "closure": "Button",
+        "length": "Standard",
+        "style": "Western",
+        "top_style": "Blouson",
+        "cuff_style": "Single Cuff",
+        "season": "All Season",
+        "material": "Polyester",
+        "fabric_type": "Soft Polyester",
+        "fabric_weight": "Lightweight",
+        "fabric_stretch": "Stretchable",
+        "stretchability": "Stretchable",
+        "features": [
+            "Soft fabric",
+            "Breathable fabric",
+            "Wrinkle-resistant",
+            "Lightweight",
+            "Stretchable",
+            "Easy-care fabric"
+        ],
+        "care": {
+            "instructions": [
+                "Hand Wash",
+                "Gentle Machine Wash",
+                "Do Not Bleach"
+            ]
+        },
+        "country_of_origin": "India",
+        "item_weight_grams": 230,
+        "item_dimensions_cm": {
+            "length": 23,
+            "width": 22,
+            "height": 1.8
+        },
+        "unit_count": 1
+    },
+    "pricing": {
+        "selling_price": 495,
+        "mrp": 1999,
+        "currency": "INR",
+        "discount_percentage": 75,
+        "price_type": "snapshot"
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-005/black.jpg"
+            },
+            {
+                "color": "Chiku",
+                "image": "products/shirts/SHIRT-005/chiku.jpg"
+            },
+            {
+                "color": "Dark Green",
+                "image": "products/shirts/SHIRT-005/dark green.jpg"
+            },
+            {
+                "color": "Grey",
+                "image": "products/shirts/SHIRT-005/grey.jpg"
+            },
+            {
+                "color": "Maroon",
+                "image": "products/shirts/SHIRT-005/maroon.jpg"
+            },
+            {
+                "color": "Navy Blue",
+                "image": "products/shirts/SHIRT-005/navy blue.jpg"
+            },
+            {
+                "color": "Pista",
+                "image": "products/shirts/SHIRT-005/pista.jpg"
+            },
+            {
+                "color": "White",
+                "image": "products/shirts/SHIRT-005/white.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "variant_status": "Exact variant-level stock is not available."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-005/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Chiku",
+            "image": "products/shirts/SHIRT-005/chiku.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Green",
+            "image": "products/shirts/SHIRT-005/dark green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/shirts/SHIRT-005/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-005/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Blue",
+            "image": "products/shirts/SHIRT-005/navy blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pista",
+            "image": "products/shirts/SHIRT-005/pista.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-005/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.0,
+        "rating_count": 1034,
+        "rating_distribution_percent": {
+            "5_star": 57,
+            "4_star": 17,
+            "3_star": 10,
+            "2_star": 3,
+            "1_star": 13
+        }
+    },
+    "brand_information": {
+        "brand_status": "Top Brand",
+        "positive_ratings": "79%",
+        "customer_count": "10K+",
+        "recent_orders": "100K+",
+        "amazon_presence": "8+ years"
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "summary": "Customer feedback is mostly positive. Buyers frequently mention good fit, comfortable fabric, appearance, color and value for money. However, some customers report that the shirt can run large, the cloth may feel rough, and it may not be sufficiently breathable during peak summer.",
+        "positive": [
+            "Good overall quality",
+            "Soft and comfortable fabric reported by several buyers",
+            "Good fit reported by multiple buyers",
+            "Good value for money",
+            "Colors generally match expectations",
+            "Lightweight according to some reviewers",
+            "Good appearance",
+            "Available in plus sizes",
+            "Suitable for multiple occasions"
+        ],
+        "negative": [
+            "Some buyers report sizing is too large",
+            "One reviewer described the cloth as rough",
+            "One reviewer raised concerns about breathability in peak summer",
+            "Quality feedback is not completely consistent"
+        ],
+        "main_strength": "Fit, appearance and value for money are the strongest recurring positive signals.",
+        "main_risk": "Sizing consistency and summer breathability are the main concerns."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        },
+        "fit": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Multiple reviewers report good or perfect fit, but at least one verified buyer said the size was too big."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviewers specifically mention liking the color or receiving the expected color."
+        },
+        "breathability": {
+            "sentiment": "mixed",
+            "confidence": "low",
+            "note": "One reviewer reported that it was not breathable during peak summer, while another described the fabric as lightweight."
+        }
+    },
+    "pros": [
+        "Regular fit",
+        "Solid design",
+        "Long sleeves",
+        "Spread collar",
+        "Stretchable polyester fabric",
+        "Lightweight material",
+        "Wrinkle-resistant",
+        "Easy-care fabric",
+        "Multiple color options",
+        "Sizes S through 4XL",
+        "Good value at captured price",
+        "Suitable for casual and semi-formal styling"
+    ],
+    "cons": [
+        "Polyester fabric may not suit customers who prefer cotton",
+        "Some sizing inconsistency",
+        "One reviewer found the cloth rough",
+        "Peak-summer breathability concern",
+        "Exact variant-level stock unavailable"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "office wear",
+        "party wear",
+        "weekend wear",
+        "date night",
+        "semi-formal",
+        "wedding wear",
+        "religious functions"
+    ],
+    "style_tags": [
+        "solid",
+        "regular fit",
+        "button-down",
+        "long sleeve",
+        "spread collar",
+        "stretchable",
+        "polyester",
+        "lightweight",
+        "wrinkle-resistant",
+        "western"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's solid shirt",
+            "solid casual shirt",
+            "regular fit shirt",
+            "polyester shirt",
+            "stretchable shirt",
+            "lightweight shirt",
+            "long sleeve shirt",
+            "button-down shirt",
+            "spread collar shirt",
+            "office casual shirt",
+            "party shirt",
+            "semi-formal shirt",
+            "plus size shirt",
+            "wrinkle resistant shirt"
+        ],
+        "negative_keywords": [
+            "100% cotton shirt",
+            "linen shirt",
+            "non-stretch shirt",
+            "heavy winter shirt",
+            "slim fit shirt"
+        ],
+        "strong_attributes": [
+            "solid",
+            "regular fit",
+            "long sleeve",
+            "spread collar",
+            "stretchable",
+            "lightweight",
+            "wrinkle-resistant",
+            "polyester",
+            "S-4XL"
+        ],
+        "warning_attributes": [
+            "polyester",
+            "possible oversized fit",
+            "mixed breathability feedback"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_SIZE_CHECK",
+        "score": 8.0,
+        "best_for": [
+            "Casual everyday wear",
+            "Office casual outfits",
+            "Party wear",
+            "Weekend outings",
+            "Semi-formal occasions",
+            "Customers wanting stretchable fabric",
+            "Customers wanting lightweight shirts",
+            "Customers looking for plus sizes"
+        ],
+        "not_ideal_for": [
+            "Customers who specifically want cotton",
+            "Customers who strongly prefer highly breathable summer fabric",
+            "Customers who want a slim fit"
+        ],
+        "size_advice": "Check the size chart before ordering because one verified reviewer reported that the shirt runs large.",
+        "fabric_advice": "The product is polyester and is described as lightweight and stretchable. Do not market it as a cotton shirt.",
+        "style_advice": "Position it as a versatile solid western shirt that can work for casual, office, party and semi-formal outfits.",
+        "value_assessment": "At the captured price of ₹495 against an MRP of ₹1,999, it is positioned as a budget/value-oriented shirt.",
+        "quality_advice": "Quality can be described as generally good based on the review distribution, but avoid claiming premium quality as a guaranteed attribute."
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "3XL",
+            "color": "Dusty Rose",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit",
+                "stitching",
+                "color",
+                "value"
+            ],
+            "summary": "Reviewer praised the soft fabric, comfort, fit, stitching, color accuracy and value."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "3XL",
+            "color": "Maroon",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer described the shirt quality and fit as very good and considered it good value for money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Maroon",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "quality",
+                "sizing"
+            ],
+            "summary": "Reviewer considered the quality decent but said the size was too big."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "Chiku",
+            "sentiment": "mixed",
+            "themes": [
+                "fabric",
+                "fit"
+            ],
+            "summary": "Reviewer reported that the cloth felt rough but said the fitting was good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Chiku",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color",
+                "value"
+            ],
+            "summary": "Reviewer praised the quality and color and considered it good within the budget."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Dusty Rose",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "appearance"
+            ],
+            "summary": "Reviewer praised the fit and look."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described it simply as a good product."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "fit",
+                "quality",
+                "breathability",
+                "season"
+            ],
+            "summary": "Reviewer liked the fit but raised a quality concern and said it was not breathable during peak summer; suitable for other seasons."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Black",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the shirt as nice."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Dark Green",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer praised the quality at an affordable price."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "3XL",
+            "color": "Dark Green",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color",
+                "weight"
+            ],
+            "summary": "Reviewer described the shirt as good quality, good color and lightweight."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Dark Green",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fabric"
+            ],
+            "summary": "Reviewer described the quality and fabric positively."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the shirt quality as good."
+        }
+    ],
+    "data_quality": {
+        "rating_count": 1034,
+        "price_available": true,
+        "stock_available": false,
+        "complete_color_image_set": true,
+        "complete_size_list": true,
+        "missing_fields": [
+            "Variant-level stock",
+            "Exact polyester composition details",
+            "Detailed size measurements",
+            "Return policy details",
+            "Delivery information"
+        ],
+        "source_inconsistencies": [
+            "Product title describes the shirt as textured/Hawaiian, while product specifications identify the pattern as solid.",
+            "Product description contains multiple generic neck-style descriptions that conflict with the specific Spread Collar field."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a versatile solid regular-fit men's shirt.",
+        "pattern_rule": "Use Solid as the structured product pattern. Do not claim that the shirt is textured unless verified by the product image.",
+        "fit_rule": "Use Regular Fit as the official fit and recommend checking the size chart because one verified buyer reported that the shirt runs large.",
+        "fabric_rule": "Describe the material as polyester. Highlight lightweight and stretchable properties when relevant, but do not describe it as cotton.",
+        "summer_rule": "Do not make strong claims that it is ideal for peak summer because one verified reviewer reported poor breathability in peak summer.",
+        "quality_rule": "Describe quality as generally good rather than premium because customer feedback includes a rough-fabric complaint.",
+        "value_rule": "Highlight affordability and value for money when the user has a budget-focused query.",
+        "size_rule": "This product supports plus-size searches because sizes range from S through 4XL.",
+        "occasion_rule": "Prioritize casual, office casual, party, weekend, date-night and semi-formal queries.",
+        "comparison_rule": "Prefer this product when the user wants a solid, stretchable, lightweight regular-fit shirt with a wide size range."
+    }
+}

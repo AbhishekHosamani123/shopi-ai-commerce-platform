@@ -2,6 +2,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ActionPreviewCard, ActionPreviewItem } from './ActionPreviewCard';
+import SafeMarkdownRenderer from '../AI/SafeMarkdownRenderer';
+
 
 export interface ChatMessageItem {
   id: string;
@@ -39,11 +41,11 @@ export const MerchantCopilotChat: React.FC<MerchantCopilotChatProps> = ({
     {
       id: 'welcome-msg',
       role: 'assistant',
-      content: `👋 **Welcome to Merchant AI Copilot!**\n\nI am your autonomous business intelligence & action copilot connected directly to your PostgreSQL database. Ask me any question about your revenue, sales velocity, low stock alerts, or say *"Restock running shoes"* to draft actionable recommendations.`,
+      content: `👋 **Welcome to Merchant AI Copilot!**\n\nI am your business intelligence & action copilot grounded in your canonical Supabase commerce ledger. Ask me any question about your revenue, repeat buyers, dormant customers, high-intent prospects, stock runway, or margin safety.`,
       intent: 'welcome',
       period: 'Live',
       insights: [
-        'All 15,037 orders and 25,687 inventory movements are reconciled in real-time.',
+        'Canonical product catalog and live commerce telemetry are reconciled in real-time.',
         'Human-in-the-loop: Every action requires explicit merchant approval before execution.'
       ],
       recommendations: [
@@ -409,9 +411,14 @@ export const MerchantCopilotChat: React.FC<MerchantCopilotChatProps> = ({
               }`}
             >
               {/* Message Content */}
-              <div className="whitespace-pre-wrap font-sans text-xs">
-                {msg.content}
+              <div className="font-sans text-xs">
+                {msg.role === 'user' ? (
+                  <div className="whitespace-pre-wrap">{msg.content}</div>
+                ) : (
+                  <SafeMarkdownRenderer content={msg.content} variant="light" />
+                )}
               </div>
+
 
               {/* Action Preview Cards Stream */}
               {msg.actions && msg.actions.length > 0 && (

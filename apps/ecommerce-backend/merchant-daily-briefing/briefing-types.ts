@@ -3,6 +3,11 @@ export interface DailyBriefingResult {
   businessHealthScore: number;
   healthStatus: string;
   date: string;
+  /**
+   * Human-readable executive brief synthesized from live metrics.
+   * Derived from real shopi_orders / shopi_products data — not a static fallback.
+   */
+  executiveBrief: string;
   yesterdayMetrics: {
     revenue: number;
     orderCount: number;

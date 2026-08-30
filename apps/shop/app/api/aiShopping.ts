@@ -2,10 +2,54 @@
 import backendClient from '../../Helpers/backendClient';
 import { cookies } from 'next/headers';
 
+export interface ShopiAIContext {
+  pageType: string;
+  currentProduct?: {
+    productId?: string | number;
+    sku?: string;
+    title?: string;
+    price?: number;
+    mrp?: number;
+    category?: string;
+    selectedColor?: string;
+    selectedSize?: string;
+    selectedVariantImage?: string;
+  };
+  selectedVariant?: {
+    color?: string;
+    size?: string;
+    imageUrl?: string;
+  };
+  activeFilters?: {
+    category?: string;
+    subcategory?: string;
+    minPrice?: number;
+    maxPrice?: number;
+    rating?: number;
+    gender?: string;
+  };
+  cart?: Array<{
+    productId: string;
+    sku?: string;
+    name: string;
+    price: number;
+    quantity: number;
+    color?: string;
+    size?: string;
+  }>;
+  recentlyViewed?: Array<{
+    productId: string;
+    sku: string;
+    title: string;
+  }>;
+  searchQuery?: string;
+}
+
 export interface AiChatMessagePayload {
   message: string;
   userId?: number;
   conversationId?: string;
+  context?: ShopiAIContext;
 }
 
 export interface RealCartItemData {
@@ -32,14 +76,22 @@ export interface RealCartStateData {
 export interface AiProductCardData {
   id?: string;
   productId: string;
+  sku?: string;
   title?: string;
   name: string;
   price: number;
+  mrp?: number;
+  discountPercentage?: number;
   currency: string;
   imageUrl: string;
   category?: string;
   description?: string;
+  color?: string;
+  size?: string;
   inStock?: boolean;
+  stars?: number;
+  rating?: number;
+  reviewCount?: number;
 }
 
 export interface CheckoutActionData {

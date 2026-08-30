@@ -18,9 +18,10 @@ export async function buildBusinessDigest(
 ): Promise<Omit<MerchantAiDigestRecord, 'digestId' | 'createdAt'>> {
   const periodKey = digestType === 'MONTHLY' ? 'last_30_days' : digestType === 'WEEKLY' ? 'last_7_days' : 'last_30_days';
 
+  const comparisonPromise = digestType === 'WEEKLY' ? getWeekOverWeekComparison() : getMonthOverMonthComparison();
   const [revSummary, comparison, topProducts, lowStock, returnsData, prioritiesData] = await Promise.all([
     getRevenueSummary(periodKey),
-    digestType === 'MONTHLY' ? getMonthOverMonthComparison() : getWeekOverWeekComparison(),
+    comparisonPromise,
     getTopProducts(3, periodKey),
     getLowStockProducts(200),
     getReturnAnalytics(periodKey),

@@ -23,15 +23,15 @@ const Navbar = () => {
             <div className='flex w-[80%] justify-between'>
                 <div className='flex gap-2'>
                     {socialMedia.map((each,index)=>
-                        <button key={index} className='text-[16px] text-silver bg-gray-200 w-[25px] rounded-md hover:bg-salmon hover:text-white'><i className={`fa-brands fa-${each}`}></i></button>
+                        <button key={index} className='text-[16px] text-slate-500 bg-slate-100 w-[25px] rounded-md hover:bg-[#0D94FB] hover:text-white transition-colors'><i className={`fa-brands fa-${each}`}></i></button>
                     )}
                     
                 </div>
                 <div>
-                    <p className='text-sm text-silver'>FREE SHIPPING THIS WEEK ORDER OVER - $55</p>
+                    <p className='text-sm text-slate-500'>Free shipping this week on orders over ₹999</p>
                 </div>
                 <div>
-                    <p className='text-[18px] hidden sm:block text-sm font-medium'>Shop Now</p>
+                    <Link href="/categories/Clothing" className='text-sm font-medium text-slate-700 hover:text-[#0D94FB] transition-colors hidden sm:block'>Shop Now</Link>
                 </div>
             </div>
         </div>
@@ -44,11 +44,11 @@ const Navbar = () => {
                             <span>Shopi</span>
                         </Link>
                     </div>
-                    <form onSubmit={searchRedirect} className='border-[1.5px] rounded-[10px] h-[42px] w-[90%] sm:w-[600px] mb-5 sm:mb-0 flex justify-between items-center'>
-                        <input name='searchEntry' placeholder='Enter your product name...' type='text' className='outline-0 ml-5 text-[20px] w-[90%] placeholder:text-base placeholder:text-silver'/>
-                        <button type='submit' className='text-[16px] mr-2'><i className="fa-solid fa-magnifying-glass"></i></button>
+                    <form onSubmit={searchRedirect} className='border-[1.5px] border-slate-200 rounded-[10px] h-[42px] w-[90%] sm:w-[600px] mb-5 sm:mb-0 flex justify-between items-center'>
+                        <input name='searchEntry' placeholder='Enter your product name...' type='text' className='outline-0 ml-5 text-[20px] w-[90%] placeholder:text-base placeholder:text-slate-400 text-slate-800'/>
+                        <button type='submit' className='text-[16px] mr-2 text-slate-500 hover:text-slate-800'><i className="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                    <div className='gap-5 text-davysilver my-8 hidden sm:flex sm:items-center'>
+                    <div className='gap-5 text-slate-700 my-8 hidden sm:flex sm:items-center'>
                         {/* <button><i className="fa-regular fa-user fa-xl"></i></button> */}
                         <Account/>
                         <button onClick={toggleFav}><HeartIcon width={40}/></button>

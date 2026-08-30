@@ -1,0 +1,489 @@
+{
+    "product_id": "JEANS-009",
+    "product": {
+        "name": "Ben Martin Men's Bell Bottom Jeans",
+        "brand": "Ben Martin",
+        "category": "Jeans",
+        "subcategory": "Bell Bottom / Bootcut Jeans",
+        "gender": "Men",
+        "product_type": "Bell Bottom Jeans",
+        "description": "Ben Martin men's retro bell-bottom jeans featuring a high-rise waist, wide flared leg and regular fit. Made from cotton denim with a stretchable construction for comfortable movement and a distinctive retro look.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "style": "Retro",
+        "rise": "High Rise",
+        "leg_style": "Wide / Flared",
+        "length": "Standard Length",
+        "material": "Cotton",
+        "fabric_type": "Denim",
+        "stretch": "Stretchable",
+        "closure": "Button",
+        "care": "Machine Wash",
+        "pockets": {
+            "total": 5,
+            "front_pockets": 2,
+            "back_pockets": 2,
+            "coin_pocket": 1
+        },
+        "colors": [
+            "Black",
+            "Dark Blue",
+            "Green",
+            "Khaki",
+            "Light Blue"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40"
+        ],
+        "country_of_origin": "India",
+        "department": "Men",
+        "item_weight_grams": 400,
+        "net_quantity": 1,
+        "style_tags": [
+            "bell bottom",
+            "bootcut",
+            "wide leg",
+            "flared",
+            "retro",
+            "high rise",
+            "stretch",
+            "casual",
+            "streetwear",
+            "vintage inspired"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "college wear",
+            "parties",
+            "weekend wear",
+            "casual events",
+            "retro themed outfits"
+        ],
+        "lifestyle_tags": [
+            "retro fashion",
+            "street style",
+            "casual",
+            "college fashion",
+            "statement outfits"
+        ]
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 924,
+        "currency": "INR",
+        "discount_percentage": 69,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/Jeans/JEANS-009/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/Jeans/JEANS-009/dark blue.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Green",
+            "image": "products/Jeans/JEANS-009/green.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Khaki",
+            "image": "products/Jeans/JEANS-009/khaki.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/Jeans/JEANS-009/light blue.jpg",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 3.9,
+        "rating_count": 1470
+    },
+    "rating_distribution": {
+        "5_star_percentage": 51,
+        "4_star_percentage": 21,
+        "3_star_percentage": 9,
+        "2_star_percentage": 5,
+        "1_star_percentage": 14
+    },
+    "review_summary": {
+        "overall_sentiment": "positive_with_quality_concerns",
+        "summary": "Customers generally like the jeans for their styling, comfort and value for money. However, feedback is mixed on length, sizing, stitching, color durability and hardware quality.",
+        "positive": [
+            "Strong value-for-money feedback",
+            "Stylish retro bell-bottom design",
+            "Several customers report comfortable fit",
+            "Several customers report good or excellent fitting",
+            "Positive feedback about fabric",
+            "Stretchable construction supports movement",
+            "Available in multiple colors",
+            "Available across a broad size range",
+            "Suitable for college and casual styling"
+        ],
+        "negative": [
+            "Some customers report poor fitting",
+            "Length receives mixed feedback",
+            "Some customers report thin material",
+            "Some customers report weak hook/button quality",
+            "Color fading reported after washing",
+            "Stitching quality receives mixed feedback",
+            "Some sizing inconsistencies reported",
+            "14% of ratings are 1-star"
+        ],
+        "main_concern": "Consistency. Many buyers consider the jeans good value, but reviews indicate that fit, length, stitching and color durability can vary."
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "mixed_positive",
+            "confidence": "high",
+            "note": "Several reviews report excellent or comfortable fitting, but at least one verified buyer reported that the actual fitting did not match the product images."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers describe the jeans as comfortable, and the product is marketed with stretchable construction and a relaxed/roomy silhouette."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "high",
+            "note": "Several customers praise the fabric and quality for the price, while another reviewer described the fabric as relatively thin."
+        },
+        "style": {
+            "sentiment": "strongly_positive",
+            "confidence": "high",
+            "note": "The retro bell-bottom/wide-leg design is consistently positioned as a major feature."
+        },
+        "value_for_money": {
+            "sentiment": "strongly_positive",
+            "confidence": "high",
+            "note": "Value for money is one of the most frequently mentioned positive themes."
+        },
+        "color_durability": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "One verified customer specifically reported that the black color faded within 3–4 washes, while the overall review summary also flags fading as a recurring concern."
+        },
+        "length": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The source's customer summary says several customers consider the length too short."
+        },
+        "stitching": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some customers praise stitching while others report improper stitching."
+        },
+        "hardware": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "A verified buyer reported that the hook/button felt loose and poor quality."
+        }
+    },
+    "pros": [
+        "Distinctive bell-bottom silhouette",
+        "Wide flared leg",
+        "High-rise design",
+        "Regular fit",
+        "Stretchable material",
+        "Cotton denim",
+        "5 pockets",
+        "Machine washable",
+        "Multiple colors",
+        "Sizes 28–40",
+        "Strong value-for-money feedback",
+        "3.9/5 rating",
+        "1,470 global ratings"
+    ],
+    "cons": [
+        "14% one-star ratings",
+        "Mixed sizing feedback",
+        "Mixed length feedback",
+        "Some complaints about thin fabric",
+        "Color fading reported",
+        "Mixed stitching quality",
+        "Button/hook quality concern",
+        "Not suitable for customers wanting a conventional straight/slim silhouette"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_FOR_STYLE_AND_VALUE",
+        "score": 7.8,
+        "best_for": [
+            "Retro fashion",
+            "Bell-bottom lovers",
+            "Wide-leg enthusiasts",
+            "College wear",
+            "Casual outings",
+            "Statement outfits",
+            "Customers wanting an affordable flared jean",
+            "Customers who want stretch and comfort"
+        ],
+        "not_ideal_for": [
+            "Customers wanting slim-fit jeans",
+            "Customers wanting straight-leg jeans",
+            "Customers who dislike high-rise jeans",
+            "Customers demanding highly durable color",
+            "Customers expecting premium denim quality",
+            "Customers who need extremely precise sizing"
+        ],
+        "size_advice": "The listing provides sizes 28–40, but customer feedback on sizing and length is mixed. Recommend checking the size chart and, where possible, comparing waist and length measurements with an existing pair of jeans.",
+        "color_advice": "The local catalog contains Black, Dark Blue, Green, Khaki and Light Blue images. The product source also lists Dark Blue, Light Blue, Grey, Black and White as available colors, so use the local image filenames as the actual catalog variants rather than adding unsupported colors.",
+        "quality_advice": "Do not market this as premium denim despite the product description using the phrase 'premium denim'. Customer feedback is mixed, with strong value-for-money sentiment but complaints about fading, stitching, material thickness and hardware.",
+        "sales_advice": "Lead with the distinctive bell-bottom silhouette, high-rise fit, wide flare, stretchable cotton denim, five pockets, broad size range and ₹924 price. Style is the stronger selling proposition than durability.",
+        "review_advice": "If a customer asks whether it is reliable, give a balanced answer: the 3.9 rating and many positive reviews support the product, but mention that some buyers reported fading, length/sizing problems and hardware quality concerns."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "bell bottom jeans",
+            "bell bottoms",
+            "bootcut jeans",
+            "wide leg jeans",
+            "flared jeans",
+            "wide leg men's jeans",
+            "retro jeans",
+            "vintage jeans",
+            "high rise jeans",
+            "stretch jeans",
+            "college jeans",
+            "statement jeans",
+            "retro fashion",
+            "flare jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "skinny fit",
+            "slim fit",
+            "straight fit",
+            "tapered jeans",
+            "low rise jeans",
+            "regular straight jeans"
+        ],
+        "strong_attributes": [
+            "bell bottom",
+            "wide leg",
+            "flared",
+            "high rise",
+            "retro",
+            "stretchable",
+            "cotton",
+            "5 pockets",
+            "₹924",
+            "sizes 28–40",
+            "value for money"
+        ],
+        "warning_attributes": [
+            "mixed sizing",
+            "mixed length",
+            "color fading",
+            "mixed stitching",
+            "button/hook concern",
+            "14% one-star ratings"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-08-19",
+            "color": "Light Blue",
+            "size": "32",
+            "title": "Must buy",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fit",
+                "comfort",
+                "value"
+            ],
+            "summary": "Reviewer praised the fabric, fit, comfort and value for money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-08-21",
+            "color": "Black",
+            "size": "32",
+            "title": "Good bootcut",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer reported good fitting and considered the jeans worth buying."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-08-23",
+            "color": "Light Blue",
+            "size": "32",
+            "title": "Very good quality",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer praised the bell-bottom jeans and described the quality as very good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-08-21",
+            "color": "Light Blue",
+            "size": "36",
+            "title": "Good product",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit"
+            ],
+            "summary": "Reviewer reported good quality and excellent fitting."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-07-01",
+            "color": "Light Blue",
+            "size": "36",
+            "title": "Good product with good price",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "color",
+                "wash",
+                "value",
+                "material"
+            ],
+            "summary": "Reviewer praised the fit, color and wash but felt the material was thinner than expected."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-08-22",
+            "color": "Green",
+            "size": "28",
+            "title": "Great experience",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "color"
+            ],
+            "summary": "Reviewer said the green variant looked the same as the product pictures."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-07-19",
+            "color": "Black",
+            "size": "32",
+            "title": "Good fit",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fit"
+            ],
+            "summary": "Reviewer described the fit as good and comfortable."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-06-14",
+            "color": "Black",
+            "size": "34",
+            "title": "Quality is good but color starts fading fast",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "color",
+                "fading"
+            ],
+            "summary": "Reviewer liked the quality but reported that the color faded within 3–4 washes."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "date": "2026-06-10",
+            "color": "Black",
+            "size": "28",
+            "title": "Could have been better",
+            "sentiment": "mixed",
+            "themes": [
+                "fabric",
+                "hardware",
+                "comfort",
+                "style"
+            ],
+            "summary": "Reviewer found the jeans comfortable and stylish for the price but criticized the fabric and hook/button quality."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "date": "2026-08-11",
+            "color": "Dark Blue",
+            "size": "30",
+            "title": "Poor fitting",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "sizing"
+            ],
+            "summary": "Reviewer said the fitting did not suit their body and did not match the product images."
+        }
+    ],
+    "manufacturer": {
+        "name": "Maruti Enterprises",
+        "address": "SRS-167, National Market, Peeragarhi, New Delhi",
+        "contact": "9810-118100",
+        "email": "mybenmartincare@gmail.com"
+    },
+    "packer": {
+        "name": "Maruti Enterprises",
+        "address": "SRS-167, National Market, Peeragarhi, New Delhi",
+        "contact": "9810-118100",
+        "email": "mybenmartincare@gmail.com"
+    },
+    "additional_information": {
+        "asin": "B0D9YHK9RT",
+        "country_of_origin": "India",
+        "item_weight_grams": 400,
+        "item_dimensions": "25 x 20 x 3 cm",
+        "net_quantity": 1,
+        "generic_name": "Casual Pants"
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe this as a retro high-rise bell-bottom/wide-leg jean with a flared silhouette, stretchable cotton denim, five pockets and sizes 28–40.",
+        "when_customer_asks_if_good": "Recommend it for customers who specifically want a retro/wide-leg style and good value. Mention the 3.9 rating but also disclose the mixed feedback around sizing, length and fading.",
+        "when_customer_asks_about_fit": "Explain that the official fit is regular, the rise is high and the leg is wide/flared. Because customer feedback on sizing is mixed, recommend checking the size chart.",
+        "when_customer_asks_about_quality": "Give a balanced answer. Several customers praise the quality, fabric and value, while others report thin material, stitching issues and weak hardware.",
+        "when_customer_asks_about_color": "The local catalog contains Black, Dark Blue, Green, Khaki and Light Blue. A verified review specifically says the Green variant looked like the pictures, while another review reports Black fading after 3–4 washes.",
+        "when_customer_asks_about_comfort": "Mention the stretchable construction and roomy wide-leg silhouette. Multiple customers report comfortable wear.",
+        "when_customer_asks_about_reviews": "Explain that the product has a 3.9/5 rating from 1,470 global ratings, with 51% 5-star, 21% 4-star, 9% 3-star, 5% 2-star and 14% 1-star ratings.",
+        "when_customer_asks_about_sizing": "The product supports sizes 28–40 according to the product description, while the captured size selector displays 28–38. Recommend checking current availability and the size chart.",
+        "when_customer_asks_about_price": "The captured listing price is ₹924 against an MRP of ₹2,999, representing a 69% discount.",
+        "when_customer_asks_about_daily_wear": "Recommend it for casual, college, weekend and statement outfits. It is more style-focused than a conventional everyday straight jean.",
+        "when_customer_asks_about_value": "Value for money is one of the strongest themes in the customer feedback.",
+        "when_customer_asks_about_durability": "Do not guarantee long-term color durability. Customer feedback includes a report of black color fading after 3–4 washes.",
+        "when_customer_asks_for_alternatives": "If the customer wants a conventional silhouette, recommend straight or regular-fit jeans instead. If they specifically want retro flared styling, this is a strong candidate."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The product description says sizes 28–40, while the captured size selector displays 28–38.",
+            "The source product description lists Dark Blue, Light Blue, Grey, Black and White, while the local image directory contains Black, Dark Blue, Green, Khaki and Light Blue.",
+            "Do not add Grey or White to the storefront unless corresponding local assets exist.",
+            "The listing claims 'premium denim', but customer feedback is mixed and should take precedence when generating quality recommendations.",
+            "Customer feedback indicates mixed length, sizing, stitching and fading performance.",
+            "Exact cotton composition percentages are not provided."
+        ]
+    }
+}

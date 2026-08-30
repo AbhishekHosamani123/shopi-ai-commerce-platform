@@ -1,0 +1,262 @@
+{
+    "product_id": "T-SHIRT-002",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit",
+        "brand": "AUSK",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Polo",
+        "style_name": "Western",
+        "description": "Men's regular-fit half-sleeve polo T-shirt made from cotton-rich knit fabric with modern panel detailing and a collared neckline.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0GZPF8WFQ",
+        "source_url": "https://www.amazon.in/AUSK-Collar-Material-Sleeves-Regular/dp/B0GZPF8WFQ"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1499.00,
+        "current_price": 298.00,
+        "discount_percent": 80
+    },
+    "rating": {
+        "average": 3.6,
+        "review_count": 14,
+        "distribution_percent": {
+            "5_star": 57,
+            "4_star": 10,
+            "3_star": 3,
+            "2_star": 0,
+            "1_star": 30
+        }
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Black",
+                "amazon_name": "Black_A86",
+                "images": [
+                    "black.jpg",
+                    "black2.jpg"
+                ]
+            },
+            {
+                "name": "White",
+                "amazon_name": "White_A87",
+                "images": [
+                    "white.jpg",
+                    "white2.jpg",
+                    "white3.jpg",
+                    "white4.jpg",
+                    "white5.jpg"
+                ]
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Regular Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Polo Collar",
+        "neck": "Collared Neck",
+        "pattern": "Colorblock",
+        "closure": "Pull On",
+        "fabric": "70% Cotton, 30% Polyester",
+        "fabric_type": "Knit",
+        "length": "Standard Length",
+        "cuff": "No Cuff",
+        "hemline": "Straight",
+        "season": [
+            "All",
+            "Autumn",
+            "Spring",
+            "Summer",
+            "Winter"
+        ],
+        "occasion": "Business Casual",
+        "shirt_form": "T-Shirt"
+    },
+    "product_details": {
+        "model_name": "AUSKG-04046-S",
+        "style_number": "AUSKG-04046-S",
+        "manufacturer_part_number": "AUSKG-04046-S",
+        "weight_grams": 200,
+        "dimensions_cm": {
+            "length": 30,
+            "width": 25,
+            "height": 2
+        },
+        "net_quantity": 1
+    },
+    "manufacturer": {
+        "manufacturer": "Frost Clothing",
+        "packer": "Frost Clothings",
+        "importer": "Frost Clothings",
+        "address": "E-67, Sector-7, Noida, UP 201301"
+    },
+    "inventory_signals": {
+        "in_stock_at_source": true,
+        "maximum_order_quantity": 5,
+        "fulfilled_by": "Amazon",
+        "sold_by": "Frost Clothings"
+    },
+    "reviews": {
+        "review_source_asin": "B0GZPF8WFQ",
+        "displayed_review_count": 5,
+        "total_ratings": 14,
+        "ai_generated_customer_summary": {
+            "overall": "Customer feedback is mixed and currently leans negative on quality. Some buyers find the shirt good value and like the appearance, while multiple buyers report poor quality or receiving a product different from what was expected.",
+            "positive_topics": [
+                "Value for money",
+                "Appearance",
+                "Fit",
+                "Style"
+            ],
+            "negative_topics": [
+                "Poor quality",
+                "Product mismatch",
+                "Possible fabrication/quality issue"
+            ]
+        },
+        "topic_signals": {
+            "value_mentions": 1,
+            "positive_quality_mentions": 1,
+            "poor_quality_mentions": 2,
+            "product_mismatch_mentions": 1
+        },
+        "sample_reviews": [
+            {
+                "review_id": "R3HH3462DY33H5",
+                "rating": 5,
+                "title": "Value for money",
+                "variant": {
+                    "size": "S",
+                    "color": "White_A87"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-24",
+                "summary": "Reviewer considered the product value for money."
+            },
+            {
+                "review_id": "R36N8I34VAMCHW",
+                "rating": 1,
+                "title": "Very bad",
+                "variant": {
+                    "size": "M",
+                    "color": "White_A87"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-07-24",
+                "summary": "Reviewer complained about poor quality, receiving a different product and problems with refund after return."
+            },
+            {
+                "review_id": "RPNGN4YGDZCPH",
+                "rating": 5,
+                "title": "Nice",
+                "variant": {
+                    "size": "XL",
+                    "color": "Black_A92"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-23",
+                "summary": "Reviewer simply rated the product positively."
+            },
+            {
+                "review_id": "R2NHKJ00NWX8OH",
+                "rating": 1,
+                "title": "Fabrication",
+                "variant": {
+                    "size": "L",
+                    "color": "Black_A92"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-19",
+                "summary": "Reviewer described the product as a waste of money and the worst product."
+            },
+            {
+                "review_id": "R2JRZYTSMTY1IN",
+                "rating": 1,
+                "title": "Quality is poor",
+                "variant": {
+                    "size": "XL",
+                    "color": "Black_A92"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-22",
+                "summary": "Reviewer reported poor quality."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "casual wear",
+            "business casual",
+            "daily wear",
+            "smart casual"
+        ],
+        "strong_positive_attributes": [
+            "cotton-rich",
+            "regular fit",
+            "half sleeve",
+            "polo collar",
+            "colorblock design",
+            "modern panel detailing"
+        ],
+        "risk_attributes": [
+            "mixed quality feedback",
+            "product mismatch reports",
+            "low overall rating",
+            "possible quality-control issue"
+        ],
+        "recommendation_keywords": [
+            "men polo t-shirt",
+            "cotton rich polo",
+            "regular fit polo",
+            "colorblock polo",
+            "half sleeve polo",
+            "business casual polo",
+            "casual polo t-shirt",
+            "AUSK polo"
+        ],
+        "buyer_advice": "Potentially suitable for buyers looking for an affordable cotton-rich regular-fit polo, but the low 3.6 rating and multiple recent quality complaints mean it should not be presented as a high-confidence quality recommendation."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-002/",
+        "primary_image": "black.jpg",
+        "variants": {
+            "black": [
+                "black.jpg",
+                "black2.jpg"
+            ],
+            "white": [
+                "white.jpg",
+                "white2.jpg",
+                "white3.jpg",
+                "white4.jpg",
+                "white5.jpg"
+            ]
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "Product title says Zip Collar, while structured product attributes specify Pull On.",
+            "Only Black and White variants are represented by the supplied image filenames.",
+            "The listing has only 14 global ratings.",
+            "3 of the 5 displayed reviews are 1-star.",
+            "One reviewer reports receiving a different product and having refund issues.",
+            "Quality claims in the listing should not be treated as established facts because customer feedback is mixed."
+        ]
+    }
+}

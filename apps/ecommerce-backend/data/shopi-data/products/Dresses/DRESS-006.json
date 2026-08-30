@@ -1,0 +1,472 @@
+{
+    "product_id": "DRESS-006",
+    "product": {
+        "name": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta",
+        "brand": "PARTHVI",
+        "category": "Dresses",
+        "subcategory": "Ethnic Wear",
+        "gender": "Women",
+        "product_type": "Kurta Set with Palazzo Pants & Dupatta",
+        "description": "A printed straight kurta set featuring a cotton kurta, cotton bottom and printed Mulmul dupatta, designed for traditional, casual, party and evening wear.",
+        "fit": "Regular / Relaxed Fit",
+        "pattern": "Floral",
+        "sleeve": "3/4 Sleeve",
+        "collar": "V-Neck",
+        "collar_style": "V-Neck",
+        "closure": "Not specified",
+        "length": "Calf Length",
+        "material": "Cotton",
+        "fabric_weight": "Lightweight / Thin",
+        "stretch": "Not specified",
+        "care": "Machine Wash",
+        "style_tags": [
+            "ethnic",
+            "floral",
+            "printed",
+            "traditional",
+            "casual",
+            "comfortable"
+        ],
+        "occasion_tags": [
+            "traditional wear",
+            "casual wear",
+            "party wear",
+            "evening wear",
+            "ethnic occasions"
+        ],
+        "season_tags": [
+            "summer",
+            "warm weather",
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+        ],
+        "colors": [
+            "Green",
+            "Purple",
+            "Red",
+            "Blue",
+            "Teal Blue",
+            "Yellow"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 360
+    },
+    "pricing": {
+        "mrp": 3197,
+        "selling_price": 749,
+        "currency": "INR",
+        "discount_percentage": 77,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Blue",
+            "image": "products/DRESS-006/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/DRESS-006/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Purple",
+            "image": "products/DRESS-006/purple.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Red",
+            "image": "products/DRESS-006/red.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Teal Blue",
+            "image": "products/DRESS-006/teal blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Yellow",
+            "image": "products/DRESS-006/yellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.8,
+        "rating_count": 2697,
+        "review_count": 754
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers generally like the kurta set's appearance, colors, comfort and value for money. Multiple reviews specifically praise its suitability for summer and the softness of the cotton fabric. However, several reviewers report that the fabric is very thin or feels cheap, while others mention sizing issues and color bleeding. There is also an isolated but serious complaint about receiving a damaged pant and missing dupatta.",
+        "positive": [
+            "Beautiful floral printed design",
+            "Comfortable fit reported by several customers",
+            "Suitable for summer according to multiple reviews",
+            "Cotton fabric appreciated by several customers",
+            "Soft fabric reported by some buyers",
+            "Good color and appearance",
+            "Good value for money at the selling price",
+            "Suitable for casual and traditional occasions"
+        ],
+        "negative": [
+            "Fabric can feel very thin",
+            "Some customers consider the material quality cheap",
+            "Some buyers wanted higher fabric GSM",
+            "Color bleeding reported in some variants",
+            "Some sizing or fitting complaints",
+            "One review reported poor salwar/pant fitting",
+            "One review reported a damaged pant and missing dupatta",
+            "Lack of lining mentioned in one review"
+        ],
+        "main_concern": "The fabric is lightweight and summer-friendly, but some customers find it too thin or lower quality than expected."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Several buyers report comfortable sizing, but some customers experienced imperfect fitting or unusual bottom/pant fitting."
+        },
+        "summer_suitability": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews explicitly describe the set as suitable or comfortable for summer. The thin fabric is a positive for heat but may be a concern for customers wanting heavier material."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviews consider the product good or worthwhile for its price, although some customers feel the material quality does not justify higher prices."
+        },
+        "color_fastness": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "Multiple reviews mention color bleeding or concerns about fading, particularly for some variants."
+        }
+    },
+    "pros": [
+        "Beautiful floral printed design",
+        "Comfortable for many users",
+        "Good for summer and warm weather",
+        "Cotton fabric",
+        "Good color and appearance",
+        "Suitable for casual and traditional occasions",
+        "Good value at the current selling price"
+    ],
+    "cons": [
+        "Fabric can be very thin",
+        "Material quality may feel cheap to some users",
+        "Color bleeding reported",
+        "Fit can vary, especially for the bottom",
+        "One reported damaged pant and missing dupatta",
+        "No lining reported by one customer"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.2,
+        "best_for": [
+            "Summer wear",
+            "Casual ethnic wear",
+            "Daily wear",
+            "Traditional occasions",
+            "Party wear",
+            "Budget-conscious shoppers",
+            "Customers who prefer lightweight clothing"
+        ],
+        "not_ideal_for": [
+            "Customers wanting thick or heavyweight fabric",
+            "Customers expecting premium fabric quality",
+            "Customers who dislike thin clothing",
+            "Customers highly concerned about color bleeding",
+            "Customers wanting a heavily structured or lined outfit"
+        ],
+        "size_advice": "Check the size chart before purchasing. While several buyers found the fit comfortable, some reviews report imperfect sizing or unusual bottom/pant fitting.",
+        "weather_advice": "This is a strong option for summer and warm weather because multiple buyers describe it as comfortable and suitable for summer. However, the thin fabric may not suit customers who prefer more substantial material.",
+        "sales_advice": "Lead with the floral design, cotton construction, lightweight feel, summer suitability and ₹749 price. Be transparent that some customers found the fabric very thin and that color bleeding and fit issues have been reported."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "summer kurta set",
+            "cotton kurta set",
+            "lightweight ethnic wear",
+            "floral kurta set",
+            "printed kurta set",
+            "palazzo kurta set",
+            "kurta pant dupatta set",
+            "comfortable ethnic wear",
+            "budget ethnic wear",
+            "summer ethnic dress"
+        ],
+        "negative_keywords": [
+            "thick fabric kurta set",
+            "heavy cotton kurta set",
+            "premium quality ethnic wear",
+            "heavyweight fabric",
+            "lined kurta set",
+            "non-fading color kurta set"
+        ],
+        "strong_attributes": [
+            "cotton",
+            "printed",
+            "floral",
+            "3/4 sleeve",
+            "V-neck",
+            "straight style",
+            "calf length",
+            "lightweight",
+            "summer friendly",
+            "palazzo pants",
+            "dupatta"
+        ],
+        "warning_attributes": [
+            "very thin fabric",
+            "mixed fabric quality feedback",
+            "possible color bleeding",
+            "possible fit issues",
+            "isolated damaged/missing component complaint"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "summer suitability",
+                "comfort",
+                "fabric",
+                "color"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Green",
+            "size": "2XL",
+            "sentiment": "positive_with_thinness_signal",
+            "themes": [
+                "fabric quality",
+                "lightweight fabric"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "fit"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Purple",
+            "size": "2XL",
+            "sentiment": "positive_with_color_concern",
+            "themes": [
+                "appearance",
+                "material",
+                "value",
+                "color bleeding"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Green",
+            "size": "2XL",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "material quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "color",
+                "cotton material"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Purple",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Green",
+            "size": "S",
+            "sentiment": "negative",
+            "themes": [
+                "damaged product",
+                "missing dupatta",
+                "pant damage"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Green",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "product quality",
+                "color accuracy"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Green",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive_with_thinness_signal",
+            "themes": [
+                "cotton",
+                "thin fabric",
+                "summer suitability",
+                "bottom fitting"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Purple",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "summer suitability"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Purple",
+            "size": "M",
+            "sentiment": "positive_with_color_concern",
+            "themes": [
+                "appearance",
+                "color bleeding"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "3XL",
+            "sentiment": "positive_with_thinness_signal",
+            "themes": [
+                "summer suitability",
+                "fabric",
+                "low GSM concern"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Purple",
+            "size": "S",
+            "sentiment": "negative",
+            "themes": [
+                "fabric quality",
+                "thin fabric",
+                "no lining",
+                "stitching"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Teal Blue",
+            "size": "3XL",
+            "sentiment": "negative",
+            "themes": [
+                "cheap fabric",
+                "very thin fabric",
+                "value concern"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Purple",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable sizing",
+                "underarm comfort"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the floral style, cotton fabric, fit, 3/4 sleeves, V-neck, price, available colors and sizes, plus the main review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the attractive design, cotton fabric, comfort, summer suitability and value, while mentioning that some buyers found the fabric very thin or lower quality.",
+        "when_customer_asks_about_summer": "Recommend it for summer. Multiple reviews specifically describe the outfit as comfortable or suitable for summer, although the thin fabric may be a concern for customers who prefer more coverage.",
+        "when_customer_asks_about_fit": "Explain that the set is designed with a straight kurta and relaxed-fit palazzo pants. Several buyers found the sizing comfortable, but some reported imperfect or unusual fitting, especially with the bottom.",
+        "when_customer_asks_about_fabric": "Explain that the listed fabrics are cotton for the kurta and bottom, with a Mulmul dupatta. Review feedback is mixed: many customers like the fabric, while some describe it as very thin or cheap.",
+        "when_customer_asks_about_color": "Mention that the product is available in multiple colors, but some reviews report color bleeding or concerns about fading.",
+        "when_customer_asks_for_alternatives": "Prioritize similar ethnic cotton or lightweight kurta sets with stronger fabric-quality and color-fastness signals if those attributes matter to the customer.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its rating. Consider the customer's budget, summer/weather preference, desired fabric thickness, fit preference, occasion and tolerance for lightweight fabric."
+    }
+}

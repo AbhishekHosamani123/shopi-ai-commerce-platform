@@ -1,0 +1,75 @@
+{
+  "pipeline_stage": "PHASE_14_SUPABASE_INGESTION_VERIFIED",
+  "verified_at": "2026-08-26T18:50:00.000Z",
+  "supabase_host": "https://ogppkxqvfzsusdawqbzx.supabase.co",
+  "overall_verdict": "IMPORT VERIFIED",
+  "products_summary": {
+    "canonical_products": 76,
+    "seed_demo_products": 1,
+    "total_live_products": 77
+  },
+  "tables": {
+    "shopi_products": {
+      "canonical_count": 76,
+      "seed_count": 1,
+      "total_live_count": 77,
+      "status": "SUCCESS"
+    },
+    "shopi_product_attributes": {
+      "canonical_count": 74,
+      "seed_count": 1,
+      "total_live_count": 75,
+      "status": "SUCCESS"
+    },
+    "shopi_product_variants": {
+      "canonical_count": 681,
+      "seed_count": 4,
+      "total_live_count": 685,
+      "status": "SUCCESS"
+    },
+    "shopi_product_images": {
+      "canonical_count": 468,
+      "seed_count": 1,
+      "total_live_count": 469,
+      "status": "SUCCESS"
+    },
+    "shopi_product_tags": {
+      "canonical_count": 2359,
+      "seed_count": 0,
+      "total_live_count": 2359,
+      "status": "SUCCESS"
+    },
+    "shopi_product_reviews": {
+      "canonical_count": 821,
+      "seed_count": 0,
+      "total_live_count": 821,
+      "status": "SUCCESS"
+    },
+    "shopi_product_review_summary": {
+      "canonical_count": 76,
+      "seed_count": 1,
+      "total_live_count": 77,
+      "status": "SUCCESS"
+    },
+    "shopi_product_scores": {
+      "canonical_count": 76,
+      "seed_count": 1,
+      "total_live_count": 77,
+      "status": "SUCCESS"
+    },
+    "shopi_product_relationships": {
+      "canonical_count": 0,
+      "seed_count": 0,
+      "total_live_count": 0,
+      "status": "INITIALIZED_EMPTY"
+    }
+  },
+  "data_preservation": {
+    "complex_material_objects_preserved": true,
+    "full_occasion_lists_preserved": true,
+    "review_aspect_summaries_preserved": true,
+    "orphans_found": 0,
+    "duplicates_found": 0,
+    "information_discarded": false
+  }
+}

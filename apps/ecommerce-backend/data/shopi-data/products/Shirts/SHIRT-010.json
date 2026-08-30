@@ -1,0 +1,508 @@
+{
+    "product_id": "SHIRT-010",
+    "product": {
+        "name": "Highlander Men's Slim Fit Casual Checkered Shirt",
+        "brand": "Highlander",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A slim-fit men's casual checkered shirt with long sleeves, spread collar and button closure. Designed for casual outings, weekends, brunch and smart-casual office wear. The shirt is positioned as lightweight, breathable and suitable for everyday use.",
+        "fit": "Slim Fit",
+        "pattern": "Checkered",
+        "sleeve": "Long Sleeve",
+        "sleeve_type": "Long Sleeve",
+        "collar": "Spread Collar",
+        "collar_style": "Spread Collar",
+        "neck_style": "Regular Collar",
+        "closure": "Button",
+        "cuff_style": "Plain Hem",
+        "style": "Casual",
+        "length": "Standard",
+        "season": "Summer",
+        "lifestyle": "Casual",
+        "material": {
+            "listing_highlight": "100% Cotton",
+            "description_claim": "Poly Cotton",
+            "review_claim": "One customer reported nylon-mixed fabric",
+            "resolved_material": null,
+            "material_status": "CONFLICTING_SOURCE_DATA",
+            "ai_rule": "Do not make an unqualified fabric-composition claim until verified."
+        },
+        "weight_grams": 300,
+        "dimensions_cm": {
+            "length": 26,
+            "width": 25,
+            "height": 2
+        },
+        "country_of_origin": "India"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1799,
+        "captured_prices": [
+            450,
+            485,
+            504,
+            503,
+            903,
+            535
+        ],
+        "recommended_catalog_price": 450,
+        "price_type": "snapshot",
+        "price_note": "The source shows multiple variant/offer prices, ranging from ₹450 to ₹903 against MRP values of ₹1,799 or ₹1,649. Do not treat ₹450 as a permanent price."
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Beige/White",
+                "source_color_name": "BEIGE WHITE",
+                "image": "products/shirts/SHIRT-010/BEIGE WHITE.jpg"
+            },
+            {
+                "color": "Dusty Green/White",
+                "source_color_name": "DUSTY GREEN WHITE",
+                "image": "products/shirts/SHIRT-010/DUSTY GREEN WHITE.jpg"
+            },
+            {
+                "color": "Light Pink/White",
+                "source_color_name": "pink",
+                "image": "products/shirts/SHIRT-010/pink.jpg"
+            },
+            {
+                "color": "Powder Blue/White",
+                "source_color_name": "POWDER BLUE WHITE",
+                "image": "products/shirts/SHIRT-010/POWDER BLUE WHITE.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "variant_status": "Only the four supplied SHIRT-010 color images should be exposed in the storefront."
+    },
+    "images": [
+        {
+            "color": "Beige/White",
+            "image": "products/shirts/SHIRT-010/BEIGE WHITE.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dusty Green/White",
+            "image": "products/shirts/SHIRT-010/DUSTY GREEN WHITE.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Pink/White",
+            "image": "products/shirts/SHIRT-010/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Powder Blue/White",
+            "image": "products/shirts/SHIRT-010/POWDER BLUE WHITE.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.0,
+        "rating_count": 1180,
+        "rating_distribution_percent": {
+            "5_star": 50,
+            "4_star": 25,
+            "3_star": 12,
+            "2_star": 5,
+            "1_star": 8
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "summary": "Customer feedback is substantially better than SHIRT-009. Buyers frequently praise the overall quality, fabric feel, appearance, value and everyday usability. The main recurring weakness is inconsistent sizing/fitting, with some customers reporting loose or incorrect fit.",
+        "positive": [
+            "Good overall quality",
+            "Good value for money",
+            "Good appearance and design",
+            "Positive feedback on colors",
+            "Positive feedback on fabric from several buyers",
+            "Some customers report very good stitching",
+            "Some customers describe the fabric as durable",
+            "Suitable for daily use",
+            "Works with jeans or trousers",
+            "Suitable for smart-casual office wear",
+            "Suitable for summer according to the product listing"
+        ],
+        "negative": [
+            "Sizing feedback is inconsistent",
+            "Some customers report imperfect fit",
+            "Some customers report loose fitting",
+            "Some customers criticize fabric quality",
+            "One customer reports nylon-mixed fabric",
+            "Material composition in source data is contradictory"
+        ]
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mostly_positive",
+            "confidence": "high",
+            "evidence": "The source reports 4.0/5 from 1,180 ratings, with 75% of ratings being 4 or 5 stars."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several reviews praise the fitting, but other reviews specifically report imperfect or loose fitting."
+        },
+        "fabric": {
+            "sentiment": "mostly_positive_but_uncertain_composition",
+            "confidence": "high",
+            "note": "Customers frequently praise the fabric, but the actual composition is contradictory across listing and review data."
+        },
+        "stitching": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "One verified buyer specifically praised stitching as very good and durable."
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "color": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Reviews generally praise the colors and design, although one buyer wanted a deeper blue shade."
+        },
+        "value": {
+            "sentiment": "positive",
+            "confidence": "high"
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Light Pink/White",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value",
+                "fabric",
+                "stitching",
+                "color",
+                "design"
+            ],
+            "summary": "Reviewer praised the fabric, value, stitching durability, color and design."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Light Pink/White",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "material"
+            ],
+            "summary": "Reviewer reported nice fitting and good-looking material."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Light Pink/White",
+            "sentiment": "positive",
+            "themes": [
+                "daily wear",
+                "fabric"
+            ],
+            "summary": "Reviewer described it as a good cotton/mixed shirt suitable for daily usage."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "Dusty Green/White",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "fit"
+            ],
+            "summary": "Reviewer said quality was good but fitting was not perfect."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Dusty Green/White",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer simply described the shirt as good quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Powder Blue/White",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "fabric",
+                "color"
+            ],
+            "summary": "Reviewer said it was good for the price and praised the thick material, while preferring a deeper blue."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Light Grey/White",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer rated the shirt excellent."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Powder Blue/White",
+            "sentiment": "mixed",
+            "themes": [
+                "fit",
+                "material"
+            ],
+            "summary": "Reviewer said fitting was good but reported that the fabric was nylon mixed."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Light Pink/White",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer described the fabric as very good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Light Pink/White",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer gave a positive overall assessment."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Grey/White",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "fabric"
+            ],
+            "summary": "Reviewer said the fabric was okay but L size did not fit properly."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "Light Pink/White",
+            "sentiment": "negative",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer reported that fabric quality was not good."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Light Pink/White",
+            "sentiment": "negative",
+            "themes": [
+                "fit",
+                "comfort",
+                "fabric"
+            ],
+            "summary": "Reviewer found the fitting too loose and the fabric only average."
+        }
+    ],
+    "pros": [
+        "4.0/5 average rating",
+        "1,180 ratings",
+        "75% of ratings are 4 or 5 stars",
+        "Slim fit",
+        "Checkered design",
+        "Long sleeves",
+        "Spread collar",
+        "Button closure",
+        "Good everyday styling",
+        "Good value according to multiple reviews",
+        "Positive color feedback",
+        "Positive stitching feedback",
+        "Suitable for jeans and trousers",
+        "Suitable for smart-casual office wear",
+        "Four supplied color variants"
+    ],
+    "cons": [
+        "Sizing/fitting is inconsistent",
+        "Some customers report loose fitting",
+        "Some customers report incorrect sizing",
+        "Fabric composition is contradictory",
+        "Some customers dislike fabric quality",
+        "One review reports nylon-mixed material",
+        "Only S–XL sizes are supported by the source"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "weekend wear",
+        "brunch",
+        "smart casual",
+        "office casual",
+        "summer wear",
+        "outing"
+    ],
+    "style_tags": [
+        "checkered shirt",
+        "checked shirt",
+        "slim fit shirt",
+        "long sleeve shirt",
+        "spread collar",
+        "casual shirt",
+        "smart casual shirt",
+        "summer shirt",
+        "button-down shirt"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's check shirt",
+            "men's checked shirt",
+            "slim fit shirt",
+            "casual check shirt",
+            "summer shirt",
+            "smart casual shirt",
+            "office casual shirt",
+            "weekend shirt",
+            "brunch shirt",
+            "shirt for jeans",
+            "shirt for chinos",
+            "shirt for trousers",
+            "long sleeve check shirt",
+            "spread collar shirt"
+        ],
+        "negative_keywords": [
+            "oversized shirt",
+            "regular fit shirt",
+            "relaxed fit shirt",
+            "solid shirt",
+            "premium cotton shirt",
+            "guaranteed 100% cotton shirt",
+            "stretch shirt"
+        ],
+        "strong_attributes": [
+            "slim fit",
+            "checkered pattern",
+            "long sleeves",
+            "spread collar",
+            "casual",
+            "summer",
+            "smart casual",
+            "daily wear",
+            "value for money"
+        ],
+        "warning_attributes": [
+            "sizing consistency",
+            "fabric composition",
+            "fabric quality"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_SIZE_CHECK",
+        "score": 7.8,
+        "best_for": [
+            "Everyday wear",
+            "Casual outings",
+            "Weekend gatherings",
+            "Brunch",
+            "Smart-casual office outfits",
+            "Summer styling",
+            "Jeans and chinos",
+            "Customers who prefer slim fits",
+            "Customers looking for value"
+        ],
+        "not_ideal_for": [
+            "Customers who prefer relaxed or oversized fits",
+            "Customers who require guaranteed fabric composition",
+            "Customers who need highly predictable sizing"
+        ],
+        "size_advice": "The source lists S, M, L and XL. Reviews are mixed on fit: several customers report good fitting, while others report imperfect or loose fitting. Shopi should recommend checking the size chart rather than assuming the normal size will fit.",
+        "fabric_advice": "Do not present the fabric as definitively 100% cotton. The product highlights say 100% cotton, while the description says poly cotton and a customer reports nylon-mixed fabric.",
+        "quality_advice": "This product has stronger review evidence than SHIRT-009. It can reasonably be positioned as a good-value everyday shirt, but not as a premium fabric product.",
+        "occasion_advice": "Prioritize casual, everyday, weekend, brunch and smart-casual office recommendations.",
+        "summer_advice": "The listing explicitly positions it for summer and describes the fabric as breathable/lightweight, so summer matching is reasonable. However, avoid making strong performance claims because customer reports on fabric are mixed.",
+        "price_advice": "Use the actual live catalog price rather than hard-coding ₹450. The source contains multiple prices depending on variant/offer."
+    },
+    "care_instructions": {
+        "wash": [
+            "Machine wash",
+            "Cold water",
+            "Gentle cycle"
+        ],
+        "recommended": [
+            "Use mild detergent",
+            "Wash inside out",
+            "Tumble dry on low or air dry"
+        ],
+        "avoid": [
+            "Bleach"
+        ]
+    },
+    "brand_information": {
+        "brand": "Highlander",
+        "model_name": "HLSH011340",
+        "style_number": "HLSH011340",
+        "country_of_origin": "India",
+        "net_quantity": 1,
+        "generic_name": "Shirt"
+    },
+    "data_quality": {
+        "rating_count": 1180,
+        "price_available": true,
+        "stock_available": true,
+        "complete_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Exact garment measurements by size",
+            "Variant-level inventory",
+            "Reliable final fabric composition",
+            "Variant-level current price"
+        ],
+        "source_inconsistencies": [
+            "Product highlights say 100% Cotton.",
+            "Product description says Poly Cotton.",
+            "One customer reports nylon-mixed fabric.",
+            "The listing calls the product a casual striped shirt in one description section, while the structured product data identifies the pattern as Checkered.",
+            "Some reviews report good fitting while others report loose or incorrect fitting."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a slim-fit checkered casual shirt suited to everyday, weekend and smart-casual use.",
+        "material_rule": "Do not make an unqualified 100% cotton claim because the source contains conflicting material information.",
+        "fit_rule": "Always describe the catalog fit as Slim Fit, but recommend checking the size chart because customer fit feedback is mixed.",
+        "occasion_rule": "Prioritize casual, weekend, brunch, summer and smart-casual office recommendations.",
+        "summer_rule": "Summer recommendations are allowed because the source explicitly positions the shirt for summer, but avoid absolute breathability/comfort guarantees.",
+        "quality_rule": "It is reasonable to describe this as good-value based on the 4.0 rating and multiple positive reviews, but avoid calling it premium.",
+        "color_rule": "Only expose Beige/White, Dusty Green/White, Light Pink/White and Powder Blue/White because those are the four SHIRT-010 images supplied.",
+        "price_rule": "Treat ₹450 as a captured offer price, not a permanent catalog price.",
+        "variant_rule": "Do not add colors such as Grey/White or other review-only variants unless corresponding SHIRT-010 images are added."
+    }
+}

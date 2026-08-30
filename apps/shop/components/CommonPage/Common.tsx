@@ -19,13 +19,15 @@ interface ParentComponentProps {
 
 const Common: React.FC<ParentComponentProps> = ({ Component }) => {
   return (
-    <div className="overflow-x-hidden w-screen h-screen flex flex-col items-center">
+    <div className="min-h-screen w-full flex flex-col items-center overflow-x-hidden">
       <Menubar />
       <Cart />
       <Favourite />
       <Sidebar />
       <Navbar />
-      <Component />
+      <main className="flex-1 w-full flex flex-col items-center">
+        <Component />
+      </main>
       <Footer />
       <ShopiAiAssistant />
     </div>

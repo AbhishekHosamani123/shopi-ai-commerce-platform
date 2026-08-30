@@ -1,0 +1,301 @@
+{
+    "product_id": "DRESS-009",
+    "product": {
+        "name": "Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli",
+        "brand": "NEXTFLOW FASHION",
+        "category": "Dresses",
+        "subcategory": "Lehenga Cholis",
+        "gender": "Women",
+        "product_type": "Semi-Stitched Lehenga Choli",
+        "description": "A traditional festival lehenga choli featuring Vichitra silk fabric with sequence and thread work. The outfit is semi-stitched and includes a lehenga, blouse material and dupatta.",
+        "fit": "Semi-Stitched",
+        "pattern": "Solid",
+        "sleeve": "Three-Quarter Sleeve",
+        "sleeve_length": "3/4 Sleeve",
+        "collar": null,
+        "neck_style": "Round Neck",
+        "closure": null,
+        "length": null,
+        "material": "Silk Blend",
+        "fabric_type": "Silk",
+        "weave_type": "Plain",
+        "construction_type": "Semi-Stitched",
+        "embroidery": "Kasuti",
+        "work": [
+            "Sequence Work",
+            "Thread Work"
+        ],
+        "weave_method": "Powerloom",
+        "care": "Dry Clean Only",
+        "style": "Traditional",
+        "style_tags": [
+            "lehenga",
+            "lehenga choli",
+            "ethnic",
+            "traditional",
+            "festival",
+            "embroidered",
+            "sequence work",
+            "thread work",
+            "semi-stitched",
+            "silk"
+        ],
+        "occasion_tags": [
+            "festivals",
+            "anniversary",
+            "wedding events",
+            "traditional functions",
+            "party wear"
+        ],
+        "season_tags": [
+            "festival season",
+            "wedding season",
+            "all season"
+        ],
+        "sizes": [
+            "Free"
+        ],
+        "colors": [
+            "Green",
+            "White"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 250,
+        "net_quantity": 3,
+        "included_components": [
+            "Lehenga",
+            "Blouse",
+            "Dupatta"
+        ]
+    },
+    "pricing": {
+        "mrp": 2499,
+        "selling_price": 998,
+        "currency": "INR",
+        "discount_percentage": 60,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "GREEN",
+            "image": "products/Dresses/DRESS-009/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "WHITE",
+            "image": "products/Dresses/DRESS-009/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 5.0,
+        "rating_count": 3,
+        "review_count": 3
+    },
+    "review_summary": {
+        "overall_sentiment": "strongly_positive",
+        "summary": "All three available ratings are 5-star reviews. Customers praise the appearance, fabric quality, colour and overall value. One reviewer specifically noted that the semi-stitched lehenga requires fitting adjustments and that the blouse material may need additional work or modification.",
+        "positive": [
+            "Good quality according to reviewers",
+            "Beautiful and classy appearance",
+            "Colour received positive feedback",
+            "Design was better than expected for one buyer",
+            "Good value at the listed price",
+            "Customers liked the overall festival look",
+            "Customer photos indicate positive satisfaction"
+        ],
+        "negative": [
+            "Only 3 global ratings are available",
+            "Evidence is insufficient to establish long-term quality",
+            "Semi-stitched construction requires fitting/modification",
+            "One reviewer said the blouse material was not large enough and required additional lace work",
+            "Not a ready-to-wear outfit without alterations"
+        ],
+        "main_concern": "The product has extremely limited review evidence and requires tailoring or fitting adjustments because it is semi-stitched."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "strongly_positive",
+            "confidence": "medium",
+            "note": "Reviewers describe the outfit as beautiful, fabulous and classy."
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "low",
+            "note": "The available reviews praise the fabric/quality, but there are only three ratings."
+        },
+        "design": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Customers liked the design, colour and overall traditional appearance."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Because the product is semi-stitched, fitting and stitching adjustments are expected."
+        },
+        "color": {
+            "sentiment": "positive",
+            "confidence": "low",
+            "note": "The green and white variants are available and reviewers have praised the colour."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "A reviewer specifically said the product exceeded expectations at this price."
+        },
+        "durability": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "There is not enough review evidence to assess long-term durability."
+        }
+    },
+    "pros": [
+        "Traditional festival-ready appearance",
+        "Silk-blend / silk fabric specification",
+        "Sequence and thread work",
+        "Semi-stitched construction allows fitting customization",
+        "Includes dupatta",
+        "Green and white colour options",
+        "Positive feedback on appearance and quality",
+        "Good option for festivals and traditional events",
+        "MRP of ₹2,499 with snapshot selling price around ₹998"
+    ],
+    "cons": [
+        "Only 3 ratings",
+        "No meaningful negative-review sample yet",
+        "Semi-stitched rather than ready-to-wear",
+        "Requires tailoring/fitting",
+        "Blouse material may require additional modification",
+        "Dry-clean-only care",
+        "Long-term durability cannot be confidently assessed"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_IF_YOU_ARE_COMFORTABLE_WITH_TAILORING",
+        "score": 8.0,
+        "best_for": [
+            "Festival wear",
+            "Wedding functions",
+            "Traditional events",
+            "Anniversary celebrations",
+            "Customers who want a customizable lehenga",
+            "Customers comfortable with tailoring adjustments"
+        ],
+        "not_ideal_for": [
+            "Customers wanting ready-to-wear clothing",
+            "Customers who do not want tailoring work",
+            "Customers looking for strong evidence of long-term durability",
+            "Customers who need a guaranteed fit straight out of the package"
+        ],
+        "size_advice": "The listed size is Free and the outfit is semi-stitched, so the buyer should expect tailoring or fitting adjustments.",
+        "occasion_advice": "Strong candidate for festivals, wedding-related events, anniversaries and traditional functions.",
+        "care_advice": "The listed care instruction is Dry Clean Only.",
+        "sales_advice": "Position it as a customizable traditional festival lehenga rather than a ready-to-wear outfit. Highlight the embroidery, silk fabric and included dupatta, but clearly disclose that tailoring is required."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "lehenga",
+            "lehenga choli",
+            "silk lehenga",
+            "festival lehenga",
+            "wedding lehenga",
+            "traditional lehenga",
+            "embroidered lehenga",
+            "sequence work lehenga",
+            "thread work lehenga",
+            "semi stitched lehenga",
+            "ethnic wear",
+            "party wear",
+            "wedding wear"
+        ],
+        "negative_keywords": [
+            "ready to wear",
+            "pre stitched",
+            "no tailoring",
+            "machine washable",
+            "casual daily wear"
+        ],
+        "strong_attributes": [
+            "festival",
+            "traditional",
+            "silk",
+            "embroidered",
+            "sequence work",
+            "thread work",
+            "semi-stitched",
+            "dupatta",
+            "customizable fit"
+        ],
+        "warning_attributes": [
+            "limited reviews",
+            "tailoring required",
+            "free size",
+            "dry clean only"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White",
+            "size": "Free",
+            "sentiment": "positive",
+            "title": "Amazing fabric",
+            "body_summary": "Good quality",
+            "themes": [
+                "fabric quality"
+            ],
+            "date": "2026-08-23"
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "Free",
+            "sentiment": "strongly_positive",
+            "title": "Amazing Product",
+            "body_summary": "Customer liked the colour, quality and design. They described the outfit as semi-stitched and noted that fitting adjustments are required. The reviewer was very positive about the product at its price.",
+            "themes": [
+                "colour",
+                "quality",
+                "design",
+                "value",
+                "semi-stitched",
+                "fitting"
+            ],
+            "date": "2026-07-29"
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White",
+            "size": "Free",
+            "sentiment": "strongly_positive",
+            "title": "Thank you for this beautiful dress",
+            "body_summary": "Customer described the lehenga as beautiful and classy. Some stitching modifications were needed, including additional lace work because the blouse cloth was not large enough.",
+            "themes": [
+                "appearance",
+                "classy",
+                "fitting",
+                "tailoring",
+                "blouse material"
+            ],
+            "date": "2026-06-02"
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe it as a traditional semi-stitched silk lehenga choli with sequence and thread work, available in Green and White. Mention that tailoring/fitting adjustments are required.",
+        "when_customer_asks_if_good": "Say the available reviews are very positive, with 3/3 ratings at 5 stars, but make clear that the review sample is extremely small.",
+        "when_customer_asks_about_quality": "Say the available customers report good quality, but do not claim proven long-term durability because there are only three ratings.",
+        "when_customer_asks_about_fit": "Explain that it is semi-stitched and requires fitting adjustments. It is not a ready-to-wear fixed-size lehenga.",
+        "when_customer_asks_about_size": "The listed size is Free. Because it is semi-stitched, tailoring is required to achieve the desired fit.",
+        "when_customer_asks_about_color": "Available colours are Green and White. Reviews specifically praise the colour and overall appearance.",
+        "when_customer_asks_about_occasion": "Recommend it for festivals, weddings, anniversaries and traditional functions rather than everyday casual wear.",
+        "when_customer_asks_about_care": "Mention that the listed care instruction is Dry Clean Only.",
+        "when_customer_asks_about_ready_to_wear": "Do not call it ready-to-wear. Explicitly explain that it is semi-stitched and requires fitting/stitching adjustments.",
+        "when_customer_asks_for_best_product": "It can rank highly for festival/wedding queries, but the recommendation confidence should be reduced because only three ratings are available.",
+        "when_customer_mentions_budget": "At the snapshot price of around ₹998 versus an MRP of ₹2,499, it is a potentially attractive budget festival option, assuming the customer is comfortable with tailoring.",
+        "when_customer_mentions_durability": "State that durability cannot be confidently assessed from the available three reviews.",
+        "when_customer_mentions_custom_fit": "This is a strong match because the semi-stitched construction allows fitting customization."
+    }
+}

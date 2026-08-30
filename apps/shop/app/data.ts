@@ -1,447 +1,193 @@
 import { title } from "process";
 
-const topCat = [{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/dress.svg',
-    name:"DRESS & FROCK",
-    quantity:53,
-    showLink:"/sub-category/fashion/dress-&-frock"
-},{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/coat.svg',
-    name:"INNERWEAR",
-    quantity:58,
-    showLink:"/sub-category/fashion/innerwear"
-},{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/glasses.svg ',
-    name:"SUNGLASSES",
-    quantity:32,
-    showLink:"/sub-category/men/sunglasses"
-},{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shorts.svg',
-    name:"SHORTS & JEANS",
-    quantity:42,
-    showLink:"/sub-category/fashion/shorts-&-jeans"
-},{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/tee.svg',
-    name:"T-SHIRTS",
-    quantity:12,
-    showLink:"/sub-category/fashion/TShirt"
-},
-{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/jacket.svg',
-    name:"JACKET",
-    quantity:63,
-    showLink:"/sub-category/men/jacket"
-},
-{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/watch.svg',
-    name:"SMART WATCH",
-    quantity:42,
-    showLink:"/sub-category/electronics/smart-watch"
-},{
-    imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/hat.svg',
-    name:"HAIR GEL",
-    quantity:29,
-    showLink:"/sub-category/cosmetics/hair-gel"
-}];
-const navBtns = [
-    {name:"Home",isExtendable:false,extendables:[],catLink:'/'},
-    {name:"Categories",isExtendable:false,extendables:[],catLink:''},
-    {name:"Men's",isExtendable:true,extendables:[
-        {
-          title: "Shirt",
-          link: "/sub-category/men/shirt",
-        },
-        {
-          title: "Shorts & Jeans",
-          link: "/sub-category/fashion/shorts-&-jeans",
-        },
-        {
-          title: "Safety Shoes",
-          link: "/sub-category/footwear/safety-shoes",
-        },
-        {
-          title: "Wallet",
-          link: "/sub-category/men/wallet",
-        },
-      ],catLink:'/categories/men'},
-    {name:"Women's",isExtendable:true,extendables:[
-        {
-            title: "Dress & Frock", // Combined Dress and Frock
-            link: "/sub-category/women/dress-&-frock",
-          },
-          {
-            title: "Earrings",
-            link: "/sub-category/women/earrings",
-          },
-          {
-            title: "Necklace",
-            link:"/sub-category/women/necklace",
-          },
-          {
-            title: "Makeup Kit",
-            link: "/sub-category/women/makeup-kit",
-          },
-    ],catLink:'/categories/women'},
-    {name:"Jewelry",isExtendable:true,extendables:[
-        {
-            title: "Necklace",
-            link: "/sub-category/jewellery/necklace",
-          },
-          {
-            title: "Earrings",
-            link: "/sub-category/jewellery/earrings",
-          },
-          {
-            title: "Couple Rings",
-            link: "/sub-category/jewellery/couple-rings",
-          },
-          {
-            title: "Bracelets",
-            link: "/sub-category/jewellery/bracelets",
-          },
-    ],catLink:'/categories/jewellery'},
-    {name:"Perfume",isExtendable:true,extendables:[
-          {
-            title: "Clothes Perfume",
-            link: "/sub-category/perfume/clothes-perfume",
-          },
-          {
-            title: "Deodorant",
-            link: "/sub-category/perfume/deodorant",
-          },
-          {
-            title: "Flower Fragrance",
-            link: "/sub-category/perfume/flower-fragrance",
-          },
-          {
-            title: "Air Freshener",
-            link: "/sub-category/perfume/air-freshener",
-          },
-    ],catLink:'/categories/perfume'},
-    {
-        name: "Cosmetics",
-        isExtendable: true,
-        extendables: [
-          {
-            title: "Body Soap",
-            link: "/sub-category/cosmetics/body-soap",
-          },
-          {
-            title: "Shampoo",
-            link: "/sub-category/cosmetics/shampoo",
-          },
-          {
-            title: "Perfume",
-            link: "/sub-category/cosmetics/perfume",
-          },
-          {
-            title: "Body Wash",
-            link: "/sub-category/cosmetics/bodywash",
-          }
-        ],
-        catLink: "/categories/cosmetics"
-      },
-      {
-        name: "Footwear",
-        isExtendable: true,
-        extendables: [
-          {
-            title: "Long Shoes",
-            link: "/sub-category/footwear/long-shoes",
-          },
-          {
-            title: "First Copy",
-            link: "/sub-category/footwear/firstcopy",
-          },
-          {
-            title: "Cowboy Shoes",
-            link: "/sub-category/footwear/cowboy-shoes",
-          },
-          {
-            title: "Safety Shoes",
-            link: "/sub-category/footwear/safety-shoes",
-          }
-        ],
-        catLink: "/categories/footwear"
-      },
-      {
-        name: "Fashion",
-        isExtendable: true,
-        extendables: [
-          {
-            title: "Innerwear",
-            link: "/sub-category/fashion/innerwear",
-          },
-          {
-            title: "Shirts",
-            link: "/sub-category/fashion/shirts",
-          },
-          {
-            title: "Dress & Frock",
-            link: "/sub-category/fashion/dress-&-frock",
-          },
-          {
-            title: "Jacket",
-            link: "/sub-category/fashion/jacket",
-          }
-        ],
-        catLink: "/categories/fashion"
-      },
-    {name:"Blog",isExtendable:false,extendables:[],catLink:'/blog'}
+const topCat = [
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shirt.svg',
+    name: 'SHIRTS',
+    quantity: 15,
+    showLink: '/sub-category/men/shirt'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/tee.svg',
+    name: 'T-SHIRTS',
+    quantity: 8,
+    showLink: '/sub-category/men/t-shirt'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shorts.svg',
+    name: 'JEANS',
+    quantity: 10,
+    showLink: '/sub-category/men/jeans'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/jacket.svg',
+    name: 'JACKETS',
+    quantity: 4,
+    showLink: '/sub-category/men/jackets'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/dress.svg',
+    name: 'DRESSES',
+    quantity: 10,
+    showLink: '/sub-category/women/dresses'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg',
+    name: 'SNEAKERS',
+    quantity: 12,
+    showLink: '/sub-category/footwear/sneakers'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg',
+    name: 'FORMAL SHOES',
+    quantity: 6,
+    showLink: '/sub-category/footwear/formal-shoes'
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/bag.svg',
+    name: 'BAGS',
+    quantity: 5,
+    showLink: '/sub-category/accessories/bags'
+  }
 ];
+
+const navBtns = [
+  { name: 'Home', isExtendable: false, extendables: [], catLink: '/' },
+  { name: 'Categories', isExtendable: false, extendables: [], catLink: '' },
+  {
+    name: "Men's",
+    isExtendable: true,
+    extendables: [
+      { title: 'Shirts', link: '/sub-category/men/shirt' },
+      { title: 'T-Shirts', link: '/sub-category/men/t-shirt' },
+      { title: 'Jeans', link: '/sub-category/men/jeans' },
+      { title: 'Jackets', link: '/sub-category/men/jackets' },
+      { title: 'Sneakers', link: '/sub-category/men/sneakers' },
+      { title: 'Formal Shoes', link: '/sub-category/men/formal-shoes' },
+      { title: 'Sports Shoes', link: '/sub-category/men/sports-shoes' }
+    ],
+    catLink: '/categories/men'
+  },
+  {
+    name: "Women's",
+    isExtendable: true,
+    extendables: [
+      { title: 'Dresses', link: '/sub-category/women/dresses' }
+    ],
+    catLink: '/categories/women'
+  },
+  {
+    name: 'Clothing',
+    isExtendable: true,
+    extendables: [
+      { title: 'Shirts', link: '/sub-category/clothing/shirts' },
+      { title: 'T-Shirts', link: '/sub-category/clothing/t-shirt' },
+      { title: 'Jeans', link: '/sub-category/clothing/jeans' },
+      { title: 'Jackets', link: '/sub-category/clothing/jackets' },
+      { title: 'Dresses', link: '/sub-category/clothing/dresses' }
+    ],
+    catLink: '/categories/clothing'
+  },
+  {
+    name: 'Footwear',
+    isExtendable: true,
+    extendables: [
+      { title: 'Sneakers', link: '/sub-category/footwear/sneakers' },
+      { title: 'Formal Shoes', link: '/sub-category/footwear/formal-shoes' },
+      { title: 'Sports Shoes', link: '/sub-category/footwear/sports-shoes' }
+    ],
+    catLink: '/categories/footwear'
+  },
+  {
+    name: 'Accessories',
+    isExtendable: true,
+    extendables: [
+      { title: 'Bags', link: '/sub-category/accessories/bags' }
+    ],
+    catLink: '/categories/accessories'
+  },
+  { name: 'Blog', isExtendable: false, extendables: [], catLink: '/blog' }
+];
+
 const leftStatus = [
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/dress.svg",
-        title:"Clothes",
-        links:[
-            {
-                title:"Shirt",
-                link:"/sub-category/clothes/shirt",
-                quantity:50,
-            },
-            {
-                title:"Shorts & Jeans",
-                link:"/sub-category/clothes/shorts-&-jeans",
-                quantity:50,
-            },
-            {
-                title:"Jacket",
-                link:"/sub-category/clothes/jacket",
-                quantity:50,
-            },
-            {
-                title:"Dress & Frock",
-                link:"/sub-category/clothes/dress-&-frock",
-                quantity:50,
-            }
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg",
-        title:"Footwear",
-        links:[
-            {
-                title:"Sport",
-                link:"/sub-category/footwear/sport",
-                quantity:50,
-            },
-            {
-                title:"Formal",
-                link:"/sub-category/footwear/formal",
-                quantity:50,
-            },
-            {
-                title:"Casual",
-                link:"/sub-category/footwear/casual",
-                quantity:50,
-            },
-            {
-                title:"Safety Shoes",
-                link:"/sub-category/footwear/safety-shoes",
-                quantity:50,
-            }
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/jewelry.svg",
-        title:"Jewelry",
-        links:[
-            {
-                title:"Earrings",
-                link:"/sub-category/jewellery/earrings",
-                quantity:50,
-            },
-            {
-                title:"Couple Rings",
-                link:"/sub-category/jewellery/couple-rings",
-                quantity:50,
-            },
-            {
-                title:"Necklace",
-                link:"/sub-category/jewellery/necklace",
-                quantity:50,
-            }
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/perfume.svg",
-        title:"Perfume",
-        links:[
-            {
-                title:"Clothes Perfume",
-                link:"/sub-category/perfume/clothes-perfume",
-                quantity:50,
-            },
-            {
-                title:"Deodorant",
-                link:"/sub-category/perfume/deodorant",
-                quantity:50,
-            },
-            {
-                title:"Air Freshener",
-                link:"/sub-category/perfume/air-freshener",
-                quantity:50,
-            },
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/cosmetics.svg",
-        title:"Cosmetics",
-        links:[
-            {
-                title:"Shampoo",
-                link:"/sub-category/cosmetics/shampoo",
-                quantity:50,
-            },
-            {
-                title:"Sunscreen",
-                link:"/sub-category/cosmetics/sunscreen",
-                quantity:50,
-            },
-            {
-                title:"Body Wash",
-                link:"/sub-category/cosmetics/bodywash",
-                quantity:50,
-            },
-            {
-                title:"Makeup Kit",
-                link:"/sub-category/cosmetics/makeup-kit",
-                quantity:50,
-            }
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/glasses.svg",
-        title:"Men",
-        links:[
-            {
-                title:"Sunglasses",
-                link:"/sub-category/men/sunglasses",
-                quantity:50,
-            },
-            {
-                title:"Casual",
-                link:"/sub-category/men/casual",
-                quantity:50,
-            }
-        ]
-    },
-    {
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/bag.svg",
-        title:"Bags",
-        links:[
-            {
-                title:"Shopping Bag",
-                link:"/sub-category/women/bags",
-                quantity:50,
-            },
-            {
-                title:"Gym Backpack",
-                link:"/sub-category/women/bags",
-                quantity:50,
-            },
-            {
-                title:"Purse",
-                link:"/sub-category/women/bags",
-                quantity:50,
-            },
-            {
-                title:"Wallet",
-                link:"/sub-category/men/wallet",
-                quantity:50,
-            }
-        ]
-    }
-]
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/dress.svg',
+    title: 'Clothing',
+    links: [
+      { title: 'Shirts', link: '/sub-category/clothing/shirts', quantity: 15 },
+      { title: 'T-Shirts', link: '/sub-category/clothing/t-shirt', quantity: 8 },
+      { title: 'Jeans', link: '/sub-category/clothing/jeans', quantity: 10 },
+      { title: 'Jackets', link: '/sub-category/clothing/jackets', quantity: 4 },
+      { title: 'Dresses', link: '/sub-category/clothing/dresses', quantity: 10 }
+    ]
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg',
+    title: 'Footwear',
+    links: [
+      { title: 'Sneakers', link: '/sub-category/footwear/sneakers', quantity: 12 },
+      { title: 'Formal Shoes', link: '/sub-category/footwear/formal-shoes', quantity: 6 },
+      { title: 'Sports Shoes', link: '/sub-category/footwear/sports-shoes', quantity: 6 }
+    ]
+  },
+  {
+    imgLink: 'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/bag.svg',
+    title: 'Accessories',
+    links: [
+      { title: 'Bags', link: '/sub-category/accessories/bags', quantity: 5 }
+    ]
+  }
+];
+
 const footerCategories = [
-    {
-        name: 'FASHION',
-        subcategories: [
-            { name: 'T-Shirt', subcatLink: '/sub-category/fashion/TShirt' },
-            { name: 'Shirts', subcatLink: '/sub-category/fashion/shirts' },
-            { name: 'Shorts & Jeans', subcatLink: '/sub-category/fashion/shorts-&-jeans' },
-            { name: 'Jacket', subcatLink: '/sub-category/fashion/jacket' },
-            { name: 'Dress & Frock', subcatLink: '/sub-category/fashion/dress-&-frock' },
-            { name: 'Innerwear', subcatLink: '/sub-category/fashion/innerwear' },
-            { name: 'Hosiery', subcatLink: '/sub-category/fashion/hosiery' }
-        ]
-    },
-    {
-        name: 'FOOTWEAR',
-        subcategories: [
-            { name: 'Sport', subcatLink: '/sub-category/footwear/sport' },
-            { name: 'Formal', subcatLink: '/sub-category/footwear/formal' },
-            { name: 'Boots', subcatLink: '/sub-category/footwear/boots' },
-            { name: 'Casual', subcatLink: '/sub-category/footwear/casual' },
-            { name: 'Cowboy Shoes', subcatLink: '/sub-category/footwear/cowboy-shoes' },
-            { name: 'Safety Shoes', subcatLink: '/sub-category/footwear/safety-shoes' },
-            { name: 'Party Wear Shoes', subcatLink: '/sub-category/footwear/party-wear-shoes' },
-            { name: 'Branded', subcatLink: '/sub-category/footwear/branded' },
-            { name: 'Firstcopy', subcatLink: '/sub-category/footwear/firstcopy' },
-            { name: 'Long Shoes', subcatLink: '/sub-category/footwear/long-shoes' }
-        ]
-    },
-    {
-        name: 'JEWELLERY',
-        subcategories: [
-            { name: 'Necklace', subcatLink: '/sub-category/jewellery/necklace' },
-            { name: 'Earrings', subcatLink: '/sub-category/jewellery/earrings' },
-            { name: 'Couple Rings', subcatLink: '/sub-category/jewellery/couple-rings' },
-            { name: 'Pendants', subcatLink: '/sub-category/jewellery/pendants' },
-            { name: 'Crystal', subcatLink: '/sub-category/jewellery/crystal' },
-            { name: 'Bangles', subcatLink: '/sub-category/jewellery/bangles' },
-            { name: 'Bracelets', subcatLink: '/sub-category/jewellery/bracelets' },
-            { name: 'Nosepin', subcatLink: '/sub-category/jewellery/nosepin' },
-            { name: 'Chain', subcatLink: '/sub-category/jewellery/chain' },
-            { name: 'Earrings', subcatLink: '/sub-category/jewellery/earrings' },
-            { name: 'Couple Rings', subcatLink: '/sub-category/jewellery/couple-rings' }
-        ]
-    },
-    {
-        name: 'COSMETICS',
-        subcategories: [
-            { name: 'Shampoo', subcatLink: '/sub-category/cosmetics/shampoo' },
-            { name: 'Bodywash', subcatLink: '/sub-category/cosmetics/bodywash' },
-            { name: 'Facewash', subcatLink: '/sub-category/cosmetics/facewash' },
-            { name: 'Makeup Kit', subcatLink: '/sub-category/cosmetics/makeup-kit' },
-            { name: 'Liner', subcatLink: '/sub-category/cosmetics/liner' },
-            { name: 'Lipstick', subcatLink: '/sub-category/cosmetics/lipstick' },
-            { name: 'Perfume', subcatLink: '/sub-category/cosmetics/perfume' },
-            { name: 'Body Soap', subcatLink: '/sub-category/cosmetics/body-soap' },
-            { name: 'Scrub', subcatLink: '/sub-category/cosmetics/scrub' },
-            { name: 'Hair Gel', subcatLink: '/sub-category/cosmetics/hair-gel' },
-            { name: 'Hair Colors', subcatLink: '/sub-category/cosmetics/hair-colors' },
-            { name: 'Hair Dye', subcatLink: '/sub-category/cosmetics/hair-dye' },
-            { name: 'Sunscreen', subcatLink: '/sub-category/cosmetics/sunscreen' },
-            { name: 'Skin Lotion', subcatLink: '/sub-category/cosmetics/skin-lotion' },
-            { name: 'Liner', subcatLink: '/sub-category/cosmetics/liner' },
-            { name: 'Lipstick', subcatLink: '/sub-category/cosmetics/lipstick' }
-        ]
-    }
+  {
+    name: 'CLOTHING',
+    subcategories: [
+      { name: 'Shirts', subcatLink: '/sub-category/clothing/shirts' },
+      { name: 'T-Shirts', subcatLink: '/sub-category/clothing/t-shirt' },
+      { name: 'Jeans', subcatLink: '/sub-category/clothing/jeans' },
+      { name: 'Jackets', subcatLink: '/sub-category/clothing/jackets' },
+      { name: 'Dresses', subcatLink: '/sub-category/clothing/dresses' }
+    ]
+  },
+  {
+    name: 'FOOTWEAR',
+    subcategories: [
+      { name: 'Sneakers', subcatLink: '/sub-category/footwear/sneakers' },
+      { name: 'Formal Shoes', subcatLink: '/sub-category/footwear/formal-shoes' },
+      { name: 'Sports Shoes', subcatLink: '/sub-category/footwear/sports-shoes' }
+    ]
+  },
+  {
+    name: 'ACCESSORIES',
+    subcategories: [
+      { name: 'Bags', subcatLink: '/sub-category/accessories/bags' }
+    ]
+  }
 ];
 const footerSections = [
     {
         sectionName: "Popular Categories",
         items: [
             {
-                title: "Fashion",
-                link: "/categories/fashion"
+                title: "Men's Fashion",
+                link: "/categories/men"
             },
             {
-                title: "Electronic",
-                link: "/categories/electronics"
+                title: "Women's Fashion",
+                link: "/categories/women"
             },
             {
-                title: "Cosmetic",
-                link: "/categories/cosmetics"
+                title: "Clothing",
+                link: "/categories/clothing"
             },
             {
                 title: "Footwear",
                 link: "/categories/footwear"
             },
             {
-                title: "Perfume",
-                link: "/categories/perfume"
+                title: "Accessories",
+                link: "/categories/accessories"
             }
         ]
     },
@@ -546,127 +292,62 @@ const currentEvent = {
 }
 const testimonial = {
     imgLink:'https://codewithsadee.github.io/anon-ecommerce-website/assets/images/testimonial-1.jpg',
-    name:'ALAN DOE',
-    position:'CEO & Founder Invision',
-    description:'Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor dolor sit amet.'
+    name:'Alan Doe',
+    position:'Verified Buyer & Stylist',
+    description:'Shopi made discovering the perfect fit effortless. The quality, fast delivery, and AI recommendations exceeded my expectations!'
 }
 const categoryDropDown = [
-    {
-        title:'Electronics',
-        catLink:"/electronics",
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/electronics-banner-1.jpg",
-        imgAlt:"",
-        imgRedirectLink:"",
-        subCategories:[
-            {
-                title:"Desktop",
-                link:"/sub-category/electronics/desktop",
-            },
-            {
-                title:"Laptop",
-                link:"/sub-category/electronics/laptop",
-            },
-            {
-                title:"Camera",
-                link:"/sub-category/electronics/camera",
-            },
-            {
-                title:"Tablet",
-                link:"/sub-category/electronics/tablet",
-            },
-            {
-                title:"Headphone",
-                link:"/sub-category/electronics/headphone",
-            },
-        ]
-    },
-    {
-        title:"Men's",
-        catLink:"/men",
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/mens-banner.jpg",
-        imgAlt:"",
-        imgRedirectLink:"",
-        subCategories:[
-            {
-                title:"Formal",
-                link:"/sub-category/men/formal",
-            },
-            {
-                title:"Casual",
-                link:"/sub-category/men/casual",
-            },
-            {
-                title:"Sport",
-                link:"/sub-category/men/sports", 
-            },
-            {
-                title:"Jacket",
-                link:"/sub-category/men/jacket",
-            },
-            {
-                title:"Sunglasses",
-                link:"/sub-category/men/sunglasses",
-            },
-        ]
-    },
-    {
-        title:"Women's",
-        catLink:"/women",
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/womens-banner.jpg",
-        imgAlt:"",
-        imgRedirectLink:"",
-        subCategories:[
-            {
-                title:"Formal",
-                link:"/sub-category/women/formal",
-            },
-            {
-                title:"Casual",
-                link:"/sub-category/women/casual", 
-            },
-            {
-                title:"Perfume",
-                link:"/sub-category/women/perfume",
-            },
-            {
-                title:"Cosmetics",
-                link:"/sub-category/women/cosmetics",
-            },
-            {
-                title:"Bags",
-                link:"/sub-category/women/bags",
-            },
-        ]
-    },
-    {
-        title:'Electronics',
-        catLink:"/electronics",
-        imgLink:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/electronics-banner-2.jpg",
-        imgAlt:"",
-        imgRedirectLink:"",
-        subCategories:[
-            {
-                title:"Smart Watch",
-                link:"/sub-category/electronics/smart-watch",
-            },
-            {
-                title:"Smart TV",
-                link:"/sub-category/electronics/smart-TV",
-            },
-            {
-                title:"Keyboard",
-                link:"/sub-category/electronics/keyboard",
-            },
-            {
-                title:"Mouse",
-                link:"/sub-category/electronics/mouse",
-            },
-            {
-                title:"Microphone",
-                link:"/sub-category/electronics/microphone",
-            },
-        ]
-    },
+  {
+    title: "Men's",
+    catLink: "men",
+    imgLink: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/mens-banner.jpg",
+    imgAlt: "Men's Fashion",
+    imgRedirectLink: "/categories/men",
+    subCategories: [
+      { title: "Shirts", link: "/sub-category/men/shirt" },
+      { title: "T-Shirts", link: "/sub-category/men/t-shirt" },
+      { title: "Jeans", link: "/sub-category/men/jeans" },
+      { title: "Jackets", link: "/sub-category/men/jackets" },
+      { title: "Sneakers", link: "/sub-category/men/sneakers" },
+      { title: "Formal Shoes", link: "/sub-category/men/formal-shoes" }
+    ]
+  },
+  {
+    title: "Women's",
+    catLink: "women",
+    imgLink: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/womens-banner.jpg",
+    imgAlt: "Women's Fashion",
+    imgRedirectLink: "/categories/women",
+    subCategories: [
+      { title: "Dresses", link: "/sub-category/women/dresses" }
+    ]
+  },
+  {
+    title: "Clothing",
+    catLink: "clothing",
+    imgLink: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&q=80",
+    imgAlt: "Clothing Collection",
+    imgRedirectLink: "/categories/clothing",
+    subCategories: [
+      { title: "Shirts", link: "/sub-category/clothing/shirts" },
+      { title: "T-Shirts", link: "/sub-category/clothing/t-shirt" },
+      { title: "Jeans", link: "/sub-category/clothing/jeans" },
+      { title: "Jackets", link: "/sub-category/clothing/jackets" },
+      { title: "Dresses", link: "/sub-category/clothing/dresses" }
+    ]
+  },
+  {
+    title: "Footwear",
+    catLink: "footwear",
+    imgLink: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&q=80",
+    imgAlt: "Footwear Collection",
+    imgRedirectLink: "/categories/footwear",
+    subCategories: [
+      { title: "Sneakers", link: "/sub-category/footwear/sneakers" },
+      { title: "Formal Shoes", link: "/sub-category/footwear/formal-shoes" },
+      { title: "Sports Shoes", link: "/sub-category/footwear/sports-shoes" }
+    ]
+  }
 ];
 const paymentSecure = [
     {
@@ -767,81 +448,64 @@ const aboutUS= {
 }
 const availableCategories = [
     {
-        title: 'fashion',
-        banners:["https://i.pinimg.com/736x/71/c0/90/71c090c1ee401a79f7b84c086fa04063.jpg","https://www.apetogentleman.com/wp-content/uploads/2022/05/FALL-WINTER-TRENDS.jpg","https://assets.vogue.com/photos/614a24383c6a255bbac856d8/master/w_2560%2Cc_limit/00_story.jpg"],
+        title: 'clothing',
+        banners: [
+            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80",
+            "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1200&q=80"
+        ],
         subcategories: [
-            { title: 'T-Shirt', link: '/TShirt' },
-            { title: 'Shirts', link: '/shirts' },
-            { title: 'Shorts & Jeans', link: '/shorts-&-jeans' },
-            { title: 'Jacket', link: '/jacket' },
-            { title: 'Dress & Frock', link: '/dress-&-frock' },
-            { title: 'Innerwear', link: '/innerwear' },
-            { title: 'Hosiery', link: '/hosiery' },
+            { title: 'Shirts', link: '/sub-category/clothing/shirts' },
+            { title: 'T-Shirts', link: '/sub-category/clothing/t-shirt' },
+            { title: 'Jeans', link: '/sub-category/clothing/jeans' },
+            { title: 'Jackets', link: '/sub-category/clothing/jackets' },
+            { title: 'Dresses', link: '/sub-category/clothing/dresses' }
         ]
     },
     {
         title: 'footwear',
-        banners:["https://www.india.com/wp-content/uploads/2017/08/footwear.jpg","https://images.moneycontrol.com/static-mcnews/2020/04/footwear-28042020.jpg?impolicy=website&width=1600&height=900","https://www.airwavesf.com/wp-content/uploads/2022/06/79589-645-collecting-sneakers-and-photography-a-collection-of-limited-editions-and-exclusive-models-combination_t20_Op1ydp.jpg"],
+        banners: [
+            "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&q=80",
+            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=1200&q=80"
+        ],
         subcategories: [
-            { title: 'Sport', link: '/sport' },
-            { title: 'Formal', link: '/formal' },
-            { title: 'Boots', link: '/boots' },
-            { title: 'Casual', link: '/casual' },
-            { title: 'Cowboy Shoes', link: '/cowboy-shoes' },
-            { title: 'Safety Shoes', link: '/safety-shoes' },
-            { title: 'Party Wear Shoes', link: '/party-wear-shoes' },
-            { title: 'Branded', link: '/branded-footwear' },
-            { title: 'Firstcopy', link: '/firstcopy' },
-            { title: 'Long Shoes', link: '/long-shoes' },
+            { title: 'Sneakers', link: '/sub-category/footwear/sneakers' },
+            { title: 'Formal Shoes', link: '/sub-category/footwear/formal-shoes' },
+            { title: 'Sports Shoes', link: '/sub-category/footwear/sports-shoes' }
         ]
     },
     {
-        title: 'jewellery',
-        banners:["https://www.mygoldguide.in/sites/default/files/Indo-wester_%20look_Cocktail_parties_01.jpg","https://kiyajewellery.in/cdn/shop/files/351494422_600067025526915_1828569725887026248_n_copy.jpg?v=1713783276&width=3840","https://www.truesilver.co.in/cdn/shop/articles/6_Stunning_Jewellery_for_Western_Wear.jpg?v=1695726468"],
+        title: 'accessories',
+        banners: [
+            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80"
+        ],
         subcategories: [
-            { title: 'Necklace', link: '/necklace' },
-            { title: 'Earrings', link: '/earrings' },
-            { title: 'Couple Rings', link: '/couple-rings' },
-            { title: 'Pendants', link: '/pendants' },
-            { title: 'Crystal', link: '/crystal' },
-            { title: 'Bangles', link: '/bangles' },
-            { title: 'Bracelets', link: '/bracelets' },
-            { title: 'Nosepin', link: '/nosepin' },
-            { title: 'Chain', link: '/chain' },
+            { title: 'Bags', link: '/sub-category/accessories/bags' }
         ]
     },
     {
-        title: 'cosmetics',
-        banners:["https://www.cosmeticsdesign.com/var/wrbm_gb_food_pharma/storage/images/media/images/news-photogalleries/786041/color-cosmetics/15607895-1-eng-GB/Color-cosmetics.jpg","https://img.etimg.com/thumb/width-1600,height-900,imgsize-55008,resizemode-75,msid-102292994/industry/cons-products/fashion-/-cosmetics-/-jewellery/indians-spent-over-rs-5000-cr-on-cosmetics-sector-may-gain-as-more-women-go-to-work-study.jpg","https://lh3.googleusercontent.com/proxy/9nWZ4LOknTOPQgXzTZ0Q9VT6_WzLd8dmLgIkfZYiQgWuuOWXc7Gk6cfdzfjdUpbpiwPD6nIdy6jlIas_EUBibRUWWwxlvZxrNMJmFcSqdF1YB943"],
+        title: 'men',
+        banners: [
+            "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/mens-banner.jpg"
+        ],
         subcategories: [
-            { title: 'Shampoo', link: '/shampoo' },
-            { title: 'Bodywash', link: '/bodywash' },
-            { title: 'Facewash', link: '/facewash' },
-            { title: 'Makeup Kit', link: '/makeup-kit' },
-            { title: 'Liner', link: '/liner' },
-            { title: 'Lipstick', link: '/lipstick' },
-            { title: 'Perfume', link: '/perfume' },
-            { title: 'Body Soap', link: '/body-soap' },
-            { title: 'Scrub', link: '/scrub' },
-            { title: 'Hair Gel', link: '/hair-gel' },
-            { title: 'Hair Colors', link: '/hair-colors' },
-            { title: 'Hair Dye', link: '/hair-dye' },
-            { title: 'Sunscreen', link: '/sunscreen' },
-            { title: 'Skin Lotion', link: '/skin-lotion' },
+            { title: 'Shirts', link: '/sub-category/men/shirts' },
+            { title: 'T-Shirts', link: '/sub-category/men/t-shirt' },
+            { title: 'Jeans', link: '/sub-category/men/jeans' },
+            { title: 'Jackets', link: '/sub-category/men/jackets' },
+            { title: 'Sneakers', link: '/sub-category/men/sneakers' },
+            { title: 'Formal Shoes', link: '/sub-category/men/formal-shoes' },
+            { title: 'Sports Shoes', link: '/sub-category/men/sports-shoes' }
         ]
     },
     {
-        title: 'electronics',
-        banners:["https://i.pinimg.com/originals/d2/b9/40/d2b940959caadeaf591041c70ab7a0ab.png","https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gaming-computer-banner-sale-design-template-4eee9f783ef62e0f7122e9ae7828bec1_screen.jpg?ts=1659604125","https://d1csarkz8obe9u.cloudfront.net/posterpreviews/computer-accessories-template-design-129534fcc8ab7b353cd7627bac2ec34e_screen.jpg?ts=1659516861"],
+        title: 'women',
+        banners: [
+            "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/womens-banner.jpg"
+        ],
         subcategories: [
-            { title: 'Laptops', link: '/laptop' },
-            { title: 'Tablets', link: '/tablet' },
-            { title: 'Headphones', link: '/headphone' },
-            { title: 'Cameras', link: '/cameras' },
-            { title: 'Smartwatches', link: '/smart-watch' },
-            { title: 'Smart TV', link: '/smart-TV' },
+            { title: 'Dresses', link: '/sub-category/women/dresses' }
         ]
-    },
+    }
 ];
 const loginFeatures = [
     {
@@ -909,5 +573,11 @@ const serviceFeatures = [
         imgAlt: 'Money back symbol',
     },
 ];
-const allCategories = [{name:"Men's",link:'/categories/MEN'},{name:"Women's",link:'/categories/WOMEN'},{name:'Cosmetics',link:'/categories/Cosmetics'},{name:'Electronics',link:'/categories/electronics'},{name:'Perfume',link:'/categories/perfume'},{name:'Jewellery',link:'/categories/jewellery'},{name:'Footwear',link:'/categories/footwear'},{name:'Fashion',link:'/categories/fashion'}]
+const allCategories = [
+  { name: "Men's", link: '/categories/men' },
+  { name: "Women's", link: '/categories/women' },
+  { name: 'Clothing', link: '/categories/clothing' },
+  { name: 'Footwear', link: '/categories/footwear' },
+  { name: 'Accessories', link: '/categories/accessories' }
+];
 export {topCat, allCategories, serviceFeatures, loginFeatures,  navBtns,  aboutUS, availableCategories, paymentSecure, leftStatus, categoryDropDown,  footerCategories, footerSections, featuresSec, currentEvent, testimonial};

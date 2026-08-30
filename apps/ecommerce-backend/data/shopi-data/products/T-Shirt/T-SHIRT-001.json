@@ -1,0 +1,323 @@
+{
+    "product_id": "T-SHIRT-001",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar",
+        "brand": "London Hills",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Polo",
+        "style_name": "Western",
+        "description": "Men's loose-fit half-sleeve striped polo T-shirt with a polo collar and zipper closure, made from lightweight polyester fabric.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0GMXNS8GB",
+        "source_url": "https://www.amazon.in/London-Hills-Vertical-Polyester-T-Shirts/dp/B0GMXNS8GB",
+        "date_first_available": "2026-02-11"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1299.00,
+        "current_price": 396.99,
+        "typical_variant_price": 399.00,
+        "discount_percent": 69,
+        "coupon": {
+            "available": true,
+            "discount_percent": 2
+        }
+    },
+    "rating": {
+        "average": 3.8,
+        "review_count": 363,
+        "distribution": {
+            "5_star_percent": 48,
+            "4_star_percent": 21,
+            "3_star_percent": 11,
+            "2_star_percent": 8,
+            "1_star_percent": 12
+        }
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Aqua",
+                "image": "aqua.jpg"
+            },
+            {
+                "name": "Grey",
+                "image": "grey.jpg"
+            },
+            {
+                "name": "Jamun",
+                "image": "jamun.jpg"
+            },
+            {
+                "name": "Mustard",
+                "image": "mustard.jpg"
+            },
+            {
+                "name": "Pink",
+                "image": "pink.jpg"
+            },
+            {
+                "name": "Teal",
+                "image": "teal.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Loose Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Polo Collar",
+        "neck": "Collared Neck",
+        "pattern": "Striped",
+        "closure": "Zipper",
+        "fabric": "Polyester",
+        "fabric_weight": "Lightweight",
+        "stretch": null,
+        "season": "Summer",
+        "shirt_form": "Polo Shirt",
+        "sport_type": [
+            "Cycling",
+            "Walking"
+        ],
+        "cuff": "No Cuff",
+        "weight_grams": 150,
+        "dimensions_cm": {
+            "length": 17,
+            "width": 15,
+            "height": 7
+        }
+    },
+    "occasions": [
+        "Anniversary",
+        "Bachelor Party",
+        "Date Night",
+        "Graduation",
+        "Vacation",
+        "Casual Wear",
+        "Office Casual",
+        "Weekend Wear",
+        "Travel",
+        "Athleisure"
+    ],
+    "pairing": [
+        "Jeans",
+        "Shorts",
+        "Chinos",
+        "Joggers",
+        "White Baggy Jeans"
+    ],
+    "use_cases": [
+        "Everyday Wear",
+        "Summer Wear",
+        "Travel",
+        "Walking",
+        "Gym",
+        "Golf",
+        "Tennis",
+        "Sports Practice",
+        "Athleisure"
+    ],
+    "manufacturer": {
+        "name": "Kartbin Online Services Pvt Ltd",
+        "email": "info@kartbin.com",
+        "packer": "Kartbin Online Services Pvt Ltd"
+    },
+    "inventory_signals": {
+        "recent_sales_signal": "400+ bought in past month",
+        "in_stock_at_source": true,
+        "maximum_order_quantity": 5
+    },
+    "reviews": {
+        "review_source_asin": "B0GMXD95K3",
+        "review_source_count_displayed": 88,
+        "review_source_total_ratings": 363,
+        "ai_generated_customer_summary": {
+            "overall": "Customers generally like the comfort, fit, softness and style, especially for hot weather. Fabric quality receives mixed feedback, while color and sizing also receive mixed opinions.",
+            "positive_topics": [
+                "Comfort",
+                "Fit",
+                "Softness",
+                "Style",
+                "Summer suitability"
+            ],
+            "negative_topics": [
+                "Fabric quality",
+                "Sizing accuracy",
+                "Product-image mismatch",
+                "Synthetic feel"
+            ]
+        },
+        "topic_signals": {
+            "comfort_mentions": 12,
+            "fit_mentions": 12,
+            "softness_mentions": 11,
+            "style_mentions": 8,
+            "fabric_quality_mentions": 15,
+            "color_mentions": 9,
+            "summer_mentions": 8,
+            "size_mentions": 6
+        },
+        "sample_reviews": [
+            {
+                "review_id": "R3DOW03SIGGHQ7",
+                "rating": 5,
+                "title": "amazing tshirt",
+                "variant": {
+                    "size": "M",
+                    "color": "Teal"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer liked the comfort, fitting and zipper quality."
+            },
+            {
+                "review_id": "R1QXP1BN4XGY3M",
+                "rating": 4,
+                "title": "True to size",
+                "variant": {
+                    "size": "2XL",
+                    "color": "Jamun"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer found the fabric soft and comfortable."
+            },
+            {
+                "review_id": "RGY933FQDBL3G",
+                "rating": 5,
+                "title": "Mens loose fit t shirt",
+                "variant": {
+                    "size": "M",
+                    "color": "Mustard"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer considered it suitable for summer and liked the fabric."
+            },
+            {
+                "review_id": "R1LXXG0E6LREFB",
+                "rating": 1,
+                "title": "Synthetic cloth",
+                "variant": {
+                    "size": "XL",
+                    "color": "Jamun"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer disliked the synthetic fabric and found it unsuitable for humid summer weather."
+            },
+            {
+                "review_id": "R14AIRWFEKU9YQ",
+                "rating": 3,
+                "title": "Size chart is not correct",
+                "variant": {
+                    "size": "S",
+                    "color": "Mustard"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer reported that the product was smaller than the listed size chart."
+            },
+            {
+                "review_id": "R30OLH1HFVK5EB",
+                "rating": 5,
+                "title": "Cool T shirt",
+                "variant": {
+                    "size": "S",
+                    "color": "Mustard"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer praised the lightweight breathable fabric, design and color but expressed uncertainty about durability."
+            },
+            {
+                "review_id": "R10AIVRC1AI33U",
+                "rating": 2,
+                "title": "Verify before you buy",
+                "variant": {
+                    "size": "L",
+                    "color": "Teal"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer reported that the received product differed from the product image and emphasized that the material is polyester."
+            },
+            {
+                "review_id": "R1MC7QN2PWAS8B",
+                "rating": 5,
+                "title": "good",
+                "variant": {
+                    "size": "XL",
+                    "color": "Jamun"
+                },
+                "verified_purchase": true,
+                "summary": "Reviewer reported that the product fit true to size."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "summer",
+            "casual wear",
+            "travel",
+            "weekend wear",
+            "athleisure"
+        ],
+        "strong_positive_attributes": [
+            "comfortable",
+            "soft",
+            "lightweight",
+            "loose fit",
+            "stylish",
+            "summer friendly"
+        ],
+        "risk_attributes": [
+            "polyester fabric",
+            "mixed fabric-quality feedback",
+            "possible sizing inconsistency",
+            "possible product-image mismatch",
+            "durability concerns"
+        ],
+        "recommendation_keywords": [
+            "men polo t-shirt",
+            "loose fit t-shirt",
+            "striped polo",
+            "zip collar t-shirt",
+            "summer t-shirt",
+            "polyester polo",
+            "casual polo",
+            "athleisure t-shirt",
+            "travel t-shirt",
+            "lightweight t-shirt"
+        ],
+        "buyer_advice": "Good option if the buyer wants a lightweight loose-fit polo for casual or summer use. Warn buyers who strongly prefer cotton or who are sensitive to sizing accuracy."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-001/",
+        "primary_image": "aqua.jpg",
+        "variants": {
+            "aqua": "aqua.jpg",
+            "grey": "grey.jpg",
+            "jamun": "jamun.jpg",
+            "mustard": "mustard.jpg",
+            "pink": "pink.jpg",
+            "teal": "teal.jpg"
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "Main product page uses ASIN B0GMXNS8GB.",
+            "Separate customer-review page uses ASIN B0GMXD95K3.",
+            "Review page shows 88 customer reviews while the product rating shows 363 global ratings.",
+            "Customer feedback contains conflicting opinions about fabric quality and sizing.",
+            "Some reviews report product-image mismatch."
+        ]
+    }
+}

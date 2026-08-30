@@ -3,12 +3,9 @@ const productIDSchema = checkSchema({
     productID: {
         in: ['params'],
         errorMessage: 'The productid must be provided correctly',
-        isInt:true,
-        toInt:true,
-        isLength:{options:{min:1,max:10}},
-        notEmpty:true,
-        trim:true,
-        escape:true
+        isString: true,
+        notEmpty: true,
+        trim: true
     }
 });
 const createReviewSchema = checkSchema({

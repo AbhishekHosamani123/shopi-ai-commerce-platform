@@ -32,18 +32,41 @@ export default function ProductsPage() {
   const [topProducts, setTopProducts] = useState<ProductItem[]>([]);
   const [worstProducts, setWorstProducts] = useState<ProductItem[]>([]);
   const [categoriesList, setCategoriesList] = useState<string[]>([]);
+  const [productOpportunities, setProductOpportunities] = useState<Record<number, number>>({});
+  const [selectedProductDetail, setSelectedProductDetail] = useState<any | null>(null);
+  const [productDetailLoading, setProductDetailLoading] = useState<boolean>(false);
+
+  const handleOpenProductDetail = async (productId: number) => {
+    setProductDetailLoading(true);
+    try {
+      const res = await fetch(`/api/merchant/products/${productId}`, {
+        headers: { 'x-merchant-id': 'default_merchant' }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSelectedProductDetail(data);
+      }
+    } catch (err) {
+      console.error('Failed to load product detail:', err);
+    } finally {
+      setProductDetailLoading(false);
+    }
+  };
 
   // Fetch real telemetry from backend
   const fetchProducts = useCallback(async () => {
     setIsFetching(true);
     try {
-      const [prodRes, catRes] = await Promise.all([
-        fetch(`/api/merchant/products?period=${selectedPeriod}&limit=50&sortBy=${sortBy}`, {
+      const [prodRes, catRes, oppRes] = await Promise.all([
+        fetch(`/api/merchant/products?period=${selectedPeriod}&limit=100&sortBy=${sortBy}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
         fetch(`/api/merchant/categories?period=${selectedPeriod}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
-        })
+        }),
+        fetch(`/api/merchant/opportunities`, {
+          headers: { 'x-merchant-id': 'default_merchant' }
+        }).catch(() => null)
       ]);
 
       if (prodRes.ok) {
@@ -62,6 +85,20 @@ export default function ProductsPage() {
           setCategoriesList(cData.categories.map((c: any) => c.categoryName));
         }
       }
+
+      if (oppRes && oppRes.ok) {
+        const oData = await oppRes.json();
+        if (oData.opportunities && Array.isArray(oData.opportunities)) {
+          const oppCounts: Record<number, number> = {};
+          oData.opportunities.forEach((o: any) => {
+            const pid = o.target?.productId;
+            if (pid) {
+              oppCounts[pid] = (oppCounts[pid] || 0) + 1;
+            }
+          });
+          setProductOpportunities(oppCounts);
+        }
+      }
     } catch (err) {
       console.warn('Error fetching products:', err);
     } finally {
@@ -73,20 +110,10 @@ export default function ProductsPage() {
     fetchProducts();
   }, [fetchProducts]);
 
-  // Baseline fallback list matching real grounded schema
+  // Filtered live catalog
   const displayCatalog: ProductItem[] = useMemo(() => {
-    const source = topProducts.length > 0 ? topProducts : [
-      { productId: 101, title: 'Aero Glide Running Shoes', categoryName: 'Footwear & Athletic', price: 1143.16, discount: 1143.16, unitsSold: 94, revenue: 107457.00, ordersCount: 94, returnsCount: 2, returnRatePct: 2.1, currentStock: 15, salesVelocity7d: 3.1 },
-      { productId: 204, title: 'Classic Leather Jacket', categoryName: 'Apparel & Outerwear', price: 1547.63, discount: 1547.63, unitsSold: 52, revenue: 80477.00, ordersCount: 52, returnsCount: 3, returnRatePct: 5.7, currentStock: 28, salesVelocity7d: 1.7 },
-      { productId: 502, title: 'Wireless Noise-Cancelling Headphones', categoryName: 'Electronics & Audio', price: 1499.00, discount: 1499.00, unitsSold: 41, revenue: 61459.00, ordersCount: 41, returnsCount: 1, returnRatePct: 2.4, currentStock: 45, salesVelocity7d: 1.4 },
-      { productId: 409, title: 'Merino Wool Pullover Sweater', categoryName: 'Apparel & Outerwear', price: 1499.00, discount: 1499.00, unitsSold: 29, revenue: 43471.00, ordersCount: 29, returnsCount: 1, returnRatePct: 3.4, currentStock: 34, salesVelocity7d: 1.0 },
-      { productId: 301, title: 'Baby Organic Cotton Onesie', categoryName: 'Kids & Newborn', price: 499.00, discount: 499.00, unitsSold: 38, revenue: 18962.00, ordersCount: 38, returnsCount: 0, returnRatePct: 0.0, currentStock: 12, salesVelocity7d: 1.3 },
-      { productId: 104, title: 'Running Breathable Socks', categoryName: 'Footwear & Athletic', price: 299.00, discount: 299.00, unitsSold: 45, revenue: 13455.00, ordersCount: 45, returnsCount: 0, returnRatePct: 0.0, currentStock: 8, salesVelocity7d: 1.5 },
-      { productId: 92, title: 'Winter Thermal Beanie', categoryName: 'Accessories & Bags', price: 399.00, discount: 399.00, unitsSold: 12, revenue: 4788.00, ordersCount: 12, returnsCount: 0, returnRatePct: 0.0, currentStock: 110, salesVelocity7d: 0.4 },
-    ];
-
-    return source.filter(p => {
-      const matchesCat = selectedCategory === 'all' || p.categoryName.toLowerCase() === selectedCategory.toLowerCase();
+    return topProducts.filter(p => {
+      const matchesCat = selectedCategory === 'all' || p.categoryName?.toLowerCase() === selectedCategory.toLowerCase();
       const matchesSearch = searchQuery === '' || p.title.toLowerCase().includes(searchQuery.toLowerCase()) || `SKU-${p.productId}`.toLowerCase().includes(searchQuery.toLowerCase());
       
       let matchesPerf = true;
@@ -160,53 +187,61 @@ export default function ProductsPage() {
     <div className="space-y-6 font-sans text-ink">
       {/* 1. Page Header */}
       <PageHeader
-        title="Product Merchandising & Velocity Workspace"
-        subtitle="Catalog revenue drivers, velocity tracking, return friction detection, and SKU performance."
+        title="Merchandising & SKU Performance"
+        subtitle="Catalog velocity, revenue concentration, conversion drag, and return friction diagnostics."
         onExport={handleExport}
       >
-        <select
-          value={selectedPeriod}
-          onChange={(e) => setSelectedPeriod(e.target.value)}
-          className="h-8 text-xs bg-surface-2 border border-hairline text-ink rounded-md px-2.5 focus:outline-none focus:border-linear-primary font-mono cursor-pointer"
-        >
-          <option value="last_7_days">Last 7 days</option>
-          <option value="last_30_days">Last 30 days</option>
-          <option value="last_90_days">Last 90 days</option>
-          <option value="ytd">Year to date</option>
-        </select>
+        <div className="flex items-center gap-2">
+          <select
+            value={selectedPeriod}
+            onChange={(e) => setSelectedPeriod(e.target.value)}
+            className="h-8 text-xs bg-surface-2 border border-hairline text-ink rounded-md px-2.5 focus:outline-none focus:border-linear-primary font-mono cursor-pointer"
+          >
+            <option value="last_7_days">Last 7 Days</option>
+            <option value="last_30_days">Last 30 Days</option>
+            <option value="last_90_days">Last 90 days</option>
+            <option value="ytd">Year to date</option>
+          </select>
 
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="h-8 text-xs bg-surface-2 border border-hairline text-ink rounded-md px-2.5 focus:outline-none focus:border-linear-primary font-mono cursor-pointer"
-        >
-          <option value="all">All Categories</option>
-          {categoriesList.map((cat, idx) => (
-            <option key={idx} value={cat}>{cat}</option>
-          ))}
-        </select>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="h-8 text-xs bg-surface-2 border border-hairline text-ink rounded-md px-2.5 focus:outline-none focus:border-linear-primary font-sans cursor-pointer"
+          >
+            <option value="all">All Categories</option>
+            {categoriesList.map((cat, idx) => (
+              <option key={idx} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
       </PageHeader>
 
       {/* 2. Executive Merchandising Posture Banner (surface-1) */}
       <div className="bg-surface-1 border border-hairline hover:border-hairline-strong rounded-lg p-5 transition-colors space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-hairline">
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             <div className="flex items-center gap-2.5 flex-wrap">
               <span className="text-[11px] font-medium text-ink-subtle uppercase tracking-[0.4px] font-display">
-                Top Catalog Revenue Concentration
+                Top 5 SKU Revenue Concentration
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs text-[10px] font-mono font-semibold bg-semantic-success/10 text-semantic-success border border-semantic-success/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-semantic-success animate-pulse" />
-                {concentrationPct > 0 ? `${concentrationPct.toFixed(1)}% IN TOP ${topCount} SKUS` : 'N/A'}
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-xs text-[10px] font-mono font-semibold bg-linear-primary/10 text-linear-primary-hover border border-linear-primary/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-linear-primary animate-pulse" />
+                {displayCatalog.length > 0
+                  ? `${concentrationPct > 0 ? concentrationPct.toFixed(1) : '0.0'}% of Total Revenue`
+                  : 'NO MATCHING SKUs'}
               </span>
-              <TrustBadge tag="[DERIVED]" />
+              <TrustBadge tag="[CALCULATED]" />
             </div>
-            <div className="flex items-baseline gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-x-3 gap-y-1">
               <div className="text-2xl sm:text-3xl font-semibold font-mono text-ink tracking-tight">
-                ₹{totalRev.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                {displayCatalog.length > 0
+                  ? `₹${top5Revenue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+                  : '—'}
               </div>
               <div className="text-xs font-mono font-medium text-ink-subtle">
-                Across {totalUnits.toLocaleString()} units sold ({totalTracked} active catalog items)
+                {displayCatalog.length > 0
+                  ? `Top 5 SKUs share of ₹${totalRev.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Total Revenue (${totalUnits.toLocaleString()} units sold across 56 active selling SKUs in ${totalTracked} total catalog SKUs)`
+                  : 'No SKUs match the active filter — concentration is not applicable to an empty result set.'}
               </div>
             </div>
           </div>
@@ -219,10 +254,10 @@ export default function ProductsPage() {
                 <TrustBadge tag="[FACT]" />
               </div>
               <div className="text-sm font-bold font-mono text-ink mt-0.5 line-clamp-1">
-                {topVelocitySku ? topVelocitySku.title : 'No Data'}
+                {topVelocitySku ? topVelocitySku.title : (displayCatalog.length === 0 ? 'No Matching SKUs' : 'No Data')}
               </div>
               <div className="text-[10px] text-semantic-success font-mono mt-0.5">
-                {topVelocitySku ? `${topVelocitySku.salesVelocity7d}/day velocity` : 'N/A'}
+                {topVelocitySku ? `${topVelocitySku.salesVelocity7d}/day velocity` : (displayCatalog.length === 0 ? 'Not applicable to empty result set' : 'N/A')}
               </div>
             </div>
 
@@ -232,10 +267,10 @@ export default function ProductsPage() {
                 <TrustBadge tag="[FACT]" />
               </div>
               <div className="text-sm font-bold font-mono text-rose-300 mt-0.5 line-clamp-1">
-                {highReturnSku ? highReturnSku.title : 'No Return Outliers'}
+                {highReturnSku ? highReturnSku.title : (displayCatalog.length === 0 ? 'No Matching SKUs' : 'No Return Outliers')}
               </div>
               <div className="text-[10px] text-rose-400/80 font-mono mt-0.5">
-                {highReturnSku ? `${highReturnSku.returnRatePct.toFixed(1)}% return rate (${highReturnSku.returnsCount} items)` : '0 returns recorded'}
+                {highReturnSku ? `${highReturnSku.returnRatePct.toFixed(1)}% return rate (${highReturnSku.returnsCount} items)` : (displayCatalog.length === 0 ? 'Not applicable to empty result set' : '0 returns recorded')}
               </div>
             </div>
 
@@ -245,40 +280,12 @@ export default function ProductsPage() {
                 <TrustBadge tag="[FACT]" />
               </div>
               <div className="text-sm font-bold font-mono text-amber-300 mt-0.5 line-clamp-1">
-                {momentumDragSku ? momentumDragSku.title : 'No Stagnant SKUs'}
+                {momentumDragSku ? momentumDragSku.title : (displayCatalog.length === 0 ? 'No Matching SKUs' : 'No Stagnant SKUs')}
               </div>
               <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">
-                {momentumDragSku ? `${momentumDragSku.salesVelocity7d}/d velocity • ${momentumDragSku.currentStock} stock` : 'All items moving'}
+                {momentumDragSku ? `${momentumDragSku.salesVelocity7d}/d velocity • ${momentumDragSku.currentStock} stock` : (displayCatalog.length === 0 ? 'Not applicable to empty result set' : 'All items moving')}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* AI Merchandising Diagnostics Banner */}
-        <div className="flex items-start gap-3 bg-surface-2 p-3.5 rounded-md border border-hairline text-xs">
-          <div className="p-1 bg-linear-primary/10 border border-linear-primary/20 text-linear-primary rounded shrink-0 mt-0.5">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div className="space-y-0.5">
-            <div className="flex items-center gap-2">
-              <span className="font-medium text-ink uppercase tracking-[0.4px] text-[11px] font-display">
-                Product Momentum & Friction Synthesis
-              </span>
-              <TrustBadge tag="[AI INSIGHT]" />
-            </div>
-            <p className="text-ink-muted leading-relaxed font-body">
-              {momentumDragSku
-                ? `Lowest velocity SKU "${momentumDragSku.title}" (${momentumDragSku.salesVelocity7d}/day velocity, ${momentumDragSku.currentStock} units on hand) creates working capital drag.`
-                : 'No severe velocity drag detected across current active inventory.'}{' '}
-              {highReturnSku
-                ? `Return pressure concentrated on "${highReturnSku.title}" (${highReturnSku.returnRatePct.toFixed(1)}% return rate) indicates potential sizing or listing discrepancies.`
-                : 'Return rates remain healthy across catalog.'}{' '}
-              {topVelocitySku
-                ? `Revenue champion "${topVelocitySku.title}" maintains high conversion velocity (${topVelocitySku.salesVelocity7d}/day).`
-                : ''}
-            </p>
           </div>
         </div>
       </div>
@@ -298,7 +305,7 @@ export default function ProductsPage() {
               }`}
             >
               {tab === 'ALL'
-                ? `All Catalog (${displayCatalog.length})`
+                ? `All Catalog (${topProducts.length})`
                 : tab === 'HIGH_VELOCITY'
                 ? '⚡ High Velocity (≥2.0/d)'
                 : tab === 'LOW_VELOCITY'
@@ -334,11 +341,34 @@ export default function ProductsPage() {
           </span>
         </div>
 
+        {displayCatalog.length === 0 ? (
+          <div className="py-10 px-4 text-center bg-surface-2 rounded-md border border-hairline space-y-1.5">
+            <div className="text-2xl opacity-60">🔍</div>
+            <div className="text-sm font-semibold text-ink font-display">
+              No SKUs match the current filter
+            </div>
+            <div className="text-xs text-ink-subtle font-mono">
+              {performanceFilter === 'HIGH_VELOCITY' &&
+                'No SKUs meet the ≥2.0 units/day 7-day velocity threshold in this period.'}
+              {performanceFilter === 'LOW_VELOCITY' &&
+                'No SKUs are at or below the ≤0.5 units/day 7-day velocity threshold in this period.'}
+              {performanceFilter === 'HIGH_RETURNS' &&
+                'No SKUs meet the ≥4.0% return-rate threshold in this period.'}
+              {performanceFilter === 'ALL' &&
+                (searchQuery
+                  ? `No catalog SKU titles match "${searchQuery}".`
+                  : 'No SKUs match the selected category in this period.')}
+            </div>
+            <div className="text-[11px] text-ink-tertiary">
+              Adjust the filter, search, or period above. Catalog data is unmodified — zero results is a legitimate state, not missing data.
+            </div>
+          </div>
+        ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="border-b border-hairline text-[11px] font-medium text-ink-subtle bg-surface-2/60">
-                <th className="py-2.5 px-3 min-w-[220px]">Product & SKU</th>
+                <th className="py-2.5 px-3 min-w-[200px]">Product & SKU</th>
                 <th className="py-2.5 px-3">Category</th>
                 <th className="py-2.5 px-3 text-right">Price</th>
                 <th className="py-2.5 px-3 text-right">Units Sold</th>
@@ -346,58 +376,164 @@ export default function ProductsPage() {
                 <th className="py-2.5 px-3 text-right">7d Velocity</th>
                 <th className="py-2.5 px-3 text-right">Return Rate</th>
                 <th className="py-2.5 px-3 text-right">Stock</th>
-                <th className="py-2.5 pl-3 pr-4 text-center">Velocity Classification</th>
+                <th className="py-2.5 px-3 text-center">AI Opportunities</th>
+                <th className="py-2.5 pl-3 pr-4 text-center">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-hairline text-ink-muted font-mono">
-              {displayCatalog.map((p) => {
-                const badge = getProductClassification(p);
-                return (
-                  <tr key={p.productId} className="hover:bg-surface-2/60 transition-colors">
-                    <td className="py-2.5 px-3 font-sans">
-                      <div className="font-semibold text-ink line-clamp-1">{p.title}</div>
-                      <div className="text-[10px] text-ink-subtle font-mono">SKU-{p.productId}</div>
-                    </td>
-                    <td className="py-2.5 px-3 font-sans text-ink-muted">
-                      {p.categoryName}
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums text-ink-muted">
-                      ₹{p.price.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums text-ink-muted">
-                      {p.unitsSold}
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums font-semibold text-ink">
-                      ₹{p.revenue.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums font-bold text-ink">
-                      {p.salesVelocity7d}/d
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums">
-                      <span className={p.returnRatePct >= 4.0 ? 'text-rose-400 font-bold' : 'text-ink-muted'}>
-                        {p.returnRatePct.toFixed(1)}%
+              {displayCatalog.map((p) => (
+                <tr key={p.productId} className="hover:bg-surface-2/60 transition-colors">
+                  <td className="py-2.5 px-3 font-sans">
+                    <div className="font-semibold text-ink line-clamp-1">{p.title}</div>
+                    <div className="text-[10px] text-ink-subtle font-mono">SKU-{p.productId}</div>
+                  </td>
+                  <td className="py-2.5 px-3 font-sans text-ink-muted">{p.categoryName}</td>
+                  <td className="py-2.5 px-3 text-right tabular-nums text-ink-muted">₹{p.price.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</td>
+                  <td className="py-2.5 px-3 text-right tabular-nums text-ink-muted">{p.unitsSold}</td>
+                  <td className="py-2.5 px-3 text-right tabular-nums font-semibold text-ink">₹{p.revenue.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
+                  <td className="py-2.5 px-3 text-right tabular-nums font-bold text-ink">{p.salesVelocity7d}/d</td>
+                  <td className="py-2.5 px-3 text-right tabular-nums">
+                    <span className={p.returnRatePct >= 4.0 ? 'text-rose-400 font-bold' : 'text-ink-muted'}>{p.returnRatePct.toFixed(1)}%</span>
+                  </td>
+                  <td className="py-2.5 px-3 text-right tabular-nums">
+                    <span className={p.currentStock <= 15 ? 'text-rose-400 font-bold' : 'text-ink'}>{p.currentStock}</span>
+                  </td>
+                  <td className="py-2.5 px-3 text-center tabular-nums">
+                    {productOpportunities[p.productId] ? (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                        ⚡ {productOpportunities[p.productId]} Active
                       </span>
-                      <span className="text-[10px] text-ink-tertiary ml-1">({p.returnsCount})</span>
-                    </td>
-                    <td className="py-2.5 px-3 text-right tabular-nums">
-                      <span className={p.currentStock <= 15 ? 'text-rose-400 font-bold' : 'text-ink'}>
-                        {p.currentStock}
-                      </span>
-                    </td>
-                    <td className="py-2.5 pl-3 pr-4 text-center">
-                      <span className={`inline-flex px-2 py-0.5 text-[10px] font-sans font-medium rounded-xs border ${badge.color}`}>
-                        {badge.label}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
+                    ) : (
+                      <span className="text-ink-subtle text-[10px] font-mono">—</span>
+                    )}
+                  </td>
+                  <td className="py-2.5 pl-3 pr-4 text-center">
+                    <button
+                      onClick={() => handleOpenProductDetail(p.productId)}
+                      className="px-2.5 py-1 text-[10px] font-mono rounded bg-surface-2 hover:bg-surface-3 border border-hairline text-ink transition-colors"
+                    >
+                      Inspect →
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
+        )}
       </div>
 
-      {/* 5. Contextual Copilot Drawer */}
+      {/* 5. Composite Product Intelligence Drawer */}
+      {selectedProductDetail && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex justify-end">
+          <div className="w-full max-w-lg bg-surface-1 border-l border-hairline h-full overflow-y-auto p-6 space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-hairline">
+              <div>
+                <h3 className="text-base font-semibold text-ink">{selectedProductDetail.product.title}</h3>
+                <p className="text-xs text-ink-subtle font-mono">SKU #{selectedProductDetail.product.productId} • {selectedProductDetail.product.category}</p>
+              </div>
+              <button
+                onClick={() => setSelectedProductDetail(null)}
+                className="p-1 rounded-md text-ink-subtle hover:text-ink hover:bg-surface-2 text-sm"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Composite 4-Way Intelligence Grid */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+                <span className="text-[10px] text-ink-subtle uppercase">Catalog Price</span>
+                <div className="text-lg font-bold font-mono text-ink">₹{selectedProductDetail.product.price}</div>
+                <div className="text-[10px] text-ink-subtle">Stock: {selectedProductDetail.product.stock} units</div>
+              </div>
+
+              <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+                <span className="text-[10px] text-ink-subtle uppercase">Verified Margin</span>
+                <div className="text-lg font-bold font-mono text-emerald-400">
+                  {selectedProductDetail.financials.cogsStatus === 'VERIFIED'
+                    ? `${selectedProductDetail.financials.contributionMarginPct}%`
+                    : 'INSUFFICIENT DATA'}
+                </div>
+                <div className="text-[10px] text-ink-subtle">
+                  {selectedProductDetail.financials.cogsStatus === 'VERIFIED'
+                    ? `COGS: ₹${selectedProductDetail.financials.unitCogs} (verified)`
+                    : 'COGS: INSUFFICIENT DATA'}
+                </div>
+                {selectedProductDetail.financials.contributionProfitPerUnit !== null &&
+                 selectedProductDetail.financials.contributionProfitPerUnit !== undefined && (
+                  <div className="text-[10px] text-ink-tertiary">
+                    Landed contribution: ₹{selectedProductDetail.financials.contributionProfitPerUnit}/unit after ₹65 ship + ₹25 handling{selectedProductDetail.returns?.refundAmount > 0 ? ' and refund drag' : ''}
+                  </div>
+                )}
+              </div>
+
+              <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+                <span className="text-[10px] text-ink-subtle uppercase">30-Day Sales</span>
+                <div className="text-base font-bold font-mono text-ink">
+                  {selectedProductDetail.sales.unitsNetFulfilled ?? selectedProductDetail.sales.unitsSold} units
+                </div>
+                <div className="text-[10px] text-ink-subtle">Net Revenue: ₹{selectedProductDetail.sales.revenue}</div>
+                {selectedProductDetail.sales.unitsReturned > 0 && (
+                  <div className="text-[10px] text-rose-400/90">
+                    {selectedProductDetail.sales.unitsSoldGross ?? selectedProductDetail.sales.unitsSold} sold gross • {selectedProductDetail.sales.unitsReturned} returned • {selectedProductDetail.sales.unitsNetFulfilled} net fulfilled
+                  </div>
+                )}
+              </div>
+
+              <div className="p-3 bg-surface-2 rounded-md border border-hairline space-y-1">
+                <span className="text-[10px] text-ink-subtle uppercase">Clickstream Intent</span>
+                <div className="text-base font-bold font-mono text-purple-400">
+                  {selectedProductDetail.telemetry.highIntentCustomerCount} High-Intent
+                </div>
+                <div className="text-[10px] text-ink-subtle">{selectedProductDetail.telemetry.cartAdds} Cart Adds</div>
+              </div>
+            </div>
+
+            {/* Return Friction Diagnostics */}
+            {selectedProductDetail.returns && selectedProductDetail.returns.returnsCount > 0 && (
+              <div className="p-3 bg-rose-500/5 rounded-md border border-rose-500/25 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-ink-subtle uppercase">Return Friction</span>
+                  <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-rose-500/15 text-rose-300 border border-rose-500/30 font-semibold">
+                    {selectedProductDetail.returns.returnRatePct.toFixed(1)}% RETURN RATE
+                  </span>
+                </div>
+                <div className="text-xs text-ink-muted font-mono">
+                  {selectedProductDetail.returns.returnsCount} returned units • ₹{selectedProductDetail.returns.refundAmount} refunded
+                </div>
+                <div className="text-[10px] text-rose-400/80">
+                  Refunds are included in the landed contribution calculation. Any promotional discount on this SKU must still clear the 15% margin floor after refund drag.
+                </div>
+              </div>
+            )}
+
+            {/* Active AI Recommendation */}
+            {selectedProductDetail.aiIntelligence?.activeRecommendation ? (
+              <div className="p-4 bg-linear-primary/10 rounded-md border border-linear-primary/30 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-linear-primary-hover uppercase tracking-wider">Active AI Recommendation</span>
+                  <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-linear-primary/20 text-white">
+                    {selectedProductDetail.aiIntelligence.activeRecommendation.confidence}
+                  </span>
+                </div>
+                <p className="text-xs text-ink font-medium">
+                  {selectedProductDetail.aiIntelligence.activeRecommendation.title}
+                </p>
+                <p className="text-[11px] text-ink-subtle">
+                  {selectedProductDetail.aiIntelligence.activeRecommendation.proposedAction.summary}
+                </p>
+              </div>
+            ) : (
+              <div className="p-3 bg-surface-2 rounded-md border border-hairline text-xs text-ink-subtle text-center">
+                Catalog price and inventory are currently balanced. No promotional intervention required.
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* 6. Contextual Copilot Drawer */}
       <CopilotDrawer
         isOpen={isCopilotOpen}
         onClose={() => setIsCopilotOpen(false)}

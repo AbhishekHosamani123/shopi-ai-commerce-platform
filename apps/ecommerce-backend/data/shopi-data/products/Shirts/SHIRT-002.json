@@ -1,0 +1,442 @@
+{
+    "product_id": "SHIRT-002",
+    "product": {
+        "name": "CLOTHING VEDA Men's Kurta Style Cotton Shirt",
+        "brand": "CLOTHING VEDA",
+        "category": "Shirts",
+        "subcategory": "Kurta Style Shirts",
+        "gender": "Men",
+        "product_type": "Kurta Style Shirt",
+        "description": "A regular-fit kurta-style shirt featuring a Mandarin collar, long sleeves and a cotton-blend fabric. Designed for casual, festive and Indo-Western styling.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Mandarin Collar",
+        "collar_style": "Mandarin Collar",
+        "neck_style": "Mandarin Neck",
+        "closure": "Pull On",
+        "length": "Short Length",
+        "style": "Western",
+        "top_style": "Kurta Style",
+        "cuff_style": "Plain Hem",
+        "material": "Cotton Blend",
+        "fabric_type": "Cotton Blend",
+        "style_tags": [
+            "kurta style",
+            "Indo-Western",
+            "ethnic",
+            "casual",
+            "festive",
+            "solid",
+            "Mandarin collar"
+        ],
+        "occasion_tags": [
+            "casual wear",
+            "daily wear",
+            "office wear",
+            "party wear",
+            "festive wear",
+            "weddings",
+            "formal events",
+            "business meetings",
+            "traditional events",
+            "regular outings"
+        ],
+        "season": "All",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "Black",
+            "Green",
+            "Maroon",
+            "Navy Blue",
+            "Pink",
+            "Pista",
+            "Sky Blue",
+            "White",
+            "Yellow"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 250
+    },
+    "pricing": {
+        "mrp": 2549,
+        "selling_price": 449,
+        "currency": "INR",
+        "discount_percentage": 82,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-002/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/shirts/SHIRT-002/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-002/Maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Blue",
+            "image": "products/shirts/SHIRT-002/Navy Blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pink",
+            "image": "products/shirts/SHIRT-002/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pista",
+            "image": "products/shirts/SHIRT-002/pista.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Sky Blue",
+            "image": "products/shirts/SHIRT-002/sky blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-002/white.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Yellow",
+            "image": "products/shirts/SHIRT-002/yellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.1,
+        "rating_count": 33,
+        "review_count": 24,
+        "distribution_percent": {
+            "5_star": 68,
+            "4_star": 6,
+            "3_star": 10,
+            "2_star": 5,
+            "1_star": 11
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally report good quality, comfortable fabric, good fit and strong value for money. The shirt is frequently described as suitable for casual and festive occasions. There is some negative feedback about quality and average fitting, but the dominant review signal is positive.",
+        "positive": [
+            "Good perceived fabric quality",
+            "Comfortable cotton-blend fabric",
+            "Breathable and lightweight according to some reviewers",
+            "Good fit according to several reviewers",
+            "Stylish Mandarin collar",
+            "Suitable for casual and festive occasions",
+            "Good value for money",
+            "Good-looking and elegant appearance",
+            "Well-stitched according to a reviewer"
+        ],
+        "negative": [
+            "Some feedback describes the fitting as average",
+            "One reviewer reported poor quality",
+            "One reviewer reported receiving fewer items than ordered",
+            "Review sample is relatively small"
+        ],
+        "main_strength": "Quality, comfort and value for money are the strongest recurring customer signals.",
+        "main_risk": "A minority of reviews report poor quality or average fitting, so the product should not be presented as universally perfect."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "evidence_count": 16
+        },
+        "fit": {
+            "sentiment": "positive_with_some_concern",
+            "confidence": "medium",
+            "evidence_count": 6
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "evidence_count": 5
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "evidence_count": 5
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "breathability": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Some reviewers describe the fabric as breathable and lightweight."
+        }
+    },
+    "pros": [
+        "Good fabric quality",
+        "Comfortable cotton-blend fabric",
+        "Good value for money",
+        "Stylish Mandarin collar",
+        "Suitable for casual and festive wear",
+        "Good-looking Indo-Western style",
+        "Available in many colors",
+        "Multiple sizes available"
+    ],
+    "cons": [
+        "Some customers report average fitting",
+        "One customer reported poor quality",
+        "One order-related complaint involved a missing item",
+        "Exact fabric composition percentages are not provided"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY",
+        "score": 8.0,
+        "best_for": [
+            "Casual wear",
+            "Festive occasions",
+            "Indo-Western outfits",
+            "Office wear",
+            "Parties",
+            "Weddings and traditional events",
+            "Daily wear",
+            "Customers wanting a Mandarin collar"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for a conventional Western shirt",
+            "Customers who require highly precise tailoring without checking the size chart"
+        ],
+        "size_advice": "The listed fit is Regular Fit and sizes S through 2XL are available. Check the size chart if fit precision is important because one review described the fitting as average.",
+        "style_advice": "This is better positioned as a kurta-style Indo-Western shirt than as a conventional Western shirt.",
+        "value_assessment": "Strong value signal from customer reviews, with the collected price snapshot at ₹449 against an MRP of ₹2,549."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "kurta shirt for men",
+            "Mandarin collar shirt",
+            "short kurta",
+            "kurta style shirt",
+            "Indo-Western shirt",
+            "festive shirt",
+            "ethnic shirt",
+            "cotton blend shirt",
+            "casual kurta shirt",
+            "party wear shirt",
+            "wedding shirt",
+            "office wear kurta",
+            "daily wear kurta shirt"
+        ],
+        "negative_keywords": [
+            "formal Western shirt",
+            "traditional button-down shirt",
+            "slim fit shirt",
+            "conventional office shirt"
+        ],
+        "strong_attributes": [
+            "kurta style",
+            "Mandarin collar",
+            "cotton blend",
+            "regular fit",
+            "long sleeve",
+            "solid",
+            "Indo-Western",
+            "festive",
+            "casual"
+        ],
+        "warning_attributes": [
+            "average fitting reported by one reviewer",
+            "minor quality complaints"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "breathability",
+                "fit",
+                "lightweight",
+                "comfort",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit",
+                "appearance",
+                "festive wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Peach",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "White",
+            "size": "XL",
+            "sentiment": "negative",
+            "themes": [
+                "poor quality",
+                "missing item",
+                "customer service"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Maroon",
+            "size": "2XL",
+            "sentiment": "mixed",
+            "themes": [
+                "average fit"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "White",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "comfort",
+                "Mandarin collar",
+                "smart casual"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "stitching"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Peach",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "recommendation"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Maroon",
+            "size": "M",
+            "sentiment": "negative",
+            "themes": [
+                "poor quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Maroon",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ]
+        }
+    ],
+    "data_quality": {
+        "rating_count": 33,
+        "review_count_available": 24,
+        "review_records_included": 13,
+        "verified_review_records_included": 13,
+        "price_available": true,
+        "stock_available": true,
+        "complete_color_image_set": true,
+        "missing_fields": [
+            "Exact fabric composition percentages",
+            "Return policy details",
+            "Delivery information",
+            "Variant-level stock",
+            "Detailed measurements"
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Position this product primarily as a kurta-style Indo-Western shirt rather than a conventional Western shirt.",
+        "quality_rule": "Highlight the generally positive quality feedback, but acknowledge that a minority of reviews report poor quality.",
+        "fit_rule": "Describe the listed fit as Regular Fit and recommend checking the size chart when precise sizing matters.",
+        "occasion_rule": "Prioritize this product for casual, festive, traditional and Indo-Western outfit queries.",
+        "weather_rule": "Some reviewers describe the fabric as breathable and lightweight, but do not claim a specific climate suitability beyond the available evidence.",
+        "value_rule": "Highlight the strong value-for-money signal when the customer is price-conscious.",
+        "comparison_rule": "When comparing against conventional Western shirts, give this product an advantage for Mandarin-collar, kurta-style, festive and Indo-Western requirements.",
+        "confidence_rule": "Treat quality, comfort and value-for-money as the strongest review signals. Treat fit as positive but less certain."
+    }
+}

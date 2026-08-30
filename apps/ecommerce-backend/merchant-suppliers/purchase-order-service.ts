@@ -63,17 +63,23 @@ export class PurchaseOrderService {
     let subtotal = 0;
 
     for (const item of input.items) {
-      const prodRes = await client.query('SELECT productid, title, price FROM products WHERE productid = $1', [item.productId]);
+      const prodRes = await client.query(`
+        SELECT p.product_id, p.sku, p.title, p.selling_price as price, cg.total_unit_cost
+        FROM shopi_products p
+        LEFT JOIN shopi_product_cogs cg ON p.product_id = cg.product_id
+        WHERE p.product_id = $1
+      `, [item.productId]);
       const prod = prodRes.rows[0];
       const title = prod ? prod.title : `Product #${item.productId}`;
-      const unitCost = item.unitCost || Math.round(parseFloat(prod?.price || '1000') * 0.45); // default ~45% procurement cost
+      const sku = prod ? prod.sku : `SKU-${item.productId}`;
+      const unitCost = item.unitCost || (prod?.total_unit_cost ? parseFloat(prod.total_unit_cost) : Math.round(parseFloat(prod?.price || '1000') * 0.45));
       const totalCost = unitCost * item.quantity;
       subtotal += totalCost;
 
       items.push({
         productId: item.productId,
         productTitle: title,
-        sku: `SKU-${item.productId}`,
+        sku,
         quantity: item.quantity,
         unitCost,
         totalCost
@@ -95,40 +101,97 @@ export class PurchaseOrderService {
       poId,
       merchantId,
       poNumber,
-      input.supplierId || null,
+      input.supplierId,
       JSON.stringify(items),
       subtotal,
       taxAmount,
       grandTotal
     ]);
 
-    await this.logAuditEvent(poId, merchantId, null, 'APPROVAL_REQUIRED', 'merchant_system', input.notes || 'PO drafted from restock intelligence');
-
-    return mapRowToPO(res.rows[0]);
+    const row = res.rows[0];
+    return {
+      poId: row.po_id,
+      merchantId: row.merchant_id,
+      poNumber: row.po_number,
+      supplierId: row.supplier_id,
+      supplierName: (input as any).supplierName,
+      status: row.status,
+      items: typeof row.items === 'string' ? JSON.parse(row.items) : row.items,
+      subtotal: parseFloat(row.subtotal),
+      taxAmount: parseFloat(row.tax_amount),
+      grandTotal: parseFloat(row.grand_total),
+      currency: row.currency,
+      expectedDeliveryDate: row.expected_delivery_date,
+      createdAt: row.created_at,
+      updatedAt: row.updated_at
+    } as PurchaseOrderRecord;
   }
 
   /**
-   * Approves a purchase order.
+   * Approves a pending Purchase Order and transitions to ISSUED.
    */
   async approvePurchaseOrder(
     poId: string,
     approvedBy: string = 'merchant_admin',
     merchantId: string = 'default_merchant'
   ): Promise<PurchaseOrderRecord | null> {
-    const po = await this.getPurchaseOrderById(poId, merchantId);
-    if (!po) return null;
-
     const res = await client.query(`
       UPDATE merchant_purchase_orders
-      SET status = 'APPROVED', approved_by = $2
-      WHERE po_id = $1 AND (merchant_id = $3 OR $3 = 'merchant_admin')
+      SET status = 'ISSUED', approved_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
+      WHERE po_id = $1 AND (merchant_id = $2 OR $2 = 'merchant_admin')
       RETURNING *;
-    `, [poId, approvedBy, merchantId]);
+    `, [poId, merchantId]);
 
     if (res.rows.length === 0) return null;
-    await this.logAuditEvent(poId, merchantId, po.status, 'APPROVED', approvedBy, 'Merchant approved purchase order');
+    const row = res.rows[0];
+    return {
+      poId: row.po_id,
+      merchantId: row.merchant_id,
+      poNumber: row.po_number,
+      supplierId: row.supplier_id,
+      status: row.status,
+      items: typeof row.items === 'string' ? JSON.parse(row.items) : row.items,
+      subtotal: parseFloat(row.subtotal),
+      taxAmount: parseFloat(row.tax_amount),
+      grandTotal: parseFloat(row.grand_total),
+      currency: row.currency,
+      approvedAt: row.approved_at,
+      createdAt: row.created_at,
+      updatedAt: row.updated_at
+    } as PurchaseOrderRecord;
+  }
 
-    return mapRowToPO(res.rows[0]);
+  /**
+   * Rejects a pending Purchase Order.
+   */
+  async rejectPurchaseOrder(
+    poId: string,
+    reason: string,
+    merchantId: string = 'default_merchant'
+  ): Promise<PurchaseOrderRecord | null> {
+    const res = await client.query(`
+      UPDATE merchant_purchase_orders
+      SET status = 'REJECTED', notes = $3, updated_at = CURRENT_TIMESTAMP
+      WHERE po_id = $1 AND (merchant_id = $2 OR $2 = 'merchant_admin')
+      RETURNING *;
+    `, [poId, merchantId, reason]);
+
+    if (res.rows.length === 0) return null;
+    const row = res.rows[0];
+    return {
+      poId: row.po_id,
+      merchantId: row.merchant_id,
+      poNumber: row.po_number,
+      supplierId: row.supplier_id,
+      status: row.status,
+      items: typeof row.items === 'string' ? JSON.parse(row.items) : row.items,
+      subtotal: parseFloat(row.subtotal),
+      taxAmount: parseFloat(row.tax_amount),
+      grandTotal: parseFloat(row.grand_total),
+      currency: row.currency,
+      createdAt: row.created_at,
+      updatedAt: row.updated_at
+    } as PurchaseOrderRecord;
   }
 
   /**
@@ -181,19 +244,19 @@ export class PurchaseOrderService {
 
     // Mutate catalog inventory and ledger
     for (const item of po.items) {
-      const curStockRes = await client.query('SELECT stock FROM products WHERE productid = $1', [item.productId]);
-      const stockBefore = curStockRes.rows[0]?.stock || 0;
+      const curStockRes = await client.query('SELECT stock_quantity FROM shopi_products WHERE product_id = $1', [item.productId]);
+      const stockBefore = curStockRes.rows[0]?.stock_quantity || 0;
       const stockAfter = stockBefore + item.quantity;
 
       await client.query(`
-        UPDATE products 
-        SET stock = $1, updatedat = CURRENT_TIMESTAMP
-        WHERE productid = $2;
+        UPDATE shopi_products 
+        SET stock_quantity = $1, updated_at = CURRENT_TIMESTAMP
+        WHERE product_id = $2;
       `, [stockAfter, item.productId]);
 
       await client.query(`
-        INSERT INTO inventory_movements (
-          productid, movement_type, quantity, stock_before, stock_after, reference_type, reference_id, notes
+        INSERT INTO shopi_inventory_movements (
+          product_id, movement_type, quantity, stock_before, stock_after, reference_type, reference_id, notes
         ) VALUES ($1, 'RESTOCK_PO', $2, $3, $4, 'PURCHASE_ORDER', $5, $6);
       `, [item.productId, item.quantity, stockBefore, stockAfter, po.poNumber, `Received PO ${po.poNumber}`]);
     }

@@ -1,0 +1,306 @@
+{
+  "timestamp": "2026-08-26T18:44:55.574Z",
+  "total_violations": 30,
+  "violations": [
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-006",
+      "actual_length": 171,
+      "max_allowed_length": 100,
+      "value": "{\"listed_material\":\"Linen Cotton\",\"material_status\":\"Disputed\",\"customer_reported_material\":\"Polyester\",\"ai_display_rule\":\"Do not make an unqualified linen/cotton claim.\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"Linen Cotton\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "occasion",
+      "record_id": "SHIRT-008",
+      "actual_length": 202,
+      "max_allowed_length": 100,
+      "value": "Casual Wear, Daily Wear, Regular Outing, Party Wear, Wedding, Sangeet, Mehendi, Evening Wear, Work Wear, Formal Wear, Business Wear, Professional Wear, Birthday, Anniversary, Independence Day, Honeymoon",
+      "classification": "C (Verbose comma-separated list exceeding 100 chars)",
+      "recommendation": "Normalize to primary occasion summary (under 100 chars) and preserve detailed occasion list in additional_attributes / shopi_product_tags."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-009",
+      "actual_length": 173,
+      "max_allowed_length": 100,
+      "value": "{\"composition\":\"80% Cotton, 20% Silk\",\"cotton_percentage\":80,\"silk_percentage\":20,\"material_description\":\"Soft Touch Cotton Fabric\",\"material_status\":\"Confirmed by listing\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"80% Cotton, 20% Silk\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-010",
+      "actual_length": 276,
+      "max_allowed_length": 100,
+      "value": "{\"listing_highlight\":\"100% Cotton\",\"description_claim\":\"Poly Cotton\",\"review_claim\":\"One customer reported nylon-mixed fabric\",\"resolved_material\":null,\"material_status\":\"CONFLICTING_SOURCE_DATA\",\"ai_rule\":\"Do not make an unqualified fabric-composition claim until verified.\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"Cotton Blend\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-012",
+      "actual_length": 253,
+      "max_allowed_length": 100,
+      "value": "{\"listed_composition\":\"Popcorn\",\"marketing_description\":\"Premium textured fabric\",\"linen_claim\":\"Product is marketed as a linen shirt\",\"verified_fiber_composition\":false,\"confidence\":\"low\",\"ai_rule\":\"Do not claim 100% linen, pure linen or 100% cotton.\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"Cotton Blend\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-013",
+      "actual_length": 217,
+      "max_allowed_length": 100,
+      "value": "{\"listed_composition\":\"Cotton\",\"description_material\":\"Satin\",\"marketing_description\":\"Premium Cotton Fabric\",\"verified_fiber_composition\":false,\"confidence\":\"low\",\"ai_rule\":\"Do not claim 100% cotton or pure cotton.\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"Cotton Blend\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "material",
+      "record_id": "SHIRT-014",
+      "actual_length": 140,
+      "max_allowed_length": 100,
+      "value": "{\"composition\":\"Cotton Blend\",\"material_type\":\"Cotton Blend\",\"confidence\":\"high\",\"note\":\"The product details explicitly list Cotton Blend.\"}",
+      "classification": "B (Nested JSON object stringified instead of extracting clean material name)",
+      "recommendation": "Extract clean material string: \"Cotton Blend\" and preserve the full JSON in additional_attributes."
+    },
+    {
+      "table": "shopi_product_attributes",
+      "column": "occasion",
+      "record_id": "SNEAKER-006",
+      "actual_length": 109,
+      "max_allowed_length": 100,
+      "value": "Casual, College, Everyday Use, Travel, Walking, Light Outdoor Activities, Street Fashion, Party Wear, Dancing",
+      "classification": "C (Verbose comma-separated list exceeding 100 chars)",
+      "recommendation": "Normalize to primary occasion summary (under 100 chars) and preserve detailed occasion list in additional_attributes / shopi_product_tags."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-002:DRESS-002-REV-10",
+      "actual_length": 23,
+      "max_allowed_length": 20,
+      "value": "negative_image_accuracy",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-002:DRESS-002-REV-28",
+      "actual_length": 22,
+      "max_allowed_length": 20,
+      "value": "negative_colour_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-004:DRESS-004-REV-10",
+      "actual_length": 28,
+      "max_allowed_length": 20,
+      "value": "positive_with_sizing_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-005:DRESS-005-REV-05",
+      "actual_length": 24,
+      "max_allowed_length": 20,
+      "value": "negative_material_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-005:DRESS-005-REV-13",
+      "actual_length": 24,
+      "max_allowed_length": 20,
+      "value": "negative_material_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-005:DRESS-005-REV-23",
+      "actual_length": 24,
+      "max_allowed_length": 20,
+      "value": "negative_material_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-005:DRESS-005-REV-29",
+      "actual_length": 24,
+      "max_allowed_length": 20,
+      "value": "negative_material_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-006:DRESS-006-REV-02",
+      "actual_length": 29,
+      "max_allowed_length": 20,
+      "value": "positive_with_thinness_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-006:DRESS-006-REV-04",
+      "actual_length": 27,
+      "max_allowed_length": 20,
+      "value": "positive_with_color_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-006:DRESS-006-REV-11",
+      "actual_length": 29,
+      "max_allowed_length": 20,
+      "value": "positive_with_thinness_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-006:DRESS-006-REV-13",
+      "actual_length": 27,
+      "max_allowed_length": 20,
+      "value": "positive_with_color_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-006:DRESS-006-REV-14",
+      "actual_length": 29,
+      "max_allowed_length": 20,
+      "value": "positive_with_thinness_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-007:DRESS-007-REV-09",
+      "actual_length": 28,
+      "max_allowed_length": 20,
+      "value": "positive_with_sleeve_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "DRESS-007:DRESS-007-REV-11",
+      "actual_length": 28,
+      "max_allowed_length": 20,
+      "value": "positive_with_dupattaconcern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "JEANS-001:JEANS-001-REV-02",
+      "actual_length": 28,
+      "max_allowed_length": 20,
+      "value": "positive_with_fading_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "JEANS-003:JEANS-003-REV-04",
+      "actual_length": 28,
+      "max_allowed_length": 20,
+      "value": "positive_with_length_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "JEANS-005:JEANS-005-REV-05",
+      "actual_length": 22,
+      "max_allowed_length": 20,
+      "value": "mixed_negative_quality",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "SHIRT-001:SHIRT-001-REV-01",
+      "actual_length": 33,
+      "max_allowed_length": 20,
+      "value": "positive_with_temperature_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "SHIRT-001:SHIRT-001-REV-05",
+      "actual_length": 27,
+      "max_allowed_length": 20,
+      "value": "negative_temperature_signal",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "T-SHIRT-007:T-SHIRT-007-REV-02",
+      "actual_length": 25,
+      "max_allowed_length": 20,
+      "value": "positive_with_fit_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "T-SHIRT-008:T-SHIRT-008-REV-02",
+      "actual_length": 27,
+      "max_allowed_length": 20,
+      "value": "positive_with_price_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    },
+    {
+      "table": "shopi_product_reviews",
+      "column": "sentiment",
+      "record_id": "T-SHIRT-008:T-SHIRT-008-REV-08",
+      "actual_length": 27,
+      "max_allowed_length": 20,
+      "value": "positive_with_style_concern",
+      "classification": "D (Value length exceeds column constraint)",
+      "recommendation": "Shorten value to fit column constraint."
+    }
+  ]
+}

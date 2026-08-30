@@ -1,0 +1,1910 @@
+{
+  "generated_at": "2026-08-26T17:59:41.647Z",
+  "source_directory": "d:\\Razorpay-Ai-Commerce\\storefront\\apps\\ecommerce-backend\\data\\shopi-data\\products",
+  "total_files": 87,
+  "valid_json": 76,
+  "invalid_json": 0,
+  "empty_files": 11,
+  "empty_file_list": [
+    "products/Belts/BELT-001.json",
+    "products/Belts/BELT-002.json",
+    "products/Belts/BELT-003.json",
+    "products/Belts/BELT-004.json",
+    "products/Belts/BELT-005.json",
+    "products/Caps/CAP-001.json",
+    "products/Caps/CAP-002.json",
+    "products/Caps/CAP-003.json",
+    "products/Caps/CAP-004.json",
+    "products/Caps/CAP-005.json",
+    "products/Sports-Shoes/SPORTS-SHOE-005.json"
+  ],
+  "unique_product_ids": 76,
+  "duplicate_product_ids": [],
+  "duplicate_product_names": [
+    {
+      "normalized_name": "bata men's lace-up formal shoes",
+      "instances": [
+        {
+          "id": "FORMAL-SHOE-001",
+          "name": "Bata Men's Lace-up Formal Shoes",
+          "file": "products/Formal-Shoes/FORMAL-SHOE-001.json"
+        },
+        {
+          "id": "FORMAL-SHOE-004",
+          "name": "Bata Men's Lace-up Formal Shoes",
+          "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+        }
+      ]
+    }
+  ],
+  "category_counts": {
+    "Bags": {
+      "json_files": 5,
+      "valid_json": 5,
+      "empty_files": 0,
+      "product_folders": 5,
+      "images_on_disk": 16
+    },
+    "Belts": {
+      "json_files": 5,
+      "valid_json": 0,
+      "empty_files": 5,
+      "product_folders": 5,
+      "images_on_disk": 0
+    },
+    "Caps": {
+      "json_files": 5,
+      "valid_json": 0,
+      "empty_files": 5,
+      "product_folders": 5,
+      "images_on_disk": 0
+    },
+    "Dresses": {
+      "json_files": 10,
+      "valid_json": 10,
+      "empty_files": 0,
+      "product_folders": 10,
+      "images_on_disk": 43
+    },
+    "Formal-Shoes": {
+      "json_files": 6,
+      "valid_json": 6,
+      "empty_files": 0,
+      "product_folders": 6,
+      "images_on_disk": 11
+    },
+    "Jackets": {
+      "json_files": 4,
+      "valid_json": 4,
+      "empty_files": 0,
+      "product_folders": 4,
+      "images_on_disk": 9
+    },
+    "Jeans": {
+      "json_files": 10,
+      "valid_json": 10,
+      "empty_files": 0,
+      "product_folders": 10,
+      "images_on_disk": 37
+    },
+    "Shirts": {
+      "json_files": 15,
+      "valid_json": 15,
+      "empty_files": 0,
+      "product_folders": 15,
+      "images_on_disk": 92
+    },
+    "Sneakers": {
+      "json_files": 12,
+      "valid_json": 12,
+      "empty_files": 0,
+      "product_folders": 12,
+      "images_on_disk": 42
+    },
+    "Sports-Shoes": {
+      "json_files": 7,
+      "valid_json": 6,
+      "empty_files": 1,
+      "product_folders": 7,
+      "images_on_disk": 27
+    },
+    "T-Shirt": {
+      "json_files": 8,
+      "valid_json": 8,
+      "empty_files": 0,
+      "product_folders": 8,
+      "images_on_disk": 34
+    }
+  },
+  "schema_variants": [
+    {
+      "sample_file": "products/Bags/BAG-001.json",
+      "category": "Bags",
+      "top_level_keys": [
+        "product_id",
+        "basic_info",
+        "pricing",
+        "attributes",
+        "storage",
+        "carrying",
+        "features",
+        "variants",
+        "images",
+        "reviews",
+        "sales_intelligence",
+        "availability",
+        "policies",
+        "source"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Bags/BAG-001.json",
+        "products/Bags/BAG-004.json",
+        "products/Bags/BAG-005.json"
+      ]
+    },
+    {
+      "sample_file": "products/Bags/BAG-002.json",
+      "category": "Bags",
+      "top_level_keys": [
+        "product_id",
+        "basic_info",
+        "pricing",
+        "attributes",
+        "security",
+        "storage",
+        "connectivity",
+        "carrying",
+        "variants",
+        "images",
+        "reviews",
+        "sales_intelligence",
+        "availability",
+        "policies",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Bags/BAG-002.json"
+      ]
+    },
+    {
+      "sample_file": "products/Bags/BAG-003.json",
+      "category": "Bags",
+      "top_level_keys": [
+        "product_id",
+        "basic_info",
+        "pricing",
+        "attributes",
+        "design",
+        "storage",
+        "connectivity",
+        "carrying",
+        "variants",
+        "images",
+        "reviews",
+        "sales_intelligence",
+        "availability",
+        "policies",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Bags/BAG-003.json"
+      ]
+    },
+    {
+      "sample_file": "products/Dresses/DRESS-001.json",
+      "category": "Dresses",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "shopi_ai_rules"
+      ],
+      "count": 14,
+      "matched_files": [
+        "products/Dresses/DRESS-001.json",
+        "products/Dresses/DRESS-002.json",
+        "products/Dresses/DRESS-003.json",
+        "products/Dresses/DRESS-004.json",
+        "products/Dresses/DRESS-005.json",
+        "products/Dresses/DRESS-006.json",
+        "products/Dresses/DRESS-007.json",
+        "products/Dresses/DRESS-008.json",
+        "products/Dresses/DRESS-009.json",
+        "products/Dresses/DRESS-010.json",
+        "products/Jeans/JEANS-001.json",
+        "products/Shirts/SHIRT-001.json",
+        "products/T-Shirt/T-SHIRT-007.json",
+        "products/T-Shirt/T-SHIRT-008.json"
+      ]
+    },
+    {
+      "sample_file": "products/Formal-Shoes/FORMAL-SHOE-001.json",
+      "category": "Formal-Shoes",
+      "top_level_keys": [
+        "id",
+        "category",
+        "subcategory",
+        "product",
+        "pricing",
+        "materials",
+        "comfort_and_features",
+        "sizes",
+        "dimensions",
+        "ratings",
+        "review_insights",
+        "reviews",
+        "inventory",
+        "delivery",
+        "seller",
+        "manufacturer",
+        "images",
+        "source",
+        "data_quality_notes",
+        "ai_recommendation_profile"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Formal-Shoes/FORMAL-SHOE-001.json"
+      ]
+    },
+    {
+      "sample_file": "products/Formal-Shoes/FORMAL-SHOE-002.json",
+      "category": "Formal-Shoes",
+      "top_level_keys": [
+        "id",
+        "category",
+        "subcategory",
+        "product",
+        "pricing",
+        "materials",
+        "comfort_and_features",
+        "sizes",
+        "dimensions",
+        "ratings",
+        "review_insights",
+        "reviews",
+        "inventory",
+        "delivery",
+        "seller",
+        "manufacturer",
+        "images",
+        "source",
+        "additional_metadata",
+        "data_quality_notes",
+        "ai_recommendation_profile"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Formal-Shoes/FORMAL-SHOE-002.json"
+      ]
+    },
+    {
+      "sample_file": "products/Formal-Shoes/FORMAL-SHOE-003.json",
+      "category": "Formal-Shoes",
+      "top_level_keys": [
+        "id",
+        "category",
+        "subcategory",
+        "product",
+        "pricing",
+        "materials",
+        "comfort_and_features",
+        "sizes",
+        "dimensions",
+        "ratings",
+        "reviews",
+        "review_evidence",
+        "inventory",
+        "delivery",
+        "manufacturer",
+        "images",
+        "source",
+        "ai_recommendation_profile",
+        "data_quality_notes"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Formal-Shoes/FORMAL-SHOE-003.json",
+        "products/Formal-Shoes/FORMAL-SHOE-004.json",
+        "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      ]
+    },
+    {
+      "sample_file": "products/Formal-Shoes/FORMAL-SHOE-006.json",
+      "category": "Formal-Shoes",
+      "top_level_keys": [
+        "productId",
+        "reviews"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jackets/JACKET-001.json",
+      "category": "Jackets",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Jackets/JACKET-001.json",
+        "products/Shirts/SHIRT-002.json",
+        "products/Shirts/SHIRT-003.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jackets/JACKET-002.json",
+      "category": "Jackets",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "variant",
+        "images",
+        "pricing",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Jackets/JACKET-002.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jackets/JACKET-003.json",
+      "category": "Jackets",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "variants",
+        "images",
+        "pricing",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Jackets/JACKET-003.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jackets/JACKET-004.json",
+      "category": "Jackets",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "variants",
+        "images",
+        "pricing",
+        "rating",
+        "rating_distribution",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "shopi_ai_rules",
+        "comparison_signals",
+        "data_quality"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Jackets/JACKET-004.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jeans/JEANS-002.json",
+      "category": "Jeans",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "source",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 2,
+      "matched_files": [
+        "products/Jeans/JEANS-002.json",
+        "products/Jeans/JEANS-003.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jeans/JEANS-004.json",
+      "category": "Jeans",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "rating_distribution",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "source",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 2,
+      "matched_files": [
+        "products/Jeans/JEANS-004.json",
+        "products/Jeans/JEANS-005.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jeans/JEANS-006.json",
+      "category": "Jeans",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "manufacturer",
+        "packer",
+        "additional_information",
+        "shopi_ai_rules"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Jeans/JEANS-006.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jeans/JEANS-007.json",
+      "category": "Jeans",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "rating_distribution",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "manufacturer",
+        "packer",
+        "importer",
+        "additional_information",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Jeans/JEANS-007.json",
+        "products/Jeans/JEANS-008.json",
+        "products/Jeans/JEANS-010.json"
+      ]
+    },
+    {
+      "sample_file": "products/Jeans/JEANS-009.json",
+      "category": "Jeans",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "images",
+        "rating",
+        "rating_distribution",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "ai_matching",
+        "reviews",
+        "manufacturer",
+        "packer",
+        "additional_information",
+        "shopi_ai_rules",
+        "data_quality"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Jeans/JEANS-009.json"
+      ]
+    },
+    {
+      "sample_file": "products/Shirts/SHIRT-004.json",
+      "category": "Shirts",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "variants",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "buying_advice",
+        "reviews",
+        "ai_matching",
+        "data_quality",
+        "shopi_ai_rules"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Shirts/SHIRT-004.json"
+      ]
+    },
+    {
+      "sample_file": "products/Shirts/SHIRT-005.json",
+      "category": "Shirts",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "variants",
+        "images",
+        "rating",
+        "brand_information",
+        "review_summary",
+        "review_insights",
+        "pros",
+        "cons",
+        "occasion_tags",
+        "style_tags",
+        "ai_matching",
+        "buying_advice",
+        "reviews",
+        "data_quality",
+        "shopi_ai_rules"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Shirts/SHIRT-005.json",
+        "products/Shirts/SHIRT-006.json",
+        "products/Shirts/SHIRT-007.json"
+      ]
+    },
+    {
+      "sample_file": "products/Shirts/SHIRT-008.json",
+      "category": "Shirts",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "pricing_note",
+        "variants",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "reviews",
+        "pros",
+        "cons",
+        "occasion_tags",
+        "style_tags",
+        "ai_matching",
+        "buying_advice",
+        "care_instructions",
+        "brand_information",
+        "data_quality",
+        "shopi_ai_rules"
+      ],
+      "count": 2,
+      "matched_files": [
+        "products/Shirts/SHIRT-008.json",
+        "products/Shirts/SHIRT-009.json"
+      ]
+    },
+    {
+      "sample_file": "products/Shirts/SHIRT-010.json",
+      "category": "Shirts",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "pricing",
+        "variants",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "reviews",
+        "pros",
+        "cons",
+        "occasion_tags",
+        "style_tags",
+        "ai_matching",
+        "buying_advice",
+        "care_instructions",
+        "brand_information",
+        "data_quality",
+        "shopi_ai_rules"
+      ],
+      "count": 5,
+      "matched_files": [
+        "products/Shirts/SHIRT-010.json",
+        "products/Shirts/SHIRT-011.json",
+        "products/Shirts/SHIRT-012.json",
+        "products/Shirts/SHIRT-013.json",
+        "products/Shirts/SHIRT-014.json"
+      ]
+    },
+    {
+      "sample_file": "products/Shirts/SHIRT-015.json",
+      "category": "Shirts",
+      "top_level_keys": [
+        "product_id",
+        "product",
+        "material",
+        "pricing",
+        "variants",
+        "images",
+        "rating",
+        "review_summary",
+        "review_insights",
+        "reviews",
+        "pros",
+        "cons",
+        "occasion_tags",
+        "style_tags",
+        "ai_matching",
+        "buying_advice",
+        "care_instructions",
+        "brand_information",
+        "data_quality",
+        "shopi_ai_rules"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Shirts/SHIRT-015.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-001.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "pricing",
+        "description",
+        "attributes",
+        "colors",
+        "sizes",
+        "features",
+        "use_cases",
+        "ratings",
+        "reviews",
+        "review_insights",
+        "manufacturer",
+        "packer",
+        "importer",
+        "images",
+        "source"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-001.json",
+        "products/Sneakers/SNEAKER-009.json",
+        "products/Sneakers/SNEAKER-010.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-002.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "model",
+        "pricing",
+        "description",
+        "attributes",
+        "colors",
+        "sizes",
+        "features",
+        "use_cases",
+        "ratings",
+        "brand_info",
+        "manufacturer",
+        "packer",
+        "net_quantity",
+        "dimensions",
+        "images",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-002.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-003.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "model",
+        "pricing",
+        "description",
+        "colors",
+        "sizes",
+        "attributes",
+        "ratings",
+        "review_summary",
+        "reviews",
+        "use_cases",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-003.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-004.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "model",
+        "pricing",
+        "description",
+        "colors",
+        "sizes",
+        "attributes",
+        "ratings",
+        "review_summary",
+        "reviews",
+        "use_cases",
+        "return_policy",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-004.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-005.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "model",
+        "model_number",
+        "pricing",
+        "description",
+        "colors",
+        "sizes",
+        "selected_variant",
+        "attributes",
+        "physical_details",
+        "ratings",
+        "reviews",
+        "brand_information",
+        "delivery",
+        "returns",
+        "purchase_limits",
+        "seller",
+        "manufacturer",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-005.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-006.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "model",
+        "pricing",
+        "description",
+        "colors",
+        "sizes",
+        "attributes",
+        "ratings",
+        "review_summary",
+        "reviews",
+        "use_cases",
+        "tags",
+        "product_information",
+        "availability",
+        "return_policy",
+        "source",
+        "images"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-006.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-007.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "pricing",
+        "description",
+        "attributes",
+        "colors",
+        "sizes",
+        "features",
+        "use_cases",
+        "ratings",
+        "reviews",
+        "review_insights",
+        "manufacturer",
+        "packer",
+        "importer",
+        "images",
+        "ai_attributes",
+        "source"
+      ],
+      "count": 2,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-007.json",
+        "products/Sneakers/SNEAKER-008.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-011.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "pricing",
+        "description",
+        "attributes",
+        "variants",
+        "sizes",
+        "features",
+        "use_cases",
+        "ratings",
+        "review_insights",
+        "reviews",
+        "manufacturer",
+        "packer",
+        "net_quantity",
+        "images",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-011.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sneakers/SNEAKER-012.json",
+      "category": "Sneakers",
+      "top_level_keys": [
+        "product_id",
+        "sku",
+        "category",
+        "subcategory",
+        "gender",
+        "name",
+        "brand",
+        "pricing",
+        "description",
+        "attributes",
+        "variants",
+        "sizes",
+        "features",
+        "use_cases",
+        "ratings",
+        "review_insights",
+        "reviews",
+        "manufacturer",
+        "packer",
+        "importer",
+        "country_of_origin",
+        "item_weight_grams",
+        "dimensions_cm",
+        "net_quantity",
+        "generic_name",
+        "model",
+        "images",
+        "source"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sneakers/SNEAKER-012.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sports-Shoes/SPORTS-SHOE-001.json",
+      "category": "Sports-Shoes",
+      "top_level_keys": [
+        "product",
+        "catalog",
+        "attributes",
+        "variants",
+        "images",
+        "rating",
+        "review_summary",
+        "reviews",
+        "tags",
+        "ai_search_attributes",
+        "source_metadata"
+      ],
+      "count": 4,
+      "matched_files": [
+        "products/Sports-Shoes/SPORTS-SHOE-001.json",
+        "products/Sports-Shoes/SPORTS-SHOE-003.json",
+        "products/Sports-Shoes/SPORTS-SHOE-006.json",
+        "products/Sports-Shoes/SPORTS-SHOE-007.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sports-Shoes/SPORTS-SHOE-002.json",
+      "category": "Sports-Shoes",
+      "top_level_keys": [
+        "product",
+        "catalog",
+        "attributes",
+        "variants",
+        "size_prices",
+        "images",
+        "rating",
+        "review_summary",
+        "reviews",
+        "tags",
+        "ai_search_attributes",
+        "source_metadata"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sports-Shoes/SPORTS-SHOE-002.json"
+      ]
+    },
+    {
+      "sample_file": "products/Sports-Shoes/SPORTS-SHOE-004.json",
+      "category": "Sports-Shoes",
+      "top_level_keys": [
+        "rating",
+        "review_summary",
+        "reviews"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      ]
+    },
+    {
+      "sample_file": "products/T-Shirt/T-SHIRT-001.json",
+      "category": "T-Shirt",
+      "top_level_keys": [
+        "product_id",
+        "category",
+        "subcategory",
+        "product",
+        "source",
+        "pricing",
+        "rating",
+        "variants",
+        "attributes",
+        "occasions",
+        "pairing",
+        "use_cases",
+        "manufacturer",
+        "inventory_signals",
+        "reviews",
+        "ai_signals",
+        "images",
+        "data_quality"
+      ],
+      "count": 2,
+      "matched_files": [
+        "products/T-Shirt/T-SHIRT-001.json",
+        "products/T-Shirt/T-SHIRT-006.json"
+      ]
+    },
+    {
+      "sample_file": "products/T-Shirt/T-SHIRT-002.json",
+      "category": "T-Shirt",
+      "top_level_keys": [
+        "product_id",
+        "category",
+        "subcategory",
+        "product",
+        "source",
+        "pricing",
+        "rating",
+        "variants",
+        "attributes",
+        "product_details",
+        "manufacturer",
+        "inventory_signals",
+        "reviews",
+        "ai_signals",
+        "images",
+        "data_quality"
+      ],
+      "count": 3,
+      "matched_files": [
+        "products/T-Shirt/T-SHIRT-002.json",
+        "products/T-Shirt/T-SHIRT-003.json",
+        "products/T-Shirt/T-SHIRT-004.json"
+      ]
+    },
+    {
+      "sample_file": "products/T-Shirt/T-SHIRT-005.json",
+      "category": "T-Shirt",
+      "top_level_keys": [
+        "product_id",
+        "category",
+        "subcategory",
+        "product",
+        "source",
+        "pricing",
+        "rating",
+        "variants",
+        "attributes",
+        "product_details",
+        "manufacturer",
+        "care",
+        "reviews",
+        "ai_signals",
+        "images",
+        "data_quality"
+      ],
+      "count": 1,
+      "matched_files": [
+        "products/T-Shirt/T-SHIRT-005.json"
+      ]
+    }
+  ],
+  "missing_fields": {
+    "missing_name": [
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      }
+    ],
+    "missing_brand": [
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      }
+    ],
+    "missing_pricing": [
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-001",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-001.json"
+      },
+      {
+        "id": "SPORTS-SHOE-003",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "SPORTS-SHOE-006",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-007",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-007.json"
+      }
+    ],
+    "missing_mrp": [
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SHIRT-004",
+        "file": "products/Shirts/SHIRT-004.json"
+      },
+      {
+        "id": "SHIRT-013",
+        "file": "products/Shirts/SHIRT-013.json"
+      },
+      {
+        "id": "SPORTS-SHOE-001",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-001.json"
+      },
+      {
+        "id": "SPORTS-SHOE-002",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-002.json"
+      },
+      {
+        "id": "SPORTS-SHOE-003",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "SPORTS-SHOE-006",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-007",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-007.json"
+      }
+    ],
+    "missing_selling_price": [
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SHIRT-010",
+        "file": "products/Shirts/SHIRT-010.json"
+      },
+      {
+        "id": "SHIRT-011",
+        "file": "products/Shirts/SHIRT-011.json"
+      },
+      {
+        "id": "SHIRT-012",
+        "file": "products/Shirts/SHIRT-012.json"
+      },
+      {
+        "id": "SPORTS-SHOE-001",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-001.json"
+      },
+      {
+        "id": "SPORTS-SHOE-002",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-002.json"
+      },
+      {
+        "id": "SPORTS-SHOE-003",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "SPORTS-SHOE-006",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-007",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-007.json"
+      }
+    ],
+    "missing_images": [],
+    "missing_variants": [
+      {
+        "id": "DRESS-001",
+        "file": "products/Dresses/DRESS-001.json"
+      },
+      {
+        "id": "DRESS-002",
+        "file": "products/Dresses/DRESS-002.json"
+      },
+      {
+        "id": "DRESS-003",
+        "file": "products/Dresses/DRESS-003.json"
+      },
+      {
+        "id": "DRESS-004",
+        "file": "products/Dresses/DRESS-004.json"
+      },
+      {
+        "id": "DRESS-005",
+        "file": "products/Dresses/DRESS-005.json"
+      },
+      {
+        "id": "DRESS-006",
+        "file": "products/Dresses/DRESS-006.json"
+      },
+      {
+        "id": "DRESS-007",
+        "file": "products/Dresses/DRESS-007.json"
+      },
+      {
+        "id": "DRESS-008",
+        "file": "products/Dresses/DRESS-008.json"
+      },
+      {
+        "id": "DRESS-009",
+        "file": "products/Dresses/DRESS-009.json"
+      },
+      {
+        "id": "DRESS-010",
+        "file": "products/Dresses/DRESS-010.json"
+      },
+      {
+        "id": "FORMAL-SHOE-001",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-001.json"
+      },
+      {
+        "id": "FORMAL-SHOE-002",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-002.json"
+      },
+      {
+        "id": "FORMAL-SHOE-003",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-003.json"
+      },
+      {
+        "id": "FORMAL-SHOE-004",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+      },
+      {
+        "id": "FORMAL-SHOE-005",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      },
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "JACKET-001",
+        "file": "products/Jackets/JACKET-001.json"
+      },
+      {
+        "id": "JACKET-002",
+        "file": "products/Jackets/JACKET-002.json"
+      },
+      {
+        "id": "JEANS-001",
+        "file": "products/Jeans/JEANS-001.json"
+      },
+      {
+        "id": "JEANS-002",
+        "file": "products/Jeans/JEANS-002.json"
+      },
+      {
+        "id": "JEANS-003",
+        "file": "products/Jeans/JEANS-003.json"
+      },
+      {
+        "id": "JEANS-004",
+        "file": "products/Jeans/JEANS-004.json"
+      },
+      {
+        "id": "JEANS-005",
+        "file": "products/Jeans/JEANS-005.json"
+      },
+      {
+        "id": "JEANS-006",
+        "file": "products/Jeans/JEANS-006.json"
+      },
+      {
+        "id": "JEANS-007",
+        "file": "products/Jeans/JEANS-007.json"
+      },
+      {
+        "id": "JEANS-008",
+        "file": "products/Jeans/JEANS-008.json"
+      },
+      {
+        "id": "JEANS-009",
+        "file": "products/Jeans/JEANS-009.json"
+      },
+      {
+        "id": "JEANS-010",
+        "file": "products/Jeans/JEANS-010.json"
+      },
+      {
+        "id": "SHIRT-001",
+        "file": "products/Shirts/SHIRT-001.json"
+      },
+      {
+        "id": "SHIRT-002",
+        "file": "products/Shirts/SHIRT-002.json"
+      },
+      {
+        "id": "SHIRT-003",
+        "file": "products/Shirts/SHIRT-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "T-SHIRT-007",
+        "file": "products/T-Shirt/T-SHIRT-007.json"
+      },
+      {
+        "id": "T-SHIRT-008",
+        "file": "products/T-Shirt/T-SHIRT-008.json"
+      }
+    ],
+    "missing_colors": [
+      {
+        "id": "DRESS-001",
+        "file": "products/Dresses/DRESS-001.json"
+      },
+      {
+        "id": "DRESS-002",
+        "file": "products/Dresses/DRESS-002.json"
+      },
+      {
+        "id": "DRESS-003",
+        "file": "products/Dresses/DRESS-003.json"
+      },
+      {
+        "id": "DRESS-004",
+        "file": "products/Dresses/DRESS-004.json"
+      },
+      {
+        "id": "DRESS-005",
+        "file": "products/Dresses/DRESS-005.json"
+      },
+      {
+        "id": "DRESS-006",
+        "file": "products/Dresses/DRESS-006.json"
+      },
+      {
+        "id": "DRESS-007",
+        "file": "products/Dresses/DRESS-007.json"
+      },
+      {
+        "id": "DRESS-008",
+        "file": "products/Dresses/DRESS-008.json"
+      },
+      {
+        "id": "DRESS-009",
+        "file": "products/Dresses/DRESS-009.json"
+      },
+      {
+        "id": "DRESS-010",
+        "file": "products/Dresses/DRESS-010.json"
+      },
+      {
+        "id": "FORMAL-SHOE-001",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-001.json"
+      },
+      {
+        "id": "FORMAL-SHOE-002",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-002.json"
+      },
+      {
+        "id": "FORMAL-SHOE-003",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-003.json"
+      },
+      {
+        "id": "FORMAL-SHOE-004",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+      },
+      {
+        "id": "FORMAL-SHOE-005",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      },
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "JACKET-001",
+        "file": "products/Jackets/JACKET-001.json"
+      },
+      {
+        "id": "JACKET-002",
+        "file": "products/Jackets/JACKET-002.json"
+      },
+      {
+        "id": "JEANS-001",
+        "file": "products/Jeans/JEANS-001.json"
+      },
+      {
+        "id": "JEANS-002",
+        "file": "products/Jeans/JEANS-002.json"
+      },
+      {
+        "id": "JEANS-003",
+        "file": "products/Jeans/JEANS-003.json"
+      },
+      {
+        "id": "JEANS-004",
+        "file": "products/Jeans/JEANS-004.json"
+      },
+      {
+        "id": "JEANS-005",
+        "file": "products/Jeans/JEANS-005.json"
+      },
+      {
+        "id": "JEANS-006",
+        "file": "products/Jeans/JEANS-006.json"
+      },
+      {
+        "id": "JEANS-007",
+        "file": "products/Jeans/JEANS-007.json"
+      },
+      {
+        "id": "JEANS-008",
+        "file": "products/Jeans/JEANS-008.json"
+      },
+      {
+        "id": "JEANS-009",
+        "file": "products/Jeans/JEANS-009.json"
+      },
+      {
+        "id": "JEANS-010",
+        "file": "products/Jeans/JEANS-010.json"
+      },
+      {
+        "id": "SHIRT-001",
+        "file": "products/Shirts/SHIRT-001.json"
+      },
+      {
+        "id": "SHIRT-002",
+        "file": "products/Shirts/SHIRT-002.json"
+      },
+      {
+        "id": "SHIRT-003",
+        "file": "products/Shirts/SHIRT-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "T-SHIRT-007",
+        "file": "products/T-Shirt/T-SHIRT-007.json"
+      },
+      {
+        "id": "T-SHIRT-008",
+        "file": "products/T-Shirt/T-SHIRT-008.json"
+      }
+    ],
+    "missing_sizes": [
+      {
+        "id": "BAG-002",
+        "file": "products/Bags/BAG-002.json"
+      },
+      {
+        "id": "BAG-003",
+        "file": "products/Bags/BAG-003.json"
+      },
+      {
+        "id": "DRESS-001",
+        "file": "products/Dresses/DRESS-001.json"
+      },
+      {
+        "id": "DRESS-002",
+        "file": "products/Dresses/DRESS-002.json"
+      },
+      {
+        "id": "DRESS-003",
+        "file": "products/Dresses/DRESS-003.json"
+      },
+      {
+        "id": "DRESS-004",
+        "file": "products/Dresses/DRESS-004.json"
+      },
+      {
+        "id": "DRESS-005",
+        "file": "products/Dresses/DRESS-005.json"
+      },
+      {
+        "id": "DRESS-006",
+        "file": "products/Dresses/DRESS-006.json"
+      },
+      {
+        "id": "DRESS-007",
+        "file": "products/Dresses/DRESS-007.json"
+      },
+      {
+        "id": "DRESS-008",
+        "file": "products/Dresses/DRESS-008.json"
+      },
+      {
+        "id": "DRESS-009",
+        "file": "products/Dresses/DRESS-009.json"
+      },
+      {
+        "id": "DRESS-010",
+        "file": "products/Dresses/DRESS-010.json"
+      },
+      {
+        "id": "FORMAL-SHOE-001",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-001.json"
+      },
+      {
+        "id": "FORMAL-SHOE-002",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-002.json"
+      },
+      {
+        "id": "FORMAL-SHOE-003",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-003.json"
+      },
+      {
+        "id": "FORMAL-SHOE-004",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+      },
+      {
+        "id": "FORMAL-SHOE-005",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      },
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "JACKET-001",
+        "file": "products/Jackets/JACKET-001.json"
+      },
+      {
+        "id": "JACKET-002",
+        "file": "products/Jackets/JACKET-002.json"
+      },
+      {
+        "id": "JACKET-003",
+        "file": "products/Jackets/JACKET-003.json"
+      },
+      {
+        "id": "JACKET-004",
+        "file": "products/Jackets/JACKET-004.json"
+      },
+      {
+        "id": "JEANS-001",
+        "file": "products/Jeans/JEANS-001.json"
+      },
+      {
+        "id": "JEANS-002",
+        "file": "products/Jeans/JEANS-002.json"
+      },
+      {
+        "id": "JEANS-003",
+        "file": "products/Jeans/JEANS-003.json"
+      },
+      {
+        "id": "JEANS-004",
+        "file": "products/Jeans/JEANS-004.json"
+      },
+      {
+        "id": "JEANS-005",
+        "file": "products/Jeans/JEANS-005.json"
+      },
+      {
+        "id": "JEANS-006",
+        "file": "products/Jeans/JEANS-006.json"
+      },
+      {
+        "id": "JEANS-007",
+        "file": "products/Jeans/JEANS-007.json"
+      },
+      {
+        "id": "JEANS-008",
+        "file": "products/Jeans/JEANS-008.json"
+      },
+      {
+        "id": "JEANS-009",
+        "file": "products/Jeans/JEANS-009.json"
+      },
+      {
+        "id": "JEANS-010",
+        "file": "products/Jeans/JEANS-010.json"
+      },
+      {
+        "id": "SHIRT-001",
+        "file": "products/Shirts/SHIRT-001.json"
+      },
+      {
+        "id": "SHIRT-002",
+        "file": "products/Shirts/SHIRT-002.json"
+      },
+      {
+        "id": "SHIRT-003",
+        "file": "products/Shirts/SHIRT-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-001",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-001.json"
+      },
+      {
+        "id": "SPORTS-SHOE-003",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-003.json"
+      },
+      {
+        "id": "SPORTS-SHOE-004",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-004.json"
+      },
+      {
+        "id": "SPORTS-SHOE-006",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-006.json"
+      },
+      {
+        "id": "SPORTS-SHOE-007",
+        "file": "products/Sports-Shoes/SPORTS-SHOE-007.json"
+      },
+      {
+        "id": "T-SHIRT-007",
+        "file": "products/T-Shirt/T-SHIRT-007.json"
+      },
+      {
+        "id": "T-SHIRT-008",
+        "file": "products/T-Shirt/T-SHIRT-008.json"
+      }
+    ],
+    "missing_ratings": [
+      {
+        "id": "BAG-001",
+        "file": "products/Bags/BAG-001.json"
+      },
+      {
+        "id": "BAG-002",
+        "file": "products/Bags/BAG-002.json"
+      },
+      {
+        "id": "BAG-003",
+        "file": "products/Bags/BAG-003.json"
+      },
+      {
+        "id": "BAG-004",
+        "file": "products/Bags/BAG-004.json"
+      },
+      {
+        "id": "BAG-005",
+        "file": "products/Bags/BAG-005.json"
+      },
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      }
+    ],
+    "missing_reviews": [
+      {
+        "id": "FORMAL-SHOE-003",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-003.json"
+      },
+      {
+        "id": "FORMAL-SHOE-004",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+      },
+      {
+        "id": "FORMAL-SHOE-005",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      },
+      {
+        "id": "JACKET-002",
+        "file": "products/Jackets/JACKET-002.json"
+      },
+      {
+        "id": "JACKET-003",
+        "file": "products/Jackets/JACKET-003.json"
+      },
+      {
+        "id": "JACKET-004",
+        "file": "products/Jackets/JACKET-004.json"
+      },
+      {
+        "id": "JEANS-002",
+        "file": "products/Jeans/JEANS-002.json"
+      },
+      {
+        "id": "SNEAKER-002",
+        "file": "products/Sneakers/SNEAKER-002.json"
+      },
+      {
+        "id": "SNEAKER-005",
+        "file": "products/Sneakers/SNEAKER-005.json"
+      },
+      {
+        "id": "T-SHIRT-001",
+        "file": "products/T-Shirt/T-SHIRT-001.json"
+      },
+      {
+        "id": "T-SHIRT-002",
+        "file": "products/T-Shirt/T-SHIRT-002.json"
+      },
+      {
+        "id": "T-SHIRT-003",
+        "file": "products/T-Shirt/T-SHIRT-003.json"
+      },
+      {
+        "id": "T-SHIRT-004",
+        "file": "products/T-Shirt/T-SHIRT-004.json"
+      },
+      {
+        "id": "T-SHIRT-005",
+        "file": "products/T-Shirt/T-SHIRT-005.json"
+      },
+      {
+        "id": "T-SHIRT-006",
+        "file": "products/T-Shirt/T-SHIRT-006.json"
+      }
+    ],
+    "missing_review_summary": [
+      {
+        "id": "FORMAL-SHOE-003",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-003.json"
+      },
+      {
+        "id": "FORMAL-SHOE-004",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-004.json"
+      },
+      {
+        "id": "FORMAL-SHOE-005",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-005.json"
+      },
+      {
+        "id": "FORMAL-SHOE-006",
+        "file": "products/Formal-Shoes/FORMAL-SHOE-006.json"
+      },
+      {
+        "id": "SNEAKER-002",
+        "file": "products/Sneakers/SNEAKER-002.json"
+      },
+      {
+        "id": "SNEAKER-005",
+        "file": "products/Sneakers/SNEAKER-005.json"
+      },
+      {
+        "id": "T-SHIRT-001",
+        "file": "products/T-Shirt/T-SHIRT-001.json"
+      },
+      {
+        "id": "T-SHIRT-002",
+        "file": "products/T-Shirt/T-SHIRT-002.json"
+      },
+      {
+        "id": "T-SHIRT-003",
+        "file": "products/T-Shirt/T-SHIRT-003.json"
+      },
+      {
+        "id": "T-SHIRT-004",
+        "file": "products/T-Shirt/T-SHIRT-004.json"
+      },
+      {
+        "id": "T-SHIRT-005",
+        "file": "products/T-Shirt/T-SHIRT-005.json"
+      },
+      {
+        "id": "T-SHIRT-006",
+        "file": "products/T-Shirt/T-SHIRT-006.json"
+      }
+    ]
+  },
+  "image_statistics": {
+    "total_product_folders": 87,
+    "total_disk_images": 311,
+    "folders_with_images": 77,
+    "folders_without_images": 10,
+    "images_by_category": {
+      "Bags": 16,
+      "Belts": 0,
+      "Caps": 0,
+      "Dresses": 43,
+      "Formal-Shoes": 11,
+      "Jackets": 9,
+      "Jeans": 37,
+      "Shirts": 92,
+      "Sneakers": 42,
+      "Sports-Shoes": 27,
+      "T-Shirt": 34
+    },
+    "image_formats": {
+      ".jpg": 311
+    }
+  },
+  "variant_statistics": {
+    "total_color_variants_found": 178,
+    "total_size_variants_found": 185,
+    "products_with_variants": 42,
+    "products_without_variants": 34
+  },
+  "review_statistics": {
+    "products_with_reviews": 61,
+    "products_without_reviews": 15,
+    "total_individual_reviews": 821,
+    "products_with_review_summary": 64,
+    "products_without_review_summary": 12
+  }
+}

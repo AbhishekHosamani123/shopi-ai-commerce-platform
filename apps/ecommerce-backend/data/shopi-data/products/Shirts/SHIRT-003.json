@@ -1,0 +1,469 @@
+{
+    "product_id": "SHIRT-003",
+    "product": {
+        "name": "DEELMO Men's Stylish Cotton Blend Casual Shirt",
+        "brand": "DEELMO",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Button-Down Shirt",
+        "description": "A regular-fit full-sleeve cotton-blend casual shirt with a button-down collar and two flap pockets. Designed for casual, office and outing wear.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "sleeve_length": "Long Sleeve",
+        "collar": "Button Down",
+        "collar_style": "Button Down",
+        "neck_style": "Collared",
+        "closure": "Button",
+        "length": "Standard Length",
+        "style": "Western",
+        "top_style": "Collared Long Sleeve Regular Fit",
+        "cuff_style": "Button Cuff",
+        "material": "Cotton Blend",
+        "fabric_type": "Cotton Blend",
+        "fabric_weight": "Medium Weight",
+        "fabric_stretch": "Medium Stretch",
+        "pockets": {
+            "count": 2,
+            "type": "Flap Pocket",
+            "description": "Dual Flap Pockets"
+        },
+        "care": {
+            "instructions": "Hand Wash Only"
+        },
+        "season": "Winter",
+        "occasion_tags": [
+            "casual wear",
+            "office wear",
+            "outing wear",
+            "daily wear",
+            "birthday",
+            "Christmas",
+            "date night",
+            "New Year",
+            "Valentine's Day"
+        ],
+        "style_tags": [
+            "casual",
+            "button-down",
+            "full sleeve",
+            "dual pocket",
+            "flap pocket",
+            "western",
+            "regular fit",
+            "cotton blend"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "Black",
+            "Coffy",
+            "Dark Orange",
+            "Grey",
+            "Navy Blue",
+            "White",
+            "Yellow"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 230,
+        "item_dimensions_cm": {
+            "length": 23,
+            "width": 22,
+            "height": 1.8
+        },
+        "unit_count": 1
+    },
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 429,
+        "currency": "INR",
+        "discount_percentage": 83,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-003/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Coffy",
+            "image": "products/shirts/SHIRT-003/coffy.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Orange",
+            "image": "products/shirts/SHIRT-003/DARK ORANGE.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/shirts/SHIRT-003/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Blue",
+            "image": "products/shirts/SHIRT-003/INAVY BLUE.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-003/white.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Yellow",
+            "image": "products/shirts/SHIRT-003/yellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 1552,
+        "rating_distribution_percent": {
+            "5_star": 47,
+            "4_star": 14,
+            "3_star": 11,
+            "2_star": 6,
+            "1_star": 22
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers generally appreciate the shirt's appearance, comfort, fit for some buyers, versatility and value. However, feedback is mixed on fabric quality, color and sizing. Some reviewers report that the shirt is larger or looser than expected, while another reviewer reported that the received product looked different from the displayed images.",
+        "positive": [
+            "Stylish appearance",
+            "Comfortable fabric according to many reviewers",
+            "Good value for money",
+            "Suitable for casual and semi-formal occasions",
+            "Good fit for some customers",
+            "Versatile for casual, office and outing wear",
+            "Premium-looking appearance reported by some customers",
+            "Good color and appearance reported by some buyers"
+        ],
+        "negative": [
+            "Mixed fabric-quality feedback",
+            "Some buyers report sizing issues",
+            "Some buyers report a loose or oversized fit",
+            "One reviewer reported that the received shirt did not match the product images",
+            "Some color-related complaints including fading",
+            "One reviewer reported a button-quality issue",
+            "Some reviewers found the fabric less soft than expected"
+        ],
+        "main_strength": "The strongest recurring signals are appearance, comfort, versatility and value for money.",
+        "main_risk": "Sizing and product-consistency are the biggest risks. Customers do not consistently agree on fit or fabric quality."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "The listed fit is Regular Fit, but customer feedback includes both perfect-fit and loose/oversized reports."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "versatility": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "mixed",
+            "confidence": "medium"
+        },
+        "size": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        }
+    },
+    "pros": [
+        "Stylish casual appearance",
+        "Comfortable for many reviewers",
+        "Good value for money",
+        "Regular fit",
+        "Dual flap pockets",
+        "Cotton-blend construction",
+        "Suitable for casual and office wear",
+        "Available in multiple colors",
+        "Multiple sizes available"
+    ],
+    "cons": [
+        "3.6/5 overall rating",
+        "22% of ratings are 1-star",
+        "Sizing feedback is inconsistent",
+        "Some buyers report loose or oversized fitting",
+        "Fabric quality receives mixed feedback",
+        "Some color complaints are reported",
+        "One reviewer reported a mismatch between product images and received product",
+        "Hand wash only",
+        "Medium-weight fabric may not suit everyone"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_WITH_CAUTION",
+        "score": 6.8,
+        "best_for": [
+            "Casual wear",
+            "Office wear",
+            "Outings",
+            "Daily wear",
+            "Date nights",
+            "Birthday outfits",
+            "Festive casual styling",
+            "Customers wanting a button-down shirt with pockets"
+        ],
+        "not_ideal_for": [
+            "Customers requiring highly predictable sizing",
+            "Customers expecting the exact appearance shown in every product image",
+            "Customers looking for a lightweight summer shirt",
+            "Customers who require machine-washable clothing"
+        ],
+        "size_advice": "The listed fit is Regular Fit and sizes S through 2XL are available. Check the size chart carefully because customer feedback includes reports of loose or larger-than-expected fitting.",
+        "style_advice": "Best positioned as a casual Western button-down shirt with dual flap pockets rather than a formal dress shirt.",
+        "value_assessment": "The product has a strong value-for-money signal in customer feedback, especially at the captured selling price of ₹429."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "cotton blend shirt",
+            "button-down shirt",
+            "full sleeve shirt",
+            "regular fit shirt",
+            "dual pocket shirt",
+            "flap pocket shirt",
+            "casual office shirt",
+            "outing shirt",
+            "daily wear shirt",
+            "western shirt",
+            "date night shirt",
+            "winter shirt"
+        ],
+        "negative_keywords": [
+            "slim fit shirt",
+            "summer shirt",
+            "lightweight summer shirt",
+            "formal dress shirt",
+            "precise tailored fit",
+            "machine washable shirt"
+        ],
+        "strong_attributes": [
+            "casual",
+            "button-down",
+            "regular fit",
+            "long sleeve",
+            "cotton blend",
+            "dual flap pockets",
+            "medium weight",
+            "medium stretch",
+            "western"
+        ],
+        "warning_attributes": [
+            "mixed sizing feedback",
+            "possible loose fit",
+            "mixed fabric quality",
+            "possible image-to-product mismatch",
+            "mixed color feedback"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Dark Orange",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit",
+                "style",
+                "value"
+            ],
+            "summary": "Reviewer described the shirt as excellent in quality, comfortable, perfectly fitting and stylish."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "3XL",
+            "color": "Yellow",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "fit",
+                "style",
+                "color_accuracy",
+                "value"
+            ],
+            "summary": "Reviewer reported good fabric quality, comfortable all-day wear, good fitting and accurate color."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "Coffy",
+            "sentiment": "negative",
+            "themes": [
+                "image_mismatch",
+                "product_representation"
+            ],
+            "summary": "Reviewer reported that the received shirt looked different from the product images and appeared as a simple plain shirt rather than the expected jacket-style appearance."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Coffy",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "fabric"
+            ],
+            "summary": "Reviewer liked the color and fabric."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Coffy",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort"
+            ],
+            "summary": "Reviewer found the shirt good-looking, easy to wear and comfortable."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Black",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer liked the quality but considered the price somewhat high."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "value"
+            ],
+            "summary": "Reviewer described the product as good value."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "negative",
+            "themes": [
+                "overall_quality"
+            ],
+            "summary": "Reviewer simply described the product as not good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Coffy",
+            "sentiment": "mixed",
+            "themes": [
+                "fit"
+            ],
+            "summary": "Reviewer indicated that the shirt size was big."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Dark Orange",
+            "sentiment": "neutral_positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as okay."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Coffy",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as nice."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Coffy",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as good."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "White",
+            "sentiment": "negative",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer raised a quality concern."
+        }
+    ],
+    "data_quality": {
+        "rating_count": 1552,
+        "review_count_displayed": 936,
+        "price_available": true,
+        "stock_available": false,
+        "complete_color_image_set": true,
+        "missing_fields": [
+            "Exact cotton/polyester composition percentages",
+            "Detailed size measurements",
+            "Variant-level stock",
+            "Return policy details",
+            "Delivery information"
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Position this product as a casual Western button-down shirt with dual flap pockets.",
+        "quality_rule": "Do not describe the fabric as universally premium because customer feedback on fabric quality is mixed.",
+        "fit_rule": "Use Regular Fit as the official fit, but warn that customer feedback includes loose or oversized fitting.",
+        "occasion_rule": "Prioritize casual, office, outing and date-night queries.",
+        "season_rule": "The provided product specification lists Winter as the season. Do not market it as an ideal lightweight summer shirt.",
+        "value_rule": "The product has a positive value-for-money signal and can be recommended to price-conscious shoppers.",
+        "image_rule": "Do not claim that every displayed image perfectly represents the received product because at least one verified review reported an image/product mismatch.",
+        "comparison_rule": "Give this product an advantage when the customer specifically wants a casual button-down shirt with dual flap pockets.",
+        "confidence_rule": "Treat appearance, comfort and value as stronger positive signals. Treat fit and fabric quality as mixed signals.",
+        "recommendation_rule": "Recommend with caution rather than presenting it as a universally reliable purchase because the overall rating is 3.6/5 and 22% of ratings are 1-star."
+    }
+}

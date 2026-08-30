@@ -6,12 +6,12 @@ export class AdSimulator {
    * Simulates paid advertising traffic lift, revenue ranges, and stockout probability for a SKU.
    */
   async simulateAdSpend(input: AdSpendSimulationInput): Promise<AdSpendSimulationResult | null> {
-    const prodRes = await client.query('SELECT productid, title, price, discount, stock FROM products WHERE productid = $1', [input.productId]);
+    const prodRes = await client.query('SELECT product_id, sku, title, selling_price, stock_quantity as stock FROM shopi_products WHERE product_id = $1', [input.productId]);
     if (prodRes.rows.length === 0) return null;
     const prod = prodRes.rows[0];
 
     const currentStock = parseInt(prod.stock, 10) || 0;
-    const price = parseFloat(prod.discount || prod.price) || 1000;
+    const price = parseFloat(prod.selling_price) || 1000;
     const spend = Math.max(1000, input.adSpend);
 
     // Heuristic CPC ~₹18 - ₹28, conversion ~2.0% - 3.5%
@@ -29,7 +29,7 @@ export class AdSimulator {
 
     return {
       simulatedLabel: 'SIMULATED / ESTIMATED',
-      productId: prod.productid,
+      productId: prod.product_id,
       productTitle: prod.title,
       adSpend: spend,
       channel: input.channel || 'DIRECT_STORE',

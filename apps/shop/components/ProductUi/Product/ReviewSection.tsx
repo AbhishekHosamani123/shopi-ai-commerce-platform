@@ -20,7 +20,7 @@ interface star{
     four:number;
     five:number;
 }
-const ReviewSection = ({data,reviewCount,setloading,setdialogType,setselectedReview,setselectedRating,allReview,productID}:{productID:number,data:Review[],reviewCount:number,setdialogType:React.Dispatch<React.SetStateAction<string | null>>,setloading:React.Dispatch<React.SetStateAction<boolean>>,setselectedReview:React.Dispatch<React.SetStateAction<null|Review>>,setselectedRating:React.Dispatch<React.SetStateAction<number>>,allReview:boolean}) => {
+const ReviewSection = ({data,reviewCount,setloading,setdialogType,setselectedReview,setselectedRating,allReview,productID}:{productID:number | string,data:Review[],reviewCount:number,setdialogType:React.Dispatch<React.SetStateAction<string | null>>,setloading:React.Dispatch<React.SetStateAction<boolean>>,setselectedReview:React.Dispatch<React.SetStateAction<null|Review>>,setselectedRating:React.Dispatch<React.SetStateAction<number>>,allReview:boolean}) => {
     const [one, setone] = useState(0);
     const [two, settwo] = useState(0);
     const [three, setthree] = useState(0);

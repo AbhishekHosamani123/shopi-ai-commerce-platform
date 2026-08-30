@@ -4,7 +4,7 @@ import backendClient from '../../Helpers/backendClient';
 interface cart{
     cartItemID:number,
     userID:number,
-    productID:number,
+    productID:number | string,
     productPrice:number,
     colorID:number,
     sizeID:number,
@@ -13,7 +13,7 @@ interface cart{
 interface wishlist{
     wishlistItemID:number,
     userID:number,
-    productID:number,
+    productID:number | string,
 }
 
 async function cartAddHandler({cartItemID,userID,productID,productPrice,colorID,sizeID,quantity}:cart) {

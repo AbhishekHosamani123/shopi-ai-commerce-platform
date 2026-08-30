@@ -1,0 +1,194 @@
+{
+    "product_id": "SNEAKER-010",
+    "sku": "B0CGM5R4W2",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "Campus Men Fence Sneakers",
+    "brand": "Campus",
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 869,
+        "currency": "INR",
+        "discount_percent": 67
+    },
+    "description": "Casual men's sneakers from Campus featuring a sleek PU upper, lace-up closure, checkered side detailing, comfortable cushioning and a versatile design for casual wear, walking and running.",
+    "attributes": {
+        "material": "Polyurethane",
+        "upper_material": "Polyurethane",
+        "sole_material": "Ethylene Vinyl Acetate",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "toe_style": "Apron Toe",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "occasion_lifestyle": "Casual",
+        "formality_level": "Casual",
+        "insole_cushioning": "Air/Gel",
+        "cushioning_level": "Maximum",
+        "sport_type": [
+            "Running",
+            "Walking"
+        ],
+        "shoe_type": "Athletic Shoe",
+        "surface_recommendation": "Road",
+        "pronation_correction": "Neutral",
+        "adjustable": true,
+        "special_features": [
+            "Comfortable"
+        ],
+        "country_of_origin": "India",
+        "weight_grams": 528
+    },
+    "colors": [
+        {
+            "name": "White Navy",
+            "available": true
+        }
+    ],
+    "sizes": [
+        {
+            "size": "6 UK",
+            "available": true
+        },
+        {
+            "size": "7 UK",
+            "available": true
+        },
+        {
+            "size": "8 UK",
+            "available": true
+        },
+        {
+            "size": "9 UK",
+            "available": true
+        },
+        {
+            "size": "10 UK",
+            "available": true
+        }
+    ],
+    "features": [
+        "Sleek PU upper",
+        "Lace-up closure",
+        "Adjustable fit",
+        "Comfortable cushioning",
+        "Air/Gel insole cushioning",
+        "Maximum cushioning",
+        "Flat heel",
+        "Checkered side detailing",
+        "Easy to clean",
+        "Road suitable",
+        "Suitable for walking",
+        "Suitable for running"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "Walking",
+        "Running",
+        "Travel",
+        "Lifestyle"
+    ],
+    "ratings": {
+        "average_rating": 4.1,
+        "rating_count": 99,
+        "rating_distribution": {
+            "5_star_percent": 53,
+            "4_star_percent": 24,
+            "3_star_percent": 9,
+            "2_star_percent": 6,
+            "1_star_percent": 8
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Comfortable, good looking",
+            "text": "Fantastic."
+        },
+        {
+            "rating": 4,
+            "title": "Overall good",
+            "text": "Good fit and color. Not very durable, but acceptable."
+        },
+        {
+            "rating": 5,
+            "title": "High quality and value for money",
+            "text": "High quality, good value for money and beautiful."
+        },
+        {
+            "rating": 5,
+            "title": "GOOD LOOKING SHOE",
+            "text": "Good looking shoes with a style similar to Nike Jordan shoes."
+        },
+        {
+            "rating": 4,
+            "title": "Looks great with one caveat",
+            "text": "The shoes look great, stand out and are comfortable. There is a slight creasing issue, but overall they are a solid purchase."
+        },
+        {
+            "rating": 5,
+            "title": "Good shoes",
+            "text": "Soft sole, durable and high quality. Looks good and is suitable for parties."
+        },
+        {
+            "rating": 1,
+            "title": "Poor quality, buy if you want for just for few time use",
+            "text": "The upper layer started coming off after fewer than eight wears despite not getting wet or being dried under the sun."
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable for long hours",
+            "text": "Good quality and comfort. The customer reported being able to wear the shoes for up to 12 hours."
+        }
+    ],
+    "review_insights": {
+        "positive": [
+            "Good-looking design",
+            "Comfortable",
+            "Good fit",
+            "Soft sole",
+            "Good value for money",
+            "High-quality appearance",
+            "Suitable for casual occasions",
+            "Can be comfortable for long hours"
+        ],
+        "negative": [
+            "Durability receives mixed feedback",
+            "Some customers reported the upper layer coming off quickly",
+            "Slight creasing can occur",
+            "Some customers considered durability below expectations"
+        ],
+        "best_for": [
+            "Everyday casual wear",
+            "Casual outings",
+            "Walking",
+            "Parties",
+            "Budget-conscious buyers",
+            "Customers prioritizing appearance and comfort"
+        ],
+        "not_ideal_for": [
+            "Customers requiring very high durability",
+            "Heavy long-term use",
+            "Customers specifically looking for highly durable running shoes"
+        ]
+    },
+    "manufacturer": "Campus Activewear Ltd",
+    "packer": "Campus Activewear Ltd.",
+    "importer": "Campus Activewear Ltd",
+    "images": [
+        {
+            "file": "white navy.jpg",
+            "color": "White Navy"
+        }
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0CGM5R4W2",
+        "url": "https://www.amazon.in/dp/B0CGM5R4W2",
+        "collected_at": "2026-08-26"
+    }
+}

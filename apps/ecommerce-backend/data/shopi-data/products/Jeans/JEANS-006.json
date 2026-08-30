@@ -1,0 +1,298 @@
+{
+    "product_id": "JEANS-006",
+    "product": {
+        "name": "WROGN Men's Anti Fit Jeans",
+        "brand": "WROGN",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Anti Fit Jeans",
+        "description": "Men's anti-fit jeans featuring a mid-rise waist, straight leg silhouette and a comfortable cotton-poly-lycra blend. Designed with a relaxed, roomy fit and light fade detailing for casual everyday styling.",
+        "fit": "Anti Fit",
+        "pattern": "Solid",
+        "style": "Cargo",
+        "rise": "Mid Rise",
+        "leg_style": "Straight",
+        "length": "Standard Length",
+        "material": "Cotton Poly Lycra Blend",
+        "fabric_composition": [
+            "Cotton",
+            "Polyester",
+            "Lycra"
+        ],
+        "fabric_weight": "Medium Weight",
+        "stretch": "Stretch",
+        "closure": "Button and Zipper",
+        "care": "Machine Wash",
+        "color_options": [
+            "Black",
+            "Dark Blue",
+            "White"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 340,
+        "net_quantity": 1,
+        "style_tags": [
+            "casual",
+            "anti fit",
+            "cargo",
+            "straight leg",
+            "mid rise",
+            "relaxed",
+            "streetwear",
+            "everyday wear",
+            "comfortable",
+            "stretch"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "college wear",
+            "hangouts",
+            "weekend wear",
+            "streetwear",
+            "travel",
+            "casual parties"
+        ],
+        "season_tags": [
+            "summer",
+            "all season"
+        ],
+        "lifestyle_tags": [
+            "casual",
+            "comfort",
+            "street style",
+            "everyday fashion"
+        ]
+    },
+    "pricing": {
+        "mrp": 2499,
+        "selling_price": 1359,
+        "currency": "INR",
+        "discount_percentage": 46,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/JEANS-006/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/JEANS-006/dark blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Dark Blue",
+            "image": "products/JEANS-006/dark blue-2.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "White",
+            "image": "products/JEANS-006/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 5.0,
+        "rating_count": 1,
+        "review_count": 1
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "The only available verified review is positive and specifically praises the fit. Since only one review is available, there is not enough evidence to make broader claims about durability, comfort, fabric quality or long-term performance.",
+        "positive": [
+            "Good fit reported by the buyer",
+            "Verified purchase review",
+            "5-star rating",
+            "Positive feedback for size 32 in Dark Blue"
+        ],
+        "negative": [],
+        "main_concern": "There is only one available review, so review evidence is too limited to confidently judge overall product quality, durability, comfort or sizing consistency."
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "low",
+            "note": "The only available verified buyer reported that the jeans had a good fit."
+        },
+        "comfort": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "No review evidence is available regarding comfort."
+        },
+        "fabric_quality": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "No review evidence is available regarding fabric quality."
+        },
+        "durability": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "No review evidence is available regarding durability."
+        },
+        "appearance": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "No review evidence is available regarding appearance."
+        },
+        "stretch": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "Although the product uses a Lycra blend, no review specifically comments on stretch performance."
+        },
+        "value_for_money": {
+            "sentiment": "unknown",
+            "confidence": "none",
+            "note": "No review specifically evaluates value for money."
+        },
+        "sizing": {
+            "sentiment": "positive",
+            "confidence": "low",
+            "note": "The only review was from a customer purchasing size 32 in Dark Blue and reported a good fit."
+        }
+    },
+    "pros": [
+        "Relaxed anti-fit silhouette",
+        "Mid-rise design",
+        "Straight leg profile",
+        "Cotton-poly-lycra blend",
+        "Stretch fabric",
+        "Cargo-inspired styling",
+        "Available in Black, Dark Blue and White",
+        "Wide size range from 28 to 38",
+        "Good fit reported in the only available verified review"
+    ],
+    "cons": [
+        "Only one customer review is available",
+        "Limited evidence about long-term durability",
+        "Limited evidence about fabric comfort",
+        "Limited evidence about colour accuracy",
+        "Anti-fit may not suit customers looking for slim or skinny jeans"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_WITH_LOW_REVIEW_CONFIDENCE",
+        "score": 7.8,
+        "best_for": [
+            "Casual everyday wear",
+            "Relaxed outfits",
+            "Streetwear",
+            "College wear",
+            "Weekend outfits",
+            "Travel",
+            "Customers who prefer roomy fits",
+            "Customers who prefer straight-leg jeans"
+        ],
+        "not_ideal_for": [
+            "Customers looking for skinny jeans",
+            "Customers looking for slim-fit jeans",
+            "Customers who prefer a fitted silhouette",
+            "Customers requiring strong long-term review evidence"
+        ],
+        "size_advice": "The jeans are available from size 28 to 38. The only verified review is from a size-32 buyer who reported a good fit. Customers should still check the size chart before purchasing.",
+        "style_advice": "The anti-fit straight-leg silhouette works well with oversized T-shirts, casual shirts, hoodies and sneakers.",
+        "review_advice": "The available review signal is positive, but there is only one review. Do not treat the 5-star rating as strong evidence of overall product quality.",
+        "sales_advice": "Lead with the relaxed anti-fit silhouette, stretch cotton-poly-lycra fabric, mid-rise construction and versatile casual styling. Mention that review evidence is currently limited."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "anti fit jeans",
+            "anti-fit jeans",
+            "cargo jeans",
+            "straight leg jeans",
+            "mid rise jeans",
+            "relaxed jeans",
+            "comfortable jeans",
+            "stretch jeans",
+            "casual jeans",
+            "men's jeans",
+            "streetwear jeans",
+            "everyday jeans",
+            "black jeans",
+            "dark blue jeans",
+            "white jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "slim fit jeans",
+            "tight jeans",
+            "fitted jeans",
+            "skinny fit",
+            "body hugging jeans"
+        ],
+        "strong_attributes": [
+            "anti fit",
+            "cargo",
+            "mid rise",
+            "straight leg",
+            "stretch",
+            "cotton blend",
+            "Lycra",
+            "casual",
+            "relaxed",
+            "everyday wear"
+        ],
+        "warning_attributes": [
+            "limited reviews",
+            "low review confidence",
+            "anti fit",
+            "roomy silhouette"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Arindam Dhara",
+            "date": "2026-08-16",
+            "color": "DARK BLUE",
+            "size": "32",
+            "title": "Good one",
+            "text": "Good fit",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "sizing"
+            ]
+        }
+    ],
+    "manufacturer": {
+        "name": "Inzex Textile Pvt.Ltd.",
+        "address": "C-82, Sector-88, Noida, Uttar Pradesh 201304, India"
+    },
+    "packer": {
+        "name": "Wrogn Pvt Ltd.",
+        "address": "509, CMH Road, Indiranagar 1st Stage, Bengaluru, Karnataka, India - 560043"
+    },
+    "additional_information": {
+        "manufacturer_part_number": "WRJN2532M",
+        "model_name": "Anti_2499_1",
+        "style_number": "Anti_2499_1",
+        "generic_name": "Jeans",
+        "item_type_name": "Jeans",
+        "unit_count": 1
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the anti-fit style, mid-rise construction, straight leg, fabric composition, stretch, price, available colors, sizes and the available review insight.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the relaxed anti-fit design, stretch cotton-poly-lycra blend and positive fit feedback, but clearly mention that only one review is available.",
+        "when_customer_asks_about_fit": "Explain that the product is officially anti-fit with a mid-rise and straight-leg silhouette. Mention that the only verified reviewer reported a good fit in size 32, but recommend checking the size chart.",
+        "when_customer_asks_about_comfort": "Explain that the cotton-poly-lycra blend provides stretch according to the product specifications, but do not claim that customers find it comfortable because there is insufficient review evidence.",
+        "when_customer_asks_about_quality": "Do not make strong quality claims based on reviews. Explain that the product specifications indicate a cotton-poly-lycra blend, while review evidence about quality is currently unavailable.",
+        "when_customer_asks_about_reviews": "Explain that there is currently one available verified review. It is a 5-star review from Arindam Dhara for size 32 in Dark Blue, with the comment 'Good fit'.",
+        "when_customer_asks_about_sizing": "Mention the available sizes 28, 30, 32, 34, 36 and 38. The only verified review reports a good fit for size 32. Recommend checking the size chart before purchasing.",
+        "when_customer_asks_for_alternatives": "Prioritize jeans with similar anti-fit, straight-leg or relaxed styling. If the customer requests slim or skinny jeans, do not prioritize this product.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because it has a 5-star rating. Consider the customer's preferred fit, size, style, color, budget and intended occasion.",
+        "when_customer_asks_about_style": "Highlight the anti-fit, mid-rise, straight-leg and cargo-inspired design. Position it primarily as a casual and streetwear-oriented jeans option.",
+        "when_customer_asks_about_colors": "Available colors are Black, Dark Blue and White.",
+        "when_customer_asks_about_price": "The listed price is ₹1,359 against an MRP of ₹2,499, representing a 46% discount at the captured price snapshot."
+    }
+}

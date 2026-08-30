@@ -10,11 +10,11 @@ export class CannibalizationEngine {
     merchantId: string = 'default_merchant',
     limit: number = 10
   ): Promise<CannibalizationSignal[]> {
-    const productsRes = await client.query('SELECT productid, title, price FROM products LIMIT 15');
+    const productsRes = await client.query('SELECT product_id, title, selling_price FROM shopi_products LIMIT 20');
     const signals: CannibalizationSignal[] = [];
 
     for (const prod of productsRes.rows) {
-      const similar = await findSimilarProducts(prod.productid, 3);
+      const similar = await findSimilarProducts(prod.product_id, 3);
       for (const sim of similar) {
         if (sim.similarityScore >= 0.50) {
           // Compare last 14 days vs prior 14 days velocity for both products
@@ -65,11 +65,11 @@ export class CannibalizationEngine {
   private async getProductVelocitySplit(productId: number): Promise<{ recentUnits: number; priorUnits: number }> {
     const res = await client.query(`
       SELECT
-        COALESCE(SUM(CASE WHEN o.createdat >= CURRENT_DATE - INTERVAL '14 days' THEN oi.quantity ELSE 0 END), 0)::int as recent_units,
-        COALESCE(SUM(CASE WHEN o.createdat >= CURRENT_DATE - INTERVAL '28 days' AND o.createdat < CURRENT_DATE - INTERVAL '14 days' THEN oi.quantity ELSE 0 END), 0)::int as prior_units
-      FROM orderitems oi
-      JOIN orders o ON oi.orderid = o.orderid
-      WHERE oi.productid = $1;
+        COALESCE(SUM(CASE WHEN o.order_placed_at >= CURRENT_DATE - INTERVAL '14 days' THEN oi.quantity ELSE 0 END), 0)::int as recent_units,
+        COALESCE(SUM(CASE WHEN o.order_placed_at >= CURRENT_DATE - INTERVAL '28 days' AND o.order_placed_at < CURRENT_DATE - INTERVAL '14 days' THEN oi.quantity ELSE 0 END), 0)::int as prior_units
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE oi.product_id = $1 AND o.order_status NOT IN ('CANCELLED', 'Cancelled');
     `, [productId]);
 
     return {

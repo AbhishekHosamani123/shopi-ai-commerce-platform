@@ -1,0 +1,376 @@
+{
+    "product_id": "JACKET-003",
+    "product": {
+        "name": "Lymio Men's Lightweight Outwear Sportswear Bomber Jacket",
+        "brand": "Lymio",
+        "category": "Jackets",
+        "subcategory": "Bomber Jackets",
+        "gender": "Men",
+        "product_type": "Lightweight Sportswear Bomber Jacket",
+        "generic_name": "Men Jacket",
+        "description": "A men's lightweight bomber jacket designed for casual and sportswear use. It features a regular fit, long sleeves, solid pattern and standard length construction. The jacket is positioned for winter and mild weather use.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Band",
+        "closure": "Not Specified",
+        "length": "Standard Length",
+        "silhouette": "Bomber",
+        "material": "Polyester",
+        "material_composition": "Polyester",
+        "stretch": "Not Specified",
+        "lining": "Not Specified",
+        "care": {
+            "washing": "Machine Wash"
+        },
+        "country_of_origin": "India",
+        "manufacturer": "J B Fashion",
+        "packer": "J B Fashion_Surat-394107",
+        "importer": "J B Fashion_Surat-394107",
+        "item_weight_grams": 1050,
+        "net_quantity": 1,
+        "style_tags": [
+            "casual",
+            "sportswear",
+            "bomber",
+            "lightweight",
+            "winter",
+            "everyday wear",
+            "minimal",
+            "solid",
+            "regular fit"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "college wear",
+            "everyday wear",
+            "travel",
+            "weekend outings",
+            "light outdoor activities"
+        ],
+        "season_tags": [
+            "winter",
+            "mild weather",
+            "cool weather"
+        ],
+        "weather_suitability": [
+            "mild weather",
+            "slightly cool weather",
+            "early winter"
+        ],
+        "features": [
+            "Lightweight bomber design",
+            "Solid pattern",
+            "Regular fit",
+            "Long sleeves",
+            "Standard length",
+            "Band collar",
+            "Polyester construction",
+            "Machine washable"
+        ]
+    },
+    "variants": [
+        {
+            "color": "Black",
+            "color_family": "Black",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ],
+            "image": "products/JACKET-003/black.jpg"
+        },
+        {
+            "color": "Grey",
+            "color_family": "Grey",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ],
+            "image": "products/JACKET-003/grey.jpg"
+        }
+    ],
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/JACKET-003/black.jpg",
+            "is_primary": true,
+            "variant": "Black"
+        },
+        {
+            "color": "Grey",
+            "image": "products/JACKET-003/grey.jpg",
+            "is_primary": false,
+            "variant": "Grey"
+        }
+    ],
+    "pricing": {
+        "mrp": 4999,
+        "selling_price": 799,
+        "currency": "INR",
+        "discount_percentage": 84,
+        "price_type": "snapshot"
+    },
+    "rating": {
+        "average": 3.3,
+        "rating_count": 435,
+        "review_count": 127
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "The jacket has substantial review data but mixed customer experiences. Some customers praise its comfort, appearance, fabric and value for money, while others report poor stitching, defective products, sizing problems and damaged items.",
+        "positive": [
+            "Some customers report comfortable fabric",
+            "Some customers describe the jacket as stylish",
+            "Some customers report good fit",
+            "Some customers consider it good value for money",
+            "Some customers find it suitable for early winter or cool weather",
+            "Lightweight construction is positively mentioned"
+        ],
+        "negative": [
+            "Poor stitching reported by multiple customers",
+            "Some customers reported seams tearing under the arms",
+            "Defective or damaged products reported",
+            "Sizing problems reported",
+            "Some customers consider the jacket not worth ₹800",
+            "The product is marked as frequently returned",
+            "Overall rating is only 3.3/5"
+        ],
+        "main_concern": "Quality-control consistency is the biggest concern. The review set contains both positive quality reports and serious complaints about stitching and defective units."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Customers describe the jacket as stylish, while the product itself has a simple solid bomber design."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The official specification says regular fit, but customers report both good fitting and sizing problems."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Some customers specifically describe the jacket as comfortable and lightweight."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some customers praise the fabric, while other reviews criticize overall quality."
+        },
+        "stitching_quality": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple reviews raise stitching concerns, including a report of seams tearing under the armpits shortly after use."
+        },
+        "value_for_money": {
+            "sentiment": "mixed_to_positive",
+            "confidence": "medium",
+            "note": "Several customers consider the jacket good value at its price, but some customers explicitly say it is not worth ₹800."
+        },
+        "warmth": {
+            "sentiment": "limited",
+            "confidence": "medium",
+            "note": "The product is categorized for winter and mild weather, while customer feedback describes it as suitable for early winter or slightly cool weather."
+        },
+        "durability": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "Durability concerns are raised by reports of poor stitching and seams tearing."
+        },
+        "weather_suitability": {
+            "sentiment": "limited",
+            "confidence": "medium",
+            "note": "The official listing identifies mild weather suitability and winter season positioning. Customer feedback supports early-winter/cool-weather use."
+        },
+        "waterproofing": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The supplied source does not establish waterproof or water-resistant performance."
+        }
+    },
+    "pros": [
+        "Affordable ₹799 selling price",
+        "84% discount from listed MRP",
+        "Lightweight bomber design",
+        "Regular fit",
+        "Solid minimal appearance",
+        "Polyester construction",
+        "Long sleeves",
+        "Standard length",
+        "Available in Black and Grey",
+        "Sizes S through 2XL",
+        "Machine washable",
+        "Some customers report good comfort",
+        "Some customers report good value for money",
+        "Suitable for mild/cool weather"
+    ],
+    "cons": [
+        "Only 3.3/5 overall rating",
+        "435 ratings indicate substantial dissatisfaction",
+        "Frequently returned item",
+        "Stitching quality concerns",
+        "Reports of seams tearing",
+        "Reports of defective products",
+        "Reports of sizing problems",
+        "Quality appears inconsistent",
+        "Waterproofing is not verified",
+        "Heavy winter insulation is not established"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_WITH_CAUTION",
+        "score": 6.4,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual everyday wear",
+            "College wear",
+            "Travel",
+            "Early winter",
+            "Mild weather",
+            "Slightly cool weather",
+            "Customers wanting a simple bomber jacket",
+            "Customers looking for a jacket under ₹1000"
+        ],
+        "not_ideal_for": [
+            "Customers prioritizing premium stitching",
+            "Customers expecting high durability",
+            "Customers needing heavy winter protection",
+            "Customers requiring waterproof performance",
+            "Customers who want highly consistent sizing",
+            "Customers unwilling to tolerate quality-control risk"
+        ],
+        "size_advice": "The listed fit is regular and sizes S, M, L, XL and 2XL are available. However, customer reviews contain sizing complaints, so the shopper should check the size chart carefully rather than assuming the jacket runs true to size.",
+        "weather_advice": "This is better positioned as a lightweight jacket for mild weather, early winter and slightly cool conditions. Do not market it as a heavy winter jacket.",
+        "quality_advice": "The product has a meaningful review volume, but the evidence is mixed. Positive reviews mention comfort, fabric and value, while negative reviews report poor stitching, damaged products and tearing. Quality consistency should be treated as the main purchase risk.",
+        "sales_advice": "Lead with the ₹799 price, lightweight bomber styling, Black/Grey options, regular fit and S-2XL size range. Do not describe it as premium or highly durable.",
+        "risk_advice": "Because Amazon flags the product as frequently returned and reviews contain repeated quality and sizing complaints, Shopi AI should surface this risk when a customer explicitly asks whether the jacket is reliable."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "black bomber jacket",
+            "grey bomber jacket",
+            "men's bomber jacket",
+            "mens bomber jacket",
+            "lightweight bomber",
+            "lightweight jacket",
+            "sportswear jacket",
+            "casual bomber jacket",
+            "winter jacket under 1000",
+            "jacket under 1000",
+            "budget bomber jacket",
+            "college jacket",
+            "casual jacket",
+            "solid jacket",
+            "minimal jacket",
+            "jacket for mild weather",
+            "early winter jacket"
+        ],
+        "negative_keywords": [
+            "premium bomber",
+            "luxury jacket",
+            "heavy winter jacket",
+            "thick winter jacket",
+            "waterproof bomber",
+            "waterproof jacket",
+            "high durability jacket",
+            "premium stitching",
+            "heavy insulation",
+            "extreme cold jacket"
+        ],
+        "strong_attributes": [
+            "black",
+            "grey",
+            "bomber",
+            "lightweight",
+            "sportswear",
+            "casual",
+            "solid",
+            "regular fit",
+            "polyester",
+            "long sleeve",
+            "standard length",
+            "budget"
+        ],
+        "warning_attributes": [
+            "3.3 rating",
+            "frequently returned",
+            "stitching complaints",
+            "seam tearing reports",
+            "defective product reports",
+            "sizing complaints",
+            "quality inconsistency"
+        ]
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe it as a lightweight polyester bomber jacket with a regular fit, solid pattern, long sleeves, band collar and standard length. Mention Black and Grey variants and S-2XL sizes.",
+        "when_customer_asks_if_good": "Give a balanced answer. It is affordable and some customers like its comfort, style and value, but the 3.3/5 rating and repeated complaints about stitching, defects and sizing mean it should not be presented as a reliably high-quality jacket.",
+        "when_customer_asks_about_fit": "Explain that the listed fit is regular and sizes range from S to 2XL. Warn that customer reviews contain sizing complaints and recommend checking the size chart.",
+        "when_customer_asks_about_winter": "Describe it as suitable for mild weather, early winter and slightly cool conditions. Do not call it a heavy winter jacket.",
+        "when_customer_asks_about_quality": "Explain that the evidence is mixed. Some customers praise the fabric and comfort, while multiple customers report poor stitching, defects and tearing.",
+        "when_customer_asks_about_colors": "The supplied variants are Black and Grey.",
+        "when_customer_asks_about_hood": "Do not claim that it has a hood. The supplied specification lists a Band collar and does not establish a hood.",
+        "when_customer_asks_about_waterproofing": "Do not call it waterproof or water-resistant because the supplied product data does not establish either.",
+        "when_customer_asks_about_pockets": "Do not make a pocket-count claim because the supplied product specification does not establish the number or type of pockets.",
+        "when_customer_asks_about_care": "The listed care instruction is Machine Wash.",
+        "when_customer_asks_for_alternatives": "Prioritize lightweight men's bomber or casual jackets with similar pricing, but favor alternatives with stronger ratings and fewer quality-control complaints when the customer prioritizes durability.",
+        "when_customer_asks_for_best_product": "Do not rank this jacket as the best purely because of its ₹799 price. Consider its 3.3 rating, frequent-return flag, sizing complaints and stitching complaints alongside its positive comfort and value feedback.",
+        "when_customer_asks_about_reliability": "Explicitly mention the mixed review record and quality-control complaints. Do not hide the negative reviews.",
+        "when_customer_asks_about_value": "At ₹799, the jacket can be considered budget-friendly, and some customers report good value. However, the price does not eliminate the quality and sizing risks reported in reviews."
+    },
+    "data_quality": {
+        "source": "Amazon India product listing and customer reviews",
+        "asin": "B0FKB4DZPG",
+        "style_number": "J-11-Grey-M",
+        "part_number": "J-11-Grey-M",
+        "source_rating": 3.3,
+        "source_rating_count": 435,
+        "source_review_count": 127,
+        "local_image_variants": 2,
+        "local_images": [
+            "products/JACKET-003/black.jpg",
+            "products/JACKET-003/grey.jpg"
+        ],
+        "verified_attributes": [
+            "brand",
+            "product name",
+            "gender",
+            "category",
+            "product type",
+            "fit",
+            "length",
+            "material",
+            "sleeve type",
+            "collar style",
+            "pattern",
+            "care instruction",
+            "country of origin",
+            "weight",
+            "price",
+            "MRP",
+            "available sizes",
+            "available colours",
+            "rating",
+            "review count"
+        ],
+        "not_verified_attributes": [
+            "exact polyester percentage",
+            "stretch",
+            "lining",
+            "insulation thickness",
+            "thermal rating",
+            "waterproofing",
+            "water resistance",
+            "exact closure type",
+            "pocket count",
+            "pocket construction",
+            "long-term durability",
+            "consistent sizing"
+        ]
+    }
+}

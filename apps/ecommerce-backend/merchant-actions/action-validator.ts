@@ -14,7 +14,8 @@ export interface ValidationResult {
 }
 
 /**
- * Validates business state, tenant ownership, and expiration before action execution.
+ * Validates business state, tenant ownership, and expiration before action execution
+ * against canonical shopi_* tables.
  */
 export async function validateActionForApproval(
   action: MerchantAiActionRecord,
@@ -47,17 +48,17 @@ export async function validateActionForApproval(
     };
   }
 
-  // 4. Product Existence & Business State Revalidation
+  // 4. Product Existence & Business State Revalidation against shopi_products
   if (action.productId) {
     const prodRes = await client.query(
-      `SELECT productid, title, stock, price, discount FROM products WHERE productid = $1`,
+      `SELECT product_id, sku, title, stock_quantity as stock, selling_price as price, selling_price as discount FROM shopi_products WHERE product_id = $1`,
       [action.productId]
     );
 
     if (prodRes.rows.length === 0) {
       return {
         isValid: false,
-        reason: `Product ID ${action.productId} was not found in catalog database.`
+        reason: `Product ID ${action.productId} was not found in canonical Supabase catalog.`
       };
     }
 
@@ -78,7 +79,6 @@ export async function validateActionForApproval(
       const stockAtCreation = action.payload?.stockAtRecommendation;
       if (typeof stockAtCreation === 'number') {
         const stockDiff = currentStock - stockAtCreation;
-        // If stock changed significantly (>= 25 units in either direction or moved far from snapshot)
         if (Math.abs(stockDiff) >= 25 || (stockAtCreation <= 30 && currentStock > 75)) {
           return {
             isValid: false,
@@ -103,11 +103,6 @@ export async function validateActionForApproval(
     return {
       isValid: true,
       currentProductState: productState
-    };
-  } else if (action.actionType === 'RESTOCK' || action.actionType === 'DISCOUNT' || action.actionType === 'PROMOTION') {
-    return {
-      isValid: false,
-      reason: `Valid product reference is required for ${action.actionType} action.`
     };
   }
 

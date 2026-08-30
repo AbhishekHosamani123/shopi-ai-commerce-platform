@@ -2,6 +2,7 @@ import { client } from '../data/DB';
 
 export interface ProductPerformanceItem {
   productId: number;
+  sku?: string;
   title: string;
   categoryName: string;
   price: number;
@@ -47,40 +48,60 @@ function parseDays(period: string = 'last_30_days'): number {
 }
 
 /**
- * Returns top-performing products ranked by gross revenue or volume
+ * Returns top-performing products ranked by gross revenue from canonical shopi_* tables
  */
 export async function getTopProducts(limit: number = 5, period: string = 'last_30_days'): Promise<ProductPerformanceItem[]> {
   const days = parseDays(period);
 
   const query = `
+    WITH period_sales AS (
+      SELECT 
+        oi.product_id,
+        SUM(oi.quantity)::int as units_sold,
+        SUM(oi.line_total)::numeric(14,2) as revenue,
+        COUNT(DISTINCT oi.order_id)::int as orders_count
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY oi.product_id
+    ),
+    period_returns AS (
+      SELECT 
+        r.product_id,
+        COUNT(DISTINCT r.return_id)::int as returns_count
+      FROM shopi_order_returns r
+      WHERE r.created_at >= CURRENT_DATE - ($1 || ' days')::interval
+      GROUP BY r.product_id
+    )
     SELECT 
-      p.productid as product_id,
+      p.product_id,
+      p.sku,
       p.title,
-      COALESCE(c.name, 'Uncategorized') as category_name,
-      p.price::numeric(12,2),
-      COALESCE(p.discount, p.price)::numeric(12,2) as discount,
-      p.stock as current_stock,
-      COALESCE(SUM(m.units_sold), 0)::int as units_sold,
-      COALESCE(SUM(m.gross_revenue), 0)::numeric(14,2) as revenue,
-      COALESCE(SUM(m.orders_count), 0)::int as orders_count,
-      COALESCE(SUM(m.returns_count), 0)::int as returns_count,
+      COALESCE(p.category, 'General') as category_name,
+      p.selling_price::numeric(12,2) as price,
+      p.selling_price::numeric(12,2) as discount,
+      p.stock_quantity as current_stock,
+      COALESCE(s.units_sold, 0)::int as units_sold,
+      COALESCE(s.revenue, 0)::numeric(14,2) as revenue,
+      COALESCE(s.orders_count, 0)::int as orders_count,
+      COALESCE(r.returns_count, 0)::int as returns_count,
       ROUND(
-        (COALESCE(SUM(m.returns_count), 0)::numeric / NULLIF(SUM(m.units_sold), 0)::numeric) * 100, 
+        (COALESCE(r.returns_count, 0)::numeric / NULLIF(COALESCE(s.units_sold, 0), 0)::numeric) * 100, 
         2
       ) as return_rate_pct,
-      COALESCE(AVG(m.sales_velocity_7d), 0)::numeric(8,2) as sales_velocity_7d
-    FROM products p
-    LEFT JOIN categories c ON p.categoryid = c.categoryid
-    JOIN merchant_product_daily_metrics m ON p.productid = m.productid
-    WHERE m.metric_date >= CURRENT_DATE - ($1 || ' days')::interval
-    GROUP BY p.productid, p.title, c.name, p.price, p.discount, p.stock
-    ORDER BY revenue DESC
+      COALESCE(ROUND(COALESCE(s.units_sold, 0)::numeric / 30.0, 2), 0.0)::numeric(8,2) as sales_velocity_7d
+    FROM shopi_products p
+    LEFT JOIN period_sales s ON p.product_id = s.product_id
+    LEFT JOIN period_returns r ON p.product_id = r.product_id
+    ORDER BY revenue DESC, units_sold DESC
     LIMIT $2;
   `;
 
   const res = await client.query(query, [days, limit]);
   return res.rows.map((r: any) => ({
     productId: parseInt(r.product_id, 10),
+    sku: r.sku,
     title: r.title,
     categoryName: r.category_name,
     price: parseFloat(r.price),
@@ -96,40 +117,60 @@ export async function getTopProducts(limit: number = 5, period: string = 'last_3
 }
 
 /**
- * Returns slowest-selling or worst-performing products
+ * Returns slowest-selling or lowest-revenue products from canonical shopi_* tables
  */
 export async function getWorstPerformingProducts(limit: number = 5, period: string = 'last_30_days'): Promise<ProductPerformanceItem[]> {
   const days = parseDays(period);
 
   const query = `
+    WITH period_sales AS (
+      SELECT 
+        oi.product_id,
+        SUM(oi.quantity)::int as units_sold,
+        SUM(oi.line_total)::numeric(14,2) as revenue,
+        COUNT(DISTINCT oi.order_id)::int as orders_count
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY oi.product_id
+    ),
+    period_returns AS (
+      SELECT 
+        r.product_id,
+        COUNT(DISTINCT r.return_id)::int as returns_count
+      FROM shopi_order_returns r
+      WHERE r.created_at >= CURRENT_DATE - ($1 || ' days')::interval
+      GROUP BY r.product_id
+    )
     SELECT 
-      p.productid as product_id,
+      p.product_id,
+      p.sku,
       p.title,
-      COALESCE(c.name, 'Uncategorized') as category_name,
-      p.price::numeric(12,2),
-      COALESCE(p.discount, p.price)::numeric(12,2) as discount,
-      p.stock as current_stock,
-      COALESCE(SUM(m.units_sold), 0)::int as units_sold,
-      COALESCE(SUM(m.gross_revenue), 0)::numeric(14,2) as revenue,
-      COALESCE(SUM(m.orders_count), 0)::int as orders_count,
-      COALESCE(SUM(m.returns_count), 0)::int as returns_count,
+      COALESCE(p.category, 'General') as category_name,
+      p.selling_price::numeric(12,2) as price,
+      p.selling_price::numeric(12,2) as discount,
+      p.stock_quantity as current_stock,
+      COALESCE(s.units_sold, 0)::int as units_sold,
+      COALESCE(s.revenue, 0)::numeric(14,2) as revenue,
+      COALESCE(s.orders_count, 0)::int as orders_count,
+      COALESCE(r.returns_count, 0)::int as returns_count,
       ROUND(
-        (COALESCE(SUM(m.returns_count), 0)::numeric / NULLIF(SUM(m.units_sold), 0)::numeric) * 100, 
+        (COALESCE(r.returns_count, 0)::numeric / NULLIF(COALESCE(s.units_sold, 0), 0)::numeric) * 100, 
         2
       ) as return_rate_pct,
-      COALESCE(AVG(m.sales_velocity_7d), 0)::numeric(8,2) as sales_velocity_7d
-    FROM products p
-    LEFT JOIN categories c ON p.categoryid = c.categoryid
-    JOIN merchant_product_daily_metrics m ON p.productid = m.productid
-    WHERE m.metric_date >= CURRENT_DATE - ($1 || ' days')::interval
-    GROUP BY p.productid, p.title, c.name, p.price, p.discount, p.stock
-    ORDER BY revenue ASC
+      COALESCE(ROUND(COALESCE(s.units_sold, 0)::numeric / 30.0, 2), 0.0)::numeric(8,2) as sales_velocity_7d
+    FROM shopi_products p
+    LEFT JOIN period_sales s ON p.product_id = s.product_id
+    LEFT JOIN period_returns r ON p.product_id = r.product_id
+    ORDER BY revenue ASC, units_sold ASC
     LIMIT $2;
   `;
 
   const res = await client.query(query, [days, limit]);
   return res.rows.map((r: any) => ({
     productId: parseInt(r.product_id, 10),
+    sku: r.sku,
     title: r.title,
     categoryName: r.category_name,
     price: parseFloat(r.price),
@@ -145,34 +186,42 @@ export async function getWorstPerformingProducts(limit: number = 5, period: stri
 }
 
 /**
- * Returns breakdown of performance across product categories
+ * Returns category breakdown from canonical shopi_* tables scoped strictly to the requested period
  */
 export async function getCategoryPerformance(period: string = 'last_30_days'): Promise<CategoryPerformanceItem[]> {
   const days = parseDays(period);
 
   const query = `
-    WITH total_rev AS (
-      SELECT COALESCE(SUM(gross_revenue), 1) as grand_total
-      FROM merchant_product_daily_metrics
-      WHERE metric_date >= CURRENT_DATE - ($1 || ' days')::interval
+    WITH period_items AS (
+      SELECT 
+        oi.product_id,
+        oi.quantity,
+        oi.line_total,
+        oi.order_id
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+    ),
+    total_rev AS (
+      SELECT COALESCE(SUM(line_total), 1) as grand_total
+      FROM period_items
     )
     SELECT 
-      c.categoryid as category_id,
-      c.name as category_name,
-      COALESCE(c.maincategory, 'General') as main_category,
-      COUNT(DISTINCT p.productid)::int as total_products,
-      COALESCE(SUM(m.units_sold), 0)::int as units_sold,
-      COALESCE(SUM(m.gross_revenue), 0)::numeric(14,2) as gross_revenue,
-      COALESCE(SUM(m.orders_count), 0)::int as orders_count,
+      ROW_NUMBER() OVER (ORDER BY COALESCE(SUM(pi.line_total), 0) DESC)::int as category_id,
+      COALESCE(p.category, 'General') as category_name,
+      COALESCE(p.department, 'Apparel') as main_category,
+      COUNT(DISTINCT p.product_id)::int as total_products,
+      COALESCE(SUM(pi.quantity), 0)::int as units_sold,
+      COALESCE(SUM(pi.line_total), 0)::numeric(14,2) as gross_revenue,
+      COUNT(DISTINCT pi.order_id)::int as orders_count,
       ROUND(
-        (COALESCE(SUM(m.gross_revenue), 0) / (SELECT grand_total FROM total_rev)) * 100, 
+        (COALESCE(SUM(pi.line_total), 0) / NULLIF((SELECT grand_total FROM total_rev), 0)) * 100, 
         2
       ) as revenue_share_pct
-    FROM categories c
-    JOIN products p ON c.categoryid = p.categoryid
-    JOIN merchant_product_daily_metrics m ON p.productid = m.productid
-    WHERE m.metric_date >= CURRENT_DATE - ($1 || ' days')::interval
-    GROUP BY c.categoryid, c.name, c.maincategory
+    FROM shopi_products p
+    JOIN period_items pi ON p.product_id = pi.product_id
+    GROUP BY p.category, p.department
     ORDER BY gross_revenue DESC;
   `;
 
@@ -185,15 +234,15 @@ export async function getCategoryPerformance(period: string = 'last_30_days'): P
     unitsSold: parseInt(r.units_sold, 10),
     grossRevenue: parseFloat(r.gross_revenue),
     ordersCount: parseInt(r.orders_count, 10),
-    revenueSharePct: parseFloat(r.revenue_share_pct)
+    revenueSharePct: parseFloat(r.revenue_share_pct || '0')
   }));
 }
 
 /**
- * Returns deep-dive performance metrics for a specific product
+ * Returns details for a specific canonical product
  */
 export async function getProductDetails(
-  productIdOrTitle: string | number,
+  productIdOrSku: string | number,
   period: string = 'last_30_days'
 ): Promise<ProductPerformanceItem | null> {
   const days = parseDays(period);
@@ -201,37 +250,56 @@ export async function getProductDetails(
   let whereClause = '';
   const params: any[] = [days];
 
-  if (typeof productIdOrTitle === 'number' || /^\d+$/.test(String(productIdOrTitle))) {
-    params.push(parseInt(String(productIdOrTitle), 10));
-    whereClause = 'p.productid = $2';
+  if (typeof productIdOrSku === 'number' || /^\d+$/.test(String(productIdOrSku))) {
+    params.push(parseInt(String(productIdOrSku), 10));
+    whereClause = 'p.product_id = $2';
   } else {
-    params.push(`%${productIdOrTitle}%`);
-    whereClause = 'p.title ILIKE $2';
+    params.push(`%${productIdOrSku}%`);
+    whereClause = '(p.sku ILIKE $2 OR p.title ILIKE $2)';
   }
 
   const query = `
+    WITH period_sales AS (
+      SELECT 
+        oi.product_id,
+        SUM(oi.quantity)::int as units_sold,
+        SUM(oi.line_total)::numeric(14,2) as revenue,
+        COUNT(DISTINCT oi.order_id)::int as orders_count
+      FROM shopi_order_items oi
+      JOIN shopi_orders o ON oi.order_id = o.order_id
+      WHERE o.order_placed_at >= CURRENT_DATE - ($1 || ' days')::interval
+        AND o.order_status NOT IN ('Cancelled', 'CANCELLED')
+      GROUP BY oi.product_id
+    ),
+    period_returns AS (
+      SELECT 
+        r.product_id,
+        COUNT(DISTINCT r.return_id)::int as returns_count
+      FROM shopi_order_returns r
+      WHERE r.created_at >= CURRENT_DATE - ($1 || ' days')::interval
+      GROUP BY r.product_id
+    )
     SELECT 
-      p.productid as product_id,
+      p.product_id,
+      p.sku,
       p.title,
-      COALESCE(c.name, 'Uncategorized') as category_name,
-      p.price::numeric(12,2),
-      COALESCE(p.discount, p.price)::numeric(12,2) as discount,
-      p.stock as current_stock,
-      COALESCE(SUM(m.units_sold), 0)::int as units_sold,
-      COALESCE(SUM(m.gross_revenue), 0)::numeric(14,2) as revenue,
-      COALESCE(SUM(m.orders_count), 0)::int as orders_count,
-      COALESCE(SUM(m.returns_count), 0)::int as returns_count,
+      COALESCE(p.category, 'General') as category_name,
+      p.selling_price::numeric(12,2) as price,
+      p.selling_price::numeric(12,2) as discount,
+      p.stock_quantity as current_stock,
+      COALESCE(s.units_sold, 0)::int as units_sold,
+      COALESCE(s.revenue, 0)::numeric(14,2) as revenue,
+      COALESCE(s.orders_count, 0)::int as orders_count,
+      COALESCE(r.returns_count, 0)::int as returns_count,
       ROUND(
-        (COALESCE(SUM(m.returns_count), 0)::numeric / NULLIF(SUM(m.units_sold), 0)::numeric) * 100, 
+        (COALESCE(r.returns_count, 0)::numeric / NULLIF(COALESCE(s.units_sold, 0), 0)::numeric) * 100, 
         2
       ) as return_rate_pct,
-      COALESCE(AVG(m.sales_velocity_7d), 0)::numeric(8,2) as sales_velocity_7d
-    FROM products p
-    LEFT JOIN categories c ON p.categoryid = c.categoryid
-    LEFT JOIN merchant_product_daily_metrics m 
-      ON p.productid = m.productid AND m.metric_date >= CURRENT_DATE - ($1 || ' days')::interval
+      COALESCE(ROUND(COALESCE(s.units_sold, 0)::numeric / 30.0, 2), 0.0)::numeric(8,2) as sales_velocity_7d
+    FROM shopi_products p
+    LEFT JOIN period_sales s ON p.product_id = s.product_id
+    LEFT JOIN period_returns r ON p.product_id = r.product_id
     WHERE ${whereClause}
-    GROUP BY p.productid, p.title, c.name, p.price, p.discount, p.stock
     LIMIT 1;
   `;
 
@@ -241,6 +309,7 @@ export async function getProductDetails(
   const r = res.rows[0];
   return {
     productId: parseInt(r.product_id, 10),
+    sku: r.sku,
     title: r.title,
     categoryName: r.category_name,
     price: parseFloat(r.price),
@@ -254,4 +323,3 @@ export async function getProductDetails(
     salesVelocity7d: parseFloat(r.sales_velocity_7d || '0')
   };
 }
-

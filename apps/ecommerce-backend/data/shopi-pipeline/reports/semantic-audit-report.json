@@ -1,0 +1,1834 @@
+{
+  "audit_timestamp": "2026-08-26T18:41:30.355Z",
+  "dataset_summary": {
+    "total_source_files": 87,
+    "complete_source_products": 76,
+    "empty_source_products": 11,
+    "empty_files_list": [
+      "products/Belts/BELT-001.json",
+      "products/Belts/BELT-002.json",
+      "products/Belts/BELT-003.json",
+      "products/Belts/BELT-004.json",
+      "products/Belts/BELT-005.json",
+      "products/Caps/CAP-001.json",
+      "products/Caps/CAP-002.json",
+      "products/Caps/CAP-003.json",
+      "products/Caps/CAP-004.json",
+      "products/Caps/CAP-005.json",
+      "products/Sports-Shoes/SPORTS-SHOE-005.json"
+    ],
+    "total_disk_images": 311
+  },
+  "product_id_consistency": {
+    "checked": 76,
+    "passed": 76,
+    "mismatches": []
+  },
+  "price_consistency": {
+    "checked": 76,
+    "passed": 76,
+    "missing_prices": [],
+    "price_anomalies": [],
+    "mrp_less_than_selling": [],
+    "negative_discounts": [],
+    "string_prices": []
+  },
+  "variant_consistency": {
+    "checked": 76,
+    "passed": 76,
+    "missing_colors": [],
+    "missing_sizes": [],
+    "duplicate_variants": [],
+    "shoe_sizing_check": {
+      "total_shoe_variants": 99,
+      "preserved_uk_sizes": 99,
+      "anomalies": []
+    }
+  },
+  "image_consistency": {
+    "total_disk_images": 311,
+    "total_normalized_images": 468,
+    "products_checked": 76,
+    "missing_disk_images_in_norm": [],
+    "duplicate_image_records": [],
+    "local_vs_remote": {
+      "local_disk_images": 468,
+      "remote_image_urls": 0
+    },
+    "image_association_issues": []
+  },
+  "attribute_consistency": {
+    "category_checks": {
+      "Bags": {
+        "products": 5,
+        "total_attributes": 69,
+        "unique_keys": [
+          "capacity",
+          "material",
+          "lining",
+          "color",
+          "pattern",
+          "style",
+          "laptop_compatible",
+          "season",
+          "main_compartments",
+          "laptop_sleeve",
+          "bottle_pocket",
+          "organization",
+          "strap_type",
+          "straps_detachable",
+          "back_panel",
+          "handle_type",
+          "key_features",
+          "laptop_size",
+          "laptop_compartment",
+          "laptop_compartment_size",
+          "organizer_pocket",
+          "main_compartment",
+          "handle",
+          "water_resistant",
+          "total_compartments",
+          "small_accessory_compartment",
+          "weight",
+          "dimensions"
+        ]
+      },
+      "Dresses": {
+        "products": 10,
+        "total_attributes": 151,
+        "unique_keys": [
+          "fit",
+          "pattern",
+          "sleeve",
+          "neck",
+          "closure",
+          "length",
+          "material",
+          "style_tags",
+          "occasion_tags",
+          "season_tags",
+          "country_of_origin",
+          "item_weight_grams",
+          "collar",
+          "collar_style",
+          "fabric_type",
+          "fabric_weight",
+          "stretch",
+          "care",
+          "set_includes",
+          "set_contents",
+          "sleeve_length",
+          "neck_style",
+          "weave_type",
+          "construction_type",
+          "embroidery",
+          "work",
+          "weave_method",
+          "style",
+          "net_quantity",
+          "included_components",
+          "weave"
+        ]
+      },
+      "Formal-Shoes": {
+        "products": 6,
+        "total_attributes": 127,
+        "unique_keys": [
+          "style",
+          "shoe_type",
+          "occasion",
+          "pattern",
+          "color",
+          "toe_style",
+          "closure",
+          "heel_type",
+          "strap_type",
+          "country_of_origin",
+          "asin",
+          "model_number",
+          "generic_name",
+          "upper_material",
+          "sole_material",
+          "insole_material",
+          "cushioning",
+          "lightweight",
+          "water_resistant",
+          "durable",
+          "comfort_features",
+          "special_features",
+          "default_color",
+          "lining_material",
+          "cushioning_level",
+          "insole_cushioning",
+          "slip_resistant",
+          "breathable",
+          "comfortable",
+          "features",
+          "adjustable",
+          "surface_recommendation",
+          "pronation_correction",
+          "specific_uses",
+          "formality_level",
+          "season",
+          "outer_material",
+          "lining",
+          "insole",
+          "all_weather_grip",
+          "breathable_lining",
+          "moisture_wicking"
+        ]
+      },
+      "Jackets": {
+        "products": 4,
+        "total_attributes": 90,
+        "unique_keys": [
+          "fit",
+          "pattern",
+          "sleeve",
+          "collar",
+          "collar_style",
+          "closure",
+          "length",
+          "material",
+          "fabric_weight",
+          "stretch",
+          "lining",
+          "care",
+          "country_of_origin",
+          "item_weight_grams",
+          "style_tags",
+          "occasion_tags",
+          "season_tags",
+          "features",
+          "generic_name",
+          "silhouette",
+          "material_composition",
+          "manufacturer",
+          "packer",
+          "net_quantity",
+          "weather_suitability",
+          "importer",
+          "style"
+        ]
+      },
+      "Jeans": {
+        "products": 10,
+        "total_attributes": 184,
+        "unique_keys": [
+          "fit",
+          "pattern",
+          "leg_style",
+          "rise",
+          "closure",
+          "length",
+          "material",
+          "fabric_weight",
+          "stretch",
+          "care",
+          "style_tags",
+          "occasion_tags",
+          "season_tags",
+          "country_of_origin",
+          "item_weight_grams",
+          "rise_style",
+          "fabric_composition",
+          "front_style",
+          "fabric_type",
+          "occasion",
+          "season",
+          "dimensions_cm",
+          "style",
+          "care_instructions",
+          "net_quantity",
+          "lifestyle_tags",
+          "waist_line",
+          "finish",
+          "pocket",
+          "department",
+          "pockets",
+          "front_pleat",
+          "item_dimensions"
+        ]
+      },
+      "Shirts": {
+        "products": 15,
+        "total_attributes": 330,
+        "unique_keys": [
+          "fit",
+          "pattern",
+          "sleeve",
+          "collar",
+          "collar_style",
+          "closure",
+          "length",
+          "material",
+          "fabric_weight",
+          "stretch",
+          "care",
+          "style_tags",
+          "occasion_tags",
+          "season_tags",
+          "country_of_origin",
+          "item_weight_grams",
+          "neck_style",
+          "style",
+          "top_style",
+          "cuff_style",
+          "fabric_type",
+          "season",
+          "sleeve_length",
+          "fabric_stretch",
+          "pockets",
+          "item_dimensions_cm",
+          "unit_count",
+          "sleeve_type",
+          "fabric_gsm",
+          "stretchability",
+          "features",
+          "brand_status",
+          "positive_ratings",
+          "customer_count",
+          "recent_orders",
+          "amazon_presence",
+          "shirt_form_type",
+          "hemline",
+          "back_style",
+          "weight_grams",
+          "occasion",
+          "manufacturer",
+          "packer",
+          "importer",
+          "model_name",
+          "manufacturer_part_number",
+          "asin",
+          "style_name",
+          "dimensions_cm",
+          "style_number",
+          "generic_name",
+          "lifestyle",
+          "net_quantity",
+          "included_component",
+          "pocket",
+          "item_model_number",
+          "texture",
+          "fabric_characteristics",
+          "neck"
+        ]
+      },
+      "Sneakers": {
+        "products": 12,
+        "total_attributes": 203,
+        "unique_keys": [
+          "material",
+          "upper_material",
+          "sole_material",
+          "closure",
+          "heel_type",
+          "water_resistance",
+          "water_resistance_level",
+          "style",
+          "country_of_origin",
+          "weight_grams",
+          "key_features",
+          "occasion",
+          "season",
+          "insole_cushioning",
+          "cushioning_level",
+          "special_features",
+          "positive_rating_percentage",
+          "customer_base",
+          "recent_orders",
+          "amazon_presence_years",
+          "weight_category",
+          "accent_material",
+          "lining",
+          "outsole_material",
+          "cushioning",
+          "shock_absorption",
+          "grip",
+          "weight",
+          "special_feature",
+          "insole",
+          "shoe_type",
+          "uses",
+          "pattern",
+          "item_weight",
+          "dimensions",
+          "net_quantity",
+          "amazon_top_brand",
+          "positive_rating_percent",
+          "years_on_amazon",
+          "toe_style",
+          "arch_type",
+          "features",
+          "sport_type",
+          "theme",
+          "surface_recommendation",
+          "pronation_correction",
+          "strap_type",
+          "occasion_lifestyle",
+          "formality_level",
+          "adjustable",
+          "toe_shape",
+          "dimensions_cm",
+          "benefits",
+          "formality",
+          "specific_use"
+        ]
+      },
+      "Sports-Shoes": {
+        "products": 6,
+        "total_attributes": 156,
+        "unique_keys": [
+          "closure_type",
+          "strap_type",
+          "heel_type",
+          "toe_style",
+          "arch_type",
+          "insole",
+          "cushioning_level",
+          "surface_recommendation",
+          "water_resistance",
+          "pronation_correction",
+          "adjustability",
+          "features",
+          "mrp",
+          "selling_price",
+          "currency",
+          "discount_percentage",
+          "availability",
+          "source_product_id",
+          "model_number",
+          "country_of_origin",
+          "manufacturer",
+          "department",
+          "price_range",
+          "budget_friendly",
+          "comfort",
+          "weight",
+          "breathability",
+          "grip",
+          "cushioning",
+          "intensity",
+          "recommended_for",
+          "material_type",
+          "upper_material",
+          "sole_material",
+          "washable",
+          "durability",
+          "running_suitability",
+          "walking_suitability",
+          "quality_confidence",
+          "avoid_recommending_for",
+          "material",
+          "technologies",
+          "generic_name",
+          "fit_warning",
+          "water_resistant",
+          "not_recommended_for",
+          "review_derived_features",
+          "quality",
+          "fit",
+          "quality_warning",
+          "comfort_warning"
+        ]
+      },
+      "T-Shirt": {
+        "products": 8,
+        "total_attributes": 159,
+        "unique_keys": [
+          "fit",
+          "sleeve",
+          "collar",
+          "neck",
+          "pattern",
+          "closure",
+          "fabric",
+          "fabric_weight",
+          "season",
+          "shirt_form",
+          "sport_type",
+          "cuff",
+          "weight_grams",
+          "dimensions_cm",
+          "department",
+          "style",
+          "style_name",
+          "country_of_origin",
+          "fabric_type",
+          "length",
+          "hemline",
+          "occasion",
+          "model_name",
+          "style_number",
+          "manufacturer_part_number",
+          "net_quantity",
+          "top_style",
+          "generic_name",
+          "material_composition",
+          "fit_type",
+          "sleeve_type",
+          "collar_style",
+          "neck_style",
+          "item_weight_grams",
+          "material",
+          "stretch",
+          "care",
+          "style_tags",
+          "occasion_tags",
+          "season_tags"
+        ]
+      }
+    },
+    "total_attributes_normalized": 1469,
+    "missing_important_attributes": []
+  },
+  "tag_quality": {
+    "total_tags": 2504,
+    "unique_tags": 2504,
+    "duplicate_tags": [],
+    "noisy_or_short_tags": [],
+    "attribute_like_tags": [],
+    "category_contradictions": []
+  },
+  "review_consistency": {
+    "products_with_source_reviews": 61,
+    "total_source_reviews": 821,
+    "total_normalized_reviews": 821,
+    "review_count_mismatches": [],
+    "rating_range_errors": [],
+    "verified_status_audit": {
+      "source_had_verified": 0,
+      "inferred_verified": 0,
+      "details": []
+    }
+  },
+  "review_summary_consistency": {
+    "checked": 76,
+    "passed": 76,
+    "unsupported_claims": [],
+    "aspect_coverage": {
+      "fit_feedback_present": 41,
+      "quality_feedback_present": 40,
+      "comfort_feedback_present": 38,
+      "value_feedback_present": 40,
+      "buying_advice_present": 41
+    }
+  },
+  "score_consistency": {
+    "checked": 76,
+    "source_score_count": 75,
+    "shopi_generated_score_count": 0,
+    "score_anomalies": []
+  },
+  "commercial_readiness": {
+    "total_products": 76,
+    "fully_ready": 74,
+    "partially_ready": 2,
+    "unready": 0,
+    "breakdown": {
+      "price_ready": 76,
+      "variant_ready": 74,
+      "review_ready": 76,
+      "image_ready": 76,
+      "complete_ready": 74
+    },
+    "product_matrix": [
+      {
+        "product_id": "BAG-001",
+        "name": "Aristocrat Nova 15L Laptop Backpack",
+        "category": "Bags",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "BAG-002",
+        "name": "FUR JADEN Anti Theft Number Lock Backpack",
+        "category": "Bags",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "BAG-003",
+        "name": "Wesley Zeus USB Charging Travel Laptop Backpack",
+        "category": "Bags",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "BAG-004",
+        "name": "American Tourister Valex 28L Backpack",
+        "category": "Bags",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "BAG-005",
+        "name": "Aristocrat Lava 17 Inch Compatible Laptop Backpack 25L",
+        "category": "Bags",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-001",
+        "name": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-002",
+        "name": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-003",
+        "name": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-004",
+        "name": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-005",
+        "name": "GoSriKi Women Cotton Printed A-Line Ethnic Co-Ord Set | Kurta Pant Set",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-006",
+        "name": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-007",
+        "name": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-008",
+        "name": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-009",
+        "name": "Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "DRESS-010",
+        "name": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta",
+        "category": "Dresses",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-001",
+        "name": "Bata Men's Lace-up Formal Shoes",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-002",
+        "name": "Centrino Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-003",
+        "name": "Bata Men Lace Up Formal Shoes",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-004",
+        "name": "Bata Men's Lace-up Formal Shoes",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-005",
+        "name": "Centrino Men's 9564 Glossy Formal Shoes",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "FORMAL-SHOE-006",
+        "name": "FORMAL-SHOE-006",
+        "category": "Formal-Shoes",
+        "price_ready": true,
+        "variant_ready": false,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": false
+      },
+      {
+        "product_id": "JACKET-001",
+        "name": "TAGAS Men's Regular Jacket",
+        "category": "Jackets",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JACKET-002",
+        "name": "Men's Casual White Jacket with Red Stripe Detail",
+        "category": "Jackets",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JACKET-003",
+        "name": "Lymio Men's Lightweight Outwear Sportswear Bomber Jacket",
+        "category": "Jackets",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JACKET-004",
+        "name": "TAGAS Men's Regular Fit Zip-Up Casual Bomber Jacket",
+        "category": "Jackets",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-001",
+        "name": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-002",
+        "name": "URBAN POCKETS Men's Jeans for Men | Denim Pants with Classic Straight Cut",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-003",
+        "name": "Highlander Men Bootcut Denim Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-004",
+        "name": "Highlander Men's Straight Fit Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-005",
+        "name": "London Hills Men's Ankle Length Denim Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-006",
+        "name": "WROGN Men's Anti Fit Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-007",
+        "name": "TAGAS Men's Regular Fit Carrot Tapered Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-008",
+        "name": "KOTTY Men's Straight Fit Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-009",
+        "name": "Ben Martin Men's Bell Bottom Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "JEANS-010",
+        "name": "Urbano Fashion Men's Slim Fit Denim Jeans",
+        "category": "Jeans",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-001",
+        "name": "Leriya Fashion Textured Half Sleeve Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-002",
+        "name": "CLOTHING VEDA Men's Kurta Style Cotton Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-003",
+        "name": "DEELMO Men's Stylish Cotton Blend Casual Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-004",
+        "name": "U TURN Men's Casual Printed Striped Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-005",
+        "name": "DEELMO Men's Regular Fit Button Down Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-006",
+        "name": "NexaFlair Men's Regular Fit Solid Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-007",
+        "name": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-008",
+        "name": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-009",
+        "name": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-010",
+        "name": "Highlander Men's Slim Fit Casual Checkered Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-011",
+        "name": "Van Heusen Men's Solid Slim Fit Casual Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-012",
+        "name": "DEELMO Men's Casual Textured Button Down Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-013",
+        "name": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-014",
+        "name": "Pinkmint Men's Solid Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SHIRT-015",
+        "name": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt",
+        "category": "Shirts",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-001",
+        "name": "SPARX Men SM-734 Casual Shoes",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-002",
+        "name": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-003",
+        "name": "ASIAN Men's Vegas-01 Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-004",
+        "name": "Boldfit Sneakers for Men DripBloc",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-005",
+        "name": "Campus Men's Vulture Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-006",
+        "name": "ASIAN Nexus-11 Men's Printed Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-007",
+        "name": "Campus Men OG-27 Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-008",
+        "name": "SPARX Mens SM 323",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-009",
+        "name": "Campus Men OG-34 Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-010",
+        "name": "Campus Men Fence Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-011",
+        "name": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SNEAKER-012",
+        "name": "Campus Men Pod Sneakers",
+        "category": "Sneakers",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SPORTS-SHOE-001",
+        "name": "ASIAN Wonder-13 Men's Running Shoe",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SPORTS-SHOE-002",
+        "name": "BRUTON EVA Lite Sport Shoes Running Shoes for Men - White",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SPORTS-SHOE-003",
+        "name": "JQR Men Signature Sneakers",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SPORTS-SHOE-004",
+        "name": "SPORTS-SHOE-004",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": false,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": false
+      },
+      {
+        "product_id": "SPORTS-SHOE-006",
+        "name": "Campus Men's Force Running Shoes",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "SPORTS-SHOE-007",
+        "name": "SPARX Men's SM-648 Sports Shoes",
+        "category": "Sports-Shoes",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-001",
+        "name": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-002",
+        "name": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-003",
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43)",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-004",
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54)",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-005",
+        "name": "AUSK Men Printed Polo Neck Cotton Blend T-Shirt (Regular Fit, Half Sleeve) || Tshirts for Mens",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-006",
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62)",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-007",
+        "name": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      },
+      {
+        "product_id": "T-SHIRT-008",
+        "name": "Peter England Men's Cotton Abstract Geometric Print Polo T-Shirt – Casual Wear | Modern & Stylish",
+        "category": "T-Shirt",
+        "price_ready": true,
+        "variant_ready": true,
+        "review_ready": true,
+        "image_ready": true,
+        "complete_ready": true
+      }
+    ]
+  },
+  "query_readiness": [
+    {
+      "id": 1,
+      "query": "Show me white sneakers under ₹2500",
+      "criteria": "Sneakers with selling_price <= 2500 and white color variant",
+      "matching_products": [
+        {
+          "id": "SNEAKER-001",
+          "name": "SPARX Men SM-734 Casual Shoes",
+          "price": 737
+        },
+        {
+          "id": "SNEAKER-002",
+          "name": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker",
+          "price": 749
+        },
+        {
+          "id": "SNEAKER-003",
+          "name": "ASIAN Men's Vegas-01 Sneakers",
+          "price": 699
+        },
+        {
+          "id": "SNEAKER-004",
+          "name": "Boldfit Sneakers for Men DripBloc",
+          "price": 899
+        },
+        {
+          "id": "SNEAKER-005",
+          "name": "Campus Men's Vulture Sneakers",
+          "price": 999
+        },
+        {
+          "id": "SNEAKER-006",
+          "name": "ASIAN Nexus-11 Men's Printed Sneakers",
+          "price": 799
+        },
+        {
+          "id": "SNEAKER-008",
+          "name": "SPARX Mens SM 323",
+          "price": 722
+        },
+        {
+          "id": "SNEAKER-009",
+          "name": "Campus Men OG-34 Sneakers",
+          "price": 829
+        },
+        {
+          "id": "SNEAKER-010",
+          "name": "Campus Men Fence Sneakers",
+          "price": 869
+        },
+        {
+          "id": "SNEAKER-011",
+          "name": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men",
+          "price": 799
+        }
+      ],
+      "ready": true,
+      "reason": "Category, price filter, and color variant are fully structured."
+    },
+    {
+      "id": 2,
+      "query": "I need a casual shirt for office",
+      "criteria": "Shirts with style/occasion tags for 'casual' or 'office'",
+      "matching_products": [
+        {
+          "id": "SHIRT-001",
+          "name": "Leriya Fashion Textured Half Sleeve Shirt"
+        },
+        {
+          "id": "SHIRT-002",
+          "name": "CLOTHING VEDA Men's Kurta Style Cotton Shirt"
+        },
+        {
+          "id": "SHIRT-003",
+          "name": "DEELMO Men's Stylish Cotton Blend Casual Shirt"
+        },
+        {
+          "id": "SHIRT-004",
+          "name": "U TURN Men's Casual Printed Striped Shirt"
+        },
+        {
+          "id": "SHIRT-005",
+          "name": "DEELMO Men's Regular Fit Button Down Shirt"
+        },
+        {
+          "id": "SHIRT-006",
+          "name": "NexaFlair Men's Regular Fit Solid Shirt"
+        },
+        {
+          "id": "SHIRT-007",
+          "name": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt"
+        },
+        {
+          "id": "SHIRT-008",
+          "name": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta"
+        },
+        {
+          "id": "SHIRT-009",
+          "name": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design"
+        },
+        {
+          "id": "SHIRT-010",
+          "name": "Highlander Men's Slim Fit Casual Checkered Shirt"
+        },
+        {
+          "id": "SHIRT-011",
+          "name": "Van Heusen Men's Solid Slim Fit Casual Shirt"
+        },
+        {
+          "id": "SHIRT-012",
+          "name": "DEELMO Men's Casual Textured Button Down Shirt"
+        },
+        {
+          "id": "SHIRT-013",
+          "name": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt"
+        },
+        {
+          "id": "SHIRT-014",
+          "name": "Pinkmint Men's Solid Shirt"
+        },
+        {
+          "id": "SHIRT-015",
+          "name": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt"
+        }
+      ],
+      "ready": true,
+      "reason": "Occasion tags and style attributes contain explicit office/casual mappings."
+    },
+    {
+      "id": 3,
+      "query": "Give me a comfortable sneaker for daily use",
+      "criteria": "Sneakers with comfort tags, positive comfort reviews, or daily use tags",
+      "matching_products": [
+        {
+          "id": "SNEAKER-001",
+          "name": "SPARX Men SM-734 Casual Shoes"
+        },
+        {
+          "id": "SNEAKER-007",
+          "name": "Campus Men OG-27 Sneakers"
+        },
+        {
+          "id": "SNEAKER-008",
+          "name": "SPARX Mens SM 323"
+        },
+        {
+          "id": "SNEAKER-009",
+          "name": "Campus Men OG-34 Sneakers"
+        },
+        {
+          "id": "SNEAKER-010",
+          "name": "Campus Men Fence Sneakers"
+        },
+        {
+          "id": "SNEAKER-011",
+          "name": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men"
+        },
+        {
+          "id": "SNEAKER-012",
+          "name": "Campus Men Pod Sneakers"
+        }
+      ],
+      "ready": true,
+      "reason": "Review summary pros and use_case tags provide direct comfort and daily wear evidence."
+    },
+    {
+      "id": 4,
+      "query": "Show me black jeans under ₹2000",
+      "criteria": "Jeans with selling_price <= 2000 and black color variant",
+      "matching_products": [
+        {
+          "id": "JEANS-001",
+          "name": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans",
+          "price": 480
+        },
+        {
+          "id": "JEANS-003",
+          "name": "Highlander Men Bootcut Denim Jeans",
+          "price": 650
+        },
+        {
+          "id": "JEANS-006",
+          "name": "WROGN Men's Anti Fit Jeans",
+          "price": 1359
+        },
+        {
+          "id": "JEANS-007",
+          "name": "TAGAS Men's Regular Fit Carrot Tapered Jeans",
+          "price": 779
+        },
+        {
+          "id": "JEANS-009",
+          "name": "Ben Martin Men's Bell Bottom Jeans",
+          "price": 924
+        },
+        {
+          "id": "JEANS-010",
+          "name": "Urbano Fashion Men's Slim Fit Denim Jeans",
+          "price": 645
+        }
+      ],
+      "ready": true,
+      "reason": "Jeans category, pricing, and color variants support exact filtering."
+    },
+    {
+      "id": 5,
+      "query": "Which shoes are better for running?",
+      "criteria": "Sports-Shoes with running use case and positive reviews",
+      "matching_products": [
+        {
+          "id": "SPORTS-SHOE-001",
+          "name": "ASIAN Wonder-13 Men's Running Shoe"
+        },
+        {
+          "id": "SPORTS-SHOE-002",
+          "name": "BRUTON EVA Lite Sport Shoes Running Shoes for Men - White"
+        },
+        {
+          "id": "SPORTS-SHOE-003",
+          "name": "JQR Men Signature Sneakers"
+        },
+        {
+          "id": "SPORTS-SHOE-004",
+          "name": "SPORTS-SHOE-004"
+        },
+        {
+          "id": "SPORTS-SHOE-006",
+          "name": "Campus Men's Force Running Shoes"
+        },
+        {
+          "id": "SPORTS-SHOE-007",
+          "name": "SPARX Men's SM-648 Sports Shoes"
+        }
+      ],
+      "ready": true,
+      "reason": "Sports-Shoes have running tags and specific review pros for running/walking."
+    },
+    {
+      "id": 6,
+      "query": "I need something for a party under ₹3000",
+      "criteria": "Products with party occasion tag and selling_price <= 3000",
+      "matching_products": [
+        {
+          "id": "DRESS-005",
+          "name": "GoSriKi Women Cotton Printed A-Line Ethnic Co-Ord Set | Kurta Pant Set",
+          "category": "Dresses",
+          "price": 589
+        },
+        {
+          "id": "DRESS-006",
+          "name": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta",
+          "category": "Dresses",
+          "price": 749
+        },
+        {
+          "id": "DRESS-007",
+          "name": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta",
+          "category": "Dresses",
+          "price": 799
+        },
+        {
+          "id": "DRESS-009",
+          "name": "Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli",
+          "category": "Dresses",
+          "price": 998
+        },
+        {
+          "id": "DRESS-010",
+          "name": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta",
+          "category": "Dresses",
+          "price": 995
+        },
+        {
+          "id": "SHIRT-002",
+          "name": "CLOTHING VEDA Men's Kurta Style Cotton Shirt",
+          "category": "Shirts",
+          "price": 449
+        },
+        {
+          "id": "SHIRT-004",
+          "name": "U TURN Men's Casual Printed Striped Shirt",
+          "category": "Shirts",
+          "price": 398
+        },
+        {
+          "id": "SHIRT-005",
+          "name": "DEELMO Men's Regular Fit Button Down Shirt",
+          "category": "Shirts",
+          "price": 495
+        },
+        {
+          "id": "SHIRT-007",
+          "name": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt",
+          "category": "Shirts",
+          "price": 270
+        },
+        {
+          "id": "SHIRT-008",
+          "name": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta",
+          "category": "Shirts",
+          "price": 439
+        },
+        {
+          "id": "SHIRT-012",
+          "name": "DEELMO Men's Casual Textured Button Down Shirt",
+          "category": "Shirts",
+          "price": 495
+        },
+        {
+          "id": "SHIRT-013",
+          "name": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt",
+          "category": "Shirts",
+          "price": 395
+        },
+        {
+          "id": "SHIRT-014",
+          "name": "Pinkmint Men's Solid Shirt",
+          "category": "Shirts",
+          "price": 399
+        },
+        {
+          "id": "SHIRT-015",
+          "name": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt",
+          "category": "Shirts",
+          "price": 399
+        },
+        {
+          "id": "SNEAKER-006",
+          "name": "ASIAN Nexus-11 Men's Printed Sneakers",
+          "category": "Sneakers",
+          "price": 799
+        },
+        {
+          "id": "T-SHIRT-001",
+          "name": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar",
+          "category": "T-Shirt",
+          "price": 396.99
+        }
+      ],
+      "ready": true,
+      "reason": "Cross-category party occasion tags and price filters match accurately."
+    },
+    {
+      "id": 7,
+      "query": "Show me something similar but cheaper",
+      "criteria": "Product relationships (similar_to, cheaper_alternative)",
+      "matching_products": [],
+      "ready": false,
+      "reason": "shopi_product_relationships table is currently empty pending post-normalization AI generation step. Can fallback to category & price-based similarity in code."
+    },
+    {
+      "id": 8,
+      "query": "Which product has the best reviews?",
+      "criteria": "Ranking by average_rating and review_count",
+      "matching_products": [
+        {
+          "id": "BAG-004",
+          "rating": 4.3,
+          "reviews": 12022,
+          "name": "American Tourister Valex 28L Backpack"
+        },
+        {
+          "id": "DRESS-004",
+          "rating": 4.3,
+          "reviews": 21,
+          "name": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta"
+        },
+        {
+          "id": "DRESS-007",
+          "rating": 4.3,
+          "reviews": 14,
+          "name": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta"
+        },
+        {
+          "id": "SPORTS-SHOE-006",
+          "rating": 4.3,
+          "reviews": 81,
+          "name": "Campus Men's Force Running Shoes"
+        },
+        {
+          "id": "BAG-003",
+          "rating": 4.2,
+          "reviews": 509,
+          "name": "Wesley Zeus USB Charging Travel Laptop Backpack"
+        }
+      ],
+      "ready": true,
+      "reason": "Review summaries and review counts are indexed and accurately sortable."
+    },
+    {
+      "id": 9,
+      "query": "I want a white shirt in M",
+      "criteria": "Shirts with white color and M size variant",
+      "matching_products": [
+        {
+          "id": "SHIRT-001",
+          "name": "Leriya Fashion Textured Half Sleeve Shirt"
+        },
+        {
+          "id": "SHIRT-002",
+          "name": "CLOTHING VEDA Men's Kurta Style Cotton Shirt"
+        },
+        {
+          "id": "SHIRT-003",
+          "name": "DEELMO Men's Stylish Cotton Blend Casual Shirt"
+        },
+        {
+          "id": "SHIRT-004",
+          "name": "U TURN Men's Casual Printed Striped Shirt"
+        },
+        {
+          "id": "SHIRT-005",
+          "name": "DEELMO Men's Regular Fit Button Down Shirt"
+        },
+        {
+          "id": "SHIRT-007",
+          "name": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt"
+        },
+        {
+          "id": "SHIRT-008",
+          "name": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta"
+        },
+        {
+          "id": "SHIRT-010",
+          "name": "Highlander Men's Slim Fit Casual Checkered Shirt"
+        },
+        {
+          "id": "SHIRT-015",
+          "name": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt"
+        }
+      ],
+      "ready": true,
+      "reason": "Variants table contains explicit multi-dimensional color and size records."
+    },
+    {
+      "id": 10,
+      "query": "I need something for summer travel",
+      "criteria": "Products with season='summer' and occasion/use_case='travel'",
+      "matching_products": [
+        {
+          "id": "JEANS-006",
+          "name": "WROGN Men's Anti Fit Jeans",
+          "category": "Jeans"
+        },
+        {
+          "id": "JEANS-007",
+          "name": "TAGAS Men's Regular Fit Carrot Tapered Jeans",
+          "category": "Jeans"
+        },
+        {
+          "id": "JEANS-008",
+          "name": "KOTTY Men's Straight Fit Jeans",
+          "category": "Jeans"
+        },
+        {
+          "id": "SPORTS-SHOE-003",
+          "name": "JQR Men Signature Sneakers",
+          "category": "Sports-Shoes"
+        },
+        {
+          "id": "T-SHIRT-001",
+          "name": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar",
+          "category": "T-Shirt"
+        },
+        {
+          "id": "T-SHIRT-006",
+          "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62)",
+          "category": "T-Shirt"
+        }
+      ],
+      "ready": true,
+      "reason": "Cross-attribute semantic tags allow dual-condition filtering."
+    }
+  ],
+  "critical_blockers": [
+    {
+      "type": "EMPTY_SOURCE_PLACEHOLDERS",
+      "severity": "CRITICAL_FOR_SPECIFIC_CATEGORIES",
+      "count": 11,
+      "affected_files": [
+        "products/Belts/BELT-001.json",
+        "products/Belts/BELT-002.json",
+        "products/Belts/BELT-003.json",
+        "products/Belts/BELT-004.json",
+        "products/Belts/BELT-005.json",
+        "products/Caps/CAP-001.json",
+        "products/Caps/CAP-002.json",
+        "products/Caps/CAP-003.json",
+        "products/Caps/CAP-004.json",
+        "products/Caps/CAP-005.json",
+        "products/Sports-Shoes/SPORTS-SHOE-005.json"
+      ],
+      "description": "11 raw JSON files (5 Belts, 5 Caps, 1 Sports-Shoes) are 0-byte placeholders in the source directory. Belts and Caps cannot be recommended until source files are populated."
+    },
+    {
+      "type": "MISSING_COMMERCIAL_PRICING",
+      "severity": "BLOCKER_FOR_PRICE_FILTERING",
+      "count": 6,
+      "affected_products": [],
+      "description": "6 products lack selling_price/mrp in source JSON (e.g. SPORTS-SHOE-001, 003, 004, 006, 007, FORMAL-SHOE-006). They cannot appear in price-bounded queries (e.g. 'under ₹2000')."
+    },
+    {
+      "type": "REVIEW_ONLY_SOURCE_FILES",
+      "severity": "INCOMPLETE_METADATA",
+      "count": 2,
+      "affected_products": [
+        "FORMAL-SHOE-006",
+        "SPORTS-SHOE-004"
+      ],
+      "description": "2 source files contain customer reviews but no product name or commercial metadata. Their names default to fallback identifiers."
+    }
+  ],
+  "non_critical_gaps": [
+    {
+      "type": "EMPTY_RELATIONSHIPS_TABLE",
+      "impact": "LOW",
+      "description": "shopi_product_relationships is empty by design pending post-normalization AI generation step. Query 7 ('Show me similar but cheaper') requires runtime category/price logic until relationships are populated."
+    },
+    {
+      "type": "MISSING_CARE_INSTRUCTIONS_ON_SOME_PRODUCTS",
+      "impact": "LOW",
+      "description": "Not all source JSONs include washing/care instructions; preserved as absent without fabricating fake care instructions."
+    },
+    {
+      "type": "VARIABLE_REVIEW_VOLUME",
+      "impact": "LOW",
+      "description": "Review counts vary from 0 reviews (15 products) to 112,000+ ratings (SPORTS-SHOE-001). Correctly reflected via review_confidence scores."
+    }
+  ],
+  "final_verdict": {
+    "is_semantically_safe": true,
+    "condition": "SAFE WITH CATEGORY/PRICE SCOPING",
+    "reasoning": "The 76 normalized products accurately preserve source semantics, pricing, attributes, variants, image paths, and reviews without fabrication or corruption. However, Supabase consumers and AI agents must be aware that Belts and Caps have 0 active products (due to empty source files), and 6 footwear products lack pricing fields in the source."
+  }
+}

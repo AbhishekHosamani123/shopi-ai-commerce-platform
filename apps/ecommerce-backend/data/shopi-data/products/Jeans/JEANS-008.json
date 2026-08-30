@@ -1,0 +1,511 @@
+{
+    "product_id": "JEANS-008",
+    "product": {
+        "name": "KOTTY Men's Straight Fit Jeans",
+        "brand": "KOTTY",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Straight Fit Jeans",
+        "description": "KOTTY men's straight-fit jeans with a modern mid-rise design. Made from a cotton blend with lycra for comfort and flexibility, featuring a solid design and standard length for versatile casual wear.",
+        "fit": "Straight Fit",
+        "pattern": "Solid",
+        "style": "Modern",
+        "rise": "Mid Rise",
+        "leg_style": "Straight",
+        "length": "Standard Length",
+        "material": "Cotton Blend",
+        "fabric_composition": "Cotton and Lycra blend",
+        "fabric_weight": "Medium Weight",
+        "stretch": "Stretch",
+        "closure": "Button",
+        "care": "Machine Wash",
+        "pockets": "Two deep side pockets",
+        "colors": [
+            "Jet Gray",
+            "Lighter Grey",
+            "Scorpion Grass Blue"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "country_of_origin": "India",
+        "department": "Men",
+        "item_weight_grams": 400,
+        "net_quantity": 1,
+        "style_tags": [
+            "straight fit",
+            "mid rise",
+            "modern",
+            "cotton blend",
+            "stretch",
+            "casual",
+            "everyday wear",
+            "comfortable",
+            "versatile",
+            "men's jeans"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "college wear",
+            "weekend wear",
+            "travel",
+            "casual parties",
+            "smart casual"
+        ],
+        "season_tags": [
+            "all season",
+            "summer",
+            "winter"
+        ],
+        "lifestyle_tags": [
+            "casual",
+            "everyday",
+            "street style",
+            "modern casual",
+            "smart casual"
+        ]
+    },
+    "pricing": {
+        "mrp": 1999,
+        "selling_price": 599,
+        "currency": "INR",
+        "discount_percentage": 70,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Jet Gray",
+            "image": "products/Jeans/JEANS-008/Jet Gray.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Lighter Grey",
+            "image": "products/Jeans/JEANS-008/Lighter Grey.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Scorpion Grass Blue",
+            "image": "products/Jeans/JEANS-008/Scorpion Grass Blue.jpg",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 3.8,
+        "rating_count": 296,
+        "review_count": 56
+    },
+    "rating_distribution": {
+        "5_star_percentage": 49,
+        "4_star_percentage": 19,
+        "3_star_percentage": 13,
+        "2_star_percentage": 6,
+        "1_star_percentage": 13
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customer feedback is generally positive for the price, fit and fabric, but there are recurring complaints about color accuracy, quality consistency and the zipper.",
+        "positive": [
+            "Several buyers report good fitting",
+            "Multiple buyers consider the product good value at the low price",
+            "Positive feedback about the fabric",
+            "Some buyers describe the jeans as comfortable",
+            "Some buyers like the overall appearance",
+            "The cotton and lycra blend provides flexibility",
+            "Suitable for casual and everyday wear"
+        ],
+        "negative": [
+            "Some customers report quality below expectations",
+            "Color may differ from the product image",
+            "One review specifically reports a zipper issue",
+            "Some buyers describe the product as average quality",
+            "The product should not be positioned as premium denim"
+        ],
+        "main_concern": "Quality consistency. Most of the available feedback is positive or acceptable for the price, but some customers report poor quality, color differences and an uncomfortable or unreliable zipper."
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Multiple reviews mention good fitting, while the product listing officially identifies the fit as straight."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product description emphasizes cotton and lycra for softness, comfort and flexibility."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several buyers praise the fabric, although some negative reviews describe the overall quality as cheap or below expectations."
+        },
+        "color_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "At least one review reports that Jet Gray appeared more greyish than expected from the image."
+        },
+        "zipper_quality": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "A verified review reports that the zipper can open with movement and requires attention to keep it properly closed."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviewers explicitly consider the product worthwhile or decent for its price."
+        },
+        "daily_wear_suitability": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product is positioned as versatile casual wear and the reviews generally support use at this price level."
+        }
+    },
+    "pros": [
+        "Straight fit",
+        "Mid-rise design",
+        "Cotton and lycra blend",
+        "Stretch and flexibility",
+        "Standard length",
+        "Machine washable",
+        "Two deep side pockets",
+        "Multiple color options in local product assets",
+        "Sizes 28 to 36",
+        "Low ₹599 selling price",
+        "70% discount against listed MRP",
+        "Good value according to multiple reviewers",
+        "Good fitting reported by multiple buyers"
+    ],
+    "cons": [
+        "3.8/5 overall rating",
+        "13% of ratings are 1-star",
+        "Some quality complaints",
+        "Color may differ from product images",
+        "Zipper complaints",
+        "Not positioned as premium-quality denim",
+        "Limited size range compared with some competing jeans"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_FOR_VALUE",
+        "score": 7.4,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Customers who prefer straight-fit jeans",
+            "Customers who prefer mid-rise jeans",
+            "Daily casual wear",
+            "College wear",
+            "Travel",
+            "Weekend outfits",
+            "Customers looking for stretch and flexibility",
+            "Customers prioritizing price over premium finishing"
+        ],
+        "not_ideal_for": [
+            "Customers looking for premium denim",
+            "Customers demanding exact color matching",
+            "Customers who prioritize premium hardware and zipper quality",
+            "Customers wanting slim or skinny jeans",
+            "Customers requiring sizes above 36"
+        ],
+        "size_advice": "Available sizes are 28, 30, 32, 34 and 36. The listing should be paired with the size chart rather than recommending a size purely from height or weight.",
+        "color_advice": "The local catalog contains Jet Gray, Lighter Grey and Scorpion Grass Blue images. The extracted Amazon listing specifically identifies Jet Gray, so variant-specific details for the other two colors should not be invented.",
+        "quality_advice": "Position this as a budget cotton-blend straight-fit jean, not premium denim. The review data contains both positive fabric feedback and complaints about quality.",
+        "sales_advice": "Lead with ₹599, straight fit, mid-rise construction, cotton-lycra blend, stretch, and everyday versatility. The strongest selling point is value for money rather than premium quality.",
+        "review_advice": "The 3.8-star rating is reasonably positive, but the 13% 1-star share means the AI should mention quality/zipper concerns if the customer specifically asks about reliability."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "straight fit jeans",
+            "straight jeans",
+            "mid rise jeans",
+            "men's jeans",
+            "casual jeans",
+            "stretch jeans",
+            "cotton jeans",
+            "comfortable jeans",
+            "budget jeans",
+            "affordable jeans",
+            "daily wear jeans",
+            "college jeans",
+            "grey jeans",
+            "blue jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "skinny fit",
+            "slim fit",
+            "baggy jeans",
+            "wide leg jeans",
+            "premium denim",
+            "luxury jeans",
+            "exact color match"
+        ],
+        "strong_attributes": [
+            "straight fit",
+            "mid rise",
+            "cotton blend",
+            "lycra",
+            "stretch",
+            "casual",
+            "₹599",
+            "machine washable",
+            "value for money"
+        ],
+        "warning_attributes": [
+            "3.8 rating",
+            "13% one-star ratings",
+            "color mismatch feedback",
+            "zipper complaint",
+            "mixed quality feedback"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Punith",
+            "date": "2026-06-20",
+            "color": "Jet Gray",
+            "size": "30",
+            "title": "Nice",
+            "sentiment": "positive",
+            "themes": [
+                "overall satisfaction"
+            ],
+            "summary": "Reviewer described the jeans positively."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Zainish Gurjar",
+            "date": "2026-08-19",
+            "color": "Jet Gray",
+            "size": "36",
+            "title": "Price wise good product",
+            "sentiment": "positive",
+            "themes": [
+                "price",
+                "fabric",
+                "value for money"
+            ],
+            "summary": "Reviewer said the product is decent for the price and praised the fabric."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "firose khan",
+            "date": "2026-06-13",
+            "color": "Jet Gray",
+            "size": "32",
+            "title": "I like this",
+            "sentiment": "positive",
+            "themes": [
+                "overall satisfaction"
+            ],
+            "summary": "Reviewer described the product as nice."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "reviewer": "Shiva",
+            "date": "2026-07-10",
+            "color": "Jet Gray",
+            "size": "36",
+            "title": "Cheap quality product",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "appearance"
+            ],
+            "summary": "Reviewer strongly criticized the quality and said customers should not rely on the product image for expectations."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "reviewer": "Manan Kothari",
+            "date": "2026-05-31",
+            "color": "Jet Gray",
+            "size": "32",
+            "title": "Will not be of the exact same colour",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "fit"
+            ],
+            "summary": "Reviewer liked the fitting but said the color was more greyish than blue compared with the image."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Umang K Joshi",
+            "date": "2026-06-13",
+            "color": "Black Tortoise",
+            "size": "34",
+            "title": "Best hai",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "quality"
+            ],
+            "summary": "Reviewer praised the jeans and fabric."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "reviewer": "Mohan",
+            "date": "2026-06-02",
+            "color": "Jet Gray",
+            "size": "36",
+            "title": "Very good",
+            "sentiment": "positive",
+            "themes": [
+                "overall satisfaction"
+            ],
+            "summary": "Reviewer described the product as very good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Nitesh Tiwari",
+            "date": "2026-06-20",
+            "color": "Jet Gray",
+            "size": "28",
+            "title": "Good",
+            "sentiment": "positive",
+            "themes": [
+                "fit"
+            ],
+            "summary": "Reviewer specifically said the fitting was good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Tanishq khatana",
+            "date": "2026-05-22",
+            "color": "Jet Gray",
+            "size": "32",
+            "title": "Zip issue but overall very good",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "stretch",
+                "comfort",
+                "zipper",
+                "overall quality"
+            ],
+            "summary": "Reviewer liked the slightly elastic material and overall product but reported that the zipper could open with movement."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Akhil Joy",
+            "date": "2026-05-18",
+            "color": "Jet Gray",
+            "size": "34",
+            "title": "Best for the money mentioned",
+            "sentiment": "positive",
+            "themes": [
+                "price",
+                "value",
+                "quality"
+            ],
+            "summary": "Reviewer said the product was worth buying at the listed price, although the quality was not especially high."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Amazon Customer",
+            "date": "2026-05-20",
+            "color": "Jet Gray",
+            "size": "32",
+            "title": "Quality is good",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer reported good fit and considered the product worth the money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Shivam Divedi",
+            "date": "2026-05-13",
+            "color": "Jet Gray",
+            "size": "34",
+            "title": "Price and quality",
+            "sentiment": "positive",
+            "themes": [
+                "price",
+                "quality"
+            ],
+            "summary": "Reviewer considered the product good enough to buy."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "reviewer": "Mrs Sanya",
+            "date": "2025-12-12",
+            "color": "Jet Gray",
+            "size": "32",
+            "title": "Good",
+            "sentiment": "positive",
+            "themes": [
+                "breathability"
+            ],
+            "summary": "Reviewer described the jeans as breathable."
+        }
+    ],
+    "manufacturer": {
+        "name": "Kotty Life Style Pvt. Ltd.",
+        "address": "GB-65 Bharat Vihar, Lakkarpur, Faridabad, Haryana 121009, India"
+    },
+    "packer": {
+        "name": "Kotty Life Style Pvt. Ltd.",
+        "address": "GB-65 Bharat Vihar, Lakkarpur, Faridabad, Haryana 121009, India"
+    },
+    "importer": {
+        "name": "Kotty Life Style Pvt. Ltd.",
+        "address": "GB-65 Bharat Vihar, Lakkarpur, Faridabad, Haryana 121009, India"
+    },
+    "additional_information": {
+        "asin": "B0D87KXMT1",
+        "model_number": "FASHIONSMENSJEANS100",
+        "country_of_origin": "India",
+        "date_first_available": "2024-06-27",
+        "item_weight_grams": 400,
+        "item_dimensions": "30 x 20 x 3 cm",
+        "net_quantity": 1,
+        "generic_name": "Mens Jeans"
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the straight fit, mid-rise design, cotton-lycra blend, stretch, price, available colors and sizes, and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend it primarily as a budget/value product. Mention the 3.8 rating and positive feedback about price, fabric and fit, while noting that some customers reported quality and zipper issues.",
+        "when_customer_asks_about_fit": "Explain that the official fit is straight with a mid-rise waist and straight leg. Multiple reviews mention good fitting.",
+        "when_customer_asks_about_quality": "Give a balanced answer. Several customers praise the fabric and overall quality for the price, while some report cheap or average quality. Do not describe it as premium.",
+        "when_customer_asks_about_color": "The local catalog contains Jet Gray, Lighter Grey and Scorpion Grass Blue images. The extracted listing specifically identifies Jet Gray. Mention that one reviewer reported the Jet Gray color appearing more greyish than expected.",
+        "when_customer_asks_about_comfort": "Mention the cotton-lycra construction and stretch/flexibility. Some reviews also describe the product as comfortable or breathable.",
+        "when_customer_asks_about_reviews": "Explain that the product has a 3.8/5 rating from 296 global ratings. The distribution is 49% 5-star, 19% 4-star, 13% 3-star, 6% 2-star and 13% 1-star.",
+        "when_customer_asks_about_sizing": "Available sizes are 28, 30, 32, 34 and 36. Recommend checking the size chart before purchase.",
+        "when_customer_asks_about_price": "The captured listing price is ₹599 against an MRP of ₹1,999, representing a 70% discount.",
+        "when_customer_asks_about_daily_wear": "Recommend it for casual and everyday wear, especially when the customer prioritizes affordability and a comfortable straight fit.",
+        "when_customer_asks_about_value": "Value for money is one of the strongest positive signals in the reviews. Several buyers explicitly say the product is worthwhile at its price.",
+        "when_customer_asks_about_zipper": "Be transparent that at least one verified reviewer reported the zipper could open with movement. Do not claim the zipper is universally defective.",
+        "when_customer_asks_for_alternatives": "If the customer wants premium quality, prioritize products with stronger quality feedback. If the customer wants an inexpensive straight-fit jean, this product is a reasonable candidate."
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "The extracted product page specifically identifies Jet Gray; the local directory additionally contains Lighter Grey and Scorpion Grass Blue images.",
+            "Variant-specific product specifications for Lighter Grey and Scorpion Grass Blue are not explicitly supported by the extracted source.",
+            "The product has mixed quality feedback despite an overall 3.8/5 rating.",
+            "Some reviews report color differences from product images.",
+            "A verified review reports a zipper issue.",
+            "The product description mentions cotton and lycra but does not provide exact fabric percentages.",
+            "The local filenames are case-sensitive filesystem paths and should be preserved exactly."
+        ]
+    }
+}

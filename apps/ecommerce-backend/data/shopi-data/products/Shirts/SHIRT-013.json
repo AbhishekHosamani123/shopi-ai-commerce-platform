@@ -1,0 +1,636 @@
+{
+    "product_id": "SHIRT-013",
+    "product": {
+        "name": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt",
+        "brand": "IndoPrimo",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A men's full-sleeve regular-fit shirt with a spread collar, solid pattern, standard length and Western styling. Designed for casual, office, business and everyday wear.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Spread Collar",
+        "closure": "Button",
+        "length": "Standard Length",
+        "style": "Western",
+        "season": "All Seasons",
+        "lifestyle": "Casual",
+        "material": {
+            "listed_composition": "Cotton",
+            "description_material": "Satin",
+            "marketing_description": "Premium Cotton Fabric",
+            "verified_fiber_composition": false,
+            "confidence": "low",
+            "ai_rule": "Do not claim 100% cotton or pure cotton."
+        },
+        "fabric_characteristics": [
+            "Smooth",
+            "Soft according to product description",
+            "Comfortable according to product description",
+            "Satin-like appearance according to product description",
+            "Elegant look",
+            "Shiny appearance according to product description"
+        ],
+        "country_of_origin": "India",
+        "weight_grams": 330,
+        "dimensions_cm": {
+            "length": 23,
+            "width": 15,
+            "height": 3
+        }
+    },
+    "pricing": {
+        "currency": "INR",
+        "current_price": 395,
+        "captured_prices": [
+            395
+        ],
+        "mrp_values": [
+            1499,
+            1999
+        ],
+        "price_type": "snapshot",
+        "discount_displayed": "74% off",
+        "price_note": "The captured listing repeatedly shows ₹395, while different variants/offers show MRP values of ₹1,499 and ₹1,999."
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "source_color_name": "BLACK",
+                "image": "products/shirts/SHIRT-013/black.jpg"
+            },
+            {
+                "color": "Choco",
+                "source_color_name": "CHOCO",
+                "image": "products/shirts/SHIRT-013/choco.jpg"
+            },
+            {
+                "color": "Grey",
+                "source_color_name": "GREY",
+                "image": "products/shirts/SHIRT-013/grey.jpg"
+            },
+            {
+                "color": "Maroon",
+                "source_color_name": "MAROON",
+                "image": "products/shirts/SHIRT-013/maroon.jpg"
+            },
+            {
+                "color": "Olive",
+                "source_color_name": "OLIVE",
+                "image": "products/shirts/SHIRT-013/olive.jpg"
+            },
+            {
+                "color": "Sky Blue",
+                "source_color_name": "SKY",
+                "image": "products/shirts/SHIRT-013/sky blue.jpg"
+            },
+            {
+                "color": "Wine",
+                "source_color_name": "WINE",
+                "image": "products/shirts/SHIRT-013/wine.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "variant_status": "Only the seven supplied SHIRT-013 color images should be exposed."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-013/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Choco",
+            "image": "products/shirts/SHIRT-013/choco.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/shirts/SHIRT-013/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-013/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Olive",
+            "image": "products/shirts/SHIRT-013/olive.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Sky Blue",
+            "image": "products/shirts/SHIRT-013/sky blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Wine",
+            "image": "products/shirts/SHIRT-013/wine.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.1,
+        "rating_count": 81,
+        "rating_distribution_percent": {
+            "5_star": 46,
+            "4_star": 36,
+            "3_star": 12,
+            "2_star": 0,
+            "1_star": 6
+        },
+        "positive_rating_percent": 82,
+        "rating_note": "82% of ratings are 4 or 5 stars."
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally like the shirt for its soft/comfortable fabric, fitting, stitching, appearance and value for money. The main problems are inconsistent color accuracy, occasional sizing issues and contradictory material information.",
+        "positive": [
+            "Soft fabric",
+            "Comfortable to wear",
+            "Good fit",
+            "Good stitching",
+            "Good quality for the price",
+            "Good value for money",
+            "Long-lasting material according to one review",
+            "Clean classic appearance",
+            "Can work for casual and formal occasions",
+            "Comfortable in warmer weather according to one review",
+            "Multiple color choices"
+        ],
+        "negative": [
+            "Material information is contradictory",
+            "Product is marketed as cotton but description says satin",
+            "One customer returned it because they specifically wanted cotton rather than satin",
+            "Olive color may not match the product image",
+            "Some size issues reported",
+            "Small review count compared with SHIRT-012"
+        ]
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Most captured reviews describe the quality as good or very good."
+        },
+        "fabric": {
+            "sentiment": "positive_but_ambiguous",
+            "confidence": "medium",
+            "note": "Customers commonly praise softness and comfort, but the actual composition is unclear because the listing says Cotton while the description says satin."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several reviews describe the fit as good or perfect."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Reviews repeatedly mention comfortable, wearable and soft fabric."
+        },
+        "color": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several buyers like the colors, but an Olive variant review explicitly says the actual color differed significantly from the image."
+        },
+        "stitching": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "One reviewer specifically praised the stitching and another described it as neat and durable."
+        },
+        "value": {
+            "sentiment": "strongly_positive",
+            "confidence": "high",
+            "note": "Multiple reviews describe the shirt as value for money, especially at the captured ₹395 price."
+        },
+        "formal_use": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product description targets office/business use and a review says the shirt works for both casual and formal occasions."
+        },
+        "summer_use": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "One review describes the fabric as breathable enough for warmer weather."
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Choco",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "softness"
+            ],
+            "summary": "Reviewer praised the fabric and described the cloth as soft."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "Choco",
+            "sentiment": "positive",
+            "themes": [
+                "value"
+            ],
+            "summary": "Reviewer described the shirt as value for money."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Olive",
+            "sentiment": "positive",
+            "themes": [
+                "stitching",
+                "fit",
+                "color",
+                "value",
+                "durability"
+            ],
+            "summary": "Reviewer praised stitching, fit, color, value and material durability."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "Olive",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "fit",
+                "comfort",
+                "value"
+            ],
+            "summary": "Reviewer liked the fabric and comfort but said the Olive color looked substantially different from the product images."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Choco",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer described the material as good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Olive",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer called it a good-quality shirt and value for money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Maroon",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer said the quality was good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Dark Navy",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Sky",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer described the quality as very good and considered it worth the money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the shirt as nice."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Dark Navy",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the shirt as good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "mixed",
+            "themes": [
+                "size",
+                "quality"
+            ],
+            "summary": "Reviewer said the shirt quality was good but reported a size issue."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fit"
+            ],
+            "summary": "Reviewer said the fabric was wearable and the fit was good."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Maroon",
+            "sentiment": "positive",
+            "themes": [
+                "comfort"
+            ],
+            "summary": "Reviewer described it as good and comfortable."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "breathability",
+                "stitching",
+                "fit",
+                "durability"
+            ],
+            "summary": "Reviewer praised the clean classic appearance, soft fabric, breathability, stitching, durability and balanced fit."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "fabric",
+                "quality",
+                "size",
+                "stitching"
+            ],
+            "summary": "Reviewer said color, fabric, quality, size and stitching were all good."
+        },
+        {
+            "rating": 5,
+            "verified": false,
+            "size": "XL",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "fit",
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer said the shirt looked better in person, was comfortable, fit perfectly and offered good quality for the price."
+        },
+        {
+            "rating": 3,
+            "verified": false,
+            "size": "M",
+            "color": "Wine",
+            "sentiment": "negative",
+            "themes": [
+                "material_composition"
+            ],
+            "summary": "Reviewer expected a cotton shirt but found the listing's cotton-versus-satin information confusing and returned the shirt because they did not want satin."
+        }
+    ],
+    "pros": [
+        "4.1/5 average rating",
+        "81 ratings",
+        "82% of ratings are 4 or 5 stars",
+        "Regular fit",
+        "Long sleeves",
+        "Spread collar",
+        "Standard length",
+        "Solid pattern",
+        "Western style",
+        "Soft fabric feedback",
+        "Comfortable fit",
+        "Good stitching",
+        "Good value at ₹395",
+        "Suitable for casual wear",
+        "Suitable for office wear",
+        "Suitable for business meetings",
+        "Can be styled for formal occasions",
+        "Multiple color choices"
+    ],
+    "cons": [
+        "Only 81 ratings",
+        "Material composition is contradictory",
+        "Listing says Cotton",
+        "Description says satin",
+        "One customer specifically returned it because they wanted cotton rather than satin",
+        "Olive color accuracy complaint",
+        "Some size issues",
+        "Cannot safely claim 100% cotton"
+    ],
+    "occasion_tags": [
+        "casual",
+        "daily wear",
+        "office",
+        "business meeting",
+        "formal",
+        "semi-formal",
+        "workwear",
+        "evening",
+        "party"
+    ],
+    "style_tags": [
+        "classic shirt",
+        "casual shirt",
+        "cotton-style shirt",
+        "satin-look shirt",
+        "solid shirt",
+        "regular fit shirt",
+        "full sleeve shirt",
+        "spread collar shirt",
+        "western shirt",
+        "office shirt",
+        "business casual shirt"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "regular fit shirt",
+            "full sleeve shirt",
+            "spread collar shirt",
+            "solid shirt",
+            "office shirt",
+            "business casual shirt",
+            "formal shirt",
+            "semi formal shirt",
+            "daily wear shirt",
+            "classic shirt",
+            "western shirt",
+            "soft shirt",
+            "comfortable shirt",
+            "value for money shirt",
+            "satin shirt",
+            "shiny shirt"
+        ],
+        "negative_keywords": [
+            "slim fit shirt",
+            "oversized shirt",
+            "printed shirt",
+            "checked shirt",
+            "striped shirt",
+            "short sleeve shirt",
+            "100% cotton shirt",
+            "pure cotton shirt",
+            "linen shirt",
+            "vacation linen shirt",
+            "beach shirt"
+        ],
+        "strong_attributes": [
+            "regular fit",
+            "solid",
+            "long sleeve",
+            "spread collar",
+            "standard length",
+            "classic",
+            "office",
+            "business",
+            "casual",
+            "value"
+        ],
+        "warning_attributes": [
+            "cotton versus satin ambiguity",
+            "color accuracy",
+            "size consistency"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_MATERIAL_CAVEAT",
+        "score": 8.0,
+        "best_for": [
+            "Men wanting a classic solid shirt",
+            "Office wear",
+            "Business casual outfits",
+            "Daily wear",
+            "Casual outings",
+            "Semi-formal occasions",
+            "Men wanting a regular fit",
+            "Men who prefer full sleeves",
+            "Budget-conscious shoppers"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for verified pure cotton",
+            "Customers who dislike satin-like fabrics",
+            "Customers requiring exact color matching",
+            "Customers who prefer slim fit",
+            "Customers wanting a linen vacation shirt"
+        ],
+        "size_advice": "Available sizes are S through 2XL. Reviews are generally positive about fit, but at least one customer reported a size issue. Shopi should recommend checking the size chart rather than guaranteeing fit.",
+        "fabric_advice": "Use 'cotton-listed' or 'soft/smooth fabric' rather than claiming 100% cotton. The source has a direct Cotton-versus-Satin inconsistency.",
+        "quality_advice": "Position it as a good-value shirt with generally positive quality feedback rather than as a premium luxury shirt.",
+        "value_advice": "₹395 is the strongest selling point. Multiple reviews explicitly describe the product as value for money.",
+        "occasion_advice": "This is better suited to office, business-casual, daily and classic formal/semi-formal recommendations than SHIRT-012.",
+        "color_advice": "Black and Grey are the safest versatile choices. Choco, Maroon and Wine work well for richer/evening styling. Sky Blue is better for lighter daytime styling. Olive should be recommended with a color-accuracy caveat."
+    },
+    "care_instructions": {
+        "easy_care": true,
+        "source_instruction": "Easy to wash and maintain according to the product description.",
+        "fade_resistance_claim": true,
+        "shape_retention_claim": true,
+        "ai_rule": "Do not invent washing temperature, detergent, ironing or drying instructions."
+    },
+    "brand_information": {
+        "brand": "IndoPrimo",
+        "manufacturer": "INDOPRIMO, IndoPrimo, India",
+        "packer": "IndoPrimo, India",
+        "importer": "IndoPrimo PVT LTD, Surat",
+        "country_of_origin": "India",
+        "item_weight_grams": 330,
+        "item_dimensions_cm": "23 x 15 x 3",
+        "asin": "B0GSZWRGKC"
+    },
+    "data_quality": {
+        "rating_count": 81,
+        "price_available": true,
+        "stock_available": true,
+        "complete_supplied_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level inventory",
+            "Variant-level current price",
+            "Exact garment measurements by size",
+            "Reliable fiber composition percentage"
+        ],
+        "source_inconsistencies": [
+            "Material composition is listed as Cotton.",
+            "Product description calls the fabric high-quality satin.",
+            "Product title markets it as a cotton shirt.",
+            "A customer specifically complained that the cotton/satin presentation was confusing and returned the product.",
+            "The captured listing contains MRP values of ₹1,499 and ₹1,999 depending on variant/offer.",
+            "Review-only colors such as White and Dark Navy appear in the source but are not among the seven supplied SHIRT-013 images."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a budget-friendly classic regular-fit solid shirt for office, daily, business-casual and semi-formal use.",
+        "material_rule": "Never claim 100% cotton or pure cotton. The listing's composition says Cotton but its description says satin and a customer explicitly flagged this contradiction.",
+        "fit_rule": "Describe the fit as Regular Fit.",
+        "style_rule": "Emphasize classic, clean, solid and versatile styling.",
+        "occasion_rule": "Prioritize office, business casual, daily wear, formal and semi-formal queries.",
+        "value_rule": "₹395 is a strong value proposition based on the captured listing and reviews.",
+        "color_rule": "Only expose Black, Choco, Grey, Maroon, Olive, Sky Blue and Wine because these are the seven supplied SHIRT-013 images.",
+        "review_color_rule": "Do not create White or Dark Navy storefront variants unless corresponding images are supplied.",
+        "color_warning_rule": "If recommending Olive, mention that one buyer reported the actual color differed significantly from the product image.",
+        "quality_rule": "Use 'good quality for the price' rather than 'premium quality'.",
+        "comparison_rule": "For queries specifically asking for cotton, do not automatically rank SHIRT-013 first because its material data is contradictory."
+    }
+}

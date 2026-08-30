@@ -2,7 +2,7 @@ import React,{ useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Stars from './Stars'
 import { ShoppingCartIcon, ReceiptRefundIcon, HeartIcon, CurrencyRupeeIcon, GlobeAltIcon } from '@heroicons/react/24/outline'
 import { useAppDispatch,useAppSelector } from '@/app/hooks'
-import { addItemToCart,addItemToWishlist } from '@/features/UIUpdates/CartWishlist'
+import { addItemToCart,addItemToWishlist, setActiveProductContext, clearActiveProductContext } from '@/features/UIUpdates/CartWishlist'
 import ReviewSection from './Product/ReviewSection'
 import ProductNotFound from './Product/ProductNotFound'
 import productDataHandler from '@/app/api/product'
@@ -37,6 +37,7 @@ interface ProductSize {
   sizeid: number;
   sizename: string;
   instock: boolean;
+  availableColors?: string[];
 }
 
 // Interface for colors
@@ -44,6 +45,8 @@ interface ProductColor {
   colorid: number;
   colorname: string;
   colorclass: string;
+  imglink?: string | null;
+  availableSizes?: string[];
 }
 
 // Interface for categories
@@ -54,12 +57,15 @@ interface Categories {
 
 // Main interface for the product
 interface Product {
-  productid:number,
+  productid: number | string;
   title: string;
   description: string;
   stock: number;
   discountedprice: string;
   price: string;
+  mrp?: number;
+  selling_price?: number;
+  discount_percentage?: number;
   stars: number;
   seller: string;
   reviewcount: number;
@@ -118,24 +124,41 @@ const ProductPage = () => {
     const dispatch = useAppDispatch();
     const defaultAccount = useAppSelector((state) => state.userState.defaultAccount)
     const listID = {cartItemID:IDGenerator(),wishlistItemID:IDGenerator()};
+
+    const handleColorChange = (color: ProductColor) => {
+      setSelectedColor(color);
+      colRef.current = color.colorname;
+      if (color.imglink) {
+        setselectedImage({
+          imgLink: color.imglink,
+          imgAlt: `${dataVar.current.title} - ${color.colorname}`
+        });
+      } else {
+        setselectedImage({
+          imgLink: dataVar.current.imglink,
+          imgAlt: dataVar.current.imgalt
+        });
+      }
+    };
+
     let cartItemData = {
       cartItemID:listID.cartItemID,
       productID:data.productid,
-      productImg:data.imglink,
-      productAlt:data.imgalt,
+      productImg:selectedImage.imgLink || data.imglink,
+      productAlt:selectedImage.imgAlt || data.imgalt,
       productName:data.title,
-      productPrice:parseInt(data.discountedprice),
-      productColor:colRef.current,
-      productSize:sizeRef.current,
+      productPrice:parseInt(data.discountedprice || '0'),
+      productColor:selectedColor.colorname !== 'Default' ? selectedColor.colorname : (colRef.current || 'Default'),
+      productSize:selectedSize.sizename !== 'Default' ? selectedSize.sizename : (sizeRef.current || 'Default'),
       quantity: quantity,
     };
     let wishlistItem = {
       wishlistItemID:listID.wishlistItemID,
       productID:data.productid,
-      productImg:data.imglink,
-      productAlt:data.imgalt,
+      productImg:selectedImage.imgLink || data.imglink,
+      productAlt:selectedImage.imgAlt || data.imgalt,
       productName:data.title,
-      productPrice:parseInt(data.discountedprice),
+      productPrice:parseInt(data.discountedprice || '0'),
     };
     useEffect(() => {
       let isMounted = true;
@@ -147,20 +170,52 @@ const ProductPage = () => {
           const prod = response.data.data;
           dataVar.current = prod;
           if (prod.stock !== undefined) totalQuantity.current = prod.stock;
-          if (prod.colors?.length > 0) setSelectedColor(prod.colors[0]);
-          if (prod.sizes?.length > 0) setSelectedSize(prod.sizes[0]);
-          setselectedImage({ imgLink: prod.imglink, imgAlt: prod.imgalt });
+          if (prod.colors?.length > 0) {
+            setSelectedColor(prod.colors[0]);
+            colRef.current = prod.colors[0].colorname;
+            if (prod.colors[0].imglink) {
+              setselectedImage({ imgLink: prod.colors[0].imglink, imgAlt: `${prod.title} - ${prod.colors[0].colorname}` });
+            } else {
+              setselectedImage({ imgLink: prod.imglink, imgAlt: prod.imgalt });
+            }
+          } else {
+            setselectedImage({ imgLink: prod.imglink, imgAlt: prod.imgalt });
+          }
+          if (prod.sizes?.length > 0) {
+            setSelectedSize(prod.sizes[0]);
+            sizeRef.current = prod.sizes[0].sizename;
+          }
           found.current = true;
         } else {
           found.current = false;
         }
-        setdataChecked(true);
+          setdataChecked(true);
       }
       loadData();
       return () => {
         isMounted = false;
+        dispatch(clearActiveProductContext());
       };
     }, [params?.productID]);
+
+    useEffect(() => {
+      if (dataVar.current && dataVar.current.title && dataChecked) {
+        const activeColor = selectedColor.colorname !== 'Default' ? selectedColor.colorname : (colRef.current || 'Default');
+        const activeSize = selectedSize.sizename !== 'Default' ? selectedSize.sizename : (sizeRef.current || 'Default');
+        const activeImg = selectedImage.imgLink || dataVar.current.imglink;
+
+        dispatch(setActiveProductContext({
+          sku: String(dataVar.current.sku || dataVar.current.productid),
+          title: dataVar.current.title,
+          price: dataVar.current.selling_price || parseInt(dataVar.current.discountedprice || '0'),
+          mrp: dataVar.current.mrp || parseInt(dataVar.current.price || '0'),
+          category: dataVar.current.categories?.subcategory || dataVar.current.categories?.maincategory,
+          selectedColor: activeColor !== 'Default' ? activeColor : undefined,
+          selectedSize: activeSize !== 'Default' ? activeSize : undefined,
+          selectedVariantImage: activeImg
+        }));
+      }
+    }, [selectedColor, selectedSize, selectedImage, dataChecked]);
     
     const changeValue = (action:string)=>{
       switch (action) {
@@ -175,18 +230,28 @@ const ProductPage = () => {
     const handleClick = () => {
       ref.current?.scrollIntoView({behavior: 'smooth'});
     };
-    function percentageDifference(a:number, b:number) {
-      const difference = Math.abs(a - b);
-      const average = (a + b) / 2;
-      const percentageDiff = (difference / average) * 100;
-      return Math.round(percentageDiff);
+    function calculateDiscount(sp: number, mrp: number) {
+      if (!mrp || mrp <= sp) return 0;
+      return Math.round(((mrp - sp) / mrp) * 100);
     }
     async function itemStateUpdate(key:string){
       setbtnLoading(true);
+      const activeColor = selectedColor.colorname !== 'Default' ? selectedColor.colorname : (colRef.current || 'Default');
+      const activeSize = selectedSize.sizename !== 'Default' ? selectedSize.sizename : (sizeRef.current || 'Default');
+      const activeImg = selectedImage.imgLink || data.imglink;
+
+      const currentCartPayload = {
+        ...cartItemData,
+        productColor: activeColor,
+        productSize: activeSize,
+        productImg: activeImg,
+        quantity
+      };
+
       switch (key) {
         case 'cart':
         isLogged && await cartAddHandler({cartItemID:listID.cartItemID,userID:defaultAccount.userID,productID:data.productid,productPrice:parseInt(data.discountedprice),colorID:selectedColor.colorid,sizeID:selectedSize.sizeid,quantity})
-        dispatch(addItemToCart(cartItemData));
+        dispatch(addItemToCart(currentCartPayload));
         setbtnLoading(false)
           break;
         case 'wishlist':
@@ -200,6 +265,11 @@ const ProductPage = () => {
       const splitCat = category.split(' ').join('-');
       return `/sub-category/${maincategory}/${splitCat}`
     }
+
+    const sellingPrice = parseInt(data.discountedprice || '0') || data.selling_price || 0;
+    const mrpPrice = parseInt(data.price || '0') || data.mrp || sellingPrice;
+    const discountPct = calculateDiscount(sellingPrice, mrpPrice);
+
     return (
       <>
       <ProductDialogs dialogType={dialogType} setdialogType={setdialogType} setloading={setloading} productID={data.productid} selectedReview={selectedReview} selectedRating={selectedRating} setselectedRating={setselectedRating}/>
@@ -246,25 +316,46 @@ const ProductPage = () => {
                 <p>{data.categories.maincategory} {'>'} {data.categories.subcategory}</p>
             </div>
         </div>
-        <div className='flex justify-center gap-10 flex-col items-center lg:flex-row'>
-            <div className='flex img-wrapper flex-col gap-5 w-[90%] md:w-[60%] px-2 lg:w-[600px] lg:h-[600px] rounded-xl items-center'>
-                <img className='border-[1px] rounded-xl w-[100%] lg:w-[600px] lg:h-[600px] hover-zoom' src={selectedImage.imgLink || data.imglink || undefined} alt={selectedImage.imgAlt || data.imgalt}/>
-                <div className='flex gap-5 justify-center'>
-                {data.imgcollection.map((each, index) => (
+        <div className='flex justify-center gap-10 flex-col items-center lg:flex-row max-w-7xl mx-auto px-4'>
+            <div className='flex flex-col gap-4 w-full md:w-[500px] lg:w-[560px] items-center'>
+                <div className='w-full max-w-[560px] h-[450px] sm:h-[500px] bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center p-4 overflow-hidden'>
                     <img 
-                        key={index}
-                        src={each.imglink || undefined}
-                        alt={each.imgalt}
-                        height={75}
-                        width={75}
-                        className="rounded-md border-[1px] hover:drop-shadow-custom-xl mb-6"
-                        onClick={() => {
-                            const imageDetails = { imgLink: each.imglink, imgAlt: each.imgalt };
-                            setselectedImage(imageDetails);
-                        }}
+                        className='max-w-full max-h-full object-contain rounded-xl transition-all duration-300' 
+                        src={selectedImage.imgLink || data.imglink || undefined} 
+                        alt={selectedImage.imgAlt || data.imgalt}
                     />
-                ))}
                 </div>
+                {data.imgcollection && data.imgcollection.length > 1 && (
+                  <div className='flex gap-3 justify-center flex-wrap mt-2'>
+                  {data.imgcollection.map((each, index) => (
+                      <button 
+                          key={index}
+                          type="button"
+                          className={`w-16 h-16 rounded-xl border-2 p-1 bg-slate-50 flex items-center justify-center transition-all cursor-pointer ${
+                            (selectedImage.imgLink === each.imglink) ? 'border-[#0D94FB] shadow-md scale-105' : 'border-slate-200 hover:border-slate-400'
+                          }`}
+                          onClick={() => {
+                              const imageDetails = { imgLink: each.imglink, imgAlt: each.imgalt };
+                              setselectedImage(imageDetails);
+                              const matchedColor = data.colors?.find(c => 
+                                c.imglink === each.imglink || 
+                                (c.colorname && each.imgalt && each.imgalt.toLowerCase().includes(c.colorname.toLowerCase()))
+                              );
+                              if (matchedColor) {
+                                setSelectedColor(matchedColor);
+                                colRef.current = matchedColor.colorname;
+                              }
+                          }}
+                      >
+                        <img 
+                            src={each.imglink || undefined}
+                            alt={each.imgalt}
+                            className="max-w-full max-h-full object-contain"
+                        />
+                      </button>
+                  ))}
+                  </div>
+                )}
             </div>
             <div className='flex flex-col gap-5 border-[1px] py-10 px-10 max-w-[90%] rounded-xl lg:max-w-[50%] w-auto'>
                 <div className='border-b-[1px] pb-5 mb-2'>
@@ -278,10 +369,10 @@ const ProductPage = () => {
                         </button>
                     </div>
                 </div>
-                <div className='flex gap-5 items-center'>
-                    <p className='font-bold text-3xl'>₹{data.discountedprice}</p>
-                    <p className='line-through'>₹{data.price}</p>
-                    <p className='text-yellow-500'>{percentageDifference(parseInt(data.discountedprice),parseInt(data.price))}% off</p>
+                <div className='flex gap-4 items-baseline flex-wrap'>
+                    <p className='font-bold text-3xl text-slate-900'>₹{sellingPrice}</p>
+                    {mrpPrice > sellingPrice && <p className='line-through text-slate-400 text-xl'>₹{mrpPrice}</p>}
+                    {discountPct > 0 && <span className='text-emerald-600 font-bold text-lg'>{discountPct}% OFF</span>}
                 </div>
                 <p><span className='font-semibold'>In stock</span>: Dispatch in 5 working days</p>
                 <div className='flex gap-10 items-center'>
@@ -294,7 +385,7 @@ const ProductPage = () => {
                     
                 </div>
                 {/*  */}
-                  <Options sizes={data.sizes} colors={data.colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} selectedSize={selectedSize} setSelectedSize={setSelectedSize} colRef={colRef} sizeRef={sizeRef} cartItemData={cartItemData}/>
+                  <Options sizes={data.sizes} colors={data.colors} selectedColor={selectedColor} setSelectedColor={setSelectedColor} selectedSize={selectedSize} setSelectedSize={setSelectedSize} colRef={colRef} sizeRef={sizeRef} cartItemData={cartItemData} onColorChange={handleColorChange}/>
                 {/*  */}
                 <div className='flex gap-5'>
                     <button disabled={btnLoading} onClick={()=>itemStateUpdate('cart')} className='w-[200px] h-[50px] bg-[#012652] text-white rounded-lg hover:bg-[#0D94FB] transition-colors duration-300 font-semibold'>

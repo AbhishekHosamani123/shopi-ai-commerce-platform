@@ -11,7 +11,7 @@ export class PromotionConflictDetector {
     plannedDiscountPct: number = 10,
     merchantId: string = 'default_merchant'
   ): Promise<PromotionConflictWarning> {
-    const targetRes = await client.query('SELECT productid, title, price, discount FROM products WHERE productid = $1', [targetProductId]);
+    const targetRes = await client.query('SELECT product_id, title, selling_price, discount_percentage FROM shopi_products WHERE product_id = $1', [targetProductId]);
     if (targetRes.rows.length === 0) {
       return {
         hasConflict: false,
@@ -35,13 +35,11 @@ export class PromotionConflictDetector {
 
     for (const sim of similar) {
       if (sim.similarityScore >= 0.55) {
-        const otherRes = await client.query('SELECT productid, title, price, discount FROM products WHERE productid = $1', [sim.productIdB]);
+        const otherRes = await client.query('SELECT product_id, title, selling_price, discount_percentage FROM shopi_products WHERE product_id = $1', [sim.productIdB]);
         if (otherRes.rows.length > 0) {
           const other = otherRes.rows[0];
-          const price = parseFloat(other.price || '0');
-          const discountPrice = other.discount ? parseFloat(other.discount) : null;
-          const isDiscounted = discountPrice !== null && discountPrice < price;
-          const discPct = isDiscounted ? Math.round(((price - discountPrice!) / price) * 100) : 0;
+          const discPct = other.discount_percentage || 0;
+          const isDiscounted = discPct > 0;
 
           if (isDiscounted && discPct >= 5) {
             conflictingProducts.push({

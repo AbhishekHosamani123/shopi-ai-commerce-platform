@@ -1,0 +1,424 @@
+{
+    "product_id": "DRESS-001",
+    "product": {
+        "name": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo",
+        "brand": "ANNI DESIGNER",
+        "category": "Dresses",
+        "subcategory": "Kurta Sets",
+        "gender": "Women",
+        "product_type": "Kurta with Palazzo",
+        "description": "A straight printed women's kurta with matching palazzo, made from soft viscose blend fabric. The set features elbow-length sleeves, a high neck, regular fit and a back slit, and is designed for office wear, casual outings, travel, parties and ethnic occasions.",
+        "fit": "Regular",
+        "pattern": "Block Print",
+        "sleeve": "Elbow Length Sleeve",
+        "neck": "High Neck",
+        "closure": "Pull On",
+        "length": "Calf Length",
+        "material": "Viscose Blend",
+        "fabric_weight": null,
+        "stretch": null,
+        "care": null,
+        "style_tags": [
+            "ethnic",
+            "printed",
+            "straight kurta",
+            "kurta set",
+            "palazzo",
+            "casual",
+            "office wear",
+            "comfortable"
+        ],
+        "occasion_tags": [
+            "office wear",
+            "casual outings",
+            "travel",
+            "parties",
+            "get-togethers",
+            "traditional occasions",
+            "everyday wear"
+        ],
+        "season_tags": [
+            "all season"
+        ],
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL",
+            "6XL",
+            "7XL",
+            "8XL"
+        ],
+        "colors": [
+            "Black",
+            "Blue",
+            "Maroon",
+            "Mehandi",
+            "Rust"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 350
+    },
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 512,
+        "currency": "INR",
+        "discount_percentage": 80,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/DRESS-001/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Blue",
+            "image": "products/DRESS-001/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/DRESS-001/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Mehandi",
+            "image": "products/DRESS-001/mehandi.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Rust",
+            "image": "products/DRESS-001/rust.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.2,
+        "rating_count": 778,
+        "review_count": 245
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customer feedback is mixed. Positive reviews mention soft and comfortable fabric, attractive colour and print, good appearance, suitability for office and everyday wear, and reasonable value. Negative feedback includes concerns about material quality, sizing and fit, missing pockets, stitching and construction issues, and differences between the product and images.",
+        "positive": [
+            "Soft and comfortable fabric reported by several customers",
+            "Good colour and print according to several reviews",
+            "Elegant appearance",
+            "Suitable for office wear",
+            "Suitable for everyday wear",
+            "Some customers consider the quality good",
+            "Good value according to some customers",
+            "Elbow-length sleeves liked by some customers"
+        ],
+        "negative": [
+            "Some customers reported poor material quality",
+            "Sizing and fit complaints",
+            "Some customers found the palazzo/trouser tight",
+            "Some customers reported poor kurta fitting",
+            "Some customers reported missing pockets",
+            "Some stitching and construction complaints",
+            "One review reported that the print looked different from the product photo",
+            "Packaging complaint in one review"
+        ],
+        "main_concern": "The strongest concerns are inconsistent quality and sizing/fit, so Shopi should avoid recommending this product solely because of its low price."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple reviews mention sizing or fit problems, including tight palazzo/trouser fit and poor kurta fitting."
+        },
+        "colour_and_print": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several customers liked the colour and print, while one review reported that the print looked different from the photo."
+        },
+        "pockets": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "Some customers specifically complained that expected pockets were missing."
+        },
+        "value_for_money": {
+            "sentiment": "mixed",
+            "confidence": "medium"
+        },
+        "office_suitability": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        }
+    },
+    "pros": [
+        "Soft viscose-blend fabric",
+        "Comfortable according to several customers",
+        "Elegant straight design",
+        "Attractive printed pattern",
+        "Suitable for office and everyday wear",
+        "Wide size range",
+        "Multiple colour options",
+        "Low snapshot selling price"
+    ],
+    "cons": [
+        "Mixed material-quality feedback",
+        "Sizing and fit concerns",
+        "Palazzo/trouser may feel tight",
+        "Some complaints about kurta fitting",
+        "Pocket availability may not match customer expectations",
+        "Some stitching/construction complaints",
+        "One review reported colour/print difference from the image",
+        "Packaging complaint"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 6.0,
+        "best_for": [
+            "Office wear",
+            "Everyday ethnic wear",
+            "Casual outings",
+            "Travel",
+            "Small gatherings",
+            "Customers looking for an affordable kurta set"
+        ],
+        "not_ideal_for": [
+            "Customers who require highly consistent sizing",
+            "Customers who prioritize premium fabric quality",
+            "Customers who specifically need functional pockets",
+            "Customers who are very sensitive to fit issues"
+        ],
+        "size_advice": "Check the size chart carefully because multiple reviews mention sizing and fit problems.",
+        "quality_advice": "Do not describe the material as premium without qualification because customer feedback on quality is mixed.",
+        "sales_advice": "Lead with the straight ethnic design, viscose-blend fabric, colour choices and office/everyday versatility, while disclosing the mixed sizing and quality feedback when relevant."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "women's kurta set",
+            "kurta with palazzo",
+            "printed kurta",
+            "straight kurta",
+            "ethnic wear",
+            "office wear kurta",
+            "casual kurta set",
+            "viscose kurta",
+            "comfortable kurta",
+            "affordable kurta set"
+        ],
+        "negative_keywords": [
+            "perfect fitting kurta",
+            "premium quality kurta",
+            "guaranteed fit",
+            "kurta with pockets",
+            "luxury ethnic wear"
+        ],
+        "strong_attributes": [
+            "printed",
+            "straight",
+            "viscose blend",
+            "elbow sleeve",
+            "high neck",
+            "palazzo",
+            "ethnic",
+            "office wear",
+            "casual"
+        ],
+        "warning_attributes": [
+            "mixed fabric quality",
+            "size inconsistency",
+            "fit concerns",
+            "possible missing pockets",
+            "possible print difference"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "fabric quality",
+                "soft fabric",
+                "comfort",
+                "colour",
+                "print",
+                "office and everyday wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Mehandi",
+            "size": "2XL",
+            "sentiment": "negative",
+            "themes": [
+                "poor material",
+                "size issue",
+                "print difference",
+                "poor value"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "good fabric",
+                "kurta quality",
+                "tight palazzo"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Black",
+            "size": "5XL",
+            "sentiment": "positive",
+            "themes": [
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "office wear",
+                "everyday wear",
+                "fit",
+                "quality",
+                "value"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Mehandi",
+            "size": "M",
+            "sentiment": "negative",
+            "themes": [
+                "missing pocket",
+                "poor stitching",
+                "missing button",
+                "poor value"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Black",
+            "size": "3XL",
+            "sentiment": "negative",
+            "themes": [
+                "poor material"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "comfort",
+                "appearance",
+                "sleeves",
+                "quality"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "mixed",
+            "themes": [
+                "missing pockets"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Mehandi",
+            "size": "3XL",
+            "sentiment": "negative",
+            "themes": [
+                "low quality"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Rust",
+            "size": "5XL",
+            "sentiment": "negative",
+            "themes": [
+                "size issue",
+                "poor fit"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Black",
+            "size": "S",
+            "sentiment": "negative",
+            "themes": [
+                "material composition concern",
+                "poor fit"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "mixed",
+            "themes": [
+                "colour",
+                "print"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Maroon",
+            "size": "3XL",
+            "sentiment": "negative",
+            "themes": [
+                "poor packaging"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the kurta design, palazzo, fabric, fit, price, colours, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the attractive design, comfort signals and versatility, while mentioning the mixed quality and sizing feedback.",
+        "when_customer_asks_about_fit": "Explain that the listed fit is regular, but recommend checking the size chart because multiple customers reported sizing or fit issues.",
+        "when_customer_asks_about_quality": "Do not claim premium quality. Explain that customer feedback is mixed, with some customers praising the fabric and others reporting poor material quality.",
+        "when_customer_asks_about_pockets": "Do not promise pockets unless the specific variant is verified. Customer reviews include complaints about missing pockets.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes consistent fit, premium quality or pockets, prioritize products with stronger review signals for those attributes.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its low price or rating. Consider the customer's budget, fit preference, quality expectations, occasion and specific requirements."
+    }
+}

@@ -1,0 +1,261 @@
+{
+    "product_id": "BAG-005",
+    "basic_info": {
+        "name": "Aristocrat Lava 17 Inch Compatible Laptop Backpack 25L",
+        "brand": "Aristocrat",
+        "category": "Bags",
+        "subcategory": "Laptop Backpack",
+        "product_type": "Backpack",
+        "gender": "Unisex",
+        "description": "25L laptop backpack with two compartments, a side bottle pocket, padded back panel and durable fabric, designed for office and travel use."
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1849,
+        "selling_price": 415,
+        "discount_amount": 1434,
+        "discount_percentage": 78
+    },
+    "attributes": {
+        "capacity": "25L",
+        "material": "Premium durable fabric",
+        "lining": null,
+        "color": "Black & Brown",
+        "pattern": null,
+        "style": "Casual / Functional",
+        "use_cases": [
+            "Office",
+            "Travel",
+            "Daily use",
+            "College"
+        ],
+        "laptop_compatible": true,
+        "laptop_size": "17 inch claimed compatibility",
+        "water_resistant": "Mixed customer feedback",
+        "weight": "350 g",
+        "dimensions": "30 x 11 x 45 cm",
+        "season": "All season"
+    },
+    "storage": {
+        "main_compartments": 2,
+        "laptop_sleeve": true,
+        "bottle_pocket": true,
+        "additional_pockets": null,
+        "organization": "Two main compartments with a padded laptop compartment and side bottle pocket"
+    },
+    "carrying": {
+        "strap_type": "Shoulder straps",
+        "straps_adjustable": null,
+        "straps_detachable": false,
+        "back_panel": "Padded back panel",
+        "handle_type": null
+    },
+    "features": [
+        "25L capacity",
+        "17-inch laptop compatibility claim",
+        "Two compartments",
+        "Side bottle pocket",
+        "Padded back panel",
+        "Premium durable fabric",
+        "Suitable for office use",
+        "Suitable for travel",
+        "Lightweight at 350 g"
+    ],
+    "variants": {
+        "colors": [
+            {
+                "name": "Black & Brown",
+                "available": true,
+                "image": "black & brown.jpg"
+            },
+            {
+                "name": "Blue",
+                "available": true,
+                "image": "Blue.jpg"
+            }
+        ],
+        "sizes": [
+            {
+                "name": "25L",
+                "available": true
+            }
+        ]
+    },
+    "images": {
+        "primary": "black & brown.jpg",
+        "gallery": [
+            "black & brown.jpg",
+            "Blue.jpg"
+        ],
+        "image_directory": "products/Bags/BAG-005/"
+    },
+    "reviews": {
+        "average_rating": 3.6,
+        "total_ratings": 1265,
+        "rating_distribution": {
+            "5": 43,
+            "4": 20,
+            "3": 10,
+            "2": 7,
+            "1": 20
+        },
+        "customer_review_count_in_source": 355,
+        "customer_signals": {
+            "positive": [
+                "Good value for money",
+                "Compact design",
+                "Suitable for 15-inch laptops",
+                "Comfortable shoulder straps",
+                "Spacious front compartment",
+                "Good appearance",
+                "Good pricing",
+                "Suitable for office use",
+                "Suitable for short 1-2 day trips"
+            ],
+            "negative": [
+                "16-inch laptop can be difficult to fit",
+                "17-inch laptop compatibility is disputed by customers",
+                "Some customers reported poor quality",
+                "Zipper quality was criticized",
+                "Some customers reported insufficient padding",
+                "Some customers found the bag too small",
+                "Some customers reported the bag is smaller than expected"
+            ]
+        },
+        "representative_reviews": [
+            {
+                "rating": 5,
+                "title": "Excellent value for money",
+                "text": "A compact backpack that fits a 15-inch laptop, with a spacious front compartment and comfortable shoulder straps. Reviewer considered it good for short 1-2 day trips.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "value",
+                    "15-inch-laptop",
+                    "space",
+                    "comfort",
+                    "travel"
+                ]
+            },
+            {
+                "rating": 4,
+                "title": "Compact size, decent quality?",
+                "text": "A 16-inch laptop was difficult to fit and reduced usable space in the laptop compartment. Reviewer considered the bag suitable for smaller laptops.",
+                "verified_purchase": true,
+                "sentiment": "mixed",
+                "topics": [
+                    "16-inch-laptop",
+                    "size",
+                    "space",
+                    "quality"
+                ]
+            },
+            {
+                "rating": 1,
+                "title": "Poor quality",
+                "text": "Reviewer criticized the quality and zipper, and said the laptop did not feel safe when heavy because of insufficient padding.",
+                "verified_purchase": true,
+                "sentiment": "negative",
+                "topics": [
+                    "quality",
+                    "zipper",
+                    "padding",
+                    "laptop-safety"
+                ]
+            },
+            {
+                "rating": 5,
+                "title": "Good in colour",
+                "text": "Reviewer described the blue bag as very beautiful.",
+                "verified_purchase": true,
+                "sentiment": "positive",
+                "topics": [
+                    "appearance",
+                    "color"
+                ]
+            },
+            {
+                "rating": 2,
+                "title": "This ad has fake claims",
+                "text": "Reviewer disputed the claim that the bag can fit a 17-inch laptop and described the quality as only average.",
+                "verified_purchase": true,
+                "sentiment": "negative",
+                "topics": [
+                    "17-inch-laptop",
+                    "marketing-claim",
+                    "quality"
+                ]
+            }
+        ]
+    },
+    "sales_intelligence": {
+        "best_for": [
+            "Office employees",
+            "College students",
+            "Daily commuters",
+            "Budget-conscious travellers",
+            "Users with smaller laptops"
+        ],
+        "strengths": [
+            "Very low selling price",
+            "25L capacity",
+            "Two compartments",
+            "Side bottle pocket",
+            "Padded back panel",
+            "350 g lightweight construction",
+            "15-inch laptop reported to fit",
+            "Good for office use",
+            "Good for short trips"
+        ],
+        "potential_limitations": [
+            "17-inch laptop compatibility is disputed by customer feedback",
+            "16-inch laptops may be difficult to fit",
+            "Some customers reported poor zipper quality",
+            "Some customers reported insufficient padding",
+            "Some customers consider the bag too small",
+            "Water resistance has mixed customer feedback"
+        ],
+        "recommendation_profile": {
+            "budget": "Budget",
+            "primary_use": "Office / Daily use / Short travel",
+            "travel_suitability": "Short trips / Light travel",
+            "laptop_use": true,
+            "recommended_laptop_size": "15 inch based on customer feedback",
+            "space_priority": "Moderate",
+            "value_for_money": "Mixed",
+            "quality_confidence": "Mixed"
+        },
+        "customer_questions_supported": [
+            "Can it fit a laptop?",
+            "Can it fit a 15-inch laptop?",
+            "Can it fit a 16-inch laptop?",
+            "Can it fit a 17-inch laptop?",
+            "How much capacity does it have?",
+            "How many compartments does it have?",
+            "Does it have a bottle pocket?",
+            "Is it good for office?",
+            "Is it suitable for travel?",
+            "Is it lightweight?",
+            "What are the dimensions?",
+            "How is the quality?",
+            "Is the zipper durable?",
+            "Is it water resistant?",
+            "Is it worth ₹415?"
+        ]
+    },
+    "availability": {
+        "status": "In stock",
+        "stock_quantity": null
+    },
+    "policies": {
+        "return_policy": "10 days Return & Exchange",
+        "exchange_policy": null,
+        "warranty": null
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_id": "B0FMY7DLJT",
+        "url": "https://www.amazon.in/Aristocrat-Compatible-Backpack-Compartments-Backpanel/dp/B0FMY7DLJT",
+        "source_product_name": "Aristocrat Lava 17 Inch Compatible Laptop Backpack 25L | Premium Durable Fabric | 2 Compartments with Side Bottle Pocket | Padded Backpanel | Office & Travel Backpack for Men & Women"
+    }
+}

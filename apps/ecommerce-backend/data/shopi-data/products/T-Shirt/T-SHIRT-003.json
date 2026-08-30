@@ -1,0 +1,345 @@
+{
+    "product_id": "T-SHIRT-003",
+    "category": "t-shirts",
+    "subcategory": "polo-t-shirts",
+    "product": {
+        "name": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43)",
+        "brand": "Lymio",
+        "gender": "men",
+        "department": "Men",
+        "product_type": "T-Shirt",
+        "style": "Polo",
+        "style_name": "Single",
+        "description": "Men's regular-fit polo T-shirt with a classic collared neckline, half sleeves and solid design. Made from a 50% cotton and 50% polyester blend, suitable for casual wear and sports activities.",
+        "country_of_origin": "India"
+    },
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0DP7LNF7C",
+        "source_url": "https://www.amazon.in/Lymio-T-Shirt-40-43-Regular/dp/B0DP7LNF7C"
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 2999.00,
+        "current_price": 429.00,
+        "discount_percent": 86
+    },
+    "rating": {
+        "average": 3.6,
+        "review_count": 990,
+        "distribution_percent": {
+            "5_star": 47,
+            "4_star": 18,
+            "3_star": 10,
+            "2_star": 6,
+            "1_star": 19
+        }
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "Beige",
+                "amazon_name": "Beige",
+                "images": [
+                    "beige.jpg"
+                ]
+            },
+            {
+                "name": "Blue",
+                "amazon_name": "Blue",
+                "images": [
+                    "blue.jpg"
+                ]
+            },
+            {
+                "name": "Green",
+                "amazon_name": "Green",
+                "images": [
+                    "green.jpg"
+                ]
+            },
+            {
+                "name": "White",
+                "amazon_name": "White",
+                "images": [
+                    "white.jpg"
+                ]
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ]
+    },
+    "attributes": {
+        "fit": "Regular Fit",
+        "sleeve": "Half Sleeve",
+        "collar": "Polo Collar",
+        "neck": "Collared Neck",
+        "pattern": "Solid",
+        "closure": "Button",
+        "fabric": "50% Cotton, 50% Polyester",
+        "fabric_type": "Cotton Polyester Blend",
+        "length": "Regular",
+        "cuff": "Short Sleeves",
+        "hemline": null,
+        "season": [
+            "All"
+        ],
+        "occasion": "Casual",
+        "shirt_form": "Polo Shirt"
+    },
+    "product_details": {
+        "model_name": "POLO 40 to 43",
+        "style_number": "POLO 40 to 43",
+        "manufacturer_part_number": null,
+        "weight_grams": 300,
+        "dimensions_cm": {
+            "length": 28,
+            "width": 24,
+            "height": 1
+        },
+        "net_quantity": 1
+    },
+    "manufacturer": {
+        "manufacturer": "J B Fashion",
+        "packer": "J B Fashion",
+        "importer": "J B Fashion",
+        "address": "Surat-395004"
+    },
+    "inventory_signals": {
+        "in_stock_at_source": true,
+        "maximum_order_quantity": null,
+        "fulfilled_by": "Amazon",
+        "sold_by": null
+    },
+    "reviews": {
+        "review_source_asin": "B0DP7LNF7C",
+        "displayed_review_count": 467,
+        "total_ratings": 990,
+        "ai_generated_customer_summary": {
+            "overall": "Customer feedback is mixed. Many buyers like the comfortable and breathable fabric, fit, appearance, softness and value for money, while some customers report poor quality, poor stitching, sizing issues and dissatisfaction after washing.",
+            "positive_topics": [
+                "Comfortable fabric",
+                "Breathable fabric",
+                "Softness",
+                "Fit",
+                "Appearance",
+                "Color",
+                "Stitching",
+                "Value for money"
+            ],
+            "negative_topics": [
+                "Poor quality",
+                "Poor stitching",
+                "Sizing inconsistency",
+                "Quality deterioration after washing",
+                "Not as expected"
+            ]
+        },
+        "topic_signals": {
+            "quality_mentions": 111,
+            "fabric_quality_mentions": 40,
+            "fit_mentions": 36,
+            "appearance_mentions": 27,
+            "color_mentions": 20,
+            "softness_mentions": 20,
+            "stitching_mentions": 10,
+            "size_mentions": 10
+        },
+        "sample_reviews": [
+            {
+                "review_id": "R1YUURX0FACQX3",
+                "rating": 5,
+                "title": "This is very good product 💯",
+                "variant": {
+                    "size": "M",
+                    "color": "Beige"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-18",
+                "summary": "Reviewer praised the quality, perfect fit, comfortable fabric, stylish appearance and stretch, considering it good value at the price."
+            },
+            {
+                "review_id": "RKH8YCOB3AXCP",
+                "rating": 1,
+                "title": "Very Disappointed – Feels Like a ₹99 T-Shirt",
+                "variant": {
+                    "size": "XL",
+                    "color": "Blue"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-06-28",
+                "summary": "Reviewer strongly criticized the quality, describing it as very cheap and not worth the price."
+            },
+            {
+                "review_id": "RYTR7DMCODX7I",
+                "rating": 4,
+                "title": "Good",
+                "variant": {
+                    "size": "XL",
+                    "color": "Pista-Chiku"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-22",
+                "summary": "Reviewer gave a positive rating without providing detailed feedback."
+            },
+            {
+                "review_id": "RN1P9JA61BTK9",
+                "rating": 5,
+                "title": "Good fabric",
+                "variant": {
+                    "size": "XL",
+                    "color": "White"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-23",
+                "summary": "Reviewer praised the fabric thickness, stitching, comfort and price."
+            },
+            {
+                "review_id": "RCAGZY1E6K3ZJ",
+                "rating": 3,
+                "title": "Not recommended",
+                "variant": {
+                    "size": "XL",
+                    "color": "SkyBlue-Pista"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-07-17",
+                "summary": "Reviewer said the product was not as expected and reported poor stitching quality, while considering the material acceptable."
+            },
+            {
+                "review_id": "R3GR9MKQA2XO5F",
+                "rating": 5,
+                "title": "Tshirt",
+                "variant": {
+                    "size": "M",
+                    "color": "Beige"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-19",
+                "summary": "Reviewer liked the fit, classy beige color, comfortable fabric and neat stitching, and considered it good value for money."
+            },
+            {
+                "review_id": "R3GVHE9BN3YHSP",
+                "rating": 5,
+                "title": "very nice quality",
+                "variant": {
+                    "size": "S",
+                    "color": "Blue"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-21",
+                "summary": "Reviewer praised the fabric quality and described it as heavy and very good."
+            },
+            {
+                "review_id": "R27NG4LDV1OA33",
+                "rating": 1,
+                "title": "My Payment Return Immediate I Request U",
+                "variant": {
+                    "size": "2XL",
+                    "color": "White-Chiku"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-24",
+                "summary": "Reviewer complained about the product quality and reported difficulty obtaining a refund."
+            },
+            {
+                "review_id": "R2W8VZ8D8REN2Y",
+                "rating": 4,
+                "title": "Nice",
+                "variant": {
+                    "size": "M",
+                    "color": "Green"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-11",
+                "summary": "Reviewer described the shirt as good."
+            },
+            {
+                "review_id": "R1OAGJ6EUIGYPO",
+                "rating": 4,
+                "title": "Really excellent product. Value for Money",
+                "variant": {
+                    "size": "M",
+                    "color": "Pista-Chiku"
+                },
+                "verified_purchase": true,
+                "review_date": "2026-08-05",
+                "summary": "Reviewer considered the product excellent and good value for money."
+            }
+        ]
+    },
+    "ai_signals": {
+        "best_for": [
+            "casual wear",
+            "daily wear",
+            "sports activities",
+            "smart casual"
+        ],
+        "strong_positive_attributes": [
+            "cotton-polyester blend",
+            "regular fit",
+            "half sleeve",
+            "polo collar",
+            "solid design",
+            "comfortable fabric",
+            "breathable fabric",
+            "soft feel"
+        ],
+        "risk_attributes": [
+            "mixed quality feedback",
+            "poor stitching reports",
+            "mixed sizing feedback",
+            "quality deterioration after washing",
+            "low overall rating"
+        ],
+        "recommendation_keywords": [
+            "men polo t-shirt",
+            "Lymio polo t-shirt",
+            "cotton polyester polo",
+            "regular fit polo",
+            "solid polo t-shirt",
+            "half sleeve polo",
+            "casual polo t-shirt",
+            "men collar t-shirt"
+        ],
+        "buyer_advice": "A low-priced regular-fit polo with a cotton-polyester blend and generally positive comments about comfort, appearance and fit, but the 3.6 rating and recurring complaints about quality, stitching and sizing mean it should be recommended with moderate confidence rather than as a premium-quality product."
+    },
+    "images": {
+        "base_path": "products/T-Shirt/T-SHIRT-003/",
+        "primary_image": "beige.jpg",
+        "variants": {
+            "beige": [
+                "beige.jpg"
+            ],
+            "blue": [
+                "blue.jpg"
+            ],
+            "green": [
+                "green.jpg"
+            ],
+            "white": [
+                "white.jpg"
+            ]
+        }
+    },
+    "data_quality": {
+        "status": "usable_with_warning",
+        "warnings": [
+            "The Amazon listing has 990 global ratings and an overall rating of 3.6.",
+            "Customer feedback is mixed despite many positive comments.",
+            "The listing shows multiple colour variants beyond the four locally supplied image files, including Pista-Chiku and SkyBlue-Pista variants.",
+            "The local image directory contains Beige, Blue, Green and White images only.",
+            "Some review variants use compound colour names that are not represented in the local image directory.",
+            "Maximum order quantity and seller name were not clearly available in the supplied product data.",
+            "Manufacturer address is listed as J B Fashion, Surat-395004; a more specific street address was not provided.",
+            "Customer feedback includes both strong positive quality comments and significant negative quality complaints."
+        ]
+    }
+}

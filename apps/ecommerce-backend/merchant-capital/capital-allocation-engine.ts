@@ -12,16 +12,17 @@ export class CapitalAllocationEngine {
     // 1. Fetch high-demand / low-stock SKUs
     const prodRes = await client.query(`
       SELECT 
-        p.productid,
+        p.product_id as productid,
+        p.sku,
         p.title,
-        p.price,
-        p.stock,
+        p.selling_price::numeric(10,2) as price,
+        p.stock_quantity as stock,
         COALESCE(SUM(oi.quantity), 0) as units_sold_30d
-      FROM products p
-      LEFT JOIN orderitems oi ON p.productid = oi.productid
-      LEFT JOIN orders o ON oi.orderid = o.orderid AND o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days'
-      GROUP BY p.productid, p.title, p.price, p.stock
-      ORDER BY units_sold_30d DESC, p.stock ASC
+      FROM shopi_products p
+      LEFT JOIN shopi_order_items oi ON p.product_id = oi.product_id
+      LEFT JOIN shopi_orders o ON oi.order_id = o.order_id AND o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
+      GROUP BY p.product_id, p.sku, p.title, p.selling_price, p.stock_quantity
+      ORDER BY units_sold_30d DESC, p.stock_quantity ASC
       LIMIT 3;
     `);
 
@@ -30,10 +31,11 @@ export class CapitalAllocationEngine {
 
     // 2. Fetch at-risk customer count
     const custRes = await client.query(`
-      SELECT COUNT(DISTINCT u.userid)::int as at_risk_count
-      FROM users u
-      JOIN orders o ON u.userid = o.userid
-      WHERE o.createdat < CURRENT_TIMESTAMP - INTERVAL '60 days';
+      SELECT COUNT(DISTINCT c.customer_id)::int as at_risk_count
+      FROM shopi_customers c
+      JOIN shopi_orders o ON c.customer_id = o.customer_id
+      WHERE o.order_placed_at < CURRENT_TIMESTAMP - INTERVAL '60 days'
+        AND o.order_status NOT IN ('CANCELLED', 'Cancelled');
     `);
     const atRiskCount = custRes.rows[0]?.at_risk_count || 12;
 

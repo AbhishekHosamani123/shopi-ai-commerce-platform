@@ -42,7 +42,7 @@ export async function validateCouponCreation(input: CreateCouponInput): Promise<
 
   // 3. Product Catalog Existence & Minimum Price Check
   const prodRes = await client.query(
-    `SELECT productid, title, price, stock FROM products WHERE productid = $1`,
+    `SELECT product_id, sku, title, selling_price as price, stock_quantity as stock FROM shopi_products WHERE product_id = $1`,
     [input.productId]
   );
 
@@ -67,7 +67,7 @@ export async function validateCouponCreation(input: CreateCouponInput): Promise<
   return {
     isValid: true,
     product: {
-      productId: prod.productid,
+      productId: prod.product_id,
       title: prod.title,
       price,
       currentStock: stock

@@ -44,8 +44,8 @@ export class OptimizationRecommendationEngine {
     goal: BusinessGoal = 'MAXIMIZE_REVENUE',
     merchantId: string = 'default_merchant'
   ): Promise<MerchantAiRecommendationRecord[]> {
-    const productsRes = await client.query('SELECT productid FROM products ORDER BY stock ASC LIMIT 20');
-    const productIds: number[] = productsRes.rows.map(r => r.productid);
+    const productsRes = await client.query('SELECT product_id FROM shopi_products ORDER BY stock_quantity ASC LIMIT 20');
+    const productIds: number[] = productsRes.rows.map(r => r.product_id);
 
     const recommendations: Omit<MerchantAiRecommendationRecord, 'recommendationId' | 'createdAt'>[] = [];
 

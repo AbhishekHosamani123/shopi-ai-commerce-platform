@@ -16,8 +16,9 @@ export interface ProductProfitabilityItem {
   contributionMarginPct: number | null;
   grossMarginPct: number | null;
   profitPerUnit: number | null;
-  profitPerOrder: number | null;
   isCogsAvailable: boolean;
+  cogsStatus: 'KNOWN' | 'ESTIMATED' | 'MISSING';
+  cogs_status?: 'KNOWN' | 'ESTIMATED' | 'MISSING';
   profitabilityTier: 'HIGH_MARGIN' | 'MODERATE_MARGIN' | 'LOW_MARGIN' | 'MARGIN_NEGATIVE' | 'COGS_UNAVAILABLE';
 }
 
@@ -55,7 +56,10 @@ export interface ProfitabilityOverviewResult {
   overallContributionMarginPct: number | null;
   overallGrossMarginPct: number | null;
   cogsCoverageCount: number;
+  cogsMissingCount: number;
   totalCatalogCount: number;
+  activeSellingCount: number;
+  nonSellingCount: number;
   products: ProductProfitabilityItem[];
   categories: CategoryProfitabilityItem[];
   channels: ChannelProfitabilityItem[];

@@ -1,0 +1,427 @@
+{
+    "product_id": "DRESS-007",
+    "product": {
+        "name": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta",
+        "brand": "Nermosa",
+        "category": "Dresses",
+        "subcategory": "Ethnic Wear",
+        "gender": "Women",
+        "product_type": "A-Line Kurta and Pant Set with Dupatta",
+        "description": "An embroidered solid A-line kurta set paired with matching pants and a dupatta, designed for festive occasions, family functions, parties, office wear and casual outings.",
+        "fit": "A-Line",
+        "pattern": "Solid with Embroidery",
+        "sleeve": null,
+        "collar": null,
+        "collar_style": null,
+        "closure": null,
+        "length": null,
+        "material": null,
+        "fabric_weight": null,
+        "stretch": null,
+        "care": "All Type Wash",
+        "style_tags": [
+            "ethnic",
+            "embroidered",
+            "elegant",
+            "festive",
+            "party wear",
+            "A-line",
+            "traditional",
+            "premium looking"
+        ],
+        "occasion_tags": [
+            "festive occasions",
+            "family functions",
+            "parties",
+            "weddings",
+            "office wear",
+            "casual outings",
+            "celebrations"
+        ],
+        "season_tags": [
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+        ],
+        "colors": [
+            "Green",
+            "Morepeach",
+            "Purple",
+            "Rust"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": null
+    },
+    "pricing": {
+        "mrp": 2999,
+        "selling_price": 799,
+        "currency": "INR",
+        "discount_percentage": 73,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Green",
+            "image": "products/DRESS-007/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Morepeach",
+            "image": "products/DRESS-007/morepeach.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Purple",
+            "image": "products/DRESS-007/purple.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Rust",
+            "image": "products/DRESS-007/rust.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.3,
+        "rating_count": 1234,
+        "review_count": 522
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally like the set for its elegant embroidery, attractive colors, A-line silhouette, comfort, fit and value for money. The main concerns are occasional color differences from the pictures, a few quality and finishing complaints, and one review mentioning that the dupatta was shorter than expected. One reviewer also reported that the sleeve appearance differed from expectations.",
+        "positive": [
+            "Elegant embroidery and detailing",
+            "Premium-looking appearance",
+            "Flattering A-line silhouette",
+            "Comfortable for all-day wear",
+            "Good fit reported by several customers",
+            "Good quality according to many reviews",
+            "Attractive colors",
+            "Good value for money",
+            "Suitable for festive and family occasions",
+            "Complete outfit with kurta, pant and dupatta"
+        ],
+        "negative": [
+            "Some customers reported the delivered color differed from expectations",
+            "One review reported average poly-blend material",
+            "Some complaints about finishing and brightness",
+            "One reviewer said the dupatta was slightly short",
+            "One reviewer reported sleeve details differed from the picture",
+            "Minor quality concerns in some reviews"
+        ],
+        "main_concern": "Color and finishing may vary from expectations, and some customers have reported minor issues with the dupatta or sleeve appearance."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviewers describe the fit as good, comfortable or true to size. One reviewer specifically described the fitting as perfect."
+        },
+        "color_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Several customers liked the color, but some Morepeach buyers reported that the delivered color differed from what they expected from the pictures."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "dupattas": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "The dupatta completes the outfit and is described as lightweight by one reviewer, but another reviewer found it slightly short."
+        }
+    },
+    "pros": [
+        "Elegant embroidered design",
+        "Flattering A-line silhouette",
+        "Comfortable for extended wear",
+        "Good fit according to several buyers",
+        "Attractive ethnic styling",
+        "Suitable for festive occasions",
+        "Includes kurta, pant and dupatta",
+        "Good value at the selling price"
+    ],
+    "cons": [
+        "Color may differ slightly from expectations",
+        "Some mixed feedback about material quality",
+        "Minor finishing concerns",
+        "Dupatta may feel short for some users",
+        "Sleeve appearance may differ from expectations"
+    ],
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_CAVEATS",
+        "score": 8.2,
+        "best_for": [
+            "Festive wear",
+            "Family functions",
+            "Party wear",
+            "Wedding-related occasions",
+            "Office ethnic wear",
+            "Casual ethnic outings",
+            "Customers wanting a complete ethnic outfit"
+        ],
+        "not_ideal_for": [
+            "Customers who require exact color matching with product photos",
+            "Customers who specifically want premium fabric quality",
+            "Customers who strongly prefer a longer dupatta"
+        ],
+        "size_advice": "The set is available from S to 5XL and reviews generally indicate good or true-to-size fitting. Still, check the size chart before ordering.",
+        "weather_advice": "The available reviews do not provide enough evidence to make a strong hot-weather or cold-weather recommendation.",
+        "sales_advice": "Lead with the elegant embroidery, flattering A-line silhouette, complete kurta-pant-dupatta combination and strong value at ₹799. If the customer cares about exact color matching or premium fabric quality, mention the mixed feedback before recommending it."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "ethnic dress",
+            "kurta set",
+            "A-line kurta set",
+            "embroidered kurta",
+            "festive wear",
+            "party wear",
+            "wedding outfit",
+            "family function dress",
+            "women ethnic wear",
+            "kurta pant dupatta set",
+            "elegant ethnic outfit",
+            "affordable festive outfit"
+        ],
+        "negative_keywords": [
+            "exact color match",
+            "luxury fabric",
+            "premium fabric only",
+            "long dupatta",
+            "specific sleeve length"
+        ],
+        "strong_attributes": [
+            "embroidered",
+            "A-line",
+            "ethnic",
+            "festive",
+            "party wear",
+            "comfortable",
+            "wide size range",
+            "kurta pant dupatta set",
+            "good value"
+        ],
+        "warning_attributes": [
+            "possible color variation",
+            "mixed material quality feedback",
+            "possible short dupatta",
+            "possible sleeve variation"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "2XL",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "embroidery",
+                "elegant design",
+                "premium appearance",
+                "fit",
+                "comfort",
+                "festive wear",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "elegant appearance",
+                "embroidery",
+                "comfort",
+                "A-line fit",
+                "lightweight dupatta",
+                "festive occasions"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color",
+                "design",
+                "celebration wear"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Green",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "rich color",
+                "fabric",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "3XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "appearance",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "5XL",
+            "sentiment": "neutral_positive",
+            "themes": [
+                "acceptable quality",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "lightweight material",
+                "comfort",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "satisfaction"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Green",
+            "size": "5XL",
+            "sentiment": "positive_with_sleeve_concern",
+            "themes": [
+                "quality",
+                "value",
+                "sleeve_difference"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "M",
+            "sentiment": "mixed",
+            "themes": [
+                "dress quality",
+                "color difference"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "M",
+            "sentiment": "positive_with_dupattaconcern",
+            "themes": [
+                "quality",
+                "kurta",
+                "pant",
+                "short dupatta"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "fit",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Morepeach",
+            "size": "S",
+            "sentiment": "mixed",
+            "themes": [
+                "average material",
+                "poly blend",
+                "finishing",
+                "brightness",
+                "comfort",
+                "appearance"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the embroidered A-line design, kurta-pant-dupatta combination, fit, price, colors, sizes and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend it for customers looking for an affordable and elegant ethnic outfit. Highlight the strong appearance, comfort, fit and value signals while mentioning the occasional color and finishing concerns.",
+        "when_customer_asks_about_summer": "Do not make a strong summer-weather claim because the available reviews do not provide enough reliable evidence about breathability or heat suitability.",
+        "when_customer_asks_about_fit": "Explain that it has an A-line silhouette and several buyers reported good, comfortable or true-to-size fitting. Recommend checking the size chart before purchasing.",
+        "when_customer_asks_about_color": "Mention that Green, Morepeach, Purple and Rust are available, but disclose that some customers reported the delivered Morepeach color differed from what they expected from the pictures.",
+        "when_customer_asks_about_quality": "Explain that most reviews are positive about quality and embroidery, but some customers reported average material, finishing or brightness. Do not describe the fabric as premium with certainty because the material specification is unavailable.",
+        "when_customer_asks_about_dupatta": "Confirm that the outfit includes a dupatta. Mention that one reviewer found it lightweight while another reported that it was slightly short.",
+        "when_customer_asks_for_alternatives": "Prioritize similar ethnic kurta sets based on the customer's occasion, budget, preferred silhouette, fabric requirements and color preference.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its 4.3 rating. Consider the customer's occasion, budget, desired fit, color accuracy expectations, fabric preference and need for a complete ethnic outfit."
+    }
+}

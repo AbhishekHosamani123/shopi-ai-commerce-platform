@@ -46,7 +46,7 @@ export function AppShell({ children, breadcrumbs, syncAgeSeconds = 45 }: AppShel
   }, [breadcrumbs, pathname]);
 
   return (
-    <div className="min-h-screen bg-canvas text-ink flex font-sans antialiased selection:bg-linear-primary/30 selection:text-ink">
+    <div className="merchant-ui min-h-screen bg-canvas text-ink flex font-sans antialiased selection:bg-linear-primary/30 selection:text-ink">
       {/* 1. Desktop Left Sidebar (>= 1024px) */}
       <div className="hidden lg:block">
         <Sidebar onOpenCopilot={handleOpenCopilot} />

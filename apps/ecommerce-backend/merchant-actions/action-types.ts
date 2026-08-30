@@ -163,5 +163,9 @@ export interface ActionSummaryKpis {
   rolledBackCount?: number;
   totalVerifiedValueCreated?: number;
   positiveOutcomeRatePct?: number;
+  verifiedActionCount?: number;
+  pendingObservationCount?: number;
+  verifiedRevenueDelta?: number;
+  outcomeAlignmentPct?: number;
 }
 

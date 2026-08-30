@@ -82,7 +82,7 @@ const Banner = () => {
                     {each.bottomtitle}{' '}
                     <span className="lg:text-3xl text-lg font-bold text-slate-900">{each.startprice}</span>
                   </p>
-                  <button className="sm:py-2 py-1.5 bg-[#0D94FB] hover:bg-[#012652] text-white px-5 sm:w-[140px] w-[110px] text-xs sm:text-sm rounded-lg font-semibold transition-colors duration-200 shadow-md shadow-[#0D94FB]/20 mt-1 cursor-pointer">
+                  <button className="sm:py-2.5 py-2 bg-[#0D94FB] hover:bg-[#012652] text-white px-6 sm:w-[150px] w-[120px] text-xs sm:text-sm rounded-xl font-semibold transition-all duration-200 shadow-md shadow-[#0D94FB]/20 mt-1 cursor-pointer">
                     {each.buttontitle}
                   </button>
                 </div>

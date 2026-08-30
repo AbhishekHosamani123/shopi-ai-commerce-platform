@@ -1,0 +1,528 @@
+{
+    "product_id": "SHIRT-008",
+    "product": {
+        "name": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta",
+        "brand": "Zombom",
+        "category": "Shirts",
+        "subcategory": "Short Kurtas",
+        "gender": "Men",
+        "product_type": "Short Kurta",
+        "description": "A men's solid short kurta made from a cotton-polyester blend, featuring a regular fit, full sleeves with cuffs, Mandarin collar and button closure. Designed for casual wear, outings, parties and selected traditional occasions.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Full Sleeve",
+        "sleeve_type": "Full Sleeve",
+        "collar": "Mandarin Collar",
+        "collar_style": "Mandarin Collar",
+        "neck_style": "Mandarin Neck",
+        "closure": "Button",
+        "length": "Waist Length",
+        "style": "Regular",
+        "lifestyle": "Casual",
+        "material": {
+            "composition": "Cotton Polyester Blend",
+            "material_status": "Confirmed by listing"
+        },
+        "weight_grams": 230,
+        "dimensions_cm": {
+            "length": 22,
+            "width": 27,
+            "height": 1.8
+        },
+        "country_of_origin": "India",
+        "occasion": [
+            "Casual Wear",
+            "Daily Wear",
+            "Regular Outing",
+            "Party Wear",
+            "Wedding",
+            "Sangeet",
+            "Mehendi",
+            "Evening Wear",
+            "Work Wear",
+            "Formal Wear",
+            "Business Wear",
+            "Professional Wear",
+            "Birthday",
+            "Anniversary",
+            "Independence Day",
+            "Honeymoon"
+        ]
+    },
+    "pricing": {
+        "selling_price": 439,
+        "mrp": 1699,
+        "currency": "INR",
+        "discount_percentage": 74,
+        "price_type": "snapshot"
+    },
+    "pricing_note": "The source also shows ₹329 for one variant and ₹439 for another, so pricing is variant-dependent. Do not hard-code ₹439 as the price of every color.",
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-008/black.jpg"
+            },
+            {
+                "color": "Brown",
+                "image": "products/shirts/SHIRT-008/brown.jpg"
+            },
+            {
+                "color": "Maroon",
+                "image": "products/shirts/SHIRT-008/maroon.jpg"
+            },
+            {
+                "color": "Navy Blue",
+                "image": "products/shirts/SHIRT-008/navy blue.jpg"
+            },
+            {
+                "color": "Sky Blue",
+                "image": "products/shirts/SHIRT-008/sky blue.jpg"
+            },
+            {
+                "color": "White",
+                "image": "products/shirts/SHIRT-008/white.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "variant_status": "Color images supplied for six catalog colors. Source listing contains additional review variants such as Yellow, but no Yellow image was supplied in SHIRT-008, so Yellow is not included in the storefront variant catalog."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-008/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Brown",
+            "image": "products/shirts/SHIRT-008/brown.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-008/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Blue",
+            "image": "products/shirts/SHIRT-008/navy blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Sky Blue",
+            "image": "products/shirts/SHIRT-008/sky blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-008/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 3598,
+        "rating_distribution_percent": {
+            "5_star": 45,
+            "4_star": 18,
+            "3_star": 13,
+            "2_star": 7,
+            "1_star": 17
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "The product receives substantial positive feedback for comfort, lightweight feel, breathability, fit and value. However, quality consistency is a clear weakness. Verified buyers also report rough or cheap-feeling fabric, loose threads, weak stitching, incorrect sizing and colors differing from the product images.",
+        "positive": [
+            "Lightweight",
+            "Comfortable",
+            "Some customers describe the material as breathable",
+            "Several customers report good fit",
+            "Some customers consider it durable",
+            "Good casual appearance",
+            "Good value at the lower price",
+            "Suitable for warm weather",
+            "Easy to wash according to some reviews"
+        ],
+        "negative": [
+            "Fabric quality is inconsistent",
+            "Some reports of cheap or rough fabric",
+            "Stitching quality can be weak",
+            "Threads reported coming out",
+            "Some reports of inaccurate sizing",
+            "Some customers report color mismatch with product images",
+            "Some customers consider it not worth the price",
+            "Quality does not consistently match the product description"
+        ],
+        "main_strength": "Lightweight, comfortable short-kurta design at a relatively low price.",
+        "main_risk": "Inconsistent fabric, stitching, fit and color accuracy."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several customers report a good or perfect fit, while a verified 4XL reviewer reported inaccurate sizing and awkward fitting."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some customers praise the material as breathable, lightweight and comfortable, while others describe it as rough, cheap or below expectations."
+        },
+        "stitching": {
+            "sentiment": "negative_to_mixed",
+            "confidence": "high",
+            "note": "Multiple reviews mention weak stitching or threads coming out."
+        },
+        "appearance": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "At least one verified review reports the actual color differing from the website image."
+        },
+        "value": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit",
+                "fabric",
+                "breathability"
+            ],
+            "summary": "Reviewer said the kurta had good quality, fitted well and had nice, breathable material."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Maroon",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "fabric",
+                "value"
+            ],
+            "summary": "Reviewer found the fabric below expectations but considered the product acceptable for the money."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "XL",
+            "color": "Yellow",
+            "sentiment": "negative",
+            "themes": [
+                "fabric",
+                "stitching"
+            ],
+            "summary": "Reviewer reported poor fabric quality and improper stitching."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "3XL",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "weight",
+                "durability",
+                "fit"
+            ],
+            "summary": "Reviewer described it as lightweight and durable with a perfect fit."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "White",
+            "sentiment": "mixed",
+            "themes": [
+                "stitching"
+            ],
+            "summary": "Reviewer liked the product overall but reported threads coming out and said stitching could be better."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Yellow",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "washability",
+                "durability",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer praised the lightweight feel, comfort, washability, durability, material and sizing."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "4XL",
+            "color": "Navy Blue",
+            "sentiment": "negative",
+            "themes": [
+                "fabric",
+                "fit",
+                "stitching",
+                "color",
+                "value"
+            ],
+            "summary": "Reviewer reported cheap and rough fabric, inaccurate sizing, weak stitching, color mismatch and poor value."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer reported receiving a good product again."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Maroon",
+            "sentiment": "positive",
+            "themes": [
+                "color"
+            ],
+            "summary": "Reviewer simply rated the product positively."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "Sky Blue",
+            "sentiment": "positive",
+            "themes": [
+                "comfort"
+            ],
+            "summary": "Reviewer described the product as comfortable."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Sky Blue",
+            "sentiment": "negative",
+            "themes": [
+                "appearance",
+                "staining"
+            ],
+            "summary": "Reviewer reported ball-pen markings or stains."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Yellow",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "fit",
+                "comfort",
+                "color"
+            ],
+            "summary": "Reviewer found the fit good and comfortable for warm weather but said the actual color did not exactly match the website photo."
+        }
+    ],
+    "pros": [
+        "Cotton-polyester blend",
+        "Regular fit",
+        "Full sleeves",
+        "Mandarin collar",
+        "Button closure",
+        "Solid design",
+        "Lightweight construction",
+        "Comfortable according to multiple reviews",
+        "Breathable according to some reviews",
+        "Seven listed size options",
+        "Suitable for casual and occasion wear",
+        "Multiple color choices",
+        "Low-to-mid budget pricing"
+    ],
+    "cons": [
+        "Fabric quality is inconsistent",
+        "Some reports of rough or cheap material",
+        "Weak stitching reported",
+        "Threads may come out",
+        "Some sizing complaints",
+        "Color may differ from website images",
+        "Quality does not consistently match the product description",
+        "Not appropriate to market as premium despite the listing's premium wording"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "party wear",
+        "wedding",
+        "sangeet",
+        "mehendi",
+        "evening wear",
+        "festive wear",
+        "regular outing"
+    ],
+    "style_tags": [
+        "short kurta",
+        "mandarin collar",
+        "solid",
+        "regular fit",
+        "full sleeve",
+        "button closure",
+        "cotton blend",
+        "casual ethnic",
+        "modern ethnic"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's short kurta",
+            "mandarin collar shirt",
+            "mandarin neck kurta",
+            "cotton blend kurta",
+            "casual kurta",
+            "solid kurta",
+            "full sleeve kurta",
+            "wedding kurta",
+            "party kurta",
+            "festive kurta",
+            "comfortable kurta",
+            "lightweight kurta"
+        ],
+        "negative_keywords": [
+            "premium kurta",
+            "luxury ethnic wear",
+            "pure cotton kurta",
+            "formal traditional kurta",
+            "high durability kurta",
+            "designer kurta"
+        ],
+        "strong_attributes": [
+            "mandarin collar",
+            "solid",
+            "full sleeve",
+            "regular fit",
+            "cotton-polyester blend",
+            "lightweight",
+            "casual",
+            "ethnic",
+            "multiple colors",
+            "sizes up to 4XL"
+        ],
+        "warning_attributes": [
+            "stitching quality",
+            "fabric consistency",
+            "fit consistency",
+            "color accuracy",
+            "quality variation"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "BUY_IF_BUDGET_AND_STYLE_ARE_PRIORITY",
+        "score": 6.8,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual ethnic outfits",
+            "Summer and warm-weather occasions",
+            "Parties",
+            "Weddings and related events",
+            "Festive outings",
+            "Daily casual wear",
+            "Customers wanting a Mandarin-collar style"
+        ],
+        "not_ideal_for": [
+            "Customers expecting premium fabric",
+            "Customers prioritizing flawless stitching",
+            "Customers needing guaranteed color accuracy",
+            "Customers expecting consistent sizing without checking measurements",
+            "Luxury ethnic-wear shoppers"
+        ],
+        "size_advice": "The source lists S through 4XL and explicitly recommends checking the size chart. Reviews show both good-fit and poor-fit experiences, so the size chart should be used rather than relying only on the usual shirt size.",
+        "fabric_advice": "Describe the material as a cotton-polyester blend. Do not call it pure cotton.",
+        "quality_advice": "Do not market it as premium or exceptionally durable. The review evidence is too inconsistent.",
+        "occasion_advice": "This is better positioned as casual ethnic/occasion wear than as a conventional western shirt.",
+        "price_advice": "The captured listing shows ₹439 with an MRP of ₹1,699, while another variant is shown at ₹329. Treat price as variant-dependent rather than a single fixed price."
+    },
+    "care_instructions": {
+        "wash": [
+            "Hand Wash",
+            "Machine Wash"
+        ],
+        "special_instructions": [
+            "Wash with like colors",
+            "Do Not Bleach",
+            "Dry in Shade"
+        ]
+    },
+    "brand_information": {
+        "brand": "Zombom",
+        "manufacturer": "THE ZB",
+        "packer": "THE ZB",
+        "importer": "THE ZB",
+        "asin": "B0D3XL4Z8Z",
+        "country_of_origin": "India",
+        "net_quantity": 1,
+        "included_component": "Kurta",
+        "generic_name": "Dress Shirt"
+    },
+    "data_quality": {
+        "rating_count": 3598,
+        "price_available": true,
+        "stock_available": true,
+        "complete_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level stock quantities",
+            "Exact size measurements",
+            "Exact cotton/polyester percentage",
+            "Variant-specific prices for every supplied color"
+        ],
+        "source_inconsistencies": [
+            "The listing advertises a cotton-polyester blend, while a negative verified review disputes the softness and quality of the material.",
+            "Fit is listed as regular, but a verified 4XL review reports inaccurate sizing.",
+            "Some customers report color differences compared with the website images.",
+            "The source contains Yellow as a reviewed variant, but the supplied SHIRT-008 image directory does not contain a Yellow image."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this primarily as a budget casual short kurta with a Mandarin collar, especially for parties, weddings, festive outings and everyday ethnic-casual wear.",
+        "material_rule": "State the material as Cotton Polyester Blend. Never describe it as pure cotton.",
+        "quality_rule": "Do not call this premium or exceptionally durable because customer feedback is mixed.",
+        "fit_rule": "Use Regular Fit as the catalog attribute, but tell users to check the size chart.",
+        "occasion_rule": "Prioritize casual ethnic, party, wedding and festive recommendations over conventional western-shirt recommendations.",
+        "color_rule": "Do not guarantee that the physical color will exactly match the product image.",
+        "stitching_rule": "Do not promise premium or highly durable stitching.",
+        "price_rule": "Treat ₹439 as the captured price for the selected listing snapshot, not as a universal price for all variants.",
+        "variant_rule": "Only expose Black, Brown, Maroon, Navy Blue, Sky Blue and White in the storefront because those are the colors for which SHIRT-008 images were supplied.",
+        "comparison_rule": "When comparing with SHIRT-007, prefer SHIRT-008 for ethnic, festive, wedding or Mandarin-collar styling. Prefer SHIRT-007 for western casual polo styling."
+    }
+}

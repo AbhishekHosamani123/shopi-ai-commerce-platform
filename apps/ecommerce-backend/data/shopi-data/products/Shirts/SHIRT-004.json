@@ -1,0 +1,483 @@
+{
+    "product_id": "SHIRT-004",
+    "product": {
+        "name": "U TURN Men's Casual Printed Striped Shirt",
+        "brand": "U TURN",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Button-Down Shirt",
+        "description": "A casual striped button-down shirt made from 220 GSM cotton mix fabric. It features a regular fit, long cuff sleeves and a standard length, making it suitable for casual and everyday wear.",
+        "fit": "Regular Fit",
+        "pattern": "Striped",
+        "sleeve": "Long Sleeve",
+        "sleeve_type": "Cuff Sleeve",
+        "collar": "Regular",
+        "collar_style": "Regular",
+        "neck_style": "Collared Neck",
+        "closure": "Button",
+        "length": "Standard Length",
+        "style": "Casual",
+        "top_style": "Button Down",
+        "cuff_style": "Single",
+        "pockets": {
+            "count": 0,
+            "type": "No Pocket"
+        },
+        "material": "Cotton Blend",
+        "fabric_type": "Cotton Mix 220 GSM",
+        "fabric_weight": "Medium Weight",
+        "fabric_gsm": 220,
+        "fabric_stretch": "No Stretch",
+        "stretchability": "Non-stretchable",
+        "care": {
+            "instructions": "Hand Wash Only"
+        },
+        "season": "All Season",
+        "occasion_tags": [
+            "casual wear",
+            "daily wear",
+            "outings",
+            "party wear",
+            "semi-formal wear",
+            "ceremony"
+        ],
+        "style_tags": [
+            "casual",
+            "striped",
+            "button-down",
+            "regular fit",
+            "long sleeve",
+            "cuff sleeve",
+            "cotton mix",
+            "220 GSM"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 200,
+        "item_dimensions_cm": {
+            "length": 30,
+            "width": 20,
+            "height": 2
+        },
+        "unit_count": 1
+    },
+    "pricing": {
+        "selling_price": 398,
+        "currency": "INR",
+        "price_type": "snapshot"
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Grey",
+                "image": "products/shirts/SHIRT-004/grey.jpg"
+            },
+            {
+                "color": "Light Green",
+                "image": "products/shirts/SHIRT-004/lgreen.jpg"
+            },
+            {
+                "color": "Light Blue",
+                "image": "products/shirts/SHIRT-004/lightblue.jpg"
+            },
+            {
+                "color": "Pink",
+                "image": "products/shirts/SHIRT-004/pink.jpg"
+            },
+            {
+                "color": "White",
+                "image": "products/shirts/SHIRT-004/white.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "variant_status": "Exact variant-level stock is not available."
+    },
+    "images": [
+        {
+            "color": "Grey",
+            "image": "products/shirts/SHIRT-004/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Green",
+            "image": "products/shirts/SHIRT-004/lgreen.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/shirts/SHIRT-004/lightblue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pink",
+            "image": "products/shirts/SHIRT-004/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-004/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.5,
+        "rating_count": 2414,
+        "rating_distribution_percent": {
+            "5_star": 42,
+            "4_star": 17,
+            "3_star": 13,
+            "2_star": 7,
+            "1_star": 21
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customer feedback is mixed. Many buyers praise the fabric, fit, comfort, appearance and value for money. However, some verified buyers report color mismatch, color fading after washing, poor fabric quality, and stitching issues.",
+        "positive": [
+            "Good value for money",
+            "Comfortable fabric",
+            "Good fit for many buyers",
+            "Good appearance",
+            "Good fabric quality reported by several buyers",
+            "Colors are accurate according to some reviewers",
+            "Suitable for casual and daily wear",
+            "Available in plus sizes"
+        ],
+        "negative": [
+            "Some buyers reported receiving a different color than expected",
+            "Some buyers reported color fading after the first wash",
+            "Some buyers reported poor fabric quality",
+            "One buyer reported the fabric tearing after one wash",
+            "Stitching quality is reported as average by some buyers",
+            "One buyer reported improper shoulder/back stitching",
+            "Some buyers found the lower shirt area too narrow",
+            "Some buyers reported the shirt being shorter than expected"
+        ],
+        "main_strength": "Fit, comfort, appearance and value for money are the strongest positive signals.",
+        "main_risk": "Color durability and product-quality consistency are the biggest risks."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Several buyers report good or perfect fitting, but some report that the lower part is narrow or the overall length is shorter than expected."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some customers say the color matches the image, while others report incorrect color or fading."
+        },
+        "durability": {
+            "sentiment": "mixed_negative",
+            "confidence": "medium",
+            "note": "Some reviewers report good quality, while others report tearing or color loss after washing."
+        }
+    },
+    "pros": [
+        "Regular fit",
+        "Striped casual design",
+        "220 GSM cotton mix fabric",
+        "Long cuff sleeves",
+        "Standard length",
+        "No-pocket clean design",
+        "Good fit reported by multiple buyers",
+        "Comfortable for everyday wear",
+        "Good value for money",
+        "Available in S through 4XL",
+        "Available in multiple colors"
+    ],
+    "cons": [
+        "3.5/5 overall rating",
+        "21% of ratings are 1-star",
+        "Color fading complaints",
+        "Some color mismatch complaints",
+        "Mixed fabric-quality feedback",
+        "Stitching quality concerns",
+        "One reported tearing after washing",
+        "Some buyers report shorter-than-expected length",
+        "Some buyers report a narrow lower shirt area",
+        "Hand wash only",
+        "Non-stretch fabric"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_WITH_CAUTION",
+        "score": 6.7,
+        "best_for": [
+            "Casual wear",
+            "Daily wear",
+            "Casual outings",
+            "Party wear",
+            "Semi-formal styling",
+            "Customers looking for striped shirts",
+            "Customers looking for plus-size options"
+        ],
+        "not_ideal_for": [
+            "Customers expecting guaranteed color accuracy",
+            "Customers who prioritize long-term color retention",
+            "Customers wanting stretchable fabric",
+            "Customers who prefer machine-washable shirts",
+            "Customers wanting a highly tailored fit"
+        ],
+        "size_advice": "The official listing provides sizes S through 4XL. Check the size chart before ordering, especially if you need more room around the abdomen or prefer a longer shirt.",
+        "style_advice": "Best positioned as a casual striped button-down rather than a formal dress shirt.",
+        "value_assessment": "The captured price of ₹398 combined with repeated value-for-money feedback makes this a budget-oriented option.",
+        "quality_advice": "Do not describe the shirt as premium or highly durable because customer feedback on fabric, stitching and color retention is inconsistent."
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "3XL",
+            "color": "Light Green",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort",
+                "value"
+            ],
+            "summary": "Reviewer described the fabric as vibrant and comfortable and considered it good value for money."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "XL",
+            "color": "Light Blue",
+            "sentiment": "negative",
+            "themes": [
+                "color",
+                "product_representation",
+                "value"
+            ],
+            "summary": "Reviewer reported that the received shirt was not the right color compared with the product image and did not consider it worth buying."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Light Blue",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fit",
+                "comfort",
+                "color"
+            ],
+            "summary": "Reviewer reported good fabric, perfect fitting and comfort, while saying the color matched the image. Stitching was described as average."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Light Blue",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "daily_wear"
+            ],
+            "summary": "Reviewer praised the fabric quality and said it was good for day-to-day use."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Light Blue",
+            "sentiment": "positive",
+            "themes": [
+                "value"
+            ],
+            "summary": "Reviewer considered the shirt value for money."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Pink",
+            "sentiment": "positive",
+            "themes": [
+                "color",
+                "stitching",
+                "size"
+            ],
+            "summary": "Reviewer said the color, stitching and size were perfect."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "L",
+            "color": "Light Blue",
+            "sentiment": "negative",
+            "themes": [
+                "fabric_quality",
+                "durability",
+                "color_fade"
+            ],
+            "summary": "Reviewer reported poor cloth quality, tearing after one wash and significant color loss."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "L",
+            "color": "Light Blue",
+            "sentiment": "negative",
+            "themes": [
+                "color_fade"
+            ],
+            "summary": "Reviewer reported that the shirt color faded during the first wash."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "2XL",
+            "color": "Light Blue",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the shirt as good quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Pink",
+            "sentiment": "mixed",
+            "themes": [
+                "quality",
+                "stitching",
+                "color"
+            ],
+            "summary": "Reviewer found the shirt good quality but reported improper shoulder/back stitching and a somewhat faded-looking color."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Light Blue",
+            "sentiment": "mixed",
+            "themes": [
+                "fit"
+            ],
+            "summary": "Reviewer wanted approximately two additional inches around the lower part of the shirt because the chest and abdomen width were the same."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Light Green",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "quality",
+                "length"
+            ],
+            "summary": "Reviewer said the product quality was good but found the shirt slightly shorter than expected."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "Light Green",
+            "sentiment": "neutral",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the shirt as okay."
+        }
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "striped shirt",
+            "striped casual shirt",
+            "cotton mix shirt",
+            "220 GSM shirt",
+            "regular fit shirt",
+            "button-down shirt",
+            "long sleeve shirt",
+            "cuff sleeve shirt",
+            "daily wear shirt",
+            "party wear shirt",
+            "plus size shirt",
+            "casual formal shirt",
+            "semi-formal shirt"
+        ],
+        "negative_keywords": [
+            "slim fit shirt",
+            "stretch shirt",
+            "machine washable shirt",
+            "fade-resistant shirt",
+            "guaranteed color accurate shirt",
+            "premium durable shirt"
+        ],
+        "strong_attributes": [
+            "striped",
+            "casual",
+            "regular fit",
+            "button-down",
+            "long sleeve",
+            "cuff sleeve",
+            "cotton mix",
+            "220 GSM",
+            "plus size"
+        ],
+        "warning_attributes": [
+            "color fading",
+            "possible color mismatch",
+            "mixed fabric quality",
+            "stitching concerns",
+            "non-stretch",
+            "hand wash only",
+            "possible shorter length"
+        ]
+    },
+    "data_quality": {
+        "rating_count": 2414,
+        "review_page_customer_review_count": 503,
+        "price_available": true,
+        "stock_available": false,
+        "complete_color_image_set": true,
+        "complete_size_list": true,
+        "missing_fields": [
+            "Variant-level stock",
+            "Exact cotton/polyester composition percentages",
+            "Return policy details",
+            "Delivery information",
+            "Detailed size measurements"
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Position this product as a budget-friendly casual striped button-down shirt.",
+        "fit_rule": "Use Regular Fit as the official fit. Mention checking measurements if the customer needs extra abdominal room or a longer shirt.",
+        "quality_rule": "Do not claim premium durability because reviews are mixed on fabric quality and stitching.",
+        "color_rule": "Do not guarantee exact color reproduction or color durability because verified reviews include both color-match praise and color-mismatch/fading complaints.",
+        "wash_rule": "Mention hand wash only when care instructions are relevant.",
+        "style_rule": "Prioritize casual, daily wear, party and semi-formal queries.",
+        "size_rule": "This product supports plus-size queries because sizes extend through 4XL.",
+        "value_rule": "The captured ₹398 price and value-for-money reviews make this suitable for budget-conscious shoppers.",
+        "comparison_rule": "Give this product an advantage when the customer specifically wants a striped, regular-fit, non-stretch cotton-mix shirt with sizes up to 4XL.",
+        "confidence_rule": "Treat fit, comfort and value as positive signals, but treat color durability, fabric quality and stitching as mixed signals."
+    }
+}

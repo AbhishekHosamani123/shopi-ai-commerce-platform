@@ -1,0 +1,483 @@
+{
+    "product_id": "JACKET-001",
+    "product": {
+        "name": "TAGAS Men's Regular Jacket",
+        "brand": "TAGAS",
+        "category": "Jackets",
+        "subcategory": "Casual Jackets",
+        "gender": "Men",
+        "product_type": "Bomber / Track Jacket",
+        "description": "A regular-fit men's casual bomber-style jacket with a low-cut standing ribbed collar, long sleeves, smooth zip closure and multiple pockets. Designed for casual wear and colder weather.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Standing Collar",
+        "collar_style": "Ribbed Standing Collar",
+        "closure": "Zipper",
+        "length": "Standard Length",
+        "material": "80% Polyester, 20% Cotton",
+        "fabric_weight": "Lightweight",
+        "stretch": "Not Specified",
+        "lining": "Not Specified",
+        "care": "Machine Wash",
+        "country_of_origin": "India",
+        "item_weight_grams": 200,
+        "style_tags": [
+            "casual",
+            "bomber jacket",
+            "track jacket",
+            "stylish",
+            "regular fit",
+            "zip-up",
+            "minimal",
+            "everyday wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "college wear",
+            "travel",
+            "evening wear",
+            "hangouts",
+            "streetwear"
+        ],
+        "season_tags": [
+            "winter",
+            "cooler weather",
+            "cold weather"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+        ],
+        "colors": [
+            "Black",
+            "Grey",
+            "Navy"
+        ],
+        "features": [
+            "Regular fit",
+            "Ribbed standing collar",
+            "Smooth zipper closure",
+            "Multiple pockets",
+            "Long sleeves",
+            "Standard length",
+            "Machine washable",
+            "Polyester-cotton construction"
+        ]
+    },
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 648,
+        "currency": "INR",
+        "discount_percentage": 57,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/JACKET-001/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/JACKET-001/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy",
+            "image": "products/JACKET-001/navy.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.2,
+        "rating_count": 19,
+        "review_count": 13,
+        "rating_distribution": {
+            "5_star_percentage": 69,
+            "4_star_percentage": 8,
+            "3_star_percentage": 8,
+            "2_star_percentage": 7,
+            "1_star_percentage": 8
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "positive_with_quality_variation",
+        "summary": "Most available reviews are positive and repeatedly mention good fit, comfort, lightweight feel, appearance and value for money. Black, grey and navy variants all receive positive feedback. However, one reviewer described the product as very bad and another said the fabric was average, so the jacket should be positioned as a budget-value product rather than premium outerwear.",
+        "positive": [
+            "Good fit reported by multiple buyers",
+            "Comfortable for casual use",
+            "Lightweight according to several reviews",
+            "Stylish and good-looking appearance",
+            "Good value for money",
+            "Positive feedback on black color",
+            "Positive feedback on grey color",
+            "Positive feedback on navy color",
+            "Good color combination",
+            "Suitable for casual wear",
+            "Multiple buyers considered the quality good"
+        ],
+        "negative": [
+            "One reviewer gave a 1-star rating and called it a very bad product",
+            "One reviewer considered the fabric average",
+            "Quality may not meet premium-jacket expectations",
+            "Some feedback is extremely brief and provides little detail",
+            "Value perception is strongly connected to the low price"
+        ],
+        "main_concern": "The main weakness is inconsistent quality perception. Most reviews are positive, but the available sample includes a strong negative review and one explicit complaint that the fabric could be better."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviewers describe the jacket as stylish, classy, good-looking or fantastic."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several buyers explicitly mention comfort."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews report good, full or perfect fitting, while the official listing specifies regular fit."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Several reviewers praise quality, but one reviewer explicitly says the fabric is average and could be better."
+        },
+        "weight": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews describe the jacket as lightweight. The listed item weight is 200 grams."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several buyers describe the product as value for money, particularly at its low price."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The bomber/track-jacket styling and appearance receive repeated positive comments."
+        },
+        "cold_weather_suitability": {
+            "sentiment": "supported_by_listing",
+            "confidence": "medium",
+            "note": "Amazon positions the jacket for winter and cold weather, but customer reviews primarily discuss lightweight construction rather than warmth."
+        },
+        "durability": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The available reviews do not provide enough evidence to make a strong durability claim."
+        }
+    },
+    "pros": [
+        "Regular fit",
+        "Good reported fit",
+        "Lightweight",
+        "Comfortable",
+        "Stylish appearance",
+        "Casual versatile design",
+        "Multiple pockets",
+        "Smooth zipper closure",
+        "Machine washable",
+        "Available in Black, Grey and Navy",
+        "Sizes S through 3XL",
+        "Strong value-for-money feedback"
+    ],
+    "cons": [
+        "Fabric quality may feel average to some buyers",
+        "Not positioned as premium outerwear",
+        "One strongly negative review",
+        "Limited detailed feedback on durability",
+        "Limited evidence about insulation or warmth"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_FOR_VALUE",
+        "score": 7.8,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual wear",
+            "Daily wear",
+            "College wear",
+            "Travel",
+            "Evening outings",
+            "Lightweight jacket preference",
+            "Customers wanting a bomber-style look"
+        ],
+        "not_ideal_for": [
+            "Customers seeking premium fabric quality",
+            "Customers looking for heavy insulated winter jackets",
+            "Customers requiring proven waterproof performance",
+            "Customers expecting high-end construction"
+        ],
+        "size_advice": "The product is officially listed as regular fit and multiple reviews report good or perfect fitting. Customers should still check the size chart before purchasing, especially when choosing between adjacent sizes.",
+        "weather_advice": "The listing positions this jacket for winter and cold weather, but customer reviews repeatedly describe it as lightweight. Do not present it as a heavy winter or highly insulated jacket.",
+        "quality_advice": "Position the jacket around its fit, lightweight construction, casual styling and value rather than premium fabric quality.",
+        "sales_advice": "Lead with the regular fit, bomber-style appearance, lightweight feel, multiple pockets and strong value-for-money feedback. Avoid making unsupported claims about waterproofing, insulation or premium durability."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "jacket for men",
+            "casual jacket",
+            "bomber jacket",
+            "track jacket",
+            "regular fit jacket",
+            "lightweight jacket",
+            "stylish jacket",
+            "zip-up jacket",
+            "winter jacket",
+            "casual winter jacket",
+            "budget jacket",
+            "value for money jacket",
+            "black jacket",
+            "grey jacket",
+            "navy jacket"
+        ],
+        "negative_keywords": [
+            "premium jacket",
+            "heavy winter jacket",
+            "thick insulated jacket",
+            "high-end jacket",
+            "waterproof jacket",
+            "rainproof jacket",
+            "luxury outerwear",
+            "heavy-duty jacket"
+        ],
+        "strong_attributes": [
+            "casual",
+            "bomber style",
+            "regular fit",
+            "lightweight",
+            "long sleeve",
+            "standing collar",
+            "zip-up",
+            "multiple pockets",
+            "machine washable",
+            "budget friendly"
+        ],
+        "warning_attributes": [
+            "average fabric reported by one reviewer",
+            "quality variation",
+            "limited durability evidence",
+            "limited insulation evidence",
+            "waterproofing not established"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value for money",
+                "casual use"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Grey",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "appearance",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "style",
+                "lightweight",
+                "fit",
+                "fabric",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "S",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "fit",
+                "appearance",
+                "average fabric",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Grey",
+            "size": "M",
+            "sentiment": "negative",
+            "themes": [
+                "poor product experience"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Grey",
+            "size": "S",
+            "sentiment": "neutral_positive",
+            "themes": [
+                "value for money",
+                "budget quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Navy",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "lightweight",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Grey",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "lightweight",
+                "quality",
+                "comfort",
+                "air protection"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "classy appearance",
+                "good looking",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Navy",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "casual wear",
+                "fit",
+                "quality"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Navy",
+            "size": "L",
+            "sentiment": "neutral",
+            "themes": [
+                "limited_feedback"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Grey",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Black",
+            "size": "M",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "color",
+                "fit"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the bomber-style design, regular fit, polyester-cotton material, lightweight construction, zipper closure, pockets, price, colors, sizes and key review insights.",
+        "when_customer_asks_if_good": "Recommend it as a budget-value jacket. Highlight the strong feedback around fit, comfort, lightweight construction, appearance and value, while mentioning that fabric quality is not consistently described as premium.",
+        "when_customer_asks_about_fit": "Explain that the jacket is officially regular fit and multiple buyers report good or perfect fitting. Recommend checking the size chart before ordering.",
+        "when_customer_asks_about_winter": "Explain that the listing positions the jacket for winter and cold weather, but it is lightweight and should not be presented as a heavy insulated winter jacket.",
+        "when_customer_asks_about_quality": "Say that most available reviews are positive about quality, but one reviewer specifically considered the fabric average. Position it as good value rather than premium quality.",
+        "when_customer_asks_about_colors": "Available local product images are Black, Grey and Navy.",
+        "when_customer_asks_about_waterproofing": "Do not claim that the jacket is waterproof or rainproof because the provided product information does not establish waterproof performance.",
+        "when_customer_asks_about_hood": "Do not claim that the jacket has a hood. The provided product information identifies a standing collar instead.",
+        "when_customer_asks_for_alternatives": "Prioritize jackets with similar casual or bomber styling and a similar budget. If the customer prioritizes premium fabric, insulation or waterproofing, recommend a product with stronger verified evidence for those attributes.",
+        "when_customer_asks_for_best_product": "Do not recommend this jacket solely because it has a 4.2 rating. Consider the customer's budget, desired fit, weather requirements, quality expectations and intended use."
+    },
+    "data_quality": {
+        "source": "Amazon India product information and customer reviews",
+        "asin": "B0GP6L528B",
+        "source_rating": 4.2,
+        "source_rating_count": 19,
+        "review_sample_used": 13,
+        "local_image_variants": 3,
+        "local_colors": [
+            "Black",
+            "Grey",
+            "Navy"
+        ],
+        "verified_attributes": [
+            "brand",
+            "category",
+            "fit",
+            "material composition",
+            "sleeve",
+            "length",
+            "closure",
+            "care",
+            "sizes",
+            "country of origin",
+            "weight",
+            "price",
+            "rating"
+        ],
+        "not_verified_attributes": [
+            "stretch",
+            "lining",
+            "waterproofing",
+            "hood",
+            "insulation thickness",
+            "exact thermal rating",
+            "durability lifespan"
+        ]
+    }
+}

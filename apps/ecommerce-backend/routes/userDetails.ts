@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { AddressInsertSchema, cartActionSchema, cartItemSchema, orderSchema, userIDSchema, userTokenSchema, wishlistActionSchema, wishlistRemoveSchema } from '../validators/userDetailsValidation';
 import { matchedData, validationResult } from 'express-validator';
 import { randomUUID } from 'crypto';
+import ShopiCatalogService from '../data/shopiCatalogService';
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_ENCRYPTION_KEY as string;
 interface JwtPayload {
@@ -48,23 +49,65 @@ const fetchSize = async (productID: number) => {
 
 const fetchCartItems = async (userID: number) => {
     const cartQuery = `
-        SELECT cartitems.productid, cartitems.quantity, products.title, products.discount, cartitems.cartitemid, 
-               productimages.imglink, productimages.imgalt
+        SELECT cartitems.productid, cartitems.quantity, cartitems.colorid, cartitems.sizeid,
+               products.title, products.discount, cartitems.cartitemid, 
+               productimages.imglink, productimages.imgalt,
+               productcolors.colorname, productcolors.colorclass,
+               productsizes.sizename
         FROM cartitems 
-        INNER JOIN products ON cartitems.productid = products.productid 
-        INNER JOIN productimages ON cartitems.productid = productimages.productid 
-        WHERE productimages.isprimary = true AND cartitems.userid = $1;
+        LEFT JOIN products ON cartitems.productid = products.productid 
+        LEFT JOIN productimages ON cartitems.productid = productimages.productid AND productimages.isprimary = true
+        LEFT JOIN productcolors ON cartitems.colorid = productcolors.colorid
+        LEFT JOIN productsizes ON cartitems.sizeid = productsizes.sizeid
+        WHERE cartitems.userid = $1
+        ORDER BY cartitems.cartitemid ASC;
     `;
     const cartValues = [userID];
     const cartResult = await client.query(cartQuery, cartValues);
 
     const cartItems = await Promise.all(cartResult.rows.map(async (item) => {
-        const color = await fetchColor(item.productid);
-        const size = await fetchSize(item.productid);
+        const supProd = await ShopiCatalogService.getProduct(String(item.productid));
+
+        const canonicalSku = supProd?.sku || String(item.productid);
+        const canonicalTitle = supProd?.title || item.title || 'Product';
+        const canonicalPrice = supProd?.selling_price !== undefined ? supProd.selling_price : item.discount;
+
+        let selectedColor = item.colorname;
+        if (!selectedColor && item.colorid && supProd?.colors) {
+            const matchedColById = supProd.colors.find((c: any) => c.colorid === item.colorid);
+            if (matchedColById) selectedColor = matchedColById.colorname;
+        }
+        if (!selectedColor && supProd?.colors && supProd.colors.length > 0) {
+            selectedColor = supProd.colors[0].colorname;
+        }
+
+        let selectedSize = item.sizename;
+        if (!selectedSize && item.sizeid && supProd?.sizes) {
+            const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === item.sizeid);
+            if (matchedSzById) selectedSize = matchedSzById.sizename;
+        }
+        if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0) {
+            selectedSize = supProd.sizes[0].sizename;
+        }
+
+        let finalImg = supProd?.imglink || item.imglink;
+        if (selectedColor && supProd?.colors) {
+            const matchedCol = supProd.colors.find((c: any) => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
+            if (matchedCol && matchedCol.imglink) {
+                finalImg = matchedCol.imglink;
+            }
+        }
+
         return {
             ...item,
-            ...color,
-            ...size,
+            productid: canonicalSku,
+            title: canonicalTitle,
+            discount: canonicalPrice,
+            imglink: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+            imgalt: item.imgalt || canonicalTitle,
+            colorname: selectedColor,
+            sizename: selectedSize,
+            colorclass: item.colorclass || 'bg-slate-700',
         };
     }));
     return cartItems;
@@ -75,13 +118,23 @@ const fetchWishlistItems = async (userID: number) => {
         SELECT wishlistitems.productid, products.title, products.discount, wishlistitems.wishlistitemid, 
                productimages.imglink, productimages.imgalt 
         FROM wishlistitems 
-        INNER JOIN products ON wishlistitems.productid = products.productid 
-        INNER JOIN productimages ON products.productid = productimages.productid 
-        WHERE productimages.isprimary = true AND wishlistitems.userid = $1;
+        LEFT JOIN products ON wishlistitems.productid = products.productid 
+        LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
+        WHERE wishlistitems.userid = $1;
     `;
     const values = [userID];
     const result = await client.query(query, values);
-    return result.rows;
+    const enriched = await Promise.all(result.rows.map(async (item) => {
+        const supProd = await ShopiCatalogService.getProduct(String(item.productid));
+        return {
+            ...item,
+            productid: supProd?.sku || String(item.productid),
+            title: supProd?.title || item.title,
+            discount: supProd?.selling_price !== undefined ? supProd.selling_price : item.discount,
+            imglink: supProd?.imglink || item.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+        };
+    }));
+    return enriched;
 };
 const fetchCoupons = async (userID: number) => {
     const query = `SELECT usercoupons.couponid,coupons.code,coupons.description,coupons.discountpercentage,coupons.maxdiscountamount,coupons.minpurchaseamount,coupons.validuntil 

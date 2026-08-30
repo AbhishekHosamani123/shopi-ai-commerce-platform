@@ -74,10 +74,44 @@ export async function createAction(input: CreateActionInput): Promise<MerchantAi
   // If product name is missing, query it
   let productName = input.productName;
   if (!productName && input.productId) {
-    const prodRes = await client.query('SELECT title FROM products WHERE productid = $1', [input.productId]);
+    const prodRes = await client.query('SELECT title FROM shopi_products WHERE product_id = $1', [input.productId]);
     if (prodRes.rows[0]) {
       productName = prodRes.rows[0].title;
     }
+  }
+
+  // Deduplication check: Prevent duplicate active pending recommendation for same entity & action type
+  const existingPending = await client.query(`
+    SELECT * FROM merchant_ai_actions
+    WHERE merchant_id = $1 
+      AND action_type = $2
+      AND (product_id = $3 OR ($3 IS NULL AND product_id IS NULL))
+      AND status = 'PENDING_APPROVAL'
+      AND (expires_at > CURRENT_TIMESTAMP OR expires_at IS NULL)
+    LIMIT 1;
+  `, [merchantId, input.actionType, input.productId || null]);
+
+  if (existingPending.rows.length > 0) {
+    const existing = existingPending.rows[0];
+    return {
+      actionId: existing.action_id,
+      merchantId: existing.merchant_id,
+      actionType: existing.action_type,
+      status: existing.status,
+      productId: existing.product_id ? parseInt(existing.product_id, 10) : null,
+      productName: existing.product_name,
+      quantity: existing.quantity !== null && existing.quantity !== undefined ? parseInt(existing.quantity, 10) : null,
+      payload: typeof existing.payload === 'string' ? JSON.parse(existing.payload) : existing.payload || {},
+      reason: existing.reason,
+      createdAt: existing.created_at,
+      expiresAt: existing.expires_at,
+      approvedAt: existing.approved_at,
+      completedAt: existing.completed_at,
+      rejectedAt: existing.rejected_at,
+      requiresApproval: true,
+      canRollback: false,
+      isReversible: false
+    };
   }
 
   const query = `

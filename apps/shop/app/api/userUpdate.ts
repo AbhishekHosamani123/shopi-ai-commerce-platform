@@ -95,7 +95,7 @@ export async function userAddressDefaultHandler(addressID:number,userID:number) 
     return { status: 500, error: 'Internal Server Error' };
   }
 };
-export async function cartQuantityHandler(cartItemID:number,productID:number,userID:number,action:string) {
+export async function cartQuantityHandler(cartItemID:number,productID:number | string,userID:number,action:string) {
   try {
     const headers = await getAuthHeaders();
     const response = await backendClient.post(`/api/update/user/cart-quantity`,{ cartItemID,productID,userID,action }, { headers });

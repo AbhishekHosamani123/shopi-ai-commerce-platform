@@ -1,0 +1,482 @@
+{
+    "product_id": "SHIRT-006",
+    "product": {
+        "name": "NexaFlair Men's Regular Fit Solid Shirt",
+        "brand": "NexaFlair",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Button-Down Shirt",
+        "description": "A men's regular-fit solid button-down shirt with long sleeves, a spread collar and standard length. The listing markets it as a linen-cotton shirt and positions it for casual and business-casual wear.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "sleeve_type": "Long Sleeve",
+        "collar": "Spread Collar",
+        "collar_style": "Spread Collar",
+        "neck_style": "Collared Neck",
+        "closure": "Button",
+        "length": "Standard",
+        "shirt_form_type": "Polo Shirt",
+        "top_style": "Button Down",
+        "cuff_style": "Barrel Cuff",
+        "hemline": "Curved",
+        "back_style": "T Back",
+        "season": "All Season",
+        "material": {
+            "listed_material": "Linen Cotton",
+            "material_status": "Disputed",
+            "customer_reported_material": "Polyester",
+            "ai_display_rule": "Do not make an unqualified linen/cotton claim."
+        },
+        "weight_grams": 170,
+        "country_of_origin": "India",
+        "occasion": [
+            "Business Casual",
+            "Casual Wear",
+            "Office Wear",
+            "Formal Wear"
+        ]
+    },
+    "pricing": {
+        "selling_price": 465,
+        "mrp": 999,
+        "currency": "INR",
+        "discount_percentage": 53,
+        "price_type": "snapshot"
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-006/black.jpg"
+            },
+            {
+                "color": "Brown",
+                "image": "products/shirts/SHIRT-006/brown.jpg"
+            },
+            {
+                "color": "Green",
+                "image": "products/shirts/SHIRT-006/green.jpg"
+            },
+            {
+                "color": "Peach",
+                "image": "products/shirts/SHIRT-006/peach.jpg"
+            },
+            {
+                "color": "Sky Blue",
+                "image": "products/shirts/SHIRT-006/sky blue.jpg"
+            },
+            {
+                "color": "Yellow",
+                "image": "products/shirts/SHIRT-006/tellow.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "variant_status": "Exact variant-level stock is not available."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-006/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Brown",
+            "image": "products/shirts/SHIRT-006/brown.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Green",
+            "image": "products/shirts/SHIRT-006/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Peach",
+            "image": "products/shirts/SHIRT-006/peach.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Sky Blue",
+            "image": "products/shirts/SHIRT-006/sky blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Yellow",
+            "image": "products/shirts/SHIRT-006/tellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.1,
+        "rating_count": 1096,
+        "rating_distribution_percent": {
+            "5_star": 36,
+            "4_star": 13,
+            "3_star": 11,
+            "2_star": 8,
+            "1_star": 32
+        }
+    },
+    "brand_information": {
+        "brand": "NexaFlair",
+        "manufacturer": "SUNRISE ENTERPRISE",
+        "packer": "SUNRISE ENTERPRISE",
+        "importer": "SUNRISE ENTERPRISE",
+        "model_name": "LINEN COTTON SHIRT FOR MEN'S",
+        "manufacturer_part_number": "75",
+        "asin": "B0DXCZ8FCH",
+        "country_of_origin": "India"
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_to_negative",
+        "summary": "Customers generally like the shirt's appearance and some report good fit, smooth fabric and good color. However, fabric quality, sizing, stitching and description accuracy receive substantial criticism. Multiple reviews question whether the shirt is actually linen and some report polyester-like material, thin or transparent fabric, collar stitching failure and fit problems.",
+        "positive": [
+            "Stylish appearance",
+            "Some customers report good fit",
+            "Some customers find the fabric smooth",
+            "Some customers like the colors",
+            "Some customers consider it acceptable for the price",
+            "Some customers report good overall quality"
+        ],
+        "negative": [
+            "Material may not match the advertised linen/cotton description",
+            "Some customers describe the material as polyester",
+            "Fabric quality receives mixed-to-negative feedback",
+            "Some customers report thin or transparent fabric",
+            "Shoulder tightness reported",
+            "Some customers report poor sizing",
+            "Stitching quality is criticized",
+            "One verified buyer reported collar stitching opening after one wash",
+            "Some customers say the received product does not match the displayed product"
+        ],
+        "main_strength": "Appearance and color are the strongest positive attributes.",
+        "main_risk": "Material authenticity, fabric quality, stitching durability and sizing consistency."
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed_to_negative",
+            "confidence": "high"
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some customers report good fit, while others report shoulder tightness and sizing problems."
+        },
+        "comfort": {
+            "sentiment": "mixed",
+            "confidence": "medium"
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "color": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium"
+        },
+        "fabric": {
+            "sentiment": "mixed_to_negative",
+            "confidence": "high",
+            "note": "Reviews include smooth/good-fabric feedback but also polyester, thin, transparent and low-quality complaints."
+        },
+        "stitching": {
+            "sentiment": "negative",
+            "confidence": "high"
+        },
+        "description_accuracy": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Several reviews question whether the delivered shirt matches the listing description or displayed texture."
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Yellow",
+            "sentiment": "positive",
+            "summary": "Reviewer described the product as okay."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "XL",
+            "color": "Sky Blue",
+            "sentiment": "negative",
+            "themes": [
+                "material",
+                "description_accuracy"
+            ],
+            "summary": "Reviewer said the material was not linen and described it as cheap polyester."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Brown",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "fabric"
+            ],
+            "summary": "Reviewer reported good fit and smooth fabric."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "XL",
+            "color": "Brown",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "comfort",
+                "fabric"
+            ],
+            "summary": "Reviewer liked the color and comfort but felt the fabric was compromised and somewhat transparent."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "S",
+            "color": "Beige",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer described the fabric as good."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "XL",
+            "color": "Black",
+            "sentiment": "negative",
+            "themes": [
+                "stitching"
+            ],
+            "summary": "Reviewer reported that the collar stitching opened after one wash before the shirt was worn."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "L",
+            "color": "Peach",
+            "sentiment": "negative",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer described the fabric quality as so-so."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "Brown",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer said the shirt quality was good."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "2XL",
+            "color": "Sky Blue",
+            "sentiment": "negative",
+            "themes": [
+                "fit"
+            ],
+            "summary": "Reviewer said the fit was not regular and felt more like a slim fit."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "Grey",
+            "sentiment": "neutral",
+            "themes": [
+                "quality",
+                "value"
+            ],
+            "summary": "Reviewer considered the quality average but said it justified the price."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "S",
+            "color": "Black",
+            "sentiment": "mixed",
+            "themes": [
+                "appearance",
+                "value",
+                "description_accuracy"
+            ],
+            "summary": "Reviewer liked the shirt but felt the price was not justified and said the delivered shirt did not match the textured appearance shown in the listing."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Olive",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "quality",
+                "fabric"
+            ],
+            "summary": "Reviewer considered it a good shirt but described the fabric as thin."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "Brown",
+            "sentiment": "negative",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer described the clothing quality as low."
+        }
+    ],
+    "pros": [
+        "Solid pattern",
+        "Regular-fit listing",
+        "Long sleeves",
+        "Spread collar",
+        "Button-down closure",
+        "Standard length",
+        "Curved hem",
+        "Barrel cuffs",
+        "Six available color variants",
+        "Wide listed size range",
+        "Stylish appearance",
+        "Budget price"
+    ],
+    "cons": [
+        "Material claim is disputed",
+        "Possible polyester despite linen-cotton listing",
+        "Mixed-to-poor fabric quality",
+        "Some reports of thin or transparent fabric",
+        "Stitching durability concerns",
+        "Sizing and shoulder-fit concerns",
+        "Description/image mismatch reported",
+        "Low overall rating of 3.1/5",
+        "32% of ratings are 1-star"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "business casual",
+        "office wear",
+        "formal wear"
+    ],
+    "style_tags": [
+        "solid",
+        "regular fit",
+        "button-down",
+        "long sleeve",
+        "spread collar",
+        "standard length",
+        "curved hem",
+        "barrel cuff"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's solid shirt",
+            "regular fit shirt",
+            "button-down shirt",
+            "long sleeve shirt",
+            "spread collar shirt",
+            "casual shirt",
+            "business casual shirt",
+            "office shirt",
+            "formal shirt",
+            "budget shirt"
+        ],
+        "negative_keywords": [
+            "premium linen shirt",
+            "high quality linen shirt",
+            "durable shirt",
+            "guaranteed linen shirt",
+            "thick fabric shirt",
+            "slim fit shirt"
+        ],
+        "strong_attributes": [
+            "solid",
+            "long sleeve",
+            "spread collar",
+            "button-down",
+            "multiple colors",
+            "budget price"
+        ],
+        "warning_attributes": [
+            "material disputed",
+            "fabric quality mixed",
+            "stitching concerns",
+            "sizing concerns",
+            "description mismatch"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "BUY_ONLY_IF_PRICE_AND_STYLE_ARE_PRIORITY",
+        "score": 5.5,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Customers prioritizing appearance over premium fabric",
+            "Casual wear",
+            "Business-casual styling",
+            "Customers wanting multiple color options"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for genuine linen",
+            "Customers prioritizing premium fabric quality",
+            "Customers needing highly durable stitching",
+            "Customers who require predictable sizing",
+            "Customers wanting a thick, opaque fabric"
+        ],
+        "size_advice": "Do not blindly recommend the listed regular fit. Reviews report both shoulder tightness and slim-fit-like sizing. The user should check the size chart before ordering.",
+        "fabric_advice": "Treat the linen-cotton claim as disputed. The listing identifies it as linen cotton, but verified customer feedback includes a direct polyester complaint.",
+        "quality_advice": "Do not market this as premium quality. The 3.1/5 rating and review feedback indicate substantial quality concerns.",
+        "value_assessment": "The captured price is ₹465 against an MRP of ₹999, making price the main reason to consider the product.",
+        "description_advice": "Do not promise that the delivered shirt will have the exact textured appearance shown in product imagery because customers have reported receiving a plain-looking shirt."
+    },
+    "data_quality": {
+        "rating_count": 1096,
+        "price_available": true,
+        "stock_available": false,
+        "complete_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level stock",
+            "Exact material composition percentages",
+            "Detailed size measurements",
+            "Return policy details",
+            "Delivery information"
+        ],
+        "source_inconsistencies": [
+            "Listing identifies the product as linen cotton, while a verified customer explicitly reports polyester material.",
+            "The listing calls it regular fit, while a verified reviewer reports that the fit felt like slim fit.",
+            "Customers report that the delivered product may not match the textured appearance shown in the listing."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this primarily as a budget solid men's button-down shirt, not as a premium linen shirt.",
+        "material_rule": "Never state '100% linen', 'pure linen', or 'premium linen'. The material claim is disputed.",
+        "quality_rule": "Do not describe the product as premium or highly durable.",
+        "fit_rule": "Use Regular Fit as the catalog attribute but warn users to check the size chart because reviews report inconsistent fit and shoulder tightness.",
+        "price_rule": "Use affordability/value as a major selling point.",
+        "stitching_rule": "Do not claim strong stitching or high durability because multiple reviews criticize stitching quality.",
+        "summer_rule": "Do not automatically recommend it as a premium summer linen shirt. The actual material is disputed and fabric quality feedback is mixed.",
+        "description_rule": "Do not promise that the physical shirt will exactly match the listing's textured appearance.",
+        "comparison_rule": "When comparing with SHIRT-005, prefer SHIRT-006 only when the user prioritizes a lower price, solid design and color variety; prefer SHIRT-005 for stronger review sentiment and more reliable quality signals."
+    }
+}

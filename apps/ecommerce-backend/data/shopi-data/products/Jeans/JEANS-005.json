@@ -1,0 +1,397 @@
+{
+    "product_id": "JEANS-005",
+    "product": {
+        "name": "London Hills Men's Ankle Length Denim Jeans",
+        "brand": "London Hills",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Slim Tapered Ankle Jeans",
+        "description": "London Hills men's ankle-length denim jeans with a slim tapered silhouette, mid-rise construction and classic 5-pocket styling. Designed for casual, travel and everyday wear.",
+        "fit": "Slim",
+        "leg_style": "Tapered",
+        "rise_style": "Mid Rise",
+        "length": "Ankle Length",
+        "pattern": "Solid",
+        "style": "Classic",
+        "closure": "Button",
+        "front_style": "Flat Front",
+        "material": "Cotton Blend",
+        "fabric_type": "Cotton-Blend Denim",
+        "stretch": "Soft Stretch",
+        "occasion": "Casual",
+        "care_instructions": "Machine Wash",
+        "country_of_origin": "India",
+        "style_tags": [
+            "slim fit",
+            "tapered",
+            "ankle length",
+            "mid rise",
+            "cotton blend",
+            "denim",
+            "classic",
+            "solid",
+            "casual"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "travel",
+            "weekend wear"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36"
+        ],
+        "colors": [
+            "Dark Blue",
+            "Light Blue"
+        ],
+        "item_weight_grams": 400,
+        "net_quantity": 1
+    },
+    "images": [
+        {
+            "color": "Dark Blue",
+            "image": "products/Jeans/JEANS-005/dark blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/Jeans/JEANS-005/light blue.jpg",
+            "is_primary": true
+        }
+    ],
+    "pricing": {
+        "mrp": 1999,
+        "selling_price": 741,
+        "currency": "INR",
+        "discount_percentage": 63,
+        "price_type": "snapshot"
+    },
+    "rating": {
+        "average": 3.8,
+        "rating_count": 172,
+        "review_count": 44
+    },
+    "rating_distribution": {
+        "5_star_percentage": 46,
+        "4_star_percentage": 22,
+        "3_star_percentage": 11,
+        "2_star_percentage": 5,
+        "1_star_percentage": 16
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "The product receives generally positive feedback for fit, appearance, comfort and lightweight construction, but reviews also identify problems with fabric quality, colour accuracy and colour fading. Sizing feedback is not uniformly negative, but at least one customer reported a size problem.",
+        "positive": [
+            "Several customers report good or perfect fitting",
+            "Dark Blue received positive fit feedback",
+            "Light Blue received positive fit feedback",
+            "Some customers praise the fabric",
+            "Some customers describe the jeans as comfortable",
+            "One verified buyer described them as extremely lightweight",
+            "Several buyers liked the appearance",
+            "Ankle length is specifically appreciated by some buyers",
+            "Good value may be perceived at the captured ₹741 price"
+        ],
+        "negative": [
+            "Some customers say fabric quality could be better",
+            "One review says the inside fabric feels cheap",
+            "One review reports receiving a colour different from the photo",
+            "A review reports colour fading",
+            "One customer reported a size problem",
+            "One 1-star review claims the item looked used",
+            "16% of ratings are 1-star"
+        ],
+        "main_concerns": [
+            "Fabric quality consistency",
+            "Colour accuracy",
+            "Potential colour fading",
+            "Some sizing uncertainty"
+        ]
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "positive_with_some_size_risk",
+            "confidence": "medium",
+            "note": "Multiple reviews describe the fit as perfect, great or amazing, but one buyer reported that the jeans were not their size."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "A verified buyer specifically described the jeans as comfortable, while another praised their lightweight construction."
+        },
+        "material_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some buyers praise the fabric and quality, while another says the material is not good and the inside feels cheap."
+        },
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviews praise how the jeans look."
+        },
+        "colour_accuracy": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "At least one review says the delivered colour was significantly different from the product photo."
+        },
+        "colour_durability": {
+            "sentiment": "negative",
+            "confidence": "low",
+            "note": "One review reports colour fading. This is not enough evidence to claim that all variants fade."
+        },
+        "value_for_money": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The captured selling price is ₹741, but some reviews criticize material quality."
+        }
+    },
+    "pros": [
+        "Slim tapered silhouette",
+        "Ankle-length design",
+        "Mid-rise construction",
+        "Cotton-blend denim",
+        "Soft stretch",
+        "Machine washable",
+        "Classic 5-pocket design",
+        "Button closure",
+        "Lightweight according to customer feedback",
+        "Good fit feedback from multiple customers",
+        "Available in Dark Blue and Light Blue",
+        "Suitable for casual and everyday styling"
+    ],
+    "cons": [
+        "Product description conflicts with detailed fit specification",
+        "Some complaints about fabric quality",
+        "Some complaints about cheap-feeling inner fabric",
+        "Colour may differ from product images",
+        "One review reports colour fading",
+        "One review reports a sizing problem",
+        "16% of ratings are 1-star",
+        "Overall rating is only 3.8/5"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.2,
+        "best_for": [
+            "Men who prefer slim jeans",
+            "Men who like tapered legs",
+            "Customers wanting ankle-length jeans",
+            "Customers who like modern casual silhouettes",
+            "Casual outings",
+            "Travel",
+            "Everyday wear",
+            "Customers who prefer some stretch"
+        ],
+        "not_ideal_for": [
+            "Customers wanting regular or relaxed jeans",
+            "Customers wanting full-length jeans",
+            "Customers highly sensitive to colour accuracy",
+            "Customers prioritizing premium fabric quality",
+            "Customers who dislike tapered legs"
+        ],
+        "size_advice": "Use the size chart before ordering. The listed sizes are numeric 28–36. Do not infer a different size mapping without a verified size chart.",
+        "style_advice": "The ankle-length tapered silhouette is best suited to sneakers and casual footwear. It works well with T-shirts, casual shirts and hoodies.",
+        "quality_advice": "Do not call the denim premium based solely on the listing. Customer feedback on fabric quality is mixed.",
+        "colour_advice": "The available supplied images represent Dark Blue and Light Blue. Mention that at least one customer reported the delivered colour looking different from the photo.",
+        "sales_advice": "Lead with slim tapered styling, ankle length, soft stretch, lightweight construction and casual versatility. Do not promise premium fabric quality or perfect colour accuracy."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "men jeans",
+            "men's jeans",
+            "slim jeans",
+            "slim fit jeans",
+            "tapered jeans",
+            "slim tapered jeans",
+            "ankle jeans",
+            "ankle length jeans",
+            "ankle fit jeans",
+            "cropped jeans",
+            "mid rise jeans",
+            "stretch jeans",
+            "stretchable jeans",
+            "dark blue jeans",
+            "light blue jeans",
+            "casual jeans",
+            "travel jeans"
+        ],
+        "negative_keywords": [
+            "relaxed jeans",
+            "loose jeans",
+            "baggy jeans",
+            "straight fit jeans",
+            "wide leg jeans",
+            "full length jeans"
+        ],
+        "strong_attributes": [
+            "slim",
+            "tapered",
+            "ankle length",
+            "mid rise",
+            "cotton blend",
+            "soft stretch",
+            "lightweight",
+            "casual"
+        ],
+        "warning_attributes": [
+            "mixed fabric quality",
+            "colour mismatch",
+            "colour fading complaint",
+            "some size complaints"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "28",
+            "color": "Light Blue",
+            "sentiment": "positive",
+            "themes": [
+                "perfect fit",
+                "good colour"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "sentiment": "positive",
+            "themes": [
+                "nice fabric",
+                "good quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "sentiment": "positive",
+            "themes": [
+                "comfortable"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "32",
+            "color": "Dark Blue",
+            "sentiment": "positive",
+            "themes": [
+                "very good quality",
+                "amazing fitting",
+                "lightweight",
+                "good appearance"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "28",
+            "color": "Dark Blue",
+            "sentiment": "mixed_negative_quality",
+            "themes": [
+                "fit fine",
+                "ankle length good",
+                "fabric quality could be better",
+                "inner fabric feels cheap"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "34",
+            "color": "Dark Blue",
+            "sentiment": "negative",
+            "themes": [
+                "looked used"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "36",
+            "color": "Light Blue",
+            "sentiment": "mixed",
+            "themes": [
+                "good jeans",
+                "size problem"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "size": "36",
+            "color": "Black",
+            "sentiment": "negative",
+            "themes": [
+                "colour fading",
+                "poor quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "34",
+            "color": "Dark Blue",
+            "sentiment": "positive",
+            "themes": [
+                "amazing"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "30",
+            "color": "Dark Blue",
+            "sentiment": "positive",
+            "themes": [
+                "good"
+            ]
+        }
+    ],
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0FMFGJVJP",
+        "model_name": "London Hills Mens Slim Tapered Fit Mid Rise Jeans",
+        "style_number": "LH_JEAN_MEN_SLIM_ANKLE_12_D_BLUE_SIZE_32",
+        "manufacturer": "Kartbin Online Services Pvt Ltd",
+        "manufacturer_contact": "info@kartbin.com",
+        "packer": "Kartbin Online Services Pvt Ltd",
+        "country_of_origin": "India",
+        "net_quantity": 1
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe it as a London Hills men's slim tapered ankle-length jean with mid-rise construction, cotton-blend denim and soft stretch.",
+        "when_customer_asks_if_good": "Recommend conditionally. The strongest evidence is positive feedback for fit, appearance and comfort. The main concerns are mixed fabric-quality feedback and colour-related complaints.",
+        "when_customer_asks_about_quality": "Say that quality feedback is mixed. Some customers report good quality, while others specifically criticize the fabric and inner material.",
+        "when_customer_asks_about_fit": "Use the detailed specification: Slim fit, tapered leg and mid rise. Mention that several customers report good or perfect fitting, but one customer reported a sizing problem.",
+        "when_customer_asks_about_length": "This is an ankle-length jean and is designed to sit shorter than a standard full-length jean.",
+        "when_customer_asks_about_stretch": "The product description explicitly says the cotton-blend denim has soft stretch.",
+        "when_customer_asks_about_colors": "The supplied product images represent Dark Blue and Light Blue.",
+        "when_customer_asks_about_price": "The supplied snapshot shows ₹741 against an MRP of ₹1,999, representing a 63% discount.",
+        "when_customer_asks_about_washing": "The listed care instruction is Machine Wash.",
+        "when_customer_asks_for_size": "Recommend checking the size chart. Available numeric sizes in the supplied listing are 28, 30, 32, 34 and 36.",
+        "when_customer_asks_for_style": "Recommend it for customers wanting a slim, tapered, ankle-length modern casual look.",
+        "when_customer_asks_for_alternatives": "For customers wanting relaxed, loose or straight-fit jeans, recommend other products instead of this one.",
+        "when_customer_asks_for_best_product": "Match strongly against slim-fit, tapered, ankle-length and stretch-jeans preferences. Penalize it for requests requiring premium fabric quality or highly accurate colour reproduction."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The detailed attributes specify Slim fit, while the product description says Regular Fit, Tapered Leg.",
+            "Use Slim + Tapered as the primary structured attributes because those are explicitly listed in the product details.",
+            "The product title says Ankle Length and the detailed length attribute also says Ankle Length.",
+            "The product description states soft stretch cotton-blend denim.",
+            "The source does not provide an exact percentage composition of cotton versus other fibers.",
+            "Reviews include Black and Grey variants even though the supplied product images for JEANS-005 are Dark Blue and Light Blue.",
+            "Do not treat Black or Grey as current JEANS-005 image variants unless your product source confirms those variants belong to this SKU.",
+            "Price is a snapshot and can change.",
+            "Colour mismatch and fading are reported by individual customers and should not be generalized to every variant."
+        ]
+    }
+}

@@ -193,7 +193,7 @@ export class RealIngestionService {
             row.category || 'General',
             row.price,
             row.cost || Math.round(row.price * 0.5),
-            row.stock || 50
+            Number(row.stock || 0)
           ]);
 
           if (res.rows[0]?.is_inserted) inserted++;

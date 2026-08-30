@@ -1,0 +1,4932 @@
+[
+  {
+    "product_id": "BAG-001",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-001/black.jpg"
+  },
+  {
+    "product_id": "BAG-001",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Bags/BAG-001/blue.jpg"
+  },
+  {
+    "product_id": "BAG-001",
+    "variant_type": "color",
+    "variant_value": "Blue & Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-001/Blue & Black.jpg"
+  },
+  {
+    "product_id": "BAG-001",
+    "variant_type": "color",
+    "variant_value": "Grey & Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-001/Grey & Black.jpg"
+  },
+  {
+    "product_id": "BAG-001",
+    "variant_type": "size",
+    "variant_value": "15L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "BAG-002",
+    "variant_type": "color",
+    "variant_value": "Batman Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-002/Batman Black.jpg"
+  },
+  {
+    "product_id": "BAG-002",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-002/black.jpg"
+  },
+  {
+    "product_id": "BAG-002",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Bags/BAG-002/Grey.jpg"
+  },
+  {
+    "product_id": "BAG-002",
+    "variant_type": "color",
+    "variant_value": "Grey 2",
+    "available": true,
+    "image_path": "products/Bags/BAG-002/grey2.jpg"
+  },
+  {
+    "product_id": "BAG-002",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/Bags/BAG-002/Navy.jpg"
+  },
+  {
+    "product_id": "BAG-003",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-003/black.jpg"
+  },
+  {
+    "product_id": "BAG-003",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Bags/BAG-003/blue.jpg"
+  },
+  {
+    "product_id": "BAG-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Bags/BAG-004/black.jpg"
+  },
+  {
+    "product_id": "BAG-004",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Bags/BAG-004/blue.jpg"
+  },
+  {
+    "product_id": "BAG-004",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/Bags/BAG-004/navy.jpg"
+  },
+  {
+    "product_id": "BAG-004",
+    "variant_type": "size",
+    "variant_value": "28L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "BAG-005",
+    "variant_type": "color",
+    "variant_value": "Black & Brown",
+    "available": true,
+    "image_path": "products/Bags/BAG-005/black & brown.jpg"
+  },
+  {
+    "product_id": "BAG-005",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Bags/BAG-005/Blue.jpg"
+  },
+  {
+    "product_id": "BAG-005",
+    "variant_type": "size",
+    "variant_value": "25L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/black.jpg"
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-001/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/blue.jpg"
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-001/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/maroon.jpg"
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "color",
+    "variant_value": "Mehandi",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-001/mehandi.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/mehandi.jpg"
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "color",
+    "variant_value": "Rust",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-001/rust.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/rust.jpg"
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "XS",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "5XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "6XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "7XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-001",
+    "variant_type": "size",
+    "variant_value": "8XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-002/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/maroon.jpg"
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/black.jpg"
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "color",
+    "variant_value": "Teal Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-002/teal blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/teal%20blue.jpg"
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-002",
+    "variant_type": "size",
+    "variant_value": "5XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/black.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/blue.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/green.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/grey.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/maroon.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Morepeach",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/morepeach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/morepeach.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "color",
+    "variant_value": "Orange",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-003/orange.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/orange.jpg"
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-003",
+    "variant_type": "size",
+    "variant_value": "5XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/black.jpg"
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-004/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/green.jpg"
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-004/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/maroon.jpg"
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-004/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/yellow.jpg"
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-004",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-005/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-005/blue.jpg"
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "color",
+    "variant_value": "Wine",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-005/wine.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-005/wine.jpg"
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "color",
+    "variant_value": "Red",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "5XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "6XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "7XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-005",
+    "variant_type": "size",
+    "variant_value": "8XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/green.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Purple",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/purple.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/purple.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Red",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/red.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/red.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/blue.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Teal Blue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/teal blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/teal%20blue.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-006/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/yellow.jpg"
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-006",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-007/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/green.jpg"
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "color",
+    "variant_value": "Morepeach",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-007/morepeach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/morepeach.jpg"
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "color",
+    "variant_value": "Purple",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-007/purple.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/purple.jpg"
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "color",
+    "variant_value": "Rust",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-007/rust.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/rust.jpg"
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-007",
+    "variant_type": "size",
+    "variant_value": "5XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "DARK GREEN",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-008/dark green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/dark%20green.jpg"
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "GREEN",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-008/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/green.jpg"
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "YELLOW",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-008/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/yellow.jpg"
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "PEACH",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-008/peach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/peach.jpg"
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "RANI",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "color",
+    "variant_value": "BLACK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-008",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-009",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-009/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-009/green.jpg"
+  },
+  {
+    "product_id": "DRESS-009",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-009/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-009/white.jpg"
+  },
+  {
+    "product_id": "DRESS-009",
+    "variant_type": "size",
+    "variant_value": "Free",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "OW Maroon",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-010/ow maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/ow%20maroon.jpg"
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Elephant Pink NB",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-010/Elephant Pink NB.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/Elephant%20Pink%20NB.jpg"
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Firozi Nblue",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-010/Firozi Nblue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/Firozi%20Nblue.jpg"
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "GOLD BT",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "GOLD RANI",
+    "available": true,
+    "image_path": "products/Dresses/DRESS-010/gold rani.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/gold%20rani.jpg"
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Gold",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Gold Black",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Gold Blue",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Lfirozi Rani Whel",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Parrot",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Purple Rama",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "RED BLACK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Black Red",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "CREAM MAROON",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "Elephant Firozi NB",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "NB PINK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "PARROT ROYAL WHEL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "color",
+    "variant_value": "white rani",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "DRESS-010",
+    "variant_type": "size",
+    "variant_value": "Free Size",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-001/black Formal.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-001/black%20Formal.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/black.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/brown.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "color",
+    "variant_value": "Tan",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/tan.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/tan.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "Dark Brown",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-003/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-003/brown.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-004/black.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-004/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-004/brown.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-005/black.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-005/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-005/brown.jpg"
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/black.jpg"
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-001/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/grey.jpg"
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-001/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/navy.jpg"
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-001",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-002",
+    "variant_type": "color",
+    "variant_value": "White With Red Stripe",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-002/white with red stripe.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-002/white%20with%20red%20stripe.jpg"
+  },
+  {
+    "product_id": "JACKET-002",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-002",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-002",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JACKET-003",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-003/black.jpg"
+  },
+  {
+    "product_id": "JACKET-003",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-003/grey.jpg"
+  },
+  {
+    "product_id": "JACKET-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/black.jpg"
+  },
+  {
+    "product_id": "JACKET-004",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-004/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/grey.jpg"
+  },
+  {
+    "product_id": "JACKET-004",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/Jackets/JACKET-004/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/navy.jpg"
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "color",
+    "variant_value": "Carbon Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-001/carbon black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/carbon%20black.jpg"
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-001/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/dark%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-001/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "color",
+    "variant_value": "Light Grey",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-001/light grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/light%20grey.jpg"
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-001",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-002/Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-002/Blue.jpg"
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-002/Dark Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-002/Dark%20Blue.jpg"
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-002",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-003/black.jpg"
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-003/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-003/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-003",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/blue.jpg"
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "color",
+    "variant_value": "Faint Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-004/faint blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/faint%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-004/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/grey.jpg"
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-004/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "color",
+    "variant_value": "Navy Fade",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-004/navy fade.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/navy%20fade.jpg"
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-004",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-005/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-005/dark%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-005/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-005/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-005",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-006/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/black.jpg"
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-006/dark blue-2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/dark%20blue-2.jpg"
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-006/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/white.jpg"
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-006",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-007/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/black.jpg"
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-007/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/blue.jpg"
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Cream",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-007/cream.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/cream.jpg"
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-007/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/dark%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-007/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/green.jpg"
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "color",
+    "variant_value": "Medium Blue",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-007",
+    "variant_type": "size",
+    "variant_value": "40",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "color",
+    "variant_value": "Jet Gray",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-008/Jet Gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Jet%20Gray.jpg"
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "color",
+    "variant_value": "Lighter Grey",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-008/Lighter Grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Lighter%20Grey.jpg"
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "color",
+    "variant_value": "Scorpion Grass Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-008/Scorpion Grass Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Scorpion%20Grass%20Blue.jpg"
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-008",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-009/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/black.jpg"
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "color",
+    "variant_value": "Dark Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-009/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/dark%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-009/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/green.jpg"
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "color",
+    "variant_value": "Khaki",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-009/khaki.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/khaki.jpg"
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-009/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-009",
+    "variant_type": "size",
+    "variant_value": "40",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "color",
+    "variant_value": "Dark Black",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-010/dark black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/dark%20black.jpg"
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "color",
+    "variant_value": "Ice Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-010/ice blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/ice%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-010/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/light%20blue.jpg"
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "color",
+    "variant_value": "Light Gray",
+    "available": true,
+    "image_path": "products/Jeans/JEANS-010/light gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/light%20gray.jpg"
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "28",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "30",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "32",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "34",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "JEANS-010",
+    "variant_type": "size",
+    "variant_value": "40",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-001/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/brown.jpg"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-001/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/green.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/Maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/Maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/Navy Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/Navy%20Blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Pista",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/pista.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/pista.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Sky Blue",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/sky%20blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-002/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/yellow.jpg"
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Coffy",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/coffy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/coffy.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Dark Orange",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/DARK ORANGE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/DARK%20ORANGE.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/Shirts/SHIRT-003/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/yellow.jpg"
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-004/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Light Green",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-004/lgreen.jpg"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-004/lightblue.jpg"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-004/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-004/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Chiku",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/chiku.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Dark Green",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/dark green.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/navy blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Pista",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/pista.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-005/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/brown.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/green.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Peach",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/peach.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Sky Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/sky blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-006/tellow.jpg"
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Military Green",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/miltary green.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/navy blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Peach",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/peach.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Wine Red",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-007/wine red.jpg"
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/brown.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/navy blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Sky Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/sky blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-008/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/light blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "color",
+    "variant_value": "Wine",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-009/wine.jpg"
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-009",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "color",
+    "variant_value": "Beige/White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-010/BEIGE WHITE.jpg"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "color",
+    "variant_value": "Dusty Green/White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-010/DUSTY GREEN WHITE.jpg"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "color",
+    "variant_value": "Light Pink/White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-010/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "color",
+    "variant_value": "Powder Blue/White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-010/POWDER BLUE WHITE.jpg"
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-010",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-011/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "color",
+    "variant_value": "Cream",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-011/cream.jpg"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-011/navy.jpg"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "color",
+    "variant_value": "Olive",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-011/olive.jpg"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-011/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "36",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "38",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "39",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "40",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "42",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "44",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "46",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "48",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-011",
+    "variant_type": "size",
+    "variant_value": "50",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Beige",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/beige.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Chiku",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/chiku.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Light Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/light blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "color",
+    "variant_value": "Wine",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-012/wine.jpg"
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-012",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Choco",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/choco.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Olive",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/olive.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Sky Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/sky blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "color",
+    "variant_value": "Wine",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-013/wine.jpg"
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-013",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/grey.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/navy blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "color",
+    "variant_value": "Yellow",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-014/yellow.jpg"
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-014",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/black.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Light Beige",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/light beige.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Maroon",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/maroon.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Olive Green",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/olive green.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/pink.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "Sky Blue",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/sky blue.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/shirts/SHIRT-015/white.jpg"
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SHIRT-015",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-001/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/white.jpg"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "color",
+    "variant_value": "White Grey",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-001/white grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/white%20grey.jpg"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "color",
+    "variant_value": "Navy Blue",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-001/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/navy%20blue.jpg"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "color",
+    "variant_value": "Black Neon Orange",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-001/Black Neon Orange.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/Black%20Neon%20Orange.jpg"
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "color",
+    "variant_value": "BEIGELGRN",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-002/BEIGELGRN.jpg"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "color",
+    "variant_value": "FULL WHITE",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-002/FULL WHITE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "color",
+    "variant_value": "OFFWHITE SKY",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-002/OFFWHITE SKY.jpg"
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "variant_type": "size",
+    "variant_value": "12 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "color",
+    "variant_value": "BLACK DGREY",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-003/BLACK DGREY.jpg"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "color",
+    "variant_value": "BLACK OLIVE",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-003/BLACK OLIVE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "color",
+    "variant_value": "CREAM BROWN BEEJ",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-003/CREAM BROWN BEEJ.jpg"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "color",
+    "variant_value": "OFF WHITE MOUSE",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-003/OFF WHITE MOUSE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "color",
+    "variant_value": "WHITE SLATE ORANGE",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-003/WHITE SLATE ORANGE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "variant_type": "size",
+    "variant_value": "12 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "Beige",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/beige.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/black.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "Navy",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/Navy.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "NavyBlazer-White-CayenneRed",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/NavyBlazer-White-CayenneRed.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "White-DawnGrey",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/White-DawnGrey.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "White-MarigoldYellow",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/White-MarigoldYellow.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "color",
+    "variant_value": "White-NavyBlazer-Arctic",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-004/White-NavyBlazer-Arctic.jpg"
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "color",
+    "variant_value": "Off White/Red",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-005/Off White & red.jpg"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-005/black.jpg"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "color",
+    "variant_value": "Brown/Beige",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-005/Brown&Beige.jpg"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "color",
+    "variant_value": "Black/White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-005/Black & White.jpg"
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "color",
+    "variant_value": "FULL WHITE",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-006/FULL WHITE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "color",
+    "variant_value": "OFFWHITE SKY",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-006/OFFWHITE SKY.jpg"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "color",
+    "variant_value": "WHITE BEIGE BROWN",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE BEIGE BROWN.jpg"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "color",
+    "variant_value": "WHITE BLACK",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE BLACK.jpg"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "color",
+    "variant_value": "WHITE NAVY",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE NAVY.jpg"
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "color",
+    "variant_value": "WHT/BLK",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-007/WHT_BLK.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-007/WHT_BLK.jpg"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "color",
+    "variant_value": "WHT/D.GRN",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-007/WHT_D.GRN.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-007/WHT_D.GRN.jpg"
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-008/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/black.jpg"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "color",
+    "variant_value": "Navy Blue White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-008/NAVY BLUE WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/NAVY%20BLUE%20WHITE.jpg"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-008/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/white.jpg"
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "color",
+    "variant_value": "Off White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-009/off white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-009/off%20white.jpg"
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "color",
+    "variant_value": "White Navy",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-010/white navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-010/white%20navy.jpg"
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "size",
+    "variant_value": "11 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "color",
+    "variant_value": "Brown Tan",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-011/brown tan.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/brown%20tan.jpg"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "color",
+    "variant_value": "Full Black",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-011/full black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/full%20black.jpg"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "color",
+    "variant_value": "Full White",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-011/full white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/full%20white.jpg"
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "variant_type": "color",
+    "variant_value": "White Black Beej",
+    "available": true,
+    "image_path": "products/Sneakers/SNEAKER-011/WHITE BLACK BEEJ.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/WHITE%20BLACK%20BEEJ.jpg"
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "color",
+    "variant_value": "WHT/SIL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "color",
+    "variant_value": "WHT/L.GRY",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "variant_type": "color",
+    "variant_value": "BLK/D.GRY",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "BLACK RED",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/BLACK RED.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/BLACK%20RED.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "BLACK SILVER",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/BLACK SILVER.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/BLACK%20SILVER.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "GREEN GREY",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/GREEN GREY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/GREEN%20GREY.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "GREY",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/GREY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/GREY.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "TURQUOISE",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/Turquoise.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/Turquoise.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "WHITE BLACK",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/WHITE BLACK.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/WHITE%20BLACK.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "variant_type": "color",
+    "variant_value": "WHITE SALTE BLUE",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/WHITE SALTE BLUE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/WHITE%20SALTE%20BLUE.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-002/white + black shoe.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-002/white%20+%20black%20shoe.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "6 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "7 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "8 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "9 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "variant_type": "size",
+    "variant_value": "10 UK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "GOLD YLW",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/GOLD YLW.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/GOLD%20YLW.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "WHITE BROWNIE",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & BROWNIE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20BROWNIE.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "WHITE GRAY",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & Gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20Gray.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "WHITE GRAY 2",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & gray2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20gray2.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "variant_type": "color",
+    "variant_value": "WHITE SKY BLUE",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & sky Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20sky%20Blue.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "variant_type": "color",
+    "variant_value": "BLACK OLIVE GREEN",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-006/Black & Olive Green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-006/Black%20&%20Olive%20Green.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "variant_type": "color",
+    "variant_value": "GREY GREEN",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "variant_type": "color",
+    "variant_value": "WHITE BLACK",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "variant_type": "color",
+    "variant_value": "DARK GREY NEON ORANGE",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/DARK GREY NEON ORANGE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/DARK%20GREY%20NEON%20ORANGE.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "variant_type": "color",
+    "variant_value": "BLACK GOLD",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/BLACK GOLD1.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/BLACK%20GOLD1.jpg"
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "variant_type": "color",
+    "variant_value": "NAVY BLUE RED",
+    "available": true,
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/NAVY BLUE RED1.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/NAVY%20BLUE%20RED1.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Aqua",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/aqua.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/grey.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Jamun",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/jamun.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Mustard",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/mustard.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Pink",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/pink.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "color",
+    "variant_value": "Teal",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-001/teal.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/black.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-002/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Beige",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-003/beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/beige.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-003/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/blue.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-003/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/green.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "color",
+    "variant_value": "White",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-003/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/white.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/black.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/blue.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-004/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/brown.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "color",
+    "variant_value": "Olive Green",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-004/olive green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/olive%20green.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Black",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-005/black.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "color",
+    "variant_value": "Green",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-005/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-005/green.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Blue",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-006/blue.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-006/brown.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Grey",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-006/grey.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "color",
+    "variant_value": "Pista",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-006/pista.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "3XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "variant_type": "size",
+    "variant_value": "4XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Blue&White",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-007/Blue&White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Blue&White.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Brown& White",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-007/Brown& White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Brown&%20White.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "Teal& White",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-007/Teal& White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Teal&%20White.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "White&Beige",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-007/White&Beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/White&Beige.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "color",
+    "variant_value": "White&Black",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-007/White&Black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/White&Black.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Brown",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-008/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-008/brown.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "color",
+    "variant_value": "Teal",
+    "available": true,
+    "image_path": "products/T-Shirt/T-SHIRT-008/teal.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-008/teal.jpg"
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "S",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "M",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "L",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "XL",
+    "available": true,
+    "image_path": null
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "variant_type": "size",
+    "variant_value": "2XL",
+    "available": true,
+    "image_path": null
+  }
+]

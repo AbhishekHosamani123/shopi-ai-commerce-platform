@@ -1,0 +1,536 @@
+{
+    "product_id": "SHIRT-015",
+    "product": {
+        "name": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt",
+        "brand": "Pinkmint",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A men's solid long-sleeve button-down shirt with a classic fit and standard length. The listing positions it for casual, office, smart-casual and everyday wear.",
+        "fit": "Classic Fit",
+        "pattern": "Solid",
+        "sleeve": "Long Sleeve",
+        "collar": "Button Down",
+        "neck": "Collared Neck",
+        "closure": "Button",
+        "length": "Standard Length",
+        "style": "Casual",
+        "season": "All Seasons",
+        "country_of_origin": "India"
+    },
+    "material": {
+        "listed_material": "Cotton",
+        "title_material": "Cotton Blend",
+        "normalized_material": "Cotton Blend",
+        "material_confidence": "medium",
+        "warning": "The source is internally inconsistent: the title says Cotton Blend while the product-details field says Cotton. Multiple verified reviews also question whether the product is actually cotton."
+    },
+    "pricing": {
+        "currency": "INR",
+        "current_price": 399,
+        "mrp": 1999,
+        "discount_percent": 80,
+        "price_type": "captured_listing_price",
+        "price_note": "The supplied source repeatedly shows ₹399 against ₹1,999 MRP."
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Black",
+                "image": "products/shirts/SHIRT-015/black.jpg"
+            },
+            {
+                "color": "Light Beige",
+                "image": "products/shirts/SHIRT-015/light beige.jpg"
+            },
+            {
+                "color": "Maroon",
+                "image": "products/shirts/SHIRT-015/maroon.jpg"
+            },
+            {
+                "color": "Olive Green",
+                "image": "products/shirts/SHIRT-015/olive green.jpg"
+            },
+            {
+                "color": "Pink",
+                "image": "products/shirts/SHIRT-015/pink.jpg"
+            },
+            {
+                "color": "Sky Blue",
+                "image": "products/shirts/SHIRT-015/sky blue.jpg"
+            },
+            {
+                "color": "White",
+                "image": "products/shirts/SHIRT-015/white.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "variant_status": "Only the seven supplied SHIRT-015 color images should be exposed."
+    },
+    "images": [
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-015/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Beige",
+            "image": "products/shirts/SHIRT-015/light beige.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-015/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Olive Green",
+            "image": "products/shirts/SHIRT-015/olive green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pink",
+            "image": "products/shirts/SHIRT-015/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Sky Blue",
+            "image": "products/shirts/SHIRT-015/sky blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "White",
+            "image": "products/shirts/SHIRT-015/white.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 1559,
+        "rating_distribution_percent": {
+            "5_star": 46,
+            "4_star": 16,
+            "3_star": 14,
+            "2_star": 6,
+            "1_star": 18
+        },
+        "positive_rating_percent": 62,
+        "negative_rating_percent": 24,
+        "neutral_rating_percent": 14,
+        "rating_note": "The product has a slightly better rating profile than SHIRT-014, but still has a meaningful negative segment."
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Reviews show a split experience. Many buyers like the shirt's appearance, summer comfort, fit and value, while negative reviews repeatedly question fabric composition and stitching quality.",
+        "positive": [
+            "Good appearance",
+            "Comfortable for summer according to some buyers",
+            "Breathable according to positive reviews",
+            "Some buyers report good fitting",
+            "Some buyers report soft fabric",
+            "Suitable for office wear",
+            "Suitable for casual wear",
+            "Good value at the ₹399 price point",
+            "Multiple colors available",
+            "Classic fit is versatile"
+        ],
+        "negative": [
+            "3.6/5 overall rating",
+            "18% 1-star ratings",
+            "6% 2-star ratings",
+            "Poor stitching complaints",
+            "Some buyers say the material does not feel like cotton",
+            "Some buyers describe fabric quality as poor",
+            "Quality consistency is questionable",
+            "Some complaints about appearance after washing/wearing",
+            "The listing's material description is inconsistent"
+        ]
+    },
+    "review_insights": {
+        "fabric": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "positive": [
+                "Some customers describe the fabric as soft",
+                "Some customers describe it as breathable",
+                "Some customers like it for summer"
+            ],
+            "negative": [
+                "Verified customers say it is not cotton",
+                "One verified review says there is very little cotton",
+                "One verified customer describes fabric quality as poor"
+            ]
+        },
+        "fit": {
+            "sentiment": "mostly_positive_but_not_guaranteed",
+            "confidence": "medium",
+            "positive": [
+                "Some reviews describe fitting as nice",
+                "Some reviews describe the fit as perfect",
+                "A review explicitly says good fit for the price"
+            ],
+            "negative": [
+                "Individual sizing experiences can vary"
+            ]
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "notes": [
+                "Summer comfort is praised",
+                "Breathability is mentioned positively"
+            ]
+        },
+        "quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "positive": [
+                "Some customers call the shirt good quality",
+                "Some customers consider the quality good for the price"
+            ],
+            "negative": [
+                "Poor stitching complaints",
+                "Poor fabric quality complaints",
+                "Some customers believe the product is worth substantially less than the printed MRP"
+            ]
+        },
+        "stitching": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "notes": [
+                "Verified review reports poor stitching",
+                "Another verified review reports poor stitching after one month of use"
+            ]
+        },
+        "value": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "notes": [
+                "Several reviews frame the shirt as good or better for the price",
+                "₹399 is the strongest commercial argument"
+            ]
+        },
+        "color": {
+            "sentiment": "neutral",
+            "confidence": "low",
+            "notes": [
+                "Positive reviews mention attractive colors",
+                "The supplied variant set includes seven colors",
+                "There is insufficient evidence to make a strong color-accuracy claim"
+            ]
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "L",
+            "color": "Grey",
+            "sentiment": "positive",
+            "themes": [
+                "summer",
+                "color",
+                "fit"
+            ],
+            "summary": "Reviewer liked the fabric for summer, the color and the fitting."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "M",
+            "color": "Grey",
+            "sentiment": "negative",
+            "themes": [
+                "stitching",
+                "fabric",
+                "value"
+            ],
+            "summary": "Reviewer complained about poor stitching, very little cotton and low perceived quality."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Grey",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "comfort",
+                "fit",
+                "stitching",
+                "office",
+                "value"
+            ],
+            "summary": "Reviewer described the fabric as soft, breathable and comfortable, praised the fit and stitching, and recommended it for office and casual wear."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "S",
+            "color": "Olive Green",
+            "sentiment": "negative",
+            "themes": [
+                "stitching",
+                "durability"
+            ],
+            "summary": "Reviewer reported poor stitching after one month of use."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "2XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer gave a positive short-form review."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "XL",
+            "color": "Light Beige",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "cotton"
+            ],
+            "summary": "Reviewer described it as very good and said they had ordered multiple cotton shirts."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "S",
+            "color": "Grey",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer said the fit was good and quality was better for the price."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "XL",
+            "color": "Grey",
+            "sentiment": "negative",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer explicitly said the product was not a cotton product."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "size": "M",
+            "color": "Olive Green",
+            "sentiment": "mixed",
+            "themes": [
+                "material"
+            ],
+            "summary": "Reviewer liked the product overall but specifically complained that it was not cotton."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "L",
+            "color": "White",
+            "sentiment": "negative",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer gave a negative overall assessment."
+        }
+    ],
+    "pros": [
+        "Classic fit",
+        "Solid pattern",
+        "Long sleeves",
+        "Button-down collar",
+        "Standard length",
+        "Seven supplied color variants",
+        "S to 2XL sizing",
+        "Suitable for casual wear",
+        "Suitable for office wear",
+        "Suitable for smart-casual outfits",
+        "Some positive summer/breathability feedback",
+        "Good value at ₹399"
+    ],
+    "cons": [
+        "3.6/5 rating",
+        "18% 1-star ratings",
+        "6% 2-star ratings",
+        "Material composition is inconsistent in the listing",
+        "Multiple customers question cotton content",
+        "Poor stitching complaints",
+        "Some fabric-quality complaints",
+        "Do not position it as premium quality",
+        "Do not guarantee long-term durability"
+    ],
+    "occasion_tags": [
+        "casual",
+        "daily wear",
+        "office",
+        "business casual",
+        "smart casual",
+        "date night",
+        "shopping",
+        "party",
+        "outdoor",
+        "semi-formal"
+    ],
+    "style_tags": [
+        "solid shirt",
+        "plain shirt",
+        "classic fit shirt",
+        "button-down shirt",
+        "full sleeve shirt",
+        "casual shirt",
+        "office casual shirt",
+        "smart casual shirt",
+        "everyday shirt"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "solid shirt",
+            "plain shirt",
+            "classic fit shirt",
+            "button-down shirt",
+            "full sleeve shirt",
+            "office casual shirt",
+            "daily wear shirt",
+            "smart casual shirt",
+            "shirt under 500",
+            "budget shirt",
+            "affordable shirt",
+            "solid color shirt"
+        ],
+        "negative_keywords": [
+            "100% cotton shirt",
+            "pure cotton shirt",
+            "premium cotton shirt",
+            "luxury shirt",
+            "slim fit shirt",
+            "oversized shirt",
+            "linen shirt",
+            "printed shirt",
+            "checked shirt",
+            "heavyweight shirt"
+        ],
+        "strong_attributes": [
+            "classic fit",
+            "solid",
+            "long sleeve",
+            "button down",
+            "casual",
+            "office casual",
+            "budget",
+            "multiple colors"
+        ],
+        "warning_attributes": [
+            "cotton composition",
+            "stitching",
+            "fabric quality",
+            "durability"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_CAUTION",
+        "score": 6.8,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Everyday wear",
+            "Office-casual outfits",
+            "Shoppers who want a classic-fit shirt",
+            "Shoppers wanting multiple color options",
+            "Customers prioritizing price over premium construction"
+        ],
+        "not_ideal_for": [
+            "Customers specifically demanding verified 100% cotton",
+            "Customers prioritizing stitching quality",
+            "Customers expecting premium construction",
+            "Customers looking for highly durable shirts",
+            "Customers unwilling to accept variability in fabric quality"
+        ],
+        "size_advice": "Sizes S through 2XL are listed. Shopi should direct users to the size chart and avoid guaranteeing fit.",
+        "fabric_advice": "Because the source is inconsistent, Shopi should use 'cotton blend / cotton-listed' rather than confidently claiming 100% cotton.",
+        "quality_advice": "Describe quality as budget/value-oriented. Do not use 'premium' despite the product-description marketing language.",
+        "value_advice": "₹399 is the strongest selling point. The product is better positioned as an affordable everyday shirt than a premium wardrobe piece.",
+        "occasion_advice": "Best suited to casual, daily and office-casual use. It can support smart-casual styling.",
+        "durability_advice": "Do not make strong durability claims because stitching complaints appear in the verified reviews."
+    },
+    "care_instructions": {
+        "machine_washable": null,
+        "wash_temperature": null,
+        "drying": null,
+        "ironing": null,
+        "note": "The supplied source does not provide sufficiently reliable detailed care instructions. Do not invent them."
+    },
+    "brand_information": {
+        "brand": "Pinkmint",
+        "manufacturer": "Arangya",
+        "packer": "Arangya",
+        "importer": "Arangya",
+        "country_of_origin": "India",
+        "asin": "B0CW1W6NLB",
+        "item_model_number": "modal1",
+        "manufacturer_part_number": "MNB-ST07-XL",
+        "net_quantity": 1,
+        "item_weight_grams": 100,
+        "item_dimensions_cm": "10 x 9 x 3"
+    },
+    "data_quality": {
+        "rating_count": 1559,
+        "price_available": true,
+        "stock_status": null,
+        "supplied_color_image_set": 7,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Exact cotton/polyester percentage",
+            "Exact garment measurements by size",
+            "Variant-level inventory",
+            "Variant-level price history",
+            "Reliable detailed washing instructions"
+        ],
+        "source_inconsistencies": [
+            "Product title says Cotton Blend.",
+            "Material composition field says Cotton.",
+            "Several verified customers say the shirt does not appear to be cotton.",
+            "Some reviews praise the fabric while others strongly criticize it.",
+            "The listing markets the shirt as premium/soft fabric, but review evidence does not consistently support premium quality."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as an affordable classic-fit solid shirt for casual, daily and office-casual wear.",
+        "material_rule": "Do not claim 100% cotton. The source is inconsistent and verified reviews question the cotton content.",
+        "fit_rule": "Use Classic Fit because that is the structured product-detail value.",
+        "style_rule": "Emphasize solid colors, classic styling and versatility.",
+        "occasion_rule": "Prioritize casual, daily wear, office-casual and smart-casual queries.",
+        "value_rule": "₹399 is the strongest selling point.",
+        "quality_rule": "Never call this premium quality. Use 'good value for the price' only where appropriate.",
+        "stitching_rule": "If a user specifically asks about stitching or durability, disclose that reviews are mixed and some verified buyers reported poor stitching.",
+        "color_rule": "Only expose Black, Light Beige, Maroon, Olive Green, Pink, Sky Blue and White because these are the seven supplied SHIRT-015 images.",
+        "comparison_rule": "For a shopper prioritizing fabric certainty, premium quality or durability, rank this below products with clearer material specifications and stronger review consistency."
+    }
+}

@@ -18,21 +18,11 @@ const client = new Pool({
 });
 
 const connectDB = async () => {
-  const maxRetries = 10;
-  const retryDelayMs = 3000;
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      await client.query('SELECT 1');
-      console.log('Connected to the database');
-      return;
-    } catch (err: any) {
-      console.error(`DB connection attempt ${attempt}/${maxRetries} failed:`, err.message);
-      if (attempt === maxRetries) {
-        console.error('Could not connect to database after max retries. Exiting.');
-        process.exit(1);
-      }
-      await new Promise(res => setTimeout(res, retryDelayMs));
-    }
+  try {
+    await client.query('SELECT 1');
+    console.log('Connected to local PostgreSQL database');
+  } catch (err: any) {
+    console.log('[DB Info] Operating in Supabase cloud catalog mode.');
   }
 };
 

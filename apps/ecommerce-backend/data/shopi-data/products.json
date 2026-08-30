@@ -1,0 +1,125 @@
+[
+    {
+        "sku": "SHOPI-001",
+        "title": "",
+        "brand": "",
+        "department": "",
+        "category": "",
+        "subcategory": "",
+        "gender": "",
+        "short_description": "",
+        "description": "",
+        "pricing": {
+            "mrp": 0,
+            "selling_price": 0,
+            "discount_percentage": 0,
+            "currency": "INR"
+        },
+        "inventory": {
+            "stock_quantity": 0,
+            "is_available": true
+        },
+        "attributes": {
+            "material": "",
+            "fabric": "",
+            "fit": "",
+            "pattern": "",
+            "primary_color": "",
+            "secondary_color": "",
+            "sleeve_type": "",
+            "collar_type": "",
+            "occasion": "",
+            "season": "",
+            "style": "",
+            "comfort_level": 0,
+            "quality_level": 0,
+            "care_instructions": "",
+            "length_type": "",
+            "stretchable": null,
+            "shoe_type": "",
+            "sole_material": "",
+            "closure_type": "",
+            "buckle_type": "",
+            "width_cm": null,
+            "additional_attributes": {}
+        },
+        "variants": [
+            {
+                "color": "",
+                "size": "",
+                "variant_sku": "",
+                "stock_quantity": 0,
+                "is_available": true
+            }
+        ],
+        "images": [
+            {
+                "image_url": "",
+                "image_type": "primary",
+                "alt_text": "",
+                "is_primary": true,
+                "sort_order": 0
+            }
+        ],
+        "reviews": [
+            {
+                "rating": 5,
+                "review_title": "",
+                "review_text": "",
+                "reviewer_name": "",
+                "verified_purchase": true,
+                "review_date": "",
+                "helpful_count": 0,
+                "sentiment": "positive"
+            }
+        ],
+        "review_summary": {
+            "review_count": 0,
+            "average_rating": 0,
+            "positive_percentage": 0,
+            "neutral_percentage": 0,
+            "negative_percentage": 0,
+            "pros": [],
+            "cons": [],
+            "common_positive_topics": [],
+            "common_negative_topics": [],
+            "fit_summary": "",
+            "comfort_summary": "",
+            "quality_summary": "",
+            "recommendation_summary": ""
+        },
+        "sales_intelligence": {
+            "overall_score": 0,
+            "value_score": 0,
+            "quality_score": 0,
+            "comfort_score": 0,
+            "style_score": 0,
+            "popularity_score": 0,
+            "review_confidence": 0,
+            "best_for": [],
+            "not_ideal_for": [],
+            "strengths": [],
+            "weaknesses": [],
+            "buying_advice": ""
+        },
+        "relationships": [
+            {
+                "related_sku": "",
+                "relationship_type": "",
+                "similarity_score": 0,
+                "reason": "",
+                "priority": 0
+            }
+        ],
+        "tags": [
+            {
+                "tag": "",
+                "tag_type": ""
+            }
+        ],
+        "source": {
+            "source_name": "",
+            "source_url": ""
+        }
+    }
+]

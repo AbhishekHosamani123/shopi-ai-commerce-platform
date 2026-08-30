@@ -12,14 +12,15 @@ function classNames(...classes:string[]) {
 }
 interface Color {
     colorid:number;
-    name: string;
+    name?: string;
     colorname: string;
     colorclass: string;
+    imglink?: string | null;
 }
 
 interface Size {
     sizeid:number;
-    name: string;
+    name?: string;
     sizename:string;
     instock: boolean;
 }
@@ -31,11 +32,15 @@ interface ProductImage {
 
 // Interface for products
 interface Product {
-    productid: number;
+    productid: number | string;
     title: string;
     category: string;
     price: string;
     discount: string;
+    discountedprice?: string;
+    mrp?: number;
+    selling_price?: number;
+    discount_percentage?: number;
     stars: number;
     isnew: boolean;
     issale: boolean;
@@ -61,17 +66,44 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
   const [btnLoading, setbtnLoading] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product.colors.length===0 ? {colorid:0,name:'Default',colorname:'Default',colorclass:''} : product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes.length===0 ? {sizeid:0,name:'Default',sizename:'Default',instock:true} : product.sizes[0]);
+  const [activeImg, setActiveImg] = useState({
+    imglink: product.images?.imglink || '',
+    imgalt: product.images?.imgalt || product.title
+  });
   const { appState } = useApp();
   const dispatch = useAppDispatch();
   const defaultAccount = useAppSelector((state) => state.userState.defaultAccount)
   const listID = {cartItemID:IDGenerator()};
+
+  const handleColorChange = (color: Color) => {
+    setSelectedColor(color);
+    colRef.current = color.colorname;
+    if (color.imglink) {
+      setActiveImg({
+        imglink: color.imglink,
+        imgalt: `${product.title} - ${color.colorname}`
+      });
+    } else {
+      setActiveImg({
+        imglink: product.images?.imglink || '',
+        imgalt: product.images?.imgalt || product.title
+      });
+    }
+  };
+
+  const sellingPrice = product.selling_price || Number(product.discountedprice) || Number(product.discount) || Number(product.price) || 0;
+  const mrpPrice = product.mrp || Number(product.price) || sellingPrice;
+  const discountPct = (mrpPrice > sellingPrice && mrpPrice > 0)
+    ? Math.round(((mrpPrice - sellingPrice) / mrpPrice) * 100)
+    : (product.discount_percentage || 0);
+
   let cartItemData = {
     cartItemID:listID.cartItemID,
     productID:product.productid,
-    productImg:product.images.imglink,
-    productAlt:product.images.imgalt,
+    productImg:activeImg.imglink || product.images.imglink,
+    productAlt:activeImg.imgalt || product.images.imgalt,
     productName:product.title,
-    productPrice:parseInt(product.discount),
+    productPrice:sellingPrice,
     productColor:colRef.current,
     productSize:sizeRef.current,
     quantity: 1,
@@ -79,14 +111,37 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
   const isLogged = appState.loggedIn;
   async function addCart(){
     setbtnLoading(true);
-    isLogged && await cartAddHandler({cartItemID:listID.cartItemID,userID:defaultAccount.userID,productID:product.productid,productPrice:parseInt(product.discount),colorID:selectedColor.colorid,sizeID:selectedSize.sizeid,quantity:1})
+    isLogged && await cartAddHandler({cartItemID:listID.cartItemID,userID:defaultAccount.userID,productID:product.productid,productPrice:sellingPrice,colorID:selectedColor.colorid,sizeID:selectedSize.sizeid,quantity:1})
     dispatch(addItemToCart(cartItemData));
     setbtnLoading(false);
   }
   useEffect(() => {
-    setSelectedColor(product.colors[0]);
-    setSelectedSize(product.sizes[0]);
-  }, [open])
+    if (product.colors && product.colors.length > 0) {
+      const initialColor = product.colors[0];
+      setSelectedColor(initialColor);
+      colRef.current = initialColor.colorname;
+      if (initialColor.imglink) {
+        setActiveImg({
+          imglink: initialColor.imglink,
+          imgalt: `${product.title} - ${initialColor.colorname}`
+        });
+      } else {
+        setActiveImg({
+          imglink: product.images?.imglink || '',
+          imgalt: product.images?.imgalt || product.title
+        });
+      }
+    } else {
+      setActiveImg({
+        imglink: product.images?.imglink || '',
+        imgalt: product.images?.imgalt || product.title
+      });
+    }
+    if (product.sizes && product.sizes.length > 0) {
+      setSelectedSize(product.sizes[0]);
+      sizeRef.current = product.sizes[0].sizename;
+    }
+  }, [open, product]);
   
   return (
     <Transition show={open}>
@@ -124,8 +179,8 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
                   </button>
 
                   <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                    <div className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
-                      <img src={product.images.imglink} alt={product.images.imgalt} className="object-cover object-center" />
+                    <div className="w-full h-[320px] rounded-lg bg-slate-50 flex items-center justify-center p-4 sm:col-span-4 lg:col-span-5">
+                      <img src={activeImg.imglink || product.images.imglink} alt={activeImg.imgalt || product.images.imgalt} className="max-w-full max-h-full object-contain" />
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
                       <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.title}</h2>
@@ -135,7 +190,26 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
                           Product information
                         </h3>
 
-                        <p className="text-2xl text-gray-900">₹{product.discount}</p>
+                        <div className="flex items-baseline gap-3 mt-2 flex-wrap">
+                          <p className="text-2xl font-bold text-gray-900">
+                            ₹{sellingPrice}
+                          </p>
+                          {mrpPrice > sellingPrice && (
+                            <p className="text-lg line-through text-gray-400">
+                              ₹{mrpPrice}
+                            </p>
+                          )}
+                          {discountPct > 0 && (
+                            <span className="text-sm font-bold text-emerald-600">
+                              {discountPct}% OFF
+                            </span>
+                          )}
+                        </div>
+                        <div className="mt-2">
+                          <Link href={`/product/${product.productid}`} className="text-xs font-semibold text-[#0D94FB] hover:underline">
+                            View Full Product Details & Reviews →
+                          </Link>
+                        </div>
 
                         {/* Reviews */}
                         <div className="mt-6">
@@ -157,39 +231,74 @@ export default function Quickview({ product, open, setOpen }: ProductCardProps) 
 
                         <div>
                           {/* Colors */}
-                        {product.colors.length != 0 && <fieldset aria-label="Choose a color">
-                            <legend className="text-sm font-medium text-gray-900">Color</legend>
+                        {product.colors.length != 0 && (
+                          <fieldset aria-label="Choose a color">
+                            <div className="flex items-center justify-between mb-3">
+                              <legend className="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                                <span>Color:</span>
+                                <span className="font-bold text-[#0D94FB]">
+                                  {selectedColor?.colorname ? selectedColor.colorname.split(' ').map(w => w === '&' ? '&' : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') : ''}
+                                </span>
+                              </legend>
+                              <span className="text-xs text-slate-400 font-medium">
+                                {product.colors.length} {product.colors.length === 1 ? 'color' : 'colors'} available
+                              </span>
+                            </div>
 
                             <RadioGroup
                               value={selectedColor}
-                              onChange={setSelectedColor}
-                              className="mt-4 flex items-center space-x-3"
+                              onChange={handleColorChange}
+                              className="flex flex-wrap items-center gap-3"
                             >
-                              {product.colors.map((color,index) => (
-                                <Radio
-                                  key={index}
-                                  value={color}
-                                  aria-label={color.name}
-                                  className={({ focus, checked }) =>
-                                    classNames(
-                                      color.colorclass,
-                                      focus && checked ? 'ring ring-offset-1' : '',
-                                      !focus && checked ? 'ring-2' : '',
-                                      'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
-                                    )
-                                  }
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                    className={classNames(
-                                      color.colorclass,
-                                      'h-8 w-8 rounded-full border border-black border-opacity-10'
+                              {product.colors.map((color, index) => {
+                                const formattedName = color.colorname ? color.colorname.split(' ').map(w => w === '&' ? '&' : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ') : '';
+                                return (
+                                  <Radio
+                                    key={color.colorid || index}
+                                    value={color}
+                                    aria-label={`Color: ${formattedName}`}
+                                    title={formattedName}
+                                    className={({ focus, checked }) =>
+                                      classNames(
+                                        'group relative flex cursor-pointer items-center justify-center rounded-xl p-1 focus:outline-none transition-all duration-200 bg-slate-50 border',
+                                        checked
+                                          ? 'ring-2 ring-[#0D94FB] border-[#0D94FB] shadow-sm scale-105 bg-white'
+                                          : 'border-slate-200 hover:border-[#0D94FB]/50 hover:shadow-xs',
+                                        focus ? 'ring-2 ring-offset-1 ring-[#0D94FB]' : ''
+                                      )
+                                    }
+                                  >
+                                    {({ checked }) => (
+                                      <div className="w-12 h-12 rounded-lg flex items-center justify-center p-1 overflow-hidden relative">
+                                        {color.imglink ? (
+                                          <img
+                                            src={color.imglink}
+                                            alt={formattedName}
+                                            className="w-full h-full object-contain rounded-md transition-transform duration-200 group-hover:scale-105"
+                                            loading="lazy"
+                                          />
+                                        ) : (
+                                          <span
+                                            aria-hidden="true"
+                                            className={classNames(
+                                              color.colorclass || 'bg-slate-700',
+                                              'h-8 w-8 rounded-full border border-black/10 shadow-xs'
+                                            )}
+                                          />
+                                        )}
+                                        {checked && (
+                                          <span className="absolute top-0.5 right-0.5 bg-[#0D94FB] text-white rounded-full w-3 h-3 flex items-center justify-center text-[8px] font-bold shadow-xs">
+                                            ✓
+                                          </span>
+                                        )}
+                                      </div>
                                     )}
-                                  />
-                                </Radio>
-                              ))}
+                                  </Radio>
+                                );
+                              })}
                             </RadioGroup>
-                          </fieldset>}
+                          </fieldset>
+                        )}
 
                           {/* Sizes */}
                           {product.sizes.length != 0 &&<fieldset className="mt-10" aria-label="Choose a size">

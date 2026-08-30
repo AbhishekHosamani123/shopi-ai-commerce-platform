@@ -127,11 +127,20 @@ async function getImages(productID:string){
         return [];
     }
 }
+import ShopiCatalogService from '../data/shopiCatalogService';
+
 router.get('/product/:productID',productIDSchema,async (req:Request,res:Response)=>{
     const result = validationResult(req)
     if(result.isEmpty()){
         const {productID} = matchedData(req);
         try {
+            // First check Shopi Supabase Catalog
+            const shopiProduct = await ShopiCatalogService.getProduct(productID);
+            if (shopiProduct) {
+                return res.status(200).json({ data: shopiProduct });
+            }
+
+            // Fallback to legacy database if not found in Supabase
             const result = await client.query(`SELECT products.productid,products.title,products.description,products.stock,products.discount,products.price,productparams.stars,productimages.imglink,productimages.imgalt,sellers.company_name,categories.name AS categoryname,categories.maincategory
                 FROM products
                 INNER JOIN productparams ON products.productid = productparams.productid 

@@ -1,0 +1,351 @@
+{
+    "id": "FORMAL-SHOE-004",
+    "category": "Formal Shoes",
+    "subcategory": "Men's Formal Shoes",
+    "product": {
+        "name": "Bata Men's Lace-up Formal Shoes",
+        "brand": "Bata",
+        "gender": "Men",
+        "style": "Formal",
+        "shoe_type": "Formal Shoes",
+        "occasion": [
+            "Formal",
+            "Office",
+            "Business",
+            "College",
+            "Interviews"
+        ],
+        "color": [
+            "Black",
+            "Brown"
+        ],
+        "default_color": "Black",
+        "toe_style": "Round Toe",
+        "closure": "Lace-Up",
+        "heel_type": "Flat",
+        "pattern": "Solid",
+        "formality_level": "Formal",
+        "country_of_origin": "India",
+        "asin": "B0987P8D21",
+        "model_number": "8216226",
+        "generic_name": "Formal Shoes"
+    },
+    "pricing": {
+        "currency": "INR",
+        "selling_price": 780,
+        "mrp": 999,
+        "discount_percentage": 22,
+        "price_display": "₹780",
+        "tax_inclusive": true
+    },
+    "materials": {
+        "upper_material": "Synthetic",
+        "sole_material": "Rubber",
+        "insole_material": null
+    },
+    "comfort_and_features": {
+        "cushioning": "Moderate",
+        "cushioning_level": "Moderate",
+        "water_resistant": false,
+        "comfortable": null,
+        "durable": null,
+        "special_features": [
+            "Comfortable"
+        ],
+        "surface_recommendation": "Road",
+        "pronation_correction": "Neutral",
+        "specific_uses": [
+            "Formal",
+            "Office",
+            "Walking"
+        ]
+    },
+    "sizes": {
+        "size_system": "UK",
+        "available_uk_sizes": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ]
+    },
+    "dimensions": {
+        "weight_grams": 760,
+        "length_cm": 8,
+        "width_cm": 19.5,
+        "height_cm": 16
+    },
+    "ratings": {
+        "average_rating": 3.6,
+        "total_ratings": 8664,
+        "rating_distribution": {
+            "5_star_percentage": 43,
+            "4_star_percentage": 20,
+            "3_star_percentage": 12,
+            "2_star_percentage": 6,
+            "1_star_percentage": 19
+        }
+    },
+    "reviews": {
+        "total_reviews_in_dataset": 1428,
+        "reviewer_type": "Verified Purchase",
+        "overall_sentiment": "Mixed",
+        "positive_topics": [
+            "Appearance",
+            "Formal styling",
+            "Fit",
+            "Comfort",
+            "Value for money",
+            "Grip"
+        ],
+        "negative_topics": [
+            "Durability",
+            "Sole failure",
+            "Odour",
+            "Comfort",
+            "Finish"
+        ],
+        "review_insights": {
+            "appearance": "Several buyers describe the shoes as elegant, professional and suitable for formal occasions.",
+            "comfort": "Comfort feedback is mixed. Some buyers report comfortable long-hour use, while others report discomfort.",
+            "fit": "Some buyers report good fit, but comfort and fit are not consistently positive.",
+            "durability": "Mixed. Some buyers report good durability, while others report sole failure after four months or approximately one year.",
+            "odour": "At least one detailed review reports persistent unpleasant smell developing after use.",
+            "value_for_money": "Several buyers consider the shoes affordable and good value.",
+            "grip": "One positive review specifically mentions good sole grip while walking.",
+            "finish": "One buyer said the edges could be clearer and more precise."
+        }
+    },
+    "review_evidence": [
+        {
+            "rating": 5,
+            "title": "Best formal shoe",
+            "date": "2026-06-25",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Appearance",
+                "Comfort",
+                "Durability",
+                "Fit",
+                "Grip",
+                "Value for money"
+            ],
+            "summary": "Buyer described the shoe as elegant and professional, comfortable for long hours, durable, neatly stitched and good for office, college and formal occasions."
+        },
+        {
+            "rating": 4,
+            "title": "Durable and worth buying",
+            "date": "2026-08-12",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "Brown"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Formal use",
+                "Durability",
+                "Value"
+            ],
+            "summary": "Buyer considered the shoe good for formal wear, durable and worth buying."
+        },
+        {
+            "rating": 1,
+            "title": "Product quality",
+            "date": "2026-08-05",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Black"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Sole"
+            ],
+            "summary": "Buyer reported that both shoes had broken soles after four months of use."
+        },
+        {
+            "rating": 5,
+            "title": "Bata shoe",
+            "date": "2026-07-29",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Brown"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Fit",
+                "Value for money"
+            ],
+            "summary": "Buyer described the shoes as affordable and having a nice fit."
+        },
+        {
+            "rating": 3,
+            "title": "Average",
+            "date": "2026-08-08",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Black"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Durability"
+            ],
+            "summary": "Buyer said the shoe lasted approximately one year before the sole failed and considered the durability not bad."
+        },
+        {
+            "rating": 5,
+            "title": "Quality for price",
+            "date": "2026-07-27",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "Brown"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Quality",
+                "Value for money"
+            ],
+            "summary": "Buyer considered the product extremely good and better than expected."
+        },
+        {
+            "rating": 4,
+            "title": "Good for interview",
+            "date": "2026-08-03",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Formal use",
+                "Interviews"
+            ],
+            "summary": "Buyer considered the shoe good for interview use."
+        },
+        {
+            "rating": 1,
+            "title": "Do not buy",
+            "date": "2026-02-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "Black"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Odour",
+                "Comfort",
+                "Usability"
+            ],
+            "summary": "Buyer said the shoes look good and feel reasonably comfortable but developed a persistent unpleasant smell that remained despite cleaning, changing socks, changing insoles and airing them."
+        },
+        {
+            "rating": 3,
+            "title": "Average",
+            "date": "2026-08-03",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "Black"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Comfort",
+                "Appearance"
+            ],
+            "summary": "Buyer described the appearance as average and reported that the shoes were not comfortable."
+        },
+        {
+            "rating": 4,
+            "title": "Good in quality",
+            "date": "2026-07-03",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Quality",
+                "Finish"
+            ],
+            "summary": "Buyer considered the quality good but said the edges should be clearer and more precise."
+        }
+    ],
+    "inventory": {
+        "in_stock": true,
+        "maximum_order_quantity": 3
+    },
+    "delivery": {
+        "free_delivery": true,
+        "return_or_exchange": "10 days",
+        "pay_on_delivery": true
+    },
+    "manufacturer": {
+        "name": "M.D.Overseas",
+        "address": "176-B, Baluganj, Near To Paradise, Agra, Uttar Pradesh",
+        "packer": "M.D.Overseas"
+    },
+    "images": {
+        "primary": "black.jpg",
+        "variants": {
+            "black": "black.jpg",
+            "brown": "brown.jpg"
+        }
+    },
+    "source": {
+        "platform": "Amazon India",
+        "source_product_id": "B0987P8D21"
+    },
+    "ai_recommendation_profile": {
+        "best_for": [
+            "Budget formal wear",
+            "Office wear",
+            "Interviews",
+            "College",
+            "Occasional formal occasions"
+        ],
+        "strengths": [
+            "Formal appearance",
+            "Available in black and brown",
+            "Lace-up design",
+            "Moderate cushioning",
+            "Rubber sole",
+            "Good value according to several buyers"
+        ],
+        "weaknesses": [
+            "Only 3.6 star overall rating",
+            "19% of ratings are 1-star",
+            "Mixed durability",
+            "Multiple sole-failure reports",
+            "Mixed comfort feedback",
+            "Persistent odour reported by one detailed reviewer",
+            "Finish could be better"
+        ],
+        "recommendation_score": 6.6,
+        "recommendation_summary": "A budget-oriented formal shoe with good styling and value-for-money feedback, but the 3.6-star rating and 19% one-star distribution indicate meaningful quality concerns. Reviews specifically mention sole failures, discomfort and persistent odour, so it should not be positioned as a highly durable premium formal shoe.",
+        "confidence": "high"
+    },
+    "data_quality_notes": [
+        "Amazon lists the product as formal shoes, but some structured metadata incorrectly labels the style as Running Shoes and the shoe type as Athletic Shoe.",
+        "The product description identifies the material as synthetic and the sole as rubber.",
+        "Do not describe this product as genuine leather.",
+        "Durability should remain null because review evidence is contradictory.",
+        "Comfort should remain null because reviews are mixed.",
+        "The overall rating is substantially weaker than FORMAL-SHOE-003: 3.6 versus 4.0.",
+        "The 19% one-star rating share is an important negative signal and should influence Shopi's recommendation ranking."
+    ]
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { formatSignPercentage, getGrowthColorClass } from './v2/formatters';
 
 interface DailyBriefingBannerProps {
   onActionClick?: (actionId?: string) => void;
@@ -80,16 +81,16 @@ export const DailyBriefingBanner: React.FC<DailyBriefingBannerProps> = ({
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3">
             <span className="text-[11px] font-semibold text-slate-400">Revenue (Yesterday)</span>
             <div className="text-sm font-bold text-white mt-0.5">₹{briefing.yesterdayMetrics.revenue.toLocaleString('en-IN')}</div>
-            <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-400 mt-1">
-              ↑ +{briefing.periodComparison.revenueChangePct}% DoD
+            <div className={`flex items-center gap-1 text-[10px] font-bold mt-1 ${getGrowthColorClass(briefing.periodComparison.revenueChangePct)}`}>
+              {formatSignPercentage(briefing.periodComparison.revenueChangePct, { includeArrow: true })} DoD
             </div>
           </div>
 
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3">
             <span className="text-[11px] font-semibold text-slate-400">Total Orders</span>
             <div className="text-sm font-bold text-white mt-0.5">{briefing.yesterdayMetrics.orderCount}</div>
-            <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-400 mt-1">
-              ↑ +{briefing.periodComparison.ordersChangePct}%
+            <div className={`flex items-center gap-1 text-[10px] font-bold mt-1 ${getGrowthColorClass(briefing.periodComparison.ordersChangePct)}`}>
+              {formatSignPercentage(briefing.periodComparison.ordersChangePct, { includeArrow: true })}
             </div>
           </div>
 

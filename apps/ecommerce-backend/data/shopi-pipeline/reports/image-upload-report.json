@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-27T08:28:20.004Z",
+  "bucket_name": "shopi-product-images",
+  "total_found": 311,
+  "uploaded": 311,
+  "skipped_empty": 0,
+  "failed": 0,
+  "errors": [],
+  "sample_urls": [
+    {
+      "storagePath": "Bags/BAG-001/black.jpg",
+      "publicUrl": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/black.jpg"
+    },
+    {
+      "storagePath": "Bags/BAG-002/Batman Black.jpg",
+      "publicUrl": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/Batman%20Black.jpg"
+    },
+    {
+      "storagePath": "Bags/BAG-001/blue.jpg",
+      "publicUrl": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/blue.jpg"
+    },
+    {
+      "storagePath": "Bags/BAG-002/grey2.jpg",
+      "publicUrl": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/grey2.jpg"
+    },
+    {
+      "storagePath": "Bags/BAG-002/Navy.jpg",
+      "publicUrl": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/Navy.jpg"
+    }
+  ]
+}

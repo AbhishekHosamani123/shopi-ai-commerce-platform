@@ -1,0 +1,1127 @@
+{
+  "audit_generated_at": "2026-08-26T18:53:01.628Z",
+  "supabase_host": "https://ogppkxqvfzsusdawqbzx.supabase.co",
+  "overall_status": "NEEDS ENRICHMENT",
+  "summary": {
+    "canonical_products": 76,
+    "live_products": 77,
+    "seed_products": 1,
+    "products_ready": 57,
+    "products_good": 18,
+    "products_needing_enrichment": 1,
+    "critical_issues": 0,
+    "warnings": 11,
+    "orphan_records": 0,
+    "duplicate_records": 0
+  },
+  "sections": {
+    "product_coverage": {
+      "canonical_expected": 76,
+      "canonical_live": 76,
+      "seed_products_found": 1,
+      "total_live": 77,
+      "missing_canonical_skus": [],
+      "duplicate_skus": [],
+      "unexpected_skus": [],
+      "status": "PASS"
+    },
+    "field_violations": {
+      "CRITICAL": [],
+      "WARNING": [
+        {
+          "sku": "FORMAL-SHOE-006",
+          "field": "brand",
+          "issue": "Missing brand"
+        },
+        {
+          "sku": "FORMAL-SHOE-006",
+          "field": "subcategory",
+          "issue": "Missing subcategory"
+        },
+        {
+          "sku": "SPORTS-SHOE-004",
+          "field": "brand",
+          "issue": "Missing brand"
+        },
+        {
+          "sku": "SPORTS-SHOE-004",
+          "field": "subcategory",
+          "issue": "Missing subcategory"
+        }
+      ],
+      "OPTIONAL": [
+        {
+          "sku": "FORMAL-SHOE-005",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "FORMAL-SHOE-006",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "FORMAL-SHOE-001",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "FORMAL-SHOE-002",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "FORMAL-SHOE-003",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "FORMAL-SHOE-004",
+          "field": "description",
+          "issue": "Missing long description"
+        },
+        {
+          "sku": "SPORTS-SHOE-004",
+          "field": "description",
+          "issue": "Missing long description"
+        }
+      ]
+    },
+    "price_metrics": {
+      "min_selling_price": 270,
+      "max_selling_price": 1359,
+      "avg_selling_price": 655.13,
+      "discounted_products": 76,
+      "avg_discount_percent": 64.83,
+      "currency_uniformity": "100% INR",
+      "violations": [],
+      "status": "PASS"
+    },
+    "image_coverage": {
+      "total_canonical_images": 468,
+      "products_with_zero_images": [],
+      "products_with_one_image": 2,
+      "products_with_multiple_images": 74,
+      "coverage_percentage": "100%",
+      "status": "PASS"
+    },
+    "variant_coverage": {
+      "total_canonical_variants": 681,
+      "color_variants_count": 312,
+      "size_variants_count": 369,
+      "footwear_uk_sizes_verified": 99,
+      "footwear_invalid_conversions": 0,
+      "zero_variant_products": [
+        "FORMAL-SHOE-006",
+        "SPORTS-SHOE-004"
+      ],
+      "status": "PASS"
+    },
+    "attribute_coverage": {
+      "total_attribute_rows": 75,
+      "canonical_attribute_rows": 74,
+      "complex_material_preservation": [
+        {
+          "sku": "SHIRT-006",
+          "canonical_material": "Linen Cotton",
+          "additional_attributes_present": "YES",
+          "material_length": 12,
+          "status": "PASS"
+        },
+        {
+          "sku": "SHIRT-009",
+          "canonical_material": "80% Cotton, 20% Silk",
+          "additional_attributes_present": "YES",
+          "material_length": 20,
+          "status": "PASS"
+        },
+        {
+          "sku": "SHIRT-010",
+          "canonical_material": "100% Cotton",
+          "additional_attributes_present": "YES",
+          "material_length": 11,
+          "status": "PASS"
+        },
+        {
+          "sku": "SHIRT-012",
+          "canonical_material": "Popcorn",
+          "additional_attributes_present": "YES",
+          "material_length": 7,
+          "status": "PASS"
+        },
+        {
+          "sku": "SHIRT-013",
+          "canonical_material": "Satin",
+          "additional_attributes_present": "YES",
+          "material_length": 5,
+          "status": "PASS"
+        },
+        {
+          "sku": "SHIRT-014",
+          "canonical_material": "Cotton Blend",
+          "additional_attributes_present": "YES",
+          "material_length": 12,
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    "tag_quality": {
+      "total_canonical_tags": 2359,
+      "avg_tags_per_product": 31,
+      "empty_tags_count": 0,
+      "overly_long_tags_count": 0,
+      "low_tag_coverage_products": [
+        {
+          "sku": "FORMAL-SHOE-005",
+          "tag_count": 0
+        },
+        {
+          "sku": "FORMAL-SHOE-006",
+          "tag_count": 0
+        },
+        {
+          "sku": "FORMAL-SHOE-001",
+          "tag_count": 0
+        },
+        {
+          "sku": "SNEAKER-005",
+          "tag_count": 0
+        },
+        {
+          "sku": "SNEAKER-003",
+          "tag_count": 4
+        },
+        {
+          "sku": "T-SHIRT-003",
+          "tag_count": 4
+        },
+        {
+          "sku": "T-SHIRT-004",
+          "tag_count": 4
+        },
+        {
+          "sku": "T-SHIRT-005",
+          "tag_count": 4
+        },
+        {
+          "sku": "FORMAL-SHOE-002",
+          "tag_count": 0
+        },
+        {
+          "sku": "FORMAL-SHOE-003",
+          "tag_count": 0
+        },
+        {
+          "sku": "FORMAL-SHOE-004",
+          "tag_count": 0
+        },
+        {
+          "sku": "T-SHIRT-002",
+          "tag_count": 4
+        }
+      ],
+      "status": "PASS"
+    },
+    "review_quality": {
+      "total_reviews": 821,
+      "expected_reviews": 821,
+      "products_with_reviews": 61,
+      "products_without_reviews": 15,
+      "invalid_sentiments": 0,
+      "invalid_ratings": 0,
+      "empty_review_texts": 0,
+      "status": "PASS"
+    },
+    "review_summary_quality": {
+      "total_canonical_summaries": 76,
+      "expected_summaries": 76,
+      "missing_summaries": [],
+      "status": "PASS"
+    },
+    "score_quality": {
+      "total_canonical_scores": 76,
+      "expected_scores": 76,
+      "missing_scores": [],
+      "status": "PASS"
+    },
+    "relational_integrity": {
+      "orphan_records_breakdown": {
+        "attributes": 0,
+        "variants": 0,
+        "images": 0,
+        "tags": 0,
+        "reviews": 0,
+        "review_summary": 0,
+        "scores": 0
+      },
+      "total_orphan_records": 0,
+      "status": "PASS"
+    },
+    "ai_readiness": {
+      "ready_count": 57,
+      "good_count": 18,
+      "needs_enrichment_count": 1,
+      "incomplete_count": 0,
+      "products": [
+        {
+          "product_id": 51,
+          "sku": "JEANS-004",
+          "title": "Highlander Men's Straight Fit Jeans",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 52,
+          "sku": "JEANS-005",
+          "title": "London Hills Men's Ankle Length ...",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 63,
+          "sku": "SHIRT-006",
+          "title": "NexaFlair Men's Regular Fit Soli...",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 64,
+          "sku": "SHIRT-007",
+          "title": "Noble Monk Men's Polyester Regul...",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 65,
+          "sku": "SHIRT-008",
+          "title": "Zombom Men's Cotton Polyester Bl...",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 83,
+          "sku": "SNEAKER-011",
+          "title": "ASIAN MOSCOW-12 Casual Sneaker S...",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 84,
+          "sku": "SNEAKER-012",
+          "title": "Campus Men Pod Sneakers",
+          "readiness_score": 100,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": []
+        },
+        {
+          "product_id": 28,
+          "sku": "DRESS-001",
+          "title": "ANNI Designer Women's Viscose Bl...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 29,
+          "sku": "DRESS-002",
+          "title": "KLOSIA Women's Rayon Printed Ana...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 30,
+          "sku": "DRESS-003",
+          "title": "KLOSIA Women's Printed Straight ...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 31,
+          "sku": "DRESS-004",
+          "title": "Nermosa Women Printed Anarkali K...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 32,
+          "sku": "DRESS-005",
+          "title": "GoSriKi Women Cotton Printed A-L...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 33,
+          "sku": "DRESS-006",
+          "title": "PARTHVI Women's Pure Cotton Prin...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 35,
+          "sku": "DRESS-008",
+          "title": "Women's Pure Cotton Regular Fit ...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 36,
+          "sku": "DRESS-009",
+          "title": "Festival Special Vichitra Silk E...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 37,
+          "sku": "DRESS-010",
+          "title": "RENVAANI Women's Traditional Kan...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 44,
+          "sku": "JACKET-001",
+          "title": "TAGAS Men's Regular Jacket",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 48,
+          "sku": "JEANS-001",
+          "title": "KOTTY Mens Regular Fit Classic D...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 50,
+          "sku": "JEANS-003",
+          "title": "Highlander Men Bootcut Denim Jeans",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 53,
+          "sku": "JEANS-006",
+          "title": "WROGN Men's Anti Fit Jeans",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 54,
+          "sku": "JEANS-007",
+          "title": "TAGAS Men's Regular Fit Carrot T...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 55,
+          "sku": "JEANS-008",
+          "title": "KOTTY Men's Straight Fit Jeans",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 56,
+          "sku": "JEANS-009",
+          "title": "Ben Martin Men's Bell Bottom Jeans",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 57,
+          "sku": "JEANS-010",
+          "title": "Urbano Fashion Men's Slim Fit De...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 59,
+          "sku": "SHIRT-002",
+          "title": "CLOTHING VEDA Men's Kurta Style ...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 60,
+          "sku": "SHIRT-003",
+          "title": "DEELMO Men's Stylish Cotton Blen...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 61,
+          "sku": "SHIRT-004",
+          "title": "U TURN Men's Casual Printed Stri...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 62,
+          "sku": "SHIRT-005",
+          "title": "DEELMO Men's Regular Fit Button ...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 66,
+          "sku": "SHIRT-009",
+          "title": "CB-COLEBROOK Men's Regular Fit S...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 67,
+          "sku": "SHIRT-010",
+          "title": "Highlander Men's Slim Fit Casual...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 68,
+          "sku": "SHIRT-011",
+          "title": "Van Heusen Men's Solid Slim Fit ...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 69,
+          "sku": "SHIRT-012",
+          "title": "DEELMO Men's Casual Textured But...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 70,
+          "sku": "SHIRT-013",
+          "title": "IndoPrimo Men's Cotton Full Slee...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 71,
+          "sku": "SHIRT-014",
+          "title": "Pinkmint Men's Solid Shirt",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 78,
+          "sku": "SNEAKER-006",
+          "title": "ASIAN Nexus-11 Men's Printed Sne...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 79,
+          "sku": "SNEAKER-007",
+          "title": "Campus Men OG-27 Sneakers",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 80,
+          "sku": "SNEAKER-008",
+          "title": "SPARX Mens SM 323",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 81,
+          "sku": "SNEAKER-009",
+          "title": "Campus Men OG-34 Sneakers",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 82,
+          "sku": "SNEAKER-010",
+          "title": "Campus Men Fence Sneakers",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 97,
+          "sku": "T-SHIRT-007",
+          "title": "Enitor Mens Stylish Half Zip Tsh...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 98,
+          "sku": "T-SHIRT-008",
+          "title": "Peter England Men's Cotton Abstr...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 58,
+          "sku": "SHIRT-001",
+          "title": "Leriya Fashion Textured Half Sle...",
+          "readiness_score": 95,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)"
+          ]
+        },
+        {
+          "product_id": 76,
+          "sku": "SNEAKER-004",
+          "title": "Boldfit Sneakers for Men DripBloc",
+          "readiness_score": 92,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "low tag count (5)"
+          ]
+        },
+        {
+          "product_id": 93,
+          "sku": "T-SHIRT-003",
+          "title": "Lymio Polo T Shirt for Men || T ...",
+          "readiness_score": 92,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "low tag count (4)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 94,
+          "sku": "T-SHIRT-004",
+          "title": "Lymio Polo T Shirt for Men || T ...",
+          "readiness_score": 92,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "low tag count (4)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 92,
+          "sku": "T-SHIRT-002",
+          "title": "AUSK Men's Zip Collar Polo Tshir...",
+          "readiness_score": 92,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "low tag count (4)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 27,
+          "sku": "BAG-005",
+          "title": "Aristocrat Lava 17 Inch Compatib...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)"
+          ]
+        },
+        {
+          "product_id": 34,
+          "sku": "DRESS-007",
+          "title": "Nermosa Women Embroidery Solid A...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)"
+          ]
+        },
+        {
+          "product_id": 45,
+          "sku": "JACKET-002",
+          "title": "Men's Casual White Jacket with R...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 46,
+          "sku": "JACKET-003",
+          "title": "Lymio Men's Lightweight Outwear ...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 47,
+          "sku": "JACKET-004",
+          "title": "TAGAS Men's Regular Fit Zip-Up C...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 49,
+          "sku": "JEANS-002",
+          "title": "URBAN POCKETS Men's Jeans for Me...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 72,
+          "sku": "SHIRT-015",
+          "title": "Pinkmint Men's Cotton Blend Regu...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)"
+          ]
+        },
+        {
+          "product_id": 73,
+          "sku": "SNEAKER-001",
+          "title": "SPARX Men SM-734 Casual Shoes",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)"
+          ]
+        },
+        {
+          "product_id": 23,
+          "sku": "BAG-001",
+          "title": "Aristocrat Nova 15L Laptop Backpack",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)"
+          ]
+        },
+        {
+          "product_id": 91,
+          "sku": "T-SHIRT-001",
+          "title": "London Hills Men's Loose Fit Hal...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 39,
+          "sku": "FORMAL-SHOE-002",
+          "title": "Centrino Formal Shoe for Men | L...",
+          "readiness_score": 90,
+          "tier": "READY",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": []
+        },
+        {
+          "product_id": 74,
+          "sku": "SNEAKER-002",
+          "title": "ASIAN Men THUNDER-07 Stylish Cas...",
+          "readiness_score": 87,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "low tag count (5)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 75,
+          "sku": "SNEAKER-003",
+          "title": "ASIAN Men's Vegas-01 Sneakers",
+          "readiness_score": 87,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (10/20)",
+            "low tag count (4)"
+          ]
+        },
+        {
+          "product_id": 95,
+          "sku": "T-SHIRT-005",
+          "title": "AUSK Men Printed Polo Neck Cotto...",
+          "readiness_score": 87,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "low tag count (4)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 96,
+          "sku": "T-SHIRT-006",
+          "title": "Lymio Polo T Shirt for Men || T ...",
+          "readiness_score": 87,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (15/20)",
+            "low tag count (5)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 38,
+          "sku": "FORMAL-SHOE-001",
+          "title": "Bata Men's Lace-up Formal Shoes",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": [
+            "only 1 image"
+          ]
+        },
+        {
+          "product_id": 77,
+          "sku": "SNEAKER-005",
+          "title": "Campus Men's Vulture Sneakers",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": [
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 90,
+          "sku": "SPORTS-SHOE-007",
+          "title": "SPARX Men's SM-648 Sports Shoes",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 24,
+          "sku": "BAG-002",
+          "title": "FUR JADEN Anti Theft Number Lock...",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 25,
+          "sku": "BAG-003",
+          "title": "Wesley Zeus USB Charging Travel ...",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 26,
+          "sku": "BAG-004",
+          "title": "American Tourister Valex 28L Bac...",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 86,
+          "sku": "SPORTS-SHOE-002",
+          "title": "BRUTON EVA Lite Sport Shoes Runn...",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 41,
+          "sku": "FORMAL-SHOE-004",
+          "title": "Bata Men's Lace-up Formal Shoes",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": [
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 89,
+          "sku": "SPORTS-SHOE-006",
+          "title": "Campus Men's Force Running Shoes",
+          "readiness_score": 85,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (5/20)"
+          ]
+        },
+        {
+          "product_id": 42,
+          "sku": "FORMAL-SHOE-005",
+          "title": "Centrino Men's 9564 Glossy Forma...",
+          "readiness_score": 80,
+          "tier": "GOOD",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": [
+            "partial attributes (15/20)",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 85,
+          "sku": "SPORTS-SHOE-001",
+          "title": "ASIAN Wonder-13 Men's Running Shoe",
+          "readiness_score": 80,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (0/20)"
+          ]
+        },
+        {
+          "product_id": 40,
+          "sku": "FORMAL-SHOE-003",
+          "title": "Bata Men Lace Up Formal Shoes",
+          "readiness_score": 80,
+          "tier": "GOOD",
+          "missing_fields": [
+            "tags"
+          ],
+          "warnings": [
+            "only 1 image",
+            "no customer reviews"
+          ]
+        },
+        {
+          "product_id": 87,
+          "sku": "SPORTS-SHOE-003",
+          "title": "JQR Men Signature Sneakers",
+          "readiness_score": 80,
+          "tier": "GOOD",
+          "missing_fields": [],
+          "warnings": [
+            "partial attributes (0/20)"
+          ]
+        },
+        {
+          "product_id": 88,
+          "sku": "SPORTS-SHOE-004",
+          "title": "SPORTS-SHOE-004",
+          "readiness_score": 75,
+          "tier": "GOOD",
+          "missing_fields": [
+            "attributes"
+          ],
+          "warnings": [
+            "no subcategory",
+            "no variants"
+          ]
+        },
+        {
+          "product_id": 43,
+          "sku": "FORMAL-SHOE-006",
+          "title": "FORMAL-SHOE-006",
+          "readiness_score": 65,
+          "tier": "NEEDS_ENRICHMENT",
+          "missing_fields": [
+            "attributes",
+            "tags"
+          ],
+          "warnings": [
+            "no subcategory",
+            "no variants"
+          ]
+        }
+      ]
+    }
+  }
+}

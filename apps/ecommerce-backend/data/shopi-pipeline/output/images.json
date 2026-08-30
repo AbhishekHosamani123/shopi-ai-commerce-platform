@@ -1,0 +1,2774 @@
+[
+  {
+    "product_id": "BAG-001",
+    "image_path": "products/Bags/BAG-001/Blue & Black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/Blue%20&%20Black.jpg",
+    "alt_text": "Aristocrat Nova 15L Laptop Backpack - Blue & Black",
+    "color": "Blue & Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "BAG-001",
+    "image_path": "products/Bags/BAG-001/Grey & Black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/Grey%20&%20Black.jpg",
+    "alt_text": "Aristocrat Nova 15L Laptop Backpack - Grey & Black",
+    "color": "Grey & Black",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "BAG-001",
+    "image_path": "products/Bags/BAG-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/black.jpg",
+    "alt_text": "Aristocrat Nova 15L Laptop Backpack - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "BAG-001",
+    "image_path": "products/Bags/BAG-001/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-001/blue.jpg",
+    "alt_text": "Aristocrat Nova 15L Laptop Backpack - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "BAG-002",
+    "image_path": "products/Bags/BAG-002/Batman Black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/Batman%20Black.jpg",
+    "alt_text": "FUR JADEN Anti Theft Number Lock Backpack - Batman Black",
+    "color": "Batman Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "BAG-002",
+    "image_path": "products/Bags/BAG-002/Grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/Grey.jpg",
+    "alt_text": "FUR JADEN Anti Theft Number Lock Backpack - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "BAG-002",
+    "image_path": "products/Bags/BAG-002/Navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/Navy.jpg",
+    "alt_text": "FUR JADEN Anti Theft Number Lock Backpack - Navy",
+    "color": "Navy",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "BAG-002",
+    "image_path": "products/Bags/BAG-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/black.jpg",
+    "alt_text": "FUR JADEN Anti Theft Number Lock Backpack - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "BAG-002",
+    "image_path": "products/Bags/BAG-002/grey2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-002/grey2.jpg",
+    "alt_text": "FUR JADEN Anti Theft Number Lock Backpack - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "BAG-003",
+    "image_path": "products/Bags/BAG-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-003/black.jpg",
+    "alt_text": "Wesley Zeus USB Charging Travel Laptop Backpack - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "BAG-003",
+    "image_path": "products/Bags/BAG-003/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-003/blue.jpg",
+    "alt_text": "Wesley Zeus USB Charging Travel Laptop Backpack - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "BAG-004",
+    "image_path": "products/Bags/BAG-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-004/black.jpg",
+    "alt_text": "American Tourister Valex 28L Backpack - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "BAG-004",
+    "image_path": "products/Bags/BAG-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-004/blue.jpg",
+    "alt_text": "American Tourister Valex 28L Backpack - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "BAG-004",
+    "image_path": "products/Bags/BAG-004/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-004/navy.jpg",
+    "alt_text": "American Tourister Valex 28L Backpack - Navy",
+    "color": "Navy",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "BAG-005",
+    "image_path": "products/Bags/BAG-005/Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-005/Blue.jpg",
+    "alt_text": "Aristocrat Lava 17 Inch Compatible Laptop Backpack 25L - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "BAG-005",
+    "image_path": "products/Bags/BAG-005/black & brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Bags/BAG-005/black%20&%20brown.jpg",
+    "alt_text": "Aristocrat Lava 17 Inch Compatible Laptop Backpack 25L - Black & Brown",
+    "color": "Black & Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-001",
+    "image_path": "products/Dresses/DRESS-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/black.jpg",
+    "alt_text": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-001",
+    "image_path": "products/Dresses/DRESS-001/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/blue.jpg",
+    "alt_text": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-001",
+    "image_path": "products/Dresses/DRESS-001/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/maroon.jpg",
+    "alt_text": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-001",
+    "image_path": "products/Dresses/DRESS-001/mehandi.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/mehandi.jpg",
+    "alt_text": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo - Mehandi",
+    "color": "Mehandi",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-001",
+    "image_path": "products/Dresses/DRESS-001/rust.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-001/rust.jpg",
+    "alt_text": "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo - Rust",
+    "color": "Rust",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "DRESS-002",
+    "image_path": "products/Dresses/DRESS-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/black.jpg",
+    "alt_text": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-002",
+    "image_path": "products/Dresses/DRESS-002/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/maroon.jpg",
+    "alt_text": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-002",
+    "image_path": "products/Dresses/DRESS-002/teal blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-002/teal%20blue.jpg",
+    "alt_text": "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set - Teal Blue",
+    "color": "Teal Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/black.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/blue.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/green.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/grey.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/maroon.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/morepeach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/morepeach.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Morepeach",
+    "color": "Morepeach",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "DRESS-003",
+    "image_path": "products/Dresses/DRESS-003/orange.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-003/orange.jpg",
+    "alt_text": "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set - Orange",
+    "color": "Orange",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "DRESS-004",
+    "image_path": "products/Dresses/DRESS-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/black.jpg",
+    "alt_text": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-004",
+    "image_path": "products/Dresses/DRESS-004/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/green.jpg",
+    "alt_text": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-004",
+    "image_path": "products/Dresses/DRESS-004/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/maroon.jpg",
+    "alt_text": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-004",
+    "image_path": "products/Dresses/DRESS-004/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-004/yellow.jpg",
+    "alt_text": "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-005",
+    "image_path": "products/Dresses/DRESS-005/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-005/blue.jpg",
+    "alt_text": "GoSriKi Women Cotton Printed A-Line Ethnic Co-Ord Set | Kurta Pant Set - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-005",
+    "image_path": "products/Dresses/DRESS-005/wine.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-005/wine.jpg",
+    "alt_text": "GoSriKi Women Cotton Printed A-Line Ethnic Co-Ord Set | Kurta Pant Set - Wine",
+    "color": "Wine",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/blue.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/green.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/purple.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/purple.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Purple",
+    "color": "Purple",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/red.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/red.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Red",
+    "color": "Red",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/teal blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/teal%20blue.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Teal Blue",
+    "color": "Teal Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "DRESS-006",
+    "image_path": "products/Dresses/DRESS-006/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-006/yellow.jpg",
+    "alt_text": "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "DRESS-007",
+    "image_path": "products/Dresses/DRESS-007/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/green.jpg",
+    "alt_text": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta - Green",
+    "color": "Green",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-007",
+    "image_path": "products/Dresses/DRESS-007/morepeach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/morepeach.jpg",
+    "alt_text": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta - Morepeach",
+    "color": "Morepeach",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-007",
+    "image_path": "products/Dresses/DRESS-007/purple.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/purple.jpg",
+    "alt_text": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta - Purple",
+    "color": "Purple",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-007",
+    "image_path": "products/Dresses/DRESS-007/rust.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-007/rust.jpg",
+    "alt_text": "Nermosa Women Embroidery Solid A-Line Kurta and Pant Set with Dupatta - Rust",
+    "color": "Rust",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/dark green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/dark%20green.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Dark Green",
+    "color": "Dark Green",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/green.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/peach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/peach.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Peach",
+    "color": "Peach",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/rani pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/rani%20pink.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Rani Pink",
+    "color": "Rani Pink",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/red.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/red.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Red",
+    "color": "Red",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "DRESS-008",
+    "image_path": "products/Dresses/DRESS-008/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-008/yellow.jpg",
+    "alt_text": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "DRESS-009",
+    "image_path": "products/Dresses/DRESS-009/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-009/green.jpg",
+    "alt_text": "Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli - Green",
+    "color": "Green",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-009",
+    "image_path": "products/Dresses/DRESS-009/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-009/white.jpg",
+    "alt_text": "Festival Special Vichitra Silk Embroidered Semi-Stitched Lehenga Choli - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-010",
+    "image_path": "products/Dresses/DRESS-010/Elephant Pink NB.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/Elephant%20Pink%20NB.jpg",
+    "alt_text": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta - Elephant Pink NB",
+    "color": "Elephant Pink NB",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "DRESS-010",
+    "image_path": "products/Dresses/DRESS-010/Firozi Nblue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/Firozi%20Nblue.jpg",
+    "alt_text": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta - Firozi Nblue",
+    "color": "Firozi Nblue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "DRESS-010",
+    "image_path": "products/Dresses/DRESS-010/gold rani.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/gold%20rani.jpg",
+    "alt_text": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta - Gold Rani",
+    "color": "Gold Rani",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "DRESS-010",
+    "image_path": "products/Dresses/DRESS-010/ow maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Dresses/DRESS-010/ow%20maroon.jpg",
+    "alt_text": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta - Ow Maroon",
+    "color": "Ow Maroon",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "FORMAL-SHOE-001",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-001/black Formal.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-001/black%20Formal.jpg",
+    "alt_text": "Bata Men's Lace-up Formal Shoes - Black Formal",
+    "color": "Black Formal",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/black.jpg",
+    "alt_text": "Centrino Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/brown.jpg",
+    "alt_text": "Centrino Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "FORMAL-SHOE-002",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-002/tan.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-002/tan.jpg",
+    "alt_text": "Centrino Formal Shoe for Men | Lace-Up Derby for Business & Casual Wear - Tan",
+    "color": "Tan",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "FORMAL-SHOE-003",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-003/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-003/brown.jpg",
+    "alt_text": "Bata Men Lace Up Formal Shoes - Brown",
+    "color": "Brown",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-004/black.jpg",
+    "alt_text": "Bata Men's Lace-up Formal Shoes - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-004",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-004/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-004/brown.jpg",
+    "alt_text": "Bata Men's Lace-up Formal Shoes - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-005/black.jpg",
+    "alt_text": "Centrino Men's 9564 Glossy Formal Shoes - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-005",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-005/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-005/brown.jpg",
+    "alt_text": "Centrino Men's 9564 Glossy Formal Shoes - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "FORMAL-SHOE-006",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-006/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-006/black.jpg",
+    "alt_text": "FORMAL-SHOE-006 - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "FORMAL-SHOE-006",
+    "image_path": "products/Formal-Shoes/FORMAL-SHOE-006/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Formal-Shoes/FORMAL-SHOE-006/brown.jpg",
+    "alt_text": "FORMAL-SHOE-006 - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JACKET-001",
+    "image_path": "products/Jackets/JACKET-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/black.jpg",
+    "alt_text": "TAGAS Men's Regular Jacket - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JACKET-001",
+    "image_path": "products/Jackets/JACKET-001/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/grey.jpg",
+    "alt_text": "TAGAS Men's Regular Jacket - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JACKET-001",
+    "image_path": "products/Jackets/JACKET-001/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-001/navy.jpg",
+    "alt_text": "TAGAS Men's Regular Jacket - Navy",
+    "color": "Navy",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JACKET-002",
+    "image_path": "products/Jackets/JACKET-002/white with red stripe.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-002/white%20with%20red%20stripe.jpg",
+    "alt_text": "Men's Casual White Jacket with Red Stripe Detail - White With Red Stripe",
+    "color": "White With Red Stripe",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JACKET-003",
+    "image_path": "products/Jackets/JACKET-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-003/black.jpg",
+    "alt_text": "Lymio Men's Lightweight Outwear Sportswear Bomber Jacket - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JACKET-003",
+    "image_path": "products/Jackets/JACKET-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-003/grey.jpg",
+    "alt_text": "Lymio Men's Lightweight Outwear Sportswear Bomber Jacket - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JACKET-004",
+    "image_path": "products/Jackets/JACKET-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/black.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Zip-Up Casual Bomber Jacket - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JACKET-004",
+    "image_path": "products/Jackets/JACKET-004/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/grey.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Zip-Up Casual Bomber Jacket - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JACKET-004",
+    "image_path": "products/Jackets/JACKET-004/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jackets/JACKET-004/navy.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Zip-Up Casual Bomber Jacket - Navy",
+    "color": "Navy",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-001",
+    "image_path": "products/Jeans/JEANS-001/carbon black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/carbon%20black.jpg",
+    "alt_text": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans - Carbon Black",
+    "color": "Carbon Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-001",
+    "image_path": "products/Jeans/JEANS-001/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/dark%20blue.jpg",
+    "alt_text": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-001",
+    "image_path": "products/Jeans/JEANS-001/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/light%20blue.jpg",
+    "alt_text": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-001",
+    "image_path": "products/Jeans/JEANS-001/light grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-001/light%20grey.jpg",
+    "alt_text": "KOTTY Mens Regular Fit Classic Design Stretchable Jeans - Light Grey",
+    "color": "Light Grey",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "JEANS-002",
+    "image_path": "products/Jeans/JEANS-002/Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-002/Blue.jpg",
+    "alt_text": "URBAN POCKETS Men's Jeans for Men | Denim Pants with Classic Straight Cut - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-002",
+    "image_path": "products/Jeans/JEANS-002/Dark Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-002/Dark%20Blue.jpg",
+    "alt_text": "URBAN POCKETS Men's Jeans for Men | Denim Pants with Classic Straight Cut - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-003",
+    "image_path": "products/Jeans/JEANS-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-003/black.jpg",
+    "alt_text": "Highlander Men Bootcut Denim Jeans - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-003",
+    "image_path": "products/Jeans/JEANS-003/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-003/light%20blue.jpg",
+    "alt_text": "Highlander Men Bootcut Denim Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-004",
+    "image_path": "products/Jeans/JEANS-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/blue.jpg",
+    "alt_text": "Highlander Men's Straight Fit Jeans - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-004",
+    "image_path": "products/Jeans/JEANS-004/faint blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/faint%20blue.jpg",
+    "alt_text": "Highlander Men's Straight Fit Jeans - Faint Blue",
+    "color": "Faint Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-004",
+    "image_path": "products/Jeans/JEANS-004/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/grey.jpg",
+    "alt_text": "Highlander Men's Straight Fit Jeans - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-004",
+    "image_path": "products/Jeans/JEANS-004/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/light%20blue.jpg",
+    "alt_text": "Highlander Men's Straight Fit Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "JEANS-004",
+    "image_path": "products/Jeans/JEANS-004/navy fade.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-004/navy%20fade.jpg",
+    "alt_text": "Highlander Men's Straight Fit Jeans - Navy Fade",
+    "color": "Navy Fade",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "JEANS-005",
+    "image_path": "products/Jeans/JEANS-005/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-005/dark%20blue.jpg",
+    "alt_text": "London Hills Men's Ankle Length Denim Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-005",
+    "image_path": "products/Jeans/JEANS-005/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-005/light%20blue.jpg",
+    "alt_text": "London Hills Men's Ankle Length Denim Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-006",
+    "image_path": "products/Jeans/JEANS-006/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/black.jpg",
+    "alt_text": "WROGN Men's Anti Fit Jeans - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-006",
+    "image_path": "products/Jeans/JEANS-006/dark blue-2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/dark%20blue-2.jpg",
+    "alt_text": "WROGN Men's Anti Fit Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-006",
+    "image_path": "products/Jeans/JEANS-006/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/dark%20blue.jpg",
+    "alt_text": "WROGN Men's Anti Fit Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-006",
+    "image_path": "products/Jeans/JEANS-006/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-006/white.jpg",
+    "alt_text": "WROGN Men's Anti Fit Jeans - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/black.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/blue.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/cream.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/cream.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Cream",
+    "color": "Cream",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/dark%20blue.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/green.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "JEANS-007",
+    "image_path": "products/Jeans/JEANS-007/meium blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-007/meium%20blue.jpg",
+    "alt_text": "TAGAS Men's Regular Fit Carrot Tapered Jeans - Meium Blue",
+    "color": "Meium Blue",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "JEANS-008",
+    "image_path": "products/Jeans/JEANS-008/Jet Gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Jet%20Gray.jpg",
+    "alt_text": "KOTTY Men's Straight Fit Jeans - Jet Gray",
+    "color": "Jet Gray",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-008",
+    "image_path": "products/Jeans/JEANS-008/Lighter Grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Lighter%20Grey.jpg",
+    "alt_text": "KOTTY Men's Straight Fit Jeans - Lighter Grey",
+    "color": "Lighter Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-008",
+    "image_path": "products/Jeans/JEANS-008/Scorpion Grass Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-008/Scorpion%20Grass%20Blue.jpg",
+    "alt_text": "KOTTY Men's Straight Fit Jeans - Scorpion Grass Blue",
+    "color": "Scorpion Grass Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-009",
+    "image_path": "products/Jeans/JEANS-009/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/black.jpg",
+    "alt_text": "Ben Martin Men's Bell Bottom Jeans - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-009",
+    "image_path": "products/Jeans/JEANS-009/dark blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/dark%20blue.jpg",
+    "alt_text": "Ben Martin Men's Bell Bottom Jeans - Dark Blue",
+    "color": "Dark Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-009",
+    "image_path": "products/Jeans/JEANS-009/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/green.jpg",
+    "alt_text": "Ben Martin Men's Bell Bottom Jeans - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-009",
+    "image_path": "products/Jeans/JEANS-009/khaki.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/khaki.jpg",
+    "alt_text": "Ben Martin Men's Bell Bottom Jeans - Khaki",
+    "color": "Khaki",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "JEANS-009",
+    "image_path": "products/Jeans/JEANS-009/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-009/light%20blue.jpg",
+    "alt_text": "Ben Martin Men's Bell Bottom Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "JEANS-010",
+    "image_path": "products/Jeans/JEANS-010/dark black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/dark%20black.jpg",
+    "alt_text": "Urbano Fashion Men's Slim Fit Denim Jeans - Dark Black",
+    "color": "Dark Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "JEANS-010",
+    "image_path": "products/Jeans/JEANS-010/ice blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/ice%20blue.jpg",
+    "alt_text": "Urbano Fashion Men's Slim Fit Denim Jeans - Ice Blue",
+    "color": "Ice Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "JEANS-010",
+    "image_path": "products/Jeans/JEANS-010/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/light%20blue.jpg",
+    "alt_text": "Urbano Fashion Men's Slim Fit Denim Jeans - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "JEANS-010",
+    "image_path": "products/Jeans/JEANS-010/light gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Jeans/JEANS-010/light%20gray.jpg",
+    "alt_text": "Urbano Fashion Men's Slim Fit Denim Jeans - Light Gray",
+    "color": "Light Gray",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-001",
+    "image_path": "products/Shirts/SHIRT-001/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/black.jpg",
+    "alt_text": "Leriya Fashion Textured Half Sleeve Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-001",
+    "image_path": "products/Shirts/SHIRT-001/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/brown.jpg",
+    "alt_text": "Leriya Fashion Textured Half Sleeve Shirt - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-001",
+    "image_path": "products/Shirts/SHIRT-001/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-001/white.jpg",
+    "alt_text": "Leriya Fashion Textured Half Sleeve Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/Maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/Maroon.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/Navy Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/Navy%20Blue.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/black.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/green.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/pink.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/pista.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/pista.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Pista",
+    "color": "Pista",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/sky%20blue.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Sky Blue",
+    "color": "Sky Blue",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/white.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 8
+  },
+  {
+    "product_id": "SHIRT-002",
+    "image_path": "products/Shirts/SHIRT-002/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-002/yellow.jpg",
+    "alt_text": "CLOTHING VEDA Men's Kurta Style Cotton Shirt - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 9
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/DARK ORANGE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/DARK%20ORANGE.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - DARK ORANGE",
+    "color": "DARK ORANGE",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/INAVY BLUE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/INAVY%20BLUE.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - INAVY BLUE",
+    "color": "INAVY BLUE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/black.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/coffy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/coffy.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - Coffy",
+    "color": "Coffy",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/grey.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/white.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-003",
+    "image_path": "products/Shirts/SHIRT-003/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-003/yellow.jpg",
+    "alt_text": "DEELMO Men's Stylish Cotton Blend Casual Shirt - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SHIRT-004",
+    "image_path": "products/Shirts/SHIRT-004/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-004/grey.jpg",
+    "alt_text": "U TURN Men's Casual Printed Striped Shirt - Grey",
+    "color": "Grey",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-004",
+    "image_path": "products/Shirts/SHIRT-004/lgreen.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-004/lgreen.jpg",
+    "alt_text": "U TURN Men's Casual Printed Striped Shirt - Lgreen",
+    "color": "Lgreen",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-004",
+    "image_path": "products/Shirts/SHIRT-004/lightblue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-004/lightblue.jpg",
+    "alt_text": "U TURN Men's Casual Printed Striped Shirt - Lightblue",
+    "color": "Lightblue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-004",
+    "image_path": "products/Shirts/SHIRT-004/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-004/pink.jpg",
+    "alt_text": "U TURN Men's Casual Printed Striped Shirt - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-004",
+    "image_path": "products/Shirts/SHIRT-004/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-004/white.jpg",
+    "alt_text": "U TURN Men's Casual Printed Striped Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/black.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/chiku.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/chiku.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Chiku",
+    "color": "Chiku",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/dark green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/dark%20green.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Dark Green",
+    "color": "Dark Green",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/grey.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/maroon.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/navy%20blue.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/pista.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/pista.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - Pista",
+    "color": "Pista",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SHIRT-005",
+    "image_path": "products/Shirts/SHIRT-005/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-005/white.jpg",
+    "alt_text": "DEELMO Men's Regular Fit Button Down Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 8
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/black.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/brown.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/green.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/peach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/peach.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Peach",
+    "color": "Peach",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/sky%20blue.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Sky Blue",
+    "color": "Sky Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-006",
+    "image_path": "products/Shirts/SHIRT-006/tellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-006/tellow.jpg",
+    "alt_text": "NexaFlair Men's Regular Fit Solid Shirt - Tellow",
+    "color": "Tellow",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/black.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/miltary green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/miltary%20green.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - Miltary Green",
+    "color": "Miltary Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/navy%20blue.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/peach.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/peach.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - Peach",
+    "color": "Peach",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/white.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-007",
+    "image_path": "products/Shirts/SHIRT-007/wine red.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-007/wine%20red.jpg",
+    "alt_text": "Noble Monk Men's Polyester Regular Fit Solid Casual Polo Shirt - Wine Red",
+    "color": "Wine Red",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/black.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/brown.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/maroon.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/navy%20blue.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/sky%20blue.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - Sky Blue",
+    "color": "Sky Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-008",
+    "image_path": "products/Shirts/SHIRT-008/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-008/white.jpg",
+    "alt_text": "Zombom Men's Cotton Polyester Blend Solid Regular Fit Mandarin Collar Short Kurta - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/black.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/grey.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/light%20blue.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/maroon.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/pink.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-009",
+    "image_path": "products/Shirts/SHIRT-009/wine.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-009/wine.jpg",
+    "alt_text": "CB-COLEBROOK Men's Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design - Wine",
+    "color": "Wine",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-010",
+    "image_path": "products/Shirts/SHIRT-010/BEIGE WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-010/BEIGE%20WHITE.jpg",
+    "alt_text": "Highlander Men's Slim Fit Casual Checkered Shirt - BEIGE WHITE",
+    "color": "BEIGE WHITE",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-010",
+    "image_path": "products/Shirts/SHIRT-010/DUSTY GREEN WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-010/DUSTY%20GREEN%20WHITE.jpg",
+    "alt_text": "Highlander Men's Slim Fit Casual Checkered Shirt - DUSTY GREEN WHITE",
+    "color": "DUSTY GREEN WHITE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-010",
+    "image_path": "products/Shirts/SHIRT-010/POWDER BLUE WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-010/POWDER%20BLUE%20WHITE.jpg",
+    "alt_text": "Highlander Men's Slim Fit Casual Checkered Shirt - POWDER BLUE WHITE",
+    "color": "POWDER BLUE WHITE",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-010",
+    "image_path": "products/Shirts/SHIRT-010/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-010/pink.jpg",
+    "alt_text": "Highlander Men's Slim Fit Casual Checkered Shirt - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-011",
+    "image_path": "products/Shirts/SHIRT-011/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-011/black.jpg",
+    "alt_text": "Van Heusen Men's Solid Slim Fit Casual Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-011",
+    "image_path": "products/Shirts/SHIRT-011/cream.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-011/cream.jpg",
+    "alt_text": "Van Heusen Men's Solid Slim Fit Casual Shirt - Cream",
+    "color": "Cream",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-011",
+    "image_path": "products/Shirts/SHIRT-011/navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-011/navy.jpg",
+    "alt_text": "Van Heusen Men's Solid Slim Fit Casual Shirt - Navy",
+    "color": "Navy",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-011",
+    "image_path": "products/Shirts/SHIRT-011/olive.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-011/olive.jpg",
+    "alt_text": "Van Heusen Men's Solid Slim Fit Casual Shirt - Olive",
+    "color": "Olive",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-011",
+    "image_path": "products/Shirts/SHIRT-011/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-011/white.jpg",
+    "alt_text": "Van Heusen Men's Solid Slim Fit Casual Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/beige.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Beige",
+    "color": "Beige",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/black.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/chiku.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/chiku.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Chiku",
+    "color": "Chiku",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/light blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/light%20blue.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Light Blue",
+    "color": "Light Blue",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/maroon.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/pink.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-012",
+    "image_path": "products/Shirts/SHIRT-012/wine.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-012/wine.jpg",
+    "alt_text": "DEELMO Men's Casual Textured Button Down Shirt - Wine",
+    "color": "Wine",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/black.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/choco.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/choco.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Choco",
+    "color": "Choco",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/grey.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/maroon.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/olive.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/olive.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Olive",
+    "color": "Olive",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/sky%20blue.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Sky Blue",
+    "color": "Sky Blue",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-013",
+    "image_path": "products/Shirts/SHIRT-013/wine.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-013/wine.jpg",
+    "alt_text": "IndoPrimo Men's Cotton Full Sleeve Spread Collar Shirt - Wine",
+    "color": "Wine",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/black.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/blue.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/grey.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/maroon.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/navy%20blue.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-014",
+    "image_path": "products/Shirts/SHIRT-014/yellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-014/yellow.jpg",
+    "alt_text": "Pinkmint Men's Solid Shirt - Yellow",
+    "color": "Yellow",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/black.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/light beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/light%20beige.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Light Beige",
+    "color": "Light Beige",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/maroon.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/maroon.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Maroon",
+    "color": "Maroon",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/olive green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/olive%20green.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Olive Green",
+    "color": "Olive Green",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/pink.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/sky blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/sky%20blue.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - Sky Blue",
+    "color": "Sky Blue",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SHIRT-015",
+    "image_path": "products/Shirts/SHIRT-015/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Shirts/SHIRT-015/white.jpg",
+    "alt_text": "Pinkmint Men's Cotton Blend Regular Fit Long Sleeve Button Down Shirt - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "image_path": "products/Sneakers/SNEAKER-001/Black Neon Orange.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/Black%20Neon%20Orange.jpg",
+    "alt_text": "SPARX Men SM-734 Casual Shoes - Black Neon Orange",
+    "color": "Black Neon Orange",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "image_path": "products/Sneakers/SNEAKER-001/navy blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/navy%20blue.jpg",
+    "alt_text": "SPARX Men SM-734 Casual Shoes - Navy Blue",
+    "color": "Navy Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "image_path": "products/Sneakers/SNEAKER-001/white grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/white%20grey.jpg",
+    "alt_text": "SPARX Men SM-734 Casual Shoes - White Grey",
+    "color": "White Grey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-001",
+    "image_path": "products/Sneakers/SNEAKER-001/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-001/white.jpg",
+    "alt_text": "SPARX Men SM-734 Casual Shoes - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "image_path": "products/Sneakers/SNEAKER-002/BEIGELGRN.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-002/BEIGELGRN.jpg",
+    "alt_text": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker - BEIGELGRN",
+    "color": "BEIGELGRN",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "image_path": "products/Sneakers/SNEAKER-002/FULL WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-002/FULL%20WHITE.jpg",
+    "alt_text": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker - FULL WHITE",
+    "color": "FULL WHITE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-002",
+    "image_path": "products/Sneakers/SNEAKER-002/OFFWHITE SKY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-002/OFFWHITE%20SKY.jpg",
+    "alt_text": "ASIAN Men THUNDER-07 Stylish Casual Mid Top Sneaker - OFFWHITE SKY",
+    "color": "OFFWHITE SKY",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "image_path": "products/Sneakers/SNEAKER-003/BLACK DGREY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-003/BLACK%20DGREY.jpg",
+    "alt_text": "ASIAN Men's Vegas-01 Sneakers - BLACK DGREY",
+    "color": "BLACK DGREY",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "image_path": "products/Sneakers/SNEAKER-003/BLACK OLIVE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-003/BLACK%20OLIVE.jpg",
+    "alt_text": "ASIAN Men's Vegas-01 Sneakers - BLACK OLIVE",
+    "color": "BLACK OLIVE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "image_path": "products/Sneakers/SNEAKER-003/CREAM BROWN BEEJ.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-003/CREAM%20BROWN%20BEEJ.jpg",
+    "alt_text": "ASIAN Men's Vegas-01 Sneakers - CREAM BROWN BEEJ",
+    "color": "CREAM BROWN BEEJ",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "image_path": "products/Sneakers/SNEAKER-003/OFF WHITE MOUSE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-003/OFF%20WHITE%20MOUSE.jpg",
+    "alt_text": "ASIAN Men's Vegas-01 Sneakers - OFF WHITE MOUSE",
+    "color": "OFF WHITE MOUSE",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-003",
+    "image_path": "products/Sneakers/SNEAKER-003/WHITE SLATE ORANGE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-003/WHITE%20SLATE%20ORANGE.jpg",
+    "alt_text": "ASIAN Men's Vegas-01 Sneakers - WHITE SLATE ORANGE",
+    "color": "WHITE SLATE ORANGE",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/Navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/Navy.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - Navy",
+    "color": "Navy",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/NavyBlazer-White-CayenneRed.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/NavyBlazer-White-CayenneRed.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - NavyBlazer White CayenneRed",
+    "color": "NavyBlazer White CayenneRed",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/White-DawnGrey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/White-DawnGrey.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - White DawnGrey",
+    "color": "White DawnGrey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/White-MarigoldYellow.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/White-MarigoldYellow.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - White MarigoldYellow",
+    "color": "White MarigoldYellow",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/White-NavyBlazer-Arctic.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/White-NavyBlazer-Arctic.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - White NavyBlazer Arctic",
+    "color": "White NavyBlazer Arctic",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/beige.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - Beige",
+    "color": "Beige",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SNEAKER-004",
+    "image_path": "products/Sneakers/SNEAKER-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-004/black.jpg",
+    "alt_text": "Boldfit Sneakers for Men DripBloc - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "image_path": "products/Sneakers/SNEAKER-005/Black & White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-005/Black%20&%20White.jpg",
+    "alt_text": "Campus Men's Vulture Sneakers - Black & White",
+    "color": "Black & White",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "image_path": "products/Sneakers/SNEAKER-005/Brown&Beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-005/Brown&Beige.jpg",
+    "alt_text": "Campus Men's Vulture Sneakers - Brown&Beige",
+    "color": "Brown&Beige",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "image_path": "products/Sneakers/SNEAKER-005/Off White & red.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-005/Off%20White%20&%20red.jpg",
+    "alt_text": "Campus Men's Vulture Sneakers - Off White & Red",
+    "color": "Off White & Red",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-005",
+    "image_path": "products/Sneakers/SNEAKER-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-005/black.jpg",
+    "alt_text": "Campus Men's Vulture Sneakers - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "image_path": "products/Sneakers/SNEAKER-006/FULL WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-006/FULL%20WHITE.jpg",
+    "alt_text": "ASIAN Nexus-11 Men's Printed Sneakers - FULL WHITE",
+    "color": "FULL WHITE",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "image_path": "products/Sneakers/SNEAKER-006/OFFWHITE SKY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-006/OFFWHITE%20SKY.jpg",
+    "alt_text": "ASIAN Nexus-11 Men's Printed Sneakers - OFFWHITE SKY",
+    "color": "OFFWHITE SKY",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE BEIGE BROWN.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-006/WHITE%20BEIGE%20BROWN.jpg",
+    "alt_text": "ASIAN Nexus-11 Men's Printed Sneakers - WHITE BEIGE BROWN",
+    "color": "WHITE BEIGE BROWN",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE BLACK.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-006/WHITE%20BLACK.jpg",
+    "alt_text": "ASIAN Nexus-11 Men's Printed Sneakers - WHITE BLACK",
+    "color": "WHITE BLACK",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-006",
+    "image_path": "products/Sneakers/SNEAKER-006/WHITE NAVY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-006/WHITE%20NAVY.jpg",
+    "alt_text": "ASIAN Nexus-11 Men's Printed Sneakers - WHITE NAVY",
+    "color": "WHITE NAVY",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "image_path": "products/Sneakers/SNEAKER-007/WHT_BLK.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-007/WHT_BLK.jpg",
+    "alt_text": "Campus Men OG-27 Sneakers - WHT BLK",
+    "color": "WHT BLK",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-007",
+    "image_path": "products/Sneakers/SNEAKER-007/WHT_D.GRN.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-007/WHT_D.GRN.jpg",
+    "alt_text": "Campus Men OG-27 Sneakers - WHT D.GRN",
+    "color": "WHT D.GRN",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "image_path": "products/Sneakers/SNEAKER-008/NAVY BLUE WHITE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/NAVY%20BLUE%20WHITE.jpg",
+    "alt_text": "SPARX Mens SM 323 - NAVY BLUE WHITE",
+    "color": "NAVY BLUE WHITE",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "image_path": "products/Sneakers/SNEAKER-008/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/black.jpg",
+    "alt_text": "SPARX Mens SM 323 - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-008",
+    "image_path": "products/Sneakers/SNEAKER-008/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-008/white.jpg",
+    "alt_text": "SPARX Mens SM 323 - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "image_path": "products/Sneakers/SNEAKER-009/Black & White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-009/Black%20&%20White.jpg",
+    "alt_text": "Campus Men OG-34 Sneakers - Black & White",
+    "color": "Black & White",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-009",
+    "image_path": "products/Sneakers/SNEAKER-009/off white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-009/off%20white.jpg",
+    "alt_text": "Campus Men OG-34 Sneakers - Off White",
+    "color": "Off White",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-010",
+    "image_path": "products/Sneakers/SNEAKER-010/white navy.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-010/white%20navy.jpg",
+    "alt_text": "Campus Men Fence Sneakers - White Navy",
+    "color": "White Navy",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "image_path": "products/Sneakers/SNEAKER-011/WHITE BLACK BEEJ.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/WHITE%20BLACK%20BEEJ.jpg",
+    "alt_text": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men - WHITE BLACK BEEJ",
+    "color": "WHITE BLACK BEEJ",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "image_path": "products/Sneakers/SNEAKER-011/brown tan.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/brown%20tan.jpg",
+    "alt_text": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men - Brown Tan",
+    "color": "Brown Tan",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "image_path": "products/Sneakers/SNEAKER-011/full black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/full%20black.jpg",
+    "alt_text": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men - Full Black",
+    "color": "Full Black",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SNEAKER-011",
+    "image_path": "products/Sneakers/SNEAKER-011/full white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-011/full%20white.jpg",
+    "alt_text": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men - Full White",
+    "color": "Full White",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "image_path": "products/Sneakers/SNEAKER-012/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-012/black.jpg",
+    "alt_text": "Campus Men Pod Sneakers - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SNEAKER-012",
+    "image_path": "products/Sneakers/SNEAKER-012/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sneakers/SNEAKER-012/white.jpg",
+    "alt_text": "Campus Men Pod Sneakers - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/BLACK RED.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/BLACK%20RED.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - BLACK RED",
+    "color": "BLACK RED",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/BLACK SILVER.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/BLACK%20SILVER.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - BLACK SILVER",
+    "color": "BLACK SILVER",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/GREEN GREY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/GREEN%20GREY.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - GREEN GREY",
+    "color": "GREEN GREY",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/GREY.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/GREY.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - GREY",
+    "color": "GREY",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/Turquoise.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/Turquoise.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - Turquoise",
+    "color": "Turquoise",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/WHITE BLACK.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/WHITE%20BLACK.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - WHITE BLACK",
+    "color": "WHITE BLACK",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "SPORTS-SHOE-001",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-001/WHITE SALTE BLUE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-001/WHITE%20SALTE%20BLUE.jpg",
+    "alt_text": "ASIAN Wonder-13 Men's Running Shoe - WHITE SALTE BLUE",
+    "color": "WHITE SALTE BLUE",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "SPORTS-SHOE-002",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-002/white + black shoe.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-002/white%20+%20black%20shoe.jpg",
+    "alt_text": "BRUTON EVA Lite Sport Shoes Running Shoes for Men - White - White + Black Shoe",
+    "color": "White + Black Shoe",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/GOLD YLW.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/GOLD%20YLW.jpg",
+    "alt_text": "JQR Men Signature Sneakers - GOLD YLW",
+    "color": "GOLD YLW",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & BROWNIE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20BROWNIE.jpg",
+    "alt_text": "JQR Men Signature Sneakers - White & BROWNIE",
+    "color": "White & BROWNIE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & Gray.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20Gray.jpg",
+    "alt_text": "JQR Men Signature Sneakers - White & Gray",
+    "color": "White & Gray",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & gray2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20gray2.jpg",
+    "alt_text": "JQR Men Signature Sneakers - White & Gray",
+    "color": "White & Gray",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SPORTS-SHOE-003",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-003/white & sky Blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-003/white%20&%20sky%20Blue.jpg",
+    "alt_text": "JQR Men Signature Sneakers - White & Sky Blue",
+    "color": "White & Sky Blue",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "SPORTS-SHOE-004",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-004/beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-004/beige.jpg",
+    "alt_text": "SPORTS-SHOE-004 - Beige",
+    "color": "Beige",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-004",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-004/black.jpg",
+    "alt_text": "SPORTS-SHOE-004 - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-004",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-004/blue.jpg",
+    "alt_text": "SPORTS-SHOE-004 - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-006/Black & Olive Green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-006/Black%20&%20Olive%20Green.jpg",
+    "alt_text": "Campus Men's Force Running Shoes - Black & Olive Green",
+    "color": "Black & Olive Green",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-006/Grey And Green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-006/Grey%20And%20Green.jpg",
+    "alt_text": "Campus Men's Force Running Shoes - Grey And Green",
+    "color": "Grey And Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-006",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-006/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-006/white.jpg",
+    "alt_text": "Campus Men's Force Running Shoes - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/BLACK GOLD1.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/BLACK%20GOLD1.jpg",
+    "alt_text": "SPARX Men's SM-648 Sports Shoes - BLACK GOLD",
+    "color": "BLACK GOLD",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/DARK GREY NEON ORANGE.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/DARK%20GREY%20NEON%20ORANGE.jpg",
+    "alt_text": "SPARX Men's SM-648 Sports Shoes - DARK GREY NEON ORANGE",
+    "color": "DARK GREY NEON ORANGE",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/DARK GREY NEON ORANGE4.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/DARK%20GREY%20NEON%20ORANGE4.jpg",
+    "alt_text": "SPARX Men's SM-648 Sports Shoes - DARK GREY NEON ORANGE",
+    "color": "DARK GREY NEON ORANGE",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/NAVY BLUE RED1.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/NAVY%20BLUE%20RED1.jpg",
+    "alt_text": "SPARX Men's SM-648 Sports Shoes - NAVY BLUE RED",
+    "color": "NAVY BLUE RED",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "SPORTS-SHOE-007",
+    "image_path": "products/Sports-Shoes/SPORTS-SHOE-007/NAVY BLUE RED2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/Sports-Shoes/SPORTS-SHOE-007/NAVY%20BLUE%20RED2.jpg",
+    "alt_text": "SPARX Men's SM-648 Sports Shoes - NAVY BLUE RED",
+    "color": "NAVY BLUE RED",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/aqua.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/aqua.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Aqua",
+    "color": "Aqua",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/grey.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/jamun.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/jamun.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Jamun",
+    "color": "Jamun",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/mustard.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/mustard.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Mustard",
+    "color": "Mustard",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/pink.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/pink.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Pink",
+    "color": "Pink",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "T-SHIRT-001",
+    "image_path": "products/T-Shirt/T-SHIRT-001/teal.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-001/teal.jpg",
+    "alt_text": "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar - Teal",
+    "color": "Teal",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/black.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/black2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/black2.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - Black",
+    "color": "Black",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/white2.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white2.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/white3.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white3.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/white4.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white4.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 6
+  },
+  {
+    "product_id": "T-SHIRT-002",
+    "image_path": "products/T-Shirt/T-SHIRT-002/white5.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-002/white5.jpg",
+    "alt_text": "AUSK Men's Zip Collar Polo Tshirt | Cotton Rich Material | Half Sleeves | Modern Knit Panel Work | Regular Fit - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 7
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "image_path": "products/T-Shirt/T-SHIRT-003/beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/beige.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43) - Beige",
+    "color": "Beige",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "image_path": "products/T-Shirt/T-SHIRT-003/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/blue.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43) - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "image_path": "products/T-Shirt/T-SHIRT-003/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/green.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43) - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-003",
+    "image_path": "products/T-Shirt/T-SHIRT-003/white.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-003/white.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-40-43) - White",
+    "color": "White",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "image_path": "products/T-Shirt/T-SHIRT-004/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/black.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54) - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "image_path": "products/T-Shirt/T-SHIRT-004/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/blue.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54) - Blue",
+    "color": "Blue",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "image_path": "products/T-Shirt/T-SHIRT-004/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/brown.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54) - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-004",
+    "image_path": "products/T-Shirt/T-SHIRT-004/olive green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-004/olive%20green.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54) - Olive Green",
+    "color": "Olive Green",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "image_path": "products/T-Shirt/T-SHIRT-005/black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-005/black.jpg",
+    "alt_text": "AUSK Men Printed Polo Neck Cotton Blend T-Shirt (Regular Fit, Half Sleeve) || Tshirts for Mens - Black",
+    "color": "Black",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-005",
+    "image_path": "products/T-Shirt/T-SHIRT-005/green.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-005/green.jpg",
+    "alt_text": "AUSK Men Printed Polo Neck Cotton Blend T-Shirt (Regular Fit, Half Sleeve) || Tshirts for Mens - Green",
+    "color": "Green",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "image_path": "products/T-Shirt/T-SHIRT-006/blue.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-006/blue.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62) - Blue",
+    "color": "Blue",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "image_path": "products/T-Shirt/T-SHIRT-006/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-006/brown.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62) - Brown",
+    "color": "Brown",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "image_path": "products/T-Shirt/T-SHIRT-006/grey.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-006/grey.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62) - Grey",
+    "color": "Grey",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-006",
+    "image_path": "products/T-Shirt/T-SHIRT-006/pista.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-006/pista.jpg",
+    "alt_text": "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62) - Pista",
+    "color": "Pista",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "image_path": "products/T-Shirt/T-SHIRT-007/Blue&White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Blue&White.jpg",
+    "alt_text": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys - Blue&White",
+    "color": "Blue&White",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "image_path": "products/T-Shirt/T-SHIRT-007/Brown& White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Brown&%20White.jpg",
+    "alt_text": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys - Brown& White",
+    "color": "Brown& White",
+    "is_primary": false,
+    "sort_order": 2
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "image_path": "products/T-Shirt/T-SHIRT-007/Teal& White.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/Teal&%20White.jpg",
+    "alt_text": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys - Teal& White",
+    "color": "Teal& White",
+    "is_primary": false,
+    "sort_order": 3
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "image_path": "products/T-Shirt/T-SHIRT-007/White&Beige.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/White&Beige.jpg",
+    "alt_text": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys - White&Beige",
+    "color": "White&Beige",
+    "is_primary": false,
+    "sort_order": 4
+  },
+  {
+    "product_id": "T-SHIRT-007",
+    "image_path": "products/T-Shirt/T-SHIRT-007/White&Black.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-007/White&Black.jpg",
+    "alt_text": "Enitor Mens Stylish Half Zip Tshirt, Texture Striped Casual T-Shirt for Men, Formal Collared Neck Full Sleeves T-Shirt for Boys - White&Black",
+    "color": "White&Black",
+    "is_primary": false,
+    "sort_order": 5
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "image_path": "products/T-Shirt/T-SHIRT-008/brown.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-008/brown.jpg",
+    "alt_text": "Peter England Men's Cotton Abstract Geometric Print Polo T-Shirt – Casual Wear | Modern & Stylish - Brown",
+    "color": "Brown",
+    "is_primary": true,
+    "sort_order": 1
+  },
+  {
+    "product_id": "T-SHIRT-008",
+    "image_path": "products/T-Shirt/T-SHIRT-008/teal.jpg",
+    "image_url": "https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/T-Shirt/T-SHIRT-008/teal.jpg",
+    "alt_text": "Peter England Men's Cotton Abstract Geometric Print Polo T-Shirt – Casual Wear | Modern & Stylish - Teal",
+    "color": "Teal",
+    "is_primary": false,
+    "sort_order": 2
+  }
+]

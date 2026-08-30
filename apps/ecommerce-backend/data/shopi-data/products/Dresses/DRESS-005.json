@@ -1,0 +1,582 @@
+{
+    "product_id": "DRESS-005",
+    "product": {
+        "name": "GoSriKi Women Cotton Printed A-Line Ethnic Co-Ord Set | Kurta Pant Set",
+        "brand": "GoSriKi",
+        "category": "Dresses",
+        "subcategory": "Ethnic Wear",
+        "gender": "Women",
+        "product_type": "Kurta with Pant",
+        "description": "A women's A-Line ethnic co-ord set featuring a printed kurta with short sleeves and matching pants. The set is designed for traditional, casual, party and evening wear.",
+        "fit": "Regular Fit",
+        "pattern": "Printed",
+        "sleeve": "Short Sleeve",
+        "collar": "High Neck",
+        "closure": "Pull On",
+        "length": "Calf Length",
+        "material": "Rayon Viscose",
+        "fabric_weight": "Lightweight to Medium Weight",
+        "stretch": "Not specified",
+        "care": "Dry Clean Only",
+        "style_tags": [
+            "ethnic",
+            "A-line",
+            "printed",
+            "stylish",
+            "casual",
+            "traditional"
+        ],
+        "occasion_tags": [
+            "traditional wear",
+            "casual wear",
+            "party wear",
+            "evening wear",
+            "daily office wear",
+            "festival wear"
+        ],
+        "season_tags": [
+            "all season",
+            "warm weather",
+            "mild weather"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL",
+            "6XL",
+            "7XL",
+            "8XL"
+        ],
+        "colors": [
+            "Blue",
+            "Wine",
+            "Red",
+            "Black"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 350
+    },
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 589,
+        "currency": "INR",
+        "discount_percentage": 77,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Blue",
+            "image": "products/DRESS-005/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Wine",
+            "image": "products/DRESS-005/wine.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.5,
+        "rating_count": 254,
+        "review_count": 72
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers generally like the appearance, softness, colors, print and fit, and several reviewers consider it good value for money. However, the product has significant complaints about material quality, with multiple reviewers saying the fabric does not feel like cotton and appears to be polyester. Other concerns include stitching durability, shrinkage, inconsistent sizing or incorrect sizes being delivered, and short pant length.",
+        "positive": [
+            "Stylish printed ethnic appearance",
+            "Soft fabric reported by several customers",
+            "Good color and print quality",
+            "Several customers found the fit comfortable",
+            "Good for daily and office wear",
+            "Good value for money according to several reviews",
+            "Some customers reported the product remained good after washing"
+        ],
+        "negative": [
+            "Multiple reviewers dispute the cotton material claim",
+            "Some customers describe the fabric as polyester rather than cotton",
+            "Some complaints about poor material quality",
+            "Stitching issues reported by multiple reviewers",
+            "One reviewer reported the fabric tearing within hours",
+            "Shrinkage reported after washing",
+            "Some sizing and wrong-size delivery complaints",
+            "Pant length reported as too short by one reviewer",
+            "One reviewer found the pant fabric inferior to the kurta fabric"
+        ],
+        "main_concern": "The biggest concern is inconsistent material and construction quality, particularly complaints that the fabric is polyester rather than the advertised cotton and reports of stitching or durability problems."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium"
+        },
+        "fabric_quality": {
+            "sentiment": "mixed_negative",
+            "confidence": "high",
+            "note": "Several reviewers liked the softness, but multiple customers reported that the material did not appear to be cotton and complained about poor quality."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Several buyers reported a good or perfect fit, but others reported loose fit, shrinkage and incorrect sizes being delivered."
+        },
+        "summer_suitability": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some reviewers describe the material as soft and thin, which may work in warm weather, but the material composition is disputed and breathability is not consistently established."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "value_for_money": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium"
+        },
+        "durability": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "Some reviewers reported stitching opening after washing and one reported the fabric tearing within hours."
+        }
+    },
+    "pros": [
+        "Stylish A-line ethnic design",
+        "Attractive print and colors",
+        "Soft fabric reported by several users",
+        "Comfortable fit for many buyers",
+        "Suitable for casual and office wear",
+        "Good value at the discounted price"
+    ],
+    "cons": [
+        "Material may not match the advertised cotton description",
+        "Multiple polyester/material-quality complaints",
+        "Stitching durability concerns",
+        "Possible shrinkage after washing",
+        "Inconsistent sizing and wrong-size delivery complaints",
+        "Pant may be short for some customers",
+        "Pant fabric may differ in quality from the kurta"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 6.0,
+        "best_for": [
+            "Casual ethnic wear",
+            "Daily office wear",
+            "Festival wear",
+            "Party wear",
+            "Evening wear",
+            "Customers looking for an affordable ethnic set"
+        ],
+        "not_ideal_for": [
+            "Customers specifically wanting genuine cotton",
+            "Customers prioritizing premium fabric quality",
+            "Customers who need highly durable stitching",
+            "Customers who are sensitive to sizing or shrinkage issues"
+        ],
+        "size_advice": "Check the size chart carefully before ordering. Reviews include both good-fit experiences and complaints involving loose fit, shrinkage and incorrect sizes being delivered.",
+        "weather_advice": "The fabric is described as rayon viscose and some reviews call it soft and thin, but summer suitability should not be treated as a strong selling point because fabric composition and quality are disputed by several buyers.",
+        "sales_advice": "Lead with the A-line ethnic styling, attractive prints, comfort and affordability. Do not claim that it is reliably cotton because several reviewers specifically dispute the material description. Mention the material-quality and stitching concerns if the customer prioritizes fabric authenticity or durability."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "ethnic co-ord set",
+            "kurta pant set",
+            "A-line kurta set",
+            "printed kurta set",
+            "women ethnic wear",
+            "festival wear",
+            "casual ethnic wear",
+            "office wear kurta set",
+            "stylish kurta pant set",
+            "affordable ethnic set"
+        ],
+        "negative_keywords": [
+            "pure cotton kurta set",
+            "genuine cotton ethnic set",
+            "premium quality kurta set",
+            "high durability ethnic wear",
+            "shrink-resistant kurta set"
+        ],
+        "strong_attributes": [
+            "A-line",
+            "printed",
+            "ethnic",
+            "regular fit",
+            "rayon viscose",
+            "short sleeve",
+            "kurta with pant",
+            "casual wear",
+            "festival wear"
+        ],
+        "warning_attributes": [
+            "material composition disputed",
+            "possible polyester",
+            "stitching issues",
+            "possible shrinkage",
+            "possible sizing inconsistency",
+            "short pant length"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Wine",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "thin fabric",
+                "color mismatch",
+                "product quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "good fabric",
+                "color accuracy",
+                "fit"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "comfort",
+                "appearance",
+                "fit",
+                "style"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative_material_signal",
+            "themes": [
+                "not fully cotton",
+                "material quality"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "quality",
+                "wet delivery",
+                "return difficulty"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Wine",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Red",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "stitching",
+                "poor durability",
+                "wash durability"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Red",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "wrong size",
+                "used product",
+                "missing tag"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Red",
+            "size": "L",
+            "sentiment": "mixed_negative",
+            "themes": [
+                "loose fit",
+                "quality"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "stitching issues",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "shrinkage",
+                "size advice"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative_material_signal",
+            "themes": [
+                "not cotton",
+                "material quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "short pant length",
+                "good material"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "color",
+                "fit"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "soft fabric",
+                "thin material",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "kurta quality",
+                "pant quality",
+                "different fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "mixed",
+            "themes": [
+                "wrong size received",
+                "fit"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "fabric",
+                "value"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "poor cloth quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Red",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "fit",
+                "color",
+                "print"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "daily office wear",
+                "material",
+                "color",
+                "size"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Wine",
+            "size": "L",
+            "sentiment": "negative_material_signal",
+            "themes": [
+                "polyester",
+                "not cotton",
+                "material quality"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "poor material",
+                "fabric tearing",
+                "durability"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Black",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "poor quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "wash durability"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "material",
+                "color",
+                "fit",
+                "daily wear"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "wrong size",
+                "poor quality",
+                "polyester",
+                "not cotton"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Blue",
+            "size": "L",
+            "sentiment": "negative_material_signal",
+            "themes": [
+                "not cotton",
+                "poor quality",
+                "material mismatch"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the A-line style, regular fit, rayon viscose material, printed design, price, available colors and sizes, and the most important review insights. Be transparent that material quality receives mixed feedback.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the attractive ethnic styling, softness, colors, fit and value, while clearly mentioning the material-quality, stitching and sizing concerns.",
+        "when_customer_asks_about_summer": "Do not call this an ideal summer product. The fabric is listed as rayon viscose and some reviewers describe it as soft and thin, but material composition and quality are disputed, so avoid making strong breathability claims.",
+        "when_customer_asks_about_fit": "Explain that the official fit is regular, but recommend checking the size chart carefully because reviews include loose-fit complaints, shrinkage after washing and incorrect-size delivery experiences.",
+        "when_customer_asks_about_material": "State that the listed material is 100% rayon viscose, but several reviewers claim the product they received felt like polyester or was not cotton. Do not advertise it as guaranteed cotton.",
+        "when_customer_asks_about_durability": "Warn that durability feedback is mixed. Some customers report good performance after washing, while others report stitching opening, shrinkage or fabric tearing.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes genuine cotton, premium fabric quality or durability, prioritize products with stronger verified material and durability signals.",
+        "when_customer_asks_for_best_product": "Do not recommend this product solely because of its 3.5 rating or low price. Consider the customer's material preference, budget, fit requirements, intended occasion and durability expectations."
+    }
+}

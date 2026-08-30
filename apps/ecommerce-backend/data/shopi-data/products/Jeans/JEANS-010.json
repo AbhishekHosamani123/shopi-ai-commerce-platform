@@ -1,0 +1,480 @@
+{
+    "product_id": "JEANS-010",
+    "product": {
+        "name": "Urbano Fashion Men's Slim Fit Denim Jeans",
+        "brand": "Urbano Fashion",
+        "category": "Jeans",
+        "subcategory": "Slim Fit Jeans",
+        "gender": "Men",
+        "product_type": "Slim Fit Stretch Jeans",
+        "description": "Urbano Fashion men's slim-fit solid stretch jeans featuring a mid-rise design, full-length cut and stretchable cotton-Lycra fabric. Designed for casual, office and party wear with a lightweight, comfortable fit.",
+        "fit": "Slim Fit",
+        "pattern": "Solid",
+        "style": "Jeans",
+        "rise": "Mid Rise",
+        "leg_style": "Wide",
+        "length": "Full Length",
+        "material": "Cotton",
+        "fabric_type": "Cotton + Lycra",
+        "stretch": "Stretchable",
+        "closure": "Button",
+        "front_pleat": "Flat Front",
+        "care": "Wash dark colors separately",
+        "colors": [
+            "Dark Black",
+            "Ice Blue",
+            "Light Blue",
+            "Light Gray"
+        ],
+        "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "40"
+        ],
+        "country_of_origin": "India",
+        "department": "Men",
+        "item_weight_grams": 350,
+        "item_dimensions": "30 x 25 x 1 cm",
+        "net_quantity": 1,
+        "style_tags": [
+            "slim fit",
+            "stretch jeans",
+            "mid rise",
+            "solid",
+            "casual",
+            "everyday wear",
+            "lightweight",
+            "denim",
+            "budget jeans"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "office wear",
+            "college wear",
+            "parties",
+            "everyday wear"
+        ],
+        "lifestyle_tags": [
+            "casual",
+            "everyday fashion",
+            "budget fashion",
+            "urban style",
+            "comfortable wear"
+        ]
+    },
+    "pricing": {
+        "mrp": 1499,
+        "selling_price": 645,
+        "currency": "INR",
+        "discount_percentage": 57,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Dark Black",
+            "image": "products/Jeans/JEANS-010/dark black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Ice Blue",
+            "image": "products/Jeans/JEANS-010/ice blue.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/Jeans/JEANS-010/light blue.jpg",
+            "is_primary": false
+        },
+        {
+            "color": "Light Gray",
+            "image": "products/Jeans/JEANS-010/light gray.jpg",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 3107
+    },
+    "rating_distribution": {
+        "5_star_percentage": 42,
+        "4_star_percentage": 19,
+        "3_star_percentage": 15,
+        "2_star_percentage": 6,
+        "1_star_percentage": 18
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers generally find these jeans comfortable and reasonably priced. The strongest positives are stretch, lightweight construction, fit for some buyers and value for money. However, reviews repeatedly raise concerns about color fading, sizing accuracy, material quality and durability.",
+        "positive": [
+            "Comfortable for casual use",
+            "Stretchable fabric",
+            "Lightweight",
+            "Good fit for many buyers",
+            "Good value at the budget price",
+            "Some customers praise fabric quality",
+            "Suitable for casual and everyday wear",
+            "Some customers report accurate sizing"
+        ],
+        "negative": [
+            "18% of ratings are 1-star",
+            "Color fading reported",
+            "Blue dye can leave a bluish tint on other clothes",
+            "Sizing does not always match advertised measurements",
+            "Some buyers say it does not look as slim as advertised",
+            "Mixed material quality",
+            "Some buyers report cheap/low-cost fabric",
+            "Durability is not considered high",
+            "Some color shades differ from product images",
+            "One verified review reports persistent fabric smell"
+        ],
+        "main_concern": "Quality consistency. The jeans can be a good budget purchase for comfort and casual wear, but customer experience varies considerably."
+    },
+    "review_insights": {
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some customers report perfect fitting, while the overall review summary says fit is inconsistent and some buyers feel the jeans are not as slim as advertised."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Comfort and stretchability are repeatedly mentioned positively."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some buyers praise the fabric while others describe it as cheap or low quality."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers generally consider it a reasonable budget purchase."
+        },
+        "color_durability": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple reviews mention fading. One buyer reported blue color transferring a tint to other clothes after washing."
+        },
+        "appearance": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "Some buyers like the appearance, while others report that the actual color is darker or different from the advertised image."
+        },
+        "sizing": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some buyers report perfect sizing, but the customer summary explicitly mentions sizing discrepancies."
+        },
+        "durability": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "A verified buyer specifically advised not to expect high durability."
+        },
+        "odor": {
+            "sentiment": "negative",
+            "confidence": "low",
+            "note": "One verified buyer reported a strong smell that remained after washing twice. This should be treated as an isolated reported issue, not a universal product characteristic."
+        }
+    },
+    "pros": [
+        "Slim-fit silhouette",
+        "Mid-rise design",
+        "Stretchable cotton-Lycra fabric",
+        "Full-length",
+        "Lightweight 350 g construction",
+        "Button closure",
+        "Solid pattern",
+        "Multiple color options",
+        "Sizes 28–40",
+        "Comfortable according to multiple reviews",
+        "Budget-friendly price",
+        "Suitable for casual wear"
+    ],
+    "cons": [
+        "3.6/5 overall rating",
+        "18% one-star ratings",
+        "Color fading concerns",
+        "Potential color transfer during washing",
+        "Mixed sizing accuracy",
+        "Some buyers say it is not truly slim",
+        "Mixed fabric quality",
+        "Lower durability",
+        "Color may differ from product images",
+        "Isolated odor complaint"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_FOR_BUDGET_CASUAL_USE",
+        "score": 6.8,
+        "best_for": [
+            "Budget-conscious buyers",
+            "Casual everyday wear",
+            "College wear",
+            "Lightweight jeans",
+            "Customers wanting stretch",
+            "Customers who prioritize comfort over durability",
+            "Customers wanting a slim-fit look at a low price"
+        ],
+        "not_ideal_for": [
+            "Customers wanting premium denim",
+            "Customers prioritizing long-term durability",
+            "Customers highly concerned about color retention",
+            "Customers expecting exact slim-fit tailoring",
+            "Customers unwilling to hand-separate dark colors during washing"
+        ],
+        "size_advice": "The listed size range is 28–40. Because customer feedback reports sizing inconsistencies, recommend checking the size chart rather than relying only on the usual jeans size.",
+        "color_advice": "The local catalog contains Dark Black, Ice Blue, Light Blue and Light Gray. Do not add additional colors unless corresponding local product assets are available.",
+        "quality_advice": "Do not describe this as premium denim. Customer feedback is too mixed. The safer description is lightweight, stretchable and budget-friendly.",
+        "sales_advice": "Lead with stretch, comfort, slim-fit styling, lightweight construction and the ₹645 price. Do not lead with durability or premium quality.",
+        "washing_advice": "The product instructions specifically say to wash dark colors separately. This is especially relevant because customer feedback includes reports of blue color transfer/fading."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "slim fit jeans",
+            "slim jeans",
+            "stretch jeans",
+            "stretchable jeans",
+            "mid rise jeans",
+            "casual jeans",
+            "budget jeans",
+            "lightweight jeans",
+            "comfortable jeans",
+            "men's jeans",
+            "everyday jeans",
+            "office casual jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "bell bottom",
+            "flare jeans",
+            "wide leg jeans",
+            "bootcut jeans",
+            "baggy jeans",
+            "loose fit jeans",
+            "high rise jeans"
+        ],
+        "strong_attributes": [
+            "slim fit",
+            "mid rise",
+            "stretchable",
+            "cotton",
+            "Lycra",
+            "full length",
+            "lightweight",
+            "₹645",
+            "sizes 28–40",
+            "casual",
+            "budget"
+        ],
+        "warning_attributes": [
+            "color fading",
+            "color transfer",
+            "mixed sizing",
+            "mixed quality",
+            "lower durability",
+            "18% one-star ratings"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-05-28",
+            "color": "Ice Blue",
+            "size": "30",
+            "title": "Comfortable, Perfect Fitting",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "comfort",
+                "color",
+                "fabric",
+                "value"
+            ],
+            "summary": "Reviewer reported perfect fitting, comfortable non-tight feel, good fabric quality and no color fading after washing."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-07-18",
+            "color": "Light Blue",
+            "size": "30",
+            "title": "Quality",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer simply described the quality as good."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "date": "2026-05-25",
+            "color": "Light Blue",
+            "size": "34",
+            "title": "Perfect Size good quality",
+            "sentiment": "positive",
+            "themes": [
+                "size",
+                "quality"
+            ],
+            "summary": "Reviewer reported perfect sizing and good quality."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-03-19",
+            "color": "Dark Blue",
+            "size": "36",
+            "title": "Good but with little bit tint",
+            "sentiment": "mixed_positive",
+            "themes": [
+                "quality",
+                "color",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer liked the material quality and fit but reported slight color fading and a bluish tint transferring onto other clothes during washing."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "date": "2026-06-19",
+            "color": "Blue",
+            "size": "28",
+            "title": "Nice and Comfortable",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fit",
+                "stretch",
+                "durability"
+            ],
+            "summary": "Reviewer found the jeans lightweight, comfortable, stretchable and well-fitting, but advised not to expect high durability."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "date": "2026-06-03",
+            "color": "Light Blue",
+            "size": "36",
+            "title": "Darker than what's advertised",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "appearance"
+            ],
+            "summary": "Reviewer reported that the actual color appeared darker than advertised."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "date": "2026-08-04",
+            "color": "Ice Blue",
+            "size": "40",
+            "title": "Material Quality is not good",
+            "sentiment": "mixed_negative",
+            "themes": [
+                "fabric",
+                "appearance",
+                "fit",
+                "stretch",
+                "comfort"
+            ],
+            "summary": "Reviewer liked the appearance, fit, stretch and comfort but criticized the fabric as low-cost and the quality as cheap. They also reported that the color did not look exactly like the image."
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "date": "2026-05-13",
+            "color": "Light Blue",
+            "size": "28",
+            "title": "Color fade",
+            "sentiment": "negative",
+            "themes": [
+                "color",
+                "fading",
+                "fit"
+            ],
+            "summary": "Reviewer reported that both blue and ice-blue jeans they purchased fit well but experienced color fading."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "date": "2026-07-27",
+            "color": "Grey",
+            "size": "30",
+            "title": "Smell from jeans",
+            "sentiment": "negative",
+            "themes": [
+                "odor"
+            ],
+            "summary": "Reviewer reported a strong fabric smell that remained even after washing twice."
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "date": "2026-08-19",
+            "color": "Grey",
+            "size": "34",
+            "title": "Bad quality",
+            "sentiment": "negative",
+            "themes": [
+                "quality"
+            ],
+            "summary": "Reviewer said the product quality was not up to expectations."
+        }
+    ],
+    "manufacturer": {
+        "name": "Imperial Online Services Private Limited",
+        "address": "#6-56/1/A, NH9, Opposite IDPL Factory, Balanagar, Hyderabad, Telangana, 500037, India"
+    },
+    "packer": {
+        "name": "Imperial Online Services Private Limited",
+        "address": "#6-56/1/A, NH9, Opposite IDPL Factory, Balanagar, Hyderabad, Telangana, 500037, India"
+    },
+    "importer": {
+        "name": "Imperial Online Services Private Limited",
+        "address": "#6-56/1/A, NH9, Opposite IDPL Factory, Balanagar, Hyderabad, Telangana, 500037, India"
+    },
+    "additional_information": {
+        "asin": "B082S2VXPN",
+        "item_model_number": "epsjean-iceblu-38",
+        "date_first_available": "2019-12-15",
+        "country_of_origin": "India",
+        "item_weight_grams": 350,
+        "item_dimensions": "30 x 25 x 1 cm",
+        "net_quantity": 1,
+        "generic_name": "Jeans"
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe this as a budget slim-fit men's jean with mid-rise styling, full-length construction and stretchable cotton-Lycra fabric.",
+        "when_customer_asks_if_good": "Recommend it mainly for budget-conscious customers who value comfort and stretch. Mention that customer feedback is mixed and the overall rating is 3.6/5.",
+        "when_customer_asks_about_fit": "The listed fit is Slim Fit and rise is Mid Rise. However, customer feedback on fit is mixed, so recommend checking the size chart.",
+        "when_customer_asks_about_comfort": "Comfort is one of the stronger positive themes. The jeans use stretchable cotton-Lycra fabric and several customers describe them as comfortable.",
+        "when_customer_asks_about_quality": "Give a balanced answer. Some buyers report good quality, while others describe the fabric as cheap or low quality.",
+        "when_customer_asks_about_durability": "Do not promise high durability. A verified buyer explicitly described it as suitable for quick casual wear and advised not to expect high durability.",
+        "when_customer_asks_about_color": "The local catalog contains Dark Black, Ice Blue, Light Blue and Light Gray. Customer feedback includes both positive color-retention reports and repeated fading complaints.",
+        "when_customer_asks_about_washing": "The official care instruction says to wash dark colors separately. This is important because customers have reported blue tint transfer and fading.",
+        "when_customer_asks_about_sizing": "The listed size range is 28–40. Customer reviews indicate that sizing can be inconsistent, so recommend checking the size chart.",
+        "when_customer_asks_about_price": "The captured listing shows ₹645 as the featured price against an MRP of ₹1,499, representing a 57% discount.",
+        "when_customer_asks_about_reviews": "The product has a 3.6/5 rating from 3,107 global ratings: 42% 5-star, 19% 4-star, 15% 3-star, 6% 2-star and 18% 1-star.",
+        "when_customer_asks_about_daily_wear": "It is suitable for casual and everyday wear, especially when comfort and low price matter more than long-term durability.",
+        "when_customer_asks_for_premium_jeans": "Do not recommend this as a premium option. Its main advantage is budget pricing, stretch and comfort rather than premium material quality.",
+        "when_customer_asks_for_alternatives": "If the customer wants higher durability or premium denim, recommend a different product rather than overstating this one's quality."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The product page calls the fit Slim Fit but separately lists Leg Style as Wide; preserve both source attributes rather than silently changing one.",
+            "The local catalog contains Dark Black, Ice Blue, Light Blue and Light Gray assets. Do not add other variants without local assets.",
+            "The source has reviews for variants such as Grey and Blue that are not represented in the local JEANS-010 image directory. Those reviews can inform overall product quality but should not be used to claim those colors are available in Shopi.",
+            "The source's displayed featured price is ₹645, while other variant offers shown on the page include ₹599, ₹675 and ₹649. Treat ₹645 as the captured featured price, not a permanent price.",
+            "Exact cotton/Lycra percentage composition is not provided.",
+            "Customer feedback on durability and color retention is inconsistent."
+        ]
+    }
+}

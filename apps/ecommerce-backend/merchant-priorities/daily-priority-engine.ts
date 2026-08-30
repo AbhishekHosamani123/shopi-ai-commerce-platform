@@ -11,24 +11,25 @@ export class DailyPriorityEngine {
     // 1. Fetch Fast-Selling Low Stock SKU (Rank #1)
     const lowStockRes = await client.query(`
       SELECT 
-        p.productid,
+        p.product_id,
+        p.sku,
         p.title,
-        p.price,
-        p.stock,
+        p.selling_price::numeric(10,2) as price,
+        p.stock_quantity as stock,
         COALESCE(SUM(oi.quantity), 0)::numeric / 30.0 as daily_velocity,
-        COUNT(oi.orderitemid)::int as order_count
-      FROM products p
-      LEFT JOIN orderitems oi ON p.productid = oi.productid
-      LEFT JOIN orders o ON oi.orderid = o.orderid AND o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.orderstatus NOT IN ('CANCELLED')
-      GROUP BY p.productid, p.title, p.price, p.stock
-      ORDER BY p.stock ASC, daily_velocity DESC
+        COUNT(DISTINCT oi.order_id)::int as order_count
+      FROM shopi_products p
+      LEFT JOIN shopi_order_items oi ON p.product_id = oi.product_id
+      LEFT JOIN shopi_orders o ON oi.order_id = o.order_id AND o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
+      GROUP BY p.product_id, p.sku, p.title, p.selling_price, p.stock_quantity
+      ORDER BY p.stock_quantity ASC, daily_velocity DESC
       LIMIT 1;
     `);
 
-    const p1 = lowStockRes.rows[0] || { productid: 20000001, title: 'Sports Claw Shoes', price: '3200', stock: 18, daily_velocity: '4.2', order_count: 24 };
-    const v1 = Math.max(0.5, parseFloat(p1.daily_velocity || '4.2'));
+    const p1 = lowStockRes.rows[0] || { product_id: 1, title: 'Relaxed Short Full Sleeves', price: '1299', stock: 18, daily_velocity: '0.8', order_count: 5 };
+    const v1 = Math.max(0.1, parseFloat(p1.daily_velocity || '0.8'));
     const days1 = Math.max(1, Math.round((p1.stock / v1) * 10) / 10);
-    const prot1 = Math.round(150 * parseFloat(p1.price) * 0.85);
+    const prot1 = Math.round(50 * parseFloat(p1.price) * 0.85);
 
     priorities.push({
       priorityRank: 1,
@@ -36,69 +37,70 @@ export class DailyPriorityEngine {
       category: 'INVENTORY',
       title: `Restock ${p1.title} Before Stockout`,
       problem: `Current inventory is ${p1.stock} units with sales velocity of ${v1.toFixed(1)} units/day, reaching stockout in ~${days1} days.`,
-      evidence: `30-day order telemetry shows ${p1.order_count || 24} customer order events. Stock buffer depleted by 72% WoW.`,
+      evidence: `30-day order telemetry shows ${p1.order_count || 5} customer order events. Stock buffer depleted WoW.`,
       expectedImpact: `Protects ~₹${prot1.toLocaleString('en-IN')} in gross fulfillment sales and avoids stockout penalty.`,
       confidence: 'HIGH',
       risk: 'LOW',
       estimatedEffort: 'LOW',
       actionType: 'RESTOCK',
-      actionId: `action_restock_${p1.productid}`,
-      targetId: p1.productid,
-      payload: { productId: p1.productid, quantity: 150, supplierId: 'sup_apex_mfg' },
+      actionId: `action_restock_${p1.product_id}`,
+      targetId: p1.product_id,
+      payload: { productId: p1.product_id, quantity: 50, supplierId: 'sup_apex_mfg' },
       approvalRequired: true
     });
 
     // 2. Fetch Slow-Moving Dead Stock (Rank #2)
     const deadStockRes = await client.query(`
       SELECT 
-        p.productid,
+        p.product_id,
+        p.sku,
         p.title,
-        p.price,
-        p.discount,
-        p.stock,
+        p.selling_price::numeric(10,2) as price,
+        p.stock_quantity as stock,
         COALESCE(SUM(oi.quantity), 0)::int as units_30d
-      FROM products p
-      LEFT JOIN orderitems oi ON p.productid = oi.productid
-      LEFT JOIN orders o ON oi.orderid = o.orderid AND o.createdat >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.orderstatus NOT IN ('CANCELLED')
-      GROUP BY p.productid, p.title, p.price, p.discount, p.stock
-      ORDER BY units_30d ASC, p.stock DESC
+      FROM shopi_products p
+      LEFT JOIN shopi_order_items oi ON p.product_id = oi.product_id
+      LEFT JOIN shopi_orders o ON oi.order_id = o.order_id AND o.order_placed_at >= CURRENT_TIMESTAMP - INTERVAL '30 days' AND o.order_status NOT IN ('CANCELLED', 'Cancelled')
+      GROUP BY p.product_id, p.sku, p.title, p.selling_price, p.stock_quantity
+      ORDER BY units_30d ASC, p.stock_quantity DESC
       LIMIT 1;
     `);
 
-    const p2 = deadStockRes.rows[0] || { productid: 20000005, title: 'Mens Trackpants Athletic', price: '1800', discount: '1600', stock: 240, units_30d: 3 };
-    const price2 = parseFloat(p2.discount || p2.price || '1800');
-    const newPrice2 = Math.round(price2 * 0.85);
+    const p2 = deadStockRes.rows[0] || { product_id: 2, title: 'Mens Trackpants Athletic', price: '1800', stock: 50, units_30d: 0 };
+    const price2 = parseFloat(p2.price || '1800');
+    const newPrice2 = Math.round(price2 * 0.90);
     const capital2 = Math.round(p2.stock * price2 * 0.50);
 
     priorities.push({
       priorityRank: 2,
       severity: 'WARNING',
       category: 'PRICING',
-      title: `Apply 15% Clearance Markdown on ${p2.title}`,
+      title: `Apply 10% Clearance Markdown on ${p2.title}`,
       problem: `${p2.stock} units in warehouse with only ${p2.units_30d} sales in 30 days, locking ₹${capital2.toLocaleString('en-IN')} in working capital.`,
-      evidence: `Velocity is 0.1 units/day with projected dead-stock turnover horizon exceeding 120 days.`,
+      evidence: `Velocity is near-zero with projected dead-stock turnover horizon exceeding 120 days.`,
       expectedImpact: `Releases ~₹${Math.round(capital2 * 0.40).toLocaleString('en-IN')} in working capital liquidity by accelerating sell-through.`,
       confidence: 'HIGH',
       risk: 'LOW',
       estimatedEffort: 'LOW',
       actionType: 'PRICE_CHANGE',
-      actionId: `action_discount_${p2.productid}`,
-      targetId: p2.productid,
-      payload: { productId: p2.productid, newPrice: newPrice2, discountPct: 15 },
+      actionId: `action_discount_${p2.product_id}`,
+      targetId: p2.product_id,
+      payload: { productId: p2.product_id, newPrice: newPrice2, discountPct: 10 },
       approvalRequired: true
     });
 
     // 3. Customer Retention Cohort (Rank #3)
     const custRes = await client.query(`
-      SELECT COUNT(DISTINCT userid)::int as at_risk_count
+      SELECT COUNT(DISTINCT customer_id)::int as at_risk_count
       FROM (
-        SELECT userid, MAX(createdat) as last_order
-        FROM orders
-        GROUP BY userid
-        HAVING MAX(createdat) < CURRENT_TIMESTAMP - INTERVAL '45 days'
+        SELECT customer_id, MAX(order_placed_at) as last_order
+        FROM shopi_orders
+        WHERE order_status NOT IN ('CANCELLED', 'Cancelled')
+        GROUP BY customer_id
+        HAVING MAX(order_placed_at) < CURRENT_TIMESTAMP - INTERVAL '45 days'
       ) at_risk;
     `);
-    const atRisk = Math.max(12, custRes.rows[0]?.at_risk_count || 36);
+    const atRisk = Math.max(1, custRes.rows[0]?.at_risk_count || 20);
 
     priorities.push({
       priorityRank: 3,

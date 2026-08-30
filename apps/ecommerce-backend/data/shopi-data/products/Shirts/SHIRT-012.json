@@ -1,0 +1,570 @@
+{
+    "product_id": "SHIRT-012",
+    "product": {
+        "name": "DEELMO Men's Casual Textured Button Down Shirt",
+        "brand": "DEELMO",
+        "category": "Shirts",
+        "subcategory": "Casual Shirts",
+        "gender": "Men",
+        "product_type": "Casual Shirt",
+        "description": "A lightweight textured men's button-down shirt with a solid color, long sleeves, regular fit and spread collar. Designed for casual, vacation, beach, party and semi-formal styling.",
+        "fit": "Regular Fit",
+        "pattern": "Solid",
+        "texture": "Slight Vertical Ribbing / Textured",
+        "sleeve": "Long Sleeve",
+        "collar": "Spread Collar / Button Down",
+        "closure": "Button",
+        "cuff_style": "Plain Hem",
+        "style": "Western",
+        "length": "Untucked-friendly",
+        "season": "All Seasons",
+        "lifestyle": "Casual",
+        "material": {
+            "listed_composition": "Popcorn",
+            "marketing_description": "Premium textured fabric",
+            "linen_claim": "Product is marketed as a linen shirt",
+            "verified_fiber_composition": false,
+            "confidence": "low",
+            "ai_rule": "Do not claim 100% linen, pure linen or 100% cotton."
+        },
+        "fabric_characteristics": [
+            "Lightweight",
+            "Breathable according to product description",
+            "Soft according to product description",
+            "Skin-friendly according to product description",
+            "Textured",
+            "Slight vertical ribbing"
+        ],
+        "country_of_origin": "India",
+        "weight_grams": 230,
+        "dimensions_cm": {
+            "length": 18,
+            "width": 16,
+            "height": 2
+        }
+    },
+    "pricing": {
+        "currency": "INR",
+        "mrp": 1999,
+        "captured_prices": [
+            409,
+            449,
+            495,
+            595
+        ],
+        "current_source_price": 495,
+        "price_type": "snapshot",
+        "price_note": "The supplied source shows multiple offer prices depending on variant/offer. ₹495 is the main displayed price, while ₹409, ₹449 and ₹595 also appear in the captured listing."
+    },
+    "variants": {
+        "colors": [
+            {
+                "color": "Beige",
+                "source_color_name": "BEIGE",
+                "image": "products/shirts/SHIRT-012/beige.jpg"
+            },
+            {
+                "color": "Black",
+                "source_color_name": "BLACK",
+                "image": "products/shirts/SHIRT-012/black.jpg"
+            },
+            {
+                "color": "Chiku",
+                "source_color_name": "CHIKU",
+                "image": "products/shirts/SHIRT-012/chiku.jpg"
+            },
+            {
+                "color": "Light Blue",
+                "source_color_name": "LIGHT BLUE",
+                "image": "products/shirts/SHIRT-012/light blue.jpg"
+            },
+            {
+                "color": "Maroon",
+                "source_color_name": "MAROON",
+                "image": "products/shirts/SHIRT-012/maroon.jpg"
+            },
+            {
+                "color": "Pink",
+                "source_color_name": "PINK",
+                "image": "products/shirts/SHIRT-012/pink.jpg"
+            },
+            {
+                "color": "Wine",
+                "source_color_name": "WINE",
+                "image": "products/shirts/SHIRT-012/wine.jpg"
+            }
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+        ],
+        "variant_status": "Only the seven supplied SHIRT-012 color images should be exposed."
+    },
+    "images": [
+        {
+            "color": "Beige",
+            "image": "products/shirts/SHIRT-012/beige.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Black",
+            "image": "products/shirts/SHIRT-012/black.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Chiku",
+            "image": "products/shirts/SHIRT-012/chiku.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/shirts/SHIRT-012/light blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Maroon",
+            "image": "products/shirts/SHIRT-012/maroon.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Pink",
+            "image": "products/shirts/SHIRT-012/pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Wine",
+            "image": "products/shirts/SHIRT-012/wine.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.0,
+        "rating_count": 1281,
+        "rating_distribution_percent": {
+            "5_star": 55,
+            "4_star": 18,
+            "3_star": 10,
+            "2_star": 5,
+            "1_star": 12
+        },
+        "positive_rating_percent": 73
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "summary": "The shirt receives generally positive feedback for comfort, fit, appearance, color and value. The main weakness is inconsistent feedback about fabric quality and color accuracy. Some customers specifically say the cloth quality could be improved.",
+        "positive": [
+            "Comfortable for long hours",
+            "Good fit",
+            "Stylish appearance",
+            "Good colors",
+            "Soft feel mentioned by customers",
+            "Good value for money at promotional prices",
+            "Good fabric according to several reviews",
+            "Can work as semi-formal wear",
+            "Suitable for casual wear",
+            "Suitable for vacations",
+            "Suitable for beach wear",
+            "Large size range"
+        ],
+        "negative": [
+            "Some customers say cloth quality could be improved",
+            "One review says color differed from expectation",
+            "One review says fabric quality was unsatisfactory",
+            "One review says fabric is a blend rather than pure cotton",
+            "Not ideal to describe as premium-quality fabric without qualification"
+        ]
+    },
+    "review_insights": {
+        "quality": {
+            "sentiment": "mixed_positive",
+            "confidence": "high",
+            "note": "Many reviews praise quality, but several recent reviews explicitly say cloth quality could be improved."
+        },
+        "fabric": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several buyers like the material, but at least one review criticizes the cloth and identifies it as a blend rather than pure cotton."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews report good or perfect fitting."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Reviews describe the shirt as comfortable for long periods and soft/comfortable to wear."
+        },
+        "color": {
+            "sentiment": "mostly_positive",
+            "confidence": "medium",
+            "note": "Colors are frequently praised, but one reviewer says the actual color differed from expectations and another notes colors can appear different in pictures and different lighting."
+        },
+        "value": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several reviews call it value for money, particularly at the observed promotional price."
+        },
+        "summer_use": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product description explicitly positions the fabric as lightweight, breathable and cooling for summer."
+        },
+        "semi_formal_use": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "A verified review specifically describes the black version as suitable for semi-formal wear."
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "Chiku",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fit",
+                "style"
+            ],
+            "summary": "Reviewer praised comfort, fitting and stylish appearance."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Gajari",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer praised quality, color and fit, while noting cloth quality could be improved."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Navy Blue",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ],
+            "summary": "Reviewer said the material was very good."
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "size": "M",
+            "color": "Wine",
+            "sentiment": "negative",
+            "themes": [
+                "color",
+                "fabric"
+            ],
+            "summary": "Reviewer was dissatisfied with the color and cloth quality."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer praised the fabric and fitting."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "XL",
+            "color": "White",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "fabric"
+            ],
+            "summary": "Reviewer described the shirt as comfortable with good fabric."
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "size": "M",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "color",
+                "comfort",
+                "value"
+            ],
+            "summary": "Reviewer praised quality and color, describing it as soft, elegant and value for money."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "M",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "fit",
+                "value"
+            ],
+            "summary": "Reviewer praised cloth quality, fit and value."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Wine",
+            "sentiment": "mixed",
+            "themes": [
+                "color",
+                "fabric"
+            ],
+            "summary": "Reviewer liked the color but said cloth quality could be improved."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "S",
+            "color": "Black",
+            "sentiment": "positive",
+            "themes": [
+                "fit",
+                "comfort",
+                "semi_formal"
+            ],
+            "summary": "Reviewer said the fit was great, material comfortable and appearance suitable for semi-formal wear, but the shirt was slightly long."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "L",
+            "color": "Wine",
+            "sentiment": "positive",
+            "themes": [
+                "value",
+                "quality"
+            ],
+            "summary": "Reviewer considered it good value with decent quality but said the fabric was a blend and may be less comfortable in hot outdoor weather."
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "size": "4XL",
+            "color": "Cream",
+            "sentiment": "positive",
+            "themes": [
+                "overall"
+            ],
+            "summary": "Reviewer described the product as good."
+        }
+    ],
+    "pros": [
+        "4.0/5 average rating",
+        "1,281 ratings",
+        "73% of ratings are 4 or 5 stars",
+        "Regular fit",
+        "Long sleeves",
+        "Button-down construction",
+        "Solid color design",
+        "Textured fabric",
+        "Slight vertical ribbing",
+        "Lightweight positioning",
+        "Breathable positioning",
+        "Soft feel reported by customers",
+        "Good fit feedback",
+        "Comfortable for long hours",
+        "Good value at promotional pricing",
+        "Large size range from S to 4XL",
+        "Works for casual wear",
+        "Works for vacation wear",
+        "Works for beach wear",
+        "Can work for semi-formal styling"
+    ],
+    "cons": [
+        "Fiber composition is unclear",
+        "Amazon lists material composition as 'Popcorn'",
+        "Product marketing calls it linen but does not establish 100% linen composition",
+        "Some reviews criticize cloth quality",
+        "Some color mismatch complaints",
+        "One reviewer says the fabric may be a blend",
+        "One review suggests it may be less suitable for hot outdoor weather",
+        "Some sizes may run longer than expected"
+    ],
+    "occasion_tags": [
+        "casual wear",
+        "daily wear",
+        "vacation",
+        "beach",
+        "cruise",
+        "tropical vacation",
+        "party",
+        "wedding",
+        "semi-formal",
+        "office casual",
+        "summer",
+        "outdoor"
+    ],
+    "style_tags": [
+        "textured shirt",
+        "linen-style shirt",
+        "casual shirt",
+        "button-down shirt",
+        "regular fit shirt",
+        "long sleeve shirt",
+        "solid shirt",
+        "vertical ribbed shirt",
+        "western shirt",
+        "vacation shirt",
+        "beach shirt",
+        "semi-formal shirt"
+    ],
+    "ai_matching": {
+        "positive_keywords": [
+            "men's casual shirt",
+            "textured shirt",
+            "linen style shirt",
+            "linen shirt",
+            "summer shirt",
+            "vacation shirt",
+            "beach shirt",
+            "lightweight shirt",
+            "breathable shirt",
+            "solid shirt",
+            "regular fit shirt",
+            "button down shirt",
+            "long sleeve shirt",
+            "semi formal shirt",
+            "party shirt",
+            "wedding shirt",
+            "cruise shirt",
+            "tropical shirt"
+        ],
+        "negative_keywords": [
+            "slim fit shirt",
+            "oversized shirt",
+            "printed shirt",
+            "checked shirt",
+            "striped shirt",
+            "short sleeve shirt",
+            "100% cotton shirt",
+            "100% linen shirt",
+            "pure linen shirt"
+        ],
+        "strong_attributes": [
+            "regular fit",
+            "textured",
+            "solid",
+            "long sleeve",
+            "button down",
+            "lightweight",
+            "breathable",
+            "casual",
+            "vacation",
+            "beach",
+            "semi-formal"
+        ],
+        "warning_attributes": [
+            "unclear fabric composition",
+            "mixed fabric feedback",
+            "color accuracy",
+            "cloth quality"
+        ]
+    },
+    "buying_advice": {
+        "recommendation": "RECOMMENDED_WITH_CAVEAT",
+        "score": 7.8,
+        "best_for": [
+            "Men wanting a relaxed regular-fit shirt",
+            "Vacation outfits",
+            "Beach outfits",
+            "Casual outings",
+            "Summer styling",
+            "Party outfits",
+            "Semi-formal outfits",
+            "Men who prefer textured fabrics",
+            "Men who want many color choices",
+            "Men looking for a budget-friendly shirt"
+        ],
+        "not_ideal_for": [
+            "Customers specifically looking for pure linen",
+            "Customers specifically looking for 100% cotton",
+            "Customers expecting luxury fabric quality",
+            "Customers who need precise color matching",
+            "Customers who prefer slim fit"
+        ],
+        "size_advice": "Sizes S through 4XL are listed. Reviews indicate generally good fitting, but one reviewer found the S version somewhat long. Shopi should recommend checking the size chart rather than guaranteeing fit.",
+        "fabric_advice": "Describe the material as textured/lightweight fabric or linen-style fabric. Do not describe it as 100% linen or 100% cotton because the supplied source does not establish that.",
+        "quality_advice": "Position the shirt as a good budget/value option rather than premium construction. Several customers like the fabric, but some explicitly say cloth quality could be improved.",
+        "value_advice": "At approximately ₹409–₹495, the product has a strong value proposition. The ₹1,999 MRP should not be treated as evidence of premium quality.",
+        "occasion_advice": "This product has broader occasion coverage than SHIRT-011: casual, vacation, beach, party and even semi-formal styling are supported by the source.",
+        "color_advice": "Black is the safest versatile option. Beige and Chiku work well for neutral/earth-tone outfits. Light Blue and Pink are better for lighter summer styling. Maroon and Wine are stronger for party/evening looks."
+    },
+    "care_instructions": {
+        "machine_washable": true,
+        "source_instruction": "Machine washable. Refer to the size chart before ordering.",
+        "additional_care_note": "Another captured comparison section mentions hand-wash care, creating a source inconsistency.",
+        "ai_rule": "Display machine washable as the primary product-source instruction, but do not invent temperature, detergent or drying instructions."
+    },
+    "brand_information": {
+        "brand": "DEELMO",
+        "model_name": "POP911_LINEN_RED_F.SLEEVE_4XL",
+        "style_number": "POP911_LINEN_RED_F.SLEEVE_4XL",
+        "manufacturer": "DEELMO",
+        "packer": "DEELMO",
+        "importer": "DEELMO",
+        "country_of_origin": "India",
+        "net_quantity": 1,
+        "generic_name": "Shirt",
+        "asin": "B0F9TNQC8M"
+    },
+    "data_quality": {
+        "rating_count": 1281,
+        "price_available": true,
+        "stock_available": true,
+        "complete_supplied_color_image_set": true,
+        "size_range_listed": true,
+        "missing_fields": [
+            "Variant-level inventory",
+            "Variant-level current price",
+            "Exact garment measurements by size",
+            "Reliable fiber composition percentage"
+        ],
+        "source_inconsistencies": [
+            "Material composition is listed as 'Popcorn'.",
+            "Product title and marketing call the shirt a linen shirt.",
+            "A review describes the fabric as a blend rather than pure cotton.",
+            "One captured comparison section says Hand Wash Care while the main product description says Machine washable.",
+            "The product's review variants contain additional colors such as Gajari, Navy Blue and Cream that are not all represented by the seven supplied SHIRT-012 images.",
+            "The captured listing contains multiple prices depending on variant/offer."
+        ]
+    },
+    "shopi_ai_rules": {
+        "primary_rule": "Recommend this as a budget-friendly textured regular-fit casual shirt suitable for vacation, summer, casual and semi-formal styling.",
+        "material_rule": "Never claim 100% linen, pure linen or 100% cotton.",
+        "fit_rule": "Describe the fit as Regular Fit.",
+        "texture_rule": "Highlight the textured/slightly vertically ribbed appearance.",
+        "occasion_rule": "Prioritize vacation, beach, casual, party and relaxed semi-formal recommendations.",
+        "summer_rule": "Summer suitability can be mentioned because the product description explicitly markets it as lightweight, breathable and cooling.",
+        "quality_rule": "Do not call it luxury or premium-quality construction. Customer feedback on cloth quality is mixed.",
+        "price_rule": "Treat ₹409–₹595 as captured offer prices, not a permanent price. ₹495 is the main displayed price in the source.",
+        "color_rule": "Only expose Beige, Black, Chiku, Light Blue, Maroon, Pink and Wine because these are the seven supplied SHIRT-012 images.",
+        "review_color_rule": "Do not create additional storefront variants from review-only colors unless matching product images are supplied.",
+        "care_rule": "Machine washable is supported by the main product description, but avoid adding unsupported washing temperature or drying instructions.",
+        "value_rule": "The product's strongest commercial angle is low promotional pricing rather than premium material."
+    }
+}

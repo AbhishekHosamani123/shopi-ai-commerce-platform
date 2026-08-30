@@ -1,0 +1,531 @@
+{
+    "product_id": "DRESS-008",
+    "product": {
+        "name": "Women's Pure Cotton Regular Fit Floral Printed A-Line Kurta",
+        "brand": "Generic",
+        "category": "Dresses",
+        "subcategory": "Kurtas & Kurtis",
+        "gender": "Women",
+        "product_type": "A-Line Kurta",
+        "description": "A floral printed women's kurta made from cotton, featuring a regular/straight fit, V-neck and bell sleeves. Designed for casual, everyday and warm-weather wear.",
+        "fit": "Regular / Straight",
+        "pattern": "Floral",
+        "sleeve": "Bell Sleeve",
+        "sleeve_length": "Three-Quarter",
+        "collar": null,
+        "neck_style": "V-Neck",
+        "closure": null,
+        "length": "Floor Length",
+        "material": "Cotton",
+        "fabric_weight": null,
+        "stretch": null,
+        "care": null,
+        "style_tags": [
+            "floral",
+            "printed",
+            "cotton",
+            "ethnic",
+            "casual",
+            "regular fit",
+            "A-line",
+            "comfortable",
+            "everyday wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "office wear",
+            "daytime events",
+            "everyday wear",
+            "festive gatherings",
+            "engagement",
+            "Haldi"
+        ],
+        "season_tags": [
+            "summer",
+            "warm weather"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "DARK GREEN",
+            "GREEN",
+            "YELLOW",
+            "PEACH",
+            "RANI",
+            "BLACK"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 200
+    },
+    "pricing": {
+        "mrp": 999,
+        "selling_price": 360,
+        "currency": "INR",
+        "discount_percentage": 64,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "DARK GREEN",
+            "image": "products/Dresses/DRESS-008/dark green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "GREEN",
+            "image": "products/Dresses/DRESS-008/green.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "PEACH",
+            "image": "products/Dresses/DRESS-008/peach.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "RANI",
+            "image": "products/Dresses/DRESS-008/rani pink.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "RED",
+            "image": "products/Dresses/DRESS-008/red.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "YELLOW",
+            "image": "products/Dresses/DRESS-008/yellow.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.6,
+        "rating_count": 72,
+        "review_count": 25
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Customers are divided. Positive reviews frequently mention soft cotton fabric, comfort, attractive floral prints, good fit and value for money. Negative reviews raise significant concerns about fabric quality, durability and color/cloth quality. One buyer reported the fabric tore after a single wash.",
+        "positive": [
+            "Comfortable cotton fabric",
+            "Soft and breathable feel reported by several customers",
+            "Good fit and true-to-size feedback",
+            "Attractive floral print",
+            "Good value for money",
+            "Several buyers describe the product as beautiful",
+            "Suitable for everyday and warm-weather wear"
+        ],
+        "negative": [
+            "Multiple complaints about poor fabric quality",
+            "One customer reported the cloth tore after one wash",
+            "Some customers described the cloth as poor or not as expected",
+            "One complaint about poor colour and cloth quality",
+            "Rating is only 3.6/5",
+            "Review sample is relatively small at 72 ratings"
+        ],
+        "main_concern": "Fabric durability is the biggest concern. The product is marketed as pure cotton, but the customer experience around quality is inconsistent."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Floral print and overall appearance are praised by multiple reviewers."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several reviewers explicitly describe the kurta as comfortable."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Some buyers praise the cotton fabric, while several low-rated reviews report poor cloth quality."
+        },
+        "durability": {
+            "sentiment": "negative",
+            "confidence": "medium",
+            "note": "One verified buyer reported that the fabric tore after one wash. This is a serious but isolated specific claim."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several reviews describe the fit as great, perfect or true to size."
+        },
+        "color_accuracy": {
+            "sentiment": "mixed_positive",
+            "confidence": "medium",
+            "note": "Some customers say the colour is exactly as shown, while one low-rated review complained about colour and cloth quality."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Several customers consider the product good or excellent for its price."
+        },
+        "breathability": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "One detailed review specifically describes the cotton as soft and breathable."
+        }
+    },
+    "pros": [
+        "Pure cotton is the listed material composition",
+        "Soft and comfortable according to several buyers",
+        "Breathable according to a detailed review",
+        "Floral print gives it a fresh everyday look",
+        "Good fit feedback",
+        "Multiple size options from S to 2XL",
+        "Multiple color choices",
+        "Affordable selling price of ₹360",
+        "Suitable for summer and casual wear"
+    ],
+    "cons": [
+        "Inconsistent fabric-quality feedback",
+        "One customer reported tearing after one wash",
+        "Several low-rated reviews call the cloth poor quality",
+        "Overall rating is only 3.6/5",
+        "Small review sample compared with highly reviewed products"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY_WITH_CAUTION",
+        "score": 6.4,
+        "best_for": [
+            "Budget-conscious shoppers",
+            "Casual everyday wear",
+            "Summer wear",
+            "Office casual wear",
+            "Customers who prioritize cotton comfort",
+            "Customers looking for an affordable floral kurta"
+        ],
+        "not_ideal_for": [
+            "Customers prioritizing long-term durability",
+            "Customers wanting consistently premium fabric quality",
+            "Customers who dislike quality uncertainty",
+            "Customers looking for a highly reliable product based on reviews"
+        ],
+        "size_advice": "Available sizes are S, M, L, XL and 2XL. Reviews generally suggest good or true-to-size fitting, but the size chart should still be checked before ordering.",
+        "weather_advice": "Good candidate for warm weather because the listed material is cotton and one reviewer specifically described it as breathable.",
+        "sales_advice": "Do not oversell this product as premium. Position it as an affordable cotton floral kurta with good comfort and styling, while being transparent that customer feedback on fabric durability is mixed."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "cotton kurta",
+            "pure cotton kurta",
+            "floral kurta",
+            "summer kurta",
+            "comfortable kurta",
+            "breathable kurta",
+            "casual kurta",
+            "office kurta",
+            "everyday kurta",
+            "affordable kurta",
+            "A-line kurta",
+            "printed kurta"
+        ],
+        "negative_keywords": [
+            "premium quality",
+            "luxury kurta",
+            "high durability",
+            "heavy quality fabric",
+            "long-lasting fabric"
+        ],
+        "strong_attributes": [
+            "cotton",
+            "floral",
+            "comfortable",
+            "breathable",
+            "summer",
+            "casual",
+            "affordable",
+            "regular fit",
+            "V-neck"
+        ],
+        "warning_attributes": [
+            "mixed quality reviews",
+            "fabric durability concern",
+            "possible wash-related damage"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "cotton",
+                "comfort",
+                "fit",
+                "value"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "PEACH",
+            "size": "2XL",
+            "sentiment": "strongly_negative",
+            "themes": [
+                "poor fabric",
+                "durability",
+                "tore after one wash"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Yellow",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable fabric",
+                "value",
+                "simple design"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "RANI",
+            "size": "S",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "material",
+                "color",
+                "fit",
+                "quality",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "PEACH",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "delivery_issue"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "comfort",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "cotton",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "fabric"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "appearance",
+                "color accuracy"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "L",
+            "sentiment": "positive",
+            "themes": [
+                "quality"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Yellow",
+            "size": "M",
+            "sentiment": "negative",
+            "themes": [
+                "poor cloth quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "PEACH",
+            "size": "2XL",
+            "sentiment": "positive",
+            "themes": [
+                "soft fabric",
+                "quality",
+                "value",
+                "color"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "cotton",
+                "breathability",
+                "floral print",
+                "fit",
+                "comfort",
+                "value"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "DARK GREEN",
+            "size": "2XL",
+            "sentiment": "strongly_negative",
+            "themes": [
+                "poor colour",
+                "poor cloth quality"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Yellow",
+            "size": "L",
+            "sentiment": "negative",
+            "themes": [
+                "poor quality"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Yellow",
+            "size": "2XL",
+            "sentiment": "strongly_negative",
+            "themes": [
+                "very poor quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": false,
+            "color": "PEACH",
+            "size": "S",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "cotton",
+                "breathability",
+                "floral print",
+                "fit",
+                "comfort",
+                "lace detailing",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "BLACK",
+            "size": "L",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "pure cotton",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": false,
+            "color": "Yellow",
+            "size": "XL",
+            "sentiment": "positive",
+            "themes": [
+                "overall product"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": false,
+            "color": "DARK GREEN",
+            "size": "XL",
+            "sentiment": "strongly_positive",
+            "themes": [
+                "floral print",
+                "soft fabric",
+                "fit",
+                "value"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Describe it as an affordable floral cotton kurta with a regular/straight fit, V-neck and bell sleeves. Mention the strong comfort and styling feedback, but do not hide the mixed quality reviews.",
+        "when_customer_asks_if_good": "Say it is a reasonable budget option for casual or summer wear, but not a high-confidence quality recommendation because several reviews report poor fabric quality.",
+        "when_customer_asks_about_summer": "Recommend it as a summer option because cotton is the listed material and one detailed review specifically reports soft, breathable fabric.",
+        "when_customer_asks_about_fit": "Mention that several reviewers report good, perfect or true-to-size fitting. Recommend checking the size chart.",
+        "when_customer_asks_about_quality": "Be explicit: quality feedback is mixed. Several customers praise the fabric, but multiple low-rated reviews complain about poor cloth quality and one reports tearing after one wash.",
+        "when_customer_asks_about_color": "Available colors include Dark Green, Green, Peach, Rani, Red and Yellow. Some reviews praise color accuracy, but there is at least one complaint about colour quality.",
+        "when_customer_asks_about_occasion": "Recommend primarily for casual outings, office wear, daytime events and everyday summer wear. It can also work for simple festive gatherings.",
+        "when_customer_asks_for_best_product": "Do not rank this product highly solely on price. Penalize it for the 3.6 rating and repeated quality complaints, especially if the customer prioritizes durability.",
+        "when_customer_mentions_budget": "This is a strong budget candidate at ₹360, provided the customer accepts the quality uncertainty.",
+        "when_customer_mentions_durability": "Do not recommend this as the safest choice. Explain that durability feedback is inconsistent and one reviewer reported tearing after one wash."
+    }
+}

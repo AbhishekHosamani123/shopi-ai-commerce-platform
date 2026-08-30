@@ -2,13 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useAppSelector, useAppDispatch } from '@/app/hooks';
 import { useApp } from '@/Helpers/AccountDialog';
 import { useMenu } from '@/Helpers/MenuContext';
 import { setCart, addItemToCart } from '@/features/UIUpdates/CartWishlist';
 import { cartAddHandler } from '@/app/api/itemLists';
-import { sendAiShoppingMessage, AiProductCardData, RealCartStateData, CheckoutActionData, UserAddressData } from '@/app/api/aiShopping';
+import {
+  sendAiShoppingMessage,
+  AiProductCardData,
+  RealCartStateData,
+  CheckoutActionData,
+  UserAddressData,
+  ShopiAIContext
+} from '@/app/api/aiShopping';
 import SafeMarkdownRenderer from './SafeMarkdownRenderer';
 
 export interface ChatMessage {
@@ -25,15 +32,6 @@ export interface ChatMessage {
   isError?: boolean;
 }
 
-const QUICK_ACTIONS = [
-  { label: '🧥 Find a jacket', prompt: 'Find me a jacket under ₹3000' },
-  { label: '👟 Running shoes', prompt: 'Show me running shoes under ₹3000' },
-  { label: '💰 Under ₹1000', prompt: 'Find me something under ₹1000' },
-  { label: '👗 Women\'s tops', prompt: 'Find women\'s tops' },
-  { label: '🛒 What\'s in my cart?', prompt: 'What\'s in my cart?' },
-  { label: '⚡ Best deals', prompt: 'Show me the best deals on trending products' },
-];
-
 export default function ShopiAiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -43,31 +41,110 @@ export default function ShopiAiAssistant() {
   const [addingProductId, setAddingProductId] = useState<string | null>(null);
   const [addedProductIds, setAddedProductIds] = useState<Set<string>>(new Set());
   const [hasGreeted, setHasGreeted] = useState(false);
+  const [isCartProcessing, setIsCartProcessing] = useState(false);
 
   const router = useRouter();
+  const pathname = usePathname() || '/';
   const dispatch = useAppDispatch();
   const { appState } = useApp();
   const { toggleCart } = useMenu();
   const isLogged = appState.loggedIn;
   const defaultAccount = useAppSelector((state) => state.userState.defaultAccount);
   const cartList = useAppSelector((state) => state.cartWishlist.cart);
+  const activeProductContext = useAppSelector((state) => state.cartWishlist.activeProductContext);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Derive current page context
+  const isProductPage = pathname.startsWith('/product/');
+  const currentSku = isProductPage ? decodeURIComponent(pathname.replace('/product/', '').trim()) : undefined;
+
+  const isSubCategoryPage = pathname.startsWith('/sub-category/');
+  const subCatSegments = isSubCategoryPage ? pathname.split('/').filter(Boolean) : [];
+  const currentGender = subCatSegments[1] || undefined;
+  const currentCategory = subCatSegments[2] || undefined;
+
+  const pageContext: ShopiAIContext = {
+    pageType: isProductPage ? 'product' : isSubCategoryPage ? 'subcategory' : pathname.startsWith('/cart') ? 'cart' : 'home',
+    currentProduct: currentSku
+      ? {
+          sku: currentSku,
+          title: activeProductContext?.title || currentSku,
+          price: activeProductContext?.price,
+          mrp: activeProductContext?.mrp,
+          category: activeProductContext?.category,
+          selectedColor: activeProductContext?.selectedColor,
+          selectedSize: activeProductContext?.selectedSize,
+          selectedVariantImage: activeProductContext?.selectedVariantImage,
+        }
+      : undefined,
+    selectedVariant: activeProductContext?.selectedColor || activeProductContext?.selectedSize
+      ? {
+          color: activeProductContext.selectedColor,
+          size: activeProductContext.selectedSize,
+          imageUrl: activeProductContext.selectedVariantImage,
+        }
+      : undefined,
+    activeFilters: {
+      category: currentCategory,
+      gender: currentGender
+    },
+    cart: cartList.map((i) => ({
+      productId: String(i.productID),
+      name: i.productName,
+      price: i.productPrice,
+      quantity: i.quantity,
+      color: i.productColor,
+      size: i.productSize
+    }))
+  };
+
+  // Dynamic quick action suggestions based on current browsing state
+  const quickActions = isProductPage
+    ? [
+        { label: '✨ Tell me about this', prompt: 'Tell me about this product.' },
+        { label: '💡 Why should I buy this?', prompt: 'Why should I buy this?' },
+        { label: '⭐ How are reviews?', prompt: 'How are the reviews for this product?' },
+        { label: '🎨 Available in black?', prompt: 'Is this available in black?' },
+        { label: '📉 Similar but cheaper', prompt: 'Something like this but cheaper.' },
+        { label: '🛍️ Add to cart', prompt: 'Add this to cart.' }
+      ]
+    : isSubCategoryPage
+    ? [
+        { label: '💰 Under ₹600', prompt: 'Show me something under ₹600.' },
+        { label: '🚫 No black', prompt: "I don't want black." },
+        { label: '👔 Best for office', prompt: 'Show me the best options for office wear.' },
+        { label: '⭐ Top customer ratings', prompt: 'Show me the highest rated products.' },
+        { label: '🛒 What is in my cart?', prompt: "What's in my cart?" }
+      ]
+    : [
+        { label: '👔 Men\'s shirts under ₹600', prompt: 'Find me men\'s shirts under ₹600' },
+        { label: '👟 Running shoes', prompt: 'Show me running shoes under ₹3000' },
+        { label: '👗 Women\'s dresses', prompt: 'Show me popular women\'s dresses' },
+        { label: '🛒 What\'s in my cart?', prompt: "What's in my cart?" },
+        { label: '⚡ Best value deals', prompt: 'Show me the highest rated products with big discounts' }
+      ];
 
   // Initialize unique conversation ID on mount
   useEffect(() => {
     setConversationId(`conv_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`);
   }, []);
 
-  // Show official welcome message when assistant opens for the first time
+  // Show contextual welcome message when assistant opens for the first time
   useEffect(() => {
     if (isOpen && !hasGreeted && messages.length === 0) {
+      const welcomeText = isProductPage
+        ? `Hi! 👋 I'm **Shopi**, your AI shopping salesperson.\n\nI see you're viewing **${currentSku}**. I can give you product details, verify review sentiments, check variant stock, compare alternatives, or add it directly to your cart.`
+        : isSubCategoryPage
+        ? `Hi! 👋 I'm **Shopi**, your AI shopping salesperson.\n\nI can help you filter through **${currentGender || ''} ${currentCategory || 'catalog'}**, apply price constraints (e.g. *under ₹600*), exclude unwanted styles/colors, or recommend top-rated picks.`
+        : `Hi! 👋 I'm **Shopi**, your AI shopping salesperson.\n\nTell me what you're looking for and I'll find products with verified reviews, explain trade-offs, and manage your cart.`;
+
       setMessages([
         {
           id: 'welcome_msg',
           sender: 'shopi',
-          text: "Hi! 👋 I'm Shopi, your AI shopping assistant.\n\nTell me what you're looking for and I'll help you find products, compare prices, and manage your shopping cart.",
+          text: welcomeText,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         },
       ]);
@@ -78,7 +155,7 @@ export default function ShopiAiAssistant() {
         inputRef.current?.focus();
       }, 200);
     }
-  }, [isOpen, hasGreeted, messages.length]);
+  }, [isOpen, hasGreeted, messages.length, isProductPage, isSubCategoryPage, currentSku, currentGender, currentCategory]);
 
   // Auto-scroll to bottom of conversation
   useEffect(() => {
@@ -93,7 +170,7 @@ export default function ShopiAiAssistant() {
 
     const reduxCartItems = backendCart.items.map((item) => ({
       cartItemID: item.cartItemId,
-      productID: parseInt(item.productId, 10),
+      productID: item.productId,
       productImg: item.imageUrl || '',
       productAlt: item.name,
       productName: item.name,
@@ -128,6 +205,7 @@ export default function ShopiAiAssistant() {
         message: textToSend,
         userId: activeUserId,
         conversationId,
+        context: pageContext
       });
 
       if (res.status === 200 && res.data.success) {
@@ -154,23 +232,30 @@ export default function ShopiAiAssistant() {
         // If intent is view_product, navigate directly to canonical product detail page
         if (res.data.intent === 'view_product' && res.data.products && res.data.products.length > 0) {
           const target = res.data.products[0];
-          const targetProdId = String(target.productId || target.id || '');
-          if (targetProdId) {
-            router.push(`/product/${targetProdId}`);
+          const targetSkuOrId = String(target.sku || target.productId || target.id || '');
+          if (targetSkuOrId) {
+            router.push(`/product/${targetSkuOrId}`);
           }
         }
       } else {
-        const errorText = res.data?.error || "Sorry, I couldn't complete that action. Please try again.";
+        // Backend responded with success:false — show its honest guidance message
+        // (e.g. add_to_cart_failed with instructions) rather than a generic error.
+        const errorText = res.data?.message || res.data?.error || "Sorry, I couldn't complete that action. Please try again.";
+        const isGuidance = Boolean(res.data?.message) && (res.data.intent || '').endsWith('_failed');
         setMessages((prev) => [
           ...prev,
           {
             id: `err_${Date.now()}`,
             sender: 'shopi',
             text: errorText,
+            cart: res.data?.cart,
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            isError: true,
+            isError: !isGuidance,
           },
         ]);
+        if (res.data?.cart) {
+          syncReduxCart(res.data.cart);
+        }
       }
     } catch (err: any) {
       setMessages((prev) => [
@@ -189,14 +274,16 @@ export default function ShopiAiAssistant() {
   };
 
   const handleManualAddToCart = async (product: AiProductCardData) => {
-    const rawId = String(product.productId || product.id || '');
-    const prodIdNum = parseInt(rawId, 10);
+    const rawId = String(product.productId || product.id || product.sku || '');
+    const prodIdNum = parseInt(rawId, 10) || 1;
     const prodTitle = product.title || product.name || 'Product';
     setAddingProductId(rawId);
 
     try {
       const activeUserId = isLogged && defaultAccount.userID ? defaultAccount.userID : 666574596;
       const randomCartItemId = Math.floor(Math.random() * 1000000);
+      const activeColor = product.color || activeProductContext?.selectedColor || 'Standard';
+      const activeSize = product.size || activeProductContext?.selectedSize || 'Standard';
 
       // Call backend insertion if logged in
       if (isLogged) {
@@ -215,13 +302,13 @@ export default function ShopiAiAssistant() {
       dispatch(
         addItemToCart({
           cartItemID: randomCartItemId,
-          productID: prodIdNum,
+          productID: product.sku || rawId,
           productImg: product.imageUrl,
           productAlt: prodTitle,
           productName: prodTitle,
           productPrice: product.price,
-          productColor: 'Standard',
-          productSize: 'Standard',
+          productColor: activeColor,
+          productSize: activeSize,
           quantity: 1,
         })
       );
@@ -253,7 +340,7 @@ export default function ShopiAiAssistant() {
       {
         id: `welcome_${Date.now()}`,
         sender: 'shopi',
-        text: "Hi! 👋 I'm Shopi, your AI shopping assistant. Tell me what you're looking for and I'll help you find products, compare prices, and manage your shopping cart.",
+        text: "Hi! 👋 I'm **Shopi**, your AI shopping salesperson. Tell me what you're looking for and I'll find products, explain honest trade-offs, and manage your cart.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
     ]);
@@ -262,69 +349,94 @@ export default function ShopiAiAssistant() {
 
   return (
     <>
-      {/* 1. COMPACT FLOATING LAUNCHER BUTTON (Bottom-Right) */}
+      {/* 1. FLOATING LAUNCHER BUTTON (Bottom-Right) */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-2.5 bg-[#0D94FB] hover:bg-[#012652] text-white font-semibold text-sm rounded-full shadow-lg shadow-[#0D94FB]/30 hover:shadow-xl active:scale-95 transition-all duration-200 cursor-pointer border border-white/20 group select-none"
-          aria-label="Ask Shopi"
+          className="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 px-4 py-2.5 bg-gradient-to-r from-[#012652] to-[#0D94FB] hover:from-[#011d3f] hover:to-[#0B80D8] text-white font-semibold text-sm rounded-full shadow-xl shadow-[#0D94FB]/25 active:scale-95 transition-all duration-200 cursor-pointer border border-cyan-300/30 group select-none"
+          aria-label="Ask Shopi AI Salesperson"
         >
-          <span className="text-base">✨</span>
-          <span className="tracking-tight">Ask Shopi</span>
+          <span className="text-base animate-pulse">✨</span>
+          <span className="tracking-tight font-bold">Ask Shopi</span>
+          {isProductPage && currentSku && (
+            <span className="text-[10px] bg-white/20 text-cyan-100 px-2 py-0.5 rounded-full font-mono">
+              {currentSku}
+            </span>
+          )}
         </button>
       )}
 
       {/* 2. MODERN SHOPI SHOPPING ASSISTANT PANEL */}
       {isOpen && (
         <div
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[94vw] sm:w-[440px] h-[86vh] sm:h-[640px] max-h-[740px] bg-slate-900/95 backdrop-blur-2xl border border-slate-700/60 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[95vw] sm:w-[460px] h-[88vh] sm:h-[660px] max-h-[760px] bg-slate-900/95 backdrop-blur-2xl border border-slate-700/60 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
           role="dialog"
           aria-modal="true"
           aria-labelledby="shopi-assistant-title"
         >
           {/* HEADER */}
-          <div className="bg-gradient-to-r from-[#012652] via-slate-850 to-[#011d3f] border-b border-slate-700/60 p-4 flex items-center justify-between select-none">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#012652] to-[#0D94FB] p-0.5 shadow-md shadow-[#0D94FB]/20">
-                <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-lg">
-                  ✨
+          <div className="bg-gradient-to-r from-[#012652] via-slate-850 to-[#011d3f] border-b border-slate-700/60 p-4 select-none">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#012652] to-[#0D94FB] p-0.5 shadow-md shadow-[#0D94FB]/20">
+                  <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-lg">
+                    ✨
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 id="shopi-assistant-title" className="font-bold text-white text-base tracking-tight flex items-center gap-1.5">
+                      <span>Shopi</span>
+                    </h3>
+                    <span className="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 bg-gradient-to-r from-[#0D94FB]/30 to-cyan-500/30 text-cyan-300 border border-cyan-500/40 rounded-full">
+                      AI Salesperson
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 truncate max-w-[220px]">
+                    Catalog & Review Intelligence
+                  </p>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 id="shopi-assistant-title" className="font-bold text-white text-base tracking-tight flex items-center gap-1.5">
-                    <span>✨</span>
-                    <span>Shopi</span>
-                  </h3>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-[#0D94FB]/20 text-[#0D94FB] border border-[#0D94FB]/30 rounded-full">
-                    Assistant
-                  </span>
-                </div>
-                <p className="text-xs text-slate-400 truncate max-w-[220px]">
-                  Personal Shopping Assistant
-                </p>
+
+              {/* HEADER CONTROLS */}
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={handleResetChat}
+                  title="Reset conversation"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                  aria-label="Reset conversation"
+                >
+                  <i className="fa-solid fa-rotate-left text-xs"></i>
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  title="Close assistant"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                  aria-label="Close assistant"
+                >
+                  <i className="fa-solid fa-xmark text-sm"></i>
+                </button>
               </div>
             </div>
 
-            {/* HEADER CONTROLS */}
-            <div className="flex items-center gap-1">
-              <button
-                onClick={handleResetChat}
-                title="Reset conversation"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Reset conversation"
-              >
-                <i className="fa-solid fa-rotate-left text-xs"></i>
-              </button>
-              <button
-                onClick={() => setIsOpen(false)}
-                title="Close assistant"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Close assistant"
-              >
-                <i className="fa-solid fa-xmark text-sm"></i>
-              </button>
-            </div>
+            {/* CURRENT BROWSING CONTEXT BADGE */}
+            {isProductPage && currentSku && (
+              <div className="mt-2.5 flex items-center gap-2 px-3 py-1.5 bg-cyan-950/70 border border-cyan-700/50 rounded-xl text-cyan-200 text-xs">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
+                <span className="text-slate-400">Viewing Product:</span>
+                <span className="font-mono font-bold text-cyan-300 truncate">{currentSku}</span>
+              </div>
+            )}
+
+            {isSubCategoryPage && (currentGender || currentCategory) && (
+              <div className="mt-2.5 flex items-center gap-2 px-3 py-1.5 bg-slate-800/80 border border-slate-700/60 rounded-xl text-slate-300 text-xs">
+                <span className="w-2 h-2 rounded-full bg-indigo-400 shrink-0"></span>
+                <span className="text-slate-400">Browsing:</span>
+                <span className="font-semibold text-white capitalize">
+                  {currentGender} &gt; {currentCategory}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* CONVERSATION MESSAGES AREA */}
@@ -336,7 +448,7 @@ export default function ShopiAiAssistant() {
               >
                 {/* Message Bubble */}
                 <div
-                  className={`max-w-[88%] rounded-2xl px-4 py-3 shadow-md whitespace-pre-wrap leading-relaxed ${
+                  className={`max-w-[90%] rounded-2xl px-4 py-3 shadow-md whitespace-pre-wrap leading-relaxed ${
                     msg.sender === 'user'
                       ? 'bg-gradient-to-r from-[#012652] to-[#0D94FB] text-white rounded-br-xs'
                       : msg.isError
@@ -345,12 +457,13 @@ export default function ShopiAiAssistant() {
                   }`}
                 >
                   {msg.sender === 'shopi' && (
-                    <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#0D94FB] mb-1">
+                    <div className="flex items-center gap-1.5 text-[11px] font-semibold text-cyan-400 mb-1">
                       <span>✨</span>
-                      <span>Shopi</span>
+                      <span>Shopi Salesperson</span>
                     </div>
                   )}
-                  <SafeMarkdownRenderer content={msg.text} className={msg.sender === 'user' ? 'text-white' : 'text-slate-100'} />
+                  <SafeMarkdownRenderer content={msg.text} variant="dark" className={msg.sender === 'user' ? 'text-white' : 'text-slate-100'} />
+
                 </div>
 
                 {/* Timestamp */}
@@ -359,35 +472,39 @@ export default function ShopiAiAssistant() {
                 {/* EMBEDDED PRODUCT CARDS */}
                 {msg.products && msg.products.length > 0 && (
                   <div className="mt-3 w-full space-y-2.5">
-                    <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-1">
-                      Recommended Products ({msg.products.length})
+                    <div className="text-xs font-semibold text-cyan-400 uppercase tracking-wider px-1 flex items-center justify-between">
+                      <span>Products ({msg.products.length})</span>
+                      <span className="text-[10px] text-slate-400 lowercase font-normal">verified in Supabase catalog</span>
                     </div>
                     <div className="grid grid-cols-1 gap-2.5">
                       {msg.products.map((product, pIdx) => {
-                        const prodId = String(product.productId || product.id || `prod_${pIdx}`);
+                        const prodSku = product.sku || String(product.productId || product.id || `prod_${pIdx}`);
+                        const prodId = String(product.productId || product.id || prodSku);
                         const prodTitle = product.title || product.name || 'Product';
-                        const isAdding = addingProductId === prodId;
-                        const isAdded = addedProductIds.has(prodId);
+                        const isAdding = addingProductId === prodId || addingProductId === prodSku;
+                        const isAdded = addedProductIds.has(prodId) || addedProductIds.has(prodSku);
+                        const rating = product.stars || product.rating || 4.2;
+                        const reviewCount = product.reviewCount || 12;
 
                         return (
                           <div
-                            key={`prod_${msg.id}_${prodId}_${pIdx}`}
-                            className="bg-slate-800/80 border border-slate-700 hover:border-slate-600 rounded-2xl p-3 flex gap-3 shadow-lg hover:shadow-xl transition-all group"
+                            key={`prod_${msg.id}_${prodSku}_${pIdx}`}
+                            className="bg-slate-800/90 border border-slate-700/80 hover:border-cyan-500/50 rounded-2xl p-3.5 flex gap-3.5 shadow-lg hover:shadow-xl transition-all group"
                           >
                             {/* Product Thumbnail */}
-                            <div className="w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-slate-700/50 relative">
+                            <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-slate-700/50 relative">
                               <img
                                 src={product.imageUrl}
                                 alt={prodTitle}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 onError={(e) => {
                                   (e.target as HTMLImageElement).src =
-                                    'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop&q=60';
+                                    'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg';
                                 }}
                               />
-                              {product.inStock !== false && (
-                                <span className="absolute top-1 left-1 bg-emerald-500/90 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md shadow">
-                                  In Stock
+                              {product.discountPercentage && product.discountPercentage > 0 && (
+                                <span className="absolute top-1 left-1 bg-rose-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-md shadow">
+                                  {product.discountPercentage}% OFF
                                 </span>
                               )}
                             </div>
@@ -395,26 +512,64 @@ export default function ShopiAiAssistant() {
                             {/* Product Details & Actions */}
                             <div className="flex-1 flex flex-col justify-between min-w-0">
                               <div>
-                                <span className="text-[10px] font-medium text-[#0D94FB] uppercase tracking-wide">
-                                  {product.category || 'Apparel'}
-                                </span>
-                                <h4 className="text-xs font-bold text-white truncate group-hover:text-cyan-300 transition-colors">
+                                <div className="flex items-center justify-between gap-1">
+                                  <span className="text-[10px] font-semibold text-cyan-400 uppercase tracking-wide truncate">
+                                    {product.category || 'Apparel'}
+                                  </span>
+                                  {product.sku && (
+                                    <span className="text-[9px] font-mono bg-slate-900/80 text-slate-400 px-1.5 py-0.5 rounded">
+                                      {product.sku}
+                                    </span>
+                                  )}
+                                </div>
+                                <h4 className="text-xs font-bold text-white line-clamp-2 mt-0.5 group-hover:text-cyan-300 transition-colors">
                                   {prodTitle}
                                 </h4>
-                                <div className="mt-1 flex items-baseline gap-2">
-                                  <span className="text-sm font-extrabold text-emerald-400">
-                                    ₹{product.price.toLocaleString('en-IN')}
-                                  </span>
-                                  <span className="text-[10px] text-slate-400 uppercase">INR</span>
+
+                                {/* Rating Badge */}
+                                <div className="mt-1 flex items-center gap-1 text-[11px] text-amber-400">
+                                  <span>⭐</span>
+                                  <span className="font-bold">{rating.toFixed(1)}</span>
+                                  <span className="text-slate-400 text-[10px]">({reviewCount})</span>
+                                </div>
+
+                                {/* Price & MRP */}
+                                <div className="mt-1 flex flex-col">
+                                  <div className="flex items-baseline gap-2">
+                                    <span className="text-sm font-extrabold text-emerald-400">
+                                      ₹{product.price.toLocaleString('en-IN')}
+                                    </span>
+                                    {product.mrp && product.mrp > product.price && (
+                                      <span className="text-[10px] text-slate-500 line-through">
+                                        ₹{product.mrp.toLocaleString('en-IN')}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  {/* Variant Badges (Color / Size) */}
+                                  {(product.color || product.size) && (
+                                    <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                                      {product.color && (
+                                        <span className="text-[10px] font-semibold bg-cyan-950/80 border border-cyan-700/50 text-cyan-300 px-1.5 py-0.5 rounded">
+                                          Color: {product.color}
+                                        </span>
+                                      )}
+                                      {product.size && (
+                                        <span className="text-[10px] font-semibold bg-slate-800 border border-slate-700 text-slate-300 px-1.5 py-0.5 rounded">
+                                          Size: {product.size}
+                                        </span>
+                                      )}
+                                    </div>
+                                  )}
                                 </div>
                               </div>
 
                               {/* Card Action Buttons */}
-                              <div className="mt-2 flex items-center gap-2">
+                              <div className="mt-2.5 flex items-center gap-1.5">
                                 <button
                                   onClick={() => handleManualAddToCart(product)}
                                   disabled={isAdding}
-                                  className={`flex-1 py-1.5 px-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                                  className={`flex-1 py-1.5 px-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                                     isAdded
                                       ? 'bg-emerald-600 text-white'
                                       : 'bg-gradient-to-r from-[#012652] to-[#0D94FB] hover:from-[#011d3f] hover:to-[#0B80D8] text-white shadow-sm'
@@ -435,12 +590,19 @@ export default function ShopiAiAssistant() {
                                   )}
                                 </button>
                                 <Link
-                                  href={`/product/${prodId}`}
-                                  className="py-1.5 px-2.5 bg-slate-700/80 hover:bg-slate-600 text-slate-200 text-xs font-medium rounded-lg transition-colors flex items-center gap-1"
+                                  href={`/product/${product.sku || prodId}`}
+                                  className="py-1.5 px-2.5 bg-slate-700/80 hover:bg-slate-600 text-slate-200 text-xs font-medium rounded-lg transition-colors flex items-center gap-1 shrink-0"
                                 >
                                   <span>View</span>
                                   <span className="text-[10px]">→</span>
                                 </Link>
+                                <button
+                                  onClick={() => handleSendMessage(`Tell me about ${product.sku || prodTitle}`)}
+                                  title="Ask Shopi about this product"
+                                  className="py-1.5 px-2 bg-cyan-950/60 hover:bg-cyan-900 border border-cyan-700/40 text-cyan-300 text-xs rounded-lg transition-colors cursor-pointer"
+                                >
+                                  ✨ Ask
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -450,211 +612,126 @@ export default function ShopiAiAssistant() {
                   </div>
                 )}
 
-                {/* EMBEDDED REAL CART PREVIEW (Only shown for cart-specific operations) */}
-                {msg.cart && (msg.intent === 'check_cart' || msg.intent === 'add_to_cart' || msg.intent === 'remove_from_cart' || msg.intent === 'clear_cart' || msg.intent === 'check_last_added') && (
-                  <div className="mt-3 w-full bg-slate-800/90 border border-emerald-500/40 rounded-2xl p-3.5 shadow-xl">
-                    <div className="flex items-center justify-between border-b border-slate-700/80 pb-2 mb-2">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-base">🛒</span>
-                        <span className="text-xs font-bold text-white">Your Shopping Cart</span>
-                      </div>
-                      <span className="text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
-                        {msg.cart.itemCount} item(s)
-                      </span>
-                    </div>
-
-                    {/* Cart Items Summary */}
-                    {msg.cart.items.length === 0 ? (
-                      <p className="text-xs text-slate-400 py-1 italic">Your cart is currently empty.</p>
-                    ) : (
-                      <div className="space-y-1.5 max-h-32 overflow-y-auto pr-1">
-                        {msg.cart.items.map((item, itemIdx) => (
-                          <div key={`cart_item_${msg.id}_${item.cartItemId || item.productId}_${itemIdx}`} className="flex items-center justify-between text-xs text-slate-200">
-                            <span className="truncate max-w-[200px] text-slate-300">
-                              {item.name} <span className="text-slate-500 font-mono">×{item.quantity}</span>
-                            </span>
-                            <span className="font-semibold text-emerald-400">
-                              ₹{item.itemTotal.toLocaleString('en-IN')}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Cart Total & Action Buttons */}
-                    <div className="mt-3 pt-2 border-t border-slate-700/80 flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">Cart Total:</span>
-                      <span className="text-sm font-extrabold text-emerald-400">
-                        ₹{msg.cart.total.toLocaleString('en-IN')} INR
-                      </span>
-                    </div>
-
-                    <div className="mt-3 grid grid-cols-2 gap-2">
-                      <button
-                        onClick={() => {
-                          setIsOpen(false);
-                          toggleCart();
-                        }}
-                        className="py-1.5 px-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold rounded-xl text-center transition-colors cursor-pointer"
-                      >
-                        Open Cart Drawer
-                      </button>
-                      <Link
-                        href="/cart-checkout"
-                        onClick={() => setIsOpen(false)}
-                        className="py-1.5 px-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-semibold rounded-xl text-center transition-all shadow-md shadow-emerald-500/20"
-                      >
-                        Checkout →
-                      </Link>
-                    </div>
-                  </div>
-                )}
-
-                {/* Standalone Checkout Action Card (Only shown for checkout intents) */}
-                {msg.checkout && msg.checkout.available && (msg.intent === 'checkout' || msg.intent === 'address_selected') && (
-                  <div className="mt-3 p-3 bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border border-emerald-500/30 rounded-2xl">
-                    <div className="flex items-center justify-between mb-2.5">
-                      <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                        <span className="text-sm">🛒</span> Order Ready for Checkout
-                      </span>
-                      {msg.checkout.total !== undefined && msg.checkout.total > 0 && (
-                        <span className="text-xs font-extrabold text-emerald-400">
-                          ₹{msg.checkout.total.toLocaleString('en-IN')} INR
-                        </span>
-                      )}
-                    </div>
-                    <Link
-                      href={msg.checkout.url || "/cart-checkout"}
-                      onClick={() => setIsOpen(false)}
-                      className="w-full block py-2 px-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-bold rounded-xl text-center transition-all shadow-md shadow-emerald-500/20 active:scale-[0.98]"
+                {/* CHECKOUT ACTION BUTTON */}
+                {msg.sender === 'shopi' && msg.checkout?.available && !msg.checkout.isCartEmpty && (
+                  <div className="mt-3 w-full">
+                    <button
+                      onClick={() => {
+                        if (isCartProcessing) return;
+                        setIsCartProcessing(true);
+                        // Full page load (not router.push) so the checkout page mounts
+                        // fresh and fetches the cart AFTER the AI's server-side add commits.
+                        window.location.href = msg.checkout!.url || '/cart-checkout';
+                      }}
+                      disabled={isCartProcessing}
+                      className="w-full py-3 px-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-900/40 transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.98] disabled:opacity-60"
                     >
-                      Proceed to Checkout →
-                    </Link>
+                      <span>🛒</span>
+                      <span>{isCartProcessing ? 'Opening secure checkout…' : 'Proceed to Checkout'}</span>
+                      <span className="text-xs">→</span>
+                    </button>
+                    {typeof msg.checkout.total === 'number' && msg.checkout.total > 0 && (
+                      <p className="text-[10px] text-slate-400 text-center mt-1.5">
+                        Cart total: <span className="text-emerald-400 font-bold">₹{msg.checkout.total.toLocaleString('en-IN')}</span> · Secure Razorpay checkout
+                      </p>
+                    )}
                   </div>
                 )}
 
-                {/* Address List Card */}
-                {msg.addresses && msg.addresses.length > 0 && (
-                  <div className="mt-3 space-y-2">
-                    {msg.addresses.map((addr, addrIdx) => (
-                      <div key={`addr_${msg.id}_${addr.addressID || addrIdx}_${addrIdx}`} className="p-2.5 bg-slate-800/80 border border-slate-700/70 rounded-xl text-xs">
-                        <div className="flex items-center justify-between font-bold text-white mb-0.5">
-                          <span>{addr.userName}</span>
-                          {addr.is_default && (
-                            <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/40 font-semibold">
-                              Default
-                            </span>
-                          )}
+                {/* SAVED ADDRESSES (for address_update intent) */}
+                {msg.sender === 'shopi' && msg.addresses && msg.addresses.length > 0 && (
+                  <div className="mt-3 w-full space-y-2">
+                    <div className="text-xs font-semibold text-cyan-400 uppercase tracking-wider px-1">
+                      Saved Addresses
+                    </div>
+                    {msg.addresses.map((addr) => (
+                      <div
+                        key={addr.addressID}
+                        className={`p-3 rounded-xl border text-xs transition-all ${
+                          msg.selectedAddress?.addressID === addr.addressID
+                            ? 'bg-emerald-950/50 border-emerald-700/60 text-emerald-100'
+                            : 'bg-slate-800/90 border-slate-700/70 text-slate-200 hover:border-cyan-600/50'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-white">{addr.userName}</span>
+                          <span className="flex items-center gap-1.5">
+                            {addr.is_default && (
+                              <span className="text-[9px] bg-amber-900/60 text-amber-300 px-1.5 py-0.5 rounded font-semibold">DEFAULT</span>
+                            )}
+                            <span className="text-[9px] bg-slate-700/80 text-slate-300 px-1.5 py-0.5 rounded uppercase">{addr.addressType}</span>
+                          </span>
                         </div>
-                        <div className="text-slate-300 text-[11px] leading-relaxed">
+                        <p className="mt-1 text-slate-300 leading-relaxed">
                           {addr.addressLine1}{addr.addressLine2 ? `, ${addr.addressLine2}` : ''}<br />
-                          {addr.city}, {addr.state} - {addr.postalCode}
-                        </div>
+                          {addr.city}, {addr.state} — {addr.postalCode}
+                        </p>
                       </div>
                     ))}
-                    <Link
-                      href="/cart-checkout"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full block py-2 px-3 bg-gradient-to-r from-[#012652] to-[#0D94FB] hover:from-[#011d3f] hover:to-[#0B80D8] text-white text-xs font-bold rounded-xl text-center transition-all shadow-md shadow-[#0D94FB]/20 active:scale-[0.98]"
+                    <button
+                      onClick={() => router.push('/cart-checkout')}
+                      className="w-full py-2.5 px-4 bg-slate-700/80 hover:bg-slate-600 text-slate-100 font-semibold text-xs rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2"
                     >
-                      Continue to Checkout →
-                    </Link>
-                  </div>
-                )}
-
-                {/* Selected Address Card */}
-                {msg.selectedAddress && !msg.addresses && (
-                  <div className="mt-3 p-3 bg-slate-800/80 border border-slate-700/70 rounded-xl text-xs">
-                    <div className="font-bold text-white mb-1 flex items-center justify-between">
-                      <span>📍 {msg.selectedAddress.userName}</span>
-                      <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/40 font-semibold">
-                        Selected Address
-                      </span>
-                    </div>
-                    <div className="text-slate-300 text-[11px] leading-relaxed mb-2.5">
-                      {msg.selectedAddress.addressLine1}{msg.selectedAddress.addressLine2 ? `, ${msg.selectedAddress.addressLine2}` : ''}<br />
-                      {msg.selectedAddress.city}, {msg.selectedAddress.state} - {msg.selectedAddress.postalCode}
-                    </div>
-                    <Link
-                      href="/cart-checkout"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full block py-2 px-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-bold rounded-xl text-center transition-all shadow-md shadow-emerald-500/20 active:scale-[0.98]"
-                    >
-                      Proceed to Checkout →
-                    </Link>
+                      <span>📍</span>
+                      <span>Manage Address at Checkout</span>
+                    </button>
                   </div>
                 )}
               </div>
             ))}
 
-            {/* TYPING / THINKING INDICATOR */}
+            {/* Loading Indicator */}
             {isLoading && (
-              <div className="flex items-center gap-2 text-slate-400 bg-slate-800/80 border border-slate-700/60 rounded-2xl rounded-tl-xs px-4 py-3 w-fit text-xs">
-                <span className="animate-spin text-sm">✨</span>
-                <span className="font-medium">Shopi is searching the store catalog...</span>
-                <div className="flex gap-1 ml-1">
-                  <span className="w-1.5 h-1.5 bg-[#0D94FB] rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                  <span className="w-1.5 h-1.5 bg-[#012652] rounded-full animate-bounce [animation-delay:0.4s]"></span>
-                </div>
-              </div>
-            )}
-
-            {/* QUICK ACTIONS ON START */}
-            {messages.length <= 1 && !isLoading && (
-              <div className="pt-2">
-                <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                  Quick Shopping Suggestions
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {QUICK_ACTIONS.map((action, idx) => (
-                    <button
-                      key={`qa_${action.label}_${idx}`}
-                      onClick={() => handleSendMessage(action.prompt)}
-                      className="px-3 py-1.5 bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 hover:border-[#0D94FB]/50 text-slate-200 text-xs rounded-xl transition-all cursor-pointer text-left hover:scale-[1.02]"
-                    >
-                      {action.label}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex items-center gap-2 text-cyan-400 bg-slate-800/60 border border-slate-700/50 rounded-2xl px-4 py-2.5 w-fit animate-pulse">
+                <span className="text-sm animate-spin">✨</span>
+                <span className="text-xs font-medium text-slate-300">Shopi is reasoning over catalog data...</span>
               </div>
             )}
 
             <div ref={messagesEndRef} />
           </div>
 
-          {/* INPUT FORM AREA */}
-          <div className="bg-slate-900/95 border-t border-slate-800 p-3">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendMessage();
-              }}
-              className="flex items-center gap-2"
-            >
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask Shopi... e.g. 'Find running shoes under ₹3000'"
-                disabled={isLoading}
-                className="flex-1 bg-slate-800/90 border border-slate-700/80 focus:border-[#0D94FB] focus:ring-1 focus:ring-[#0D94FB] text-white placeholder-slate-400 text-xs rounded-2xl px-4 py-3 focus:outline-none transition-colors disabled:opacity-50"
-              />
+          {/* QUICK SUGGESTIONS CAROUSEL */}
+          <div className="px-4 py-2 bg-slate-950/60 border-t border-slate-800/80 flex items-center gap-2 overflow-x-auto scrollbar-none">
+            {quickActions.map((action, idx) => (
               <button
-                type="submit"
-                disabled={isLoading || !input.trim()}
-                className="w-10 h-10 shrink-0 bg-gradient-to-r from-[#012652] to-[#0D94FB] hover:from-[#011d3f] hover:to-[#0B80D8] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-[#0D94FB]/25 disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95"
-                aria-label="Send message"
+                key={`qa_${idx}`}
+                onClick={() => handleSendMessage(action.prompt)}
+                disabled={isLoading}
+                className="shrink-0 text-xs px-3 py-1.5 rounded-full bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-all cursor-pointer active:scale-95 disabled:opacity-50"
               >
-                <i className="fa-solid fa-paper-plane text-xs"></i>
+                {action.label}
               </button>
-            </form>
-            <div className="mt-1.5 flex items-center justify-between text-[10px] text-slate-500 px-1">
-              <span>Personal AI Shopping Assistant</span>
-              <span>All prices in ₹ INR</span>
-            </div>
+            ))}
           </div>
+
+          {/* INPUT FORM */}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSendMessage();
+            }}
+            className="p-3.5 bg-slate-900 border-t border-slate-700/60 flex items-center gap-2"
+          >
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder={isProductPage ? `Ask about ${currentSku || 'this product'}...` : "Ask Shopi anything about products, fit, prices..."}
+              disabled={isLoading}
+              className="flex-1 bg-slate-800/90 border border-slate-700 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 outline-none transition-all disabled:opacity-50"
+            />
+            <button
+              type="submit"
+              disabled={!input.trim() || isLoading}
+              className="px-4 py-2.5 bg-gradient-to-r from-[#012652] to-[#0D94FB] hover:from-[#011d3f] hover:to-[#0B80D8] disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold text-sm rounded-xl shadow-md transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
+              aria-label="Send message"
+            >
+              <span>Send</span>
+              <span className="text-xs">➤</span>
+            </button>
+          </form>
         </div>
       )}
     </>

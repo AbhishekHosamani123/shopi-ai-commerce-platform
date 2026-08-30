@@ -6,12 +6,15 @@ import { dealDataHandler } from '@/app/api/homeData';
 import Link from 'next/link';
 
 interface DealProduct {
-  productid: number;
+  productid: number | string;
   title: string;
   stars: number;
   description: string;
-  price: number;
-  discount: number;
+  price: number | string;
+  discount: number | string;
+  discountedprice?: string;
+  mrp?: number;
+  selling_price?: number;
   sold: number;
   available: number;
   rating: number;
@@ -64,9 +67,9 @@ const Deal = () => {
               key={each.productid || index}
               className="flex flex-col rounded-xl min-w-full gap-6 h-auto items-center lg:pl-6 snap-center lg:flex-row"
             >
-              <Link href={`/product/${each.productid}`} prefetch={true}>
+              <Link href={`/product/${each.productid}`} prefetch={true} className="w-[300px] lg:w-[400px] h-[300px] bg-slate-50 rounded-xl flex items-center justify-center p-4 border border-slate-100 shrink-0">
                 <img
-                  className="max-w-[450px] min-w-[200px] h-[300px] object-cover rounded-xl border border-slate-100"
+                  className="max-w-full max-h-full object-contain"
                   alt={each.imgalt}
                   src={each.imglink}
                   loading="lazy"
@@ -82,9 +85,20 @@ const Deal = () => {
                   <p className="text-lg font-bold text-slate-900 hover:text-[#0D94FB] transition-colors">{each.title}</p>
                 </Link>
                 <p className="text-sm tracking-normal text-slate-500 line-clamp-2 leading-relaxed">{each.description}</p>
-                <div className="flex items-baseline gap-3">
-                  <p className="text-2xl font-extrabold text-slate-900">₹{each.discount}</p>
-                  <p className="text-sm line-through text-slate-400">₹{each.price}</p>
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <p className="text-2xl font-extrabold text-slate-900">
+                    ₹{each.selling_price || Number(each.discount) || Number(each.discountedprice) || 0}
+                  </p>
+                  {(each.mrp || each.price) && (each.mrp || Number(each.price)) > (each.selling_price || Number(each.discount) || Number(each.discountedprice) || 0) && (
+                    <p className="text-sm line-through text-slate-400">
+                      ₹{each.mrp || each.price}
+                    </p>
+                  )}
+                  {(each.mrp || Number(each.price)) > (each.selling_price || Number(each.discount) || Number(each.discountedprice) || 0) && (
+                    <span className="text-sm font-bold text-emerald-600">
+                      {Math.round((((each.mrp || Number(each.price)) - (each.selling_price || Number(each.discount) || Number(each.discountedprice) || 0)) / (each.mrp || Number(each.price))) * 100)}% OFF
+                    </span>
+                  )}
                 </div>
                 <Link href={`/product/${each.productid}`} prefetch={true}>
                   <button className="bg-[#0D94FB] hover:bg-[#012652] px-6 py-2.5 rounded-xl text-white font-bold text-sm transition-colors duration-200 shadow-md shadow-[#0D94FB]/20 cursor-pointer">

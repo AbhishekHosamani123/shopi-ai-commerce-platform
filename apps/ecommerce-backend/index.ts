@@ -36,9 +36,25 @@ app.get('/', (req: Request, res: Response) => {
 // Authenticate API token for all /api routes
 app.use('/api', authenticateToken, routes);
 
+import ShopiCatalogService from './data/shopiCatalogService';
+import { ProductIntelligenceService } from './shopi-assistant/productIntelligence';
+
 // Function to start the server
 const startServer = async () => {
-  await connectDB();
+  connectDB().catch((err: any) => {
+    console.warn('[DB Warning] Local PostgreSQL connection deferred/offline:', err.message);
+  });
+  
+  // Pre-warm catalog and review caches for instant sub-30ms AI responses
+  Promise.all([
+    ShopiCatalogService.listProducts(),
+    ProductIntelligenceService.getFullCatalog()
+  ]).then(() => {
+    console.log('[Cache Warm] Product catalog & intelligence cache pre-warmed successfully.');
+  }).catch((err: any) => {
+    console.warn('[Cache Warm Warning]:', err.message);
+  });
+
   app.listen(port, () => {
     console.log(`[server]: Razorpay AI Commerce Server is running at http://localhost:${port}`);
   });

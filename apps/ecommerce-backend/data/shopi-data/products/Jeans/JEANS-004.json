@@ -1,0 +1,418 @@
+{
+    "product_id": "JEANS-004",
+    "product": {
+        "name": "Highlander Men's Straight Fit Jeans",
+        "brand": "Highlander",
+        "category": "Jeans",
+        "subcategory": "Men's Jeans",
+        "gender": "Men",
+        "product_type": "Straight Fit Jeans",
+        "description": "Highlander men's straight-fit jeans designed for everyday comfort and casual styling. The product uses soft, breathable cotton denim with a relaxed fit, mid-rise construction and a straight leg silhouette.",
+        "fit": "Relaxed",
+        "leg_style": "Straight",
+        "rise_style": "Mid Rise",
+        "pattern": "Solid",
+        "closure": "Button",
+        "front_style": "Flat Front",
+        "length": "Standard",
+        "material": "100% Cotton",
+        "fabric_type": "Soft Cotton Denim",
+        "stretch": "Not specified",
+        "occasion": "Casual",
+        "season": "All Season",
+        "style_tags": [
+            "straight fit",
+            "relaxed fit",
+            "denim",
+            "cotton",
+            "mid-rise",
+            "casual",
+            "everyday wear",
+            "comfortable",
+            "solid"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "weekend wear",
+            "travel",
+            "hangouts"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Blue",
+            "Faint Blue",
+            "Grey",
+            "Light Blue",
+            "Navy Fade"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 450,
+        "dimensions_cm": {
+            "length": 34,
+            "width": 29,
+            "height": 3
+        }
+    },
+    "pricing": {
+        "mrp": 2599,
+        "selling_price": 598,
+        "currency": "INR",
+        "discount_percentage": 77,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Blue",
+            "image": "products/Jeans/JEANS-004/blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Faint Blue",
+            "image": "products/Jeans/JEANS-004/faint blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Grey",
+            "image": "products/Jeans/JEANS-004/grey.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Light Blue",
+            "image": "products/Jeans/JEANS-004/light blue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Navy Fade",
+            "image": "products/Jeans/JEANS-004/navy fade.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.7,
+        "rating_count": 122,
+        "review_count": 22
+    },
+    "rating_distribution": {
+        "5_star_percentage": 39,
+        "4_star_percentage": 26,
+        "3_star_percentage": 14,
+        "2_star_percentage": 10,
+        "1_star_percentage": 11
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed",
+        "summary": "Reviews are mixed. Positive buyers praise the material, comfort, appearance and value for money. The dominant negative theme is inconsistent sizing and fit, with multiple buyers reporting loose sizing or needing exchanges. There are also some complaints about fabric quality.",
+        "positive": [
+            "Good material",
+            "Comfortable for everyday wear",
+            "Good fitting for some customers",
+            "Soft cotton fabric",
+            "Breathable material",
+            "Good value for money",
+            "Suitable for casual wear",
+            "Faint Blue received positive comfort and quality feedback",
+            "Some Blue variant buyers liked the material and comfort"
+        ],
+        "negative": [
+            "Sizing is inconsistent",
+            "Some customers found the jeans excessively loose",
+            "One customer had to exchange twice because of fit",
+            "Some customers reported size not matching expectations",
+            "Some complaints about poor fabric quality",
+            "Overall rating is only 3.7/5",
+            "11% of ratings are 1-star",
+            "10% of ratings are 2-star"
+        ],
+        "main_concern": "Sizing and fit consistency. The product is officially described as relaxed fit, so customers expecting a standard straight or slimmer fit may find it too loose."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product is positioned as a classic, modern everyday jean and several reviews describe it positively."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews mention comfort, while the product description emphasizes soft and breathable cotton."
+        },
+        "material_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several customers praised the material, but at least one verified buyer described the jeans as very poor quality."
+        },
+        "fit": {
+            "sentiment": "mixed_negative",
+            "confidence": "high",
+            "note": "Fit is the clearest weakness. Buyers reported non-standard sizing, excessive looseness and multiple exchanges."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers specifically reported good comfort and the product is made from soft cotton."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The ₹598 snapshot price and several positive reviews support good perceived value."
+        },
+        "durability": {
+            "sentiment": "unknown",
+            "confidence": "low",
+            "note": "The source does not provide enough consistent long-term durability evidence."
+        },
+        "colour": {
+            "sentiment": "neutral",
+            "confidence": "low",
+            "note": "Multiple colour variants are available, but the supplied reviews do not provide enough evidence to rank colour durability."
+        }
+    },
+    "pros": [
+        "100% cotton denim",
+        "Soft and breathable fabric",
+        "Relaxed straight-leg silhouette",
+        "Mid-rise design",
+        "Comfortable for everyday use",
+        "Good for casual outfits",
+        "Five colour options represented by supplied images",
+        "Affordable snapshot price",
+        "Suitable for weekend wear and travel",
+        "Good material feedback from several buyers"
+    ],
+    "cons": [
+        "Sizing is inconsistent",
+        "Relaxed fit may feel too loose",
+        "Some customers needed exchanges",
+        "Some customers reported poor fabric quality",
+        "3.7/5 overall rating",
+        "11% 1-star ratings",
+        "10% 2-star ratings",
+        "Stretch capability is not specified"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 6.8,
+        "best_for": [
+            "Customers who prefer relaxed jeans",
+            "Customers who prefer straight-leg jeans",
+            "Casual everyday wear",
+            "Travel",
+            "Weekend outfits",
+            "Customers who prefer cotton denim",
+            "Customers looking for an affordable pair of jeans"
+        ],
+        "not_ideal_for": [
+            "Customers wanting slim-fit jeans",
+            "Customers wanting skinny jeans",
+            "Customers who dislike loose or relaxed fits",
+            "Customers who require highly predictable sizing",
+            "Customers prioritizing proven premium fabric quality"
+        ],
+        "size_advice": "Do not blindly select your usual size. Reviews indicate inconsistent sizing, including excessive looseness and exchanges. Check the size chart and consider the relaxed-fit construction before ordering.",
+        "style_advice": "Best paired with T-shirts, hoodies and casual shirts for a relaxed everyday look.",
+        "care_advice": "The supplied source does not provide sufficiently detailed care instructions, so do not invent specific washing instructions.",
+        "sales_advice": "Lead with the 100% cotton fabric, relaxed straight silhouette, comfort and low price. Do not claim perfect sizing or premium quality. If the customer asks about fit, explicitly warn that sizing feedback is inconsistent."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "men jeans",
+            "men's jeans",
+            "straight fit jeans",
+            "straight jeans",
+            "relaxed fit jeans",
+            "relaxed jeans",
+            "cotton jeans",
+            "100% cotton jeans",
+            "blue jeans",
+            "faint blue jeans",
+            "grey jeans",
+            "light blue jeans",
+            "navy jeans",
+            "casual jeans",
+            "comfortable jeans",
+            "everyday jeans",
+            "mid-rise jeans"
+        ],
+        "negative_keywords": [
+            "skinny jeans",
+            "slim fit jeans",
+            "tight jeans",
+            "bootcut jeans",
+            "skinny fit",
+            "very fitted jeans",
+            "stretch jeans"
+        ],
+        "strong_attributes": [
+            "100% cotton",
+            "straight leg",
+            "relaxed fit",
+            "mid-rise",
+            "casual",
+            "everyday wear",
+            "soft",
+            "breathable",
+            "multiple colours"
+        ],
+        "warning_attributes": [
+            "inconsistent sizing",
+            "loose fit",
+            "exchange may be needed",
+            "mixed fabric-quality feedback"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Dark Blue",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "good material",
+                "good fitting"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "30",
+            "sentiment": "negative_fit",
+            "themes": [
+                "non-standard sizing",
+                "exchange required twice"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Charcoal",
+            "size": "S",
+            "sentiment": "positive",
+            "themes": [
+                "good quality",
+                "value for money"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "Blue",
+            "size": "32",
+            "sentiment": "negative_fit",
+            "themes": [
+                "very loose",
+                "size problem"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Blue",
+            "size": "32",
+            "sentiment": "mixed",
+            "themes": [
+                "good quality",
+                "size inconsistent"
+            ]
+        },
+        {
+            "rating": 2,
+            "verified": true,
+            "color": "Blue",
+            "size": "34",
+            "sentiment": "negative_quality",
+            "themes": [
+                "poor quality",
+                "bad fabric"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "36",
+            "sentiment": "positive",
+            "themes": [
+                "good material",
+                "comfortable"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Faint Blue",
+            "size": "32",
+            "sentiment": "positive",
+            "themes": [
+                "good quality",
+                "comfortable"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Faint Blue",
+            "size": "38",
+            "sentiment": "positive",
+            "themes": [
+                "comfortable",
+                "good jeans"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Blue",
+            "size": "38",
+            "sentiment": "positive",
+            "themes": [
+                "good product",
+                "good price"
+            ]
+        }
+    ],
+    "source": {
+        "marketplace": "Amazon India",
+        "asin": "B0F2T8KC5V",
+        "item_model_number": "PHJN000185",
+        "model_name": "PHLD-062",
+        "style_number": "PHJN000185",
+        "date_first_available": "2025-03-28",
+        "manufacturer": "Brand Studio Lifestyle Private Limited",
+        "packer": "Brandstudio Lifestyle",
+        "importer": "Brandstudio Lifestyle",
+        "net_quantity": 1
+    },
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Explain that this is a Highlander men's relaxed straight-fit jean made from 100% cotton, with a mid-rise design and casual styling.",
+        "when_customer_asks_if_good": "Recommend conditionally. The strongest positives are cotton fabric, comfort and price. The biggest concern is inconsistent sizing and some negative quality feedback.",
+        "when_customer_asks_about_quality": "Say that several customers praise the material, but quality feedback is mixed. Do not describe it as premium or guaranteed durable.",
+        "when_customer_asks_about_fit": "Explain that the listed fit is Relaxed with a Straight leg and Mid Rise. Warn that several customers reported loose or inconsistent sizing.",
+        "when_customer_asks_about_colors": "The supplied product images represent Blue, Faint Blue, Grey, Light Blue and Navy Fade.",
+        "when_customer_asks_about_price": "The supplied product snapshot shows ₹598 against an MRP of ₹2,599, representing a 77% discount.",
+        "when_customer_asks_about_stretch": "Do not claim that the jeans are stretchable. The source specifies cotton fabric but does not provide a confirmed stretch specification.",
+        "when_customer_asks_for_size": "Recommend checking the size chart because multiple reviews report inconsistent sizing and loose fit.",
+        "when_customer_asks_for_alternatives": "If the customer specifically wants a predictable or fitted silhouette, prioritize products with stronger sizing feedback or a clearly defined slim/regular fit.",
+        "when_customer_asks_for_best_product": "Match the product primarily against relaxed-fit, straight-leg and cotton-jeans preferences. Penalize it for requests requiring precise sizing or a fitted silhouette."
+    },
+    "data_quality": {
+        "status": "usable_with_warnings",
+        "warnings": [
+            "The listing title says Straight Fit, while the detailed fit field says Relaxed.",
+            "The product description says 100% Cotton.",
+            "The source does not establish that the jeans are stretchable despite the listing title containing 'Stretchable'.",
+            "The product page shows size variants as S, M, L and XL, while reviews contain numeric sizes such as 30, 32, 34, 36 and 38.",
+            "Therefore, the storefront should not assume that S/M/L/XL map directly to numeric waist sizes without a verified size chart.",
+            "Review feedback on fit is inconsistent.",
+            "Review feedback on quality is mixed.",
+            "Price is a snapshot and may change."
+        ]
+    }
+}

@@ -25,11 +25,15 @@ interface ProductImage {
 
 // Interface for products
 interface Product {
-  productid: number;
+  productid: number | string;
   title: string;
   category: string;
   price: string;
   discount: string;
+  discountedprice?: string;
+  mrp?: number;
+  selling_price?: number;
+  discount_percentage?: number;
   stars: number;
   isnew: boolean;
   issale: boolean;
@@ -62,48 +66,86 @@ const ProductCard = ({ product }:{ product:Product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [productData, setproductData] = useState(defaultProduct);
   const [open, setOpen] = useState(false);
+  const sellingPrice = product.selling_price || Number(product.discountedprice) || Number(product.price) || 0;
+  const mrp = product.mrp || Number(product.price) || sellingPrice;
+  const discountPct = (mrp > sellingPrice && mrp > 0)
+    ? Math.round(((mrp - sellingPrice) / mrp) * 100)
+    : (product.discount_percentage || 0);
+
   return (
     <div
-      className='relative flex flex-col border-[1px] rounded-xl lg:max-h-[400px] sm:max-w-[220px] p-1 overflow-hidden transition-shadow duration-300 hover:shadow-lg'
+      className='group relative flex flex-col border border-slate-200 rounded-xl w-[220px] p-2.5 transition-all duration-300 hover:shadow-lg bg-white'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Quickview open={open} setOpen={setOpen} product={productData} />
+      {discountPct > 0 && (
+        <div className="absolute top-2 left-2 bg-emerald-600 text-white px-2 py-0.5 text-[11px] font-bold uppercase rounded-md shadow-xs z-10 pointer-events-none">
+          {discountPct}% OFF
+        </div>
+      )}
       {product.issale && (
-        <div className="absolute top-2 -left-8 bg-black text-white px-10 py-1 z-10 rotate-[320deg] text-[12px] uppercase rounded">
+        <div className="absolute top-2 right-2 bg-slate-900 text-white px-2 py-0.5 text-[10px] font-bold uppercase rounded-md shadow-xs z-10 pointer-events-none">
           SALE
         </div>
       )}
-      {product.isnew && (
-        <div className="absolute top-2 -left-8 bg-salmon text-white px-10 py-1 z-10 rotate-[320deg] text-[12px] uppercase rounded">
-          New
+      {!product.issale && product.isnew && (
+        <div className="absolute top-2 right-2 bg-[#0D94FB] text-white px-2 py-0.5 text-[10px] font-bold uppercase rounded-md shadow-xs z-10 pointer-events-none">
+          NEW
         </div>
       )}
-      {product.isdiscount && (
-        <div className="absolute top-2 left-2 bg-green-500 text-white px-2 text-md uppercase rounded">
-          {product.discount}%
-        </div>
-      )}
-      <div className={`relative transition-transform mb-1 duration-300 ${isHovered && 'scale-105'}`}>
-        <img className='min-w-[200px] min-h-[210px]' src={product.images.imglink} alt={product.title} />
+      <Link
+        href={`/product/${product.productid}`}
+        prefetch={true}
+        className="relative block w-full h-[220px] bg-slate-50 rounded-lg flex items-center justify-center p-2 mb-2 overflow-hidden cursor-pointer"
+      >
+        <img
+          className="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+          src={product.images.imglink}
+          alt={product.title}
+          loading="lazy"
+          decoding="async"
+        />
         {isHovered && (
           <button
-            className='absolute bottom-2 left-1/2 rounded-xl transform -translate-x-1/2 w-[100px] h-[30px] flex items-center justify-center bg-black bg-opacity-50 text-white text-sm uppercase transition-opacity duration-300'
-            onClick={() => {setOpen(true);setproductData(product)}}>
+            type="button"
+            className="absolute bottom-2 left-1/2 rounded-xl transform -translate-x-1/2 w-[100px] h-[30px] flex items-center justify-center bg-black bg-opacity-75 hover:bg-opacity-95 text-white text-xs font-semibold uppercase transition-all duration-300 cursor-pointer shadow-md z-20"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setOpen(true);
+              setproductData(product);
+            }}
+          >
             Quickview
           </button>
         )}
-      </div>
-      <div className='pl-4 pr-4 flex flex-col gap-2'>
-        <Link href={`/product/${product.productid}`}><p className='text-[14px] text-salmon'>{product.category}</p></Link>
-        <Link href={`/product/${product.productid}`}><p className='tracking-[1px] text-silver hover:text-davysilver'>{product.title}</p></Link>
-        <div className='flex items-center gap-2'>
-          <Stars stars={product.stars}/>
-          {product.reviewCount > 0 && <p className=' text-silver'>{product.reviewCount}</p>}
+      </Link>
+      <div className="px-1 flex flex-col gap-1.5">
+        <Link href={`/product/${product.productid}`} prefetch={true}>
+          <p className="text-xs font-medium text-[#0D94FB] hover:underline uppercase tracking-wide truncate">
+            {product.category}
+          </p>
+        </Link>
+        <Link href={`/product/${product.productid}`} prefetch={true}>
+          <p className="tracking-tight text-slate-800 hover:text-[#0D94FB] text-sm font-semibold line-clamp-2 min-h-[40px] transition-colors leading-snug">
+            {product.title}
+          </p>
+        </Link>
+        <div className="flex items-center gap-1.5">
+          <Stars stars={product.stars} />
+          {product.reviewCount > 0 && <p className="text-xs text-slate-400">({product.reviewCount})</p>}
         </div>
-        <div className='flex mb-5 items-center gap-4'>
-          <p className='font-bold text-[18px]'>₹{product.discount}</p>
-          <p className='line-through'>₹{product.price}</p>
+        <div className="flex items-baseline gap-2 mt-1 flex-wrap">
+          <p className="font-bold text-base text-slate-900">₹{sellingPrice}</p>
+          {mrp > sellingPrice && (
+            <p className="line-through text-xs text-slate-400">₹{mrp}</p>
+          )}
+          {discountPct > 0 && (
+            <span className="text-xs font-bold text-emerald-600">
+              {discountPct}% OFF
+            </span>
+          )}
         </div>
       </div>
     </div>

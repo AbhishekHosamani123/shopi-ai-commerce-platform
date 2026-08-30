@@ -1,0 +1,545 @@
+{
+    "product_id": "DRESS-010",
+    "product": {
+        "name": "RENVAANI Women's Traditional Kanjivaram Kanchipuram Silk Zari Weaving Unstitched Lehenga Choli with Dupatta",
+        "brand": "RENVAANI FASHION",
+        "category": "Dresses",
+        "subcategory": "Lehenga Choli",
+        "gender": "Women",
+        "product_type": "Unstitched Lehenga Choli with Dupatta",
+        "description": "A traditional Indian unstitched lehenga choli with dupatta featuring floral patterns, zari work and a traditional festive design. The set is designed for weddings, festivals, parties and other cultural occasions.",
+        "fit": "Unstitched / Free Size",
+        "pattern": "Floral",
+        "sleeve": "Half Sleeve / 3/4 Sleeve",
+        "neck": "V-Neck",
+        "closure": "Unstitched",
+        "length": "Not specified",
+        "material": "Faux Silk",
+        "fabric_type": "Art Silk",
+        "fabric_weight": "Lightweight",
+        "stretch": "Not specified",
+        "care": "Dry Clean Only",
+        "weave": "Jacquard",
+        "weave_method": "Powerloom",
+        "construction_type": "Handloom Banarasi Weave",
+        "embroidery": "Zari Work",
+        "style_tags": [
+            "traditional",
+            "ethnic",
+            "festive",
+            "lehenga",
+            "lehenga choli",
+            "zari work",
+            "floral",
+            "south indian",
+            "wedding wear",
+            "party wear"
+        ],
+        "occasion_tags": [
+            "wedding",
+            "festival",
+            "party",
+            "cultural events",
+            "traditional occasions"
+        ],
+        "season_tags": [
+            "all season",
+            "festive season"
+        ],
+        "sizes": [
+            "Free Size"
+        ],
+        "colors": [
+            "OW Maroon",
+            "Elephant Pink NB",
+            "Firozi Nblue",
+            "GOLD BT",
+            "GOLD RANI",
+            "Gold",
+            "Gold Black",
+            "Gold Blue",
+            "Lfirozi Rani Whel",
+            "Parrot",
+            "Purple Rama",
+            "RED BLACK",
+            "Red Black",
+            "Black Red",
+            "CREAM MAROON",
+            "Elephant Firozi NB",
+            "NB PINK",
+            "PARROT ROYAL WHEL",
+            "white rani"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 400,
+        "included_components": [
+            "Lehenga",
+            "Choli",
+            "Dupatta"
+        ]
+    },
+    "pricing": {
+        "mrp": 1999,
+        "selling_price": 995,
+        "currency": "INR",
+        "discount_percentage": 50,
+        "price_type": "snapshot",
+        "variant_pricing": {
+            "OW Maroon": {
+                "mrp": 1999,
+                "selling_price": 995,
+                "discount_percentage": 50
+            },
+            "Elephant Pink NB": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Firozi Nblue": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "GOLD BT": {
+                "mrp": 1999,
+                "selling_price": 825,
+                "discount_percentage": 59
+            },
+            "GOLD RANI": {
+                "mrp": 1999,
+                "selling_price": 995,
+                "discount_percentage": 50
+            },
+            "Gold": {
+                "mrp": 1999,
+                "selling_price": 747,
+                "discount_percentage": 63
+            },
+            "Gold BT": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Gold Black": {
+                "mrp": 1999,
+                "selling_price": 785,
+                "discount_percentage": 61
+            },
+            "Gold Blue": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Lfirozi Rani Whel": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Parrot": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Purple Rama": {
+                "mrp": 1599,
+                "selling_price": 775,
+                "discount_percentage": 52
+            },
+            "RED BLACK": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "Red Black": {
+                "mrp": 1999,
+                "selling_price": 785,
+                "discount_percentage": 61
+            },
+            "Black Red": {
+                "mrp": 1599,
+                "selling_price": 775,
+                "discount_percentage": 52
+            },
+            "CREAM MAROON": {
+                "mrp": 1999,
+                "selling_price": 995,
+                "discount_percentage": 50
+            },
+            "Elephant Firozi NB": {
+                "mrp": 1599,
+                "selling_price": 775,
+                "discount_percentage": 52
+            },
+            "NB PINK": {
+                "mrp": 1999,
+                "selling_price": 775,
+                "discount_percentage": 61
+            },
+            "PARROT ROYAL WHEL": {
+                "mrp": 999,
+                "selling_price": 995,
+                "discount_percentage": 0
+            },
+            "white rani": {
+                "mrp": 1999,
+                "selling_price": 895,
+                "discount_percentage": 55
+            }
+        }
+    },
+    "images": [
+        {
+            "color": "Elephant Pink NB",
+            "image": "products/DRESS-002/Elephant Pink NB.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Firozi Nblue",
+            "image": "products/DRESS-002/Firozi Nblue.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "GOLD RANI",
+            "image": "products/DRESS-002/gold rani.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "OW Maroon",
+            "image": "products/DRESS-002/ow maroon.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 3.8,
+        "rating_count": 737,
+        "review_count": 252
+    },
+    "review_summary": {
+        "overall_sentiment": "mixed_positive",
+        "summary": "Customers generally like the traditional appearance, colours, comfort and value of this lehenga set. Many reviewers describe the material and overall appearance positively. The main concerns are inconsistent material quality, a short or disappointing dupatta, and occasional differences between the product received and the listing images.",
+        "positive": [
+            "Traditional and attractive appearance",
+            "Good colour combinations",
+            "Many customers report good material quality",
+            "Comfortable to wear according to several reviews",
+            "Good value for money",
+            "Several customers liked the length",
+            "Several customers liked the colours and design",
+            "Suitable for weddings and festive occasions"
+        ],
+        "negative": [
+            "Some customers reported poor material quality",
+            "Dupatta may be shorter than expected",
+            "Some customers felt the dupatta did not match the displayed image",
+            "Some reviews report differences between the listing image and received product",
+            "One reviewer reported that the fabric did not feel like Kanjivaram silk",
+            "Some customers reported average overall quality",
+            "Unstitched format may require additional tailoring"
+        ],
+        "main_concern": "The largest concern is inconsistency between the listing presentation and the received product, particularly the dupatta, fabric appearance and overall material quality."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Many customers describe the product as beautiful, pretty and elegant."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviewers specifically mention comfort."
+        },
+        "fabric_quality": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Many customers liked the material, but others reported poor or average quality."
+        },
+        "fit": {
+            "sentiment": "mixed",
+            "confidence": "medium",
+            "note": "The product is unstitched and listed as free size, so final fit depends on tailoring."
+        },
+        "colour": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Multiple reviews specifically praise the colour and colour combinations."
+        },
+        "dupatta": {
+            "sentiment": "negative",
+            "confidence": "high",
+            "note": "Multiple reviews identify the dupatta as a weakness, particularly its length and difference from the displayed image."
+        },
+        "image_accuracy": {
+            "sentiment": "mixed",
+            "confidence": "high",
+            "note": "Several reviews indicate that the received product may differ from the listing image, particularly the dupatta and fabric appearance."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "occasion_suitability": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The product is positioned for festivals, parties and weddings."
+        }
+    },
+    "pros": [
+        "Beautiful traditional appearance",
+        "Attractive floral and zari design",
+        "Multiple colour options",
+        "Comfortable according to several customers",
+        "Good value at the listed prices",
+        "Suitable for weddings and festivals",
+        "Lightweight fabric classification",
+        "Free-size unstitched format allows tailoring"
+    ],
+    "cons": [
+        "Material quality is inconsistent according to reviews",
+        "Dupatta may be shorter than expected",
+        "Dupatta may differ from listing images",
+        "Some customers reported product-image mismatch",
+        "Some reviewers questioned the claimed silk-like material",
+        "Unstitched product requires tailoring",
+        "Quality may not meet premium expectations"
+    ],
+    "buying_advice": {
+        "recommendation": "CONDITIONAL_BUY",
+        "score": 7.0,
+        "best_for": [
+            "Weddings",
+            "Festivals",
+            "Traditional celebrations",
+            "Party wear",
+            "Customers looking for an affordable lehenga",
+            "Customers who prefer traditional South Indian styling"
+        ],
+        "not_ideal_for": [
+            "Customers expecting premium silk quality",
+            "Customers who require an exact match to listing images",
+            "Customers who need a long dupatta",
+            "Customers who do not want to spend time tailoring an unstitched outfit"
+        ],
+        "size_advice": "The product is unstitched and listed as Free Size. Customers should account for tailoring requirements rather than treating Free Size as a finished fit.",
+        "quality_advice": "Do not describe this as guaranteed premium Kanjivaram silk. The product page lists Faux Silk / Art Silk, while some customer reviews question the silk-like quality.",
+        "dupatta_advice": "If the customer specifically wants a long or prominent dupatta, warn them that multiple reviews mention the dupatta being short or different from the image.",
+        "sales_advice": "Lead with the traditional appearance, colour options, zari work, festive styling and low price, but disclose the dupatta and material-quality concerns when those attributes matter to the customer."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "lehenga",
+            "lehenga choli",
+            "traditional lehenga",
+            "wedding lehenga",
+            "festive lehenga",
+            "south indian lehenga",
+            "zari lehenga",
+            "floral lehenga",
+            "affordable lehenga",
+            "traditional ethnic wear",
+            "party wear lehenga"
+        ],
+        "negative_keywords": [
+            "premium pure silk lehenga",
+            "exactly like photo",
+            "long dupatta",
+            "stitched lehenga",
+            "ready to wear lehenga",
+            "guaranteed fabric quality"
+        ],
+        "strong_attributes": [
+            "traditional",
+            "floral",
+            "zari work",
+            "festive",
+            "wedding",
+            "party wear",
+            "multiple colours",
+            "affordable",
+            "unstitched",
+            "free size"
+        ],
+        "warning_attributes": [
+            "mixed material quality",
+            "short dupatta",
+            "image mismatch",
+            "unstitched",
+            "fabric expectations"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "comfort",
+                "fit",
+                "colour",
+                "quality",
+                "image accuracy"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "colour combination"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "CREAM MAROON",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 1,
+            "verified": true,
+            "color": "white rani",
+            "size": "Free Size",
+            "sentiment": "negative",
+            "themes": [
+                "poor quality",
+                "product mismatch",
+                "skirt and blouse mismatch"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "mixed",
+            "themes": [
+                "lehenga quality",
+                "short dupatta"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Gold",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "customer satisfaction",
+                "gift purchase"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Elephant Firozi NB",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "material",
+                "appearance",
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "CREAM MAROON",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "material quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "mixed",
+            "themes": [
+                "dupatta",
+                "image accuracy"
+            ]
+        },
+        {
+            "rating": 3,
+            "verified": true,
+            "color": "Parrot",
+            "size": "Free Size",
+            "sentiment": "negative",
+            "themes": [
+                "image mismatch",
+                "dupatta",
+                "fabric",
+                "quality"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Gold Black",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "comfort"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Gold Black",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "appearance",
+                "value"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "quality",
+                "value",
+                "appearance"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "OW Maroon",
+            "size": "Free Size",
+            "sentiment": "positive",
+            "themes": [
+                "cloth quality",
+                "appearance"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering the traditional design, zari work, fabric type, unstitched format, price, available colours, occasions and the most important review insights.",
+        "when_customer_asks_if_good": "Recommend conditionally. Highlight the strong appearance, colour, traditional styling and value signals, while mentioning the mixed material feedback and dupatta concerns.",
+        "when_customer_asks_about_quality": "Do not claim premium pure silk quality. Explain that the product is listed as Faux Silk / Art Silk and that customer feedback about material quality is mixed.",
+        "when_customer_asks_about_fit": "Explain that the product is unstitched and Free Size, so the final fit depends on tailoring.",
+        "when_customer_asks_about_dupatta": "Mention that the set includes a dupatta, but several reviews report that it can be shorter than expected or differ from the displayed image.",
+        "when_customer_asks_about_image_accuracy": "Be transparent. Some customers reported differences between the listing images and the received product, especially regarding the dupatta and fabric appearance.",
+        "when_customer_asks_for_alternatives": "If the customer prioritizes premium fabric, exact image matching, a long dupatta or a ready-to-wear outfit, prioritize products with stronger evidence for those attributes.",
+        "when_customer_asks_for_best_product": "Consider the customer's occasion, budget, fabric expectations, tailoring requirements and dupatta preference rather than recommending this product solely because of its price or rating."
+    }
+}

@@ -33,20 +33,20 @@ export async function executeAction(
         
         // 1. Update product stock in catalog
         const updateRes = await dbClient.query(
-          `UPDATE products 
-           SET stock = stock + $1 
-           WHERE productid = $2 
-           RETURNING stock, title`,
+          `UPDATE shopi_products 
+           SET stock_quantity = stock_quantity + $1 
+           WHERE product_id = $2 
+           RETURNING stock_quantity, title`,
           [unitsToAdd, action.productId]
         );
 
-        const newStock = parseInt(updateRes.rows[0]?.stock, 10);
+        const newStock = parseInt(updateRes.rows[0]?.stock_quantity, 10);
         const prodTitle = updateRes.rows[0]?.title || action.productName || 'Product';
 
         // 2. Insert audit movement ledger entry
         await dbClient.query(
-          `INSERT INTO inventory_movements (
-            productid, movement_type, quantity, stock_before, stock_after, 
+          `INSERT INTO shopi_inventory_movements (
+            product_id, movement_type, quantity, stock_before, stock_after, 
             reference_type, reference_id, notes, source
           ) VALUES ($1, 'restock', $2, $3, $4, 'ai_action', $5, $6, 'merchant_ai_action_engine')`,
           [
@@ -78,11 +78,11 @@ export async function executeAction(
 
         // Update product discount in catalog
         const updateRes = await dbClient.query(
-          `UPDATE products 
-           SET discount = $1 
-           WHERE productid = $2 
-           RETURNING price, discount, title`,
-          [suggestedPrice, action.productId]
+          `UPDATE shopi_products 
+           SET selling_price = $1, discount_percentage = $2 
+           WHERE product_id = $3 
+           RETURNING selling_price, discount_percentage, title`,
+          [suggestedPrice, discountPct, action.productId]
         );
 
         const prodTitle = updateRes.rows[0]?.title || action.productName || 'Product';
@@ -207,23 +207,23 @@ export async function rollbackAction(
         const unitsAdded = action.executionResult?.unitsAdded || action.quantity || action.payload?.reorderTargetUnits || 50;
         
         // 1. Fetch current stock
-        const currentRes = await dbClient.query('SELECT stock, title FROM products WHERE productid = $1', [action.productId]);
-        const stockBeforeRollback = parseInt(currentRes.rows[0]?.stock || '0', 10);
+        const currentRes = await dbClient.query('SELECT stock_quantity, title FROM shopi_products WHERE product_id = $1', [action.productId]);
+        const stockBeforeRollback = parseInt(currentRes.rows[0]?.stock_quantity || '0', 10);
         const newStock = Math.max(0, stockBeforeRollback - unitsAdded);
         const prodTitle = currentRes.rows[0]?.title || action.productName || 'Product';
 
         // 2. Decrement stock
         await dbClient.query(
-          `UPDATE products 
-           SET stock = $1 
-           WHERE productid = $2`,
+          `UPDATE shopi_products 
+           SET stock_quantity = $1 
+           WHERE product_id = $2`,
           [newStock, action.productId]
         );
 
         // 3. Insert compensating audit movement
         await dbClient.query(
-          `INSERT INTO inventory_movements (
-            productid, movement_type, quantity, stock_before, stock_after, 
+          `INSERT INTO shopi_inventory_movements (
+            product_id, movement_type, quantity, stock_before, stock_after, 
             reference_type, reference_id, notes, source
           ) VALUES ($1, 'rollback', $2, $3, $4, 'ai_action_rollback', $5, $6, 'merchant_ai_action_engine')`,
           [

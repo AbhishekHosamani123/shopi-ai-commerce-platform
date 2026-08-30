@@ -1,0 +1,414 @@
+{
+    "id": "FORMAL-SHOE-003",
+    "category": "Formal Shoes",
+    "subcategory": "Men's Formal Shoes",
+    "product": {
+        "name": "Bata Men Lace Up Formal Shoes",
+        "brand": "Bata",
+        "gender": "Men",
+        "style": "Oxford",
+        "shoe_type": "Oxford",
+        "occasion": [
+            "Formal",
+            "Office",
+            "Business"
+        ],
+        "color": [
+            "Dark Brown"
+        ],
+        "default_color": "Dark Brown",
+        "toe_style": "Pointed Toe",
+        "closure": "Lace-Up",
+        "heel_type": "No Heel",
+        "strap_type": "Lace",
+        "pattern": "Solid",
+        "country_of_origin": "India",
+        "asin": "B0CKFL1GTH",
+        "model_number": "8214062",
+        "generic_name": "Oxford"
+    },
+    "pricing": {
+        "currency": "INR",
+        "selling_price": 569,
+        "mrp": 999,
+        "discount_percentage": 43,
+        "price_display": "₹569",
+        "tax_inclusive": true
+    },
+    "materials": {
+        "upper_material": "Ethylene Vinyl Acetate",
+        "sole_material": "Rubber",
+        "insole_material": "Foam",
+        "lining_material": null
+    },
+    "comfort_and_features": {
+        "cushioning": "Moderate",
+        "cushioning_level": "Moderate",
+        "insole_cushioning": "Foam",
+        "water_resistant": false,
+        "breathable": null,
+        "comfortable": true,
+        "durable": null,
+        "adjustable": false,
+        "special_features": [
+            "Comfortable"
+        ],
+        "surface_recommendation": "Road",
+        "pronation_correction": "Neutral",
+        "specific_uses": [
+            "Formal"
+        ]
+    },
+    "sizes": {
+        "size_system": "UK",
+        "available_uk_sizes": [
+            7,
+            8,
+            9,
+            10
+        ]
+    },
+    "dimensions": {
+        "weight_grams": 760,
+        "length_cm": 8,
+        "width_cm": 19.5,
+        "height_cm": 16
+    },
+    "ratings": {
+        "average_rating": 4.0,
+        "total_ratings": 312
+    },
+    "reviews": {
+        "total_reviews_in_dataset": 55,
+        "reviewer_type": "Verified Purchase",
+        "overall_sentiment": "Mixed Positive",
+        "positive_topics": [
+            "Appearance",
+            "Value for money",
+            "Comfort",
+            "Fit",
+            "Quality",
+            "Style"
+        ],
+        "negative_topics": [
+            "Durability",
+            "Sole cracking",
+            "Stitching",
+            "Comfort for some users",
+            "Packaging",
+            "Material expectations"
+        ],
+        "review_insights": {
+            "appearance": "Multiple buyers describe the shoes as classy, stylish and matching the product images.",
+            "value_for_money": "Several buyers consider the shoes good value around ₹569.",
+            "comfort": "Many buyers report comfortable fit, but at least one buyer found them uncomfortable and requested more cushioning.",
+            "fit": "Generally positive, although one buyer reported tightness around the front.",
+            "durability": "Mixed. Some buyers explicitly praise durability, while others report sole cracking after approximately two months, stitching failure after 2-3 uses, and sole failure within 3-8 months.",
+            "packaging": "Some buyers reported poor or inadequate packaging, including receiving the shoes without a box.",
+            "material": "Some reviews expected genuine leather and were disappointed. The listed material is Ethylene Vinyl Acetate, so Shopi should not describe these as genuine leather."
+        }
+    },
+    "review_evidence": [
+        {
+            "rating": 5,
+            "title": "Happy with the purchase",
+            "date": "2026-05-24",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Value for money",
+                "Overall satisfaction"
+            ],
+            "summary": "Buyer was initially skeptical but found the shoes satisfactory and considered them worth the ₹499 price."
+        },
+        {
+            "rating": 4,
+            "title": "Look exactly as shown",
+            "date": "2026-04-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Appearance",
+                "Value for money",
+                "Quality"
+            ],
+            "summary": "Buyer said the shoes look exactly as shown and quality is good relative to the price."
+        },
+        {
+            "rating": 5,
+            "title": "Good and classy",
+            "date": "2026-05-10",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Appearance",
+                "Value for money"
+            ],
+            "summary": "Buyer considered the product nice for its price range."
+        },
+        {
+            "rating": 5,
+            "title": "Durability and looks",
+            "date": "2026-04-25",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Durability",
+                "Appearance"
+            ],
+            "summary": "Buyer explicitly praised the appearance and durability."
+        },
+        {
+            "rating": 1,
+            "title": "Worst shoe",
+            "date": "2025-12-28",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Sole"
+            ],
+            "summary": "Buyer reported that the sole cracked after about two months despite only 30-35 days of use."
+        },
+        {
+            "rating": 3,
+            "title": "Uncomfortable",
+            "date": "2026-07-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Comfort",
+                "Cushioning",
+                "Appearance"
+            ],
+            "summary": "Buyer found the shoes stylish but uncomfortable and suggested additional cushioning."
+        },
+        {
+            "rating": 4,
+            "title": "Good product",
+            "date": "2026-02-12",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Color",
+                "Fit"
+            ],
+            "summary": "Buyer liked the color but reported that the front was tight."
+        },
+        {
+            "rating": 2,
+            "title": "Not genuine leather",
+            "date": "2026-06-06",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Material"
+            ],
+            "summary": "Buyer expected leather but reported that the product was not leather."
+        },
+        {
+            "rating": 4,
+            "title": "Nice fit and comfortable",
+            "date": "2025-11-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Fit",
+                "Comfort"
+            ],
+            "summary": "Buyer reported a comfortable fit and said it was not as narrow as other formal shoes."
+        },
+        {
+            "rating": 5,
+            "title": "Very nice quality",
+            "date": "2025-10-07",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Quality",
+                "Value for money"
+            ],
+            "summary": "Buyer was very happy with the shoes and praised their quality."
+        },
+        {
+            "rating": 2,
+            "title": "STITCH OPENED",
+            "date": "2025-12-08",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Stitching"
+            ],
+            "summary": "Buyer reported that stitching came out after only 2-3 uses."
+        },
+        {
+            "rating": 1,
+            "title": "Poor quality Bata shoes",
+            "date": "2025-11-29",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Sole"
+            ],
+            "summary": "Buyer reported that the sole completely broke after approximately three months."
+        },
+        {
+            "rating": 2,
+            "title": "Sole torn and break within 8 months",
+            "date": "2025-04-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Sole"
+            ],
+            "summary": "Buyer reported sole tearing and breaking within eight months."
+        },
+        {
+            "rating": 2,
+            "title": "Poor quality",
+            "date": "2025-08-29",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Quality"
+            ],
+            "summary": "Buyer simply reported poor quality."
+        },
+        {
+            "rating": 1,
+            "title": "Disappointing Experience, Poor Packaging and Product Quality",
+            "date": "2024-10-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "DARK BROWN"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Packaging",
+                "Quality"
+            ],
+            "summary": "Buyer reported damaged packaging and dissatisfaction with product quality."
+        }
+    ],
+    "inventory": {
+        "in_stock": true,
+        "maximum_order_quantity": 3
+    },
+    "delivery": {
+        "free_delivery": true,
+        "pay_on_delivery": true
+    },
+    "manufacturer": {
+        "name": "A.K.M. Ind.",
+        "brand_company": "Bata India Limited",
+        "address": "418/02 sec-17, Gurgaon-122001",
+        "packer": "Bata India Limited, 418/02 sec-17, Gurgaon-122001"
+    },
+    "images": {
+        "primary": "brown.jpg",
+        "variants": {
+            "dark_brown": "brown.jpg"
+        }
+    },
+    "source": {
+        "platform": "Amazon India",
+        "source_product_id": "B0CKFL1GTH"
+    },
+    "ai_recommendation_profile": {
+        "best_for": [
+            "Budget-conscious formal wear",
+            "Office wear",
+            "Occasional formal use",
+            "Buyers prioritizing appearance and value"
+        ],
+        "strengths": [
+            "4.0 star rating",
+            "Strong appearance feedback",
+            "Good value for money",
+            "Generally positive fit feedback",
+            "Multiple buyers report comfort",
+            "Established Bata brand"
+        ],
+        "weaknesses": [
+            "Mixed durability evidence",
+            "Multiple sole failure reports",
+            "Stitching failure reported",
+            "Some discomfort reports",
+            "Some poor packaging reports",
+            "Not genuine leather"
+        ],
+        "recommendation_score": 7.2,
+        "recommendation_summary": "A reasonably well-rated budget Oxford with strong appearance and value-for-money feedback. However, durability is inconsistent, with several buyers reporting sole or stitching failures. Better suited to buyers prioritizing price and appearance than buyers seeking maximum long-term durability.",
+        "confidence": "medium"
+    },
+    "data_quality_notes": [
+        "The Amazon listing identifies the shoe as an Oxford with lace-up closure.",
+        "The listed upper/material is Ethylene Vinyl Acetate, not genuine leather.",
+        "Customer reviews contain conflicting claims about durability.",
+        "Do not set durable=true simply because some customers praise durability.",
+        "Do not describe this shoe as leather.",
+        "Some reviews appear to incorrectly refer to the product as Bata leather footwear, so those claims should not override the structured material specification.",
+        "The listing reports moderate foam cushioning.",
+        "One review reports the front of the shoe is tight, so fit should be described as generally positive rather than universally comfortable."
+    ]
+}

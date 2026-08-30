@@ -1,0 +1,385 @@
+{
+    "id": "FORMAL-SHOE-005",
+    "category": "Formal Shoes",
+    "subcategory": "Men's Formal Shoes",
+    "product": {
+        "name": "Centrino Men's 9564 Glossy Formal Shoes",
+        "brand": "Centrino",
+        "gender": "Men",
+        "style": "Moccasin",
+        "shoe_type": "Loafer",
+        "occasion": [
+            "Formal",
+            "Business",
+            "Business Casual",
+            "Office",
+            "Party",
+            "Travel"
+        ],
+        "color": [
+            "Black",
+            "Brown"
+        ],
+        "default_color": "Black",
+        "toe_style": "Closed Toe",
+        "closure": "Pull-On",
+        "heel_type": "Flat",
+        "pattern": "Solid",
+        "formality_level": "Business Formal",
+        "season": "All",
+        "country_of_origin": "India",
+        "asin": "B0FNRMR7Y7",
+        "model_number": "9564-1",
+        "generic_name": "Centrino Men's Glossy Formal Shoes"
+    },
+    "pricing": {
+        "currency": "INR",
+        "selling_price": 749,
+        "mrp": 2499,
+        "discount_percentage": 70,
+        "price_display": "₹749",
+        "tax_inclusive": true,
+        "deal_type": "Limited Time Deal"
+    },
+    "materials": {
+        "outer_material": "Faux Leather",
+        "sole_material": "Ethylene Vinyl Acetate",
+        "lining": "Breathable fabric",
+        "insole": "Cushioned"
+    },
+    "comfort_and_features": {
+        "cushioning": "Cushioned",
+        "cushioning_level": "Maximum",
+        "water_resistant": false,
+        "slip_resistant": true,
+        "all_weather_grip": true,
+        "breathable_lining": true,
+        "moisture_wicking": true,
+        "special_features": [
+            "All Weather Grip",
+            "Cushioned",
+            "Slip Resistant"
+        ]
+    },
+    "sizes": {
+        "size_system": "UK",
+        "available_uk_sizes": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ]
+    },
+    "dimensions": {
+        "weight_grams": 600,
+        "length_cm": 28,
+        "width_cm": 13,
+        "height_cm": 9
+    },
+    "ratings": {
+        "average_rating": 3.8,
+        "total_ratings": 390,
+        "rating_distribution": {
+            "5_star_percentage": 47,
+            "4_star_percentage": 22,
+            "3_star_percentage": 11,
+            "2_star_percentage": 3,
+            "1_star_percentage": 17
+        }
+    },
+    "reviews": {
+        "review_count_shown": 90,
+        "reviewer_type": "Verified Purchase",
+        "overall_sentiment": "Mostly positive with quality concerns",
+        "positive_topics": [
+            "Appearance",
+            "Formal look",
+            "Fit",
+            "Value for money",
+            "Comfort",
+            "Premium appearance",
+            "Grip"
+        ],
+        "negative_topics": [
+            "Sole durability",
+            "Design mismatch",
+            "Product mismatch",
+            "Limited cushioning",
+            "Value concerns"
+        ],
+        "review_insights": {
+            "appearance": "Several buyers describe the shoes as stylish, glossy, professional and premium-looking.",
+            "fit": "Multiple buyers report good fit and sizing.",
+            "comfort": "Mixed. Several buyers describe the shoes as comfortable, but one review specifically says the internal foam is insufficient for all-day wear.",
+            "durability": "There is a meaningful durability concern around the sole. One verified buyer reported sole pasting failure after three months.",
+            "value_for_money": "Several buyers consider the shoes good value at the discounted price.",
+            "design_accuracy": "Multiple buyers report that the received design was slightly different from the product image.",
+            "quality": "Generally acceptable for the price, but some buyers consider the quality too low relative to the perceived price.",
+            "grip": "The product specifications claim anti-slip/all-weather grip."
+        }
+    },
+    "review_evidence": [
+        {
+            "rating": 5,
+            "title": "Royal Look",
+            "date": "2026-08-20",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Appearance",
+                "Formal",
+                "Wearability"
+            ],
+            "summary": "Buyer described the shoes as good-looking, formal and suitable for wearing."
+        },
+        {
+            "rating": 4,
+            "title": "Packing is the only minus",
+            "date": "2026-08-13",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Quality",
+                "Design"
+            ],
+            "summary": "Buyer found the product good in quality but reported that the received design was slightly different."
+        },
+        {
+            "rating": 1,
+            "title": "Poor quality",
+            "date": "2026-07-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "Brown"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Value for money",
+                "Quality"
+            ],
+            "summary": "Buyer considered the quality too low for the price and suggested a much lower acceptable price range."
+        },
+        {
+            "rating": 5,
+            "title": "Go for it",
+            "date": "2026-07-10",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Fit",
+                "Material",
+                "Comfort",
+                "Appearance"
+            ],
+            "summary": "Buyer reported good fit, good material, comfort and a premium appearance."
+        },
+        {
+            "rating": 3,
+            "title": "Average Quality, Slightly Different Design",
+            "date": "2026-05-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Quality",
+                "Design accuracy"
+            ],
+            "summary": "Buyer rated the quality as average and said the design was not the same as shown in the image."
+        },
+        {
+            "rating": 5,
+            "title": "Good fit",
+            "date": "2026-06-24",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Fit",
+                "Appearance"
+            ],
+            "summary": "Buyer reported good fit and a classic appearance suitable for simple outfits."
+        },
+        {
+            "rating": 4,
+            "title": "Good quality at such price value for money",
+            "date": "2026-06-23",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "Brown"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Value",
+                "Appearance"
+            ],
+            "summary": "Buyer considered the shoes good for the price and said they matched the shown appearance."
+        },
+        {
+            "rating": 4,
+            "title": "Good fit and smart",
+            "date": "2026-05-19",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Fit",
+                "Quality"
+            ],
+            "summary": "Buyer reported acceptable fit and quality but said durability could not yet be judged."
+        },
+        {
+            "rating": 4,
+            "title": "Value for money",
+            "date": "2026-04-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Comfort",
+                "Fit",
+                "Value"
+            ],
+            "summary": "Buyer described the shoes as comfortable with good size and fit."
+        },
+        {
+            "rating": 2,
+            "title": "Sole pasting gone in 3 months",
+            "date": "2026-08-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "negative",
+            "topics": [
+                "Durability",
+                "Sole"
+            ],
+            "summary": "Buyer said the product fit and quality were good but the sole pasting failed after three months."
+        },
+        {
+            "rating": 5,
+            "title": "The Shoes are Recommended",
+            "date": "2026-05-11",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "Brown"
+            },
+            "sentiment": "positive",
+            "topics": [
+                "Formal use",
+                "Comfort",
+                "Appearance"
+            ],
+            "summary": "Buyer used the shoes at a formal party, found them comfortable and said they looked like the product images."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-07-03",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "Black"
+            },
+            "sentiment": "mixed",
+            "topics": [
+                "Appearance",
+                "Comfort"
+            ],
+            "summary": "Buyer liked the appearance but said the internal foam was minimal and the shoes were not comfortable enough for whole-day wear."
+        }
+    ],
+    "inventory": {
+        "in_stock": true,
+        "maximum_order_quantity": 3
+    },
+    "delivery": {
+        "free_delivery": true,
+        "delivery_type": "Amazon Fulfilled"
+    },
+    "manufacturer": {
+        "name": "Cona Footwear India Pvt Ltd",
+        "address": "C29/1 Site-C UPSIDC Sikandra, Agra, Uttar Pradesh - 282007",
+        "packer": "Cona Footwear India Pvt Ltd",
+        "importer": "Cona Footwear India Pvt Ltd"
+    },
+    "images": {
+        "primary": "black.jpg",
+        "variants": {
+            "black": "black.jpg",
+            "brown": "brown.jpg"
+        }
+    },
+    "source": {
+        "platform": "Amazon India",
+        "source_product_id": "B0FNRMR7Y7"
+    },
+    "ai_recommendation_profile": {
+        "best_for": [
+            "Budget formal wear",
+            "Office wear",
+            "Business casual",
+            "Formal parties",
+            "Occasional events",
+            "Users who prefer slip-on shoes"
+        ],
+        "strengths": [
+            "Glossy formal appearance",
+            "Slip-on convenience",
+            "Good reported fit",
+            "Black and brown options",
+            "Cushioned insole",
+            "Anti-slip features",
+            "Strong value at ₹749"
+        ],
+        "weaknesses": [
+            "17% of ratings are 1-star",
+            "Sole durability concern",
+            "Some design mismatch reports",
+            "Comfort may be insufficient for all-day use",
+            "One buyer considered quality poor for the price"
+        ],
+        "recommendation_score": 7.1,
+        "recommendation_summary": "A good budget formal slip-on for users prioritizing appearance, convenience and value. Reviews generally support its fit and looks, but Shopi should warn users who need reliable all-day comfort or long-term sole durability.",
+        "confidence": "high"
+    },
+    "data_quality_notes": [
+        "The product title describes it as formal shoes with a cushioned insole, while structured specifications identify the shoe type as Loafer and style as Moccasin.",
+        "Closure is Pull-On, not lace-up.",
+        "Outer material is Faux Leather, not genuine leather.",
+        "Sole material is Ethylene Vinyl Acetate.",
+        "Amazon claims maximum cushioning, but reviews contain conflicting comfort feedback.",
+        "Do not claim high durability because a verified review reports sole pasting failure after three months.",
+        "The product has a relatively strong 3.8-star rating, but the 17% one-star share is still significant."
+    ]
+}

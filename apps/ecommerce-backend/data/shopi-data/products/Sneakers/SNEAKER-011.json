@@ -1,0 +1,201 @@
+{
+    "product_id": "SNEAKER-011",
+    "sku": "B0FKMT5VM2",
+    "category": "Sneakers",
+    "subcategory": "Casual Sneakers",
+    "gender": "Men",
+    "name": "ASIAN MOSCOW-12 Casual Sneaker Shoes for Men",
+    "brand": "ASIAN",
+    "pricing": {
+        "mrp": 1599,
+        "selling_price": 799,
+        "currency": "INR",
+        "discount_percent": 50
+    },
+    "description": "ASIAN MOSCOW-12 casual sneakers for men featuring a synthetic upper, PVC outsole, lace-up closure, round toe and lightweight construction. Designed for casual everyday wear with cushioning, arch support and slip-resistant features.",
+    "attributes": {
+        "upper_material": "Synthetic",
+        "sole_material": "Polyvinyl Chloride",
+        "closure": "Lace-Up",
+        "toe_shape": "Round Toe",
+        "heel_type": "Platform Heel",
+        "water_resistance": false,
+        "water_resistance_level": "Not Water Resistant",
+        "style": "Sneaker",
+        "occasion": "Casual",
+        "season": "All",
+        "shoe_type": "Athletic Shoe",
+        "weight_grams": 400,
+        "dimensions_cm": {
+            "length": 29.3,
+            "width": 16.2,
+            "height": 10.9
+        },
+        "country_of_origin": "India",
+        "adjustable": true,
+        "special_features": [
+            "All Weather Grip",
+            "Breathable",
+            "Flexible",
+            "Lightweight"
+        ],
+        "benefits": [
+            "Arch support",
+            "Slip-resistant",
+            "Lightweight",
+            "Casual styling",
+            "All-day comfort"
+        ]
+    },
+    "variants": [
+        {
+            "color": "Brown Tan",
+            "image": "brown tan.jpg"
+        },
+        {
+            "color": "Full Black",
+            "image": "full black.jpg"
+        },
+        {
+            "color": "Full White",
+            "image": "full white.jpg"
+        },
+        {
+            "color": "White Black Beej",
+            "image": "WHITE BLACK BEEJ.jpg"
+        }
+    ],
+    "sizes": [
+        "6 UK",
+        "7 UK",
+        "8 UK",
+        "9 UK",
+        "10 UK",
+        "11 UK"
+    ],
+    "features": [
+        "Synthetic upper",
+        "PVC outsole",
+        "Lace-up closure",
+        "Round toe",
+        "Platform heel",
+        "Lightweight construction",
+        "Breathable",
+        "Flexible",
+        "Slip-resistant",
+        "Arch support",
+        "All Weather Grip"
+    ],
+    "use_cases": [
+        "Daily wear",
+        "Casual outings",
+        "College",
+        "Walking",
+        "Travel",
+        "Casual styling"
+    ],
+    "ratings": {
+        "average_rating": 3.8,
+        "rating_count": 1692,
+        "rating_distribution": {
+            "5_star_percent": 49,
+            "4_star_percent": 20,
+            "3_star_percent": 13,
+            "2_star_percent": 5,
+            "1_star_percent": 13
+        }
+    },
+    "review_insights": {
+        "positive": [
+            "Lightweight",
+            "Stylish appearance",
+            "Good fit",
+            "Suitable for everyday casual wear",
+            "Good value for money",
+            "Comfortable for regular use"
+        ],
+        "negative": [
+            "Comfort may be limited compared with more expensive shoes",
+            "White variants get dirty quickly",
+            "Some users initially found the fit slightly snug",
+            "Some reviews report poor build quality"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "Everyday casual wear",
+            "College",
+            "Casual outings",
+            "Customers looking for lightweight sneakers"
+        ],
+        "not_ideal_for": [
+            "Heavy sports",
+            "Long periods of standing",
+            "Customers expecting premium build quality"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Good Budget-Friendly Sneakers for Everyday Casual Wear",
+            "variant": "White Black Beej",
+            "text": "Lightweight, comfortable for everyday wear and casual outings. Good value for the price."
+        },
+        {
+            "rating": 4,
+            "title": "Good to go",
+            "variant": "Full Black",
+            "text": "Looks good, fits well and quality seems fine for the price. Comfort is acceptable for this price range."
+        },
+        {
+            "rating": 5,
+            "title": "Quality is best",
+            "variant": "White Black Beej",
+            "text": "Great quality and good-looking shoes."
+        },
+        {
+            "rating": 1,
+            "title": "Don't buy",
+            "variant": "Full White",
+            "text": "Customer reported cheap and flimsy build quality and was highly dissatisfied."
+        },
+        {
+            "rating": 5,
+            "title": "Nice",
+            "variant": "White Black Beej",
+            "text": "Comfortable, smooth and stylish."
+        },
+        {
+            "rating": 5,
+            "title": "Good Fit",
+            "variant": "White Black Beej",
+            "text": "User-friendly and very comfortable."
+        },
+        {
+            "rating": 4,
+            "title": "Quality is good",
+            "variant": "White Black Beej",
+            "text": "Good value for money."
+        },
+        {
+            "rating": 3,
+            "title": "Need to improve the quality of the product",
+            "variant": "White Black Beej",
+            "text": "Customer reported that the quality was not good."
+        }
+    ],
+    "manufacturer": "Asian Footwear PVT.LTD",
+    "packer": "Asian Retail Ventures",
+    "net_quantity": "1.0 Pack",
+    "images": [
+        "brown tan.jpg",
+        "full black.jpg",
+        "full white.jpg",
+        "WHITE BLACK BEEJ.jpg"
+    ],
+    "source": {
+        "platform": "Amazon India",
+        "asin": "B0FKMT5VM2",
+        "url": "https://www.amazon.in/dp/B0FKMT5VM2",
+        "collected_at": "2026-08-26"
+    }
+}

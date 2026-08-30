@@ -31,24 +31,24 @@ export class ProductCogsService {
    * Retrieves COGS structure and margin metrics for a product.
    */
   async getProductCogs(productId: number, merchantId: string = 'default_merchant'): Promise<ProductCogsRecord | null> {
-    const prodRes = await client.query('SELECT productid, title, price, discount FROM products WHERE productid = $1', [productId]);
+    const prodRes = await client.query('SELECT product_id, sku, title, selling_price FROM shopi_products WHERE product_id = $1', [productId]);
     if (prodRes.rows.length === 0) return null;
     const prod = prodRes.rows[0];
-    const sellingPrice = parseFloat(prod.discount || prod.price) || 1000;
+    const sellingPrice = parseFloat(prod.selling_price) || 1000;
 
     const cogsRes = await client.query(`
       SELECT 
         cogs_id as "cogsId",
         merchant_id as "merchantId",
         product_id as "productId",
-        unit_cost::numeric(10,2) as "unitCost",
-        supplier_cost::numeric(10,2) as "supplierCost",
-        shipping_cost::numeric(10,2) as "shippingCost",
-        handling_cost::numeric(10,2) as "handlingCost",
+        total_unit_cost::numeric(10,2) as "unitCost",
+        unit_manufacturing_cost::numeric(10,2) as "supplierCost",
+        unit_shipping_cost::numeric(10,2) as "shippingCost",
+        unit_packaging_cost::numeric(10,2) as "handlingCost",
         updated_at as "updatedAt"
-      FROM merchant_product_cogs
-      WHERE product_id = $1 AND (merchant_id = $2 OR $2 = 'merchant_admin');
-    `, [productId, merchantId]);
+      FROM shopi_product_cogs
+      WHERE product_id = $1;
+    `, [productId]);
 
     if (cogsRes.rows.length === 0) {
       return {

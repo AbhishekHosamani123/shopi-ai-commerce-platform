@@ -1,0 +1,493 @@
+{
+    "product": {
+        "id": "SPORTS-SHOE-006",
+        "sku": "SHOPI-SPORTS-006",
+        "name": "Campus Men's Force Running Shoes",
+        "brand": "Campus",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Men's Running Shoes",
+        "gender": "Men",
+        "description": "Lightweight men's running shoes designed for running, walking, gym sessions and everyday casual use. Features a breathable mesh upper, EVA sole, patterned grip, Memory Tech Lite insole and Pillofoam cushioning.",
+        "mrp": 2199,
+        "selling_price": 1084,
+        "currency": "INR",
+        "discount_percentage": 51,
+        "availability": "unknown",
+        "source": "Amazon India",
+        "source_product_id": "B0H25WMZK2",
+        "country_of_origin": "India",
+        "manufacturer": "Campus Activewear Ltd",
+        "department": "Men",
+        "generic_name": "Running Shoe"
+    },
+    "catalog": {
+        "main_category": "Footwear",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Running Shoes",
+        "use_cases": [
+            "Running",
+            "Walking",
+            "Gym",
+            "Sports",
+            "Casual Wear",
+            "Daily Wear",
+            "Morning Walk",
+            "Light Workouts"
+        ],
+        "occasion": [
+            "Casual",
+            "Sports",
+            "Everyday"
+        ],
+        "season": "All Season",
+        "style": "Running",
+        "pattern": "Solid",
+        "shoe_type": "Athletic Shoe"
+    },
+    "attributes": {
+        "material": {
+            "upper": "Mesh",
+            "sole": "Ethylene Vinyl Acetate (EVA)"
+        },
+        "closure_type": "Lace-Up",
+        "strap_type": "Lace",
+        "heel_type": "Flat",
+        "toe_style": "Round Toe",
+        "arch_type": null,
+        "insole": "Memory Tech Lite",
+        "cushioning_level": "Moderate to High",
+        "surface_recommendation": "General Running / Everyday Surfaces",
+        "water_resistance": "Not Water Resistant",
+        "pronation_correction": null,
+        "adjustability": true,
+        "features": [
+            "Breathable",
+            "Cushioned",
+            "Lightweight",
+            "Good Grip",
+            "Athletic",
+            "Everyday Wear"
+        ],
+        "technologies": [
+            "Memory Tech Lite insole",
+            "Pillofoam technology"
+        ]
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "BLACK OLIVE GREEN",
+                "slug": "black-olive-green"
+            },
+            {
+                "name": "GREY GREEN",
+                "slug": "grey-green"
+            },
+            {
+                "name": "WHITE BLACK",
+                "slug": "white-black"
+            }
+        ],
+        "sizes_observed": [
+            "6 UK",
+            "7 UK",
+            "8 UK",
+            "9 UK",
+            "10 UK"
+        ],
+        "variant_note": "These sizes are observed in the supplied product data. Actual size-level inventory is not available and should not be inferred from the observed sizes."
+    },
+    "images": [
+        {
+            "id": "SPORTS-SHOE-006-IMG-01",
+            "file": "Black & Olive Green.jpg",
+            "color": "BLACK OLIVE GREEN",
+            "is_primary": true
+        },
+        {
+            "id": "SPORTS-SHOE-006-IMG-02",
+            "file": "Grey And Green.jpg",
+            "color": "GREY GREEN",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-006-IMG-03",
+            "file": "white.jpg",
+            "color": "WHITE BLACK",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 4.3,
+        "global_rating_count": 81,
+        "distribution": {
+            "5_star": 67,
+            "4_star": 20,
+            "3_star": 3,
+            "2_star": 2,
+            "1_star": 8
+        },
+        "distribution_unit": "percent"
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "positive_themes": [
+            "Comfortable",
+            "Lightweight",
+            "Good grip",
+            "Soft sole",
+            "Good fit for many users",
+            "Good quality",
+            "Value for money",
+            "Suitable for running",
+            "Suitable for walking",
+            "Stylish design",
+            "Durable"
+        ],
+        "negative_themes": [
+            "Potential width issue for wide feet",
+            "Possible squeezing around the toe area for wider feet",
+            "Some users reported lower-than-expected comfort"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "Beginner runners",
+            "Casual running",
+            "Walking",
+            "Morning walks",
+            "Gym",
+            "Daily wear",
+            "Light workouts"
+        ],
+        "not_ideal_for": [
+            "People with wide feet",
+            "Users who need a wide toe box",
+            "Users specifically looking for water-resistant shoes"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Comfortable and top quality",
+            "date": "2026-06-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer found the shoes comfortable, stylish and good quality for the price. They fit well and were helpful for running, with good grip reported.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good for running",
+            "date": "2026-06-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer described the shoes as very comfortable and sporty, with a soft sole that felt supportive while running.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Comfort",
+            "date": "2026-06-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer described the shoes as a good pick for beginners.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good product",
+            "date": "2026-06-13",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer praised the soft sole, comfort, durability, fit and suitability for running, calling it value for money.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Value For Money",
+            "date": "2026-06-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer found the shoes lightweight and comfortable with an attractive design, good grip and balance, and good quality for the price.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 1,
+            "title": "Width issue for wide feet",
+            "date": "2026-07-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer reported that people with wide feet may experience squeezing around the toe area and noted that the size chart does not provide sufficient width information.",
+            "sentiment": "negative"
+        },
+        {
+            "rating": 5,
+            "title": "Good shoes",
+            "date": "2026-06-14",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer used the shoes for morning walks and short running and found them lightweight, comfortable, stylish and good quality for the price.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Excellent",
+            "date": "2026-08-19",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer gave a short positive review describing the shoes as excellent.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Very comfortable shoes",
+            "date": "2026-08-20",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer described the shoes as very comfortable and excellent for the price range.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Must purchase",
+            "date": "2026-08-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer considered the shoes good for running and daily use and a good deal around the ₹1,000 price range.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Worth",
+            "date": "2026-08-24",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer reported good quality.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Quality good",
+            "date": "2026-08-20",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer reported that comfort and quality were good.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Good shoes",
+            "date": "2026-07-04",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer described the shoes as good.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 4,
+            "title": "Shoes",
+            "date": "2026-06-17",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer said the product was good but felt the comfort level was lower than expected.",
+            "sentiment": "mixed"
+        },
+        {
+            "rating": 4,
+            "title": "Value for money",
+            "date": "2026-06-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer considered the quality and fit of the shoes superb.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Comfort",
+            "date": "2026-08-04",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer said the shoes were better than expected.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Comfort for running",
+            "date": "2026-07-30",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "BLACK OLIVE GREEN"
+            },
+            "summary": "Customer described the shoes as among the best Campus shoes they had used.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Awesome purchase",
+            "date": "2026-06-20",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer reported good value, fit, running suitability, comfortable sole, attractive colour and durability.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "WORTH IT",
+            "date": "2026-06-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer found the shoes very comfortable for walking, lightweight and easy to wear, with good finishing and a spongy sole.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Lightweight shoes good quality",
+            "date": "2026-06-15",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "GREY GREEN"
+            },
+            "summary": "Customer described the shoes as good quality, good looking, comfortable and lightweight.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Perfect fit",
+            "date": "2026-06-20",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer said the shoes look like the product pictures, fit well and have good quality.",
+            "sentiment": "positive"
+        },
+        {
+            "rating": 5,
+            "title": "Good Shoe for Running",
+            "date": "2026-06-17",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "WHITE BLACK"
+            },
+            "summary": "Customer praised the appearance, fit, material, value for money, comfort and lightweight construction.",
+            "sentiment": "positive"
+        }
+    ],
+    "tags": [
+        "sports shoes",
+        "running shoes",
+        "men's shoes",
+        "athletic shoes",
+        "Campus",
+        "lightweight",
+        "comfortable",
+        "breathable",
+        "cushioned",
+        "good grip",
+        "soft sole",
+        "EVA sole",
+        "running",
+        "walking",
+        "gym",
+        "casual",
+        "daily wear",
+        "beginner running",
+        "budget",
+        "value for money",
+        "Campus Force"
+    ],
+    "ai_search_attributes": {
+        "price_range": "1000_to_1500",
+        "budget_friendly": true,
+        "comfort": "high",
+        "weight": "lightweight",
+        "breathability": "high",
+        "grip": "good",
+        "cushioning": "moderate_to_high",
+        "intensity": "light_to_moderate",
+        "fit_warning": "Potentially narrow for wide feet",
+        "water_resistant": false,
+        "recommended_for": [
+            "daily running",
+            "beginner running",
+            "walking",
+            "morning walks",
+            "casual wear",
+            "gym",
+            "light workouts",
+            "travel"
+        ],
+        "not_recommended_for": [
+            "wide feet",
+            "users requiring water resistance"
+        ]
+    },
+    "source_metadata": {
+        "source": "Amazon India",
+        "asin": "B0H25WMZK2",
+        "model": null,
+        "product_dimensions": "30.5 x 21.5 x 11.2 cm",
+        "product_weight": "750 g",
+        "return_policy_observed": "10 days Return & Exchange",
+        "quantity_limit_per_customer": 3,
+        "country_of_origin": "India"
+    }
+}

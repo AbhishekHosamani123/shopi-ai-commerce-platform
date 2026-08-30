@@ -43,13 +43,14 @@ export async function getAdvancedDataHealth(
     client.query(`
       SELECT 
         COUNT(*)::int as count,
-        EXTRACT(DAY FROM (MAX(createdat) - MIN(createdat)))::int as span_days
-      FROM orders
+        EXTRACT(DAY FROM (MAX(order_placed_at) - MIN(order_placed_at)))::int as span_days
+      FROM shopi_orders
+      WHERE order_status NOT IN ('CANCELLED', 'Cancelled')
     `),
-    client.query('SELECT COUNT(*)::int as count FROM products'),
-    client.query('SELECT COUNT(*)::int as count FROM inventory_movements'),
+    client.query('SELECT COUNT(*)::int as count FROM shopi_products'),
+    client.query('SELECT COUNT(*)::int as count FROM shopi_inventory_movements'),
     client.query('SELECT COUNT(*)::int as count FROM merchant_suppliers WHERE merchant_id = $1 OR $1 = \'merchant_admin\'', [merchantId]),
-    client.query('SELECT COUNT(*)::int as count FROM users'),
+    client.query('SELECT COUNT(*)::int as count FROM shopi_customers'),
     client.query('SELECT COUNT(*)::int as count FROM merchant_ai_coupons'),
     client.query('SELECT COUNT(*)::int as count FROM merchant_ai_experiments WHERE merchant_id = $1 OR $1 = \'merchant_admin\'', [merchantId])
   ]);
@@ -64,9 +65,8 @@ export async function getAdvancedDataHealth(
   const expCount = expRes.rows[0]?.count || 0;
 
   // Products COGS check
-  const costRes = await client.query('SELECT COUNT(*)::int as count FROM products WHERE price IS NOT NULL');
-  // In our schema, `products` has price and discount, but procurement cost / COGS is not recorded per product row in base schema
-  const marginOptimizationSupported = false;
+  const costRes = await client.query('SELECT COUNT(*)::int as count FROM shopi_product_cogs');
+  const marginOptimizationSupported = (costRes.rows[0]?.count || 0) >= 50;
 
   const domains = {
     orderHistory: {

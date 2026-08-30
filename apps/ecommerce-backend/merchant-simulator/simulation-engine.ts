@@ -13,9 +13,9 @@ export class BusinessSimulationEngine {
     const productId = req.productId || 1;
 
     const profile = await getProductHistoricalProfile(productId);
-    const currentPrice = profile?.price || 999;
-    const currentStock = profile?.currentStock || 50;
-    const currentVelocity = profile?.last30Days.dailyVelocity || 2.0;
+    const currentPrice = profile?.price || 0;
+    const currentStock = profile?.currentStock !== undefined ? profile.currentStock : 0;
+    const currentVelocity = profile?.last30Days.dailyVelocity || 0;
     const currentMonthlyRevenue = profile?.last30Days.revenue || currentPrice * currentVelocity * 30;
 
     let projectedPrice = currentPrice;

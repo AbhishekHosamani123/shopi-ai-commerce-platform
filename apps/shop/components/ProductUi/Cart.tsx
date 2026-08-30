@@ -20,13 +20,13 @@ export default function Cart() {
   let total = cartlist.reduce((previousValue, currentValue) => {
     return previousValue + currentValue.quantity * currentValue.productPrice;
   }, 0);
-  async function removeItem(cartItemID:number,productID:number){
+  async function removeItem(cartItemID:number,productID:number | string){
     setloading(true);
     isLogged && await cartDeleteHandler({userID:defaultAccount.userID,cartItemID});
-    dispatch(removeItemFromCart(productID));
+    dispatch(removeItemFromCart(cartItemID || productID));
     setloading(false);
   }
-  const changeValue = async (action:string,cartitemID:number,selectedQuantity:number,productID:number)=>{
+  const changeValue = async (action:string,cartitemID:number,selectedQuantity:number,productID:number | string)=>{
     switch (action) {
       case 'increase':
         if(10 > selectedQuantity && 9 > selectedQuantity) {
@@ -94,7 +94,7 @@ export default function Cart() {
                           {loading && <div className='absolute left-0 right-0 top-[100%] z-50'><Loading/></div>}
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cartlist.map((product) => (
-                              <li key={product.productID} className="flex py-6">
+                              <li key={product.cartItemID || `${product.productID}_${product.productColor}_${product.productSize}`} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
                                     src={product.productImg}
@@ -111,7 +111,9 @@ export default function Cart() {
                                       </h3>
                                       <p className="ml-4">₹{product.productPrice}</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.productColor}</p>
+                                    <p className="mt-1 text-xs text-gray-500">
+                                      {[product.productColor && product.productColor !== 'Standard' ? product.productColor : null, product.productSize && product.productSize !== 'Standard' ? `Size: ${product.productSize}` : null].filter(Boolean).join(' • ')}
+                                    </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                   <div className='flex gap-10 items-center'>

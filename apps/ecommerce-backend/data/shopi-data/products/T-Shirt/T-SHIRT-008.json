@@ -1,0 +1,361 @@
+{
+    "product_id": "T-SHIRT-008",
+    "product": {
+        "name": "Peter England Men's Cotton Abstract Geometric Print Polo T-Shirt – Casual Wear | Modern & Stylish",
+        "brand": "Peter England",
+        "category": "T-Shirt",
+        "subcategory": "Polo T-Shirts",
+        "gender": "Men",
+        "product_type": "Polo T-Shirt",
+        "description": "A regular-fit cotton polo T-shirt featuring an abstract geometric pattern, collared neckline and half sleeves. Designed for casual and smart-casual wear.",
+        "fit": "Regular Fit",
+        "pattern": "Geometric",
+        "sleeve": "Half Sleeve",
+        "collar": "Collared Neck",
+        "collar_style": "Polo Collar",
+        "closure": "Button",
+        "length": "Standard Length",
+        "material": "Cotton",
+        "fabric_weight": "Medium Weight",
+        "stretch": "Not specified",
+        "care": "Machine Wash",
+        "style_tags": [
+            "casual",
+            "smart casual",
+            "polo",
+            "geometric",
+            "modern",
+            "stylish",
+            "everyday wear"
+        ],
+        "occasion_tags": [
+            "casual outings",
+            "daily wear",
+            "college",
+            "office casual",
+            "parties",
+            "hangouts"
+        ],
+        "season_tags": [
+            "winter",
+            "all season"
+        ],
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+        ],
+        "colors": [
+            "Brown",
+            "Teal"
+        ],
+        "country_of_origin": "India",
+        "item_weight_grams": 300
+    },
+    "pricing": {
+        "mrp": 1299,
+        "selling_price": 845,
+        "currency": "INR",
+        "discount_percentage": 35,
+        "price_type": "snapshot"
+    },
+    "images": [
+        {
+            "color": "Brown",
+            "image": "products/T-Shirt/T-SHIRT-008/brown.jpg",
+            "is_primary": true
+        },
+        {
+            "color": "Teal",
+            "image": "products/T-Shirt/T-SHIRT-008/teal.jpg",
+            "is_primary": true
+        }
+    ],
+    "rating": {
+        "average": 4.2,
+        "rating_count": 73,
+        "review_count": 11
+    },
+    "review_summary": {
+        "overall_sentiment": "positive",
+        "summary": "Customers generally like the product for its quality, comfort, appearance, geometric print and overall value. The main negative signal is price, with one customer specifically considering it expensive. Some reviews also indicate that the style is slightly flashy and may suit fit or slim body types better.",
+        "positive": [
+            "Good overall quality",
+            "Comfortable",
+            "Good fabric",
+            "Attractive geometric print",
+            "Rich and modern appearance",
+            "Good fitting reported by customers",
+            "Good value for money",
+            "Customers recommend the product"
+        ],
+        "negative": [
+            "One customer considered the price high",
+            "Design may feel slightly flashy for some buyers",
+            "One review suggests it suits fit or slim body types better"
+        ],
+        "main_concern": "The primary concern is price relative to the product, while fit and styling may depend on the buyer's body type and personal preference."
+    },
+    "review_insights": {
+        "appearance": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers described the print as nice and the overall appearance as rich, fabulous and modern."
+        },
+        "comfort": {
+            "sentiment": "positive",
+            "confidence": "high"
+        },
+        "fabric_quality": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "Customers reported good quality and fine cotton material."
+        },
+        "fit": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "The product is listed as regular fit. One review specifically mentioned that it is a nice fit for fit or slim people."
+        },
+        "style": {
+            "sentiment": "positive",
+            "confidence": "high",
+            "note": "The geometric print and rich look are repeatedly viewed positively, although one customer found the design slightly flashy."
+        },
+        "value_for_money": {
+            "sentiment": "positive",
+            "confidence": "medium",
+            "note": "Several reviews describe the product as good or worth buying, but one review specifically criticized the price."
+        },
+        "price_perception": {
+            "sentiment": "mixed",
+            "confidence": "medium"
+        }
+    },
+    "pros": [
+        "Good cotton fabric",
+        "Good overall quality",
+        "Comfortable",
+        "Attractive geometric print",
+        "Rich and stylish appearance",
+        "Regular fit",
+        "Good for casual and smart-casual wear",
+        "Positive customer satisfaction"
+    ],
+    "cons": [
+        "May feel expensive to some buyers",
+        "Geometric print can look slightly flashy",
+        "May suit fit or slim body types better"
+    ],
+    "buying_advice": {
+        "recommendation": "BUY",
+        "score": 8.3,
+        "best_for": [
+            "Casual wear",
+            "Daily wear",
+            "Smart casual outfits",
+            "College wear",
+            "Casual office wear",
+            "Parties and outings"
+        ],
+        "not_ideal_for": [
+            "Buyers looking for a very minimal or plain polo",
+            "Buyers who prioritize the lowest possible price",
+            "Buyers who prefer relaxed or oversized fits"
+        ],
+        "size_advice": "The product is listed as regular fit. Customers should still use the size chart, especially if they prefer a relaxed fit.",
+        "style_advice": "Best suited to buyers who like noticeable geometric prints and a modern, slightly rich-looking polo style.",
+        "price_advice": "At ₹845 against an MRP of ₹1,299, the product is reasonably positioned, but price-sensitive buyers may find cheaper alternatives.",
+        "sales_advice": "Lead with the cotton fabric, geometric print, comfortable regular fit and Peter England branding. Mention that the design is more expressive than a plain polo."
+    },
+    "ai_matching": {
+        "positive_keywords": [
+            "Peter England polo",
+            "cotton polo t-shirt",
+            "geometric polo",
+            "printed polo t-shirt",
+            "regular fit polo",
+            "men's polo t-shirt",
+            "casual polo",
+            "smart casual polo",
+            "stylish polo",
+            "brown polo",
+            "teal polo"
+        ],
+        "negative_keywords": [
+            "plain polo",
+            "minimal polo",
+            "oversized polo",
+            "cheap polo",
+            "basic polo"
+        ],
+        "strong_attributes": [
+            "cotton",
+            "regular fit",
+            "geometric print",
+            "polo collar",
+            "half sleeve",
+            "button closure",
+            "casual",
+            "stylish",
+            "Peter England"
+        ],
+        "warning_attributes": [
+            "slightly flashy design",
+            "price sensitivity",
+            "better suited to fit or slim body types"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Teal",
+            "size": "S",
+            "sentiment": "positive",
+            "title": "Worth of money",
+            "themes": [
+                "quality",
+                "value",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Brown",
+            "size": "L",
+            "sentiment": "positive_with_price_concern",
+            "title": "High price",
+            "themes": [
+                "price",
+                "overall quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "2XL",
+            "sentiment": "positive",
+            "title": "Very genuine product",
+            "themes": [
+                "color",
+                "quality",
+                "comfort",
+                "value"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Charcoal",
+            "size": "L",
+            "sentiment": "positive",
+            "title": "Good",
+            "themes": [
+                "quality"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "XL",
+            "sentiment": "positive",
+            "title": "Good",
+            "themes": [
+                "quality",
+                "delivery",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Teal",
+            "size": "L",
+            "sentiment": "positive",
+            "title": "Nice",
+            "themes": [
+                "print",
+                "appearance",
+                "style"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Brown",
+            "size": "L",
+            "sentiment": "positive",
+            "title": "It's fabulous",
+            "themes": [
+                "appearance",
+                "quality",
+                "fit",
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Brown",
+            "size": "L",
+            "sentiment": "positive_with_style_concern",
+            "title": "I would recommend this",
+            "themes": [
+                "fit",
+                "appearance",
+                "style"
+            ]
+        },
+        {
+            "rating": 4,
+            "verified": true,
+            "color": "Charcoal",
+            "size": "XL",
+            "sentiment": "positive",
+            "title": "Soft",
+            "themes": [
+                "material",
+                "comfort",
+                "cotton"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Charcoal",
+            "size": "2XL",
+            "sentiment": "positive",
+            "title": "Go for it",
+            "themes": [
+                "overall satisfaction"
+            ]
+        },
+        {
+            "rating": 5,
+            "verified": true,
+            "color": "Teal",
+            "size": "M",
+            "sentiment": "positive",
+            "title": "Very nice",
+            "themes": [
+                "appearance",
+                "overall satisfaction"
+            ]
+        }
+    ],
+    "shopi_ai_rules": {
+        "when_customer_asks_about_product": "Give a concise overview covering cotton fabric, regular fit, geometric print, polo collar, colors, sizes, price and the strongest review insights.",
+        "when_customer_asks_if_good": "Recommend it. Highlight the strong 4.2 rating, cotton fabric, comfortable fit, attractive geometric print and positive customer feedback.",
+        "when_customer_asks_about_fit": "Explain that it is regular fit. Mention that one customer specifically found it a good fit for fit or slim body types.",
+        "when_customer_asks_about_quality": "Highlight the positive quality and cotton-fabric feedback from customers.",
+        "when_customer_asks_about_style": "Explain that the geometric print gives it a modern and rich appearance, but one customer found the design slightly flashy.",
+        "when_customer_asks_about_price": "Mention that the observed selling price is ₹845 versus ₹1,299 MRP. It is reasonably discounted, but one customer considered the product expensive.",
+        "when_customer_asks_for_alternatives": "Prioritize other branded cotton polos with similar geometric or printed styling, especially if the customer wants a lower price or a more minimal design.",
+        "when_customer_asks_for_best_product": "Consider the customer's budget, preferred fit, tolerance for printed designs and intended occasion rather than recommending this product solely from its 4.2 rating."
+    }
+}

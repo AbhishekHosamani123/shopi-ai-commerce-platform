@@ -1,0 +1,477 @@
+{
+    "id": "FORMAL-SHOE-001",
+    "category": "Formal Shoes",
+    "subcategory": "Men's Formal Shoes",
+    "product": {
+        "name": "Bata Men's Lace-up Formal Shoes",
+        "brand": "Bata",
+        "gender": "Men",
+        "style": "Derby",
+        "shoe_type": "Formal Shoes",
+        "occasion": [
+            "Formal",
+            "Office",
+            "Business"
+        ],
+        "pattern": "Solid",
+        "color": "Black",
+        "toe_style": "Round Toe",
+        "closure": "Lace-Up",
+        "heel_type": "No Heel",
+        "strap_type": "Strapless",
+        "country_of_origin": "India",
+        "asin": "B096BGXWKT",
+        "model_number": "8216133",
+        "generic_name": "Formal Shoes"
+    },
+    "pricing": {
+        "currency": "INR",
+        "selling_price": 749,
+        "mrp": 999,
+        "discount_percentage": 25,
+        "price_display": "₹749",
+        "tax_inclusive": true
+    },
+    "materials": {
+        "upper_material": "Synthetic",
+        "sole_material": "Polyvinyl Chloride",
+        "insole_material": "Genuine Leather",
+        "lining_material": null
+    },
+    "comfort_and_features": {
+        "cushioning": "Moderate to high",
+        "lightweight": true,
+        "water_resistant": false,
+        "slip_resistant": null,
+        "durable": true,
+        "comfort_features": [
+            "Cushioned insole",
+            "Lightweight build"
+        ],
+        "special_features": [
+            "Durable"
+        ]
+    },
+    "sizes": {
+        "available_uk_sizes": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+        ],
+        "size_system": "UK"
+    },
+    "dimensions": {
+        "weight_grams": 760,
+        "length_cm": 19.5,
+        "width_cm": 8,
+        "height_cm": 16
+    },
+    "ratings": {
+        "average_rating": 3.7,
+        "total_ratings": 10594,
+        "rating_distribution": {
+            "5_star": 46,
+            "4_star": 20,
+            "3_star": 11,
+            "2_star": 5,
+            "1_star": 18
+        }
+    },
+    "review_insights": {
+        "overall_sentiment": "Mixed",
+        "positive_topics": [
+            "Comfort",
+            "Fit",
+            "Office use",
+            "Appearance",
+            "Value for money"
+        ],
+        "negative_topics": [
+            "Durability",
+            "Sole quality",
+            "Material quality",
+            "Comfort for extended use",
+            "Sizing"
+        ],
+        "amazon_customer_summary": "Customers generally find the shoes comfortable and well-fitting, but there are significant concerns about durability and material quality. Some customers report sole damage or separation, while others praise the appearance, fit, comfort and value.",
+        "ai_generated_topic_counts": {
+            "fit": 83,
+            "quality": 1200,
+            "value_for_money": 350,
+            "durability": 346,
+            "material": 70,
+            "comfort": 66,
+            "authenticity": 43,
+            "size": 38
+        }
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Poor quality from bata is not acceptable",
+            "date": "2025-01-25",
+            "reviewer": "Deepak",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The shoes deteriorated rapidly. The sole came off and had to be repaired, and the leather upper also showed signs of deterioration. The customer requested a replacement."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-08-15",
+            "reviewer": "Krishna kumar",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Jute ki gunvatta achi hai.",
+            "helpful_votes": 1
+        },
+        {
+            "rating": 1,
+            "title": "Low Quality Products from Bata",
+            "date": "2026-07-09",
+            "reviewer": "Danni David",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "After previously using Bata shoes for years, the reviewer reports a decline in quality. The sole started coming off and cracks appeared after only about 30–40 days of use."
+        },
+        {
+            "rating": 5,
+            "title": "Best shoe for work in office",
+            "date": "2026-08-15",
+            "reviewer": "Rahul saksena",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "Very comfortable for office use. The reviewer liked the premium-looking black color, fit, lightweight feel and pricing."
+        },
+        {
+            "rating": 3,
+            "title": "Nothing",
+            "date": "2026-08-20",
+            "reviewer": "Mohit kumar",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "Average."
+        },
+        {
+            "rating": 5,
+            "title": "Very Good formal shoes",
+            "date": "2026-08-11",
+            "reviewer": "Atul",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The reviewer described the shoes as really awesome."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-07-24",
+            "reviewer": "SK SadiQ",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Good product."
+        },
+        {
+            "rating": 5,
+            "title": "Price",
+            "date": "2026-08-20",
+            "reviewer": "sudhanshu kr sinha",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "Product is good as per the price."
+        },
+        {
+            "rating": 4,
+            "title": "Fgg namaste",
+            "date": "2026-07-28",
+            "reviewer": "ROSHAN KUMAR",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Fine."
+        },
+        {
+            "rating": 3,
+            "title": "Good product",
+            "date": "2026-08-23",
+            "reviewer": "mukesh yadav",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "The reviewer found the shoes comfortable on first use."
+        },
+        {
+            "rating": 4,
+            "title": "Good packaging and good quality",
+            "date": "2026-07-10",
+            "reviewer": "Vivek Seshadri",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Good packaging and good quality. Material was received in good condition."
+        },
+        {
+            "rating": 3,
+            "title": "Already shared the photo",
+            "date": "2026-07-28",
+            "reviewer": "Danny Anoop",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The reviewer reported that the shoe size felt big."
+        },
+        {
+            "rating": 4,
+            "title": "Good boots",
+            "date": "2026-06-03",
+            "reviewer": "Tanuj Jagwan",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Good quality and comfortable for walking. Slightly long from the front. Suitable for daily use."
+        },
+        {
+            "rating": 5,
+            "title": "Great product at this price range",
+            "date": "2026-08-24",
+            "reviewer": "Aaditya Kumar",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "Black",
+            "text": "Good fitting and the color matches the images, but the heel is quite hard and can sometimes cause discomfort."
+        },
+        {
+            "rating": 5,
+            "title": "Good fit",
+            "date": "2026-08-24",
+            "reviewer": "Dayanand Gaikwad",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "Good product with a perfect fit."
+        },
+        {
+            "rating": 4,
+            "title": "Good quality",
+            "date": "2026-05-07",
+            "reviewer": "Soheb",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "Best quality, but the laces are too thick."
+        },
+        {
+            "rating": 5,
+            "title": "Superb product",
+            "date": "2026-08-08",
+            "reviewer": "Joydeep Maji",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The reviewer praised the quality."
+        },
+        {
+            "rating": 5,
+            "title": "super",
+            "date": "2026-08-08",
+            "reviewer": "All ad a kiran",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Super."
+        },
+        {
+            "rating": 3,
+            "title": "Hard, noisy, slippery plastic sole",
+            "date": "2026-04-18",
+            "reviewer": "Venkatesh Kini",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "The reviewer reported that the plastic sole is hard and noisy on hard surfaces, slippery on smooth tiles, not water resistant, and prone to coming off. The reviewer still considered the finish decent and the shoe versatile."
+        },
+        {
+            "rating": 5,
+            "title": "I am happy",
+            "date": "2026-08-04",
+            "reviewer": "Prasenjit Debnath",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "Good product."
+        },
+        {
+            "rating": 4,
+            "title": "Not comfortable",
+            "date": "2026-04-19",
+            "reviewer": "Sarfraj",
+            "verified_purchase": true,
+            "size": "6 UK",
+            "color": "Black",
+            "text": "Not comfortable."
+        },
+        {
+            "rating": 4,
+            "title": "Good",
+            "date": "2026-04-26",
+            "reviewer": "Ajit yadav",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Good."
+        },
+        {
+            "rating": 5,
+            "title": "The most happiest and quickest buy ever",
+            "date": "2026-05-07",
+            "reviewer": "Neeraj Roy",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "The reviewer liked the quick delivery, quality, fitting, appearance and price. They normally use size 8 but found size 10 comfortable for this product."
+        },
+        {
+            "rating": 2,
+            "title": "Broken the sole of bottom",
+            "date": "2026-07-02",
+            "reviewer": "nilesh chaudhary",
+            "verified_purchase": true,
+            "size": "8 UK",
+            "color": "Black",
+            "text": "The shoes looked good, but the sole broke within two months."
+        },
+        {
+            "rating": 5,
+            "title": "Good",
+            "date": "2026-07-17",
+            "reviewer": "kishor a.",
+            "verified_purchase": true,
+            "size": "9 UK",
+            "color": "Black",
+            "text": "Best shoes ever."
+        },
+        {
+            "rating": 5,
+            "title": "Good cheap shoes",
+            "date": "2026-06-29",
+            "reviewer": "Arav Tiwari",
+            "verified_purchase": true,
+            "size": "11 UK",
+            "color": "Black",
+            "text": "Decent fit and appearance. Average comfort. The reviewer considers them suitable for desk jobs but not for jobs requiring prolonged standing."
+        },
+        {
+            "rating": 5,
+            "title": "Good",
+            "date": "2026-07-15",
+            "reviewer": "POSA RAJASEKHAR",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "Good."
+        },
+        {
+            "rating": 4,
+            "title": "Good Quality & Stylish",
+            "date": "2025-04-11",
+            "reviewer": "Malatesh Hallakai",
+            "verified_purchase": true,
+            "size": "10 UK",
+            "color": "Black",
+            "text": "The reviewer liked the sleek design, office/formal suitability, grip and sturdy build. They found the shoe initially snug and recommended sizing up for wider feet. Cushioning could be better for extended wear."
+        },
+        {
+            "rating": 4,
+            "title": "It's good",
+            "date": "2025-09-27",
+            "reviewer": "Amazon Customer",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The shoes lasted more than a year before gradually deteriorating. The reviewer considered them good value for money."
+        },
+        {
+            "rating": 5,
+            "title": "5 stars - most durable shoes",
+            "date": "2026-06-28",
+            "reviewer": "Vishal",
+            "verified_purchase": true,
+            "size": "7 UK",
+            "color": "Black",
+            "text": "The reviewer said the shoes were good for daily wear and remained undamaged after one year."
+        }
+    ],
+    "inventory": {
+        "in_stock": true,
+        "available_quantity": null
+    },
+    "delivery": {
+        "free_delivery": true,
+        "return_exchange": "10 days Return & Exchange",
+        "pay_on_delivery": true
+    },
+    "seller": {
+        "platform": "Amazon",
+        "sold_by": "Cocoblu Retail",
+        "fulfilled_by": "Amazon"
+    },
+    "manufacturer": {
+        "name": "BATANAGAR LEATHER",
+        "packer": "BATA INDIA LIMITED",
+        "importer": "Bata india"
+    },
+    "images": {
+        "primary": "black Formal.jpg",
+        "customer_images_available": true
+    },
+    "source": {
+        "platform": "Amazon India",
+        "product_url": "https://www.amazon.in/Bata-Mens-Lace-up-Formal-Shoes/dp/B096BGXWKT",
+        "source_product_id": "B096BGXWKT"
+    },
+    "data_quality_notes": [
+        "Amazon page contains contradictory product metadata.",
+        "Product title identifies the item as Bata Men's Lace-up Formal Shoes.",
+        "The page lists Style as Derby but another specification lists Shoe Type as Oxford.",
+        "The page lists Closure Type as Lace-Up but Special Feature includes Slip on.",
+        "Water Resistance Level is listed as Not Water Resistant.",
+        "The About this item section incorrectly/contradictorily refers to Weinbrenner Black Sneakers.",
+        "The page contains an inconsistent Special Feature entry mentioning Water Resistant despite the explicit Water Resistance Level being Not Water Resistant.",
+        "Do not use the contradictory fields for AI recommendations until verified from the actual product packaging or manufacturer listing."
+    ],
+    "ai_recommendation_profile": {
+        "best_for": [
+            "Office wear",
+            "Business wear",
+            "Formal occasions",
+            "Budget-conscious buyers",
+            "Desk jobs"
+        ],
+        "strengths": [
+            "Low price",
+            "Formal black appearance",
+            "Lace-up design",
+            "Moderate to high cushioning listed",
+            "Multiple UK sizes",
+            "Many customer reviews"
+        ],
+        "weaknesses": [
+            "Mixed durability feedback",
+            "Multiple reports of sole problems",
+            "Some complaints about comfort",
+            "Some sizing concerns",
+            "Synthetic material"
+        ],
+        "recommendation_summary": "A budget-oriented black formal shoe with strong office-use appeal and a large review base, but durability feedback is inconsistent and should be highlighted when recommending it."
+    }
+}

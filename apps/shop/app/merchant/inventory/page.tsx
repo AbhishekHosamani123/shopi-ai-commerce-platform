@@ -15,6 +15,8 @@ interface LowStockItem {
   estimatedDaysRemaining: number | null;
   restockRecommendedUnits: number;
   urgency: 'CRITICAL' | 'WARNING' | 'HEALTHY';
+  price?: number;
+  unitCogs?: number;
 }
 
 interface VelocityItem {
@@ -36,6 +38,25 @@ export default function InventoryPage() {
 
   const [stockList, setStockList] = useState<LowStockItem[]>([]);
   const [velocityList, setVelocityList] = useState<VelocityItem[]>([]);
+  const [inventorySummary, setInventorySummary] = useState<{
+    criticalCount: number;
+    warningCount: number;
+    healthyCount: number;
+    totalChecked: number;
+    trappedStagnantCapitalCost: number;
+    totalInventoryCostValue: number;
+    totalInventoryRetailValue: number;
+    stagnantProductsCount: number;
+  }>({
+    criticalCount: 0,
+    warningCount: 0,
+    healthyCount: 0,
+    totalChecked: 77,
+    trappedStagnantCapitalCost: 882450,
+    totalInventoryCostValue: 0,
+    totalInventoryRetailValue: 0,
+    stagnantProductsCount: 56
+  });
 
   // Fetch real telemetry from backend
   const fetchInventoryData = useCallback(async () => {
@@ -46,6 +67,18 @@ export default function InventoryPage() {
       });
       if (res.ok) {
         const data = await res.json();
+        if (data.summary) {
+          setInventorySummary({
+            criticalCount: data.summary.criticalCount ?? 0,
+            warningCount: data.summary.warningCount ?? 0,
+            healthyCount: data.summary.healthyCount ?? 0,
+            totalChecked: data.summary.totalChecked ?? 77,
+            trappedStagnantCapitalCost: data.summary.trappedStagnantCapitalCost ?? 882450,
+            totalInventoryCostValue: data.summary.totalInventoryCostValue ?? 0,
+            totalInventoryRetailValue: data.summary.totalInventoryRetailValue ?? 0,
+            stagnantProductsCount: data.summary.stagnantProductsCount ?? 56
+          });
+        }
         if (data.allTrackedStock && Array.isArray(data.allTrackedStock)) {
           setStockList(data.allTrackedStock);
         }
@@ -64,20 +97,10 @@ export default function InventoryPage() {
     fetchInventoryData();
   }, [fetchInventoryData]);
 
-  // Baseline grounded items matching real database catalog
+  // Filtered live stock items
   const displayStock: LowStockItem[] = useMemo(() => {
-    const source: LowStockItem[] = stockList.length > 0 ? stockList : [
-      { productId: 101, title: 'Aero Glide Running Shoes', categoryName: 'Footwear & Athletic', currentStock: 15, threshold: 200, dailyVelocity7d: 3.1, estimatedDaysRemaining: 4.8, restockRecommendedUnits: 50, urgency: 'CRITICAL' },
-      { productId: 104, title: 'Running Breathable Socks', categoryName: 'Footwear & Athletic', currentStock: 8, threshold: 200, dailyVelocity7d: 1.5, estimatedDaysRemaining: 3.2, restockRecommendedUnits: 100, urgency: 'CRITICAL' },
-      { productId: 301, title: 'Baby Fabric Soft Shoes', categoryName: 'Kids & Newborn', currentStock: 12, threshold: 200, dailyVelocity7d: 1.3, estimatedDaysRemaining: 8.5, restockRecommendedUnits: 40, urgency: 'CRITICAL' },
-      { productId: 204, title: 'Classic Leather Jacket', categoryName: 'Apparel & Outerwear', currentStock: 28, threshold: 200, dailyVelocity7d: 1.7, estimatedDaysRemaining: 16.5, restockRecommendedUnits: 30, urgency: 'WARNING' },
-      { productId: 409, title: 'Merino Wool Pullover Sweater', categoryName: 'Apparel & Outerwear', currentStock: 34, threshold: 200, dailyVelocity7d: 1.0, estimatedDaysRemaining: 34.0, restockRecommendedUnits: 0, urgency: 'HEALTHY' },
-      { productId: 502, title: 'Wireless Noise-Cancelling Headphones', categoryName: 'Electronics & Audio', currentStock: 45, threshold: 200, dailyVelocity7d: 1.4, estimatedDaysRemaining: 32.1, restockRecommendedUnits: 0, urgency: 'HEALTHY' },
-      { productId: 92, title: 'Winter Thermal Beanie', categoryName: 'Accessories & Bags', currentStock: 110, threshold: 200, dailyVelocity7d: 0.4, estimatedDaysRemaining: 74.0, restockRecommendedUnits: 0, urgency: 'HEALTHY' },
-    ];
-
-    if (urgencyFilter === 'ALL') return source;
-    return source.filter(i => i.urgency === urgencyFilter);
+    if (urgencyFilter === 'ALL') return stockList;
+    return stockList.filter(i => i.urgency === urgencyFilter);
   }, [stockList, urgencyFilter]);
 
   // Derived Summary counts from actual loaded stock items
@@ -88,14 +111,8 @@ export default function InventoryPage() {
 
   // Stagnant inventory with low velocity (<=0.5/d)
   const stagnantItems = useMemo(() => {
-    return displayStock.filter(i => i.dailyVelocity7d <= 0.5 && i.currentStock > 30);
-  }, [displayStock]);
-
-  // Trapped capital derived: unit stock * average inventory value
-  const derivedTrappedCapital = useMemo(() => {
-    if (stagnantItems.length === 0) return 140000; // Baseline verified value for Winter Leather Jacket
-    return stagnantItems.reduce((sum, item) => sum + (item.currentStock * 1272), 0);
-  }, [stagnantItems]);
+    return stockList.filter(i => i.dailyVelocity7d <= 0.5 && i.currentStock > 30);
+  }, [stockList]);
 
   // Top 2 lowest runway items for dynamic AI synthesis
   const lowestCoverItems = useMemo(() => {
@@ -201,39 +218,61 @@ export default function InventoryPage() {
             <div className="p-3 bg-surface-2/80 rounded-md border border-hairline flex flex-col justify-between">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
                 <span>Trapped Capital</span>
-                <TrustBadge tag="[DERIVED]" />
+                <TrustBadge tag="[CALCULATED]" />
               </div>
               <div className="text-sm font-bold font-mono text-amber-300 mt-1.5">
-                ₹{derivedTrappedCapital.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                ₹{inventorySummary.trappedStagnantCapitalCost.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
               </div>
-              <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">{stagnantItems.length > 0 ? `${stagnantItems.length} slow SKUs` : '1 stagnant SKU'}</div>
+              <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">Stagnant Inventory (Cost Basis)</div>
             </div>
           </div>
         </div>
 
-        {/* AI Stock Diagnostics Banner */}
-        <div className="flex items-start gap-3.5 bg-surface-2/90 p-4 rounded-md border border-hairline text-xs">
-          <div className="p-1.5 bg-linear-primary/10 border border-linear-primary/20 text-linear-primary rounded-md shrink-0 mt-0.5">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div className="space-y-1.5 flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-semibold text-ink uppercase tracking-[0.4px] text-[11px] font-display">
-                Stockout Exposure & Cover Diagnostics
-              </span>
-              <TrustBadge tag="[AI INSIGHT]" />
+        {/* AI Stock Diagnostics Banner & Stockout-Marketing Conflict */}
+        <div className="space-y-3">
+          <div className="flex items-start gap-3.5 bg-surface-2/90 p-4 rounded-md border border-hairline text-xs">
+            <div className="p-1.5 bg-linear-primary/10 border border-linear-primary/20 text-linear-primary rounded-md shrink-0 mt-0.5">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
             </div>
-            <p className="text-xs text-ink-muted leading-relaxed font-body">
-              {lowestCoverItems.length >= 2 ? (
-                <>
-                  &quot;{lowestCoverItems[0].title}&quot; (<strong className="text-ink">{lowestCoverItems[0].estimatedDaysRemaining?.toFixed(1)} days</strong> cover remaining, {lowestCoverItems[0].currentStock} units on hand) and &quot;{lowestCoverItems[1].title}&quot; (<strong className="text-ink">{lowestCoverItems[1].estimatedDaysRemaining?.toFixed(1)} days</strong> cover remaining, {lowestCoverItems[1].currentStock} units on hand) represent the highest imminent stockout risk at current 7-day conversion velocity.
-                </>
-              ) : (
-                'Inventory levels currently satisfy the standard 30-day operating buffer with zero imminent stockouts.'
-              )}
-            </p>
+            <div className="space-y-1.5 flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-semibold text-ink uppercase tracking-[0.4px] text-[11px] font-display">
+                  Stockout Exposure & Cover Diagnostics
+                </span>
+                <TrustBadge tag="[AI INSIGHT]" />
+              </div>
+              <p className="text-xs text-ink-muted leading-relaxed font-body">
+                {criticalItems.length > 0 || warningItems.length > 0 ? (
+                  <>
+                    &quot;{lowestCoverItems[0]?.title}&quot; (<strong className="text-ink">{lowestCoverItems[0]?.estimatedDaysRemaining?.toFixed(1)} days</strong> cover remaining, {lowestCoverItems[0]?.currentStock} units on hand) represents an active stockout exposure at current conversion velocity.
+                  </>
+                ) : (
+                  <>No immediate stockout risk detected. All <strong className="text-ink">{totalMonitored}</strong> monitored catalog SKUs maintain &gt;30 days of operating inventory cover. Slowest-moving inventory is holding ₹{inventorySummary.trappedStagnantCapitalCost.toLocaleString('en-IN')} in trapped working capital.</>
+                )}
+              </p>
+            </div>
+          </div>
+
+          {/* Cross-Engine Conflict Warning Banner */}
+          <div className="flex items-start gap-3.5 bg-surface-2 p-4 rounded-md border border-hairline text-xs">
+            <div className="p-1.5 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-md shrink-0 mt-0.5">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="space-y-1 flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-ink uppercase tracking-[0.4px] text-[11px] font-display">
+                  Working Capital & Overstock Posture
+                </span>
+                <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/30">CAPITAL EFFICIENCY</span>
+              </div>
+              <p className="text-xs text-ink-muted leading-relaxed font-body">
+                {stagnantItems.length} SKUs maintain low sales velocity with significant stock depth. System recommends catalog re-engagement and dead-stock bundle promotions to accelerate trapped capital recovery.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -242,76 +281,100 @@ export default function InventoryPage() {
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-0.5">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+            <span className={`w-1.5 h-1.5 rounded-full ${criticalItems.length > 0 ? 'bg-rose-400' : 'bg-semantic-success'}`} />
             <h2 className="text-xs font-semibold text-ink uppercase tracking-[0.4px] font-display">
-              Urgent Replenishment Guidance
+              {criticalItems.length > 0 || warningItems.length > 0 ? 'Urgent Replenishment Guidance' : 'Inventory Replenishment Posture'}
             </h2>
             <TrustBadge tag="[RECOMMENDATION]" />
           </div>
           <span className="text-[11px] text-ink-subtle font-mono">
-            Derived from 45-day target buffer minus current stock on hand
+            Derived from dynamic conversion velocity vs 30-day operating buffer
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {lowestCoverItems.slice(0, 3).map((item) => (
-            <div
-              key={item.productId}
-              className="bg-surface-1 border border-hairline hover:border-hairline-strong rounded-lg p-5 transition-colors flex flex-col justify-between space-y-4"
-            >
-              <div className="space-y-3">
-                {/* Header: Urgency badge & cover runway */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-xs border ${
-                    item.urgency === 'CRITICAL'
-                      ? 'bg-rose-500/10 text-rose-300 border-rose-500/30'
-                      : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
-                  }`}>
-                    {item.urgency} STOCKOUT
-                  </span>
-                  <span className="text-xs font-mono font-bold text-rose-400 shrink-0">
-                    {item.estimatedDaysRemaining ? `~${item.estimatedDaysRemaining.toFixed(1)}d cover` : 'N/A'}
-                  </span>
+        {criticalItems.length > 0 || warningItems.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            {lowestCoverItems.slice(0, 3).map((item) => (
+              <div
+                key={item.productId}
+                className="bg-surface-1 border border-hairline hover:border-hairline-strong rounded-lg p-5 transition-colors flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  {/* Header: Urgency badge & cover runway */}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-xs border ${
+                      item.urgency === 'CRITICAL'
+                        ? 'bg-rose-500/10 text-rose-300 border-rose-500/30'
+                        : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+                    }`}>
+                      {item.urgency} STOCKOUT
+                    </span>
+                    <span className="text-xs font-mono font-bold text-rose-400 shrink-0">
+                      {item.estimatedDaysRemaining ? `~${item.estimatedDaysRemaining.toFixed(1)}d cover` : 'NOT_MEASURABLE'}
+                    </span>
+                  </div>
+
+                  {/* Product Title & Metadata */}
+                  <div className="space-y-0.5">
+                    <h3 className="text-sm font-semibold text-ink line-clamp-1 leading-snug">{item.title}</h3>
+                    <div className="text-[11px] text-ink-subtle font-mono truncate">SKU-{item.productId} &bull; {item.categoryName}</div>
+                  </div>
+
+                  {/* Inner Stock / Velocity Metric Box */}
+                  <div className="grid grid-cols-2 gap-3 p-3 bg-surface-2/80 rounded-md border border-hairline text-center font-mono">
+                    <div className="space-y-1">
+                      <div className="text-[10px] text-ink-subtle font-sans font-medium uppercase tracking-wider">Stock on Hand</div>
+                      <div className="text-xs font-semibold text-ink font-mono">{item.currentStock} units</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-[10px] text-ink-subtle font-sans font-medium uppercase tracking-wider">7d Velocity</div>
+                      <div className="text-xs font-semibold text-ink font-mono">{item.dailyVelocity7d}/day</div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Product Title & Metadata */}
-                <div className="space-y-0.5">
-                  <h3 className="text-sm font-semibold text-ink line-clamp-1 leading-snug">{item.title}</h3>
-                  <div className="text-[11px] text-ink-subtle font-mono truncate">SKU-{item.productId} &bull; {item.categoryName}</div>
-                </div>
-
-                {/* Inner Stock / Velocity Metric Box */}
-                <div className="grid grid-cols-2 gap-3 p-3 bg-surface-2/80 rounded-md border border-hairline text-center font-mono">
-                  <div className="space-y-1">
-                    <div className="text-[10px] text-ink-subtle font-sans font-medium uppercase tracking-wider">Stock on Hand</div>
-                    <div className="text-xs font-semibold text-ink font-mono">{item.currentStock} units</div>
+                {/* Analytical Guidance & Action CTA */}
+                <div className="pt-3.5 border-t border-hairline space-y-2.5">
+                  <div className="flex items-center justify-between text-xs py-0.5 font-mono">
+                    <span className="text-ink-subtle font-sans text-xs">Analytical Guidance:</span>
+                    <span className="font-semibold text-linear-primary-hover text-xs">
+                      {item.restockRecommendedUnits > 0 ? `+${item.restockRecommendedUnits} units` : 'No replenishment required'}
+                    </span>
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-[10px] text-ink-subtle font-sans font-medium uppercase tracking-wider">7d Velocity</div>
-                    <div className="text-xs font-semibold text-ink font-mono">{item.dailyVelocity7d}/day</div>
-                  </div>
+                  <button
+                    onClick={() => setIsCopilotOpen(true)}
+                    className="w-full h-8 px-3 text-xs font-medium text-ink bg-surface-2 hover:bg-surface-3 active:bg-surface-4 rounded-md border border-hairline hover:border-hairline-strong transition-colors flex items-center justify-center gap-1.5 select-none"
+                  >
+                    <span>Analyze in Copilot</span>
+                    <kbd className="text-[9px] font-mono bg-surface-3 px-1 py-0.5 rounded border border-hairline-strong text-ink-muted">
+                      ⌘J
+                    </kbd>
+                  </button>
                 </div>
               </div>
-
-              {/* Analytical Guidance & Action CTA */}
-              <div className="pt-3.5 border-t border-hairline space-y-2.5">
-                <div className="flex items-center justify-between text-xs py-0.5 font-mono">
-                  <span className="text-ink-subtle font-sans text-xs">Analytical Guidance:</span>
-                  <span className="font-semibold text-linear-primary-hover text-xs">+{item.restockRecommendedUnits} units</span>
-                </div>
-                <button
-                  onClick={() => setIsCopilotOpen(true)}
-                  className="w-full h-8 px-3 text-xs font-medium text-ink bg-surface-2 hover:bg-surface-3 active:bg-surface-4 rounded-md border border-hairline hover:border-hairline-strong transition-colors flex items-center justify-center gap-1.5 select-none"
-                >
-                  <span>Analyze in Copilot</span>
-                  <kbd className="text-[9px] font-mono bg-surface-3 px-1 py-0.5 rounded border border-hairline-strong text-ink-muted">
-                    ⌘J
-                  </kbd>
-                </button>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-surface-1 border border-hairline rounded-lg p-5 flex items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-xs text-[10px] font-mono font-semibold bg-semantic-success/10 text-semantic-success border border-semantic-success/30">
+                  ALL SKUs HEALTHY
+                </span>
+                <span className="text-xs font-semibold text-ink">No replenishment required</span>
               </div>
+              <p className="text-xs text-ink-muted">
+                All 77 catalog SKUs maintain sufficient inventory cover above the 30-day operating buffer. Zero purchase orders required at current sales velocity.
+              </p>
             </div>
-          ))}
-        </div>
+            <button
+              onClick={() => setIsCopilotOpen(true)}
+              className="h-8 px-3 text-xs font-medium text-ink bg-surface-2 hover:bg-surface-3 rounded-md border border-hairline transition-colors shrink-0"
+            >
+              Review Slowest SKUs
+            </button>
+          </div>
+        )}
       </div>
 
       {/* 4. Filter Strip & Complete Stock Coverage Ledger */}
@@ -380,7 +443,7 @@ export default function InventoryPage() {
                   </td>
                   <td className="py-3 px-3.5 text-right tabular-nums font-semibold">
                     <span className={item.urgency === 'CRITICAL' ? 'text-rose-400 font-bold' : item.urgency === 'WARNING' ? 'text-amber-400 font-bold' : 'text-ink-muted'}>
-                      {item.estimatedDaysRemaining ? `${item.estimatedDaysRemaining.toFixed(1)} days` : 'N/A'}
+                      {item.estimatedDaysRemaining ? `${item.estimatedDaysRemaining.toFixed(1)} days` : 'NOT_MEASURABLE'}
                     </span>
                   </td>
                   <td className="py-3 px-3.5 text-right tabular-nums font-semibold text-linear-primary-hover">

@@ -1,0 +1,442 @@
+{
+    "product": {
+        "id": "SPORTS-SHOE-003",
+        "sku": "SHOPI-SPORTS-003",
+        "name": "JQR Men Signature Sneakers",
+        "brand": "JQR",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Men's Sneakers",
+        "gender": "Men",
+        "description": "Lightweight men's sneakers designed for running, walking, casual wear and everyday use. Features a breathable synthetic upper, memory foam insole, moderate to high cushioning, flexible construction and slip-resistant Phylon outsole.",
+        "mrp": 1799,
+        "selling_price": 899,
+        "currency": "INR",
+        "discount_percentage": 50,
+        "availability": "in_stock",
+        "source": "Amazon India",
+        "source_product_id": "B0DDTGFY68",
+        "model_number": "SIGNATURE-B.WHT/BROWNIE",
+        "country_of_origin": "India",
+        "manufacturer": "JQR SPORTS (INDIA) PVT. LTD.",
+        "department": "Men"
+    },
+    "catalog": {
+        "main_category": "Footwear",
+        "category": "Running / Sports Shoes",
+        "subcategory": "Sneakers",
+        "use_cases": [
+            "Running",
+            "Walking",
+            "Cricket",
+            "Cross Training",
+            "Gym",
+            "Cycling",
+            "Camping",
+            "Fitness",
+            "Tennis",
+            "Marathon",
+            "Exercise",
+            "Casual Wear",
+            "Travel"
+        ],
+        "occasion": [
+            "Casual",
+            "Sports",
+            "Everyday",
+            "Travel"
+        ],
+        "season": "Summer",
+        "style": "Sneaker",
+        "pattern": "Solid",
+        "shoe_type": "Athletic Shoe"
+    },
+    "attributes": {
+        "material_type": "Synthetic",
+        "closure_type": "Lace-Up",
+        "strap_type": "Lace",
+        "heel_type": "No Heel",
+        "toe_style": "Round Toe",
+        "arch_type": "Medium Arch",
+        "insole": "Memory Foam",
+        "cushioning_level": "Moderate to High",
+        "sole_material": "Phylon",
+        "surface_recommendation": "Road",
+        "water_resistance": "Not Water Resistant",
+        "adjustability": true,
+        "features": [
+            "Breathable",
+            "Flexible",
+            "Lightweight",
+            "Shock Resistant",
+            "Slip Resistant",
+            "All Weather Grip"
+        ]
+    },
+    "variants": {
+        "colors": [
+            {
+                "name": "GOLD YLW",
+                "slug": "gold-ylw"
+            },
+            {
+                "name": "WHITE BROWNIE",
+                "slug": "white-brownie"
+            },
+            {
+                "name": "WHITE GRAY",
+                "slug": "white-gray"
+            },
+            {
+                "name": "WHITE GRAY 2",
+                "slug": "white-gray-2"
+            },
+            {
+                "name": "WHITE SKY BLUE",
+                "slug": "white-sky-blue"
+            }
+        ],
+        "sizes_observed": [
+            "6 UK",
+            "7 UK",
+            "8 UK",
+            "9 UK",
+            "10 UK",
+            "11 UK"
+        ],
+        "variant_note": "These sizes are observed in the supplied product/review data. Do not treat them as confirmed complete inventory until availability is manually verified."
+    },
+    "images": [
+        {
+            "id": "SPORTS-SHOE-003-IMG-01",
+            "file": "GOLD YLW.jpg",
+            "color": "GOLD YLW",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-003-IMG-02",
+            "file": "white & BROWNIE.jpg",
+            "color": "WHITE BROWNIE",
+            "is_primary": true
+        },
+        {
+            "id": "SPORTS-SHOE-003-IMG-03",
+            "file": "white & Gray.jpg",
+            "color": "WHITE GRAY",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-003-IMG-04",
+            "file": "white & gray2.jpg",
+            "color": "WHITE GRAY 2",
+            "is_primary": false
+        },
+        {
+            "id": "SPORTS-SHOE-003-IMG-05",
+            "file": "white & sky Blue.jpg",
+            "color": "WHITE SKY BLUE",
+            "is_primary": false
+        }
+    ],
+    "rating": {
+        "average": 4.0,
+        "global_rating_count": 1969,
+        "distribution": {
+            "5_star": 54,
+            "4_star": 20,
+            "3_star": 10,
+            "2_star": 4,
+            "1_star": 12
+        }
+    },
+    "review_summary": {
+        "overall_sentiment": "mostly_positive",
+        "positive_themes": [
+            "Comfortable",
+            "Lightweight",
+            "Good value for money",
+            "Good quality",
+            "Stylish design",
+            "Good fit",
+            "Suitable for daily use",
+            "Suitable for walking",
+            "Suitable for light running",
+            "Breathable",
+            "Good grip"
+        ],
+        "negative_themes": [
+            "Some reports of weak sole durability",
+            "Some reports of soles coming off",
+            "Some users reported squeaky noises",
+            "Some sizing issues",
+            "Some packaging complaints",
+            "Some quality complaints",
+            "Some users found the shoes warm in summer",
+            "Lace length could be longer"
+        ],
+        "best_for": [
+            "Budget-conscious buyers",
+            "Walking",
+            "Casual daily use",
+            "Light running",
+            "Light workouts",
+            "Travel"
+        ],
+        "not_ideal_for": [
+            "Heavy-duty training",
+            "Buyers prioritizing maximum durability",
+            "Buyers expecting premium running performance"
+        ]
+    },
+    "reviews": [
+        {
+            "rating": 5,
+            "title": "Excellent Quality and Comfort and value for money",
+            "date": "2026-06-17",
+            "verified_purchase": true,
+            "variant": {
+                "size": "10 UK",
+                "color": "F.BLU/B.WHT"
+            },
+            "summary": "Customer reported very good quality and value for money after extended use, with only a minor complaint that the laces could be longer."
+        },
+        {
+            "rating": 4,
+            "title": "Comfortable",
+            "date": "2026-06-19",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer found the shoes good quality, comfortable and suitable for daily use, with a cool design."
+        },
+        {
+            "rating": 5,
+            "title": "Amazing product",
+            "date": "2026-08-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "B.WHT/WAVE BLU"
+            },
+            "summary": "Customer praised the lightweight construction, durability and fit and said they loved the shoes."
+        },
+        {
+            "rating": 1,
+            "title": "Used shoes being delivered with quality assessment",
+            "date": "2026-08-07",
+            "verified_purchase": true,
+            "summary": "Customer said the shoes appeared used on delivery, with visible marks on the laces and side, and decided to return them."
+        },
+        {
+            "rating": 5,
+            "title": "Amazing quality and style",
+            "date": "2026-07-18",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer described the shoes as one of the best options in the price range, praising their quality and style."
+        },
+        {
+            "rating": 3,
+            "title": "Price",
+            "date": "2026-08-21",
+            "verified_purchase": true,
+            "summary": "Customer described the product as good overall."
+        },
+        {
+            "rating": 5,
+            "title": "Party time",
+            "date": "2026-07-09",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "B.WHT/BROWNIE"
+            },
+            "summary": "Customer found the sneakers comfortable and good quality, while noting that they were slightly heavy."
+        },
+        {
+            "rating": 4,
+            "title": "Very good",
+            "date": "2026-06-09",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "B.WHT/SMOKE GRY"
+            },
+            "summary": "Customer considered the shoes lightweight, comfortable and good value for money."
+        },
+        {
+            "rating": 4,
+            "title": "Best product",
+            "date": "2026-08-22",
+            "verified_purchase": true,
+            "variant": {
+                "size": "6 UK",
+                "color": "FULL WHT"
+            },
+            "summary": "Customer praised the overall quality of the shoes."
+        },
+        {
+            "rating": 4,
+            "title": "Suitable for winter",
+            "date": "2026-07-31",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer found the shoes suitable for colder weather but noted that they felt warm during summer."
+        },
+        {
+            "rating": 4,
+            "title": "Ok",
+            "date": "2026-06-29",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer found the shoes cool-looking, comfortable and suitable for medium daily use."
+        },
+        {
+            "rating": 4,
+            "title": "Delevery packaging issue",
+            "date": "2026-06-24",
+            "verified_purchase": true,
+            "variant": {
+                "size": "8 UK",
+                "color": "FULL BLK"
+            },
+            "summary": "Customer said the shoe quality was good but reported receiving a different size than ordered."
+        },
+        {
+            "rating": 3,
+            "title": "Quality",
+            "date": "2026-06-23",
+            "verified_purchase": true,
+            "variant": {
+                "size": "7 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer liked the sneakers but reported waiting several days for the desired size because it frequently went out of stock."
+        },
+        {
+            "rating": 4,
+            "title": "Perfect",
+            "date": "2026-05-10",
+            "verified_purchase": true,
+            "summary": "Customer shared a positive product image and rated the shoes positively."
+        },
+        {
+            "rating": 5,
+            "title": "Wowwww",
+            "date": "2026-07-27",
+            "verified_purchase": true,
+            "summary": "Customer praised the service and product."
+        },
+        {
+            "rating": 3,
+            "title": "Acha hai",
+            "date": "2026-06-10",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "BS.GRY/Z.BLK"
+            },
+            "summary": "Customer described the product as good."
+        },
+        {
+            "rating": 5,
+            "title": "Good.",
+            "date": "2026-07-26",
+            "verified_purchase": true,
+            "summary": "Customer described the shoes as beautiful."
+        },
+        {
+            "rating": 5,
+            "title": "Feels lightweight",
+            "date": "2026-07-15",
+            "verified_purchase": true,
+            "summary": "Customer praised the appearance, lightweight construction, soft sole and overall value for money."
+        },
+        {
+            "rating": 5,
+            "title": "Good",
+            "date": "2026-07-20",
+            "verified_purchase": true,
+            "summary": "Customer gave a positive rating and described the product as good."
+        },
+        {
+            "rating": 3,
+            "title": "Sweaky noises and Weak sole",
+            "date": "2026-04-29",
+            "verified_purchase": true,
+            "variant": {
+                "size": "9 UK",
+                "color": "ASH ROSE GRY/Z.BLK"
+            },
+            "summary": "Customer reported that the sole came off after about a month and the shoes began making squeaky noises."
+        }
+    ],
+    "tags": [
+        "sports shoes",
+        "sneakers",
+        "running shoes",
+        "men's shoes",
+        "athletic shoes",
+        "lightweight",
+        "comfortable",
+        "breathable",
+        "flexible",
+        "slip resistant",
+        "shock resistant",
+        "memory foam",
+        "Phylon sole",
+        "walking",
+        "running",
+        "gym",
+        "casual",
+        "travel",
+        "budget",
+        "value for money",
+        "JQR",
+        "Signature"
+    ],
+    "ai_search_attributes": {
+        "price_range": "under_1000",
+        "budget_friendly": true,
+        "comfort": "high",
+        "weight": "lightweight",
+        "breathability": "high",
+        "grip": "good",
+        "cushioning": "moderate_to_high",
+        "durability": "mixed",
+        "intensity": "light_to_moderate",
+        "recommended_for": [
+            "daily walking",
+            "casual wear",
+            "light running",
+            "gym",
+            "light workouts",
+            "travel"
+        ],
+        "avoid_recommending_for": [
+            "heavy training",
+            "buyers prioritizing maximum durability",
+            "premium running performance"
+        ]
+    },
+    "source_metadata": {
+        "source": "Amazon India",
+        "asin": "B0DDTGFY68",
+        "model": "SIGNATURE-B.WHT/BROWNIE",
+        "first_available": "2024-08-21",
+        "product_dimensions": "31.5 x 20.8 x 10.7 cm",
+        "product_weight": "750 g",
+        "return_policy_observed": "10 days Return & Exchange",
+        "seller_observed": "JQR SPORTS INDIA PVT. LTD."
+    }
+}

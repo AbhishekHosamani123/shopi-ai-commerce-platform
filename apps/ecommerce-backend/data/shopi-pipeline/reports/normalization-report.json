@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-08-27T08:37:13.365Z",
+  "total_source_products": 87,
+  "total_normalized_products": 76,
+  "products_rejected": 11,
+  "rejection_reasons": [
+    {
+      "file": "products/Belts/BELT-001.json",
+      "category": "Belts",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Belts/BELT-002.json",
+      "category": "Belts",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Belts/BELT-003.json",
+      "category": "Belts",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Belts/BELT-004.json",
+      "category": "Belts",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Belts/BELT-005.json",
+      "category": "Belts",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Caps/CAP-001.json",
+      "category": "Caps",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Caps/CAP-002.json",
+      "category": "Caps",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Caps/CAP-003.json",
+      "category": "Caps",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Caps/CAP-004.json",
+      "category": "Caps",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Caps/CAP-005.json",
+      "category": "Caps",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    },
+    {
+      "file": "products/Sports-Shoes/SPORTS-SHOE-005.json",
+      "category": "Sports-Shoes",
+      "reason": "Source JSON file is empty (0 bytes). Preserved as placeholder."
+    }
+  ],
+  "attributes_generated": 1469,
+  "variants_generated": 681,
+  "images_generated": 308,
+  "tags_generated": 2504,
+  "reviews_generated": 821,
+  "review_summaries_generated": 76,
+  "scores_generated": 76,
+  "relationships_generated": 0,
+  "warnings": [
+    "Skipped empty 0-byte file: products/Belts/BELT-001.json",
+    "Skipped empty 0-byte file: products/Belts/BELT-002.json",
+    "Skipped empty 0-byte file: products/Belts/BELT-003.json",
+    "Skipped empty 0-byte file: products/Belts/BELT-004.json",
+    "Skipped empty 0-byte file: products/Belts/BELT-005.json",
+    "Skipped empty 0-byte file: products/Caps/CAP-001.json",
+    "Skipped empty 0-byte file: products/Caps/CAP-002.json",
+    "Skipped empty 0-byte file: products/Caps/CAP-003.json",
+    "Skipped empty 0-byte file: products/Caps/CAP-004.json",
+    "Skipped empty 0-byte file: products/Caps/CAP-005.json",
+    "Skipped empty 0-byte file: products/Sports-Shoes/SPORTS-SHOE-005.json"
+  ],
+  "errors": []
+}
