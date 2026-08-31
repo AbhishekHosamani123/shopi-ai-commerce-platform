@@ -66,12 +66,30 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
     setIsFetchingQr(true);
     setError(null);
     try {
-      const res = await fetch('/api/merchant/whatsapp/connect', {
+      let res = await fetch('/api/merchant/whatsapp/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
         body: JSON.stringify({})
       });
-      const data = await res.json();
+      let data = await res.json();
+
+      // Self-heal: an Evolution restart can orphan the instance DB row while
+      // its in-memory state is gone ("name already in use" on create). Reset
+      // the instance once and retry — the merchant never sees the error.
+      if (!res.ok && /already in use/i.test(String(data.error || ''))) {
+        await fetch('/api/merchant/whatsapp/reset', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
+          body: JSON.stringify({})
+        });
+        res = await fetch('/api/merchant/whatsapp/connect', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
+          body: JSON.stringify({})
+        });
+        data = await res.json();
+      }
+
       if (res.ok && data.success && data.qrCode) {
         setQrImage(data.qrCode);
         setQrFetchedAt(new Date());

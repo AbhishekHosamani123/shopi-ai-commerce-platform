@@ -76,7 +76,8 @@ import {
 } from '../merchant-communication';
 import {
   whatsAppService,
-  whatsAppAllowlistService
+  whatsAppAllowlistService,
+  evolutionApiClient
 } from '../whatsapp';
 import { normalizeDeliveryChannels } from '../merchant-communication/campaign-execution-service';
 
@@ -1147,6 +1148,31 @@ router.post('/whatsapp/connect', async (req: Request, res: Response) => {
  * Logs the connected WhatsApp sender session out via Evolution API. The
  * instance stays configured but requires a fresh QR scan to reconnect.
  */
+/**
+ * POST /api/merchant/whatsapp/reset
+ * Fully resets the sender instance: deletes it from Evolution API (DB row +
+ * session) so Connect can recreate it cleanly. Fixes the "instance name
+ * already in use" state that appears after an Evolution restart loses
+ * in-memory state while the Postgres row survives.
+ */
+router.post('/whatsapp/reset', async (req: Request, res: Response) => {
+  try {
+    const instanceName = whatsAppAllowlistService.getSenderInstanceName();
+    const deleted = await evolutionApiClient.deleteInstance(instanceName);
+    return res.json({
+      success: true,
+      instanceName,
+      deleted: deleted.ok,
+      message: deleted.ok
+        ? 'Sender instance reset. Use Connect to pair via QR.'
+        : `Reset notice: ${deleted.error || 'instance was not present.'}`
+    });
+  } catch (error: any) {
+    console.error('WhatsApp reset error:', error);
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+  }
+});
+
 router.post('/whatsapp/disconnect', async (req: Request, res: Response) => {
   try {
     const result = await whatsAppService.disconnectSender();

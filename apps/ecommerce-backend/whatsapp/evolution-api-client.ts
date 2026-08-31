@@ -87,6 +87,13 @@ export class EvolutionApiClient {
   }
 
   /**
+   * Deletes an instance entirely (DB row + session). DELETE /instance/delete/:instanceName
+   */
+  async deleteInstance(instanceName: string): Promise<EvolutionCallResult<any>> {
+    return this.call<any>('delete', `/instance/delete/${encodeURIComponent(instanceName)}`, undefined, 20000);
+  }
+
+  /**
    * Logs the connected WhatsApp session out. DELETE /instance/logout/:instanceName
    * Clears the paired session; the instance needs a fresh QR scan to reconnect.
    */
