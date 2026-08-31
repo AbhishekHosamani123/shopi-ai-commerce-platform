@@ -29,12 +29,25 @@ export class FinancialPolicyService {
   private schemaEnsured = false;
 
   /**
-   * Idempotently ensures financial policy columns exist on merchant_ai_settings.
+   * Idempotently ensures the merchant_ai_settings table exists with the
+   * financial policy columns. Self-bootstraps the table (CREATE TABLE IF NOT
+   * EXISTS) so a fresh Render database works without a manual SQL migration —
+   * previously only ALTER was issued, which silently failed on deployments
+   * where the table had never been created.
    */
   async ensureSchema(): Promise<void> {
     if (this.schemaEnsured) return;
     try {
       await client.query(`
+        CREATE TABLE IF NOT EXISTS merchant_ai_settings (
+          merchant_id VARCHAR(64) PRIMARY KEY,
+          proactive_insights_enabled BOOLEAN DEFAULT TRUE,
+          digest_frequency VARCHAR(32) DEFAULT 'DAILY',
+          digest_time VARCHAR(16) DEFAULT '09:00',
+          timezone VARCHAR(64) DEFAULT 'Asia/Kolkata',
+          alert_preferences JSONB DEFAULT '{"critical": true, "warning": true, "opportunity": true, "info": true}'::jsonb,
+          updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        );
         ALTER TABLE merchant_ai_settings 
         ADD COLUMN IF NOT EXISTS min_contribution_inr NUMERIC(10,2),
         ADD COLUMN IF NOT EXISTS min_margin_pct NUMERIC(5,2),

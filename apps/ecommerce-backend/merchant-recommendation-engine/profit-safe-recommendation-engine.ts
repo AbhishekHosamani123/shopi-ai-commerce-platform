@@ -10,7 +10,7 @@ import {
   RecommendationExplanation
 } from './recommendation-types';
 import { financialSafetyCalculator } from './financial-safety-calculator';
-import { financialPolicyService } from './financial-policy-service';
+import { financialPolicyService, MerchantFinancialPolicy } from './financial-policy-service';
 
 export class ProfitSafeRecommendationEngine {
   /**
@@ -23,8 +23,13 @@ export class ProfitSafeRecommendationEngine {
     const opportunities = await merchantOpportunityEngine.discoverOpportunities(merchantId);
     const recommendations: ProfitSafeRecommendation[] = [];
 
+    // Fetch the financial policy ONCE per generation run instead of once per
+    // opportunity (~191 identical queries on a full catalog) — it never varies
+    // by opportunity and the DB round-trip was repeated for no reason.
+    const effectivePolicy = await financialPolicyService.getEffectivePolicy(merchantId);
+
     for (const opp of opportunities) {
-      const rec = await this.generateRecommendationForOpportunity(opp, merchantId);
+      const rec = await this.generateRecommendationForOpportunity(opp, merchantId, effectivePolicy);
       if (rec) {
         recommendations.push(rec);
       }
@@ -54,7 +59,8 @@ export class ProfitSafeRecommendationEngine {
    */
   async generateRecommendationForOpportunity(
     opp: MerchantOpportunity,
-    merchantId: string = 'default_merchant'
+    merchantId: string = 'default_merchant',
+    effectivePolicy?: MerchantFinancialPolicy
   ): Promise<ProfitSafeRecommendation | null> {
     const nowIso = new Date().toISOString();
     const expiryIso = new Date(Date.now() + 7 * 86400000).toISOString();
@@ -110,7 +116,11 @@ export class ProfitSafeRecommendationEngine {
     const itemSubject = productTitle || (isCustomerTarget ? 'saved cart items' : (opp.target.name || 'Catalog Product'));
 
     // 2. Resolve Effective Financial Policy (Merchant Override vs System Default)
-    const effectivePolicy = await financialPolicyService.getEffectivePolicy(merchantId);
+    //    When called from generateRecommendations the policy is pre-fetched once
+    //    for all opportunities (N+1 elimination).  Standalone calls fetch it here.
+    if (!effectivePolicy) {
+      effectivePolicy = await financialPolicyService.getEffectivePolicy(merchantId);
+    }
 
     // 3. Compute Financial Safety, Margin Floor, and Lower-of-Two Discount Ceiling
     const financials = financialSafetyCalculator.analyzeProductFinancials({
