@@ -180,6 +180,28 @@ const connectDB = async () => {
     // Self-bootstrap core schema so tables like cartitems, users, etc. always exist
     await client.query(CORE_SCHEMA_SQL);
     console.log('[DB Info] Core schema (cartitems, users, addresses, orders, etc.) initialized.');
+
+    // Self-bootstrap Phase 11B commerce dataset (90 days of order analytics, COGS, customer cohorts, etc.)
+    try {
+      const check = await client.query("SELECT to_regclass('public.shopi_orders') as exists;");
+      let needsMigration = !check.rows[0]?.exists;
+      if (!needsMigration) {
+        const countRes = await client.query('SELECT COUNT(*) FROM shopi_orders');
+        needsMigration = parseInt(countRes.rows[0].count, 10) === 0;
+      }
+
+      if (needsMigration) {
+        console.log('[DB Info] Auto-seeding Phase 11B commerce dataset in background...');
+        const { runPhase11bMigration } = await import('./phase11b_migration');
+        runPhase11bMigration()
+          .then(() => console.log('[DB Info] Phase 11B commerce dataset auto-seeded successfully.'))
+          .catch((err) => console.warn('[DB Info] Phase 11B auto-seed notice:', err.message));
+      } else {
+        console.log('[DB Info] Phase 11B commerce dataset verified.');
+      }
+    } catch (migErr: any) {
+      console.warn('[DB Info] Auto-migration check:', migErr.message);
+    }
   } catch (err: any) {
     console.log('[DB Info] PostgreSQL offline or fallback mode:', err.message);
   }

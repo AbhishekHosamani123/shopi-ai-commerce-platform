@@ -4757,7 +4757,41 @@ router.get('/pilot/incidents', async (req: Request, res: Response) => {
     return res.json({ success: true, incidents });
   } catch (error: any) {
     console.error('Get incidents error:', error);
-    return res.status(500).json({ success: false, error: credentialVault.sanitizeError(error).message });
+/**
+ * POST /api/merchant/seed-database
+ * Triggers full Phase 11B database migration & synthetic dataset generator
+ */
+router.post('/seed-database', merchantAuthGuard, async (req: Request, res: Response) => {
+  try {
+    const { runPhase11bMigration } = await import('../data/phase11b_migration');
+    await runPhase11bMigration();
+    return res.json({ success: true, message: 'Phase 11B commerce dataset seeded successfully into PostgreSQL.' });
+  } catch (error: any) {
+    console.error('Seed database error:', error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+/**
+ * GET /api/merchant/seed-status
+ * Checks if the Phase 11B dataset is present in PostgreSQL
+ */
+router.get('/seed-status', merchantAuthGuard, async (req: Request, res: Response) => {
+  try {
+    const { client } = await import('../data/DB');
+    const tables = ['shopi_orders', 'shopi_customers', 'shopi_products', 'shopi_customer_events', 'shopi_campaigns'];
+    const summary: Record<string, number> = {};
+    for (const t of tables) {
+      try {
+        const c = await client.query(`SELECT COUNT(*) as count FROM ${t}`);
+        summary[t] = parseInt(c.rows[0].count, 10);
+      } catch {
+        summary[t] = 0;
+      }
+    }
+    return res.json({ success: true, seeded: (summary['shopi_orders'] || 0) > 0, summary });
+  } catch (error: any) {
+    return res.status(500).json({ success: false, error: error.message });
   }
 });
 
