@@ -5,7 +5,32 @@ import signOutHandler from '@/app/api/signout';
 import { useRouter } from 'next/navigation';
 import { useApp } from '@/Helpers/AccountDialog';
 const MenuType = () => {
-    const socialMedia = ['facebook','twitter','instagram','linkedin'];
+    const socialLinks = [
+        {
+            name: 'LinkedIn',
+            url: 'https://www.linkedin.com/in/abhishek-hosamani/',
+            icon: 'fa-brands fa-linkedin-in',
+            hoverColor: 'hover:bg-[#0A66C2] hover:text-white',
+        },
+        {
+            name: 'GitHub',
+            url: 'https://github.com/AbhishekHosamani123',
+            icon: 'fa-brands fa-github',
+            hoverColor: 'hover:bg-[#24292F] hover:text-white',
+        },
+        {
+            name: 'Portfolio',
+            url: 'http://portfolio-website-nu-five-23.vercel.app/',
+            icon: 'fa-solid fa-globe',
+            hoverColor: 'hover:bg-[#0D94FB] hover:text-white',
+        },
+        {
+            name: 'Instagram',
+            url: 'https://www.instagram.com/abhishek_hosamani___/?hl=en',
+            icon: 'fa-brands fa-instagram',
+            hoverColor: 'hover:bg-[#E4405F] hover:text-white',
+        },
+    ];
     const {appState} = useApp();
     const loggedIn = appState.loggedIn;
     const { toggleSidebar } = useMenu();
@@ -72,11 +97,19 @@ const MenuType = () => {
                 )}
             </div>
             <div className='flex gap-2 mt-4 mb-4'>
-                {socialMedia.map((each,index)=>
-                    <button key={index} className='text-[16px] text-silver bg-gray-200 w-[40px] h-[40px] rounded-lg hover:bg-salmon hover:text-white'>
-                        <i className={`fa-brands fa-${each} fa-xl`}></i>
-                    </button>
-                )}
+                {socialLinks.map((item, index) => (
+                    <a
+                        key={index}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={item.name}
+                        aria-label={item.name}
+                        className={`text-[16px] text-slate-600 bg-gray-100 w-[38px] h-[38px] flex items-center justify-center rounded-lg ${item.hoverColor} transition-all`}
+                    >
+                        <i className={`${item.icon} fa-lg`}></i>
+                    </a>
+                ))}
             </div>
             <div className='w-[90%] border-t-[1px]'>
                 {AccBtns.map((each,index)=> 

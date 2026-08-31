@@ -9,7 +9,32 @@ import { useRouter } from 'next/navigation'
 import { HeartIcon,ShoppingBagIcon } from '@heroicons/react/24/outline';
 const Navbar = () => {
     const router = useRouter()
-    const socialMedia = ['facebook','twitter','instagram','linkedin'];
+    const socialLinks = [
+        {
+            name: 'LinkedIn',
+            url: 'https://www.linkedin.com/in/abhishek-hosamani/',
+            icon: 'fa-brands fa-linkedin-in',
+            hoverColor: 'hover:bg-[#0A66C2] hover:text-white',
+        },
+        {
+            name: 'GitHub',
+            url: 'https://github.com/AbhishekHosamani123',
+            icon: 'fa-brands fa-github',
+            hoverColor: 'hover:bg-[#24292F] hover:text-white',
+        },
+        {
+            name: 'Portfolio',
+            url: 'http://portfolio-website-nu-five-23.vercel.app/',
+            icon: 'fa-solid fa-globe',
+            hoverColor: 'hover:bg-[#0D94FB] hover:text-white',
+        },
+        {
+            name: 'Instagram',
+            url: 'https://www.instagram.com/abhishek_hosamani___/?hl=en',
+            icon: 'fa-brands fa-instagram',
+            hoverColor: 'hover:bg-[#E4405F] hover:text-white',
+        },
+    ];
     const { toggleCart, toggleFav } = useMenu();
     const [isDropdownVisible, setDropdownVisible] = useState<boolean>(false);
     const [selectIndex, setselectIndex] = useState<number | null>(null);
@@ -20,12 +45,21 @@ const Navbar = () => {
     return (
     <nav className='w-full h-auto flex flex-col items-center'>
         <div className='h-[50px] w-[100%] justify-evenly items-center border-b-[1px] hidden sm:flex'>
-            <div className='flex w-[80%] justify-between'>
-                <div className='flex gap-2'>
-                    {socialMedia.map((each,index)=>
-                        <button key={index} className='text-[16px] text-slate-500 bg-slate-100 w-[25px] rounded-md hover:bg-[#0D94FB] hover:text-white transition-colors'><i className={`fa-brands fa-${each}`}></i></button>
-                    )}
-                    
+            <div className='flex w-[80%] justify-between items-center'>
+                <div className='flex gap-2 items-center'>
+                    {socialLinks.map((item, index) => (
+                        <a
+                            key={index}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={item.name}
+                            aria-label={item.name}
+                            className={`text-[13px] text-slate-500 bg-slate-100 w-[26px] h-[26px] flex items-center justify-center rounded-md ${item.hoverColor} transition-all`}
+                        >
+                            <i className={item.icon}></i>
+                        </a>
+                    ))}
                 </div>
                 <div>
                     <p className='text-sm text-slate-500'>Free shipping this week on orders over ₹999</p>
