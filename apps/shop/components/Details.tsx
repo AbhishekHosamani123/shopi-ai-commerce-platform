@@ -12,12 +12,16 @@ const Details = () => {
                 <img height={80} width={80} src={testimonial.imgLink} alt={testimonial.name} className='rounded-full object-cover shadow-sm'/>
                 <p className='text-slate-900 font-bold text-base tracking-wide'>{testimonial.name}</p>
                 <p className='text-slate-500 text-xs font-medium'>{testimonial.position}</p>
-                <img width={26} src='https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/quotes.svg' alt="quote icon"/>
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
                 <p className='text-center text-slate-600 text-sm leading-relaxed px-2'>{testimonial.description}</p>
             </div>
         </div>
         <div className='w-[640px] h-[450px] relative rounded-xl overflow-hidden shadow-xs'>
-            <img className='h-full w-full rounded-xl object-cover' src='https://codewithsadee.github.io/anon-ecommerce-website/assets/images/cta-banner.jpg' alt="Summer collection banner"/>
+            <img className='h-full w-full rounded-xl object-cover' src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000&q=80' alt="Summer collection banner"/>
             <div className='w-[55%] h-[65%] left-0 right-0 top-0 bottom-0 m-auto absolute bg-white/85 backdrop-blur-xs rounded-xl flex flex-col items-center justify-center gap-2 p-6 shadow-lg'>
                 {currentEvent.isDiscount && (
                     <span className='text-white bg-slate-900 px-3 py-1 rounded-md font-bold text-xs tracking-wider uppercase'>

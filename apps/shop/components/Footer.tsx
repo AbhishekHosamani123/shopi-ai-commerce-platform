@@ -43,12 +43,15 @@ const Footer = () => {
       </div>
 
       <div className="w-full gap-2 flex flex-col items-center py-8 mb-16 lg:mb-0">
-        <img
-          height={40}
-          className="h-8 object-contain"
-          src="https://codewithsadee.github.io/anon-ecommerce-website/assets/images/payment.png"
-          alt="Payment methods"
-        />
+        <div className="flex items-center gap-3 text-xs font-semibold text-slate-500 bg-slate-100 px-4 py-2 rounded-xl">
+          <span className="text-blue-700 font-bold tracking-tight">VISA</span>
+          <span>•</span>
+          <span className="text-red-600 font-bold tracking-tight">Mastercard</span>
+          <span>•</span>
+          <span className="text-emerald-700 font-bold tracking-tight">UPI</span>
+          <span>•</span>
+          <span className="text-blue-600 font-bold tracking-tight">Razorpay</span>
+        </div>
         <p className="text-silver text-xs font-medium tracking-wide">
           Copyright &copy; 2026 Shopi. All Rights Reserved.
         </p>
