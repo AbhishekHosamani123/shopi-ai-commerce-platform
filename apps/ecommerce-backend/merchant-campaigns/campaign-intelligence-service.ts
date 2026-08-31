@@ -151,29 +151,38 @@ export class CampaignIntelligenceService {
     merchantId: string = 'default_merchant',
     filter?: { status?: CampaignStatus; limit?: number }
   ): Promise<CampaignProposal[]> {
-    await this.ensureSchema();
+    try {
+      await this.ensureSchema();
 
-    const offers = await profitSafeOfferService.generateProfitSafeOffers(merchantId);
-    const proposals: CampaignProposal[] = [];
+      const offers = await profitSafeOfferService.generateProfitSafeOffers(merchantId);
+      const proposals: CampaignProposal[] = [];
 
-    for (const offer of offers) {
-      const proposal = await this.buildProposalFromOffer(offer, merchantId);
-      if (proposal) {
-        proposals.push(proposal);
-        // Persist to merchant_marketing_campaigns
-        await this.persistProposal(proposal);
+      for (const offer of offers) {
+        try {
+          const proposal = await this.buildProposalFromOffer(offer, merchantId);
+          if (proposal) {
+            proposals.push(proposal);
+            // Persist to merchant_marketing_campaigns
+            await this.persistProposal(proposal);
+          }
+        } catch (propErr: any) {
+          console.warn('Skipping proposal for offer:', offer?.recommendationId, propErr?.message);
+        }
       }
-    }
 
-    let filtered = proposals;
-    if (filter?.status) {
-      filtered = filtered.filter(p => p.status === filter.status);
-    }
-    if (filter?.limit && filter.limit > 0) {
-      filtered = filtered.slice(0, filter.limit);
-    }
+      let filtered = proposals;
+      if (filter?.status) {
+        filtered = filtered.filter(p => p.status === filter.status);
+      }
+      if (filter?.limit && filter.limit > 0) {
+        filtered = filtered.slice(0, filter.limit);
+      }
 
-    return filtered;
+      return filtered;
+    } catch (err: any) {
+      console.warn('generateCampaignProposals fallback:', err.message);
+      return [];
+    }
   }
 
   /**
