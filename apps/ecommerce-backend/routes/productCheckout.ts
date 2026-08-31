@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 import { client } from '../data/DB';
 import Stripe from 'stripe';
 import {orderCreationSchema,orderCreationSchema2,checkoutSchema,OrderIDSchema,createPaymentIntent} from '../validators/productCheckoutValidator';
@@ -89,6 +90,8 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');
+        // Transactional confirmation email — fire-and-forget, never blocks checkout.
+        void dispatchOrderConfirmationEmail(userid, [orderid]);
         res.status(200).json({orderid});
       } catch (error) {
         await conn.query('ROLLBACK');
@@ -170,6 +173,8 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');
+        // Transactional confirmation email — fire-and-forget, never blocks checkout.
+        void dispatchOrderConfirmationEmail(userid, [orderid]);
         res.status(200).json({orderid});
       } catch (error) {
         await conn.query('ROLLBACK');

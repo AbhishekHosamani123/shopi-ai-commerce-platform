@@ -14,3 +14,5 @@ export * from './webhook-handler';
 export * from './campaign-execution-service';
 export * from './email-templates';
 
+export * from './order-confirmation-email';
+export * from './order-email-dispatcher';

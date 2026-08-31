@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 import { client } from '../data/DB';
 import { paymentCreationSchema, userIDSchema } from '../validators/cartCheckoutValidation';
 import Stripe from 'stripe';
@@ -137,7 +138,7 @@ async function createCashOrder(userid:string,productid:string, colorid:string, s
   const orderitemid = randomUUID();
   const trackingnumber = `IN-${orderid}`;
   const deliveryDate = getDateTimeFiveDaysFromNow();
-  const paymentCharge = 15;
+const paymentCharge = 15;
   try {
     // Check if product with given productid, colorid, and sizeid exists
     const productQuery = `
@@ -222,6 +223,12 @@ router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Re
       if (results.some(r => r !== 200)) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
+      // Transactional confirmation email — best-effort, never blocks checkout.
+      try {
+        const ordRes = await client.query(`SELECT orderid FROM orders WHERE userid = $1 ORDER BY orderid DESC LIMIT ${cartItems.rows.length}`, [userID]);
+        const orderIds = ordRes.rows.map((r: any) => r.orderid);
+        void dispatchOrderConfirmationEmail(userID, orderIds);
+      } catch { /* email best-effort */ }
       res.status(200).json({message:'Successfully created orders'});
     } catch (error) {
       res.status(500).json({error:'Server Internal Server'});
@@ -320,6 +327,12 @@ router.post('/cart-card/create-order',paymentCreationSchema, async (req:Request,
       if (results.some(r => r !== 200)) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
+      // Transactional confirmation email — best-effort, never blocks checkout.
+      try {
+        const ordRes = await client.query(`SELECT orderid FROM orders WHERE userid = $1 ORDER BY orderid DESC LIMIT ${cartItems.rows.length}`, [userID]);
+        const orderIds = ordRes.rows.map((r: any) => r.orderid);
+        void dispatchOrderConfirmationEmail(userID, orderIds);
+      } catch { /* email best-effort */ }
       res.status(200).json({message:'Successfully created orders'});
     } catch (error) {
       res.status(500).json({error:'Server Internal Server'});

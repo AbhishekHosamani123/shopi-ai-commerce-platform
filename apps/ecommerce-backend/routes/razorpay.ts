@@ -7,6 +7,8 @@ const router = express.Router();
 
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_test_51MockRazorpayKeyId2026';
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'mock_razorpay_secret_key_2026';
+import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
+
 const RAZORPAY_WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || 'mock_razorpay_webhook_secret_2026';
 
 function getDateTimeFiveDaysFromNow(): string {
@@ -304,6 +306,9 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
 
       await conn.query('COMMIT');
 
+      // Transactional confirmation email — fire-and-forget, never blocks checkout.
+      void dispatchOrderConfirmationEmail(userid, [orderid], { totalAmount: parseFloat(totalAmount) });
+
       return res.status(200).json({
         success: true,
         orderid,
@@ -414,6 +419,9 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
       await conn.query(`DELETE FROM cartitems WHERE userid = $1`, [userid]);
 
       await conn.query('COMMIT');
+
+      // Transactional confirmation email — one summary email for the whole cart.
+      void dispatchOrderConfirmationEmail(userid, createdOrderIds);
 
       return res.status(200).json({
         success: true,
