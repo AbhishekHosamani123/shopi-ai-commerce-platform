@@ -4757,6 +4757,10 @@ router.get('/pilot/incidents', async (req: Request, res: Response) => {
     return res.json({ success: true, incidents });
   } catch (error: any) {
     console.error('Get incidents error:', error);
+    return res.status(500).json({ success: false, error: credentialVault.sanitizeError(error).message });
+  }
+});
+
 /**
  * POST /api/merchant/seed-database
  * Triggers full Phase 11B database migration & synthetic dataset generator
@@ -4796,6 +4800,7 @@ router.get('/seed-status', merchantAuthGuard, async (req: Request, res: Response
 });
 
 export default router;
+
 
 
 
