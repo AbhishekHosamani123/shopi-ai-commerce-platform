@@ -7,7 +7,7 @@
   "scripts": {
     "postinstall": "prisma generate --schema ./prisma/postgresql-schema.prisma",
     "build": "prisma generate --schema ./prisma/postgresql-schema.prisma && tsc --noEmit && tsup",
-    "start": "prisma generate --schema ./prisma/postgresql-schema.prisma && tsx ./src/main.ts",
+    "start": "prisma generate --schema ./prisma/postgresql-schema.prisma && (prisma db push --schema ./prisma/postgresql-schema.prisma --accept-data-loss || true) && tsx ./src/main.ts",
     "start:prod": "node dist/main",
     "dev:server": "tsx watch ./src/main.ts",
     "test": "tsx watch ./test/all.test.ts",
