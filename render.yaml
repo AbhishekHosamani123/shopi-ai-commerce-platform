@@ -5,7 +5,7 @@
 #
 # Render Dashboard equivalent:
 #   Type: Web Service | Root Directory: apps/ecommerce-backend
-#   Build: npm install && npm run build:render
+#   Build: npm install
 #   Start: npm run start:render
 #   Health Check Path: /health
 
@@ -24,13 +24,16 @@ services:
     plan: free
     region: oregon
     branch: main
-    buildCommand: npm install && npm run build:render
+    buildCommand: npm install
     startCommand: npm run start:render
     healthCheckPath: /health
     autoDeploy: true
     envVars:
-      # --- Database (Render injects the internal DATABASE_URL; the pg Pool
-      #     reads the discrete vars below) ---
+      # --- Database connection string + discrete vars ---
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shopi-postgres
+          property: connectionString
       - key: DB_HOST
         fromDatabase:
           name: shopi-postgres

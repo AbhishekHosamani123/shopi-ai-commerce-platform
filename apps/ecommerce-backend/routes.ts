@@ -11,7 +11,7 @@ import razorpay from './routes/razorpay'
 import homeData from './routes/homeData'
 import support from './routes/support'
 import aiShopping from './routes/aiShopping'
-import merchant from './routes/merchant.ts';
+import merchant from './routes/merchant';
 import telemetry from './routes/telemetry';
 import { authRateLimiterMiddleware } from './middleware/rateLimit';
 const router = express.Router();
