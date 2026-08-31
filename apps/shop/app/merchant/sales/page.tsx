@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -67,13 +68,13 @@ export default function SalesAnalyticsPage() {
     setIsFetching(true);
     try {
       const [salesRes, overviewRes, categoriesRes] = await Promise.all([
-        fetch(`/api/merchant/sales?period=${selectedPeriod}&interval=${salesInterval}`, {
+        merchantFetch(`/api/merchant/sales?period=${selectedPeriod}&interval=${salesInterval}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/overview?period=${selectedPeriod}`, {
+        merchantFetch(`/api/merchant/overview?period=${selectedPeriod}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/categories?period=${selectedPeriod}`, {
+        merchantFetch(`/api/merchant/categories?period=${selectedPeriod}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
       ]);

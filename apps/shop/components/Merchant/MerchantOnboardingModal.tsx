@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -25,7 +26,7 @@ export const MerchantOnboardingModal: React.FC<MerchantOnboardingModalProps> = (
 
   useEffect(() => {
     if (isOpen) {
-      fetch('/api/merchant/onboarding/ai-readiness', {
+      merchantFetch('/api/merchant/onboarding/ai-readiness', {
         headers: {
           'x-merchant-role': 'merchant_admin',
           'x-merchant-id': 'default_merchant'
@@ -56,7 +57,7 @@ export const MerchantOnboardingModal: React.FC<MerchantOnboardingModalProps> = (
   const handleFinish = async () => {
     setLoading(true);
     try {
-      await fetch('/api/merchant/onboarding/save', {
+      await merchantFetch('/api/merchant/onboarding/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

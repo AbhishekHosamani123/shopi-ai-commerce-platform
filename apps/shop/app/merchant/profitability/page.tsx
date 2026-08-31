@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -75,7 +76,7 @@ export default function ProfitabilityPage() {
   const fetchProfitabilityData = useCallback(async () => {
     setIsFetching(true);
     try {
-      const res = await fetch(`/api/merchant/ai/profitability?periodDays=${periodDays}`, {
+      const res = await merchantFetch(`/api/merchant/ai/profitability?periodDays=${periodDays}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       if (res.ok) {

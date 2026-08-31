@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState } from 'react';
 import { TrustBadge } from './TrustBadge';
@@ -97,7 +98,7 @@ export function CampaignDetailModal({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/campaigns/${campaign.campaignId}/approve`, {
+      const res = await merchantFetch(`/api/merchant/campaigns/${campaign.campaignId}/approve`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ export function CampaignDetailModal({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/campaigns/${campaign.campaignId}/dry-run`, {
+      const res = await merchantFetch(`/api/merchant/campaigns/${campaign.campaignId}/dry-run`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +153,7 @@ export function CampaignDetailModal({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/campaigns/${campaign.campaignId}/reject`, {
+      const res = await merchantFetch(`/api/merchant/campaigns/${campaign.campaignId}/reject`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -16,7 +17,7 @@ export const ProductionReadinessModal: React.FC<ProductionReadinessModalProps> =
 
   const fetchReport = () => {
     setLoading(true);
-    fetch('/api/merchant/ai/production-readiness', {
+    merchantFetch('/api/merchant/ai/production-readiness', {
       headers: {
         'x-merchant-role': 'merchant_admin',
         'x-merchant-id': 'default_merchant'

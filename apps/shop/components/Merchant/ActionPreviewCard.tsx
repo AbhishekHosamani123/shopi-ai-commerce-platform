@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState } from 'react';
 
@@ -40,7 +41,7 @@ export const ActionPreviewCard: React.FC<ActionPreviewCardProps> = ({
     setFeedbackMessage(null);
 
     try {
-      const res = await fetch(`/api/merchant/ai/actions/${action.actionId}/approve`, {
+      const res = await merchantFetch(`/api/merchant/ai/actions/${action.actionId}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ approvedBy: 'merchant_admin' })
@@ -67,7 +68,7 @@ export const ActionPreviewCard: React.FC<ActionPreviewCardProps> = ({
     setFeedbackMessage(null);
 
     try {
-      const res = await fetch(`/api/merchant/ai/actions/${action.actionId}/reject`, {
+      const res = await merchantFetch(`/api/merchant/ai/actions/${action.actionId}/reject`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reason: 'Rejected by merchant via Action Card' })

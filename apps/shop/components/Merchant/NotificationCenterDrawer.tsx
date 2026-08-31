@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -19,7 +20,7 @@ export const NotificationCenterDrawer: React.FC<NotificationCenterDrawerProps> =
   const [loading, setLoading] = useState<boolean>(true);
 
   const fetchNotifications = () => {
-    fetch('/api/merchant/notifications?limit=40', {
+    merchantFetch('/api/merchant/notifications?limit=40', {
       headers: {
         'x-merchant-role': 'merchant_admin',
         'x-merchant-id': 'default_merchant'
@@ -45,7 +46,7 @@ export const NotificationCenterDrawer: React.FC<NotificationCenterDrawerProps> =
   if (!isOpen) return null;
 
   const handleMarkRead = async (id: string) => {
-    await fetch(`/api/merchant/notifications/${id}/read`, {
+    await merchantFetch(`/api/merchant/notifications/${id}/read`, {
       method: 'POST',
       headers: {
         'x-merchant-role': 'merchant_admin',
@@ -56,7 +57,7 @@ export const NotificationCenterDrawer: React.FC<NotificationCenterDrawerProps> =
   };
 
   const handleDismiss = async (id: string) => {
-    await fetch(`/api/merchant/notifications/${id}/dismiss`, {
+    await merchantFetch(`/api/merchant/notifications/${id}/dismiss`, {
       method: 'POST',
       headers: {
         'x-merchant-role': 'merchant_admin',

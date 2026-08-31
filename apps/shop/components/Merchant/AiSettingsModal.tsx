@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -33,7 +34,7 @@ export const AiSettingsModal: React.FC<AiSettingsModalProps> = ({ isOpen, onClos
   const fetchSettings = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/merchant/ai/settings');
+      const res = await merchantFetch('/api/merchant/ai/settings');
       const data = await res.json();
       if (res.ok && data.success && data.settings) {
         setSettings(data.settings);
@@ -49,7 +50,7 @@ export const AiSettingsModal: React.FC<AiSettingsModalProps> = ({ isOpen, onClos
     setSaving(true);
     setSavedSuccess(false);
     try {
-      const res = await fetch('/api/merchant/ai/settings', {
+      const res = await merchantFetch('/api/merchant/ai/settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(settings)

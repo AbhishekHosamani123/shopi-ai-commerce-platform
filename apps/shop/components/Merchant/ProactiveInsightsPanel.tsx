@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 
@@ -47,7 +48,7 @@ export const ProactiveInsightsPanel: React.FC<ProactiveInsightsPanelProps> = ({
   const fetchAlerts = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/merchant/ai/alerts?severity=${severityFilter}&limit=20`);
+      const res = await merchantFetch(`/api/merchant/ai/alerts?severity=${severityFilter}&limit=20`);
       const data = await res.json();
       if (res.ok && data.success) {
         setAlerts(data.alerts || []);
@@ -68,7 +69,7 @@ export const ProactiveInsightsPanel: React.FC<ProactiveInsightsPanelProps> = ({
     if (isScanning) return;
     setIsScanning(true);
     try {
-      const res = await fetch('/api/merchant/ai/proactive/scan', { method: 'POST' });
+      const res = await merchantFetch('/api/merchant/ai/proactive/scan', { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         setAlerts(data.alerts || []);
@@ -83,7 +84,7 @@ export const ProactiveInsightsPanel: React.FC<ProactiveInsightsPanelProps> = ({
 
   const handleAcknowledge = async (alertId: string) => {
     try {
-      await fetch(`/api/merchant/ai/alerts/${alertId}/acknowledge`, { method: 'POST' });
+      await merchantFetch(`/api/merchant/ai/alerts/${alertId}/acknowledge`, { method: 'POST' });
       setAlerts(prev => prev.map(a => a.alertId === alertId ? { ...a, status: 'ACKNOWLEDGED' } : a));
     } catch (err) {
       console.error('Acknowledge failed:', err);
@@ -92,7 +93,7 @@ export const ProactiveInsightsPanel: React.FC<ProactiveInsightsPanelProps> = ({
 
   const handleDismiss = async (alertId: string) => {
     try {
-      await fetch(`/api/merchant/ai/alerts/${alertId}/dismiss`, { method: 'POST' });
+      await merchantFetch(`/api/merchant/ai/alerts/${alertId}/dismiss`, { method: 'POST' });
       setAlerts(prev => prev.filter(a => a.alertId !== alertId));
       setSummary(prev => ({ ...prev, totalAlerts: Math.max(0, prev.totalAlerts - 1) }));
     } catch (err) {
@@ -103,7 +104,7 @@ export const ProactiveInsightsPanel: React.FC<ProactiveInsightsPanelProps> = ({
   const handleGeneratePO = async () => {
     setPoGenerating(true);
     try {
-      const res = await fetch('/api/merchant/ai/documents/purchase-order', {
+      const res = await merchantFetch('/api/merchant/ai/documents/purchase-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ supplierName: 'Primary Wholesale Distribution Center' })

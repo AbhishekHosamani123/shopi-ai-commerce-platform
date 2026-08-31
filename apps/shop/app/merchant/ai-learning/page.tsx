@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -21,7 +22,7 @@ export default function AILearningTimelinePage() {
     async function loadTimeline() {
       try {
         setLoading(true);
-        const res = await fetch('/api/merchant/ai/learning/timeline', {
+        const res = await merchantFetch('/api/merchant/ai/learning/timeline', {
           headers: { 'x-merchant-id': 'default_merchant' }
         });
         if (res.ok) {

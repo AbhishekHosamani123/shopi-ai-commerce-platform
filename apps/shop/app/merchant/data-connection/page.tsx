@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -39,7 +40,7 @@ export default function MerchantDataConnectionPage() {
 
   const fetchStatus = async () => {
     try {
-      const res = await fetch('/api/merchant/connectors/status', {
+      const res = await merchantFetch('/api/merchant/connectors/status', {
         headers: { 'x-merchant-id': 'merchant_pilot_active' }
       });
       if (res.ok) {
@@ -53,7 +54,7 @@ export default function MerchantDataConnectionPage() {
 
   const fetchHistory = async () => {
     try {
-      const res = await fetch('/api/merchant/connectors/sync/history', {
+      const res = await merchantFetch('/api/merchant/connectors/sync/history', {
         headers: { 'x-merchant-id': 'merchant_pilot_active' }
       });
       if (res.ok) {
@@ -67,7 +68,7 @@ export default function MerchantDataConnectionPage() {
 
   const fetchLineage = async () => {
     try {
-      const res = await fetch('/api/merchant/connectors/lineage', {
+      const res = await merchantFetch('/api/merchant/connectors/lineage', {
         headers: { 'x-merchant-id': 'merchant_pilot_active' }
       });
       if (res.ok) {
@@ -81,7 +82,7 @@ export default function MerchantDataConnectionPage() {
 
   const fetchChecklist = async () => {
     try {
-      const res = await fetch('/api/merchant/connectors/pilot/checklist', {
+      const res = await merchantFetch('/api/merchant/connectors/pilot/checklist', {
         headers: { 'x-merchant-id': 'merchant_pilot_active' }
       });
       if (res.ok) {
@@ -109,7 +110,7 @@ export default function MerchantDataConnectionPage() {
         }
       };
 
-      const res = await fetch('/api/merchant/connectors/connect', {
+      const res = await merchantFetch('/api/merchant/connectors/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'merchant_pilot_active' },
         body: JSON.stringify(payload)
@@ -133,7 +134,7 @@ export default function MerchantDataConnectionPage() {
   const handleDisconnect = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/merchant/connectors/disconnect', {
+      const res = await merchantFetch('/api/merchant/connectors/disconnect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'merchant_pilot_active' },
         body: JSON.stringify({ provider })

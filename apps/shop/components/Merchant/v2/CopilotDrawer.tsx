@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
@@ -107,7 +108,7 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
           page: m.page,
         }));
 
-      const res = await fetch('/api/merchant/ai/chat', {
+      const res = await merchantFetch('/api/merchant/ai/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

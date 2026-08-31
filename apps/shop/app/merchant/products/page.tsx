@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -39,7 +40,7 @@ export default function ProductsPage() {
   const handleOpenProductDetail = async (productId: number) => {
     setProductDetailLoading(true);
     try {
-      const res = await fetch(`/api/merchant/products/${productId}`, {
+      const res = await merchantFetch(`/api/merchant/products/${productId}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       if (res.ok) {
@@ -58,13 +59,13 @@ export default function ProductsPage() {
     setIsFetching(true);
     try {
       const [prodRes, catRes, oppRes] = await Promise.all([
-        fetch(`/api/merchant/products?period=${selectedPeriod}&limit=100&sortBy=${sortBy}`, {
+        merchantFetch(`/api/merchant/products?period=${selectedPeriod}&limit=100&sortBy=${sortBy}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/categories?period=${selectedPeriod}`, {
+        merchantFetch(`/api/merchant/categories?period=${selectedPeriod}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/opportunities`, {
+        merchantFetch(`/api/merchant/opportunities`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }).catch(() => null)
       ]);

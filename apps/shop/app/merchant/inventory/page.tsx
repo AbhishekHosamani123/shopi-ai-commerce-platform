@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -62,7 +63,7 @@ export default function InventoryPage() {
   const fetchInventoryData = useCallback(async () => {
     setIsFetching(true);
     try {
-      const res = await fetch(`/api/merchant/inventory?threshold=${threshold}`, {
+      const res = await merchantFetch(`/api/merchant/inventory?threshold=${threshold}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       if (res.ok) {

@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -66,14 +67,14 @@ export default function OptimizationRecommendationsPanel({
     setLoading(true);
     try {
       const [recsRes, healthRes] = await Promise.all([
-        fetch(`/api/merchant/ai/optimization/recommendations?goal=${goal}`, {
+        merchantFetch(`/api/merchant/ai/optimization/recommendations?goal=${goal}`, {
           headers: {
             'Content-Type': 'application/json',
             'x-api-secret': 'sec_merch_live_89012345678901234567890123456789',
             'x-merchant-id': merchantId
           }
         }),
-        fetch('/api/merchant/ai/optimization/data-health', {
+        merchantFetch('/api/merchant/ai/optimization/data-health', {
           headers: {
             'Content-Type': 'application/json',
             'x-api-secret': 'sec_merch_live_89012345678901234567890123456789',
@@ -101,7 +102,7 @@ export default function OptimizationRecommendationsPanel({
   const handleRunSimulation = async (scenarioType: string = 'DISCOUNT_CLEARANCE') => {
     setSimulationLoading(true);
     try {
-      const res = await fetch('/api/merchant/ai/optimization/simulate', {
+      const res = await merchantFetch('/api/merchant/ai/optimization/simulate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

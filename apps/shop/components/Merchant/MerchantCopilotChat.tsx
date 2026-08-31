@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ActionPreviewCard, ActionPreviewItem } from './ActionPreviewCard';
@@ -114,7 +115,7 @@ export const MerchantCopilotChat: React.FC<MerchantCopilotChatProps> = ({
           actions: m.actions
         }));
 
-      const res = await fetch('/api/merchant/ai/chat', {
+      const res = await merchantFetch('/api/merchant/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, history })

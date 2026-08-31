@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
@@ -96,7 +97,7 @@ export default function MerchantOverviewPage() {
       setAiExecutiveBrief(null); // reset to loading state on every fetch
     }
     try {
-      const res = await fetch(`/api/merchant/overview?period=${selectedPeriod}&compare=${comparisonMode}`, {
+      const res = await merchantFetch(`/api/merchant/overview?period=${selectedPeriod}&compare=${comparisonMode}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       const data = await res.json();

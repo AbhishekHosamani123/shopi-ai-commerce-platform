@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -110,14 +111,14 @@ export default function AdvancedCommandCenter({ onTriggerCopilotAction }: { onTr
         const headers = { 'x-merchant-id': 'default_merchant', 'Content-Type': 'application/json' };
 
         const [healthRes, profRes, recRes, obsRes, decRes, capRes, whRes, riskRes] = await Promise.all([
-          fetch('/api/merchant/ai/health-score', { headers }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/profitability?periodDays=30', { headers }).then(r => r.ok ? r.json() : null),
-          fetch(`/api/merchant/ai/recommendations/unified?goal=${activeGoal}`, { headers }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/observability', { headers }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/decisions/today', { headers }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/capital/allocate', { method: 'POST', headers, body: JSON.stringify({ totalBudget: 100000 }) }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/warehouses', { headers }).then(r => r.ok ? r.json() : null),
-          fetch('/api/merchant/ai/business-risks', { headers }).then(r => r.ok ? r.json() : null)
+          merchantFetch('/api/merchant/ai/health-score', { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/profitability?periodDays=30', { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch(`/api/merchant/ai/recommendations/unified?goal=${activeGoal}`, { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/observability', { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/decisions/today', { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/capital/allocate', { method: 'POST', headers, body: JSON.stringify({ totalBudget: 100000 }) }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/warehouses', { headers }).then(r => r.ok ? r.json() : null),
+          merchantFetch('/api/merchant/ai/business-risks', { headers }).then(r => r.ok ? r.json() : null)
         ]);
 
         if (healthRes?.healthScore) setHealthScore(healthRes.healthScore);
@@ -150,7 +151,7 @@ export default function AdvancedCommandCenter({ onTriggerCopilotAction }: { onTr
         targetMarginPct: 55,
         productId: 20000001
       };
-      const res = await fetch('/api/merchant/ai/simulate', { method: 'POST', headers, body: JSON.stringify(body) });
+      const res = await merchantFetch('/api/merchant/ai/simulate', { method: 'POST', headers, body: JSON.stringify(body) });
       const data = await res.json();
       if (data?.simulation) setSimResult(data.simulation);
     } catch (err) {
@@ -164,7 +165,7 @@ export default function AdvancedCommandCenter({ onTriggerCopilotAction }: { onTr
   const handleInspectWhy = async (rec: UnifiedRecommendation) => {
     try {
       const headers = { 'x-merchant-id': 'default_merchant', 'Content-Type': 'application/json' };
-      const res = await fetch('/api/merchant/ai/explain', {
+      const res = await merchantFetch('/api/merchant/ai/explain', {
         method: 'POST',
         headers,
         body: JSON.stringify({ question: 'WHY_RECOMMENDING', targetId: rec.recommendationId })

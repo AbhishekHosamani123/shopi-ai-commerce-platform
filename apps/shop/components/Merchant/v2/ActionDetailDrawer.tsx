@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState } from 'react';
 import { TrustBadge } from './TrustBadge';
@@ -80,7 +81,7 @@ export function ActionDetailDrawer({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/actions/${action.actionId}/approve`, {
+      const res = await merchantFetch(`/api/merchant/actions/${action.actionId}/approve`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +106,7 @@ export function ActionDetailDrawer({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/actions/${action.actionId}/reject`, {
+      const res = await merchantFetch(`/api/merchant/actions/${action.actionId}/reject`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ export function ActionDetailDrawer({
     setIsProcessing(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/merchant/actions/${action.actionId}/rollback`, {
+      const res = await merchantFetch(`/api/merchant/actions/${action.actionId}/rollback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

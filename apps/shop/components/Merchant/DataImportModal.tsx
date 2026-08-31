@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState } from 'react';
 
@@ -27,7 +28,7 @@ export const DataImportModal: React.FC<DataImportModalProps> = ({
   const handleValidate = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/merchant/data-import/validate', {
+      const res = await merchantFetch('/api/merchant/data-import/validate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export const DataImportModal: React.FC<DataImportModalProps> = ({
   const handleCommit = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/merchant/data-import/commit', {
+      const res = await merchantFetch('/api/merchant/data-import/commit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

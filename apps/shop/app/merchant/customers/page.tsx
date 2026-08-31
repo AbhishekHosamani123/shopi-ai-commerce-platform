@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -86,22 +87,22 @@ export default function CustomersPage() {
     setIsFetching(true);
     try {
       const [custRes, summaryRes, intelRes, cartRes, checkoutRes, highIntentRes] = await Promise.all([
-        fetch(`/api/merchant/customer-intelligence/customers?limit=50`, {
+        merchantFetch(`/api/merchant/customer-intelligence/customers?limit=50`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/customers?period=${period}`, {
+        merchantFetch(`/api/merchant/customers?period=${period}`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/customer-intelligence/summary`, {
+        merchantFetch(`/api/merchant/customer-intelligence/summary`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
-        fetch(`/api/merchant/customer-intelligence/cart-abandoners`, {
+        merchantFetch(`/api/merchant/customer-intelligence/cart-abandoners`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }).catch(() => null),
-        fetch(`/api/merchant/customer-intelligence/checkout-abandoners`, {
+        merchantFetch(`/api/merchant/customer-intelligence/checkout-abandoners`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }).catch(() => null),
-        fetch(`/api/merchant/customer-intelligence/high-intent?limit=100`, {
+        merchantFetch(`/api/merchant/customer-intelligence/high-intent?limit=100`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }).catch(() => null)
       ]);
@@ -172,7 +173,7 @@ export default function CustomersPage() {
   const handleOpenCustomerDetail = async (customerId: number) => {
     setCustomerDetailLoading(true);
     try {
-      const res = await fetch(`/api/merchant/customer-intelligence/customer/${customerId}`, {
+      const res = await merchantFetch(`/api/merchant/customer-intelligence/customer/${customerId}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       if (res.ok) {

@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { TrustBadge } from './TrustBadge';
@@ -35,7 +36,7 @@ export function AudienceIntelligencePanel() {
 
   const fetchSummary = useCallback(async () => {
     try {
-      const res = await fetch('/api/merchant/audience-intelligence/summary', {
+      const res = await merchantFetch('/api/merchant/audience-intelligence/summary', {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       const data = await res.json();
@@ -60,7 +61,7 @@ export function AudienceIntelligencePanel() {
     setExpanded(segment);
     setIsLoadingDetail(true);
     try {
-      const res = await fetch(`/api/merchant/audience-intelligence/${segment}?limit=8`, {
+      const res = await merchantFetch(`/api/merchant/audience-intelligence/${segment}?limit=8`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       const data = await res.json();

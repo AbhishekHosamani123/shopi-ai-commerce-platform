@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { ActionPreviewCard, ActionPreviewItem } from './ActionPreviewCard';
@@ -24,7 +25,7 @@ export const PendingActionsPanel: React.FC<PendingActionsPanelProps> = ({
   const fetchActions = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/merchant/ai/actions?status=${filter}&limit=20`);
+      const res = await merchantFetch(`/api/merchant/ai/actions?status=${filter}&limit=20`);
       const data = await res.json();
       if (res.ok && data.success) {
         setActions(

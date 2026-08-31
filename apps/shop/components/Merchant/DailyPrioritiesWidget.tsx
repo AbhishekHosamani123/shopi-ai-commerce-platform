@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -16,7 +17,7 @@ export const DailyPrioritiesWidget: React.FC<DailyPrioritiesWidgetProps> = ({
   const [approvedRanks, setApprovedRanks] = useState<number[]>([]);
 
   useEffect(() => {
-    fetch('/api/merchant/ai/daily-priorities', {
+    merchantFetch('/api/merchant/ai/daily-priorities', {
       headers: {
         'x-merchant-role': 'merchant_admin',
         'x-merchant-id': 'default_merchant'

@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState } from 'react';
 import { TrustBadge } from './TrustBadge';
@@ -50,7 +51,7 @@ export function PrioritiesQueueCard({
 
   const handleApprove = async (id: string) => {
     try {
-      await fetch(`/api/merchant/actions/${id}/approve`, {
+      await merchantFetch(`/api/merchant/actions/${id}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_pilot_merchant' },
         body: JSON.stringify({ note: 'Approved from Priorities Queue' }),

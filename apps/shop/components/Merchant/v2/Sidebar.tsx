@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -24,10 +25,10 @@ function usePendingDecisionCount(): number | null {
     (async () => {
       try {
         const [actionsRes, campaignsRes] = await Promise.all([
-          fetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
+          merchantFetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
           // count=1 returns only aggregate numbers (~50B) instead of ~185
           // full campaign objects (~492KB) — this badge only needs a number.
-          fetch('/api/merchant/campaigns/recommendations?count=1', { headers: { 'x-merchant-id': 'default_merchant' } })
+          merchantFetch('/api/merchant/campaigns/recommendations?count=1', { headers: { 'x-merchant-id': 'default_merchant' } })
         ]);
 
         let pendingActions = 0;

@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { TrustBadge } from './TrustBadge';
@@ -42,7 +43,7 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
 
   const fetchStatus = useCallback(async () => {
     try {
-      const res = await fetch('/api/merchant/whatsapp/status', {
+      const res = await merchantFetch('/api/merchant/whatsapp/status', {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       const data = await res.json();
@@ -66,7 +67,7 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
     setIsFetchingQr(true);
     setError(null);
     try {
-      let res = await fetch('/api/merchant/whatsapp/connect', {
+      let res = await merchantFetch('/api/merchant/whatsapp/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
         body: JSON.stringify({})
@@ -77,12 +78,12 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
       // its in-memory state is gone ("name already in use" on create). Reset
       // the instance once and retry — the merchant never sees the error.
       if (!res.ok && /already in use/i.test(String(data.error || ''))) {
-        await fetch('/api/merchant/whatsapp/reset', {
+        await merchantFetch('/api/merchant/whatsapp/reset', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
           body: JSON.stringify({})
         });
-        res = await fetch('/api/merchant/whatsapp/connect', {
+        res = await merchantFetch('/api/merchant/whatsapp/connect', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
           body: JSON.stringify({})
@@ -137,7 +138,7 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
     setIsDisconnecting(true);
     setError(null);
     try {
-      const res = await fetch('/api/merchant/whatsapp/disconnect', {
+      const res = await merchantFetch('/api/merchant/whatsapp/disconnect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
         body: JSON.stringify({})

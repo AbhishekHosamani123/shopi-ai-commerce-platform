@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 import { formatSignPercentage, getGrowthColorClass } from './v2/formatters';
@@ -16,7 +17,7 @@ export const DailyBriefingBanner: React.FC<DailyBriefingBannerProps> = ({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch('/api/merchant/ai/daily-briefing', {
+    merchantFetch('/api/merchant/ai/daily-briefing', {
       headers: {
         'x-merchant-role': 'merchant_admin',
         'x-merchant-id': 'default_merchant'

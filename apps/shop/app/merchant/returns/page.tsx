@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -67,7 +68,7 @@ export default function ReturnsPage() {
   const fetchReturnsData = useCallback(async () => {
     setIsFetching(true);
     try {
-      const res = await fetch(`/api/merchant/returns?period=${period}`, {
+      const res = await merchantFetch(`/api/merchant/returns?period=${period}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
       if (res.ok) {

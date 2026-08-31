@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect } from 'react';
 
@@ -26,7 +27,7 @@ export const DigestBriefingModal: React.FC<DigestBriefingModalProps> = ({
   const fetchLatestDigest = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/merchant/ai/digests/latest');
+      const res = await merchantFetch('/api/merchant/ai/digests/latest');
       const data = await res.json();
       if (res.ok && data.success && data.digest) {
         setDigest(data.digest);
@@ -41,7 +42,7 @@ export const DigestBriefingModal: React.FC<DigestBriefingModalProps> = ({
   const handleGenerateFresh = async (digestType: 'DAILY' | 'WEEKLY' | 'MONTHLY') => {
     setGenerating(true);
     try {
-      const res = await fetch('/api/merchant/ai/digest/run', {
+      const res = await merchantFetch('/api/merchant/ai/digest/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ digestType })

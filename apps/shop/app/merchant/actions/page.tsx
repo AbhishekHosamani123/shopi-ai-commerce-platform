@@ -1,4 +1,5 @@
 'use client';
+import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
@@ -79,10 +80,10 @@ export default function MerchantActionsPage() {
     setIsFetching(true);
     try {
       const [actionsRes, campaignsRes] = await Promise.all([
-        fetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
+        merchantFetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
         // limit caps the payload of full campaign objects; the review ledger
         // renders a scrollable list so 100 is far beyond what is ever visible.
-        fetch('/api/merchant/campaigns/recommendations?limit=100', { headers: { 'x-merchant-id': 'default_merchant' } })
+        merchantFetch('/api/merchant/campaigns/recommendations?limit=100', { headers: { 'x-merchant-id': 'default_merchant' } })
       ]);
 
       if (actionsRes.ok) {
@@ -165,7 +166,7 @@ export default function MerchantActionsPage() {
   const handleQuickApproveAction = async (actionId: string, e: React.MouseEvent) => {
     e.stopPropagation();
     try {
-      const res = await fetch(`/api/merchant/actions/${actionId}/approve`, {
+      const res = await merchantFetch(`/api/merchant/actions/${actionId}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
         body: JSON.stringify({ approvedBy: 'merchant_admin' })
@@ -189,7 +190,7 @@ export default function MerchantActionsPage() {
       return;
     }
     try {
-      const res = await fetch(`/api/merchant/campaigns/${campaignId}/approve`, {
+      const res = await merchantFetch(`/api/merchant/campaigns/${campaignId}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
         body: JSON.stringify({ approvedBy: 'merchant_admin', deliveryChannels: selectedChannels })
@@ -200,7 +201,7 @@ export default function MerchantActionsPage() {
         // Auto-execute in DRY_RUN so the merchant sees deliveries immediately (demo flow).
         try {
           setFeedbackToast({ message: 'Approved. Dispatching campaign (dry-run)…', type: 'success' });
-          const execRes = await fetch(`/api/merchant/campaigns/${campaignId}/dry-run`, {
+          const execRes = await merchantFetch(`/api/merchant/campaigns/${campaignId}/dry-run`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
             body: JSON.stringify({ deliveryChannels: selectedChannels })
