@@ -55,3 +55,6 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 **/.DS_Store
+# Generated campaign banner cache (customer-specific images)
+generated_campaign_assets/
+apps/ecommerce-backend/generated_campaign_assets/

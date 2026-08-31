@@ -1,0 +1,23 @@
+# Vercel deployment for the Shopi storefront (Next.js 15).
+#
+# Monorepo layout: the app lives at storefront/apps/shop, so Root Directory in
+# Vercel must be set to "storefront/apps/shop" (Vercel auto-detects Next.js).
+# The backend is deployed separately on Render — see render.yaml at the repo root.
+
+[build]
+command = "npm run build"
+# Next.js 15 handles its own output directory.
+publishDirectory = ".next"
+
+[build.environment]
+NODE_VERSION = "22"
+# Public runtime vars baked at build time. BACKEND_URL stays server-only and
+# MUST be set in the Vercel dashboard (Environment Variables), not here.
+NEXT_PUBLIC_DOMAIN = "https://your-storefront.vercel.app"
+
+# Route/redirect guidance:
+# - The customer storefront lives at "/" and the merchant dashboard at "/merchant".
+# - No special rewrites are required: every server action and the
+#   /api/merchant/[...path] proxy read BACKEND_URL server-side.
+# - Optional post-deploy redirect: add in Vercel dashboard
+#     /in  ->  /        (temporary, permanent: false)

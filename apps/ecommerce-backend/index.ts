@@ -9,22 +9,32 @@ import authenticateToken from './middleware/header_auth';
 
 const app: Express = express();
 app.set('trust proxy', true);
-const port = process.env.PORT || 3500;
+// Render injects PORT; default 3500 keeps local dev unchanged.
+const port = parseInt(process.env.PORT || '3500', 10);
 
 app.use(rateLimiterMiddleware);
 app.use(express.json({ limit: '10mb' }));
 app.use(helmet());
 
-const origin_url: string = process.env.FRONTEND_SERVER_ORIGIN as string;
+// CORS: allow multiple origins (prod Vercel URL + any preview URLs) via a
+// comma-separated FRONTEND_SERVER_ORIGIN list; never a wildcard because
+// credentials are enabled.
+const rawOrigins = process.env.FRONTEND_SERVER_ORIGIN || 'http://localhost:3000';
 const corsOptions = {
-  origin: origin_url || 'http://localhost:3000',
+  origin: (origin: string | undefined, cb: (err: Error | null, ok?: boolean) => void) => {
+    // Same-origin/server-side calls have no Origin header — allow them.
+    if (!origin) return cb(null, true);
+    const allowed = rawOrigins.split(',').map(o => o.trim()).filter(Boolean);
+    if (allowed.includes(origin)) return cb(null, true);
+    return cb(null, false); // reject silently rather than erroring
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Enable cookies and authentication headers
+  credentials: true,
 };
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
-// Public health check endpoint
+// Public health check endpoint — also the Render wake-up target.
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'ok', service: 'Razorpay AI Commerce Target API', timestamp: new Date().toISOString() });
 });
@@ -42,9 +52,9 @@ import { ProductIntelligenceService } from './shopi-assistant/productIntelligenc
 // Function to start the server
 const startServer = async () => {
   connectDB().catch((err: any) => {
-    console.warn('[DB Warning] Local PostgreSQL connection deferred/offline:', err.message);
+    console.warn('[DB Warning] PostgreSQL connection deferred/offline:', err.message);
   });
-  
+
   // Pre-warm catalog and review caches for instant sub-30ms AI responses
   Promise.all([
     ShopiCatalogService.listProducts(),
@@ -55,8 +65,9 @@ const startServer = async () => {
     console.warn('[Cache Warm Warning]:', err.message);
   });
 
-  app.listen(port, () => {
-    console.log(`[server]: Razorpay AI Commerce Server is running at http://localhost:${port}`);
+  // Bind 0.0.0.0 so the container is reachable on Render.
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`[server]: Razorpay AI Commerce Server listening on 0.0.0.0:${port}`);
   });
 };
 

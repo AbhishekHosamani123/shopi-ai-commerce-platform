@@ -146,6 +146,31 @@ export class WhatsAppService {
   }
 
   /**
+   * Disconnects the WhatsApp sender: logs the paired session out via
+   * Evolution API so the account is no longer the active sender. The
+   * instance remains and needs a fresh QR scan (getSenderQrCode) to
+   * reconnect. Fails cleanly when it is not connected.
+   */
+  async disconnectSender(): Promise<{
+    success: boolean;
+    instanceName: string;
+    state?: string | null;
+    error?: string;
+  }> {
+    const instanceName = whatsAppAllowlistService.getSenderInstanceName();
+    const state = await evolutionApiClient.getConnectionState(instanceName);
+    if (state !== 'open') {
+      return { success: false, instanceName, state, error: 'WhatsApp sender is not connected.' };
+    }
+    const res = await evolutionApiClient.logoutInstance(instanceName);
+    if (!res.ok) {
+      return { success: false, instanceName, error: res.error || 'Failed to log out the WhatsApp sender.' };
+    }
+    const newState = await evolutionApiClient.getConnectionState(instanceName);
+    return { success: true, instanceName, state: newState };
+  }
+
+  /**
    * Dispatches one WhatsApp message.
    *
    * Order of checks (each fails closed with a structured reason):

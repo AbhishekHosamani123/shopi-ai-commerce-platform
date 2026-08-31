@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { TrustBadge } from './TrustBadge';
 import SafeMarkdownRenderer from '@/components/AI/SafeMarkdownRenderer';
 
@@ -12,6 +13,8 @@ interface Message {
   timestamp: string;
   trustTag?: string;
   formula?: string;
+  /** The merchant page this message was sent from (tab context). */
+  page?: string;
   suggestedAction?: {
     id: string;
     type: string;
@@ -22,6 +25,15 @@ interface Message {
   };
 }
 
+/** Maps the current merchant route to a named dashboard tab. */
+function resolveMerchantTab(pathname: string | null): string {
+  if (!pathname) return 'overview';
+  const p = pathname.replace(/\/$/, '');
+  if (p === '/merchant' || p === '/merchant/') return 'overview';
+  const match = p.match(/^\/merchant\/([a-z-]+)/);
+  return match ? match[1] : 'overview';
+}
+
 interface CopilotDrawerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -29,6 +41,8 @@ interface CopilotDrawerProps {
 }
 
 export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDrawerProps) {
+  const pathname = usePathname();
+  const activeTab = resolveMerchantTab(pathname);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome',
@@ -75,6 +89,7 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
       sender: 'user',
       text: textToSend,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      page: activeTab,
     };
 
     setMessages((prev) => [...prev, userMsg]);
@@ -87,6 +102,9 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
         .map((m) => ({
           role: m.sender === 'user' ? 'merchant' : 'copilot',
           message: m.text,
+          // Per-turn page context: the copilot retains which tab each
+          // previous question was asked from.
+          page: m.page,
         }));
 
       const res = await fetch('/api/merchant/ai/chat', {
@@ -98,6 +116,9 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
         body: JSON.stringify({
           message: textToSend,
           history,
+          // Current tab context so the copilot understands what the merchant
+          // is looking at right now.
+          pageContext: activeTab,
         }),
       });
 
@@ -136,6 +157,7 @@ export function CopilotDrawer({ isOpen, onClose, initialPrompt = '' }: CopilotDr
         text: replyText,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         trustTag,
+        page: activeTab,
         suggestedAction,
       };
 

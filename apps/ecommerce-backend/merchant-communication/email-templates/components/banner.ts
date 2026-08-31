@@ -6,27 +6,56 @@ export interface BannerProps {
 }
 
 /**
- * Renders the static promotional banner asset (`banner_img`).
- * Critical Design Principle:
- * - The banner image is completely static (karate illustration, purple/cream palette, torn paper texture).
- * - Zero dynamic text is baked into the image — all customer/offer text is real HTML below it.
- * - Displays with email-safe attributes and responsive max-width 600px.
- * - If explicitly null, omits the banner area entirely (email stays fully understandable without it).
+ * Renders the promotional banner area.
+ *
+ * Preferred path (CID): when the campaign pipeline generated a personalized
+ * banner (customer name + approved discount), it is embedded inside the email
+ * as a MIME attachment and referenced via `cid:` — it displays in Gmail /
+ * Outlook / mobile clients with zero external network fetches. This is the
+ * only banner path used for real recipient sends; localhost URLs are never
+ * emitted because a real recipient's mail client cannot reach them.
+ *
+ * Fallback path: if generation failed, the caller passes null and the banner
+ * area is omitted entirely — an email without a banner is always better than
+ * a broken image. (Dry-run/simulation providers may still reference the
+ * static public asset for local preview only.)
  */
 export function renderBanner(props?: BannerProps | null): string {
   if (props?.bannerImage === null) return '';
 
-  const defaultBannerUrl = process.env.BANNER_IMG_URL || 'https://shopi.store/banner_img.png';
-  const rawUrl = props?.bannerImage || defaultBannerUrl;
-  const bannerUrl = sanitizeImageUrl(rawUrl) || defaultBannerUrl;
+  const raw = props?.bannerImage || '';
   const altText = escapeHtml(props?.altText || 'Special Shopi offer');
+
+  // CID inline banner — travels with the MIME message.
+  if (raw.startsWith('cid:')) {
+    const cid = escapeHtml(raw.slice(4));
+    return `
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #ffffff;">
+        <tr>
+          <td align="center" style="padding: 0; line-height: 0; font-size: 0;">
+            <img
+              src="cid:${cid}"
+              alt="${altText}"
+              width="600"
+              style="display: block; width: 100%; max-width: 600px; height: auto; border: 0; outline: none; text-decoration: none;"
+            />
+          </td>
+        </tr>
+      </table>
+    `.trim();
+  }
+
+  // Remote URL banner (kept for local dev preview / dry-run inspection only).
+  const defaultBannerUrl = process.env.BANNER_IMG_URL || '';
+  const bannerUrl = sanitizeImageUrl(raw) || defaultBannerUrl;
+  if (!bannerUrl) return '';
 
   return `
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #ffffff;">
       <tr>
         <td align="center" style="padding: 0; line-height: 0; font-size: 0;">
           <img
-            src="${bannerUrl}"
+            src="${escapeHtml(bannerUrl)}"
             alt="${altText}"
             width="600"
             style="display: block; width: 100%; max-width: 600px; height: auto; border: 0; outline: none; text-decoration: none;"
@@ -36,4 +65,3 @@ export function renderBanner(props?: BannerProps | null): string {
     </table>
   `.trim();
 }
-

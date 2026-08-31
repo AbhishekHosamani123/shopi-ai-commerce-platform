@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
+import { RenderWakeBeacon } from "@/components/RenderWakeBeacon";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,6 +28,9 @@ export default function RootLayout({
       </head>
       <body className={poppins.className} suppressHydrationWarning>
         <ClientProviders>
+        {/* Background Render wake-up beacon: pings the backend health endpoint on
+            every page load so a sleeping Render service starts waking immediately. */}
+        <RenderWakeBeacon />
           {children}
         </ClientProviders>
       </body>

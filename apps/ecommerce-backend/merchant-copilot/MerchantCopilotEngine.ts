@@ -14,7 +14,7 @@ import {
   formatActionPreview,
   ActionPreview
 } from '../merchant-actions';
-import { getLowStockProducts, getWorstPerformingProducts, getTopProducts } from '../merchant-intelligence';
+import { getLowStockProducts, getWorstPerformingProducts, getTopProducts, getBusinessAlerts } from '../merchant-intelligence';
 import { buildBusinessDigest } from '../merchant-digests';
 import { listAlerts } from '../merchant-proactive';
 import {
@@ -61,6 +61,9 @@ import { campaignBuilderService } from '../merchant-campaigns';
 import { customerOpportunityService } from '../merchant-customer-intelligence/customer-opportunity-service';
 import { profitSafeOfferService } from '../merchant-offer-intelligence/profit-safe-offer-service';
 import { campaignIntelligenceService } from '../merchant-campaigns/campaign-intelligence-service';
+import { audienceIntelligenceService } from '../merchant-audience-intelligence/audience-intelligence-service';
+import { whatsAppService } from '../whatsapp/whatsapp-service';
+import { whatsAppAllowlistService } from '../whatsapp/whatsapp-allowlist-service';
 
 export interface CopilotResponse {
   success: boolean;
@@ -86,6 +89,8 @@ export interface CopilotConversationTurn {
   content: string;
   intent?: string;
   period?: string;
+  /** Dashboard tab this turn happened on (tab context retention). */
+  page?: string;
   data?: any;
   actions?: ActionPreview[];
 }
@@ -114,7 +119,8 @@ CRITICAL RULES:
   async processMessage(
     userMessage: string,
     history: CopilotConversationTurn[] = [],
-    merchantId: string = 'default_merchant'
+    merchantId: string = 'default_merchant',
+    pageContext?: string
   ): Promise<CopilotResponse> {
     const rawQuery = userMessage.trim();
     if (!rawQuery) {
@@ -135,10 +141,47 @@ CRITICAL RULES:
     const previousPeriod = previousTurn?.period || 'last_30_days';
     const resolved = resolvePeriod(rawQuery, previousPeriod);
 
-    // 2. Classify intent with multi-turn awareness
-    const intent = this.detectIntent(rawQuery, history);
+    // 2. Classify intent with multi-turn awareness (pageContext makes
+    // "this page" / "what am I looking at" resolve to the active tab).
+    const intent = this.detectIntent(rawQuery, history, pageContext);
 
     try {
+      // Page-context briefing: "explain this page", "what am I looking at",
+      // "summarize what's on this screen" — answered with the ACTIVE tab's data.
+      if (intent === 'page_context_query') {
+        return await this.handlePageContextQuery(rawQuery, history, merchantId, resolved.label, pageContext || 'overview');
+      }
+
+      // Audience Intelligence Queries (cart abandonment, repeat viewers, counts)
+      if (intent === 'audience_intelligence_query') {
+        return await this.handleAudienceIntelligenceQuery(rawQuery, merchantId, resolved.label);
+      }
+
+      // Business alerts ("are there any alerts")
+      if (intent === 'alerts_query') {
+        return await this.handleAlertsQuery(rawQuery, merchantId, resolved.label);
+      }
+
+      // WhatsApp channel status & send-capability questions
+      if (intent === 'whatsapp_channel_query') {
+        return await this.handleWhatsAppChannelQuery(rawQuery, merchantId, resolved.label);
+      }
+
+      // Greeting / capability questions
+      if (intent === 'capability_query') {
+        return this.handleCapabilityQuery(rawQuery, resolved.label);
+      }
+
+      // Conversational campaign approval with Email/WhatsApp channel selection
+      if (intent === 'approve_campaign') {
+        return await this.handleApproveCampaignIntent(rawQuery, history, merchantId, resolved.label);
+      }
+
+      // Specific-campaign Q&A (customer/product/ID/type matched)
+      if (intent === 'campaign_specific_query') {
+        return await this.handleSpecificCampaignQuery(rawQuery, history, merchantId, resolved.label);
+      }
+
       // Handle Phase 15 Campaign Intelligence & Review Queries
       if (intent === 'campaign_intelligence_query') {
         return await this.handleCampaignIntelligenceQuery(rawQuery, history, merchantId, resolved.label);
@@ -349,8 +392,132 @@ CRITICAL RULES:
     }
   }
 
-  private detectIntent(query: string, history: CopilotConversationTurn[]): string {
+  private detectIntent(query: string, history: CopilotConversationTurn[], pageContext?: string): string {
     const q = query.toLowerCase().trim();
+
+    // PAGE-CONTEXT BRIEFING: "explain this page", "what am I looking at",
+    // "summarize this screen" — resolved against the active dashboard tab.
+    if (
+      /\b(this page|this tab|this screen|this dashboard|this view|what am i looking at|what.s on this page|explain this|walk me through this|summarize this|give me an overview of this|overview of this page|what does this page|help me understand this)\b/i.test(q) ||
+      (pageContext === 'overview' && /^\s*(overview|summarize everything|business overview)\s*[.?]?\s*$/i.test(q))
+    ) {
+      return 'page_context_query';
+    }
+
+    // Tab-scoped follow-ups: short questions after navigating tabs
+    // ("what does this mean", "how do I fix this") inherit page context.
+    if (
+      pageContext &&
+      /^\s*(what does (this|that) mean|how do i fix (this|that)|what should i do about (this|that)|tell me more)\s*[.?]?\s*$/i.test(q)
+    ) {
+      return 'page_context_query';
+    }
+
+    // Audience Intelligence: cart-abandonment / repeat-viewer counts ("how many
+    // people added to cart but didn't purchase", "viewed again and again…")
+    if (
+      /\b(how many (people|customers|users))\b/i.test(q) &&
+      (q.includes('cart') || q.includes('checkout') || q.includes('view') || q.includes('abandon'))
+    ) {
+      return 'audience_intelligence_query';
+    }
+    if (
+      /\b(viewed .* again and again|viewing .* again and again|repeatedly viewed|view .* multiple times|cart abandonment|abandoned cart|cart abandoners|checkout abandoners|abandoned checkout|repeat viewers)\b/i.test(q) ||
+      (q.includes('viewed') && q.includes('again'))
+    ) {
+      return 'audience_intelligence_query';
+    }
+
+    // Conversational campaign APPROVAL with delivery-channel selection:
+    // "approve campaign <x> via email and whatsapp", "approve it via whatsapp"
+    if (
+      /\bapprove (this |the )?campaign\b/i.test(q) ||
+      (q.startsWith('approve') && (q.includes('campaign') || q.includes('via ') || q.includes('through ')))
+    ) {
+      return 'approve_campaign';
+    }
+
+    // HIGH-PRIORITY dashboard shortcuts — these phrases are unambiguous and
+    // must never fall through to the broad sales_performance catch-all.
+
+    // Alerts: "are there any alerts", "show alerts", "any warnings"
+    if (
+      /\b(alerts?|warnings?|anomalies?|anything (wrong|unusual|off))\b/i.test(q) ||
+      q.includes('anything i should') && !q.includes('briefing')
+    ) {
+      return 'alerts_query';
+    }
+
+    // Profitability: "how profitable am I", "am I profitable", "product profitability"
+    if (
+      /\b(how profitable|am i profitable|profitability|true profit|net profit|contribution margin|gross margin)\b/i.test(q)
+    ) {
+      return 'profitability_breakdown';
+    }
+
+    // Action history: "what actions did merchant ai take", "what did I approve yesterday"
+    if (
+      !q.includes('pending') && (
+        /\b(actions? did (merchant ai|i|we) (take|do|perform)|what did i approve|approved yesterday|approved today|what actions (has|did) merchant ai|action history|audit log|executed actions|completed actions)\b/i.test(q) ||
+        (q.includes('action') && (q.includes('history') || q.includes('did') || q.includes('completed') || q.includes('log') || q.includes('take') || q.includes('took')))
+      )
+    ) {
+      return 'list_action_history';
+    }
+
+    // Audience Intelligence: checkout abandonment ("how many started checkout
+    // but didn't finish/purchase") — must beat the sales catch-all.
+    if (
+      /\b(checkout.*(not|didn.?t|never|without).*(finish|complete|purchase|buy|order))\b/i.test(q) ||
+      (q.includes('checkout') && q.includes('how many'))
+    ) {
+      return 'audience_intelligence_query';
+    }
+
+    // WhatsApp channel questions: "is whatsapp connected", "can I send
+    // campaigns on whatsapp", "what channels can campaigns use".
+    if (
+      /\bwhatsapp\b/i.test(q) ||
+      /\b(delivery channel|channels? can campaigns)\b/i.test(q)
+    ) {
+      return 'whatsapp_channel_query';
+    }
+
+    // Repeat-viewer phrasings without "how many": "who keeps viewing
+    // products without buying", "who viewed but never purchased".
+    if (
+      /\b(view\w* .*(without|no|never) .*(buy|purchas|cart)|brows\w* .*(without|never) .*(buy|purchas))\b/i.test(q) ||
+      /\bkeeps? view\w*\b/i.test(q) ||
+      (q.includes('viewed') && q.includes('never') && (q.includes('buy') || q.includes('purchas')))
+    ) {
+      return 'audience_intelligence_query';
+    }
+
+    // Greeting / help / capability questions — a friendly capability map
+    // instead of a sales fallback.
+    if (
+      /^\s*(hi|hello|hey|namaste|good (morning|afternoon|evening))\s*[.!]?\s*$/i.test(q) ||
+      /\b(what can you do|help me|show me what you can|your capabilities|what do you support|list your (skills|commands))\b/i.test(q)
+    ) {
+      return 'capability_query';
+    }
+
+    // Specific-campaign questions: a campaign mention PLUS a question word
+    // AND at least one specific marker (customer name / product / campaign ID /
+    // type keyword) so generic questions like "which campaigns should I
+    // prepare" still route to the general campaign-intelligence answer.
+    if (
+      q.includes('campaign') &&
+      /\b(why|who|what|how|which|when|where|tell|explain|show|detail|audience|offer|margin|financial|suppress|eligible|coupon|message|status|safe|discount|price|product|about)\b/i.test(q)
+    ) {
+      const hasSpecificMarker =
+        /camp[_-][a-z0-9_-]+/i.test(q) ||                                    // explicit campaign ID
+        /\b(vip|dormant|win-back|cart recovery|checkout recovery|high intent)\b/i.test(q) || // type keywords
+        /\b[a-z]{3,}\s+[a-z]{2,}\b/.test(q.replace(/\b(why|who|what|how|which|when|where|tell|explain|show|me|detail|about|campaign|the|this|that|for|and|with|via|approve|it|in|on|of|to|is|are|did|does|should|tell)\b/g, '').trim()); // likely "Name Surname"
+      if (hasSpecificMarker) {
+        return 'campaign_specific_query';
+      }
+    }
 
     // Phase 15: Campaign Intelligence & Review Queries
     if (
@@ -662,7 +829,14 @@ CRITICAL RULES:
       return 'goal_optimization';
     }
 
-    // 4. "Why" Diagnostic Questions
+    // 4. "Why" Diagnostic Questions — but product-attribution questions
+    // ("which product has the highest return rate") belong to returns, and
+    // never to a generic diagnostic.
+    if (
+      /\b(return rate|most returns|highest return|most refunded|most cancelled)\b/i.test(q)
+    ) {
+      return 'return_analysis';
+    }
     if (/\b(why|reason|cause|what caused|explain drop|explain increase|why did|why are sales|why is)\b/i.test(q)) {
       return 'why_diagnostic';
     }
@@ -688,7 +862,7 @@ CRITICAL RULES:
     }
 
     // 9. Top Products / Best Sellers / Highest Growth / Most Revenue
-    if (/\b(top product\w*|top selling|best seller\w*|best selling|most revenue|most sold|popular|champion\w*|sell.*most|selling.*most|highest revenue|best performing|highest growth|best-selling)\b/i.test(q)) {
+    if (/\b(top product\w*|top sell\w*|best seller\w*|best selling|most revenue|most sold|popular|champion\w*|sell.*most|selling.*most|highest revenue|best performing|highest growth|best-selling|monthly top|top monthly)\b/i.test(q)) {
       return 'top_products';
     }
 
@@ -3451,6 +3625,668 @@ ${topOpps.map((o, idx) => `### ${idx + 1}. [${o.priority}] ${o.title}
       ],
       recommendations: campaigns.slice(0, 2).map(c => `Review ${c.title}`),
       sources: ['Campaign Intelligence Service', 'Profit-Safe Offer Engine', 'Supabase shopi_customer_events']
+    };
+  }
+
+  /**
+   * Resolves the SPECIFIC campaign the merchant is asking about by matching
+   * customer name / product title / campaign ID / campaign type from the
+   * raw query against live campaign proposals.
+   */
+  private async resolveCampaignFromQuery(
+    query: string,
+    merchantId: string
+  ): Promise<{ campaign: any | null; matchReason: string }> {
+    const q = query.toLowerCase();
+    const campaigns = await campaignIntelligenceService.generateCampaignProposals(merchantId);
+    if (campaigns.length === 0) return { campaign: null, matchReason: 'no campaigns staged' };
+
+    // 1. Explicit campaign ID in the query
+    const idMatch = q.match(/camp[_-][a-z0-9_-]+/i);
+    if (idMatch) {
+      const byId = campaigns.find(c => c.campaignId.toLowerCase().includes(idMatch[0]));
+      if (byId) return { campaign: byId, matchReason: `campaign ID ${byId.campaignId}` };
+    }
+
+    // 2. Customer first-name match ("Aarav", "Hey Aarav", "aarav sharma")
+    const nameTokens = q.split(/[^a-z]+/).filter(w => w.length > 2 && !['the', 'why', 'who', 'what', 'how', 'for', 'and', 'about', 'campaign', 'approve', 'should', 'this', 'that', 'vip', 'retention'].includes(w));
+    for (const c of campaigns) {
+      const custLower = (c.audience?.eligibleCustomers?.[0]?.customerName || '').toLowerCase();
+      if (custLower && nameTokens.some(t => custLower.includes(t))) {
+        return { campaign: c, matchReason: `customer ${c.audience.eligibleCustomers[0].customerName}` };
+      }
+    }
+
+    // 3. Product title match
+    for (const c of campaigns) {
+      const title = (c.product?.title || '').toLowerCase();
+      if (title && nameTokens.some(t => title.includes(t))) {
+        return { campaign: c, matchReason: `product ${c.product.title}` };
+      }
+    }
+
+    // 4. Campaign type keyword (e.g. "vip retention")
+    const typeMap: [string, string][] = [
+      ['vip', 'VIP_RETENTION'], ['retention', 'VIP_RETENTION'],
+      ['dormant', 'DORMANT_REACTIVATION'], ['win-back', 'DORMANT_REACTIVATION'],
+      ['cart', 'CART_RECOVERY'], ['checkout', 'CHECKOUT_RECOVERY'],
+      ['high intent', 'HIGH_INTENT_PRODUCT'], ['repeat', 'REPEAT_CUSTOMER_REWARD']
+    ];
+    for (const [kw, type] of typeMap) {
+      if (q.includes(kw)) {
+        const byType = campaigns.find(c => c.campaignType === type);
+        if (byType) return { campaign: byType, matchReason: `campaign type ${type}` };
+      }
+    }
+
+    return { campaign: null, matchReason: 'no specific match' };
+  }
+
+  /**
+   * Comprehensive single-campaign Q&A: answers ANYTHING about a specific
+   * campaign the merchant names — audience, offer, financials, message,
+   * suppression, status, delivery channels.
+   */
+  private async handleSpecificCampaignQuery(
+    query: string,
+    history: CopilotConversationTurn[],
+    merchantId: string,
+    periodLabel: string
+  ): Promise<CopilotResponse> {
+    const { campaign, matchReason } = await this.resolveCampaignFromQuery(query, merchantId);
+    if (!campaign) {
+      // No specific match — fall back to the general campaign review answer
+      // so the merchant always gets actionable content instead of a dead end.
+      return this.handleCampaignIntelligenceQuery(query, history, merchantId, periodLabel);
+    }
+
+    const q = query.toLowerCase();
+    const cust = campaign.audience?.eligibleCustomers?.[0];
+    const custName = (cust?.customerName || '').split(' • ')[0] || 'the customer';
+    const eligible = campaign.audience?.eligibleCount ?? 0;
+    const suppressed = campaign.audience?.suppressedCount ?? 0;
+    const suppressionRows = campaign.audience?.suppressionDetails || [];
+    const fin = campaign.financialSimulation || {};
+    const offer = campaign.offer || {};
+
+    let sections: string[] = [];
+    sections.push(`**🎯 CAMPAIGN: ${campaign.title}**`);
+    sections.push(`• **Campaign ID:** \`${campaign.campaignId}\``);
+    sections.push(`• **Type:** ${campaign.campaignType} · **Status:** **${campaign.status}**`);
+    sections.push(`• **Customer:** ${custName}${campaign.product?.title ? ` · **Product:** ${campaign.product.title}` : ''}`);
+    sections.push('');
+
+    // Audience / eligibility / suppression
+    sections.push(`**👥 Audience**
+• **Eligible recipients:** **${eligible}** customer${eligible === 1 ? '' : 's'}
+• **Suppressed:** ${suppressed}${suppressionRows.length > 0 ? ` — ${suppressionRows.map((s: any) => `${s.customerId}: ${s.reason}`).join(', ')}` : ' (none)'}`);
+
+    // Offer + financial safety
+    sections.push(`
+**💰 Offer & Financial Safety**
+• **Approved offer:** **${offer.offerText || '—'}**${offer.couponCode ? ` · Coupon: \`${offer.couponCode}\`` : ''}
+• **Discounted price:** ₹${offer.discountedPrice ?? campaign.product?.sellingPrice ?? '—'} (list: ₹${campaign.product?.sellingPrice ?? '—'})
+• **Margin after discount:** **${fin.contributionMarginAfterPct ?? '—'}%** (floor protected: ${offer.safetyStatus === 'SAFE' ? '✅ YES' : '⚠️ CHECK'})
+• **Break-even:** ${fin.breakEvenIncrementalOrders ?? '—'} incremental order${fin.breakEvenIncrementalOrders === 1 ? '' : 's'}`);
+
+    // Why targeted
+    const why = (campaign.explanation?.observed || '').replace(/^\[OBSERVED\]\s*/i, '');
+    if (why) {
+      sections.push(`
+**🧠 Why this customer was targeted**
+${why}
+• **Model estimate:** ${(campaign.explanation?.modelEstimate || '').replace(/^\[MODEL ESTIMATE\]\s*/i, '')}`);
+    }
+
+    // Delivery channels available
+    sections.push(`
+**📮 Delivery channels**
+Email and WhatsApp are both available. Say **"approve campaign ${campaign.campaignId} via email and whatsapp"** — or either channel individually — and I'll stage it immediately (DRY_RUN by default).`);
+
+    // Optional: message preview when asked
+    if (q.includes('message') || q.includes('email draft') || q.includes('what will you send')) {
+      const mp = campaign.messagePreview || {};
+      sections.push(`
+**📝 Message preview**
+• **Subject:** ${mp.subject || '—'}
+\`\`\`text
+${mp.body || '—'}
+\`\`\``);
+    }
+
+    const message = sections.join('\n');
+
+    return {
+      success: true,
+      message,
+      intent: 'campaign_specific_query',
+      period: periodLabel,
+      data: campaign,
+      insights: [
+        `Campaign ${campaign.campaignId} matches by ${matchReason}.`,
+        `Offer ${offer.offerText || '—'} preserves a ${fin.contributionMarginAfterPct ?? '—'}% post-discount margin.`
+      ],
+      recommendations: [
+        `Approve via chat: "approve campaign ${campaign.campaignId} via email and whatsapp"`,
+        'Or review it visually in the Decision Center campaign queue.'
+      ],
+      sources: ['Campaign Intelligence Service', 'shopi_customer_events', 'shopi_product_cogs', 'Profit-Safe Offer Engine']
+    };
+  }
+
+  /**
+   * Conversational campaign approval with channel selection. The merchant can
+   * say "approve campaign <id/name> via email", "...via whatsapp", or
+   * "...via email and whatsapp". Channels default to EMAIL when unspecified.
+   * Backend revalidates; approval persists deliveryChannels in the audit.
+   */
+  private async handleApproveCampaignIntent(
+    query: string,
+    history: CopilotConversationTurn[],
+    merchantId: string,
+    periodLabel: string
+  ): Promise<CopilotResponse> {
+    // Resolve the target campaign: explicit mention, else last discussed, else first ready
+    const { campaign } = await this.resolveCampaignFromQuery(query, merchantId)
+      .then(async r => {
+        if (r.campaign) return r;
+        // fall back to the campaign from the previous turn if the query just says "approve it"
+        const lastCampaignData = history.length > 0 ? null : null;
+        void lastCampaignData;
+        const all = await campaignIntelligenceService.generateCampaignProposals(merchantId);
+        const ready = all.find(c => c.status === 'READY_FOR_REVIEW') || all[0];
+        return { campaign: ready || null, matchReason: 'first staged proposal' };
+      });
+
+    if (!campaign) {
+      return {
+        success: false,
+        message: 'No campaign is staged for approval right now. Ask "which campaigns should I prepare" first.',
+        intent: 'approve_campaign',
+        period: periodLabel,
+        data: null,
+        insights: [],
+        recommendations: [],
+        sources: []
+      };
+    }
+
+    // Channel selection from natural language (independent toggles)
+    const q = query.toLowerCase();
+    const wantsWhatsApp = /\bwhatsapp\b|\bwa\b|\bboth\b/i.test(q);
+    const wantsEmail = /\bemail\b|\bmail\b|\bboth\b/i.test(q);
+    // "approve" without any channel mention → default to the existing email workflow
+    const channels: ('EMAIL' | 'WHATSAPP')[] = [];
+    if (wantsEmail) channels.push('EMAIL');
+    if (wantsWhatsApp) channels.push('WHATSAPP');
+    if (channels.length === 0) channels.push('EMAIL');
+
+    const result = await campaignIntelligenceService.approveCampaign(
+      campaign.campaignId,
+      merchantId,
+      'merchant_admin',
+      channels as ('EMAIL' | 'WHATSAPP')[]
+    );
+
+    if (!result.success) {
+      return {
+        success: false,
+        message: `Approval blocked for **${campaign.title}**: ${result.error}`,
+        intent: 'approve_campaign',
+        period: periodLabel,
+        data: campaign,
+        insights: ['Approval failed server-side revalidation.'],
+        recommendations: ['Ask "why was this customer targeted" to inspect the campaign.'],
+        sources: ['Campaign Intelligence Service']
+      };
+    }
+
+    const channelLine = channels.join(' + ');
+    return {
+      success: true,
+      message: `**✅ CAMPAIGN APPROVED VIA COPILOT**
+
+• **Campaign:** **${campaign.title}**
+• **Campaign ID:** \`${campaign.campaignId}\`
+• **Delivery channels:** **${channelLine}**
+• **Approved offer:** **${campaign.offer?.offerText || '—'}**${campaign.offer?.couponCode ? ` (Coupon: \`${campaign.offer.couponCode}\`)` : ''}
+• **Audience:** ${campaign.audience?.eligibleCount ?? 1} eligible recipient(s)
+• **Margin floor:** preserved (${campaign.financialSimulation?.contributionMarginAfterPct ?? '—'}% post-discount margin)
+
+The approval is recorded in the campaign audit trail with your channel selection. It is staged in **DRY_RUN** — use **Approve & Launch** in the Decision Center (the channel toggles are above the campaign queue) to dispatch, or say "execute campaign ${campaign.campaignId}" and I'll run the dry-run for you.`,
+      intent: 'approve_campaign',
+      period: periodLabel,
+      data: { campaignId: campaign.campaignId, deliveryChannels: channels, approved: true },
+      insights: [
+        `Campaign ${campaign.campaignId} approved with channels ${channelLine}.`,
+        'Delivery will include only allowlisted WhatsApp recipients; email uses existing audience rules.'
+      ],
+      recommendations: [
+        `Execute the dry-run: "execute campaign ${campaign.campaignId}"`,
+        'Verify per-channel results in the Decision Center.'
+      ],
+      sources: ['Campaign Intelligence Service', 'Campaign Approval Audit Trail']
+    };
+  }
+
+  /**
+   * Audience Intelligence Queries: "how many people added to cart but didn't
+   * purchase", "how many viewed again and again but never added to cart",
+   * checkout abandonment, and general segment counts — straight from the
+   * canonical event ledger.
+   */
+  private async handleAudienceIntelligenceQuery(    query: string,
+    merchantId: string,
+    periodLabel: string
+  ): Promise<CopilotResponse> {
+    const q = query.toLowerCase();
+    const wantsCart = (q.includes('cart') && (q.includes('abandon') || q.includes('not') || q.includes("didn't") || q.includes('didnt') || q.includes('without') || q.includes('no'))) && !q.includes('checkout');
+    const wantsCheckout = q.includes('checkout') && (q.includes('abandon') || q.includes('not') || q.includes("didn't") || q.includes('didnt') || q.includes('started'));
+    const wantsViewers = (q.includes('view') && (q.includes('again') || q.includes('repeat') || q.includes('repeated') || q.includes('multiple'))) ||
+      (q.includes('viewed') && (q.includes('not') || q.includes("didn't") || q.includes('never') || q.includes('no')));
+
+    const parts: string[] = [];
+    const data: any = {};
+    const insights: string[] = [];
+
+    if (wantsViewers) {
+      const seg = await audienceIntelligenceService.getRepeatViewers(merchantId, 2, 10);
+      parts.push(`**👀 REPEAT VIEWERS (no cart, no purchase)**
+• **Count:** **${seg.count}** customer${seg.count === 1 ? '' : 's'} viewed products **2+ times** but never added to cart and never purchased
+• **Products involved:** ${seg.productCount}
+${seg.customers.slice(0, 5).map(c => `• **${c.customerName}** — ${c.eventCount} views of *${c.topProductTitle}* (₹${c.topProductPrice})`).join('\n')}${seg.count > 5 ? `\n• …and ${seg.count - 5} more` : ''}`);
+      data.repeatViewers = seg;
+      insights.push(`${seg.count} customers show repeated product interest without any cart action — prime HIGH_INTENT_PRODUCT campaign audience.`);
+    }
+    if (wantsCart) {
+      const seg = await audienceIntelligenceService.getCartAbandoners(merchantId, 10);
+      parts.push(`**🛒 CART ABANDONERS (added to cart, never purchased)**
+• **Count:** **${seg.count}** customer${seg.count === 1 ? '' : 's'}
+• **Products involved:** ${seg.productCount}
+${seg.customers.slice(0, 5).map(c => `• **${c.customerName}** — carted *${c.topProductTitle}* (₹${c.topProductPrice})`).join('\n')}${seg.count > 5 ? `\n• …and ${seg.count - 5} more` : ''}`);
+      data.cartAbandoners = seg;
+      insights.push(`${seg.count} cart abandoners are the strongest CART_RECOVERY campaign audience.`);
+    }
+    if (wantsCheckout) {
+      const seg = await audienceIntelligenceService.getCheckoutAbandoners(merchantId, 10);
+      parts.push(`**💳 CHECKOUT ABANDONERS (started checkout, never purchased)**
+• **Count:** **${seg.count}** customer${seg.count === 1 ? '' : 's'}
+• **Products involved:** ${seg.productCount}
+${seg.customers.slice(0, 5).map(c => `• **${c.customerName}** — checkout on *${c.topProductTitle}* (₹${c.topProductPrice})`).join('\n')}${seg.count > 5 ? `\n• …and ${seg.count - 5} more` : ''}`);
+      data.checkoutAbandoners = seg;
+      insights.push(`${seg.count} checkout abandoners are the highest-intent CHECKOUT_RECOVERY audience.`);
+    }
+
+    // General "how many" without a specific segment → show all three
+    if (parts.length === 0) {
+      const summary = await audienceIntelligenceService.getSummary(merchantId);
+      parts.push(`**👥 AUDIENCE INTELLIGENCE SNAPSHOT**
+• **Cart abandoners** (added to cart, no purchase): **${summary.cartAbandoners.count}** customers
+• **Checkout abandoners** (started checkout, no purchase): **${summary.checkoutAbandoners.count}** customers
+• **Repeat viewers** (2+ views, no cart, no purchase): **${summary.repeatViewers.count}** customers
+• **Total tracked customers:** ${summary.totalTrackedCustomers}`);
+      Object.assign(data, summary);
+      insights.push('All counts are observed directly from shopi_customer_events — no estimates.');
+    }
+
+    parts.push(`
+💡 *Ask "which campaigns should I prepare" to see how Merchant AI converts these segments into profit-safe campaigns, or approve one from chat with "approve campaign <name> via email and whatsapp".*`);
+
+    return {
+      success: true,
+      message: parts.join('\n\n'),
+      intent: 'audience_intelligence_query',
+      period: periodLabel,
+      data,
+      insights,
+      recommendations: [
+        'Prepare campaigns: "which campaigns should I prepare"',
+        'Approve from chat: "approve campaign <name> via email and whatsapp"'
+      ],
+      sources: ['shopi_customer_events', 'shopi_orders', 'shopi_customers', 'Audience Intelligence Service']
+    };
+  }
+
+  /**
+   * Business Alerts Queries: "are there any alerts", "any warnings",
+   * "anything unusual". Surfaces the deterministic alerts engine's current
+   * operational alerts (stockout risk, low velocity, returns, etc.).
+   */
+  private async handleAlertsQuery(
+    query: string,
+    merchantId: string,
+    periodLabel: string
+  ): Promise<CopilotResponse> {
+    const alerts = await getBusinessAlerts();
+
+    let message: string;
+    if (!alerts || alerts.length === 0) {
+      message = `**🔔 BUSINESS ALERTS**
+
+✅ **No active alerts.** All monitored business signals — inventory levels, sales velocity, returns, and pricing — are currently within their safe operating ranges.`;
+    } else {
+      const bySeverity: Record<string, number> = { CRITICAL: 0, WARNING: 0, OPPORTUNITY: 0, INFO: 0 };
+      for (const a of alerts) {
+        if (bySeverity[a.severity] !== undefined) bySeverity[a.severity]++;
+      }
+      const lines = alerts.slice(0, 8).map(a =>
+        `• **[${a.severity}]** ${a.title} — ${a.description}\n  → Recommended: ${a.recommendedAction}`
+      );
+      message = `**🔔 BUSINESS ALERTS (${alerts.length} active)**
+
+${lines.join('\n')}${alerts.length > 8 ? `\n• …and ${alerts.length - 8} more` : ''}
+
+💡 *Ask "what should I restock" or "show me campaigns ready for review" to act on any of these.*`;
+    }
+
+    return {
+      success: true,
+      message,
+      intent: 'alerts_query',
+      period: periodLabel,
+      data: { alerts },
+      insights: alerts && alerts.length > 0
+        ? [`${alerts.length} operational alerts active (${alerts.filter(a => a.severity === 'CRITICAL' || a.severity === 'WARNING').length} critical/warning).`]
+        : ['No active operational alerts — all monitored signals within safe ranges.'],
+      recommendations: alerts && alerts.length > 0
+        ? ['Review each alert\'s recommended action.', 'Ask "what needs approval" for pending AI decisions.']
+        : ['Ask "give me the morning briefing" for the full status.'],
+      sources: ['Business Alerts Engine', 'PostgreSQL analytics tables']
+    };
+  }
+
+  /**
+   * WhatsApp channel queries: "is whatsapp connected", "can I send
+   * campaigns on whatsapp", "what channels can campaigns use". Reports the
+   * LIVE Evolution connection state and the Buildathon recipient rules.
+   */
+  private async handleWhatsAppChannelQuery(
+    query: string,
+    merchantId: string,
+    periodLabel: string
+  ): Promise<CopilotResponse> {
+    const runtime = whatsAppService.describeRuntime();
+    const sender = await whatsAppAllowlistService.getSenderConnectionState();
+
+    const message = `**💬 WHATSAPP CAMPAIGN CHANNEL**
+
+• **WhatsApp sender:** **${sender.isConnected ? '✅ CONNECTED' : '○ NOT CONNECTED'}** (Evolution state: ${sender.state})
+• **Sender instance:** \`${sender.instanceName}\`
+• **Send mode:** **${runtime.sendMode}** (DRY_RUN = simulated dispatch; LIVE requires explicit configuration)
+• **Delivery channels:** campaigns can go via **Email**, **WhatsApp**, or **both** — you choose per approval${sender.isConnected ? '' : '; WhatsApp dispatch stays simulated until a sender account is connected'}
+
+**🔒 Buildathon delivery rule:** WhatsApp messages only ever go to the approved recipient numbers; every other customer is skipped with a recorded reason. Email continues using the normal campaign audience rules.
+
+💡 *Say "approve campaign <name> via email and whatsapp" to approve with channels, or use the Delivery Channels toggles above the campaign queue.*`;
+
+    return {
+      success: true,
+      message,
+      intent: 'whatsapp_channel_query',
+      period: periodLabel,
+      data: { senderState: sender.state, isConnected: sender.isConnected, sendMode: runtime.sendMode },
+      insights: [
+        `WhatsApp sender is ${sender.isConnected ? 'connected' : 'not connected'}; send mode ${runtime.sendMode}.`
+      ],
+      recommendations: sender.isConnected
+        ? ['Approve a campaign with WhatsApp: "approve campaign <name> via whatsapp"']
+        : ['Connect the sender: WhatsApp Integration panel → Connect → scan the QR.'],
+      sources: ['Evolution API', 'WhatsApp Allowlist Service']
+    };
+  }
+
+  /**
+   * PAGE-CONTEXT BRIEFING: the merchant asks about the tab they are viewing
+   * ("explain this page", "what am I looking at", "summarize this"). The
+   * answer is built from THAT tab's live data, plus a bridge from the
+   * previously-viewed tab when the conversation already has one, so context
+   * carries across navigation.
+   */
+  private async handlePageContextQuery(
+    query: string,
+    history: CopilotConversationTurn[],
+    merchantId: string,
+    periodLabel: string,
+    activePage: string
+  ): Promise<CopilotResponse> {
+    const TABS: Record<string, string> = {
+      overview: 'Overview',
+      sales: 'Sales Analytics',
+      profitability: 'Profitability & Margin',
+      customers: 'Customers & Cohorts',
+      products: 'Products',
+      inventory: 'Inventory',
+      returns: 'Returns & Refunds',
+      actions: 'Actions & Outcomes'
+    };
+    const tabName = TABS[activePage] || 'Overview';
+
+    // Previously-viewed tab from conversation history (context retention).
+    const priorPages = history.map(t => t.page).filter(Boolean) as string[];
+    const lastOtherPage = [...priorPages].reverse().find(p => p !== activePage);
+
+    let sections: string[] = [];
+    let data: any = {};
+    const insights: string[] = [];
+    const recommendations: string[] = [];
+    const sources: string[] = [];
+
+    try {
+      if (activePage === 'overview') {
+        const [sales, health, audience] = await Promise.all([
+          executeCopilotTool('get_sales_overview', { period: 'last_30_days' }),
+          businessHealthScoreEngine.computeHealthScore(merchantId).catch(() => null),
+          audienceIntelligenceService.getSummary(merchantId).catch(() => null)
+        ]);
+        const mo = await executeCopilotTool('get_period_comparison', {}).catch(() => null);
+        const moPct = mo?.growth?.revenueChangePct ?? null;
+        sections.push(`**📋 THE OVERVIEW TAB — your executive business cockpit**`);
+        sections.push(`
+**What this page shows**
+• **KPI strip** — gross revenue, orders, AOV, refunds and units for the selected period${sales ? ` (right now: ₹${(sales.grossRevenue || 0).toLocaleString('en-IN')} revenue, ${sales.totalOrders || 0} orders, ₹${(sales.averageOrderValue || 0).toLocaleString('en-IN')} AOV)` : ''}
+• **AI Daily Briefing** — my narrative of what changed and what matters today
+• **Business Health Score** — one composite grade for the whole store${health ? ` (**${health.overallScore ?? '—'}/100 ${health.overallStatus || ''}**)` : ''}
+• **Audience Intelligence** — ${audience ? `${audience.cartAbandoners.count} cart abandoners · ${audience.checkoutAbandoners.count} checkout abandoners · ${audience.repeatViewers.count} repeat viewers` : 'cart/checkout abandonment and repeat-viewer counts'}
+• **Commercial Opportunities Matrix** — algorithmic signals of where money is being left on the table
+• **AI Priority Inbox + Staged Campaigns** — the decisions awaiting your approval
+${mo ? `\n**Trend context:** ${typeof (mo?.growth?.revenueChangePct ?? mo?.revenueChangePct) === 'number' ? `revenue ${(mo?.growth?.revenueChangePct ?? mo?.revenueChangePct) >= 0 ? 'grew' : 'declined'} ${Math.abs(mo?.growth?.revenueChangePct ?? mo?.revenueChangePct)}% vs the previous 30 days.` : ''}` : ''}`);
+        Object.assign(data, { sales, health, audience });
+        insights.push('The Overview page is a summary layer — every number here is drillable from the other tabs.');
+        recommendations.push('Ask "what should I focus on today" for priorities', 'Ask "how are my sales this month" to drill into revenue');
+        sources.push('Sales ledger', 'Business Health Score engine', 'Audience Intelligence Service');
+      } else if (activePage === 'sales') {
+        const [sales, trends, top, cat] = await Promise.all([
+          executeCopilotTool('get_sales_overview', { period: 'last_30_days' }),
+          executeCopilotTool('get_sales_trends', { period: 'last_30_days' }).catch(() => null),
+          executeCopilotTool('get_top_products', { limit: 5, period: 'last_30_days' }).catch(() => null),
+          executeCopilotTool('get_category_performance', { period: 'last_30_days' }).catch(() => null)
+        ]);
+        const mo = await executeCopilotTool('get_period_comparison', {}).catch(() => null);
+        const moPct = mo?.growth?.revenueChangePct ?? null;
+        sections.push(`**📊 THE SALES ANALYTICS TAB — your revenue command center**`);
+        sections.push(`
+**What this page shows**
+• **Sales trend chart** — daily/weekly/monthly revenue velocity${trends ? ` (currently tracking ${(sales?.grossRevenue || 0).toLocaleString('en-IN')} in gross revenue)` : ''}
+• **Period comparison** — this period vs the previous one${moPct !== null ? `: **${moPct >= 0 ? '+' : ''}${moPct}%**` : ''}
+• **Top revenue drivers**${top && Array.isArray(top) ? ` — led by *${(top[0] as any)?.productName || (top[0] as any)?.title || 'top product'}*` : ''}
+• **Category performance mix**${cat ? ` — showing which categories carry the business` : ''}
+• **Order economics** — AOV ₹${(sales?.averageOrderValue || 0).toLocaleString('en-IN')}, ${sales?.unitsSold || 0} units, refunds ₹${(sales?.totalRefunds || 0).toLocaleString('en-IN')}
+${moPct !== null && moPct < 0 ? `\n**Reading it:** the comparison shows a decline — ask me "why did my sales change" and I will diagnose the drivers.` : `\n**Reading it:** growth is positive; ask me "which products contributed most" to see who is carrying it.`}`);
+        Object.assign(data, { sales, top, categories: cat, comparison: mo });
+        insights.push('Sales Analytics is the revenue lens; Profitability & Margin shows what that revenue actually earns you.');
+        recommendations.push('Ask "why did my sales change"', 'Ask "compare this month vs last month"');
+        sources.push('Sales ledger', 'Product analytics', 'Period comparison engine');
+      } else if (activePage === 'profitability') {
+        const [prof, policy] = await Promise.all([
+          profitabilityEngine.computeProfitabilityOverview(30, merchantId).catch(() => null),
+          executeCopilotTool('get_business_priorities', {}).catch(() => null)
+        ]);
+        sections.push(`**💰 THE PROFITABILITY & MARGIN TAB — your true-profit view**`);
+        sections.push(`
+**What this page shows**
+• **Contribution margin intelligence** — revenue minus COGS, discounts, refunds, shipping${prof ? `: net revenue ₹${(prof.totalNetRevenue || 0).toLocaleString('en-IN')}, COGS ₹${(prof.totalEstimatedCogs || 0).toLocaleString('en-IN')}, contribution margin ${prof.overallContributionMarginPct ?? '—'}%` : ''}
+• **Margin floor protection** — every AI discount proposal is validated against the 15% minimum contribution floor
+• **Profitable vs unprofitable products** — which SKUs actually make money
+${prof ? `\n**Reading it:** the point of this tab is that revenue ≠ profit. Discount campaigns are safe only when the post-discount margin stays above your floor.` : ''}`);
+        Object.assign(data, { profitability: prof });
+        insights.push('Margin safety is enforced in every campaign the AI stages — no offer reaches approval below the floor.');
+        recommendations.push('Ask "how much discount can I safely give"', 'Ask "which products are losing money"');
+        sources.push('Product COGS ledger', 'Financial policy engine');
+      } else if (activePage === 'customers') {
+        const [segments, high, dormant, audience] = await Promise.all([
+          executeCopilotTool('get_customer_segments', {}).catch(() => null),
+          executeCopilotTool('get_high_intent_customers', {}).catch(() => null),
+          executeCopilotTool('get_dormant_customers', {}).catch(() => null),
+          audienceIntelligenceService.getSummary(merchantId).catch(() => null)
+        ]);
+        sections.push(`**👥 THE CUSTOMERS & COHORTS TAB — your audience intelligence**`);
+        sections.push(`
+**What this page shows**
+• **RFM segment breakdown** — VIP, repeat, dormant, one-time cohorts${segments ? ` (${Array.isArray(segments) ? segments.length : 'multiple'} segments tracked)` : ''}
+• **High-intent & opportunity lists** — customers showing live buying signals
+• **Audience intelligence**${audience ? ` — **${audience.cartAbandoners.count} cart abandoners, ${audience.checkoutAbandoners.count} checkout abandoners, ${audience.repeatViewers.count} repeat viewers**` : ' (abandonment + repeat-viewer counts)'}
+${audience ? `\n**Reading it:** cart abandoners are your closest-to-purchase audience (CART_RECOVERY campaigns), checkout abandoners are highest-intent (CHECKOUT_RECOVERY), repeat viewers are interest-without-action (HIGH_INTENT_PRODUCT). Merchant AI converts each segment into profit-safe campaigns automatically.` : ''}`);
+        Object.assign(data, { segments, highIntent: high, dormant, audience });
+        insights.push('Every campaign in the Decision Center traces back to one of these audience segments.');
+        recommendations.push('Ask "who should I target today"', 'Ask "how many people added to cart but didn\'t purchase"');
+        sources.push('shopi_customers', 'shopi_customer_events', 'Audience Intelligence Service');
+      } else if (activePage === 'products') {
+        const [top, slow] = await Promise.all([
+          executeCopilotTool('get_top_products', { limit: 5, period: 'last_30_days' }).catch(() => null),
+          executeCopilotTool('get_slow_moving_products', { limit: 5 }).catch(() => null)
+        ]);
+        sections.push(`**🛍️ THE PRODUCTS TAB — your catalog performance**`);
+        sections.push(`
+**What this page shows**
+• **Full catalog** — ${top && slow ? 'your SKUs with price, stock, and sales context' : 'all SKUs with live stock and pricing'}
+• **Top performers**${top && Array.isArray(top) && top.length > 0 ? ` — led by *${(top[0] as any)?.productName || (top[0] as any)?.title}*` : ''}
+• **Slow movers**${slow && Array.isArray(slow) && slow.length > 0 ? ` — ${slow.length} SKUs with weak velocity; candidates for markdown or promotion` : ''}
+• **Search & filters** — find any SKU instantly for a demo question
+${top && slow ? `\n**Reading it:** the healthy pattern is a few strong sellers carrying revenue while slow movers tie up capital. Merchant AI builds markdown/promotion recommendations for the laggards and upsell campaigns for the winners.` : ''}`);
+        Object.assign(data, { top, slow });
+        insights.push('Products feed every campaign: each recommendation names a specific SKU with its margin data.');
+        recommendations.push('Ask "show me my top products"', 'Ask "which product is my worst performer"');
+        sources.push('Product catalog', 'Sales ledger');
+      } else if (activePage === 'inventory') {
+        const [inv, alerts] = await Promise.all([
+          executeCopilotTool('get_inventory_status', { threshold: 100 }).catch(() => null),
+          getBusinessAlerts().catch(() => [])
+        ]);
+        sections.push(`**📦 THE INVENTORY TAB — your stock health**`);
+        sections.push(`
+**What this page shows**
+• **Stock levels across every SKU** with velocity context
+• **Low-stock and stockout-risk flags**${inv ? ` — currently ${Array.isArray(inv) ? inv.filter((i: any) => (i.stock ?? i.currentStock ?? 0) < 20).length : '—'} SKUs below the safety threshold` : ''}
+• **Operational alerts**${alerts && alerts.length > 0 ? ` — **${alerts.filter(a => a.category === 'INVENTORY').length} inventory alerts active**` : ' — none active'}
+${inv ? `\n**Reading it:** stock risk is where Merchant AI's operational actions come from — restock recommendations appear as approve/reject decisions on the Actions & Outcomes tab with expected revenue impact.` : ''}`);
+        Object.assign(data, { inventory: inv, alerts });
+        insights.push('Inventory risk connects directly to the Actions tab: restock actions carry expected-impact estimates.');
+        recommendations.push('Ask "what should I restock"', 'Ask "which products are low on stock"');
+        sources.push('Product catalog stock', 'Business alerts engine');
+      } else if (activePage === 'returns') {
+        const [ret] = await Promise.all([
+          executeCopilotTool('get_return_metrics', {}).catch(() => null)
+        ]);
+        sections.push(`**↩️ THE RETURNS & REFUNDS TAB — your refund health**`);
+        sections.push(`
+**What this page shows**
+• **Return & cancellation analytics**${ret ? ` — overall return rate ${ret.returnRatePct ?? ret.returnRate ?? '—'}%` : ''}
+• **Return reasons breakdown** — sizing, quality, changed-mind
+• **Refund cost to revenue** — what returns are costing you
+${ret ? `\n**Reading it:** high return rates concentrate in specific SKUs — the alerts engine flags them ("High Return Rate Alert") and Merchant AI recommends investigating size charts or pricing.` : ''}`);
+        Object.assign(data, { returns: ret });
+        insights.push('Returns are a silent margin killer — they are counted in the profitability tab\'s net revenue.');
+        recommendations.push('Ask "which product has the highest return rate"', 'Ask "why is my return rate high"');
+        sources.push('Returns analytics engine');
+      } else if (activePage === 'actions') {
+        const [campaigns, pending] = await Promise.all([
+          campaignIntelligenceService.generateCampaignProposals(merchantId).catch(() => []),
+          executeCopilotTool('get_business_priorities', {}).catch(() => null)
+        ]);
+        const ready = campaigns.filter(c => c.status === 'READY_FOR_REVIEW').length;
+        sections.push(`**⚡ THE ACTIONS & OUTCOMES TAB — your AI decision center**`);
+        sections.push(`
+**What this page shows**
+• **Delivery Channels + WhatsApp Integration** — choose Email/WhatsApp per campaign; connect the WhatsApp sender via QR
+• **Campaign proposals queue** — **${ready} profit-safe campaigns staged** for your review${campaigns[0] ? ` (top: *${(campaigns[0] as any).title}*)` : ''}
+• **Operational actions** — restock/discount recommendations with human-in-the-loop approval
+• **Decision ledger** — immutable audit of everything approved, rejected, executed, rolled back
+• **Per-channel delivery results** — email and WhatsApp tracked independently
+
+**Reading it:** nothing here executes without your approval. Approve via the buttons, or conversationally — say "approve campaign <name> via email and whatsapp" and I will stage it with your channel choice recorded in the audit trail.`);
+        Object.assign(data, { readyCampaigns: ready, sample: campaigns[0] });
+        insights.push('This tab is the human-in-the-loop heart of Merchant AI: the AI proposes, you decide.');
+        recommendations.push('Ask "tell me about the VIP retention campaign"', 'Say "approve campaign <name> via email and whatsapp"');
+        sources.push('Campaign Intelligence Service', 'Action audit ledger');
+      } else {
+        sections.push(`**📄 ${tabName}**\n\nI have context for this page. Ask me anything about it, or any business question.`);
+      }
+
+      // Cross-tab context bridge: mention where the conversation came from.
+      if (lastOtherPage && TABS[lastOtherPage]) {
+        sections.push(`
+🔗 *Context note: we were just discussing the **${TABS[lastOtherPage]}** tab — carry that over: ask "compare this with the ${TABS[lastOtherPage]} numbers" and I will connect both views.*`);
+      }
+
+      const message = sections.join('\n');
+      return {
+        success: true,
+        message,
+        intent: 'page_context_query',
+        period: periodLabel,
+        data,
+        insights,
+        recommendations,
+        sources: sources.length > 0 ? sources : ['Merchant dashboard context']
+      };
+    } catch (err: any) {
+      return {
+        success: false,
+        message: `I understand you're on the **${tabName}** tab, but I hit a data error building its summary: ${err.message}`,
+        intent: 'page_context_query',
+        period: periodLabel,
+        data: null,
+        insights: [],
+        recommendations: ['Try asking a specific question instead, e.g. "how are my sales this month".'],
+        sources: []
+      };
+    }
+  }
+
+  private handleCapabilityQuery(
+    query: string,
+    periodLabel: string
+  ): CopilotResponse {
+    const message = `**👋 I'm your Merchant AI Copilot.** I answer everything on this dashboard from live PostgreSQL data — never invented numbers.
+
+**📊 Sales & Business**
+• "how are my sales this month" · "why did my sales change" · "compare this month vs last month" · "how profitable am I" · "what is my business health score" · "are there any alerts" · "morning briefing"
+
+**🛍️ Products & Inventory**
+• "top products" · "worst performers" · "which categories perform best" · "what should I restock" · "low stock products"
+
+**👥 Customers & Audience**
+• "who should I target today" · "VIP / dormant / repeat-buyer customers" · "how many people added to cart but didn't purchase" · "how many viewed again and again but never bought" · "checkout abandoners"
+
+**📢 Campaigns (full detail on any campaign)**
+• "which campaigns should I prepare" · **"tell me about <campaign name>"** — audience, offer, margin safety, why targeted, message preview
+• **"approve campaign <name> via email and whatsapp"** — conversational approval with channel selection
+
+**🛡️ Offers & Margin Safety**
+• "how much discount can I safely give" · "will this violate my margin floor" · "what is my margin policy"
+
+**⚙️ WhatsApp channel**
+• "is whatsapp connected" · "can I send campaigns on whatsapp"`;
+
+    return {
+      success: true,
+      message,
+      intent: 'capability_query',
+      period: periodLabel,
+      data: null,
+      insights: ['Ask in plain language — I match your question to the right dashboard data.'],
+      recommendations: ['Try: "tell me about the VIP retention campaign"', 'Try: "how many people abandoned their carts"'],
+      sources: []
     };
   }
 }

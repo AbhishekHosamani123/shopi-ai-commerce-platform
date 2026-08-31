@@ -205,7 +205,7 @@ const ProductPage = () => {
         const activeImg = selectedImage.imgLink || dataVar.current.imglink;
 
         dispatch(setActiveProductContext({
-          sku: String(dataVar.current.sku || dataVar.current.productid),
+          sku: String((dataVar.current as any).sku || dataVar.current.productid),
           title: dataVar.current.title,
           price: dataVar.current.selling_price || parseInt(dataVar.current.discountedprice || '0'),
           mrp: dataVar.current.mrp || parseInt(dataVar.current.price || '0'),

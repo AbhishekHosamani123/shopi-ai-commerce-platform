@@ -6,7 +6,10 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch index.ts",
-    "start": "tsx index.ts"
+    "start": "tsx index.ts",
+    "build:render": "python3 -m pip install --user Pillow 2>/dev/null || pip3 install --user Pillow 2>/dev/null || echo \"[banner] Pillow unavailable \u2014 email banners will be omitted, emails unaffected\"; npm install",
+    "start:render": "tsx index.ts",
+    "start:prod": "tsx index.ts"
   },
   "keywords": [],
   "author": "",

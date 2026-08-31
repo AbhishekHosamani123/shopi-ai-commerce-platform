@@ -1,4 +1,6 @@
 import { client } from '../data/DB';
+import { bannerGeneratorService } from '../banner-generator/banner-generator-service';
+import type { InlineEmailAttachment } from './communication-types';
 import { campaignBuilderService } from '../merchant-campaigns/campaign-builder-service';
 import { CampaignDraft, EmailDraft } from '../merchant-campaigns/campaign-types';
 import {
@@ -449,11 +451,53 @@ export class CampaignExecutionService {
       const isPercentageOffer = campaign.offer.offerType === 'PERCENTAGE_DISCOUNT';
       const engineDisplayText = campaign.offer.description
         || (isPercentageOffer ? `${campaign.offer.discountValue}% OFF` : `₹${campaign.offer.discountValue} OFF`);
+
+      // ===== Personalized promotional banner (CID-embedded) =====
+      // Generated per recipient from the SAME approved values the HTML body
+      // renders (customerName + campaign.offer.discountValue). The generator
+      // contains no discount logic; its output is validated against the offer
+      // before the send. On failure the email still goes out — without the
+      // banner rather than with a broken image. Percentage offers only: a
+      // fixed-amount offer has no "<N>% OFF" visual to render.
+      let bannerCid: string | null = null;
+      let bannerAttachment: InlineEmailAttachment | undefined;
+      let bannerAudit: Record<string, unknown> | undefined;
+      if (channel === 'EMAIL' && isPercentageOffer) {
+        const banner = await bannerGeneratorService.generateCampaignBanner(
+          customerName,
+          campaign.offer.discountValue,
+          engineDisplayText
+        );
+        if (banner.ok && banner.cid && banner.content) {
+          bannerCid = banner.cid;
+          bannerAttachment = {
+            cid: banner.cid,
+            filename: banner.filename,
+            contentType: 'image/png',
+            content: banner.content
+          };
+          bannerAudit = {
+            generated: true,
+            fromCache: banner.fromCache,
+            cid: banner.cid,
+            file: banner.filename,
+            sha256_16: banner.sha256_16,
+            renderedGreeting: banner.renderedGreeting,
+            baseDiscountPercent: banner.baseDiscountPercent,
+            approvedOfferText: engineDisplayText,
+            consistency: 'MATCH'
+          };
+        } else {
+          console.warn(`[banner] omitted for ${recipient.recipient} (generation failed): ${banner.error}`);
+          bannerAudit = { generated: false, reason: banner.error };
+        }
+      }
+
       const renderedEmail = renderCampaignEmail({
         merchantName: 'Shopi Store',
         brandName: 'SHOPI',
         brandSubtitle: 'COMMERCE INTELLIGENCE',
-        bannerImage: process.env.BANNER_IMG_URL || `${process.env.STOREFRONT_BASE_URL || 'http://localhost:3000'}/banner_img.png`,
+        bannerImage: bannerCid ? `cid:${bannerCid}` : null,
         recipientEmail: recipient.recipient,
         customerName,
         campaignType: campaign.campaignType,
@@ -502,7 +546,8 @@ export class CampaignExecutionService {
         templateVersion: 1,
         campaignVersion,
         idempotencyKey,
-        attribution
+        attribution,
+        inlineAttachments: bannerAttachment ? [bannerAttachment] : undefined
       };
 
       // ===== Channel-specific dispatch =====
@@ -579,6 +624,13 @@ export class CampaignExecutionService {
         campaignVersion,
         attribution
       };
+
+      // Attach the banner audit trail (rendered text + consistency verdict)
+      // to the persisted attribution JSON so every send records exactly what
+      // the banner displayed versus the approved offer.
+      if (bannerAudit && channel === 'EMAIL') {
+        (record.attribution as any).banner = bannerAudit;
+      }
 
       // Persist delivery audit log in PostgreSQL
       // merchant_campaign_messages.customer_id is an integer column (legacy schema):
@@ -921,6 +973,32 @@ export class CampaignExecutionService {
 
     const bannerImageUrl = process.env.BANNER_IMG_URL || `${storefrontBaseUrl}/banner_img.png`;
 
+    // Personalized CID banner for the controlled test send: same approved
+    // values the HTML body renders; omitted (never a broken URL) if the
+    // generator fails.
+    const controlledIsPercentage = (offerData.discountType || 'percentage').toLowerCase().startsWith('p');
+    let controlledBannerCid: string | null = null;
+    let controlledBannerAttachment: InlineEmailAttachment | undefined;
+    if (controlledIsPercentage) {
+      const banner = await bannerGeneratorService.generateCampaignBanner(
+        customerName,
+        parseFloat(offerData.offerValue || '5'),
+        offerData.offerText || `${parseFloat(offerData.offerValue || '5')}% OFF`
+      );
+      if (banner.ok && banner.cid && banner.content) {
+        controlledBannerCid = banner.cid;
+        controlledBannerAttachment = {
+          cid: banner.cid,
+          filename: banner.filename,
+          contentType: 'image/png',
+          content: banner.content
+        };
+        console.log(`[banner] CID ${banner.cid} attached (base ${banner.baseDiscountPercent}% OFF, ${banner.fromCache ? 'cache' : 'fresh'})`);
+      } else {
+        console.warn(`[banner] omitted for controlled send (${banner.error})`);
+      }
+    }
+
     // Urgency is derived from the campaign's actual expiry, never hardcoded.
     const hoursLeft = row.expires_at
       ? Math.max(1, Math.round((new Date(row.expires_at).getTime() - Date.now()) / 3600000))
@@ -944,7 +1022,7 @@ export class CampaignExecutionService {
       merchantName: 'Shopi Store',
       brandName: 'SHOPI',
       brandSubtitle: 'COMMERCE INTELLIGENCE',
-      bannerImage: bannerImageUrl,
+      bannerImage: controlledBannerCid ? `cid:${controlledBannerCid}` : null,
       recipientEmail: targetRecipient,
       customerName,
       campaignType: row.campaign_type || 'CART_RECOVERY',
@@ -1000,6 +1078,7 @@ export class CampaignExecutionService {
       templateVersion: 1,
       campaignVersion: execVersion,
       idempotencyKey,
+      inlineAttachments: controlledBannerAttachment ? [controlledBannerAttachment] : undefined,
       attribution: {
         campaignId,
         customerId: parseInt(custId.replace(/\D/g, ''), 10) || 1,

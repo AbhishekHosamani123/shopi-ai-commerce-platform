@@ -8,6 +8,8 @@ import { CopilotDrawer } from '../../../components/Merchant/v2/CopilotDrawer';
 interface CustomerSummary {
   totalRegisteredCustomers: number;
   totalActiveBuyers: number;
+  totalLifetimeBuyers?: number;
+  lifetimeRepeatCustomerRatePct?: number;
   repeatBuyersCount: number;
   oneTimeBuyersCount: number;
   repeatCustomerRatePct: number;

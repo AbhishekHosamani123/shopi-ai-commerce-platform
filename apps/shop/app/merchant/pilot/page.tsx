@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-const API_BASE = "http://localhost:3500/api/merchant";
+// Browser-side page: route through the Next merchant proxy (/api/merchant/*)
+// which holds BACKEND_URL server-side. Never a direct backend origin here.
+const API_BASE = "/api/merchant";
 const API_SECRET = "razorpay_ai_commerce_shared_secret_2026";
 
 interface PilotSession {

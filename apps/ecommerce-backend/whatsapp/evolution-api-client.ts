@@ -28,7 +28,7 @@ export class EvolutionApiClient {
   }
 
   private async call<T>(
-    method: 'get' | 'post',
+    method: 'get' | 'post' | 'delete',
     path: string,
     body?: unknown,
     timeoutMs = 10000
@@ -84,6 +84,14 @@ export class EvolutionApiClient {
    */
   async connectInstance(instanceName: string): Promise<EvolutionCallResult<any>> {
     return this.call<any>('get', `/instance/connect/${encodeURIComponent(instanceName)}`, undefined, 25000);
+  }
+
+  /**
+   * Logs the connected WhatsApp session out. DELETE /instance/logout/:instanceName
+   * Clears the paired session; the instance needs a fresh QR scan to reconnect.
+   */
+  async logoutInstance(instanceName: string): Promise<EvolutionCallResult<any>> {
+    return this.call<any>('delete', `/instance/logout/${encodeURIComponent(instanceName)}`, undefined, 20000);
   }
 
   /**

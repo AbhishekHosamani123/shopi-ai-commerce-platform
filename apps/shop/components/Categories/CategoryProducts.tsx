@@ -97,7 +97,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Quickview open={open} setOpen={setOpen} product={productData} />
+      <Quickview open={open} setOpen={setOpen} product={productData as any} />
 
       {/* Badges */}
       {discountPct > 0 && (

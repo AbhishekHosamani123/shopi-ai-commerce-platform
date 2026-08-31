@@ -82,6 +82,15 @@ export interface AttributionIdentifiers {
   utmCampaign: string;
 }
 
+/** Email inline (CID) attachment — the image travels inside the MIME message. */
+export interface InlineEmailAttachment {
+  /** Content-ID without angle brackets, e.g. "banner-3f9a2b1c" */
+  cid: string;
+  filename: string;
+  contentType: string;
+  content: Buffer;
+}
+
 export interface OutboundMessagePayload {
   messageId: string;
   merchantId: string;
@@ -101,6 +110,8 @@ export interface OutboundMessagePayload {
   idempotencyKey: string;
   attribution: AttributionIdentifiers;
   metadata?: Record<string, any>;
+  /** Optional CID-embedded images for email clients (banner etc.). */
+  inlineAttachments?: InlineEmailAttachment[];
 }
 
 export interface ProviderSendResult {

@@ -407,7 +407,7 @@ export function CampaignDetailModal({
               <div className="space-y-1.5 mt-2">
                 <div className="text-[10px] font-medium text-ink-subtle uppercase tracking-wider">Audience Member Registry:</div>
                 <div className="max-h-32 overflow-y-auto space-y-1 pr-1 font-mono text-[11px]">
-                  {campaign.targetAudience.slice(0, 10).map((m: any, idx: number) => (
+                  {((campaign as any).targetAudience || []).slice(0, 10).map((m: any, idx: number) => (
                     <div key={idx} className="flex items-center justify-between p-1.5 bg-surface-1 rounded border border-hairline text-[10px]">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-ink">{m.customerName || `Customer #${m.customerId}`}</span>

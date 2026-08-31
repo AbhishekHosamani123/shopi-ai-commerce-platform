@@ -121,6 +121,22 @@ export class GmailEmailProvider implements CommunicationProvider {
         subject: message.subject || 'Special offer from your favorite store',
         text: message.textBody,
         html: message.htmlBody || `<p>${message.textBody}</p>`,
+        // Inline CID images travel with the MIME message itself — Gmail/Outlook
+        // display them without any external fetch (no localhost URLs, which a
+        // real recipient could never load). Omitted entirely for emails built
+        // without inline assets, keeping legacy behavior unchanged.
+        ...(message.inlineAttachments && message.inlineAttachments.length > 0
+          ? {
+              attachments: message.inlineAttachments.map((att) => ({
+                filename: att.filename,
+                content: att.content,
+                contentType: att.contentType,
+                cid: att.cid,
+                contentDisposition: 'inline',
+                encoding: 'binary' as const
+              }))
+            }
+          : {}),
         headers: {
           'X-Campaign-ID': message.campaignId,
           'X-Customer-ID': String(message.customerId),

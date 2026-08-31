@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { PageHeader } from '../../components/Merchant/v2/PageHeader';
 import { AnalyticalChartCard } from '../../components/Merchant/v2/AnalyticalChartCard';
+import { AudienceIntelligencePanel } from '../../components/Merchant/v2/AudienceIntelligencePanel';
 import { TrustBadge } from '../../components/Merchant/v2/TrustBadge';
 import { ActionDetailDrawer, ActionDetailItem } from '../../components/Merchant/v2/ActionDetailDrawer';
 import { CampaignDetailModal, CampaignModalData } from '../../components/Merchant/v2/CampaignDetailModal';
@@ -489,6 +490,9 @@ export default function MerchantOverviewPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left 2 Cols: Sales Velocity Chart & Customer Opportunities */}
         <div className="lg:col-span-2 space-y-6">
+          {/* Audience Intelligence: cart abandoners, checkout abandoners, repeat viewers */}
+          <AudienceIntelligencePanel />
+
           <AnalyticalChartCard
             data={chartData}
             interval={salesInterval}
@@ -496,7 +500,7 @@ export default function MerchantOverviewPage() {
             loading={isFetching}
             currentTotal={overviewMetrics.grossRevenue}
             prevTotal={overviewMetrics.previousPeriodGrossRevenue}
-            growthPct={overviewMetrics.revenueDeltaPct}
+            growthPct={overviewMetrics.revenueDeltaPct ?? undefined}
             periodLabel={comparisonLabel}
           />
 

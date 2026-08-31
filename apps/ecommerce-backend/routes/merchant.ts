@@ -66,6 +66,7 @@ import { campaignBuilderService } from '../merchant-campaigns/campaign-builder-s
 import { canonicalMetricsService } from '../merchant-metrics/canonical-metrics-service.ts';
 import { profitSafeOfferService } from '../merchant-offer-intelligence/profit-safe-offer-service';
 import { campaignIntelligenceService } from '../merchant-campaigns/campaign-intelligence-service';
+import { audienceIntelligenceService } from '../merchant-audience-intelligence';
 import {
   campaignExecutionService,
   communicationEligibilityService,
@@ -1139,6 +1140,29 @@ router.post('/whatsapp/connect', async (req: Request, res: Response) => {
 });
 
 /**
+ * POST /api/merchant/whatsapp/disconnect
+ * Logs the connected WhatsApp sender session out via Evolution API. The
+ * instance stays configured but requires a fresh QR scan to reconnect.
+ */
+router.post('/whatsapp/disconnect', async (req: Request, res: Response) => {
+  try {
+    const result = await whatsAppService.disconnectSender();
+    if (!result.success) {
+      return res.status(400).json({ success: false, error: result.error, state: result.state });
+    }
+    return res.json({
+      success: true,
+      instanceName: result.instanceName,
+      state: result.state,
+      message: 'WhatsApp sender disconnected. Use Connect to pair a new account via QR.'
+    });
+  } catch (error: any) {
+    console.error('WhatsApp disconnect error:', error);
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+  }
+});
+
+/**
  * POST /api/merchant/whatsapp/test-send
  * ONE controlled test message through the QR-connected sender. Recipients are
  * hard-restricted to the Buildathon allowlist (+918431406956, +916366475180);
@@ -1174,6 +1198,52 @@ router.post('/whatsapp/test-send', async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     console.error('WhatsApp test-send error:', error);
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+  }
+});
+
+/**
+ * GET /api/merchant/audience-intelligence/summary
+ * Observed audience segment counts: cart abandoners (added to cart, never
+ * purchased), checkout abandoners, and repeat viewers (2+ views, no cart,
+ * no purchase). Straight from the canonical event ledger — no estimates.
+ */
+router.get('/audience-intelligence/summary', async (req: Request, res: Response) => {
+  try {
+    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+    const summary = await audienceIntelligenceService.getSummary(merchantId);
+    return res.json({ success: true, ...summary });
+  } catch (error: any) {
+    console.error('Audience intelligence summary error:', error);
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+  }
+});
+
+/**
+ * GET /api/merchant/audience-intelligence/:segment
+ * Per-customer detail for a segment: cart-abandoners | checkout-abandoners | repeat-viewers
+ */
+router.get('/audience-intelligence/:segment', async (req: Request, res: Response) => {
+  try {
+    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+    const limit = Math.min(parseInt(req.query.limit as string, 10) || 20, 100);
+    let result;
+    switch (req.params.segment) {
+      case 'cart-abandoners':
+        result = await audienceIntelligenceService.getCartAbandoners(merchantId, limit);
+        break;
+      case 'checkout-abandoners':
+        result = await audienceIntelligenceService.getCheckoutAbandoners(merchantId, limit);
+        break;
+      case 'repeat-viewers':
+        result = await audienceIntelligenceService.getRepeatViewers(merchantId, 2, limit);
+        break;
+      default:
+        return res.status(400).json({ success: false, error: 'Unknown segment. Use cart-abandoners | checkout-abandoners | repeat-viewers' });
+    }
+    return res.json({ success: true, ...result });
+  } catch (error: any) {
+    console.error('Audience intelligence segment error:', error);
     return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
   }
 });
@@ -4059,7 +4129,7 @@ router.get('/ai/experiments/center', async (req: Request, res: Response) => {
  */
 router.post('/ai/chat', async (req: Request, res: Response) => {
   try {
-    const { message, history } = (req.body || {});
+    const { message, history, pageContext } = (req.body || {});
     const merchantId = (req.headers['x-merchant-id'] as string) || 'default_merchant';
     if (!message || typeof message !== 'string') {
       return res.status(400).json({
@@ -4068,7 +4138,15 @@ router.post('/ai/chat', async (req: Request, res: Response) => {
       });
     }
 
-    const response = await copilotEngine.processMessage(message, history || [], merchantId);
+    // pageContext: the dashboard tab the merchant is currently viewing, so
+    // the copilot understands what "this page" refers to and can answer with
+    // that tab's data.
+    const response = await copilotEngine.processMessage(
+      message,
+      history || [],
+      merchantId,
+      typeof pageContext === 'string' ? pageContext : undefined
+    );
     return res.json(response);
   } catch (error: any) {
     console.error('Merchant Copilot route error:', error);

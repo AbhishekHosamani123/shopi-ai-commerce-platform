@@ -331,7 +331,7 @@ export default function SalesAnalyticsPage() {
         loading={isFetching}
         currentTotal={salesKpis.grossRevenue}
         prevTotal={salesKpis.prevRevenue}
-        growthPct={salesKpis.revenueGrowthPct}
+        growthPct={salesKpis.revenueGrowthPct ?? undefined}
       />
 
       {/* 4. Category Revenue & Share Breakdown */}

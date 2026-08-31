@@ -104,7 +104,9 @@ router.post('/chat', async (req: Request, res: Response) => {
 
   try {
     const adapter = new RazorpayCommerceAdapter({
-      domain: 'localhost:3000',
+      // Public storefront host (scheme stripped) — env-driven so production
+      // emails/CTAs never carry localhost.
+      domain: (process.env.STOREFRONT_BASE_URL || 'http://localhost:3000').replace(/^https?:\/\//, ''),
       merchantName: 'Razorpay AI Commerce',
       defaultCurrency: 'INR',
     });
@@ -405,7 +407,7 @@ router.post('/chat', async (req: Request, res: Response) => {
             return t && (t.includes(qq) || qq.includes(t));
           });
           if (hit?.sku) targetSku = String(hit.sku);
-          else if ((search.products || []).length === 1) targetSku = String(search.products[0].sku || search.products[0].productId);
+          else if (((search.products as any[]) || []).length === 1) targetSku = String((search.products as any[])[0].sku || (search.products as any[])[0].productId);
         }
       }
 
