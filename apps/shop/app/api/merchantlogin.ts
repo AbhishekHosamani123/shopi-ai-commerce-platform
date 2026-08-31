@@ -33,7 +33,11 @@ export default async function merchantLoginHandler({
         secure: true,
         sameSite: 'lax',
         maxAge: 12 * 60 * 60, // 12h — matches backend merchant token expiry
-        path: '/merchant',
+        // Path must be '/' (not '/merchant') so the cookie is also sent on
+        // /api/merchant/* proxy requests — the dashboard's API calls live
+        // under /api, not /merchant, and a path-scoped cookie would be
+        // silently omitted, causing 401s on every dashboard fetch.
+        path: '/',
       });
     }
 
