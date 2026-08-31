@@ -170,6 +170,91 @@ CREATE TABLE IF NOT EXISTS reviews (
     username VARCHAR(100),
     createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS merchant_daily_metrics (
+    metric_date DATE PRIMARY KEY,
+    total_orders INTEGER NOT NULL DEFAULT 0,
+    total_units_sold INTEGER NOT NULL DEFAULT 0,
+    gross_revenue NUMERIC(14,2) NOT NULL DEFAULT 0.00,
+    total_discounts NUMERIC(14,2) NOT NULL DEFAULT 0.00,
+    total_refunds NUMERIC(14,2) NOT NULL DEFAULT 0.00,
+    net_revenue NUMERIC(14,2) NOT NULL DEFAULT 0.00,
+    total_cancellations INTEGER NOT NULL DEFAULT 0,
+    total_returns INTEGER NOT NULL DEFAULT 0,
+    average_order_value NUMERIC(12,2) NOT NULL DEFAULT 0.00,
+    source VARCHAR(64) DEFAULT 'merchant_ai_demo_seed',
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS merchant_product_daily_metrics (
+    metric_id SERIAL PRIMARY KEY,
+    metric_date DATE NOT NULL,
+    productid VARCHAR(100) NOT NULL,
+    units_sold INTEGER NOT NULL DEFAULT 0,
+    gross_revenue NUMERIC(14,2) NOT NULL DEFAULT 0.00,
+    orders_count INTEGER NOT NULL DEFAULT 0,
+    returns_count INTEGER NOT NULL DEFAULT 0,
+    refund_amount NUMERIC(12,2) NOT NULL DEFAULT 0.00,
+    closing_stock INTEGER NOT NULL DEFAULT 0,
+    sales_velocity_7d NUMERIC(8,2) NOT NULL DEFAULT 0.00,
+    source VARCHAR(64) DEFAULT 'merchant_ai_demo_seed',
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS inventory_movements (
+    movement_id SERIAL PRIMARY KEY,
+    productid VARCHAR(100) NOT NULL,
+    sizeid INTEGER,
+    movement_type VARCHAR(32) NOT NULL,
+    quantity INTEGER NOT NULL,
+    stock_before INTEGER NOT NULL,
+    stock_after INTEGER NOT NULL,
+    reference_type VARCHAR(32),
+    reference_id VARCHAR(64),
+    notes TEXT,
+    source VARCHAR(64) DEFAULT 'merchant_ai_demo_seed',
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS order_returns (
+    return_id SERIAL PRIMARY KEY,
+    orderid VARCHAR(100) NOT NULL,
+    orderitemid INTEGER,
+    productid VARCHAR(100) NOT NULL,
+    userid INTEGER,
+    quantity INTEGER NOT NULL DEFAULT 1,
+    return_reason VARCHAR(64) NOT NULL,
+    refund_amount NUMERIC(12,2) NOT NULL,
+    return_status VARCHAR(32) NOT NULL DEFAULT 'Completed',
+    is_restocked BOOLEAN NOT NULL DEFAULT TRUE,
+    source VARCHAR(64) DEFAULT 'merchant_ai_demo_seed',
+    createdat TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS order_cancellations (
+    cancellation_id SERIAL PRIMARY KEY,
+    orderid VARCHAR(100) NOT NULL,
+    userid INTEGER,
+    reason VARCHAR(128) NOT NULL,
+    refund_status VARCHAR(32) NOT NULL DEFAULT 'Refunded',
+    source VARCHAR(64) DEFAULT 'merchant_ai_demo_seed',
+    cancelled_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS merchant_campaigns (
+    campaign_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(64),
+    target_segment VARCHAR(64),
+    channel VARCHAR(32),
+    status VARCHAR(32) DEFAULT 'Draft',
+    budget NUMERIC(10,2) DEFAULT 0,
+    revenue_generated NUMERIC(10,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 `;
 
 const connectDB = async () => {
@@ -179,7 +264,7 @@ const connectDB = async () => {
     
     // Self-bootstrap core schema so tables like cartitems, users, etc. always exist
     await client.query(CORE_SCHEMA_SQL);
-    console.log('[DB Info] Core schema (cartitems, users, addresses, orders, etc.) initialized.');
+    console.log('[DB Info] Core schema & merchant intelligence tables initialized.');
 
     // Self-bootstrap Phase 11B commerce dataset (90 days of order analytics, COGS, customer cohorts, etc.)
     try {
