@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { randomInt } from 'crypto';
 import {googleAuth} from '../controller/auth-controller'
-import { signInSchema,signUpSchema,tokenSchema,googleAuthSchema, googleAuthSchemaNative } from '../validators/authenticationValidation';
+import { signInSchema,signUpSchema,tokenSchema,googleAuthSchema, googleAuthSchemaNative, merchantLoginSchema } from '../validators/authenticationValidation';
 import { matchedData, validationResult } from 'express-validator';
 const saltRounds = 10;
 const router = express.Router();
@@ -104,7 +104,7 @@ router.post('/user/signin/:remember',signInSchema, async (req: Request, res: Res
                 return res.status(401).json({ error: 'Incorrect password' });
             }
             const userData = {
-                userName:user.username,userID: user.userid, email: user.email, mobile_number: user.mobile_number, dob: user.dob
+                userName:user.username,userID: user.userid, email: user.email, mobile_number: user.mobile_number, dob: user.dob, role: user.role || 'customer'
             }
             if(remember != 'false'){
                 const token = jwt.sign(
@@ -154,9 +154,10 @@ router.post('/user/session-check',tokenSchema, async (req: Request, res: Respons
                 userID: user.userid,
                 email: user.email,
                 mobile_number: user.mobile_number,
-                dob: user.dob
+                dob: user.dob,
+                role: user.role || 'customer'
             };
-    
+
             res.status(200).json({ message: 'Sign-in successful', userData });
         } catch (error) {
             res.status(500).json({ message: 'Internal Server Error' });
@@ -166,6 +167,53 @@ router.post('/user/session-check',tokenSchema, async (req: Request, res: Respons
             res.status(400).json({ message: 'Validation error' });
         }
     
+});
+router.post('/user/merchant-login',merchantLoginSchema, async (req: Request, res: Response) => {
+    const result = validationResult(req);
+    if(!result.isEmpty()){
+        return res.status(400).json({ message: 'Validation error' });
+    }
+    const { identifier, password } = matchedData(req);
+    try {
+        // Accept either the merchant username or email in a single field.
+        const query = `
+            SELECT * FROM "${userTable}" WHERE email = $1 OR LOWER(username) = LOWER($1) LIMIT 1;
+        `;
+        const dbResult = await client.query(query, [identifier]);
+        const user = dbResult.rows[0];
+
+        // Uniform error for unknown account AND wrong password: never reveal
+        // which half failed (prevents user enumeration).
+        const invalid = () => res.status(401).json({ error: 'Invalid credentials' });
+        if (!user) return invalid();
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) return invalid();
+
+        // Role gate: only merchant/admin accounts may hold a merchant session.
+        const role = (user.role || 'customer').toLowerCase();
+        if (role !== 'merchant_admin' && role !== 'admin' && role !== 'merchant') {
+            return res.status(403).json({ error: 'This account does not have merchant access' });
+        }
+
+        const token = jwt.sign(
+            { userID: user.userid, role },
+            JWT_SECRET,
+            { expiresIn: '12h' } // merchant sessions expire same-day; customers keep 7d
+        );
+        return res.status(200).json({
+            message: 'Merchant sign-in successful',
+            token,
+            userData: {
+                userName: user.username,
+                userID: user.userid,
+                email: user.email,
+                role
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({ error: 'Server error' });
+    }
 });
 router.post('/auth/google',googleAuthSchema,async (req:Request,res:Response)=>{
     const result = validationResult(req);

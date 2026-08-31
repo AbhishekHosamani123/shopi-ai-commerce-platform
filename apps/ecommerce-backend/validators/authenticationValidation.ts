@@ -108,4 +108,22 @@ const googleAuthSchemaNative = checkSchema({
         matches: { options: /[@]/ },
     }
 },['body']);
-export {signInSchema, signUpSchema, tokenSchema, googleAuthSchema, googleAuthSchemaNative}
+const merchantLoginSchema = checkSchema({
+    identifier: {
+        errorMessage: 'Merchant username or email must be provided',
+        isString: true,
+        notEmpty: { bail: true },
+        isLength: { options: { min: 3, max: 128 } },
+        escape: true,
+        trim: true
+    },
+    password: {
+        errorMessage: 'The password must be at least 8 characters',
+        isString: true,
+        notEmpty: { bail: true },
+        isLength: { options: { min: 8, max: 32 } },
+        escape: true,
+        trim: true
+    }
+},['body']);
+export {signInSchema, signUpSchema, tokenSchema, googleAuthSchema, googleAuthSchemaNative, merchantLoginSchema}

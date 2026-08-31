@@ -11,6 +11,7 @@ import { CampaignDetailModal, CampaignModalData } from '../../components/Merchan
 import { normalizeCampaignForModal } from '../../components/Merchant/v2/normalizeCampaign';
 import { CopilotDrawer } from '../../components/Merchant/v2/CopilotDrawer';
 import { formatSignPercentage, getGrowthColorClass } from '../../components/Merchant/v2/formatters';
+import { SkeletonBlock, SkeletonCard } from '../../components/Merchant/v2/SkeletonBlock';
 
 interface ActionRecord extends ActionDetailItem {}
 
@@ -19,6 +20,7 @@ export default function MerchantOverviewPage() {
   const [comparisonMode, setComparisonMode] = useState<string>('previous_period');
   const [salesInterval, setSalesInterval] = useState<'daily' | 'weekly' | 'monthly'>('daily');
   const [isFetching, setIsFetching] = useState<boolean>(true);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false); // true after first successful fetch
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [isCopilotOpen, setIsCopilotOpen] = useState<boolean>(false);
   const [selectedActionForDrawer, setSelectedActionForDrawer] = useState<ActionRecord | null>(null);
@@ -94,6 +96,7 @@ export default function MerchantOverviewPage() {
       });
       const data = await res.json();
       if (res.ok && data.success) {
+        setHasLoaded(true);
         if (data.kpis) {
           setOverviewMetrics({
             grossRevenue: data.kpis.grossRevenue ?? 0,
@@ -215,8 +218,7 @@ export default function MerchantOverviewPage() {
   };
 
   // Group Opportunities by Strategic Categories
-  const categorizedOpportunities = useMemo(() => {
-    const highIntent = opportunities.filter(o => o.type === 'HIGH_INTENT_CUSTOMERS');
+  const categorizedOpportunities = useMemo(() => {    const highIntent = opportunities.filter(o => o.type === 'HIGH_INTENT_CUSTOMERS');
     const cart = opportunities.filter(o => o.type === 'CART_ABANDONMENT');
     const checkout = opportunities.filter(o => o.type === 'CHECKOUT_ABANDONMENT');
     const repeat = opportunities.filter(o => o.type === 'REPEAT_CUSTOMER_RETENTION');
@@ -224,6 +226,10 @@ export default function MerchantOverviewPage() {
     const stockout = opportunities.filter(o => o.type === 'STOCKOUT_RISK' || o.type === 'HIGH_DEMAND_LOW_STOCK');
     return { highIntent, cart, checkout, repeat, dormant, stockout };
   }, [opportunities]);
+
+  // First meaningful paint guard: until the first fetch completes we show
+  // skeleton placeholders — NEVER a misleading ₹0.00 / 0 value.
+  const firstLoad = isFetching && !hasLoaded;
 
   return (
     <div className="space-y-6 font-sans text-ink">
@@ -303,67 +309,84 @@ export default function MerchantOverviewPage() {
               <TrustBadge tag="[OBSERVED]" formula="SUM(delivered_orders.totalamount)" />
             </div>
             <div className="flex items-baseline gap-3">
-              <div className="text-2xl sm:text-3xl font-semibold font-mono text-ink tracking-tight">
-                ₹{overviewMetrics.grossRevenue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </div>
-              <div className={`flex items-center gap-1 text-xs font-mono font-medium ${getGrowthColorClass(overviewMetrics.revenueDeltaPct)}`}>
-                <span>{formatSignPercentage(overviewMetrics.revenueDeltaPct, { includeArrow: true })}</span>
-                <span className="text-ink-tertiary font-normal">{comparisonLabel}</span>
-              </div>
+              {firstLoad ? (
+                <SkeletonBlock className="w-56" lines={2} />
+              ) : (
+                <>
+                  <div className="text-2xl sm:text-3xl font-semibold font-mono text-ink tracking-tight">
+                    ₹{overviewMetrics.grossRevenue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </div>
+                  <div className={`flex items-center gap-1 text-xs font-mono font-medium ${getGrowthColorClass(overviewMetrics.revenueDeltaPct)}`}>
+                    <span>{formatSignPercentage(overviewMetrics.revenueDeltaPct, { includeArrow: true })}</span>
+                    <span className="text-ink-tertiary font-normal">{comparisonLabel}</span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
           {/* Strategic Pillar KPI Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
-              <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
-                <span>Net Margin</span>
-                <TrustBadge tag="[CALCULATED]" />
-              </div>
-              <div className="text-sm font-bold font-mono text-ink mt-0.5">
-                {overviewMetrics.netMarginPct.toFixed(1)}%
-              </div>
-              <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.marginDeltaPct)}`}>
-                {formatSignPercentage(overviewMetrics.marginDeltaPct, { includeArrow: true })} pts
-              </div>
-            </div>
+            {firstLoad ? (
+              <>
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </>
+            ) : (
+              <>
+                <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
+                  <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
+                    <span>Net Margin</span>
+                    <TrustBadge tag="[CALCULATED]" />
+                  </div>
+                  <div className="text-sm font-bold font-mono text-ink mt-0.5">
+                    {overviewMetrics.netMarginPct.toFixed(1)}%
+                  </div>
+                  <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.marginDeltaPct)}`}>
+                    {formatSignPercentage(overviewMetrics.marginDeltaPct, { includeArrow: true })} pts
+                  </div>
+                </div>
 
-            <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
-              <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
-                <span>Total Orders</span>
-                <TrustBadge tag="[OBSERVED]" />
-              </div>
-              <div className="text-sm font-bold font-mono text-ink mt-0.5">
-                {overviewMetrics.totalOrders.toLocaleString()}
-              </div>
-              <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.ordersDeltaPct)}`}>
-                {formatSignPercentage(overviewMetrics.ordersDeltaPct, { includeArrow: true })} volume
-              </div>
-            </div>
+                <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
+                  <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
+                    <span>Total Orders</span>
+                    <TrustBadge tag="[OBSERVED]" />
+                  </div>
+                  <div className="text-sm font-bold font-mono text-ink mt-0.5">
+                    {overviewMetrics.totalOrders.toLocaleString()}
+                  </div>
+                  <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.ordersDeltaPct)}`}>
+                    {formatSignPercentage(overviewMetrics.ordersDeltaPct, { includeArrow: true })} volume
+                  </div>
+                </div>
 
-            <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
-              <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
-                <span>Average Order</span>
-                <TrustBadge tag="[CALCULATED]" />
-              </div>
-              <div className="text-sm font-bold font-mono text-ink mt-0.5">
-                ₹{overviewMetrics.aov.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-              </div>
-              <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.aovDeltaPct)}`}>
-                {formatSignPercentage(overviewMetrics.aovDeltaPct, { includeArrow: true })} basket
-              </div>
-            </div>
+                <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
+                  <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
+                    <span>Average Order</span>
+                    <TrustBadge tag="[CALCULATED]" />
+                  </div>
+                  <div className="text-sm font-bold font-mono text-ink mt-0.5">
+                    ₹{overviewMetrics.aov.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                  </div>
+                  <div className={`text-[10px] font-mono mt-0.5 ${getGrowthColorClass(overviewMetrics.aovDeltaPct)}`}>
+                    {formatSignPercentage(overviewMetrics.aovDeltaPct, { includeArrow: true })} basket
+                  </div>
+                </div>
 
-            <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
-              <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
-                <span>Trapped Capital</span>
-                <TrustBadge tag="[CALCULATED]" />
-              </div>
-              <div className="text-sm font-bold font-mono text-amber-400 mt-0.5">
-                ₹{(overviewMetrics.trappedCapital / 1000).toFixed(0)}k
-              </div>
-              <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">Stagnant Inventory</div>
-            </div>
+                <div className="p-2.5 bg-surface-2 rounded-md border border-hairline">
+                  <div className="flex items-center justify-between text-[10px] text-ink-subtle font-medium">
+                    <span>Trapped Capital</span>
+                    <TrustBadge tag="[CALCULATED]" />
+                  </div>
+                  <div className="text-sm font-bold font-mono text-amber-400 mt-0.5">
+                    ₹{(overviewMetrics.trappedCapital / 1000).toFixed(0)}k
+                  </div>
+                  <div className="text-[10px] text-amber-400/80 font-mono mt-0.5">Stagnant Inventory</div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -414,22 +437,28 @@ export default function MerchantOverviewPage() {
       <div className="bg-surface-1 border border-hairline rounded-lg p-5 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-hairline pb-3">
           <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold font-mono text-base">
-              {healthScore.overallScore}
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-xs font-semibold text-ink uppercase tracking-wider font-display">
-                  AI Business Health Index: {healthScore.overallStatus} ({healthScore.overallScore}/100)
-                </h3>
-                <TrustBadge tag="[CALCULATED]" formula="Weighted Sum across 8 operational domains (Revenue, Margin, Inventory, Customer, Operations, Marketing, Capital, Forecast)" />
-              </div>
-              <p className="text-[11px] text-ink-subtle">
-                Multidimensional health diagnostic evaluated across real store ledger data.
-              </p>
-            </div>
+            {firstLoad ? (
+              <SkeletonBlock className="w-64" lines={2} />
+            ) : (
+              <>
+                <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold font-mono text-base">
+                  {healthScore.overallScore}
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xs font-semibold text-ink uppercase tracking-wider font-display">
+                      AI Business Health Index: {healthScore.overallStatus} ({healthScore.overallScore}/100)
+                    </h3>
+                    <TrustBadge tag="[CALCULATED]" formula="Weighted Sum across 8 operational domains (Revenue, Margin, Inventory, Customer, Operations, Marketing, Capital, Forecast)" />
+                  </div>
+                  <p className="text-[11px] text-ink-subtle">
+                    Multidimensional health diagnostic evaluated across real store ledger data.
+                  </p>
+                </div>
+              </>
+            )}
           </div>
-          {healthScore.highestImpactIssue && (
+          {!firstLoad && healthScore.highestImpactIssue && (
             <div className="text-xs font-mono text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-md border border-amber-500/20 max-w-md">
               ⚡ Top Focus: {healthScore.highestImpactIssue.description}
             </div>
@@ -438,7 +467,10 @@ export default function MerchantOverviewPage() {
 
         {/* 8 Health Dimensions */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
-          {healthScore.dimensions?.map((dim) => (
+          {firstLoad ? (
+            Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
+          ) : (
+            healthScore.dimensions?.map((dim) => (
             <div key={dim.dimension} className="p-2.5 bg-surface-2 rounded-md border border-hairline space-y-1">
               <div className="flex items-center justify-between text-[10px] text-ink-subtle">
                 <span>{dim.name}</span>
@@ -460,7 +492,8 @@ export default function MerchantOverviewPage() {
               </div>
               <div className="text-[9px] font-mono text-ink-tertiary uppercase">{dim.status}</div>
             </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Diagnostic Negative Drivers & Explainability */}
@@ -510,7 +543,7 @@ export default function MerchantOverviewPage() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-linear-primary" />
                 <h3 className="text-xs font-semibold text-ink uppercase tracking-wider font-display">
-                  Commercial Opportunities Matrix ({opportunities.length} Algorithmic Signals)
+                  Commercial Opportunities Matrix ({firstLoad ? '…' : `${opportunities.length} Algorithmic Signals`})
                 </h3>
                 <TrustBadge tag="[OBSERVED]" />
               </div>
@@ -519,7 +552,12 @@ export default function MerchantOverviewPage() {
               </Link>
             </div>
 
-            {opportunities.length === 0 ? (
+            {firstLoad ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <SkeletonCard />
+                <SkeletonCard />
+              </div>
+            ) : opportunities.length === 0 ? (
               <div className="p-8 text-center text-xs text-ink-subtle bg-surface-2 rounded-md border border-hairline">
                 Zero active opportunities in current period. Telemetry continuously monitors customer behavior.
               </div>
@@ -580,7 +618,7 @@ export default function MerchantOverviewPage() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                 <h3 className="text-xs font-semibold text-ink uppercase tracking-[0.4px] font-display">
-                  Top Priority Actions ({pendingActions.length} for Review)
+                  Top Priority Actions ({firstLoad ? '…' : `${pendingActions.length} for Review`})
                 </h3>
                 <TrustBadge tag="[RECOMMENDATION]" />
               </div>
@@ -589,7 +627,12 @@ export default function MerchantOverviewPage() {
               </Link>
             </div>
 
-            {pendingActions.length === 0 ? (
+            {firstLoad ? (
+              <div className="space-y-3">
+                <SkeletonCard />
+                <SkeletonCard />
+              </div>
+            ) : pendingActions.length === 0 ? (
               <div className="p-6 text-center text-xs text-ink-subtle bg-surface-2 rounded-md border border-hairline">
                 Zero pending actions. All recommendations authorized or resolved.
               </div>
@@ -647,14 +690,19 @@ export default function MerchantOverviewPage() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-purple-400" />
                 <h3 className="text-xs font-semibold text-ink uppercase tracking-wider font-display">
-                  Staged Campaigns ({campaigns.length} Proposals)
+                  Staged Campaigns ({firstLoad ? '…' : `${campaigns.length} Proposals`})
                 </h3>
                 <TrustBadge tag="[RECOMMENDATION]" />
               </div>
               <span className="text-[10px] font-mono text-ink-subtle">15% Margin Guarded</span>
             </div>
 
-            {campaigns.length === 0 ? (
+            {firstLoad ? (
+              <div className="space-y-3">
+                <SkeletonCard />
+                <SkeletonCard />
+              </div>
+            ) : campaigns.length === 0 ? (
               <div className="p-6 text-center text-xs text-ink-subtle bg-surface-2 rounded-md border border-hairline">
                 Zero staged campaigns. Generate from opportunities above.
               </div>

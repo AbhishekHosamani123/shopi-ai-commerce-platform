@@ -43,6 +43,25 @@ async function loadLegacyOrderItems(orderIds: number[]): Promise<OrderEmailItem[
 }
 
 /**
+ * Resolves the active storefront URL prioritizing caller-provided URL,
+ * environment config (STOREFRONT_BASE_URL / FRONTEND_SERVER_ORIGIN),
+ * and the deployed Vercel domain.
+ */
+export function resolveStorefrontUrl(explicitUrl?: string): string {
+  if (explicitUrl && /^https?:\/\//i.test(explicitUrl.trim())) {
+    return explicitUrl.trim().replace(/\/+$/, '');
+  }
+  const envUrl = process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN;
+  if (envUrl) {
+    const firstOrigin = envUrl.split(',')[0].trim();
+    if (/^https?:\/\//i.test(firstOrigin)) {
+      return firstOrigin.replace(/\/+$/, '');
+    }
+  }
+  return 'https://shopi-ai-commerce-platform-shop-two.vercel.app';
+}
+
+/**
  * Builds and sends the confirmation email for one or more legacy orders.
  * Call AFTER the transaction commits so the order rows exist.
  */
@@ -107,6 +126,7 @@ export async function dispatchOrderConfirmationEmail(
       shippingCharge: parseFloat(first.shippingcost || 0) || 0,
       trackingNumber: first.trackingnumber || `IN-${orderIds[0]}`,
       shippingMethod: first.shippingmethod || undefined,
+      storefrontUrl: resolveStorefrontUrl(extra?.storefrontUrl),
       address: a ? {
         fullName: a.username,
         line1: a.addressline1,

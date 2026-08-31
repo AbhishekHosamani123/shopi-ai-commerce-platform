@@ -17,6 +17,7 @@ import { authRateLimiterMiddleware } from './middleware/rateLimit';
 const router = express.Router();
 router.use('/user/signup', authRateLimiterMiddleware);
 router.use('/user/signin', authRateLimiterMiddleware);
+router.use('/user/merchant-login', authRateLimiterMiddleware);
 router.use('/user/send-forgot-otp', authRateLimiterMiddleware);
 router.use('/user/reset-password', authRateLimiterMiddleware);
 router.use('/auth/google', authRateLimiterMiddleware);

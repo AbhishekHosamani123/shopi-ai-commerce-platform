@@ -35,6 +35,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
 // Public health check endpoint — also the Render wake-up target.
+// Deliberately touches NOTHING heavy: no DB round trip, no engine computation.
+// It exists so the frontend can wake a sleeping Render service with a request
+// that completes in milliseconds even while the DB pool is still connecting.
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'ok', service: 'Razorpay AI Commerce Target API', timestamp: new Date().toISOString() });
 });
@@ -64,6 +67,23 @@ const startServer = async () => {
   }).catch((err: any) => {
     console.warn('[Cache Warm Warning]:', err.message);
   });
+
+  // Pre-warm the merchant executive overview so the FIRST dashboard request
+  // after a cold start doesn't pay the full engine computation (~2s). Runs in
+  // the background — startup is never blocked on it.
+  setTimeout(async () => {
+    try {
+      const { default: axios } = await import('axios');
+      const port0 = parseInt(process.env.PORT || '3500', 10);
+      await axios.get(`http://127.0.0.1:${port0}/api/merchant/overview?period=last_30_days`, {
+        headers: { 'x-api-secret': process.env.API_SECRET || '' },
+        timeout: 120000
+      });
+      console.log('[Cache Warm] Merchant overview pre-warmed.');
+    } catch (err: any) {
+      console.warn('[Cache Warm] Merchant overview pre-warm skipped:', err.message);
+    }
+  }, 3000);
 
   // Bind 0.0.0.0 so the container is reachable on Render.
   app.listen(port, '0.0.0.0', () => {

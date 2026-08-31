@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import {
   getRevenueSummary,
   getSalesTrend,
@@ -86,6 +86,28 @@ const router = express.Router();
 // Apply merchant authorization guard to all routes in this router
 router.use(merchantAuthGuard);
 
+import ttlCache from '../middleware/ttlCache';
+import { trimOpportunities, trimRecommendations, trimCampaigns } from '../merchant-metrics/payload-trimmer';
+
+// ── Mutation-aware cache invalidation ────────────────────────────────────────
+// Any successful POST/PUT/DELETE/PATCH on the merchant API can change the
+// decision state the caches serve (approvals, rejects, campaign status,
+// consent, purchase orders…). Rather than instrumenting every handler, flush
+// the merchant decision caches wholesale after any successful mutation.
+// Read traffic (GET) re-warms the caches on demand.
+router.use((req: Request, _res: Response, next: NextFunction) => {
+  if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
+    const originalEnd = _res.end.bind(_res);
+    ( _res as any).end = (...args: any[]) => {
+      if (_res.statusCode >= 200 && _res.statusCode < 300) {
+        ttlCache.invalidateAllMerchant();
+      }
+      return originalEnd(...args);
+    };
+  }
+  next();
+});
+
 /**
  * Standardize period parameter
  */
@@ -98,14 +120,8 @@ function normalizePeriod(periodQuery: any): string {
   return 'last_30_days';
 }
 
-/**
- * GET /api/merchant/overview
- * Primary executive overview KPI payload
- */
-router.get('/overview', async (req: Request, res: Response) => {
-  try {
-    const period = normalizePeriod(req.query.period);
-    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+/** Compute the (uncached) executive overview. Kept as a function so the TTL cache can wrap it. */
+async function computeOverview(period: string, merchantId: string) {
     const [finSummary, invSummary, custSummary, salesTrend, alerts, opportunities, recommendations, briefing, policy, healthScore, campaigns] = await Promise.all([
       canonicalMetricsService.getFinancialSummary(period),
       canonicalMetricsService.getInventorySummary(merchantId),
@@ -123,7 +139,7 @@ router.get('/overview', async (req: Request, res: Response) => {
     const activeCriticalAlerts = alerts.filter(a => a.severity === 'CRITICAL').length;
     const activeWarnings = alerts.filter(a => a.severity === 'WARNING').length;
 
-    return res.json({
+    return {
       success: true,
       period: finSummary.period,
       periodLabel: finSummary.periodLabel,
@@ -167,9 +183,15 @@ router.get('/overview', async (req: Request, res: Response) => {
         prevAmount: d.netRevenue
       })),
       topAlerts: alerts.slice(0, 4),
-      opportunities: opportunities,
-      recommendations: recommendations,
-      campaigns: campaigns,
+      // Opportunities and recommendations are trimmed to the fields the
+      // overview cards and the ActionDetailDrawer consume (detail views fetch
+      // full records from their own endpoints). Campaigns must stay FULLY
+      // shaped because CampaignDetailModal renders email previews, rationale
+      // and the audience registry directly from the object — we just cap the
+      // count to the 3-6 the UI actually shows.
+      opportunities: trimOpportunities(opportunities, 12),
+      recommendations: trimRecommendations(recommendations, 8),
+      campaigns: (campaigns || []).slice(0, 6),
       businessHealthScore: healthScore,
       dailyBriefing: briefing,
       financialPolicy: policy,
@@ -185,6 +207,43 @@ router.get('/overview', async (req: Request, res: Response) => {
           trappedCapital: canonicalMetricsService.getMetricProvenance('trappedStagnantCapital')
         }
       }
+    };
+}
+
+/**
+ * GET /api/merchant/overview
+ * Primary executive overview KPI payload.
+ *
+ * Served from a 60s TTL cache (single-flight + stale-while-revalidate):
+ * - First load after TTL expiry computes everything (parallel).
+ * - Repeat loads within 60s return instantly (~2ms) — the dashboard used to
+ *   recompute ~740 campaign N+1 queries on every visit.
+ * - Supports ?fresh=1 to force recompute (manual refresh button).
+ */
+router.get('/overview', async (req: Request, res: Response) => {
+  try {
+    const period = normalizePeriod(req.query.period);
+    const merchantId = (req.query.merchantId as string) || (req.headers['x-merchant-id'] as string) || 'default_merchant';
+    const cacheKey = `overview:${merchantId}:${period}`;
+    const forceFresh = req.query.fresh === '1';
+
+    if (forceFresh) ttlCache.invalidate(cacheKey);
+
+    // Stale-while-revalidate: if we have data (even slightly stale) serve it
+    // immediately and refresh in the background so the next load is fresh.
+    const stale = ttlCache.peek<any>(cacheKey);
+    if (stale) {
+      if (stale.isStale) {
+        void ttlCache.get(cacheKey, () => computeOverview(period, merchantId)).catch(() => {});
+      }
+      return res.json({ ...stale.value, _cache: { hit: true, stale: stale.isStale } });
+    }
+
+    const t0 = Date.now();
+    const data = await ttlCache.get(cacheKey, () => computeOverview(period, merchantId));
+    return res.json({
+      ...data,
+      _cache: { hit: false, computeMs: Date.now() - t0 }
     });
   } catch (error: any) {
     console.error('Merchant overview error:', error);
@@ -723,20 +782,26 @@ router.get('/customers/:id/products-of-interest', async (req: Request, res: Resp
  */
 router.get('/opportunities', async (req: Request, res: Response) => {
   try {
-    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+    const merchantId = (req.query.merchantId as string) || (req.headers['x-merchant-id'] as string) || 'default_merchant';
     const type = req.query.type as any;
     const priority = req.query.priority as any;
     const status = req.query.status as any;
     const confidence = req.query.confidence as any;
     const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : undefined;
 
-    const opportunities = await merchantOpportunityEngine.discoverOpportunities(merchantId, {
-      type,
-      priority,
-      status,
-      confidence,
-      limit
-    });
+    // Cache the FULL unfiltered discovery per merchant; filters are cheap in-memory.
+    // The engine re-scans shopi_orders/events (~500ms) on every call otherwise.
+    const all = await ttlCache.get(
+      `opportunities:${merchantId}`,
+      () => merchantOpportunityEngine.discoverOpportunities(merchantId)
+    );
+
+    let opportunities = all as any[];
+    if (type) opportunities = opportunities.filter(o => o.type === type);
+    if (priority) opportunities = opportunities.filter(o => o.priority === priority);
+    if (status) opportunities = opportunities.filter(o => o.status === status);
+    if (confidence) opportunities = opportunities.filter(o => o.confidence === confidence);
+    if (limit && limit > 0) opportunities = opportunities.slice(0, limit);
 
     return res.json({
       success: true,
@@ -911,18 +976,25 @@ router.get('/campaigns/recommendations', async (req: Request, res: Response) => 
     const status = req.query.status as any;
     const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : undefined;
 
-    const campaigns = await campaignIntelligenceService.generateCampaignProposals(merchantId, {
-      status,
-      limit
-    }).catch(err => {
+    // generateCampaignProposals runs ~185 offers × 4 sequential DB queries
+    // (~1.8s, ~740 queries). Cache the full proposal list per merchant; the
+    // approve/reject/dry-run mutations invalidate this key explicitly.
+    const all = await ttlCache.get(
+      `campaigns:${merchantId}`,
+      () => campaignIntelligenceService.generateCampaignProposals(merchantId)
+    ).catch(err => {
       console.warn('generateCampaignProposals warning:', err.message);
       return [];
     });
 
+    let campaigns = (all as any[]) || [];
+    if (status) campaigns = campaigns.filter(c => c.status === status);
+    if (limit && limit > 0) campaigns = campaigns.slice(0, limit);
+
     return res.json({
       success: true,
-      count: (campaigns || []).length,
-      campaigns: campaigns || []
+      count: campaigns.length,
+      campaigns
     });
   } catch (error: any) {
     console.error('Campaign recommendations error:', error);
@@ -1066,7 +1138,7 @@ router.get('/communication/status', (req: Request, res: Response) => {
     const info = campaignExecutionService.getActiveEmailProviderInfo();
     const commMode = process.env.COMMUNICATION_MODE || 'DRY_RUN';
     const isTestMode = process.env.EMAIL_TEST_MODE !== 'false';
-    const storefrontUrl = process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'http://localhost:3000';
+    const storefrontUrl = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
 
     return res.json({
       success: true,

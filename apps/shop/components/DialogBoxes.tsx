@@ -4,7 +4,7 @@ import { useApp } from '@/Helpers/AccountDialog';
 import { useRouter } from 'next/navigation'
 const DialogBoxes = () => {
     const router = useRouter()
-    const { toggleAgreement,toggleIsOpenAgreement,appState,toggleIsPassword,toggleBackgroundBlur, toggleServerError,toggleIsExists,toggleIsIncorrect } = useApp();
+    const { toggleAgreement,toggleIsOpenAgreement,appState,toggleIsPassword,toggleBackgroundBlur, toggleServerError,toggleIsExists,toggleIsIncorrect,toggleSignupSuccess } = useApp();
     // useEffect(() => {
     //     const valuesToExclude = ['agreement', 'updates','loggedIn','backgroundBlur']; // Example keys to exclude
     //     const filteredValues = Object.entries(appState)
@@ -72,6 +72,17 @@ const DialogBoxes = () => {
                 <Description>Your Email address or Password is Incorrect. Please Check Again.</Description>
                 <div className="flex justify-center gap-4">
                     <button className='border-[1.5px] hover:bg-black transition-colors duration-300 hover:text-white py-2 px-6 rounded-xl' onClick={() => toggleIsIncorrect()}>OK</button>
+                </div>
+            </DialogPanel>
+            </div>
+        </Dialog>
+        <Dialog open={appState.signupSuccess} onClose={() => toggleSignupSuccess()} className="relative z-50">
+            <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+            <DialogPanel className="max-w-lg space-y-4 border bg-white p-10 rounded-xl text-center drop-shadow-custom-xl">
+                <DialogTitle className="font-bold text-emerald-600">Account created successfully</DialogTitle>
+                <Description>You can now sign in with your email and password.</Description>
+                <div className="flex justify-center gap-4">
+                    <button className='bg-primary-600 text-white py-2 hover:bg-primary-800 transition-colors duration-300 px-8 rounded-xl' onClick={() => {toggleSignupSuccess();router.push('/sign-in')}}>Sign in</button>
                 </div>
             </DialogPanel>
             </div>

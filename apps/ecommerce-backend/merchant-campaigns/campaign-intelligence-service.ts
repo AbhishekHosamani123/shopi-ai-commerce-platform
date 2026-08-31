@@ -157,17 +157,50 @@ export class CampaignIntelligenceService {
       const offers = await profitSafeOfferService.generateProfitSafeOffers(merchantId);
       const proposals: CampaignProposal[] = [];
 
+      // Batch pre-load (replaces per-offer stock SELECT — N+1 fix):
+      // one indexed read of every catalog stock level, plus one batched
+      // subsequent-purchase suppression lookup for all (customer, product)
+      // pairs in the offer set. ~370 sequential queries → 2.
+      const stockByProduct = new Map<number, number>();
+      const suppressedPairs = new Set<string>();
+      try {
+        const [stockRes, purchaseRes] = await Promise.all([
+          client.query('SELECT product_id, stock_quantity FROM shopi_products'),
+          client.query(`
+            SELECT o.customer_id, oi.product_id
+            FROM shopi_orders o
+            JOIN shopi_order_items oi ON o.order_id = oi.order_id
+            WHERE o.order_status NOT IN ('Cancelled', 'CANCELLED')
+              AND o.order_placed_at >= CURRENT_DATE - INTERVAL '30 days';
+          `)
+        ]);
+        for (const row of stockRes.rows) {
+          stockByProduct.set(parseInt(row.product_id, 10), parseInt(row.stock_quantity, 10) || 0);
+        }
+        for (const row of purchaseRes.rows) {
+          suppressedPairs.add(`${row.customer_id}:${row.product_id}`);
+        }
+      } catch (batchErr: any) {
+        console.warn('Campaign batch preload warning:', batchErr.message);
+      }
+
       for (const offer of offers) {
         try {
-          const proposal = await this.buildProposalFromOffer(offer, merchantId);
+          const proposal = await this.buildProposalFromOffer(offer, merchantId, {
+            stockByProduct,
+            suppressedPairs
+          });
           if (proposal) {
             proposals.push(proposal);
-            // Persist to merchant_marketing_campaigns
-            await this.persistProposal(proposal);
           }
         } catch (propErr: any) {
           console.warn('Skipping proposal for offer:', offer?.recommendationId, propErr?.message);
         }
+      }
+
+      // Batch-persist all proposals in ONE round trip (was one upsert per offer).
+      if (proposals.length > 0) {
+        await this.persistProposalsBatch(proposals);
       }
 
       let filtered = proposals;
@@ -190,7 +223,8 @@ export class CampaignIntelligenceService {
    */
   public async buildProposalFromOffer(
     offer: ProfitSafeOfferRecommendation,
-    merchantId: string = 'default_merchant'
+    merchantId: string = 'default_merchant',
+    batch?: { stockByProduct: Map<number, number>; suppressedPairs: Set<string> }
   ): Promise<CampaignProposal | null> {
     // 1. Map Campaign Type & Deterministic Campaign ID from Underlying Opportunity
     // NOTE: opportunity IDs are prefixed opp_cart_, opp_chk_, opp_intent_, opp_rep_,
@@ -222,7 +256,15 @@ export class CampaignIntelligenceService {
     const expiryIso = offer.expiresAt;
 
     // 2. Audience Calculation & Granular Suppressions
-    const audience = await this.calculateAudienceBreakdown(offer.customerId, offer.productId, offer.createdAt, merchantId);
+    //    Uses the pre-loaded batch maps when available (N+1 fix); falls back
+    //    to per-offer queries when called standalone (e.g. single campaign view).
+    const audience = await this.calculateAudienceBreakdown(
+      offer.customerId,
+      offer.productId,
+      offer.createdAt,
+      merchantId,
+      batch
+    );
 
     // 3. Status Determination: If audience is 0 eligible, status is SUPPRESSED
     let status: CampaignStatus = 'READY_FOR_REVIEW';
@@ -295,20 +337,23 @@ export class CampaignIntelligenceService {
       : `${rawTargetName} • ${productLabel}`;
     const title = `${campaignType.replace(/_/g, ' ')}: ${customerLabel}`;
 
-    // Canonical catalog stock for the target product — resolved live from
-    // shopi_products so the campaign card never shows a stale/zero stock
-    // figure that contradicts the Products page or the product drawer.
+    // Canonical catalog stock for the target product — from the batch pre-load
+    // (single query for the whole offer set) or a live fallback lookup.
     let targetStock: number | null = null;
-    try {
-      const stockRes = await client.query(
-        'SELECT stock_quantity FROM shopi_products WHERE product_id = $1',
-        [offer.productId]
-      );
-      if (stockRes.rows.length > 0) {
-        targetStock = parseInt(stockRes.rows[0].stock_quantity, 10) || 0;
+    if (batch?.stockByProduct.has(offer.productId)) {
+      targetStock = batch.stockByProduct.get(offer.productId) ?? 0;
+    } else {
+      try {
+        const stockRes = await client.query(
+          'SELECT stock_quantity FROM shopi_products WHERE product_id = $1',
+          [offer.productId]
+        );
+        if (stockRes.rows.length > 0) {
+          targetStock = parseInt(stockRes.rows[0].stock_quantity, 10) || 0;
+        }
+      } catch {
+        targetStock = null;
       }
-    } catch {
-      targetStock = null;
     }
 
     return {
@@ -353,46 +398,81 @@ export class CampaignIntelligenceService {
 
   /**
    * Calculates audience eligibility and suppression breakdown.
+   * When `batch` is provided (bulk generation path), eligibility is resolved
+   * from pre-loaded maps instead of per-offer DB round trips.
    */
   private async calculateAudienceBreakdown(
     customerId: string,
     productId: number,
     detectedAt: string,
-    merchantId: string
+    merchantId: string,
+    batch?: { stockByProduct: Map<number, number>; suppressedPairs: Set<string> }
   ): Promise<AudienceBreakdown> {
-    const custRes = await client.query(`
-      SELECT customer_id, TRIM(COALESCE(first_name, '') || ' ' || COALESCE(last_name, '')) as name, email, phone
-      FROM shopi_customers WHERE customer_id = $1
-    `, [customerId]);
-    const cust = custRes.rows[0] || { customer_id: customerId, name: customerId, email: `${customerId.toLowerCase()}@example.com`, phone: null };
+    let cust: { customer_id: string; name: string; email: string; phone: string | null };
+    let purchaseSuppressed = false;
+    let consentVerified = true;
+    let cooldownSatisfied = true;
+    let eligible = true;
 
-    const eligCheck = await profitSafeOfferService.checkCustomerEligibility(customerId, productId, detectedAt);
+    if (batch) {
+      // Batched path: one customer lookup for the offer set is unavoidable,
+      // but purchase suppression comes from the pre-loaded pair set.
+      const custRes = await client.query(`
+        SELECT customer_id, TRIM(COALESCE(first_name, '') || ' ' || COALESCE(last_name, '')) as name, email, phone
+        FROM shopi_customers WHERE customer_id = $1
+      `, [customerId]);
+      cust = custRes.rows[0] || {
+        customer_id: customerId,
+        name: customerId,
+        email: `${customerId.toLowerCase()}@example.com`,
+        phone: null
+      };
+      purchaseSuppressed = batch.suppressedPairs.has(`${customerId}:${productId}`);
+      eligible = !purchaseSuppressed;
+    } else {
+      // Standalone path (single-campaign views / fresh revalidation on approve).
+      const custRes = await client.query(`
+        SELECT customer_id, TRIM(COALESCE(first_name, '') || ' ' || COALESCE(last_name, '')) as name, email, phone
+        FROM shopi_customers WHERE customer_id = $1
+      `, [customerId]);
+      cust = custRes.rows[0] || {
+        customer_id: customerId,
+        name: customerId,
+        email: `${customerId.toLowerCase()}@example.com`,
+        phone: null
+      };
+      const eligCheck = await profitSafeOfferService.checkCustomerEligibility(customerId, productId, detectedAt);
+      purchaseSuppressed = eligCheck.isSubsequentPurchaseSuppressed;
+      consentVerified = eligCheck.isConsentVerified;
+      cooldownSatisfied = eligCheck.isCooldownSatisfied;
+      eligible = eligCheck.isEligible;
+    }
 
-    const eligibleCustomers = [];
-    const suppressionDetails = [];
+    const eligibleCustomers: AudienceBreakdown['eligibleCustomers'] = [];
+    const suppressionDetails: AudienceBreakdown['suppressionDetails'] = [];
 
-    if (eligCheck.isSubsequentPurchaseSuppressed) {
+    if (purchaseSuppressed) {
       suppressionDetails.push({
         customerId,
         customerName: cust.name,
         reason: 'ALREADY_PURCHASED' as const,
         explanation: 'Customer placed an order for the target product after the opportunity timestamp.'
       });
-    } else if (!eligCheck.isConsentVerified) {
+    } else if (!consentVerified) {
       suppressionDetails.push({
         customerId,
         customerName: cust.name,
         reason: 'MISSING_CONSENT' as const,
         explanation: 'Customer has not provided communication consent.'
       });
-    } else if (!eligCheck.isCooldownSatisfied) {
+    } else if (!cooldownSatisfied) {
       suppressionDetails.push({
         customerId,
         customerName: cust.name,
         reason: 'COOLDOWN_ACTIVE' as const,
         explanation: 'Promotional communication sent within the last 7 days.'
       });
-    } else if (eligCheck.isEligible) {
+    } else if (eligible) {
       eligibleCustomers.push({
         customerId,
         customerName: cust.name,
@@ -603,7 +683,54 @@ export class CampaignIntelligenceService {
   }
 
   /**
-   * Persists a campaign proposal into PostgreSQL.
+   * Persists campaign proposals into PostgreSQL in a single batched upsert
+   * (replaces one round trip per proposal — the biggest N+1 in the overview).
+   */
+  private async persistProposalsBatch(proposals: CampaignProposal[]): Promise<void> {
+    const CHUNK = 50; // stay well inside parameter-count limits
+    for (let i = 0; i < proposals.length; i += CHUNK) {
+      const chunk = proposals.slice(i, i + CHUNK);
+      const values: any[] = [];
+      const tuples = chunk.map((p, idx) => {
+        const base = idx * 15;
+        const cols = Array.from({ length: 15 }, (_, c) => `$${base + c + 1}`);
+        values.push(
+          p.campaignId,
+          p.merchantId,
+          p.recommendationId,
+          p.opportunityId,
+          p.campaignType,
+          p.status,
+          p.title,
+          JSON.stringify(p.product),
+          JSON.stringify(p.audience),
+          JSON.stringify(p.offer),
+          JSON.stringify(p.financialSimulation),
+          JSON.stringify(p.messagePreview),
+          JSON.stringify(p.explanation),
+          p.isDryRunOnly,
+          p.expiresAt
+        );
+        return `(${cols.join(', ')})`;
+      });
+
+      await client.query(`
+        INSERT INTO merchant_marketing_campaigns (
+          campaign_id, merchant_id, recommendation_id, opportunity_id, campaign_type,
+          status, title, product_data, audience_data, offer_data, financial_simulation,
+          message_preview, explanation, is_dry_run_only, expires_at
+        ) VALUES ${tuples.join(', ')}
+        ON CONFLICT (campaign_id) DO UPDATE SET
+          status = EXCLUDED.status,
+          audience_data = EXCLUDED.audience_data,
+          financial_simulation = EXCLUDED.financial_simulation,
+          message_preview = EXCLUDED.message_preview;
+      `, values);
+    }
+  }
+
+  /**
+   * Persists a single campaign proposal (kept for targeted updates).
    */
   private async persistProposal(p: CampaignProposal): Promise<void> {
     await client.query(`

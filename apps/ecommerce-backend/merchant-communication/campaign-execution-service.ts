@@ -443,8 +443,8 @@ export class CampaignExecutionService {
 
       const targetProduct = campaign.targetProducts[0];
       const targetAudienceMember = campaign.targetAudience.find(a => a.customerId === recipient.customerId);
-      const customerName = targetAudienceMember?.customerName || 'Valued Customer';
-      const ctaUrl = campaign.message.email.ctaUrl || `${process.env.STOREFRONT_BASE_URL || 'http://localhost:3000'}/products/${targetProduct?.productId || 'shop'}`;
+      const baseOrigin = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
+      const ctaUrl = campaign.message.email.ctaUrl || `${baseOrigin}/products/${targetProduct?.productId || 'shop'}`;
 
       // Offer presentation mirrors the engine's decision (type + value + display text).
       // This layer renders the decision; it never derives or clamps the discount itself.
@@ -949,7 +949,7 @@ export class CampaignExecutionService {
     const provider: CommunicationProvider = options?.customProvider || this.customEmailProvider || this.getProvider('EMAIL', mode);
 
     // 8. Reachable Storefront Cart URL & Test-Sanitized Identity (Requirements 4 & 8)
-    const storefrontBaseUrl = process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'http://localhost:3000';
+    const storefrontBaseUrl = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
     const cartUrl = `${storefrontBaseUrl}/cart?utm_source=merchant_ai&utm_medium=email&utm_campaign=${campaignId}${offerData.couponCode ? `&coupon=${offerData.couponCode}` : ''}`;
 
     const customerFacingTitle = prodData.title === 'FORMAL-SHOE-006' || prodData.sku === 'FORMAL-SHOE-006'

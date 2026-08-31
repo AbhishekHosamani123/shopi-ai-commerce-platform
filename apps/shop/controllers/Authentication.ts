@@ -7,7 +7,7 @@ import signUpHandler from '@/app/api/signup';
 import sessionHandler from "@/app/api/sessionauth";
 import authDataHandler from "@/app/api/googleAuth";
 const useAuth = () => {
-  const { toggleLoggedIn, toggleIsIncorrect, toggleIsExists, toggleServerError, setLoggedIn } = useApp();
+  const { toggleLoggedIn, toggleIsIncorrect, toggleIsExists, toggleServerError, setLoggedIn, toggleSignupSuccess } = useApp();
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -66,9 +66,10 @@ const useAuth = () => {
       const res = await signUpHandler(form,promotional);
       switch (res.status) {
         case 200:
+          // Account created — show the success message and take the user to
+          // the sign-in page (no silent auto-login).
           setloading(false);
-          setLoggedIn(true);
-          router.push('/');
+          toggleSignupSuccess();
           break;
         case 409:
         case 205:

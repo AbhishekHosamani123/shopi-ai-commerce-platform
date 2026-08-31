@@ -70,7 +70,11 @@ function fmtDate(d: Date): string {
 
 /** Renders the Shopi order-confirmation email (reference-styled, all inline CSS). */
 export function renderOrderConfirmationEmail(data: OrderConfirmationEmailData): { html: string; text: string } {
-  const storefront = data.storefrontUrl || process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app';
+  let storefront = data.storefrontUrl || process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app';
+  if (storefront.includes(',')) {
+    storefront = storefront.split(',')[0].trim();
+  }
+  storefront = storefront.trim().replace(/\/+$/, '');
   const carrier = data.carrier || DEFAULT_CARRIER;
   const shippingMethod = data.shippingMethod || DEFAULT_SHIPPING_METHOD;
 

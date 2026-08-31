@@ -106,7 +106,7 @@ router.post('/chat', async (req: Request, res: Response) => {
     const adapter = new RazorpayCommerceAdapter({
       // Public storefront host (scheme stripped) — env-driven so production
       // emails/CTAs never carry localhost.
-      domain: (process.env.STOREFRONT_BASE_URL || 'http://localhost:3000').replace(/^https?:\/\//, ''),
+      domain: (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/^https?:\/\//, '').replace(/\/+$/, ''),
       merchantName: 'Razorpay AI Commerce',
       defaultCurrency: 'INR',
     });

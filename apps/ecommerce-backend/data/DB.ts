@@ -315,6 +315,21 @@ const connectDB = async () => {
     await client.query(CORE_SCHEMA_SQL);
     console.log('[DB Info] Core schema & merchant intelligence tables initialized.');
 
+    // Idempotent index bootstrap for the hot merchant analytics queries.
+    // Safe to run on every boot (IF NOT EXISTS); keeps the Render-managed
+    // Postgres on par with the local schema so the dashboard queries stay fast.
+    try {
+      await client.query(`
+        CREATE INDEX IF NOT EXISTS idx_shopi_orders_status_date ON shopi_orders (order_status, order_placed_at);
+        CREATE INDEX IF NOT EXISTS idx_shopi_returns_created ON shopi_order_returns (created_at);
+        CREATE INDEX IF NOT EXISTS idx_shopi_events_cust_type_time ON shopi_customer_events (customer_id, event_type, event_timestamp);
+        CREATE INDEX IF NOT EXISTS idx_shopi_orderitems_order_product ON shopi_order_items (order_id, product_id);
+      `);
+      console.log('[DB Info] Merchant analytics indexes verified.');
+    } catch (idxErr: any) {
+      console.warn('[DB Info] Index bootstrap skipped:', idxErr.message);
+    }
+
     // Self-bootstrap Phase 11B commerce dataset (90 days of order analytics, COGS, customer cohorts, etc.)
     try {
       const check = await client.query("SELECT to_regclass('public.shopi_orders') as exists;");

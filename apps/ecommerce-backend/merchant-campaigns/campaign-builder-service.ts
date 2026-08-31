@@ -229,7 +229,7 @@ export class CampaignBuilderService {
         cta: `Shop Now with ${couponCode}`,
         expiry: expiresIso,
         ctaText: `Shop Now with ${couponCode}`,
-        ctaUrl: `${process.env.STOREFRONT_BASE_URL || 'http://localhost:3000'}/products/${pid || 'shop'}`
+        ctaUrl: `${(process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '')}/products/${pid || 'shop'}`
       },
       whatsApp: {
         templateName: 'exclusive_product_offer_v1',
@@ -432,13 +432,14 @@ export class CampaignBuilderService {
     // Message: legacy column is {email:{subject,body,ctaUrl}}; campaignIntelligenceService
     // writes message_preview {channel,subject,body}. Normalize both to the legacy shape.
     let message: any = r.message;
+    const defaultBaseOrigin = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
     const buildMessageFromPreview = (mp: any) => ({
       email: {
         subject: mp.subject || 'A special offer for you',
         body: mp.body || '',
         previewText: mp.subject,
         headline: mp.subject,
-        ctaUrl: `${process.env.STOREFRONT_BASE_URL || 'http://localhost:3000'}/products/${(Array.isArray(targetProducts) && targetProducts[0]?.productId) || 'shop'}`
+        ctaUrl: `${defaultBaseOrigin}/products/${(Array.isArray(targetProducts) && targetProducts[0]?.productId) || 'shop'}`
       },
       whatsApp: {
         message: mp.body || mp.subject || 'A special offer for you'
@@ -454,7 +455,7 @@ export class CampaignBuilderService {
           body: 'Hi! We have a special offer for you.',
           previewText: 'A special offer for you',
           headline: 'A special offer for you',
-          ctaUrl: `${process.env.STOREFRONT_BASE_URL || 'http://localhost:3000'}/shop`
+          ctaUrl: `${defaultBaseOrigin}/shop`
         },
         whatsApp: {
           message: 'Hi! We have a special offer for you.'

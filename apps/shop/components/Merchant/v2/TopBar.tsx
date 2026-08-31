@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import merchantLogoutHandler from '@/app/api/merchantlogout';
 
 interface TopBarProps {
   title?: string;
@@ -17,6 +19,19 @@ export function TopBar({
   onOpenCopilot,
   onToggleMobileMenu,
 }: TopBarProps) {
+  const router = useRouter();
+  const [signingOut, setSigningOut] = React.useState(false);
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
+    try {
+      await merchantLogoutHandler();
+    } finally {
+      router.push('/merchant-sign-in');
+      router.refresh();
+    }
+  };
+
   const formatSyncTime = (seconds: number) => {
     if (seconds < 60) return 'Just now';
     const mins = Math.floor(seconds / 60);
@@ -82,6 +97,19 @@ export function TopBar({
           <kbd className="hidden sm:inline text-[9px] font-mono bg-black/20 text-white/90 px-1 py-0.5 rounded border border-white/20">
             ⌘J
           </kbd>
+        </button>
+
+        {/* Merchant Sign Out */}
+        <button
+          onClick={handleSignOut}
+          disabled={signingOut}
+          title="Sign out of Merchant AI"
+          className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-md text-xs text-ink-subtle bg-surface-2 hover:bg-rose-500/10 hover:text-rose-300 border border-hairline hover:border-rose-500/30 transition-colors shrink-0"
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span className="hidden md:inline">{signingOut ? '…' : 'Sign out'}</span>
         </button>
       </div>
     </header>

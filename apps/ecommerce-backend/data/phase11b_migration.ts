@@ -62,8 +62,13 @@ export async function runPhase11bMigration() {
     productVariantMap = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
   } else {
     console.log('Fetching live from Supabase API...');
-    const SUPABASE_URL = 'https://ogppkxqvfzsusdawqbzx.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ncHBreHF2ZnpzdXNkYXdxYnp4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NzcxMTA4MSwiZXhwIjoyMTAzMjg3MDgxfQ.wMMHQJjeoTJ8UFSAH26GfPdQbPhRriByCRgNyjqxLpY';
+    const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ogppkxqvfzsusdawqbzx.supabase.co';
+    // Service-role key must come from the environment; never hardcode it.
+    const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY || '';
+    if (!SUPABASE_KEY) {
+      console.warn('⚠️ SUPABASE_SERVICE_ROLE_KEY not set — skipping live Supabase fetch.');
+      return;
+    }
     
     const prodRes = await fetch(`${SUPABASE_URL}/rest/v1/shopi_products?select=*&order=product_id.asc`, {
       headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
