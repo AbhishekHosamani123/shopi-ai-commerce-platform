@@ -71,19 +71,45 @@ const startServer = async () => {
   // Pre-warm the merchant executive overview so the FIRST dashboard request
   // after a cold start doesn't pay the full engine computation (~2s). Runs in
   // the background — startup is never blocked on it.
-  setTimeout(async () => {
-    try {
-      const { default: axios } = await import('axios');
-      const port0 = parseInt(process.env.PORT || '3500', 10);
-      await axios.get(`http://127.0.0.1:${port0}/api/merchant/overview?period=last_30_days`, {
-        headers: { 'x-api-secret': process.env.API_SECRET || '' },
-        timeout: 120000
-      });
-      console.log('[Cache Warm] Merchant overview pre-warmed.');
-    } catch (err: any) {
-      console.warn('[Cache Warm] Merchant overview pre-warm skipped:', err.message);
+  //
+  // On Render free instances the service sleeps after ~15 min idle. When it
+  // wakes, the in-process TTL cache is empty, so a merchant opening the
+  // dashboard right after wake-up would otherwise wait for the full engine
+  // run (2-8s on free-tier CPU). We therefore:
+  //   1. kick off the first warm as soon as the server is listening,
+  //   2. retry a few times (the DB seed may still be running on a fresh
+  //      database, and the very first attempt can fail while tables are
+  //      being created),
+  //   3. also warm the other periods merchants commonly switch to.
+  const warmOverview = async (attempt: number): Promise<void> => {
+    const port0 = parseInt(process.env.PORT || '3500', 10);
+    const periods = ['last_30_days', 'last_7_days', 'this_month'];
+    for (const period of periods) {
+      try {
+        const { default: axios } = await import('axios');
+        await axios.get(
+          `http://127.0.0.1:${port0}/api/merchant/overview?period=${period}`,
+          { headers: { 'x-api-secret': process.env.API_SECRET || '' }, timeout: 180000 }
+        );
+      } catch (err: any) {
+        if (attempt < 4) {
+          // Retry with backoff — the Phase 11B seed may still be creating
+          // tables on a freshly reset database.
+          await new Promise(r => setTimeout(r, 8000 * (attempt + 1)));
+          return warmOverview(attempt + 1);
+        }
+        console.warn('[Cache Warm] Merchant overview pre-warm gave up:', err.message);
+        return;
+      }
     }
-  }, 3000);
+    console.log('[Cache Warm] Merchant overview pre-warmed (30d + 7d + month).');
+  };
+
+  // Start warming once the DB bootstrap has had a moment to create tables.
+  setTimeout(() => { void warmOverview(0); }, 3000);
+  // Second pass later: covers the case where the Phase 11B seed finished
+  // after the first pass started (fresh database recovery).
+  setTimeout(() => { void warmOverview(0); }, 90000);
 
   // Bind 0.0.0.0 so the container is reachable on Render.
   app.listen(port, '0.0.0.0', () => {

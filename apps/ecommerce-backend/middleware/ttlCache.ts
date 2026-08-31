@@ -29,7 +29,7 @@ interface CacheEntry<T> {
 const store = new Map<string, CacheEntry<any>>();
 const inFlight = new Map<string, Promise<any>>();
 
-const DEFAULT_TTL_MS = 60_000; // 60s: fresh data, ~0ms repeat loads
+const DEFAULT_TTL_MS = 30_000; // 30s: near-real-time feel, ~0ms repeat loads
 const STALE_GRACE_MS = 300_000; // serve up to 5-min-old data while revalidating
 
 async function getOrCompute<T>(

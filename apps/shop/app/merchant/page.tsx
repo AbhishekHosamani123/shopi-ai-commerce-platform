@@ -86,10 +86,15 @@ export default function MerchantOverviewPage() {
   const [chartData, setChartData] = useState<any[]>([]);
   const [comparisonLabel, setComparisonLabel] = useState<string>('vs Preceding 30 Days (T-30 to T-60)');
 
-  const fetchOverviewData = useCallback(async () => {
-    setIsFetching(true);
-    setFetchError(null);
-    setAiExecutiveBrief(null); // reset to loading state on every fetch
+  const fetchOverviewData = useCallback(async (opts?: { silent?: boolean }) => {
+    // Silent refreshes keep the previous numbers on screen (stale-while-
+    // revalidate) instead of flashing skeletons, so merchants never see the
+    // dashboard "reset" while a background sync runs.
+    if (!opts?.silent) {
+      setIsFetching(true);
+      setFetchError(null);
+      setAiExecutiveBrief(null); // reset to loading state on every fetch
+    }
     try {
       const res = await fetch(`/api/merchant/overview?period=${selectedPeriod}&compare=${comparisonMode}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
@@ -203,6 +208,46 @@ export default function MerchantOverviewPage() {
     fetchOverviewData();
   }, [fetchOverviewData]);
 
+  // Background data synchronization: keep the dashboard current without the
+  // merchant manually refreshing. Fires only while the tab is VISIBLE, so a
+  // backgrounded tab never burns Render free-tier CPU or request quota.
+  useEffect(() => {
+    // 45s cadence matches the AppShell "Data synced" indicator and keeps the
+    // backend's 60s TTL cache continuously warm for instant loads.
+    const SYNC_INTERVAL_MS = 45_000;
+    let timer: ReturnType<typeof setInterval>;
+
+    const startSync = () => {
+      if (!timer) {
+        timer = setInterval(() => {
+          if (document.visibilityState === 'visible') {
+            void fetchOverviewData({ silent: true });
+          }
+        }, SYNC_INTERVAL_MS);
+      }
+    };
+    const stopSync = () => {
+      if (timer) { clearInterval(timer); timer = undefined as unknown as ReturnType<typeof setInterval>; }
+    };
+
+    startSync();
+    // Refresh immediately when the merchant returns to the tab so data is
+    // current after they were away (covers the idle/hidden period).
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        void fetchOverviewData({ silent: true });
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    return () => {
+      stopSync();
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
+    // fetchOverviewData identity changes with period/comparison selection;
+    // the sync loop must always use the latest one.
+  }, [fetchOverviewData]);
+
   const handleActionUpdated = (actionId: string, newStatus: string, message: string) => {
     setFeedbackToast({ message, type: 'success' });
     setTimeout(() => setFeedbackToast(null), 4000);
@@ -294,7 +339,7 @@ export default function MerchantOverviewPage() {
       {fetchError && (
         <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-md text-amber-300 text-xs flex items-center justify-between font-mono">
           <span>⚠️ Telemetry Notice: Live feed refresh reported partial data ({fetchError}). Operating on grounded local ledger.</span>
-          <button onClick={fetchOverviewData} className="underline text-xs font-sans">Retry</button>
+          <button onClick={() => fetchOverviewData()} className="underline text-xs font-sans">Retry</button>
         </div>
       )}
 
@@ -416,7 +461,7 @@ export default function MerchantOverviewPage() {
               <p className="text-ink-subtle leading-relaxed font-body">
                 Operational brief unavailable.{' '}
                 <button
-                  onClick={fetchOverviewData}
+                  onClick={() => fetchOverviewData()}
                   className="underline text-linear-primary-hover hover:text-linear-primary transition-colors"
                 >
                   Retry

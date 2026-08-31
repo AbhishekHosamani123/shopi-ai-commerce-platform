@@ -55,18 +55,29 @@ export async function runPhase11bMigration() {
   console.log('✅ Phase 11B Commerce Foundation Schema applied successfully.');
 
   // 2. Load Supabase Catalog Data
-  const jsonPath = path.resolve(__dirname, '../../../../scratch/supabase_all_products_and_variants.json');
+  // Resolution order:
+  //   (a) repo-bundled catalog snapshot (data/seed-catalog/*.json) — no
+  //       external dependency, works on a fresh Render deploy even when
+  //       SUPABASE_SERVICE_ROLE_KEY is not configured.
+  //   (b) the scratch snapshot (local dev only).
+  //   (c) live Supabase REST fetch (requires SUPABASE_SERVICE_ROLE_KEY).
   let productVariantMap: Record<string, { product: ProductData; variants: VariantData[] }> = {};
 
-  if (fs.existsSync(jsonPath)) {
+  const bundledPath = path.resolve(__dirname, 'seed-catalog/supabase_all_products_and_variants.json');
+  const jsonPath = path.resolve(__dirname, '../../../../scratch/supabase_all_products_and_variants.json');
+  if (fs.existsSync(bundledPath)) {
+    productVariantMap = JSON.parse(fs.readFileSync(bundledPath, 'utf8'));
+    console.log('Loaded catalog from bundled seed snapshot (data/seed-catalog).');
+  } else if (fs.existsSync(jsonPath)) {
     productVariantMap = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    console.log('Loaded catalog from scratch snapshot.');
   } else {
     console.log('Fetching live from Supabase API...');
     const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ogppkxqvfzsusdawqbzx.supabase.co';
     // Service-role key must come from the environment; never hardcode it.
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY || '';
     if (!SUPABASE_KEY) {
-      console.warn('⚠️ SUPABASE_SERVICE_ROLE_KEY not set — skipping live Supabase fetch.');
+      console.warn('⚠️ No bundled catalog snapshot and SUPABASE_SERVICE_ROLE_KEY not set — cannot seed.');
       return;
     }
     
