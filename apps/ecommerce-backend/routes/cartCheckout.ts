@@ -5,7 +5,8 @@ import Stripe from 'stripe';
 import { validationResult,matchedData } from 'express-validator';
 import { randomUUID } from 'crypto';
 const router = express.Router();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripeApiKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder_mock_stripe_key_2026';
+const stripe = new Stripe(stripeApiKey);
 function getDateTimeFiveDaysFromNow() {
   const today = new Date();
   const fiveDaysFromNow = new Date(today);
