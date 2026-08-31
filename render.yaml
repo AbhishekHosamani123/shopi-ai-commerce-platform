@@ -1,0 +1,116 @@
+# Render Blueprint for the Shopi backend (Express + TypeScript on tsx).
+#
+# Deploy from the repo root with this file. Render uses "rootDir" to find the
+# service inside the monorepo.
+#
+# Render Dashboard equivalent:
+#   Type: Web Service | Root Directory: apps/ecommerce-backend
+#   Build: npm install && npm run build:render
+#   Start: npm run start:render
+#   Health Check Path: /health
+
+databases:
+  - name: shopi-postgres
+    databaseName: razorpay_ecommerce
+    user: shopi_app
+    plan: free
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    name: shopi-backend
+    runtime: node
+    rootDir: apps/ecommerce-backend
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: npm install && npm run build:render
+    startCommand: npm run start:render
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      # --- Database (Render injects the internal DATABASE_URL; the pg Pool
+      #     reads the discrete vars below) ---
+      - key: DB_HOST
+        fromDatabase:
+          name: shopi-postgres
+          property: host
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_USER
+        fromDatabase:
+          name: shopi-postgres
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: shopi-postgres
+          property: password
+      - key: DB_NAME
+        value: razorpay_ecommerce
+
+      # --- Server ---
+      # PORT is injected by Render automatically — do not set it.
+      - key: FRONTEND_SERVER_ORIGIN
+        sync: false          # set in dashboard: https://your-storefront.vercel.app
+      - key: STOREFRONT_BASE_URL
+        sync: false          # set in dashboard: https://your-storefront.vercel.app
+
+      # --- Auth / shared secret ---
+      - key: JWT_ENCRYPTION_KEY
+        generateValue: true
+      - key: API_SECRET
+        generateValue: true
+
+      # --- Email delivery (Gmail SMTP) ---
+      - key: EMAIL_PROVIDER
+        value: GMAIL_SMTP
+      - key: COMMUNICATION_MODE
+        value: DRY_RUN        # TEST for controlled sends; PRODUCTION only when going live
+      - key: EMAIL
+        sync: false
+      - key: PASSWORD
+        sync: false           # Gmail App Password (not the account password)
+      - key: EMAIL_TEST_RECIPIENT
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_SENDERNAME
+        value: Shopi Store
+      - key: SMTP_SUPPORT
+        sync: false
+
+      # --- Payments ---
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+
+      # --- AI shopping agent ---
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+
+      # --- WhatsApp (Evolution API) ---
+      - key: EVOLUTION_API_URL
+        sync: false          # https://your-evolution-service.onrender.com
+      - key: EVOLUTION_API_KEY
+        sync: false
+      - key: WHATSAPP_SEND_MODE
+        value: DRY_RUN
+      - key: WHATSAPP_SENDER_INSTANCE
+        value: shopi-buildathon-whatsapp
+      - key: WHATSAPP_ALLOWED_RECIPIENTS
+        value: "+918431406956,+916366475180"
+
+      # --- Banner generator ---
+      - key: PYTHON_BIN
+        value: python3
+      - key: BANNER_OUTPUT_DIR
+        value: /tmp/generated_campaign_assets   # ephemeral disk: regenerated per send
+
+      # --- Legacy (optional) ---
+      - key: STRIPE_SECRET_KEY
+        sync: false
