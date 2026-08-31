@@ -5,23 +5,47 @@ import ShopiCatalogService from '../data/shopiCatalogService';
 const router = express.Router();
 
 router.get('/home/banner', async (req: Request, res: Response) => {
-    const fetchQuery = `SELECT * FROM banners`;
+    const defaultBanners = [
+        {
+            bannerid: 1,
+            toptitle: 'Starting From ₹499',
+            middletitle: 'Exclusive Men & Women Fashion',
+            bottomtitle: 'Top Rated Styles From ₹',
+            startprice: '499',
+            buttontitle: 'Shop Now',
+            imglink: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80',
+            redirect_link: '/sub-category/Clothing/Shirts'
+        },
+        {
+            bannerid: 2,
+            toptitle: 'Up to 60% OFF',
+            middletitle: 'Trending Footwear & Sneakers',
+            bottomtitle: 'Starting at ₹',
+            startprice: '799',
+            buttontitle: 'Explore Now',
+            imglink: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80',
+            redirect_link: '/sub-category/Footwear/Sports%20Shoes'
+        },
+        {
+            bannerid: 3,
+            toptitle: 'New Season 2026',
+            middletitle: 'Luxury Watches & Accessories',
+            bottomtitle: 'Best Deals From ₹',
+            startprice: '999',
+            buttontitle: 'View Collection',
+            imglink: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1600&q=80',
+            redirect_link: '/sub-category/Accessories/Watches'
+        }
+    ];
+
     try {
-        const response = await client.query(fetchQuery);
-        res.status(200).json({ data: response.rows });
+        const response = await client.query(`SELECT * FROM banners`);
+        if (response.rows && response.rows.length > 0) {
+            return res.status(200).json({ data: response.rows });
+        }
+        return res.status(200).json({ data: defaultBanners });
     } catch (error) {
-        // Fallback banner if legacy table query fails
-        res.status(200).json({
-            data: [
-                {
-                    bannerid: 1,
-                    title: 'Exclusive Fashion & Footwear Deals',
-                    subtitle: 'Up to 80% Off on Top Brands',
-                    imageurl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8',
-                    link: '/categories/Clothing'
-                }
-            ]
-        });
+        return res.status(200).json({ data: defaultBanners });
     }
 });
 
