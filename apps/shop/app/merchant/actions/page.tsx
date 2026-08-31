@@ -80,7 +80,9 @@ export default function MerchantActionsPage() {
     try {
       const [actionsRes, campaignsRes] = await Promise.all([
         fetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
-        fetch('/api/merchant/campaigns/recommendations', { headers: { 'x-merchant-id': 'default_merchant' } })
+        // limit caps the payload of full campaign objects; the review ledger
+        // renders a scrollable list so 100 is far beyond what is ever visible.
+        fetch('/api/merchant/campaigns/recommendations?limit=100', { headers: { 'x-merchant-id': 'default_merchant' } })
       ]);
 
       if (actionsRes.ok) {

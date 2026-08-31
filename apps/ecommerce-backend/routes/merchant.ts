@@ -968,13 +968,20 @@ router.get('/offers/simulate', async (req: Request, res: Response) => {
 
 /**
  * GET /api/merchant/campaigns/recommendations
- * Lists campaign recommendations with audience breakdown, financial simulation, and review status
+ * Lists campaign recommendations with audience breakdown, financial simulation, and review status.
+ *
+ * Query params:
+ *   - count=1 : lightweight mode returning only aggregate counts (used by the
+ *     sidebar badge and KPI tiles). Avoids serialising ~185 full campaign
+ *     objects (492KB) when the caller only needs a number.
+ *   - limit=N : cap the number of full campaign objects returned.
  */
 router.get('/campaigns/recommendations', async (req: Request, res: Response) => {
   try {
-    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+    const merchantId = (req.query.merchantId as string) || (req.headers['x-merchant-id'] as string) || 'default_merchant';
     const status = req.query.status as any;
     const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : undefined;
+    const wantCount = req.query.count === '1';
 
     // generateCampaignProposals runs ~185 offers × 4 sequential DB queries
     // (~1.8s, ~740 queries). Cache the full proposal list per merchant; the
@@ -990,6 +997,17 @@ router.get('/campaigns/recommendations', async (req: Request, res: Response) => 
     let campaigns = (all as any[]) || [];
     if (status) campaigns = campaigns.filter(c => c.status === status);
     if (limit && limit > 0) campaigns = campaigns.slice(0, limit);
+
+    // Lightweight count mode — a few dozen bytes instead of ~500KB.
+    if (wantCount) {
+      const byStatus: Record<string, number> = {};
+      for (const c of campaigns) byStatus[c.status] = (byStatus[c.status] || 0) + 1;
+      return res.json({
+        success: true,
+        count: campaigns.length,
+        byStatus
+      });
+    }
 
     return res.json({
       success: true,

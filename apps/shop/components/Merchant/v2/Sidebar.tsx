@@ -25,7 +25,9 @@ function usePendingDecisionCount(): number | null {
       try {
         const [actionsRes, campaignsRes] = await Promise.all([
           fetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
-          fetch('/api/merchant/campaigns/recommendations', { headers: { 'x-merchant-id': 'default_merchant' } })
+          // count=1 returns only aggregate numbers (~50B) instead of ~185
+          // full campaign objects (~492KB) — this badge only needs a number.
+          fetch('/api/merchant/campaigns/recommendations?count=1', { headers: { 'x-merchant-id': 'default_merchant' } })
         ]);
 
         let pendingActions = 0;
@@ -47,7 +49,11 @@ function usePendingDecisionCount(): number | null {
         let pendingCampaigns = 0;
         if (campaignsRes.ok) {
           const data = await campaignsRes.json();
-          if (Array.isArray(data?.campaigns)) {
+          if (typeof data?.count === 'number') {
+            // Count mode: derive pending from per-status aggregates.
+            const byStatus = data.byStatus || {};
+            pendingCampaigns = (byStatus.READY_FOR_REVIEW || 0) + (byStatus.DRAFT || 0);
+          } else if (Array.isArray(data?.campaigns)) {
             pendingCampaigns = data.campaigns.filter(
               (c: any) => c?.status === 'READY_FOR_REVIEW' || c?.status === 'DRAFT'
             ).length;

@@ -102,6 +102,22 @@ const startServer = async () => {
         return;
       }
     }
+    // Warm the campaign proposal engine too — its cold computation is the
+    // slowest dashboard dependency (multiple seconds on free-tier CPU) and
+    // both the sidebar badge and the overview page request it.
+    try {
+      const { default: axios } = await import('axios');
+      await axios.get(
+        `http://127.0.0.1:${port0}/api/merchant/campaigns/recommendations?count=1`,
+        { headers: { 'x-api-secret': process.env.API_SECRET || '' }, timeout: 180000 }
+      );
+      await axios.get(
+        `http://127.0.0.1:${port0}/api/merchant/actions`,
+        { headers: { 'x-api-secret': process.env.API_SECRET || '' }, timeout: 180000 }
+      );
+    } catch (err: any) {
+      console.warn('[Cache Warm] Campaign/action warm skipped:', err.message);
+    }
     console.log('[Cache Warm] Merchant overview pre-warmed (30d + 7d + month).');
   };
 
