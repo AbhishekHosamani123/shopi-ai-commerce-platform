@@ -327,9 +327,23 @@ const connectDB = async () => {
       if (needsMigration) {
         console.log('[DB Info] Auto-seeding Phase 11B commerce dataset in background...');
         const { runPhase11bMigration } = await import('./phase11b_migration');
-        runPhase11bMigration()
-          .then(() => console.log('[DB Info] Phase 11B commerce dataset auto-seeded successfully.'))
-          .catch((err) => console.warn('[DB Info] Phase 11B auto-seed notice:', err.message));
+        // Retrying seed: on platforms like Render the app can boot before the
+        // managed Postgres accepts connections — a transient failure here must
+        // not leave the dataset missing for the service's lifetime.
+        const seedWithRetry = async (attempt: number, maxAttempts: number): Promise<void> => {
+          try {
+            await runPhase11bMigration();
+            console.log('[DB Info] Phase 11B commerce dataset auto-seeded successfully.');
+          } catch (err: any) {
+            console.warn(`[DB Info] Phase 11B auto-seed attempt ${attempt} failed:`, err.message);
+            if (attempt < maxAttempts) {
+              await new Promise(r => setTimeout(r, 15000 * attempt));
+              return seedWithRetry(attempt + 1, maxAttempts);
+            }
+            console.warn('[DB Info] Phase 11B auto-seed gave up after', maxAttempts, 'attempts.');
+          }
+        };
+        void seedWithRetry(1, 5);
       } else {
         console.log('[DB Info] Phase 11B commerce dataset verified.');
       }
