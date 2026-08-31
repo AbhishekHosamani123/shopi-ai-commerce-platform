@@ -42,6 +42,31 @@ CREATE TABLE IF NOT EXISTS users (
     createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Idempotent backfill of columns the auth flows rely on (role, otp, IP
+-- tracking, promotional flag).  Fresh databases (Render) create the base
+-- table above with only the core columns; these ALTERs bring it up to the
+-- full shape the signup/signin/merchant-login code expects without failing
+-- on databases that already have them.
+ALTER TABLE users ADD COLUMN IF NOT EXISTS creation_ip INET;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(50) DEFAULT 'customer';
+ALTER TABLE users ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS update_ip INET;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS otp VARCHAR(4);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS promotional BOOLEAN;
+
+-- PostgreSQL has no "ADD CONSTRAINT IF NOT EXISTS"; use a DO block so the
+-- unique keys are created only on fresh databases (Render) and never error
+-- on databases that already have them.
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'users_email_key') THEN
+        ALTER TABLE users ADD CONSTRAINT users_email_key UNIQUE (email);
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'users_mobile_number_key') THEN
+        ALTER TABLE users ADD CONSTRAINT users_mobile_number_key UNIQUE (mobile_number);
+    END IF;
+END $$;
+
 CREATE TABLE IF NOT EXISTS categories (
     categoryid SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -314,6 +339,16 @@ const connectDB = async () => {
     // Self-bootstrap core schema so tables like cartitems, users, etc. always exist
     await client.query(CORE_SCHEMA_SQL);
     console.log('[DB Info] Core schema & merchant intelligence tables initialized.');
+
+    // Idempotent bootstrap of dev/test accounts (merchant admin + demo
+    // customer). Fresh databases have no users at all; without this the
+    // merchant dashboard would be unreachable after a fresh Render deploy.
+    try {
+      const { seedTestAccounts } = await import('./seedTestAccounts');
+      await seedTestAccounts();
+    } catch (seedErr: any) {
+      console.warn('[DB Info] Test account bootstrap skipped:', seedErr.message);
+    }
 
     // Idempotent index bootstrap for the hot merchant analytics queries.
     // Safe to run on every boot (IF NOT EXISTS); keeps the Render-managed
