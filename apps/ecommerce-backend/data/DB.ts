@@ -255,6 +255,55 @@ CREATE TABLE IF NOT EXISTS merchant_campaigns (
     revenue_generated NUMERIC(10,2) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS merchant_ai_actions (
+    action_id VARCHAR(64) PRIMARY KEY,
+    merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+    action_type VARCHAR(64) NOT NULL,
+    status VARCHAR(32) NOT NULL DEFAULT 'PENDING_APPROVAL',
+    product_id VARCHAR(100),
+    product_name VARCHAR(255),
+    quantity INTEGER,
+    payload JSONB NOT NULL DEFAULT '{}'::jsonb,
+    reason TEXT NOT NULL DEFAULT '',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP WITH TIME ZONE,
+    approved_at TIMESTAMP WITH TIME ZONE,
+    completed_at TIMESTAMP WITH TIME ZONE,
+    rejected_at TIMESTAMP WITH TIME ZONE,
+    approved_by VARCHAR(64),
+    execution_result JSONB,
+    failure_reason TEXT,
+    is_test BOOLEAN DEFAULT FALSE,
+    idempotency_key VARCHAR(128)
+);
+
+CREATE TABLE IF NOT EXISTS merchant_business_impact_ledger (
+    impact_id SERIAL PRIMARY KEY,
+    action_id VARCHAR(64),
+    merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+    observation_window_days INTEGER DEFAULT 14,
+    baseline_metrics JSONB DEFAULT '{}'::jsonb,
+    post_action_metrics JSONB DEFAULT '{}'::jsonb,
+    expected_impact JSONB DEFAULT '{}'::jsonb,
+    actual_impact JSONB DEFAULT '{}'::jsonb,
+    impact_delta_pct NUMERIC(8,2) DEFAULT 0.00,
+    confidence_at_recommendation NUMERIC(5,2) DEFAULT 0.85,
+    final_outcome VARCHAR(32) DEFAULT 'PENDING',
+    outcome_status VARCHAR(32) DEFAULT 'OBSERVING',
+    negative_analysis JSONB DEFAULT '{}'::jsonb,
+    evaluated_at TIMESTAMP WITH TIME ZONE
+);
+
+CREATE TABLE IF NOT EXISTS merchant_action_audits (
+    audit_id SERIAL PRIMARY KEY,
+    action_id VARCHAR(64),
+    merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+    event_type VARCHAR(64) NOT NULL,
+    performed_by VARCHAR(64) NOT NULL,
+    details JSONB DEFAULT '{}'::jsonb,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
 `;
 
 const connectDB = async () => {

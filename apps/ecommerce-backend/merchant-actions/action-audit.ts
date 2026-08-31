@@ -211,69 +211,88 @@ export async function listActions(options: {
   total: number;
   kpis: ActionSummaryKpis;
 }> {
-  await autoExpirePendingActions();
+  try {
+    await autoExpirePendingActions();
 
-  const merchantId = options.merchantId || 'default_merchant';
-  const limit = Math.min(Math.max(options.limit || 50, 1), 100);
-  const offset = Math.max(options.offset || 0, 0);
+    const merchantId = options.merchantId || 'default_merchant';
+    const limit = Math.min(Math.max(options.limit || 50, 1), 100);
+    const offset = Math.max(options.offset || 0, 0);
 
-  let whereClauses: string[] = ['(a.is_test = FALSE OR a.is_test IS NULL)'];
-  const params: any[] = [];
+    let whereClauses: string[] = ['(a.is_test = FALSE OR a.is_test IS NULL)'];
+    const params: any[] = [];
 
-  if (merchantId !== 'merchant_admin') {
-    params.push(merchantId);
-    whereClauses.push(`a.merchant_id = $${params.length}`);
-  }
-
-  if (options.status && options.status !== 'ALL') {
-    const st = options.status.toUpperCase();
-    if (st === 'NEEDS_APPROVAL') {
-      params.push('PENDING_APPROVAL');
-      whereClauses.push(`a.status = $${params.length}`);
-    } else {
-      params.push(st);
-      whereClauses.push(`a.status = $${params.length}`);
+    if (merchantId !== 'merchant_admin') {
+      params.push(merchantId);
+      whereClauses.push(`a.merchant_id = $${params.length}`);
     }
+
+    if (options.status && options.status !== 'ALL') {
+      const st = options.status.toUpperCase();
+      if (st === 'NEEDS_APPROVAL') {
+        params.push('PENDING_APPROVAL');
+        whereClauses.push(`a.status = $${params.length}`);
+      } else {
+        params.push(st);
+        whereClauses.push(`a.status = $${params.length}`);
+      }
+    }
+
+    const whereSql = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND ')}` : '';
+
+    params.push(limit);
+    const limitParam = params.length;
+    params.push(offset);
+    const offsetParam = params.length;
+
+    const listQuery = `
+      SELECT 
+        a.*,
+        i.impact_id,
+        i.observation_window_days,
+        i.baseline_metrics,
+        i.post_action_metrics,
+        i.expected_impact,
+        i.actual_impact,
+        i.impact_delta_pct,
+        i.confidence_at_recommendation,
+        i.final_outcome,
+        i.outcome_status,
+        i.negative_analysis,
+        i.evaluated_at
+      FROM merchant_ai_actions a
+      LEFT JOIN merchant_business_impact_ledger i ON a.action_id = i.action_id
+      ${whereSql}
+      ORDER BY a.created_at DESC
+      LIMIT $${limitParam} OFFSET $${offsetParam};
+    `;
+
+    const [listRes, kpis] = await Promise.all([
+      client.query(listQuery, params),
+      getActionSummaryKpis(merchantId)
+    ]);
+
+    return {
+      actions: listRes.rows.map(mapRowToAction),
+      total: listRes.rows.length,
+      kpis
+    };
+  } catch (err: any) {
+    console.warn('[Action Audit Warning] listActions fallback:', err.message);
+    return {
+      actions: [],
+      total: 0,
+      kpis: {
+        pendingApproval: 0,
+        approvedTotal: 0,
+        rejectedTotal: 0,
+        completedTotal: 0,
+        expiredTotal: 0,
+        failedTotal: 0,
+        totalActions: 0,
+        approvalRatePct: 0,
+        totalValueRealized: 0
+      }
+    };
   }
-
-  const whereSql = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND ')}` : '';
-
-  params.push(limit);
-  const limitParam = params.length;
-  params.push(offset);
-  const offsetParam = params.length;
-
-  const listQuery = `
-    SELECT 
-      a.*,
-      i.impact_id,
-      i.observation_window_days,
-      i.baseline_metrics,
-      i.post_action_metrics,
-      i.expected_impact,
-      i.actual_impact,
-      i.impact_delta_pct,
-      i.confidence_at_recommendation,
-      i.final_outcome,
-      i.outcome_status,
-      i.negative_analysis,
-      i.evaluated_at
-    FROM merchant_ai_actions a
-    LEFT JOIN merchant_business_impact_ledger i ON a.action_id = i.action_id
-    ${whereSql}
-    ORDER BY a.created_at DESC
-    LIMIT $${limitParam} OFFSET $${offsetParam};
-  `;
-
-  const [listRes, kpis] = await Promise.all([
-    client.query(listQuery, params),
-    getActionSummaryKpis(merchantId)
-  ]);
-
-  return {
-    actions: listRes.rows.map(mapRowToAction),
-    total: listRes.rows.length,
-    kpis
-  };
 }
 
