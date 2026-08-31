@@ -31,6 +31,7 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/js-cookie": "^3.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-redux": "^7.1.33",
