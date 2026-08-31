@@ -124,6 +124,7 @@ import makeWASocket, {
   Product,
   proto,
   UserFacingSocketConfig,
+  useMultiFileAuthState,
   WABrowserDescription,
   WAMediaUpload,
   WAMessage,
@@ -560,21 +561,41 @@ export class BaileysStartupService extends ChannelStartupService {
     const provider = this.configService.get<ProviderSession>('PROVIDER');
 
     if (provider?.ENABLED) {
-      return await this.authStateProvider.authStateProvider(this.instance.id);
+      try {
+        const state = await this.authStateProvider.authStateProvider(this.instance.id);
+        if (state && (state as any).state) return state;
+      } catch (err: any) {
+        this.logger.warn('Provider auth state notice: ' + err.message);
+      }
     }
 
-    if (cache?.REDIS.ENABLED && cache?.REDIS.SAVE_INSTANCES) {
+    if (cache?.REDIS?.ENABLED && cache?.REDIS?.SAVE_INSTANCES) {
       this.logger.info('Redis enabled');
-      return await useMultiFileAuthStateRedisDb(this.instance.id, this.cache);
+      try {
+        const state = await useMultiFileAuthStateRedisDb(this.instance.id, this.cache);
+        if (state && state.state) return state;
+      } catch (err: any) {
+        this.logger.warn('Redis auth state notice: ' + err.message);
+      }
     }
 
-    if (db.SAVE_DATA.INSTANCE) {
-      return await useMultiFileAuthStatePrisma(this.instance.id, this.cache);
+    if (db?.SAVE_DATA?.INSTANCE) {
+      try {
+        const state = await useMultiFileAuthStatePrisma(this.instance.id, this.cache);
+        if (state && state.state) return state;
+      } catch (err: any) {
+        this.logger.warn('Prisma auth state notice, using file auth: ' + err.message);
+      }
     }
+
+    // Default bulletproof fallback: local Baileys session files
+    const targetDir = join(INSTANCE_DIR, this.instance?.id || this.instance?.name || 'default_session');
+    return await useMultiFileAuthState(targetDir);
   }
 
   private async createClient(number?: string): Promise<WASocket> {
-    this.instance.authState = await this.defineAuthState();
+    const definedAuth = await this.defineAuthState();
+    this.instance.authState = definedAuth || (await useMultiFileAuthState(join(INSTANCE_DIR, this.instance?.id || this.instance?.name || 'default_session')));
 
     const session = this.configService.get<ConfigSessionPhone>('CONFIG_SESSION_PHONE');
 
