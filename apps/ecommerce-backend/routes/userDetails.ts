@@ -48,69 +48,74 @@ const fetchSize = async (productID: number) => {
 };
 
 const fetchCartItems = async (userID: number) => {
-    const cartQuery = `
-        SELECT cartitems.productid, cartitems.quantity, cartitems.colorid, cartitems.sizeid,
-               products.title, products.discount, cartitems.cartitemid, 
-               productimages.imglink, productimages.imgalt,
-               productcolors.colorname, productcolors.colorclass,
-               productsizes.sizename
-        FROM cartitems 
-        LEFT JOIN products ON cartitems.productid = products.productid 
-        LEFT JOIN productimages ON cartitems.productid = productimages.productid AND productimages.isprimary = true
-        LEFT JOIN productcolors ON cartitems.colorid = productcolors.colorid
-        LEFT JOIN productsizes ON cartitems.sizeid = productsizes.sizeid
-        WHERE cartitems.userid = $1
-        ORDER BY cartitems.cartitemid ASC;
-    `;
-    const cartValues = [userID];
-    const cartResult = await client.query(cartQuery, cartValues);
+    try {
+        const cartQuery = `
+            SELECT cartitems.productid, cartitems.quantity, cartitems.colorid, cartitems.sizeid,
+                   products.title, products.discount, cartitems.cartitemid, 
+                   productimages.imglink, productimages.imgalt,
+                   productcolors.colorname, productcolors.colorclass,
+                   productsizes.sizename
+            FROM cartitems 
+            LEFT JOIN products ON cartitems.productid = products.productid 
+            LEFT JOIN productimages ON cartitems.productid = productimages.productid AND productimages.isprimary = true
+            LEFT JOIN productcolors ON cartitems.colorid = productcolors.colorid
+            LEFT JOIN productsizes ON cartitems.sizeid = productsizes.sizeid
+            WHERE cartitems.userid = $1
+            ORDER BY cartitems.cartitemid ASC;
+        `;
+        const cartValues = [userID];
+        const cartResult = await client.query(cartQuery, cartValues);
 
-    const cartItems = await Promise.all(cartResult.rows.map(async (item) => {
-        const supProd = await ShopiCatalogService.getProduct(String(item.productid));
+        const cartItems = await Promise.all(cartResult.rows.map(async (item) => {
+            const supProd = await ShopiCatalogService.getProduct(String(item.productid));
 
-        const canonicalSku = supProd?.sku || String(item.productid);
-        const canonicalTitle = supProd?.title || item.title || 'Product';
-        const canonicalPrice = supProd?.selling_price !== undefined ? supProd.selling_price : item.discount;
+            const canonicalSku = supProd?.sku || String(item.productid);
+            const canonicalTitle = supProd?.title || item.title || 'Product';
+            const canonicalPrice = supProd?.selling_price !== undefined ? supProd.selling_price : item.discount;
 
-        let selectedColor = item.colorname;
-        if (!selectedColor && item.colorid && supProd?.colors) {
-            const matchedColById = supProd.colors.find((c: any) => c.colorid === item.colorid);
-            if (matchedColById) selectedColor = matchedColById.colorname;
-        }
-        if (!selectedColor && supProd?.colors && supProd.colors.length > 0) {
-            selectedColor = supProd.colors[0].colorname;
-        }
-
-        let selectedSize = item.sizename;
-        if (!selectedSize && item.sizeid && supProd?.sizes) {
-            const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === item.sizeid);
-            if (matchedSzById) selectedSize = matchedSzById.sizename;
-        }
-        if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0) {
-            selectedSize = supProd.sizes[0].sizename;
-        }
-
-        let finalImg = supProd?.imglink || item.imglink;
-        if (selectedColor && supProd?.colors) {
-            const matchedCol = supProd.colors.find((c: any) => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
-            if (matchedCol && matchedCol.imglink) {
-                finalImg = matchedCol.imglink;
+            let selectedColor = item.colorname;
+            if (!selectedColor && item.colorid && supProd?.colors) {
+                const matchedColById = supProd.colors.find((c: any) => c.colorid === item.colorid);
+                if (matchedColById) selectedColor = matchedColById.colorname;
             }
-        }
+            if (!selectedColor && supProd?.colors && supProd.colors.length > 0) {
+                selectedColor = supProd.colors[0].colorname;
+            }
 
-        return {
-            ...item,
-            productid: canonicalSku,
-            title: canonicalTitle,
-            discount: canonicalPrice,
-            imglink: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
-            imgalt: item.imgalt || canonicalTitle,
-            colorname: selectedColor,
-            sizename: selectedSize,
-            colorclass: item.colorclass || 'bg-slate-700',
-        };
-    }));
-    return cartItems;
+            let selectedSize = item.sizename;
+            if (!selectedSize && item.sizeid && supProd?.sizes) {
+                const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === item.sizeid);
+                if (matchedSzById) selectedSize = matchedSzById.sizename;
+            }
+            if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0) {
+                selectedSize = supProd.sizes[0].sizename;
+            }
+
+            let finalImg = supProd?.imglink || item.imglink;
+            if (selectedColor && supProd?.colors) {
+                const matchedCol = supProd.colors.find((c: any) => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
+                if (matchedCol && matchedCol.imglink) {
+                    finalImg = matchedCol.imglink;
+                }
+            }
+
+            return {
+                ...item,
+                productid: canonicalSku,
+                title: canonicalTitle,
+                discount: canonicalPrice,
+                imglink: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+                imgalt: item.imgalt || canonicalTitle,
+                colorname: selectedColor,
+                sizename: selectedSize,
+                colorclass: item.colorclass || 'bg-slate-700',
+            };
+        }));
+        return cartItems;
+    } catch (err: any) {
+        console.warn('[Cart Fetch Warning]:', err.message);
+        return [];
+    }
 };
 
 const fetchWishlistItems = async (userID: number) => {

@@ -353,108 +353,118 @@ export class RazorpayCommerceAdapter implements MerchantAdapter {
    * 6. Real Cart: Get Current Cart for User
    */
   async getCart(userId: number): Promise<RealCartState> {
-    const query = `
-      SELECT c.cartitemid, c.productid, c.quantity, c.colorid, c.sizeid,
-             p.title, p.discount, p.price, p.stock,
-             cat.name AS category_name, cat.maincategory,
-             pi.imglink, pi.imgalt,
-             pc.colorname,
-             ps.sizename
-      FROM cartitems c
-      LEFT JOIN products p ON c.productid = p.productid
-      LEFT JOIN categories cat ON p.categoryid = cat.categoryid
-      LEFT JOIN (
-        SELECT DISTINCT ON (productid) productid, imglink, imgalt
-        FROM productimages
-        ORDER BY productid, isprimary DESC
-      ) pi ON p.productid = pi.productid
-      LEFT JOIN (
-        SELECT DISTINCT ON (productid, colorid) productid, colorid, colorname
-        FROM productcolors
-      ) pc ON c.colorid = pc.colorid AND c.productid = pc.productid
-      LEFT JOIN (
-        SELECT DISTINCT ON (productid, sizeid) productid, sizeid, sizename
-        FROM productsizes
-      ) ps ON c.sizeid = ps.sizeid AND c.productid = ps.productid
-      WHERE c.userid = $1
-      ORDER BY c.cartitemid ASC;
-    `;
+    try {
+      const query = `
+        SELECT c.cartitemid, c.productid, c.quantity, c.colorid, c.sizeid,
+               p.title, p.discount, p.price, p.stock,
+               cat.name AS category_name, cat.maincategory,
+               pi.imglink, pi.imgalt,
+               pc.colorname,
+               ps.sizename
+        FROM cartitems c
+        LEFT JOIN products p ON c.productid = p.productid
+        LEFT JOIN categories cat ON p.categoryid = cat.categoryid
+        LEFT JOIN (
+          SELECT DISTINCT ON (productid) productid, imglink, imgalt
+          FROM productimages
+          ORDER BY productid, isprimary DESC
+        ) pi ON p.productid = pi.productid
+        LEFT JOIN (
+          SELECT DISTINCT ON (productid, colorid) productid, colorid, colorname
+          FROM productcolors
+        ) pc ON c.colorid = pc.colorid AND c.productid = pc.productid
+        LEFT JOIN (
+          SELECT DISTINCT ON (productid, sizeid) productid, sizeid, sizename
+          FROM productsizes
+        ) ps ON c.sizeid = ps.sizeid AND c.productid = ps.productid
+        WHERE c.userid = $1
+        ORDER BY c.cartitemid ASC;
+      `;
 
-    const res = await client.query(query, [userId]);
-    let total = 0;
-    let itemCount = 0;
+      const res = await client.query(query, [userId]);
+      let total = 0;
+      let itemCount = 0;
 
-    const items: RealCartItem[] = await Promise.all(res.rows.map(async (row: any) => {
-      // Look up canonical Supabase catalog product by numeric ID or SKU
-      const supProd = await ShopiCatalogService.getProduct(String(row.productid));
+      const items: RealCartItem[] = await Promise.all(res.rows.map(async (row: any) => {
+        // Look up canonical Supabase catalog product by numeric ID or SKU
+        const supProd = await ShopiCatalogService.getProduct(String(row.productid));
 
-      const canonicalSku = supProd?.sku || String(row.productid);
-      const canonicalTitle = supProd?.title || row.title || 'Product';
-      const unitPrice = supProd?.selling_price !== undefined 
-        ? supProd.selling_price 
-        : parseFloat(row.discount || row.price || 0);
-      const qty = parseInt(row.quantity || 1, 10);
-      const itemTotal = unitPrice * qty;
+        const canonicalSku = supProd?.sku || String(row.productid);
+        const canonicalTitle = supProd?.title || row.title || 'Product';
+        const unitPrice = supProd?.selling_price !== undefined 
+          ? supProd.selling_price 
+          : parseFloat(row.discount || row.price || 0);
+        const qty = parseInt(row.quantity || 1, 10);
+        const itemTotal = unitPrice * qty;
 
-      total += itemTotal;
-      itemCount += qty;
+        total += itemTotal;
+        itemCount += qty;
 
-      // Color resolution: check row.colorname first, then match row.colorid in supProd.colors, fallback to first color
-      let selectedColor = row.colorname;
-      if (!selectedColor && row.colorid && supProd?.colors) {
-        const matchedColById = supProd.colors.find((c: any) => c.colorid === row.colorid);
-        if (matchedColById) selectedColor = matchedColById.colorname;
-      }
-      if (!selectedColor && supProd?.colors && supProd.colors.length > 0 && row.colorid) {
-        selectedColor = supProd.colors[0].colorname;
-      }
-      if (selectedColor && (selectedColor.toLowerCase() === 'undefined' || selectedColor.toLowerCase() === 'null')) {
-        selectedColor = undefined;
-      }
-
-      // Size resolution: check row.sizename first, then match row.sizeid in supProd.sizes, fallback to first size
-      let selectedSize = row.sizename;
-      if (!selectedSize && row.sizeid && supProd?.sizes) {
-        const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === row.sizeid);
-        if (matchedSzById) selectedSize = matchedSzById.sizename;
-      }
-      if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0 && row.sizeid) {
-        selectedSize = supProd.sizes[0].sizename;
-      }
-      if (selectedSize && (selectedSize.toLowerCase() === 'undefined' || selectedSize.toLowerCase() === 'null')) {
-        selectedSize = undefined;
-      }
-
-      // Image resolution: variant image first, then canonical image, then DB image
-      let finalImg = supProd?.imglink || row.imglink;
-      if (selectedColor && supProd?.colors) {
-        const matchedCol = supProd.colors.find(c => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
-        if (matchedCol && matchedCol.imglink) {
-          finalImg = matchedCol.imglink;
+        // Color resolution: check row.colorname first, then match row.colorid in supProd.colors, fallback to first color
+        let selectedColor = row.colorname;
+        if (!selectedColor && row.colorid && supProd?.colors) {
+          const matchedColById = supProd.colors.find((c: any) => c.colorid === row.colorid);
+          if (matchedColById) selectedColor = matchedColById.colorname;
         }
-      }
+        if (!selectedColor && supProd?.colors && supProd.colors.length > 0 && row.colorid) {
+          selectedColor = supProd.colors[0].colorname;
+        }
+        if (selectedColor && (selectedColor.toLowerCase() === 'undefined' || selectedColor.toLowerCase() === 'null')) {
+          selectedColor = undefined;
+        }
+
+        // Size resolution: check row.sizename first, then match row.sizeid in supProd.sizes, fallback to first size
+        let selectedSize = row.sizename;
+        if (!selectedSize && row.sizeid && supProd?.sizes) {
+          const matchedSzById = supProd.sizes.find((s: any) => s.sizeid === row.sizeid);
+          if (matchedSzById) selectedSize = matchedSzById.sizename;
+        }
+        if (!selectedSize && supProd?.sizes && supProd.sizes.length > 0 && row.sizeid) {
+          selectedSize = supProd.sizes[0].sizename;
+        }
+        if (selectedSize && (selectedSize.toLowerCase() === 'undefined' || selectedSize.toLowerCase() === 'null')) {
+          selectedSize = undefined;
+        }
+
+        // Image resolution: variant image first, then canonical image, then DB image
+        let finalImg = supProd?.imglink || row.imglink;
+        if (selectedColor && supProd?.colors) {
+          const matchedCol = supProd.colors.find(c => c.colorname && c.colorname.toLowerCase() === selectedColor.toLowerCase());
+          if (matchedCol && matchedCol.imglink) {
+            finalImg = matchedCol.imglink;
+          }
+        }
+
+        return {
+          cartItemId: row.cartitemid,
+          productId: canonicalSku,
+          name: canonicalTitle,
+          price: unitPrice,
+          quantity: qty,
+          currency: this.defaultCurrency,
+          imageUrl: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+          category: supProd?.category || row.category_name || row.maincategory || 'Clothing',
+          color: selectedColor || undefined,
+          size: selectedSize || undefined,
+          itemTotal: parseFloat(itemTotal.toFixed(2)),
+        };
+      }));
 
       return {
-        cartItemId: row.cartitemid,
-        productId: canonicalSku,
-        name: canonicalTitle,
-        price: unitPrice,
-        quantity: qty,
+        items,
+        itemCount,
+        total: parseFloat(total.toFixed(2)),
         currency: this.defaultCurrency,
-        imageUrl: finalImg || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
-        category: supProd?.category || row.category_name || row.maincategory || 'Clothing',
-        color: selectedColor || undefined,
-        size: selectedSize || undefined,
-        itemTotal: parseFloat(itemTotal.toFixed(2)),
       };
-    }));
-
-    return {
-      items,
-      itemCount,
-      total: parseFloat(total.toFixed(2)),
-      currency: this.defaultCurrency,
-    };
+    } catch (err: any) {
+      console.warn('[Adapter Warning] Cart fetch fallback (empty cart):', err.message);
+      return {
+        items: [],
+        itemCount: 0,
+        total: 0,
+        currency: this.defaultCurrency,
+      };
+    }
   }
 
   /**
