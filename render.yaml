@@ -114,6 +114,12 @@ services:
       - key: BANNER_OUTPUT_DIR
         value: /tmp/generated_campaign_assets   # ephemeral disk: regenerated per send
 
+      # --- Supabase Commerce Catalog ---
+      - key: SUPABASE_URL
+        value: https://ogppkxqvfzsusdawqbzx.supabase.co
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ncHBreHF2ZnpzdXNkYXdxYnp4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NzcxMTA4MSwiZXhwIjoyMTAzMjg3MDgxfQ.wMMHQJjeoTJ8UFSAH26GfPdQbPhRriByCRgNyjqxLpY
+
       # --- Legacy (optional) ---
       - key: STRIPE_SECRET_KEY
         sync: false

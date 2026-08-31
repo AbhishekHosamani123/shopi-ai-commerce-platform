@@ -6,8 +6,11 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 dotenv.config({ path: path.resolve(process.cwd(), 'storefront/apps/ecommerce-backend/.env') });
 dotenv.config();
 
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ogppkxqvfzsusdawqbzx.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY || '';
+const DEFAULT_SUPABASE_URL = 'https://ogppkxqvfzsusdawqbzx.supabase.co';
+const DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ncHBreHF2ZnpzdXNkYXdxYnp4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NzcxMTA4MSwiZXhwIjoyMTAzMjg3MDgxfQ.wMMHQJjeoTJ8UFSAH26GfPdQbPhRriByCRgNyjqxLpY';
+
+const SUPABASE_URL = process.env.SUPABASE_URL || DEFAULT_SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY || DEFAULT_SUPABASE_KEY;
 const cleanBaseUrl = SUPABASE_URL.replace(/\/+$/, '');
 
 export interface FormattedProductImage {
