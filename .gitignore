@@ -58,3 +58,4 @@ Thumbs.db
 # Generated campaign banner cache (customer-specific images)
 generated_campaign_assets/
 apps/ecommerce-backend/generated_campaign_assets/
+scratch/
