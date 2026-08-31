@@ -26,6 +26,9 @@ export default async function merchantLoginHandler({
 
     if (response.status === 200 && response.data?.token) {
       const cookieStore = await cookies();
+      // Remove any cookie previously stored under the old path ('/merchant'),
+      // then store under '/' so /api/merchant/* proxy requests include it.
+      cookieStore.delete('merchant_session');
       cookieStore.set({
         name: 'merchant_session',
         value: response.data.token,
