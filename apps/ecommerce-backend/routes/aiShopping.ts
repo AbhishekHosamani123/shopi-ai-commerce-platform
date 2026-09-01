@@ -51,6 +51,72 @@ function formatCartItemList(items: RealCartItem[]): string {
   return items.map(i => `• ${i.name} ×${i.quantity} — ₹${i.price.toLocaleString('en-IN')}`).join('\n');
 }
 
+/**
+ * ── CART INTENT DETECTION (scored, order-insensitive) ─────────────────────────
+ *
+ * Bug this fixes: "what is in my cart?" matched the old exact-phrase list, but
+ * any other phrasing — "what do I have in my cart?", "how many items are in my
+ * cart?", "what have I added?", "what am I buying?", "show the items I added" —
+ * fell through to PRODUCT SEARCH, which searched the catalog for the keyword
+ * "cart" and returned random products.
+ *
+ * This detector scores cart-view questions so ANY phrasing that is genuinely
+ * about the user's cart is routed to cart_view and answered from the REAL
+ * cart database — never a keyword product search.
+ */
+const CART_VIEW_STRONG_PATTERNS: Array<[RegExp, number]> = [
+  // Direct "cart/bag contents" questions — near-certain
+  [/\bin (?:my|the) (?:cart|bag|basket|trolley)\b/, 5],
+  [/\b(?:cart|bag|basket|trolley) (?:contents?|items?|list)\b/, 5],
+  [/\bmy (?:cart|bag|basket|trolley)\b/, 4],
+  [/\b(?:whats|what's|what is|what do|what did|what have|what am|whats)\b.*\b(?:cart|bag|basket|trolley)\b/, 5],
+  [/\b(?:show|display|list|open|see|check)\b.*\b(?:cart|bag|basket|trolley)\b/, 4],
+  [/\b(?:added|put|placed)\b.*\b(?:in|to|into) (?:my |the )?(?:cart|bag|basket|trolley)\b/, 4],
+  [/\b(?:how many|what) (?:items?|products?|things?)\b.*\b(?:cart|bag|basket|trolley)\b/, 5],
+  [/\b(?:cart|bag)\b.*\btotal\b/, 5],
+  [/\bhow much\b.*\b(?:cart|bag|basket|trolley)\b/, 4],
+  [/\bwhat am i (?:buying|purchasing)\b/, 4],
+  // Added-items questions WITHOUT the word "cart" (still unambiguous)
+  [/\bwhat (?:have i|did i) (?:added|put|placed|put)\b/, 4],
+  [/\b(?:show|list) (?:me )?(?:the )?items? i (?:added|put|have)\b/, 4],
+  [/\bwhat products? did i add\b/, 4],
+  // Bare single-word cart commands
+  [/^\s*(?:cart|bag|basket|show cart|view cart|my cart|cart\?)\s*[?.!]?\s*$/, 5],
+];
+
+/** Mutating cart commands must NEVER be treated as a read-only view question. */
+const CART_VIEW_EXCLUDE_PATTERNS: RegExp[] = [
+  /\b(?:clear|empty|reset|remove|delete|drop|cancel)\b.*\b(?:cart|bag|basket|trolley|it|this)\b/,
+  /^\s*(?:clear|empty|reset)\s+(?:my\s+)?(?:cart|bag|basket)\s*$/,
+  // Add-to-cart commands mention "cart" too — they must route to ADD, not VIEW.
+  /\b(?:add|put|buy|get|order)\b.*\b(?:to|in|into|into)\b.*\b(?:cart|bag|basket|trolley)\b/,
+  /\b(?:add|put|buy|get)\s+(?:this|it|them|the)\b/,
+  /^\s*add\s+/,
+  /\bremove\b/,
+  /\bcheckout\b/,
+  /\bpay (?:now|via|using)\b/,
+  /\b(?:increase|decrease|change|update|set)\b.*\b(?:quantity|qty|of)\b/,
+  /\bmake it\b/,
+];
+
+function scoreCartViewIntent(lowerMsg: string): number {
+  for (const ex of CART_VIEW_EXCLUDE_PATTERNS) {
+    if (ex.test(lowerMsg)) return 0;
+  }
+  let score = 0;
+  for (const [pattern, weight] of CART_VIEW_STRONG_PATTERNS) {
+    if (pattern.test(lowerMsg)) score += weight;
+  }
+  return score;
+}
+
+/** True when the message is a cart-view question (threshold tuned so a single
+ *  strong phrase is enough; generic product searches mentioning the word
+ * "cart" alone (e.g. "do you sell shopping carts?") score 0–1 and stay out). */
+function isCartViewQuestion(lowerMsg: string): boolean {
+  return scoreCartViewIntent(lowerMsg) >= 4;
+}
+
 function toCanonicalProduct(p: any): CanonicalProduct {
   const priceVal = typeof p.price === 'number'
     ? p.price
@@ -116,7 +182,7 @@ router.post('/chat', async (req: Request, res: Response) => {
     // ──────────────────────────────────────────────────────────────────────────
     // 2. CHECKOUT & COMMERCE ACTIONS
     // ──────────────────────────────────────────────────────────────────────────
-    if (lowerMessage === 'checkout' || lowerMessage.includes('proceed to checkout') || lowerMessage.includes('pay now')) {
+    if (lowerMessage === 'checkout' || lowerMessage.includes('proceed to checkout') || lowerMessage.includes('pay now') || /\b(?:i want|i'd like|i would like|let me|help me|take me)\b.*\bcheckout\b/.test(lowerMessage) || /\bcheckout\b.*\?*$/.test(lowerMessage) && !lowerMessage.includes('where')) {
       currentCart = await adapter.getCart(targetUserId);
 
       if (currentCart.items.length === 0) {
@@ -221,15 +287,19 @@ router.post('/chat', async (req: Request, res: Response) => {
       });
     }
 
-    // ── View Cart ──
-    if (lowerMessage === 'cart' || lowerMessage.includes('view cart') || lowerMessage.includes("what's in my cart") || lowerMessage.includes('what is in my cart') || lowerMessage.includes('show cart') || lowerMessage.includes('show my cart') || lowerMessage.includes('show me my cart')) {
+    // ── View Cart (scored detection — catches ANY cart question phrasing) ──
+    // Replaces the fragile exact-phrase list: "what do I have in my cart?",
+    // "how many items are in my cart?", "what have I added?" etc. previously
+    // fell through to product SEARCH, which searched the catalog for the
+    // keyword "cart" and returned random products.
+    if (isCartViewQuestion(lowerMessage)) {
       currentCart = await adapter.getCart(targetUserId);
 
       if (currentCart.items.length === 0) {
         return res.status(200).json({
           success: true,
           intent: 'cart_view',
-          message: 'Your shopping cart is currently empty.',
+          message: 'Your shopping cart is currently empty. 🛒\n\nTell me what you are looking for (e.g. "show me sports shoes under ₹2000") and I can add it for you.',
           products: [],
           cart: currentCart,
           userId: targetUserId,
@@ -241,17 +311,18 @@ router.post('/chat', async (req: Request, res: Response) => {
         .map((i: RealCartItem) => {
           const varDetails = [i.color, i.size].filter(Boolean).join(' / ');
           const varTag = varDetails ? ` (${varDetails})` : '';
-          return `• **${i.name}**\`${i.productId}\`${varTag} ×${i.quantity} — ₹${(i.price * i.quantity).toLocaleString('en-IN')}`;
+          const subtotal = i.price * i.quantity;
+          return `• **${i.name}**${varTag} — Qty ${i.quantity} × ₹${i.price.toLocaleString('en-IN')} = **₹${subtotal.toLocaleString('en-IN')}**`;
         })
         .join('\n');
 
       return res.status(200).json({
         success: true,
         intent: 'cart_view',
-        message: `Your shopping cart has **${currentCart.itemCount} item(s)**:\n\n${itemLines}\n\n**Total**: ₹${currentCart.total.toLocaleString('en-IN')} INR\n\n*Would you like to proceed to checkout?*`,
+        message: `Your shopping cart has **${currentCart.itemCount} item(s)**:\n\n${itemLines}\n\n**Cart Total**: ₹${currentCart.total.toLocaleString('en-IN')} INR\n\n*Would you like to proceed to checkout?*`,
         products: [],
         cart: currentCart,
-        checkout: { available: true, url: '/cart-checkout' },
+        checkout: { available: true, url: '/cart-checkout', isCartEmpty: false, itemCount: currentCart.itemCount, total: currentCart.total },
         userId: targetUserId,
         conversationId: conversationId || undefined,
       });
@@ -330,7 +401,7 @@ router.post('/chat', async (req: Request, res: Response) => {
       }
     }
 
-    // ── Update Cart Quantity ("Make it two", "Change quantity to 3", "Change the quantity to 3") ──
+    // ── Update Cart Quantity ("Make it two", "Increase the quantity", "Decrease by one") ──
     const isQtyUpdate = (
       lowerMessage.includes('make it') ||
       lowerMessage.includes('change quantity') ||
@@ -338,17 +409,43 @@ router.post('/chat', async (req: Request, res: Response) => {
       lowerMessage.includes('set quantity') ||
       /make (?:the |its? )?quantity/.test(lowerMessage) ||
       /update (?:the )?quantity/.test(lowerMessage) ||
-      /quantity to \d/.test(lowerMessage)
+      /quantity to \d/.test(lowerMessage) ||
+      /\b(?:increase|decrease|reduce)\b.*\b(?:quantity|qty|it)\b/.test(lowerMessage) ||
+      /\b(?:buy|get|order)\s+(?:more|less|one more)\b/.test(lowerMessage)
     );
 
     if (isQtyUpdate) {
       currentCart = await adapter.getCart(targetUserId);
 
       if (currentCart.items.length > 0) {
-        const qtyMatch = lowerMessage.match(/\b(\d+)\b/) || (lowerMessage.includes('two') ? [null, '2'] : lowerMessage.includes('three') ? [null, '3'] : lowerMessage.includes('one') ? [null, '1'] : null);
-        const newQty = qtyMatch && qtyMatch[1] ? parseInt(qtyMatch[1], 10) : 2;
-
         const targetItem = currentCart.items[currentCart.items.length - 1];
+
+        // Directional verbs (increase/decrease/reduce) adjust RELATIVE to the
+        // current quantity; absolute phrasings ("make it two", "quantity to 3")
+        // set it directly. Previously "increase the quantity" defaulted to 2
+        // regardless of the existing quantity.
+        const isIncrease = /\b(?:increase|more|one more|add one)\b/.test(lowerMessage);
+        const isDecrease = /\b(?:decrease|reduce|less|one less|remove one)\b/.test(lowerMessage);
+        let newQty: number;
+        // Strip SKU-like tokens before extracting a quantity — otherwise
+        // "change the quantity of SNEAKER-005 to 2" would read the SKU's
+        // digits as the quantity (same class of bug as the add path).
+        const msgWithoutSkus = lowerMessage.replace(/\b[A-Z]+-?\d+(?:[A-Z-]*\d*)*\b/gi, '').replace(/\b\d+-[A-Z]+\b/gi, '');
+        const qtyMatch = msgWithoutSkus.match(/\b(\d+)\b/) || (msgWithoutSkus.includes('two') ? [null, '2'] : msgWithoutSkus.includes('three') ? [null, '3'] : msgWithoutSkus.includes('one') ? [null, '1'] : null);
+
+        if (isIncrease && !qtyMatch) {
+          newQty = targetItem.quantity + 1;
+        } else if (isDecrease && !qtyMatch) {
+          newQty = Math.max(1, targetItem.quantity - 1);
+        } else if (isIncrease && qtyMatch) {
+          newQty = targetItem.quantity + parseInt(qtyMatch[1], 10);
+        } else if (isDecrease && qtyMatch) {
+          newQty = Math.max(1, targetItem.quantity - parseInt(qtyMatch[1], 10));
+        } else {
+          newQty = qtyMatch && qtyMatch[1] ? parseInt(qtyMatch[1], 10) : 2;
+        }
+        newQty = Math.min(10, Math.max(1, newQty)); // storefront limit 1-10
+
         await adapter.updateCartQuantity(targetUserId, targetItem.cartItemId, newQty);
         currentCart = await adapter.getCart(targetUserId);
 
@@ -368,6 +465,21 @@ router.post('/chat', async (req: Request, res: Response) => {
           }
         });
       }
+    }
+
+    // Quantity update requested but the cart is EMPTY — guide instead of the
+    // generic fallback (previously "increase the quantity" with an empty cart
+    // landed in general_guidance, which confused users).
+    if (isQtyUpdate && currentCart.items.length === 0) {
+      return res.status(200).json({
+        success: true,
+        intent: 'update_cart',
+        message: 'Your shopping cart is currently empty, so there is nothing to adjust. 🛒\n\nTell me what you would like (e.g. "show me sports shoes under ₹2000") and I can add it for you.',
+        products: [],
+        cart: currentCart,
+        userId: targetUserId,
+        conversationId: conversationId || undefined,
+      });
     }
 
     // ── Add to Cart ("Add this to cart", "Add the green one in M", "Add the better one", "Add SHIRT-002") ──
@@ -432,9 +544,13 @@ router.post('/chat', async (req: Request, res: Response) => {
             (i.name || '').toLowerCase() === (prod.title || '').toLowerCase()
           );
 
-          // Resolve requested quantity (e.g. "Add 2 of this" -> 2, default 1)
-          const qtyMatch = lowerMessage.match(/\b(\d+)\b/) || 
-            (lowerMessage.includes('two') ? [null, '2'] : lowerMessage.includes('three') ? [null, '3'] : null);
+          // Resolve requested quantity (e.g. "Add 2 of this" -> 2, default 1).
+          // BUG FIX: the raw /\b\d+\b/ match previously captured digits inside
+          // SKU tokens ("add SNEAKER-005" -> quantity 5!). Strip SKU-like
+          // tokens before looking for a standalone quantity number.
+          const msgWithoutSkus = lowerMessage.replace(/\b[A-Z]+-?\d+(?:[A-Z-]*\d*)*\b/gi, '').replace(/\b\d+-[A-Z]+\b/gi, '');
+          const qtyMatch = msgWithoutSkus.match(/\b(\d+)\b/) ||
+            (msgWithoutSkus.includes('two') ? [null, '2'] : msgWithoutSkus.includes('three') ? [null, '3'] : null);
           const addQty = qtyMatch && qtyMatch[1] ? Math.max(1, parseInt(qtyMatch[1], 10)) : 1;
 
           // Grounded variant resolution

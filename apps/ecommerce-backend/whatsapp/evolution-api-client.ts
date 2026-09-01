@@ -152,6 +152,27 @@ export class EvolutionApiClient {
   }
 
   /**
+   * Sends an image message with an optional caption.
+   * POST /message/sendMedia/:instanceName — body { number, mediatype: 'image',
+   * media: <public URL>, caption }. The URL must be publicly reachable by the
+   * Evolution service (a local filesystem path is NOT acceptable to it).
+   * Response mirrors sendText (provider message id in key.id).
+   */
+  async sendImage(
+    instanceName: string,
+    number: string,
+    imageUrl: string,
+    caption?: string
+  ): Promise<EvolutionCallResult<any>> {
+    return this.call<any>('post', `/message/sendMedia/${encodeURIComponent(instanceName)}`, {
+      number,
+      mediatype: 'image',
+      media: imageUrl,
+      caption: caption || ''
+    }, 30000);
+  }
+
+  /**
    * Checks whether a list of numbers exist on WhatsApp.
    * POST /chat/whatsappNumbers/:instanceName — body { numbers: string[] }
    * Requires a connected sender instance; guarded by a short timeout because an

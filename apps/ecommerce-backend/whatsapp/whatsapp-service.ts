@@ -199,6 +199,9 @@ export class WhatsAppService {
     customerName: string;
     customerPhone: string | null;
     text: string;
+    /** Public URL of the SAME personalized banner the email embeds (requirement:
+     *  WhatsApp must carry the identical promotional image, not a different one). */
+    imageUrl?: string;
     mode?: WhatsAppDispatchMode;
   }): Promise<WhatsAppSendOutcome> {
     const mode: WhatsAppDispatchMode = params.mode || this.getSendMode();
@@ -210,7 +213,8 @@ export class WhatsAppService {
       senderInstance: instanceName,
       text: params.text,
       campaignId: params.campaignId,
-      customerId: params.customerId
+      customerId: params.customerId,
+      ...(params.imageUrl ? { image: params.imageUrl } : {})
     });
 
     // ---- 1. Structural recipient validation ----
@@ -291,7 +295,13 @@ export class WhatsAppService {
 
     // ---- 5. Real send through the QR-connected sender instance ----
     try {
-      const res = await evolutionApiClient.sendText(instanceName, recipientCheck.canonicalNumber!.replace('+', ''), params.text);
+      // When the campaign generated a personalized promotional banner, the
+      // SAME image the email embedded (served from /campaign-banners/) is
+      // attached here with the offer text as caption — never a different one.
+      const target = recipientCheck.canonicalNumber!.replace('+', '');
+      const res = params.imageUrl
+        ? await evolutionApiClient.sendImage(instanceName, target, params.imageUrl, params.text)
+        : await evolutionApiClient.sendText(instanceName, target, params.text);
       if (!res.ok) {
         return {
           success: false,

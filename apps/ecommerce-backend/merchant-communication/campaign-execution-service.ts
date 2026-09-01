@@ -452,17 +452,23 @@ export class CampaignExecutionService {
       const engineDisplayText = campaign.offer.description
         || (isPercentageOffer ? `${campaign.offer.discountValue}% OFF` : `₹${campaign.offer.discountValue} OFF`);
 
-      // ===== Personalized promotional banner (CID-embedded) =====
+      // ===== Personalized promotional banner (shared by EMAIL and WHATSAPP) =====
       // Generated per recipient from the SAME approved values the HTML body
       // renders (customerName + campaign.offer.discountValue). The generator
       // contains no discount logic; its output is validated against the offer
       // before the send. On failure the email still goes out — without the
       // banner rather than with a broken image. Percentage offers only: a
       // fixed-amount offer has no "<N>% OFF" visual to render.
+      //
+      // Requirement: the SAME generated image is used for BOTH channels —
+      // EMAIL embeds it via CID, WHATSAPP attaches it via a public URL served
+      // from /campaign-banners/<sha-filename> (the Evolution API cannot fetch
+      // CID attachments or local filesystem paths, hence the public endpoint).
       let bannerCid: string | null = null;
       let bannerAttachment: InlineEmailAttachment | undefined;
       let bannerAudit: Record<string, unknown> | undefined;
-      if (channel === 'EMAIL' && isPercentageOffer) {
+      let bannerPublicUrl: string | undefined;
+      if (isPercentageOffer) {
         const banner = await bannerGeneratorService.generateCampaignBanner(
           customerName,
           campaign.offer.discountValue,
@@ -476,6 +482,13 @@ export class CampaignExecutionService {
             contentType: 'image/png',
             content: banner.content
           };
+          // Public URL for the WhatsApp provider (Evolution fetches it).
+          const bannerOrigin = (process.env.STOREFRONT_BASE_URL_FOR_BANNERS
+            || process.env.PUBLIC_BACKEND_URL
+            || process.env.STOREFRONT_BASE_URL
+            || process.env.FRONTEND_SERVER_ORIGIN
+            || 'https://shopi-backend-ono3.onrender.com').split(',')[0].trim().replace(/\/+$/, '');
+          bannerPublicUrl = `${bannerOrigin}/campaign-banners/${banner.filename}`;
           bannerAudit = {
             generated: true,
             fromCache: banner.fromCache,
@@ -485,7 +498,8 @@ export class CampaignExecutionService {
             renderedGreeting: banner.renderedGreeting,
             baseDiscountPercent: banner.baseDiscountPercent,
             approvedOfferText: engineDisplayText,
-            consistency: 'MATCH'
+            consistency: 'MATCH',
+            whatsappImage: bannerPublicUrl
           };
         } else {
           console.warn(`[banner] omitted for ${recipient.recipient} (generation failed): ${banner.error}`);
@@ -577,6 +591,11 @@ export class CampaignExecutionService {
           customerName,
           customerPhone: recipient.phone || recipient.recipient,
           text: waText,
+          // SAME personalized banner image the email embedded (public URL —
+          // Evolution cannot fetch CID/local paths). Falls back to text-only
+          // when banner generation failed, so a send is never lost to a
+          // broken image.
+          imageUrl: bannerPublicUrl,
           // WhatsApp send gating is owned by WHATSAPP_SEND_MODE (LIVE needs
           // COMMUNICATION_MODE=PRODUCTION inside the service). Campaign modes
           // TEST/DRY_RUN stay simulated so email's TEST flow can run alongside.
@@ -627,8 +646,9 @@ export class CampaignExecutionService {
 
       // Attach the banner audit trail (rendered text + consistency verdict)
       // to the persisted attribution JSON so every send records exactly what
-      // the banner displayed versus the approved offer.
-      if (bannerAudit && channel === 'EMAIL') {
+      // the banner displayed versus the approved offer — for BOTH channels
+      // (email CID embed and the WhatsApp public-URL attachment).
+      if (bannerAudit) {
         (record.attribution as any).banner = bannerAudit;
       }
 

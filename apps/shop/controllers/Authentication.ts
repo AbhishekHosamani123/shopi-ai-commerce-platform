@@ -1,15 +1,63 @@
-import { useApp } from "@/Helpers/AccountDialog"; // Adjust the import path as necessary
+import { useApp } from "@/Helpers/AccountDialog";
 import { useRouter } from 'next/navigation';
-import { useAppDispatch } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { setDefaultAccount } from "@/features/UIUpdates/UserAccount";
+import { setCart } from "@/features/UIUpdates/CartWishlist";
 import signInHandler from '@/app/api/signin';
 import signUpHandler from '@/app/api/signup';
 import sessionHandler from "@/app/api/sessionauth";
+import userData from "@/controllers/userData";
+import { cartAddHandler } from "@/app/api/itemLists";
 import authDataHandler from "@/app/api/googleAuth";
 const useAuth = () => {
   const { toggleLoggedIn, toggleIsIncorrect, toggleIsExists, toggleServerError, setLoggedIn, toggleSignupSuccess } = useApp();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const guestCart = useAppSelector((state) => state.cartWishlist.cart);
+  const { grabUserData } = userData();
+
+  /**
+   * Post-login cart synchronisation.
+   *
+   * Root cause of the "cart disappears after login" bug: items added before
+   * login lived only in Redux (the backend insert is skipped for guests), and
+   * after login NOTHING re-synced the user's server cart — the page-load-only
+   * Session.tsx guard had already run. This merges the guest cart into the
+   * freshly authenticated user's server cart and then restores the merged
+   * state so checkout sees everything.
+   */
+  const syncCartAfterLogin = async (userID: number) => {
+    try {
+      // 1. Push each guest cart item to the user's server cart.
+      for (const item of guestCart) {
+        try {
+          await cartAddHandler({
+            cartItemID: item.cartItemID,
+            userID,
+            productID: item.productID,
+            productPrice: item.productPrice,
+            colorID: 1,
+            sizeID: 1,
+            quantity: item.quantity,
+          });
+        } catch {
+          // A single failed merge item must not block the rest.
+        }
+      }
+
+      // 2. Pull the authoritative merged cart (server) back into Redux so
+      // the UI reflects both old and new items with real cartItemIDs.
+      const res = await userData().grabUserData();
+      if (res?.success) {
+        // grabUserData dispatched setCart already via its own hook.
+        return true;
+      }
+      // Fallback: keep the guest cart in view if the server pull failed.
+      return false;
+    } catch {
+      return false;
+    }
+  };
 
   const checkLogin = async (form: { email: string; password: string }, remember: boolean,setloading:React.Dispatch<React.SetStateAction<boolean>>) => {
     try {
@@ -26,6 +74,10 @@ const useAuth = () => {
               dob: res.data.userData.dob,
             };
             dispatch(setDefaultAccount(data));
+            // Merge the guest (pre-login) cart into the user's server cart,
+            // then restore the merged cart. Without this the cart added
+            // before login appeared to vanish after signing in.
+            await syncCartAfterLogin(data.userID);
             setloading(false);
             setLoggedIn(true);
             router.push('/');
@@ -128,6 +180,10 @@ const useAuth = () => {
               dob: res.data.userData.dob,
             };
             dispatch(setDefaultAccount(data));
+            // Merge the guest (pre-login) cart into the user's server cart,
+            // then restore the merged cart. Without this the cart added
+            // before login appeared to vanish after signing in.
+            await syncCartAfterLogin(data.userID);
             setloading(false);
             setLoggedIn(true);
             router.push('/');
