@@ -47,25 +47,40 @@ export class EvolutionApiClient {
       });
       return { ok: true, data: res.data, status: res.status };
     } catch (err: any) {
-      // Render cold-start resilience: a waking Evolution service briefly
-      // answers 502/503/504/429 before it is ready. Retry a few times with a
-      // short backoff instead of surfacing a dead-end error to the merchant.
+      // Render cold-start resilience: a waking Evolution free-tier service
+      // answers 502/503/504/429 (Render edge) or refuses connections until it
+      // finishes booting — typically 30-60s. Retry with a backoff budget that
+      // spans a full cold start (~90s) instead of surfacing a dead-end error.
       const retryableStatuses = [429, 502, 503, 504];
       const isRetryableHttp =
         err.response && retryableStatuses.includes(err.response.status);
       const isRetryableNetwork =
         err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET';
-      if (_attempt < 3 && (isRetryableHttp || isRetryableNetwork)) {
-        await new Promise(r => setTimeout(r, 4000 * (_attempt + 1)));
+      if (_attempt < 4 && (isRetryableHttp || isRetryableNetwork)) {
+        // Budget: 5+8+12+18 = 43s of backoff — covers most Render cold starts
+        // while staying under the ~60s Vercel function limit per request.
+        // The route returns 503 'evolution_waking' and the frontend keeps
+        // polling every 20s, so longer cold starts still converge.
+        const backoff = [5000, 8000, 12000, 18000][_attempt];
+        await new Promise(r => setTimeout(r, backoff));
         return this.call<T>(method, path, body, timeoutMs, _attempt + 1);
       }
       if (err.response) {
         const msg =
           (err.response.data && (err.response.data.response?.message || err.response.data.message)) ||
           `Evolution API responded with HTTP ${err.response.status}`;
-        return { ok: false, status: err.response.status, error: typeof msg === 'string' ? msg : JSON.stringify(msg) };
+        return {
+          ok: false,
+          status: err.response.status,
+          waking: retryableStatuses.includes(err.response.status),
+          error: typeof msg === 'string' ? msg : JSON.stringify(msg)
+        };
       }
-      return { ok: false, error: err.code || err.message || 'Evolution API request failed' };
+      return {
+        ok: false,
+        waking: isRetryableNetwork,
+        error: err.code || err.message || 'Evolution API request failed'
+      };
     }
   }
 

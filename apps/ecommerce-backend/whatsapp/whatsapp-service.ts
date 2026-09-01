@@ -114,15 +114,27 @@ export class WhatsAppService {
     state?: string | null;
     qrCodeBase64?: string;
     pairingCode?: string | null;
+    waking?: boolean;
     error?: string;
   }> {
     const instanceName = whatsAppAllowlistService.getSenderInstanceName();
+
+    // Cheap gateway probe FIRST: if the Evolution service is still waking up
+    // (Render cold start), return immediately instead of running three
+    // sequential calls that would each burn the full retry budget (~270s).
+    // The route turns this into a 503 'evolution_waking' and the frontend
+    // retries every 20s while the backend warm-assist pulls the service up.
+    const probe = await evolutionApiClient.fetchInstances();
+    if (!probe.ok && probe.waking) {
+      return { success: false, instanceName, waking: true, error: probe.error };
+    }
 
     const existing = await evolutionApiClient.fetchInstanceByName(instanceName);
     if (!existing) {
       const created = await evolutionApiClient.createInstance(instanceName);
       if (!created.ok) {
-        return { success: false, instanceName, error: created.error || 'Failed to create Evolution sender instance.' };
+        const waking = (created as any).waking === true;
+        return { success: false, instanceName, waking, error: created.error || 'Failed to create Evolution sender instance.' };
       }
     }
 

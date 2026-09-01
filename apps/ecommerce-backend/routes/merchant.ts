@@ -1264,12 +1264,32 @@ router.post('/whatsapp/connect', async (req: Request, res: Response) => {
   try {
     const result = await whatsAppService.getSenderQrCode();
     if (!result.success) {
-      // ECONNREFUSED / ENOTFOUND means the Evolution WhatsApp gateway is not
-      // running/reachable — surface an actionable message instead of the raw
-      // socket error so the merchant knows this is infrastructure, not a
-      // broken QR flow.
       const raw = String(result.error || '');
-      if (/ECONNREFUSED|ENOTFOUND|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN/i.test(raw)) {
+
+      // Cold-start path: the Evolution Render service is waking up (Render
+      // edge answers 502/503/504/429, or connections are refused while it
+      // boots — 30-60s typical). The client (50s already spent in retries
+      // inside the API client) should keep polling every ~20s; meanwhile a
+      // bounded warm-assist loop accelerates the wake instead of waiting for
+      // Render's own health check cadence.
+      if ((result as any).waking || /HTTP 429|HTTP 50[234]/i.test(raw)) {
+        // Bounded warm-assist: ping Evolution every 10s for up to 2 minutes
+        // (max 12 requests). Only triggered by an actual merchant Connect
+        // attempt — never a background loop, never unbounded.
+        const { warmEvolutionGateway } = await import('../whatsapp/evolution-warm');
+        warmEvolutionGateway();
+
+        return res.status(503).json({
+          success: false,
+          error: 'The WhatsApp gateway (Evolution API) is starting up on Render. This usually takes 30–60 seconds on first use. Keep this window open — the QR code will appear automatically.',
+          reason: 'evolution_waking',
+          retryAfterSeconds: 20,
+          detail: raw
+        });
+      }
+
+      // Unreachable / misconfigured: permanent infrastructure error.
+      if (/ECONNREFUSED|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(raw)) {
         return res.status(503).json({
           success: false,
           error: 'WhatsApp gateway (Evolution API) is not reachable. The QR code requires the Evolution API service to be running and EVOLUTION_API_URL to point to it. Ask the platform operator to deploy/start the Evolution API service.',

@@ -60,5 +60,7 @@ export type EvolutionCallResult<T> = {
   ok: boolean;
   data?: T;
   status?: number;
+  /** True when the failure is a Render cold-start (service waking up) — retryable. */
+  waking?: boolean;
   error?: string;
 };

@@ -40,6 +40,7 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
   const [isFetchingQr, setIsFetchingQr] = useState(false);
   const [isDisconnecting, setIsDisconnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [gatewayWaking, setGatewayWaking] = useState(false);
 
   const fetchStatus = useCallback(async () => {
     try {
@@ -94,14 +95,24 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
       if (res.ok && data.success && data.qrCode) {
         setQrImage(data.qrCode);
         setQrFetchedAt(new Date());
+        setGatewayWaking(false);
       } else if (res.ok && data.success) {
         // Already connected — status poll will close the modal.
+        setGatewayWaking(false);
         setError('WhatsApp sender account is already connected.');
+      } else if (data?.reason === 'evolution_waking') {
+        // Render cold start: the gateway is booting (30–60s typical). The
+        // modal's 20s refresh loop keeps polling — show a reassurance state
+        // instead of an error so the merchant knows to wait.
+        setGatewayWaking(true);
+        setError(null);
       } else if (data?.reason === 'evolution_unreachable' || /ECONNREFUSED|not reachable/i.test(String(data?.error || ''))) {
+        setGatewayWaking(false);
         setError(
           'WhatsApp gateway (Evolution API) is offline. The QR code cannot be generated until the Evolution API service is deployed and EVOLUTION_API_URL points to it. This is an infrastructure prerequisite — contact the platform operator.'
         );
       } else {
+        setGatewayWaking(false);
         setError(data.error || 'Failed to retrieve QR code.');
       }
     } catch (err: any) {
@@ -128,6 +139,7 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
     setQrImage(null);
     setQrFetchedAt(null);
     setError(null);
+    setGatewayWaking(false);
     setIsQrModalOpen(true);
     await fetchQr();
   };
@@ -292,6 +304,16 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
                 <div className="w-80 h-80 sm:w-96 sm:h-96 flex flex-col items-center justify-center gap-3">
                   <span className="w-8 h-8 rounded-full border-2 border-ink-subtle border-t-transparent animate-spin" />
                   <span className="text-[11px] text-ink-subtle font-mono">Generating QR code…</span>
+                </div>
+              ) : gatewayWaking ? (
+                <div className="w-80 sm:w-96 flex flex-col items-center gap-3 py-10">
+                  <span className="w-8 h-8 rounded-full border-2 border-linear-primary border-t-transparent animate-spin" />
+                  <span className="text-xs font-semibold text-ink">Waking up the WhatsApp gateway…</span>
+                  <span className="text-[11px] text-ink-subtle font-mono text-center leading-relaxed">
+                    The Evolution API service is starting up (Render free tier, 30–60s on first use).
+                    This window retries automatically every 20 seconds — the QR code will appear here
+                    as soon as the gateway is ready.
+                  </span>
                 </div>
               ) : error ? (
                 <div className="w-80 sm:w-96 flex flex-col items-center gap-3 py-10">
