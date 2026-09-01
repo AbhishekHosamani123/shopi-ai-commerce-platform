@@ -138,15 +138,33 @@ CREATE TABLE IF NOT EXISTS wishlistitems (
 CREATE TABLE IF NOT EXISTS addresses (
     addressid SERIAL PRIMARY KEY,
     userid INT NOT NULL,
-    name VARCHAR(100),
-    phonenumber VARCHAR(30),
-    pincode VARCHAR(20),
-    address TEXT,
+    addresstype VARCHAR(30),
+    username VARCHAR(100),
+    contactnumber VARCHAR(30),
+    addressline1 TEXT,
+    addressline2 TEXT,
     city VARCHAR(100),
     state VARCHAR(100),
-    landmark VARCHAR(100),
-    isdefault BOOLEAN DEFAULT false
+    country VARCHAR(100),
+    postalcode VARCHAR(20),
+    is_default BOOLEAN DEFAULT false,
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Column reconciliation: databases created by an older CORE_SCHEMA_SQL have
+-- the legacy address column names (name/phonenumber/pincode/address/isdefault)
+-- which every application query (fetchAddresses, userParams, checkout) does
+-- NOT use — after a Render DB reset that shape made /user/all-data 500 with
+-- 'column addresstype does not exist'. Idempotently add the expected columns;
+-- legacy columns are left in place (harmless) to avoid destructive migration.
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS addresstype VARCHAR(30);
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS username VARCHAR(100);
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS contactnumber VARCHAR(30);
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS addressline1 TEXT;
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS addressline2 TEXT;
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS country VARCHAR(100);
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS postalcode VARCHAR(20);
+ALTER TABLE addresses ADD COLUMN IF NOT EXISTS is_default BOOLEAN DEFAULT false;
 
 CREATE TABLE IF NOT EXISTS banners (
     bannerid SERIAL PRIMARY KEY,

@@ -13,14 +13,23 @@ interface JwtPayload {
     exp: number;
 }
 const fetchAddresses = async (userID: number) => {
-    const query = `
-        SELECT addressID, userID, addressType, userName, contactNumber, addressLine1, addressLine2, city, state, country, postalCode, is_default
-        FROM Addresses
-        WHERE userID = $1;
-    `;
-    const values = [userID];
-    const result = await client.query(query, values);
-    return result.rows;
+    // Tolerant fetch: an address-shape mismatch (e.g. a DB recreated with
+    // legacy column names) previously threw, 500-ing the WHOLE /user/all-data
+    // call — which the frontend surfaced as an empty cart/addresses/user
+    // profile even though the cart itself was intact. Degrade to [] instead.
+    try {
+        const query = `
+            SELECT addressID, userID, addressType, userName, contactNumber, addressLine1, addressLine2, city, state, country, postalCode, is_default
+            FROM Addresses
+            WHERE userID = $1;
+        `;
+        const values = [userID];
+        const result = await client.query(query, values);
+        return result.rows;
+    } catch (err: any) {
+        console.warn('[Address fetch warning]:', err.message);
+        return [];
+    }
 };
 
 const fetchColor = async (productID: number) => {
@@ -160,19 +169,31 @@ const fetchWishlistItems = async (userID: number) => {
     return enriched;
 };
 const fetchCoupons = async (userID: number) => {
-    const query = `SELECT usercoupons.couponid,coupons.code,coupons.description,coupons.discountpercentage,coupons.maxdiscountamount,coupons.minpurchaseamount,coupons.validuntil 
-    FROM usercoupons 
-    INNER JOIN coupons ON usercoupons.couponid = coupons.couponid 
-    WHERE usercoupons.userid = $1 ORDER BY usercoupons.createdat DESC`;
-    const values = [userID];
-    const result = await client.query(query, values);
-    return result.rows;
+    // Tolerant fetch (see fetchAddresses): degrade to [] instead of 500-ing
+    // the whole /user/all-data response.
+    try {
+        const query = `SELECT usercoupons.couponid,coupons.code,coupons.description,coupons.discountpercentage,coupons.maxdiscountamount,coupons.minpurchaseamount,coupons.validuntil
+        FROM usercoupons
+        INNER JOIN coupons ON usercoupons.couponid = coupons.couponid
+        WHERE usercoupons.userid = $1 ORDER BY usercoupons.createdat DESC`;
+        const values = [userID];
+        const result = await client.query(query, values);
+        return result.rows;
+    } catch (err: any) {
+        console.warn('[Coupon fetch warning]:', err.message);
+        return [];
+    }
 };
 const fetchGiftCards = async (email:string)=>{
-    const query = `SELECT cardid,cardname,cardcode,description,balance,currency,expirydate,sendername,message,status FROM giftcards WHERE recipientemail = $1`
-    const values = [email];
-    const result = await client.query(query,values);
-    return result.rows;
+    try {
+        const query = `SELECT cardid,cardname,cardcode,description,balance,currency,expirydate,sendername,message,status FROM giftcards WHERE recipientemail = $1`
+        const values = [email];
+        const result = await client.query(query,values);
+        return result.rows;
+    } catch (err: any) {
+        console.warn('[Giftcard fetch warning]:', err.message);
+        return [];
+    }
 }
 router.post('/user/addresses',userIDSchema, async (req: Request, res: Response) => {
     const result = validationResult(req);
