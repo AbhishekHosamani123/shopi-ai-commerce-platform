@@ -1,7 +1,7 @@
 'use client';
 import { merchantFetch } from '@/components/Merchant/merchantFetch';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { PageHeader } from '../../../components/Merchant/v2/PageHeader';
 import { AnalyticalChartCard } from '../../../components/Merchant/v2/AnalyticalChartCard';
 import { TrustBadge } from '../../../components/Merchant/v2/TrustBadge';
@@ -68,7 +68,9 @@ export default function SalesAnalyticsPage() {
     setIsFetching(true);
     try {
       const [salesRes, overviewRes, categoriesRes] = await Promise.all([
-        merchantFetch(`/api/merchant/sales?period=${selectedPeriod}&interval=${salesInterval}`, {
+        // Always fetch the DAILY series; weekly/monthly chart views aggregate
+        // it locally so switching granularity is instant (no refetch).
+        merchantFetch(`/api/merchant/sales?period=${selectedPeriod}&interval=daily`, {
           headers: { 'x-merchant-id': 'default_merchant' }
         }),
         merchantFetch(`/api/merchant/overview?period=${selectedPeriod}`, {
@@ -133,7 +135,47 @@ export default function SalesAnalyticsPage() {
     } finally {
       setIsFetching(false);
     }
-  }, [selectedPeriod, salesInterval]);
+  }, [selectedPeriod]);
+
+  // Local chart aggregation — identical to the overview page: aggregate the
+  // daily series into weekly buckets (Mon start) or monthly buckets so
+  // switching granularity is instantaneous with zero network calls.
+  const aggregatedSalesTrend = useMemo(() => {
+    if (salesInterval === 'daily' || !Array.isArray(salesTrend)) return salesTrend;
+    const buckets = new Map<string, { date: string; grossRevenue: number; orders: number; unitsSold: number; netRevenue: number; averageOrderValue: number }>();
+    for (const p of salesTrend) {
+      if (!p?.date) continue;
+      const d = new Date(p.date);
+      if (isNaN(d.getTime())) continue;
+      let key: string;
+      if (salesInterval === 'weekly') {
+        const day = (d.getDay() + 6) % 7;
+        const monday = new Date(d);
+        monday.setDate(d.getDate() - day);
+        key = monday.toISOString().split('T')[0];
+      } else {
+        key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`;
+      }
+      const cur = buckets.get(key) || {
+        date: key,
+        grossRevenue: 0,
+        orders: 0,
+        unitsSold: 0,
+        netRevenue: 0,
+        averageOrderValue: 0
+      };
+      cur.grossRevenue += Number(p.grossRevenue) || 0;
+      cur.orders += Number(p.orders) || 0;
+      cur.unitsSold += Number(p.unitsSold) || 0;
+      cur.netRevenue += Number(p.netRevenue) || 0;
+      buckets.set(key, cur);
+    }
+    const rows = Array.from(buckets.values()).sort((a, b) => a.date.localeCompare(b.date));
+    for (const r of rows) {
+      r.averageOrderValue = r.orders > 0 ? r.netRevenue / r.orders : 0;
+    }
+    return rows;
+  }, [salesTrend, salesInterval]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -321,17 +363,19 @@ export default function SalesAnalyticsPage() {
 
       {/* 3. Primary Analytical Chart Card */}
       <AnalyticalChartCard
-        data={salesTrend.map(t => ({
+        data={aggregatedSalesTrend.map(t => ({
           date: t.date,
           amount: t.grossRevenue,
-          ordersCount: t.orders,
-          prevAmount: t.netRevenue
+          ordersCount: t.orders
+          // NOTE: prevAmount intentionally omitted — the trend endpoint has no
+          // per-bucket prior-period series, and the chart no longer draws a
+          // fabricated baseline when real prev data is absent.
         }))}
         interval={salesInterval}
         onIntervalChange={setSalesInterval}
-        loading={isFetching}
+        loading={isFetching && salesTrend.length === 0}
         currentTotal={salesKpis.grossRevenue}
-        prevTotal={salesKpis.prevRevenue}
+        prevTotal={salesKpis.prevRevenue || undefined}
         growthPct={salesKpis.revenueGrowthPct ?? undefined}
       />
 

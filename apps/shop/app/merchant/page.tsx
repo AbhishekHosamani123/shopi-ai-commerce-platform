@@ -97,6 +97,10 @@ export default function MerchantOverviewPage() {
       setAiExecutiveBrief(null); // reset to loading state on every fetch
     }
     try {
+      // NOTE: the overview is always fetched with daily granularity; the
+      // weekly/monthly chart views aggregate that daily series locally, so
+      // switching chart granularity is instant (zero network calls, zero
+      // backend recompute).
       const res = await merchantFetch(`/api/merchant/overview?period=${selectedPeriod}&compare=${comparisonMode}`, {
         headers: { 'x-merchant-id': 'default_merchant' }
       });
@@ -120,6 +124,9 @@ export default function MerchantOverviewPage() {
         }
 
         if (data.salesTrend && Array.isArray(data.salesTrend)) {
+          // Always store the DAILY series — the chart aggregates to
+          // weekly/monthly locally so switching granularity is instant
+          // (no network round trip, no full overview recompute).
           setChartData(data.salesTrend);
         }
 
@@ -276,6 +283,36 @@ export default function MerchantOverviewPage() {
   // First meaningful paint guard: until the first fetch completes we show
   // skeleton placeholders — NEVER a misleading ₹0.00 / 0 value.
   const firstLoad = isFetching && !hasLoaded;
+
+  // Local chart aggregation: the backend always returns the DAILY series;
+  // weekly/monthly views are derived here so switching granularity is
+  // instantaneous (no refetch, no backend recompute).
+  const aggregatedChartData = useMemo(() => {
+    if (salesInterval === 'daily' || !Array.isArray(chartData)) return chartData;
+
+    const buckets = new Map<string, { date: string; amount: number; ordersCount: number; prevAmount: number }>();
+    for (const p of chartData) {
+      if (!p?.date) continue;
+      const d = new Date(p.date);
+      if (isNaN(d.getTime())) continue;
+      let key: string;
+      if (salesInterval === 'weekly') {
+        // ISO week start (Monday)
+        const day = (d.getDay() + 6) % 7; // Mon=0..Sun=6
+        const monday = new Date(d);
+        monday.setDate(d.getDate() - day);
+        key = monday.toISOString().split('T')[0];
+      } else {
+        key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`;
+      }
+      const cur = buckets.get(key) || { date: key, amount: 0, ordersCount: 0, prevAmount: 0 };
+      cur.amount += Number(p.amount) || 0;
+      cur.ordersCount += Number(p.ordersCount) || 0;
+      cur.prevAmount += Number(p.prevAmount) || 0;
+      buckets.set(key, cur);
+    }
+    return Array.from(buckets.values()).sort((a, b) => a.date.localeCompare(b.date));
+  }, [chartData, salesInterval]);
 
   return (
     <div className="space-y-6 font-sans text-ink">
@@ -573,10 +610,10 @@ export default function MerchantOverviewPage() {
           <AudienceIntelligencePanel />
 
           <AnalyticalChartCard
-            data={chartData}
+            data={aggregatedChartData}
             interval={salesInterval}
             onIntervalChange={(val) => setSalesInterval(val)}
-            loading={isFetching}
+            loading={firstLoad}
             currentTotal={overviewMetrics.grossRevenue}
             prevTotal={overviewMetrics.previousPeriodGrossRevenue}
             growthPct={overviewMetrics.revenueDeltaPct ?? undefined}

@@ -97,6 +97,10 @@ export function WhatsAppConnectionPanel({ onStatusChange }: { onStatusChange?: (
       } else if (res.ok && data.success) {
         // Already connected — status poll will close the modal.
         setError('WhatsApp sender account is already connected.');
+      } else if (data?.reason === 'evolution_unreachable' || /ECONNREFUSED|not reachable/i.test(String(data?.error || ''))) {
+        setError(
+          'WhatsApp gateway (Evolution API) is offline. The QR code cannot be generated until the Evolution API service is deployed and EVOLUTION_API_URL points to it. This is an infrastructure prerequisite — contact the platform operator.'
+        );
       } else {
         setError(data.error || 'Failed to retrieve QR code.');
       }

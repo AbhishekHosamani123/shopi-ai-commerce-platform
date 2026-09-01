@@ -107,10 +107,18 @@ export function AnalyticalChartCard({
   // Dynamic Scale Calculation based on actual data
   const { ceiling, ticks: yTicks } = useMemo(() => {
     const currentMax = Math.max(...chartPoints.map((p) => Number(p.amount) || 0), 0);
-    const prevMax = Math.max(...chartPoints.map((p) => Number(p.prevAmount || p.amount * 0.88) || 0), 0);
+    // Only consider REAL prior-period data for the scale — never fabricate a
+    // synthetic baseline (previously a fake `amount * 0.88` curve was drawn
+    // and mislabelled as "Preceding Baseline").
+    const prevMax = Math.max(...chartPoints.map((p) => Number(p.prevAmount) || 0), 0);
     const peak = Math.max(currentMax, prevMax);
     return computeNiceYScale(peak);
   }, [chartPoints]);
+
+  const hasPrevSeries = useMemo(
+    () => chartPoints.some((p) => typeof p.prevAmount === 'number' && p.prevAmount > 0),
+    [chartPoints]
+  );
 
   const getY = (val: number) => {
     const clamped = Math.max(0, Math.min(val, ceiling));
@@ -128,8 +136,11 @@ export function AnalyticalChartCard({
   }, [chartPoints, ceiling]);
 
   const prevCoords = useMemo(() => {
-    return chartPoints.map((p, i) => ({ x: getX(i), y: getY(p.prevAmount !== undefined ? p.prevAmount : p.amount * 0.88) }));
-  }, [chartPoints, ceiling]);
+    // No fabricated baseline: only draw the prior-period line when the data
+    // actually carries prevAmount values.
+    if (!hasPrevSeries) return [];
+    return chartPoints.map((p, i) => ({ x: getX(i), y: getY(p.prevAmount as number) }));
+  }, [chartPoints, ceiling, hasPrevSeries]);
 
   const currentPath = useMemo(() => {
     return currentCoords.reduce((acc, pt, i) => `${acc} ${i === 0 ? 'M' : 'L'} ${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`, '');
@@ -174,8 +185,9 @@ export function AnalyticalChartCard({
   }, [chartPoints]);
 
   const totalPrevCalculated = useMemo(() => {
-    return chartPoints.reduce((acc, p) => acc + (p.prevAmount !== undefined ? Number(p.prevAmount) : (Number(p.amount) || 0) * 0.88), 0);
-  }, [chartPoints]);
+    if (!hasPrevSeries) return 0;
+    return chartPoints.reduce((acc, p) => acc + (Number(p.prevAmount) || 0), 0);
+  }, [chartPoints, hasPrevSeries]);
 
   const displayCurrentTotal = currentTotal !== undefined ? currentTotal : totalGrossCalculated;
   const displayPrevTotal = prevTotal !== undefined ? prevTotal : totalPrevCalculated;
@@ -462,12 +474,14 @@ export function AnalyticalChartCard({
               Current Period <span className="font-mono font-semibold">({formatCurrencyCompact(displayCurrentTotal)})</span>
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="h-0.5 w-3.5 bg-hairline-tertiary border-t border-dashed border-hairline-strong inline-block" />
-            <span className="text-ink-subtle">
-              Preceding Baseline <span className="font-mono font-medium">({formatCurrencyCompact(displayPrevTotal)})</span>
-            </span>
-          </div>
+          {hasPrevSeries && (
+            <div className="flex items-center gap-2">
+              <span className="h-0.5 w-3.5 bg-hairline-tertiary border-t border-dashed border-hairline-strong inline-block" />
+              <span className="text-ink-subtle">
+                Preceding Baseline <span className="font-mono font-medium">({formatCurrencyCompact(displayPrevTotal)})</span>
+              </span>
+            </div>
+          )}
         </div>
 
         <div className={`flex items-center gap-2 font-mono text-xs font-semibold ${getGrowthColorClass(growthPct)} self-start sm:self-auto`}>

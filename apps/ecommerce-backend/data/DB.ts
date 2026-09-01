@@ -331,42 +331,60 @@ CREATE TABLE IF NOT EXISTS merchant_action_audits (
 );
 `;
 
-const connectDB = async () => {
-  try {
-    await client.query('SELECT 1');
-    console.log('[DB Info] Connected to PostgreSQL database successfully.');
-    
-    // Self-bootstrap core schema so tables like cartitems, users, etc. always exist
-    await client.query(CORE_SCHEMA_SQL);
-    console.log('[DB Info] Core schema & merchant intelligence tables initialized.');
+/**
+ * Idempotent database self-healing for the merchant analytics dataset.
+ *
+ * Render's free managed Postgres is periodically wiped/reset WITHOUT
+ * redeploying the app (the Node process keeps running). Because the
+ * bootstrap previously ran only at process startup, the service stayed
+ * broken (every merchant query 500s with "relation does not exist") until
+ * someone manually redeployed.
+ *
+ * This function is safe to call at any time — from startup AND from request
+ * paths. A single-flight guard ensures concurrent callers wait for the same
+ * recovery run instead of triggering overlapping seeds.
+ */
+let recoveryInFlight: Promise<void> | null = null;
+let lastRecoveryAt = 0;
+const RECOVERY_COOLDOWN_MS = 60_000; // don't re-check more than once a minute
 
-    // Idempotent bootstrap of dev/test accounts (merchant admin + demo
-    // customer). Fresh databases have no users at all; without this the
-    // merchant dashboard would be unreachable after a fresh Render deploy.
-    try {
-      const { seedTestAccounts } = await import('./seedTestAccounts');
-      await seedTestAccounts();
-    } catch (seedErr: any) {
-      console.warn('[DB Info] Test account bootstrap skipped:', seedErr.message);
-    }
+async function ensureMerchantDataReady(trigger: string): Promise<void> {
+  // Fast path: if the dataset verified healthy recently, skip.
+  if (Date.now() - lastRecoveryAt < RECOVERY_COOLDOWN_MS) return;
 
-    // Idempotent index bootstrap for the hot merchant analytics queries.
-    // Safe to run on every boot (IF NOT EXISTS); keeps the Render-managed
-    // Postgres on par with the local schema so the dashboard queries stay fast.
-    try {
-      await client.query(`
-        CREATE INDEX IF NOT EXISTS idx_shopi_orders_status_date ON shopi_orders (order_status, order_placed_at);
-        CREATE INDEX IF NOT EXISTS idx_shopi_returns_created ON shopi_order_returns (created_at);
-        CREATE INDEX IF NOT EXISTS idx_shopi_events_cust_type_time ON shopi_customer_events (customer_id, event_type, event_timestamp);
-        CREATE INDEX IF NOT EXISTS idx_shopi_orderitems_order_product ON shopi_order_items (order_id, product_id);
-      `);
-      console.log('[DB Info] Merchant analytics indexes verified.');
-    } catch (idxErr: any) {
-      console.warn('[DB Info] Index bootstrap skipped:', idxErr.message);
-    }
+  if (recoveryInFlight) {
+    // Another request is already recovering — wait for it, don't stack seeds.
+    await recoveryInFlight;
+    return;
+  }
 
-    // Self-bootstrap Phase 11B commerce dataset (90 days of order analytics, COGS, customer cohorts, etc.)
+  recoveryInFlight = (async () => {
     try {
+      // 1. Core schema (users, cartitems, etc.) + auth columns.
+      await client.query(CORE_SCHEMA_SQL);
+      console.log(`[DB Recovery:${trigger}] Core schema ensured.`);
+
+      // 2. Test accounts (merchant admin + demo customer).
+      try {
+        const { seedTestAccounts } = await import('./seedTestAccounts');
+        await seedTestAccounts();
+      } catch (e: any) {
+        console.warn(`[DB Recovery:${trigger}] Test accounts skipped:`, e.message);
+      }
+
+      // 3. Analytics indexes.
+      try {
+        await client.query(`
+          CREATE INDEX IF NOT EXISTS idx_shopi_orders_status_date ON shopi_orders (order_status, order_placed_at);
+          CREATE INDEX IF NOT EXISTS idx_shopi_returns_created ON shopi_order_returns (created_at);
+          CREATE INDEX IF NOT EXISTS idx_shopi_events_cust_type_time ON shopi_customer_events (customer_id, event_type, event_timestamp);
+          CREATE INDEX IF NOT EXISTS idx_shopi_orderitems_order_product ON shopi_order_items (order_id, product_id);
+        `);
+      } catch (e: any) {
+        console.warn(`[DB Recovery:${trigger}] Index bootstrap skipped:`, e.message);
+      }
+
+      // 4. Phase 11B commerce dataset (orders, customers, events, COGS...).
       const check = await client.query("SELECT to_regclass('public.shopi_orders') as exists;");
       let needsMigration = !check.rows[0]?.exists;
       if (!needsMigration) {
@@ -375,31 +393,59 @@ const connectDB = async () => {
       }
 
       if (needsMigration) {
-        console.log('[DB Info] Auto-seeding Phase 11B commerce dataset in background...');
+        console.log(`[DB Recovery:${trigger}] shopi dataset missing — running Phase 11B seed...`);
         const { runPhase11bMigration } = await import('./phase11b_migration');
-        // Retrying seed: on platforms like Render the app can boot before the
-        // managed Postgres accepts connections — a transient failure here must
-        // not leave the dataset missing for the service's lifetime.
-        const seedWithRetry = async (attempt: number, maxAttempts: number): Promise<void> => {
-          try {
-            await runPhase11bMigration();
-            console.log('[DB Info] Phase 11B commerce dataset auto-seeded successfully.');
-          } catch (err: any) {
-            console.warn(`[DB Info] Phase 11B auto-seed attempt ${attempt} failed:`, err.message);
-            if (attempt < maxAttempts) {
-              await new Promise(r => setTimeout(r, 15000 * attempt));
-              return seedWithRetry(attempt + 1, maxAttempts);
-            }
-            console.warn('[DB Info] Phase 11B auto-seed gave up after', maxAttempts, 'attempts.');
-          }
-        };
-        void seedWithRetry(1, 5);
+        await runPhase11bMigration();
+        console.log(`[DB Recovery:${trigger}] Phase 11B dataset seeded successfully.`);
       } else {
-        console.log('[DB Info] Phase 11B commerce dataset verified.');
+        console.log(`[DB Recovery:${trigger}] shopi dataset verified.`);
       }
-    } catch (migErr: any) {
-      console.warn('[DB Info] Auto-migration check:', migErr.message);
+
+      lastRecoveryAt = Date.now();
+    } finally {
+      recoveryInFlight = null;
     }
+  })();
+
+  await recoveryInFlight;
+}
+
+/**
+ * Request-driven DB recovery hook. Call when a merchant query fails with a
+ * missing-relation error; it (re)creates schema + data in the background and
+ * returns once the dataset is ready. The cooldown guard prevents a broken
+ * DB from causing a seed stampede.
+ */
+export async function recoverMerchantDataIfMissing(): Promise<boolean> {
+  try {
+    const check = await client.query("SELECT to_regclass('public.shopi_orders') as exists;");
+    const exists = !!check.rows[0]?.exists;
+    if (!exists) {
+      await ensureMerchantDataReady('request');
+      return true; // recovery ran
+    }
+    // Table exists — check it has data
+    const countRes = await client.query('SELECT COUNT(*) FROM shopi_orders');
+    if (parseInt(countRes.rows[0].count, 10) === 0) {
+      await ensureMerchantDataReady('request-empty');
+      return true;
+    }
+    return false;
+  } catch (e: any) {
+    console.warn('[DB Recovery] Health probe failed:', e.message);
+    return false;
+  }
+}
+
+const connectDB = async () => {
+  try {
+    await client.query('SELECT 1');
+    console.log('[DB Info] Connected to PostgreSQL database successfully.');
+
+    // Bootstrap/heal everything (schema, accounts, indexes, dataset).
+    // Runs in the foreground at boot so the service is ready before the
+    // first request; request-driven recovery covers later DB resets.
+    await ensureMerchantDataReady('startup');
   } catch (err: any) {
     console.log('[DB Info] PostgreSQL offline or fallback mode:', err.message);
   }

@@ -108,6 +108,47 @@ router.use((req: Request, _res: Response, next: NextFunction) => {
   next();
 });
 
+// ── Request-driven database self-healing ─────────────────────────────────────
+// Render's free managed Postgres is wiped periodically WITHOUT a redeploy, so
+// the startup-only bootstrap is not enough. When any merchant request fails
+// because a shopi_* table is missing, kick off recovery (single-flight
+// guarded in DB.ts) and tell the client to retry shortly. Frontend components
+// already show loading/retry states, and the merchant page's silent sync
+// loop retries every 45s — so the dashboard self-heals within seconds of the
+// dataset being restored, with no manual refresh needed.
+router.use(async (req: Request, res: Response, next: NextFunction) => {
+  const originalJson = res.json.bind(res);
+  (res as any).json = async (body: any) => {
+    const errText = typeof body?.error === 'string' ? body.error : '';
+    if (
+      res.statusCode >= 500 &&
+      /relation "[a-z_]+" does not exist/i.test(errText)
+    ) {
+      console.warn(`[DB Self-Heal] Missing relation on ${req.path} — starting recovery...`);
+      try {
+        const { recoverMerchantDataIfMissing } = await import('../data/DB');
+        // Fire recovery without awaiting the full seed: the single-flight
+        // guard means the first caller runs it; we respond immediately with
+        // a retryable status so the request never hangs for the whole seed.
+        void recoverMerchantDataIfMissing().catch((e: any) =>
+          console.error('[DB Self-Heal] recovery failed:', e.message)
+        );
+        ttlCache.invalidateAllMerchant();
+        res.status(503);
+        return originalJson({
+          success: false,
+          error: 'Database is being restored — data will sync automatically. Retry shortly.',
+          recovering: true
+        });
+      } catch (recoveryErr: any) {
+        console.error('[DB Self-Heal] Could not start recovery:', recoveryErr.message);
+      }
+    }
+    return originalJson(body);
+  };
+  next();
+});
+
 /**
  * Standardize period parameter
  */
@@ -121,12 +162,12 @@ function normalizePeriod(periodQuery: any): string {
 }
 
 /** Compute the (uncached) executive overview. Kept as a function so the TTL cache can wrap it. */
-async function computeOverview(period: string, merchantId: string) {
+async function computeOverview(period: string, merchantId: string, salesInterval: 'daily' | 'weekly' | 'monthly' = 'daily') {
     const [finSummary, invSummary, custSummary, salesTrend, alerts, opportunities, recommendations, briefing, policy, healthScore, campaigns] = await Promise.all([
       canonicalMetricsService.getFinancialSummary(period),
       canonicalMetricsService.getInventorySummary(merchantId),
       canonicalMetricsService.getCustomerSummary(merchantId),
-      getSalesTrend(period, 'daily').catch(() => []),
+      getSalesTrend(period, salesInterval).catch(() => []),
       getBusinessAlerts().catch(() => []),
       merchantOpportunityEngine.discoverOpportunities(merchantId).catch(() => []),
       profitSafeRecommendationEngine.generateRecommendations(merchantId).catch(() => []),
@@ -224,7 +265,14 @@ router.get('/overview', async (req: Request, res: Response) => {
   try {
     const period = normalizePeriod(req.query.period);
     const merchantId = (req.query.merchantId as string) || (req.headers['x-merchant-id'] as string) || 'default_merchant';
-    const cacheKey = `overview:${merchantId}:${period}`;
+    // Chart interval (daily/weekly/monthly) affects the salesTrend series.
+    // It is part of the cache key so switching granularity returns the right
+    // aggregation instead of the cached daily series.
+    let salesInterval: 'daily' | 'weekly' | 'monthly' = 'daily';
+    if (req.query.interval === 'weekly') salesInterval = 'weekly';
+    else if (req.query.interval === 'monthly') salesInterval = 'monthly';
+
+    const cacheKey = `overview:${merchantId}:${period}:${salesInterval}`;
     const forceFresh = req.query.fresh === '1';
 
     if (forceFresh) ttlCache.invalidate(cacheKey);
@@ -234,15 +282,16 @@ router.get('/overview', async (req: Request, res: Response) => {
     const stale = ttlCache.peek<any>(cacheKey);
     if (stale) {
       if (stale.isStale) {
-        void ttlCache.get(cacheKey, () => computeOverview(period, merchantId)).catch(() => {});
+        void ttlCache.get(cacheKey, () => computeOverview(period, merchantId, salesInterval)).catch(() => {});
       }
       return res.json({ ...stale.value, _cache: { hit: true, stale: stale.isStale } });
     }
 
     const t0 = Date.now();
-    const data = await ttlCache.get(cacheKey, () => computeOverview(period, merchantId));
+    const data = await ttlCache.get(cacheKey, () => computeOverview(period, merchantId, salesInterval));
     return res.json({
       ...data,
+      interval: salesInterval,
       _cache: { hit: false, computeMs: Date.now() - t0 }
     });
   } catch (error: any) {
@@ -1215,6 +1264,19 @@ router.post('/whatsapp/connect', async (req: Request, res: Response) => {
   try {
     const result = await whatsAppService.getSenderQrCode();
     if (!result.success) {
+      // ECONNREFUSED / ENOTFOUND means the Evolution WhatsApp gateway is not
+      // running/reachable — surface an actionable message instead of the raw
+      // socket error so the merchant knows this is infrastructure, not a
+      // broken QR flow.
+      const raw = String(result.error || '');
+      if (/ECONNREFUSED|ENOTFOUND|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN/i.test(raw)) {
+        return res.status(503).json({
+          success: false,
+          error: 'WhatsApp gateway (Evolution API) is not reachable. The QR code requires the Evolution API service to be running and EVOLUTION_API_URL to point to it. Ask the platform operator to deploy/start the Evolution API service.',
+          reason: 'evolution_unreachable',
+          detail: raw
+        });
+      }
       return res.status(400).json({ success: false, error: result.error });
     }
     return res.json({

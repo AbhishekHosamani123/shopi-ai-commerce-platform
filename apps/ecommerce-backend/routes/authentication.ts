@@ -20,6 +20,32 @@ interface JwtPayload {
     iat: number;
     exp: number;
 }
+
+// ── DB self-healing for auth endpoints ──────────────────────────────────────
+// Render's free Postgres can be wiped while the Node process keeps running.
+// If auth queries start failing because the users table lost its columns or
+// the schema is missing entirely, kick off the same recovery the merchant
+// routes use (single-flight guarded) and tell the client to retry.
+async function healDbIfMissingRelation(res: Response, errMsg: string): Promise<boolean> {
+    if (!/relation "[a-z_]+" does not exist|column "[a-z_]+" of relation/i.test(errMsg || '')) {
+        return false;
+    }
+    console.warn(`[Auth Self-Heal] Missing relation/column (${errMsg}) — starting recovery...`);
+    try {
+        const { recoverMerchantDataIfMissing } = await import('../data/DB');
+        void recoverMerchantDataIfMissing().catch((e: any) =>
+            console.error('[Auth Self-Heal] recovery failed:', e.message)
+        );
+        res.status(503).json({
+            error: 'Account system is being restored — please try again in a few seconds.',
+            recovering: true
+        });
+        return true;
+    } catch (e: any) {
+        return false;
+    }
+}
+
 router.post('/user/signup/:promotional',signUpSchema, async (req: Request, res: Response) => {
     const result = validationResult(req);
     if(result.isEmpty()){
@@ -66,7 +92,9 @@ router.post('/user/signup/:promotional',signUpSchema, async (req: Request, res: 
                 { expiresIn: JWT_EXPIRATION }
             );
             return res.status(200).json({ message: 'User registered successfully',token });
-        } catch (error) {
+        } catch (error: any) {
+            if (await healDbIfMissingRelation(res, error?.message)) return;
+            console.error('Signup error:', error?.message);
             res.status(500).json({ error: 'Server error' });
         }
     }else
@@ -124,12 +152,14 @@ router.post('/user/signin/:remember',signInSchema, async (req: Request, res: Res
                 return res.status(200).json({ message: 'Sign-in successful', token, userData });
             }
             
-        } catch (error) {
+        } catch (error: any) {
+            if (await healDbIfMissingRelation(res, error?.message)) return;
+            console.error('Sign-in error:', error?.message);
             res.status(500).json({ error: 'Server error' });
         }
     }else
         return res.status(500).json({ error: 'Validation Error' });
-    
+
 });
 router.post('/user/session-check',tokenSchema, async (req: Request, res: Response) => {
     const result = validationResult(req);
@@ -211,7 +241,9 @@ router.post('/user/merchant-login',merchantLoginSchema, async (req: Request, res
                 role
             }
         });
-    } catch (error) {
+    } catch (error: any) {
+        if (await healDbIfMissingRelation(res, error?.message)) return;
+        console.error('Merchant login error:', error?.message);
         return res.status(500).json({ error: 'Server error' });
     }
 });
