@@ -31,7 +31,8 @@ export class EvolutionApiClient {
     method: 'get' | 'post' | 'delete',
     path: string,
     body?: unknown,
-    timeoutMs = 10000
+    timeoutMs = 10000,
+    _attempt = 0
   ): Promise<EvolutionCallResult<T>> {
     if (!this.isConfigured()) {
       return { ok: false, error: 'Evolution API is not configured (EVOLUTION_API_URL / EVOLUTION_API_KEY).' };
@@ -46,6 +47,18 @@ export class EvolutionApiClient {
       });
       return { ok: true, data: res.data, status: res.status };
     } catch (err: any) {
+      // Render cold-start resilience: a waking Evolution service briefly
+      // answers 502/503/504/429 before it is ready. Retry a few times with a
+      // short backoff instead of surfacing a dead-end error to the merchant.
+      const retryableStatuses = [429, 502, 503, 504];
+      const isRetryableHttp =
+        err.response && retryableStatuses.includes(err.response.status);
+      const isRetryableNetwork =
+        err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET';
+      if (_attempt < 3 && (isRetryableHttp || isRetryableNetwork)) {
+        await new Promise(r => setTimeout(r, 4000 * (_attempt + 1)));
+        return this.call<T>(method, path, body, timeoutMs, _attempt + 1);
+      }
       if (err.response) {
         const msg =
           (err.response.data && (err.response.data.response?.message || err.response.data.message)) ||

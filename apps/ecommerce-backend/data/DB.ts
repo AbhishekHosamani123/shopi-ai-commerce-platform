@@ -384,6 +384,87 @@ async function ensureMerchantDataReady(trigger: string): Promise<void> {
         console.warn(`[DB Recovery:${trigger}] Index bootstrap skipped:`, e.message);
       }
 
+      // 3b. Merchant AI decision-table column backfill.
+      // Several CREATE TABLE sources exist (CORE_SCHEMA_SQL here, the older
+      // merchant-ai-schema.sql, per-module ensureSchema). When a table already
+      // exists from an older source, CREATE IF NOT EXISTS silently keeps the
+      // older shape and later queries fail with "column does not exist"
+      // (observed: merchant_ai_actions.is_test missing on Render after a DB
+      // reset while /actions/impact-summary queried it). These idempotent
+      // ALTERs reconcile the drift regardless of which source created the table.
+      try {
+        await client.query(`
+          ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS is_test BOOLEAN DEFAULT FALSE;
+          ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS idempotency_key VARCHAR(128);
+          ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS failure_reason TEXT;
+          ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS execution_result JSONB;
+          ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS approved_by VARCHAR(64);
+          CREATE TABLE IF NOT EXISTS merchant_business_impact_ledger (
+            impact_id SERIAL PRIMARY KEY,
+            action_id VARCHAR(64),
+            merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+            observation_window_days INTEGER DEFAULT 14,
+            baseline_metrics JSONB DEFAULT '{}'::jsonb,
+            post_action_metrics JSONB DEFAULT '{}'::jsonb,
+            expected_impact JSONB DEFAULT '{}'::jsonb,
+            actual_impact JSONB DEFAULT '{}'::jsonb,
+            impact_delta_pct NUMERIC(8,2) DEFAULT 0.00,
+            confidence_at_recommendation NUMERIC(5,2) DEFAULT 0.85,
+            final_outcome VARCHAR(32) DEFAULT 'PENDING',
+            outcome_status VARCHAR(32) DEFAULT 'OBSERVING',
+            negative_analysis JSONB DEFAULT '{}'::jsonb,
+            evaluated_at TIMESTAMP WITH TIME ZONE
+          );
+          CREATE TABLE IF NOT EXISTS merchant_action_audits (
+            audit_id SERIAL PRIMARY KEY,
+            action_id VARCHAR(64),
+            merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+            event_type VARCHAR(64) NOT NULL,
+            performed_by VARCHAR(64) NOT NULL,
+            details JSONB DEFAULT '{}'::jsonb,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+          );
+          CREATE TABLE IF NOT EXISTS merchant_ai_outcomes (
+            outcome_id VARCHAR(64) PRIMARY KEY,
+            decision_id VARCHAR(64),
+            merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+            action_type VARCHAR(64),
+            product_id INTEGER,
+            prediction_metric VARCHAR(64),
+            predicted_min NUMERIC(14,2),
+            predicted_mid NUMERIC(14,2),
+            predicted_max NUMERIC(14,2),
+            prediction_confidence VARCHAR(16),
+            forecast_horizon_days INTEGER,
+            actual_value NUMERIC(14,2),
+            outcome_status VARCHAR(32),
+            absolute_error NUMERIC(14,2),
+            percentage_error NUMERIC(8,2),
+            direction_correct BOOLEAN,
+            bias_classification VARCHAR(32),
+            learning_status VARCHAR(32),
+            metadata JSONB DEFAULT '{}'::jsonb,
+            decision_timestamp TIMESTAMP WITH TIME ZONE,
+            outcome_timestamp TIMESTAMP WITH TIME ZONE,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+          );
+          CREATE TABLE IF NOT EXISTS merchant_ai_recommendations (
+            recommendation_id VARCHAR(64) PRIMARY KEY,
+            merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+            recommendation_type VARCHAR(64),
+            product_id INTEGER,
+            confidence VARCHAR(16),
+            payload JSONB DEFAULT '{}'::jsonb,
+            status VARCHAR(32) DEFAULT 'ACTIVE',
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+          );
+        `);
+        console.log(`[DB Recovery:${trigger}] Merchant AI decision tables reconciled.`);
+      } catch (e: any) {
+        console.warn(`[DB Recovery:${trigger}] Decision-table backfill skipped:`, e.message);
+      }
+
       // 4. Phase 11B commerce dataset (orders, customers, events, COGS...).
       const check = await client.query("SELECT to_regclass('public.shopi_orders') as exists;");
       let needsMigration = !check.rows[0]?.exists;
@@ -399,6 +480,20 @@ async function ensureMerchantDataReady(trigger: string): Promise<void> {
         console.log(`[DB Recovery:${trigger}] Phase 11B dataset seeded successfully.`);
       } else {
         console.log(`[DB Recovery:${trigger}] shopi dataset verified.`);
+      }
+
+      // 5. Historical action ledger for the Actions & Outcomes workspace.
+      // Restores the decision history a database reset wipes (Render free
+      // tier). Rows are generated from REAL catalog/order data and always
+      // flagged is_test=true so they are distinguishable from live records.
+      try {
+        const { seedHistoricalActionLedger } = await import('./seedHistoricalLedger');
+        const r = await seedHistoricalActionLedger();
+        if (r.seeded) {
+          console.log(`[DB Recovery:${trigger}] Historical ledger restored (${r.count} rows).`);
+        }
+      } catch (e: any) {
+        console.warn(`[DB Recovery:${trigger}] Historical ledger skipped:`, e.message);
       }
 
       lastRecoveryAt = Date.now();
