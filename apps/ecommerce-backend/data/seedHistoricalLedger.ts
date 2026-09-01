@@ -96,8 +96,8 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
           quantity, payload, reason, created_at, expires_at, approved_at,
           completed_at, rejected_at, approved_by, execution_result, is_test
         ) VALUES (
-          $1, 'default_merchant', $2, $3, $4, $5,
-          $6, $7, $8,
+          $1::varchar, 'default_merchant', $2::varchar, $3::varchar, $4::int, $5::varchar,
+          $6::int, $7::jsonb, $8::text,
           CURRENT_TIMESTAMP - ($9 || ' days')::interval,
           CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '7 days',
           CASE WHEN $3 IN ('COMPLETED','ROLLED_BACK') THEN CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '1 day' END,
@@ -108,17 +108,22 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
           TRUE
         ) ON CONFLICT (action_id) DO NOTHING;
       `, [
-        actionId, actionType, status, p.product_id, p.title,
+        actionId,
+        actionType,
+        status,
+        parseInt(String(p.product_id ?? 0), 10) || 0,
+        String(p.title ?? ''),
         qty,
         JSON.stringify({ isTest: true, generated: 'historical_ledger_seed' }),
-        reason, String(daysAgo)
+        reason,
+        String(daysAgo)
       ]);
 
       // Audit trail for the decided rows.
       if (status !== 'EXPIRED') {
         await client.query(`
           INSERT INTO merchant_action_audits (action_id, merchant_id, event_type, performed_by, details, created_at)
-          VALUES ($1, 'default_merchant', $2, 'merchant_admin', $3, CURRENT_TIMESTAMP - ($4 || ' days')::interval);
+          VALUES ($1::varchar, 'default_merchant', $2::varchar, 'merchant_admin', $3::jsonb, CURRENT_TIMESTAMP - ($4 || ' days')::interval);
         `, [
           actionId,
           status === 'REJECTED' ? 'ACTION_REJECTED' : 'ACTION_APPROVED',
@@ -135,16 +140,18 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
             post_action_metrics, expected_impact, actual_impact, impact_delta_pct,
             confidence_at_recommendation, final_outcome, outcome_status, evaluated_at
           ) VALUES (
-            $1, 'default_merchant', 14,
-            jsonb_build_object('stockOnHand', $2, 'velocity7d', 0.5, 'isTest', true),
-            jsonb_build_object('stockOnHand', $3, 'velocity7d', 1.2, 'isTest', true),
-            jsonb_build_object('expectedRevenueDelta', $4),
-            jsonb_build_object('actualRevenueDelta', $4 * 0.92),
+            $1::varchar, 'default_merchant', 14,
+            jsonb_build_object('stockOnHand', $2::int, 'velocity7d', 0.5, 'isTest', true),
+            jsonb_build_object('stockOnHand', $3::int, 'velocity7d', 1.2, 'isTest', true),
+            jsonb_build_object('expectedRevenueDelta', $4::int),
+            jsonb_build_object('actualRevenueDelta', ($4::int * 0.92)),
             8.00, 0.85, 'REALIZED', 'REALIZED',
             CURRENT_TIMESTAMP - ($5 || ' days')::interval
           );
         `, [
-          actionId, p.stock_quantity, Math.max(0, p.stock_quantity - (qty || 0)),
+          actionId,
+          parseInt(String(p.stock_quantity ?? 0), 10) || 0,
+          Math.max(0, (parseInt(String(p.stock_quantity ?? 0), 10) || 0) - (qty || 0)),
           Math.round((p.total_unit_cost || 100) * (qty || 100) * 0.15),
           String(Math.max(0, daysAgo - 14))
         ]);
