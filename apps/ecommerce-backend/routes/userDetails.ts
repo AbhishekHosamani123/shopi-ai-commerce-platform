@@ -67,6 +67,7 @@ const fetchCartItems = async (userID: number) => {
         const cartResult = await client.query(cartQuery, cartValues);
 
         const cartItems = await Promise.all(cartResult.rows.map(async (item) => {
+          try {
             const supProd = await ShopiCatalogService.getProduct(String(item.productid));
 
             const canonicalSku = supProd?.sku || String(item.productid);
@@ -110,6 +111,23 @@ const fetchCartItems = async (userID: number) => {
                 sizename: selectedSize,
                 colorclass: item.colorclass || 'bg-slate-700',
             };
+          } catch (itemErr: any) {
+            // A catalog enrichment failure for ONE item must never blank the
+            // whole cart — the previous outer catch returned [] for ALL items
+            // whenever the catalog service errored (e.g. Supabase offline),
+            // which made an occupied cart appear empty at checkout.
+            console.warn('[Cart item enrich warning]:', itemErr?.message);
+            return {
+                ...item,
+                title: item.title || 'Product',
+                discount: item.discount,
+                imglink: item.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+                imgalt: item.imgalt || item.title || 'Product',
+                colorname: item.colorname,
+                sizename: item.sizename,
+                colorclass: item.colorclass || 'bg-slate-700',
+            };
+          }
         }));
         return cartItems;
     } catch (err: any) {

@@ -109,6 +109,14 @@ const queryResultCache = new Map<string, { data: any; timestamp: number }>();
 const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 async function fetchFromSupabase(table: string, queryParams: string = ''): Promise<any[]> {
+  // No service key configured (production keeps the secret out of the repo):
+  // fall back to the bundled offline catalog snapshot instead of throwing.
+  // Without this, every catalog call rejected (401) and callers like
+  // fetchCartItems silently swallowed the error — returning an EMPTY cart for
+  // a user whose cart had items (the storefront catalog also went blank).
+  if (!SUPABASE_KEY) {
+    return loadOfflineTable(table);
+  }
   const url = `${cleanBaseUrl}/rest/v1/${table}${queryParams ? `?${queryParams}` : ''}`;
   const res = await fetch(url, {
     headers: {
@@ -118,9 +126,54 @@ async function fetchFromSupabase(table: string, queryParams: string = ''): Promi
     }
   });
   if (!res.ok) {
+    // Transient Supabase failures (e.g. cold edge, rate limit) fall back to
+    // the offline snapshot rather than breaking the storefront catalog.
+    if (res.status >= 500 || res.status === 429) {
+      return loadOfflineTable(table);
+    }
     throw new Error(`Failed to fetch ${table}: [${res.status}] ${res.statusText}`);
   }
   return await res.json();
+}
+
+/**
+ * Offline catalog fallback: the bundled seed snapshot
+ * (data/seed-catalog/supabase_all_products_and_variants.json) holds the same
+ * 77-product / 685-variant catalog with images and summaries embedded. It is
+ * served ONLY when Supabase is unavailable so the storefront, cart lookups and
+ * AI shopping keep working with real catalog data.
+ */
+let offlineCatalogCache: any = null;
+function loadOfflineTable(table: string): any[] {
+  try {
+    if (!offlineCatalogCache) {
+      const offlinePath = path.resolve(__dirname, 'seed-catalog/supabase_all_products_and_variants.json');
+      if (!fs.existsSync(offlinePath)) return [];
+      const raw = JSON.parse(fs.readFileSync(offlinePath, 'utf8'));
+      const products: any[] = [];
+      const variants: any[] = [];
+      const images: any[] = [];
+      const summaries: any[] = [];
+      for (const key of Object.keys(raw)) {
+        const entry = raw[key];
+        const p = entry.product;
+        if (!p) continue;
+        products.push(p);
+        for (const v of entry.variants || []) variants.push(v);
+        // Embedded image/summary fields come from the product record shape
+        if (p.images) images.push(...(Array.isArray(p.images) ? p.images : [p.images]));
+        if (p.review_summary) summaries.push(p.review_summary);
+        if (typeof p.average_rating === 'number' || typeof p.review_count === 'number') {
+          summaries.push({ product_id: p.product_id, average_rating: p.average_rating ?? 4.5, review_count: p.review_count ?? 0 });
+        }
+      }
+      offlineCatalogCache = { shopi_products: products, shopi_product_variants: variants, shopi_product_images: images, shopi_product_review_summary: summaries };
+    }
+    return offlineCatalogCache[table] || [];
+  } catch (e: any) {
+    console.warn('[Catalog Offline] fallback read failed:', e.message);
+    return [];
+  }
 }
 
 export function getColorClass(colorName: string): string {
