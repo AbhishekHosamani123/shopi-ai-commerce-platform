@@ -47,13 +47,13 @@ const useAuth = () => {
 
       // 2. Pull the authoritative merged cart (server) back into Redux so
       // the UI reflects both old and new items with real cartItemIDs.
-      const res = await userData().grabUserData();
-      if (res?.success) {
-        // grabUserData dispatched setCart already via its own hook.
-        return true;
-      }
-      // Fallback: keep the guest cart in view if the server pull failed.
-      return false;
+      // NOTE: use the already-instantiated grabUserData from the destructured
+      // userData() hook above — calling userData() HERE would re-invoke React
+      // hooks (useAppDispatch) inside a nested async function, violating the
+      // hooks rules and throwing at runtime, which previously aborted the
+      // login redirect entirely.
+      const res = await grabUserData();
+      return !!res?.success;
     } catch {
       return false;
     }
