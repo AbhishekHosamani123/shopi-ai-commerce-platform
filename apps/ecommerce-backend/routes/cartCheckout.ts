@@ -62,20 +62,24 @@ router.post("/create/cart-payment/create-payment-intent",userIDSchema, async (re
 });
 async function fetchProductData(productid:string,colorid:string,sizeid:string,quantity:number){
   try {
-    // Fetch product details
+    // Variant-tolerant fetch: chatbot-added items may carry NULL color/size
+    // (auto-resolved defaults), and INNER JOINs on NULL never match, which
+    // made those items silently vanish from checkout (empty products list).
+    // LEFT JOINs + COALESCE keep the product visible; exact variant ids are
+    // still preferred when present.
     const productQuery = `
       SELECT
         p.title,
         p.price,
         p.discount,
-        ps.sizename,
-        pc.colorname,
+        COALESCE(ps.sizename, (SELECT ps2.sizename FROM productsizes ps2 WHERE ps2.productid = p.productid ORDER BY ps2.sizeid LIMIT 1), 'Standard') AS sizename,
+        COALESCE(pc.colorname, (SELECT pc2.colorname FROM productcolors pc2 WHERE pc2.productid = p.productid ORDER BY pc2.colorid LIMIT 1), 'Standard') AS colorname,
         pi.imglink,
         pi.imgalt
       FROM products p
-      JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $2
-      JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $3
-      JOIN productimages pi ON pi.productid = p.productid AND pi.isprimary = true
+      LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $2
+      LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $3
+      LEFT JOIN productimages pi ON pi.productid = p.productid AND pi.isprimary = true
       WHERE p.productid = $1
     `;
     const productResult = await client.query(productQuery, [productid, sizeid, colorid]);
