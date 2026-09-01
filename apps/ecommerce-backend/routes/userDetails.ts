@@ -146,27 +146,39 @@ const fetchCartItems = async (userID: number) => {
 };
 
 const fetchWishlistItems = async (userID: number) => {
-    const query = `
-        SELECT wishlistitems.productid, products.title, products.discount, wishlistitems.wishlistitemid, 
-               productimages.imglink, productimages.imgalt 
-        FROM wishlistitems 
-        LEFT JOIN products ON wishlistitems.productid = products.productid 
-        LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
-        WHERE wishlistitems.userid = $1;
-    `;
-    const values = [userID];
-    const result = await client.query(query, values);
-    const enriched = await Promise.all(result.rows.map(async (item) => {
-        const supProd = await ShopiCatalogService.getProduct(String(item.productid));
-        return {
-            ...item,
-            productid: supProd?.sku || String(item.productid),
-            title: supProd?.title || item.title,
-            discount: supProd?.selling_price !== undefined ? supProd.selling_price : item.discount,
-            imglink: supProd?.imglink || item.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
-        };
-    }));
-    return enriched;
+    // Tolerant fetch (see fetchAddresses): degrade to [] instead of 500-ing
+    // the whole /user/all-data response.
+    try {
+        const query = `
+            SELECT wishlistitems.productid, products.title, products.discount, wishlistitems.wishlistitemid,
+                   productimages.imglink, productimages.imgalt
+            FROM wishlistitems
+            LEFT JOIN products ON wishlistitems.productid = products.productid
+            LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
+            WHERE wishlistitems.userid = $1;
+        `;
+        const values = [userID];
+        const result = await client.query(query, values);
+        const enriched = await Promise.all(result.rows.map(async (item) => {
+            try {
+                const supProd = await ShopiCatalogService.getProduct(String(item.productid));
+                return {
+                    ...item,
+                    productid: supProd?.sku || String(item.productid),
+                    title: supProd?.title || item.title,
+                    discount: supProd?.selling_price !== undefined ? supProd.selling_price : item.discount,
+                    imglink: supProd?.imglink || item.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg',
+                };
+            } catch (itemErr: any) {
+                console.warn('[Wishlist item enrich warning]:', itemErr?.message);
+                return item;
+            }
+        }));
+        return enriched;
+    } catch (err: any) {
+        console.warn('[Wishlist Fetch Warning]:', err.message);
+        return [];
+    }
 };
 const fetchCoupons = async (userID: number) => {
     // Tolerant fetch (see fetchAddresses): degrade to [] instead of 500-ing

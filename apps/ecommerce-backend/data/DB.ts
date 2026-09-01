@@ -127,13 +127,19 @@ CREATE TABLE IF NOT EXISTS cartitems (
     colorid INT,
     createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Column reconciliation: the application code (and the local reference
+-- database) expects updatedat on cartitems; older recovery shapes lack it.
+ALTER TABLE cartitems ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 CREATE TABLE IF NOT EXISTS wishlistitems (
-    wishlistid SERIAL PRIMARY KEY,
+    wishlistitemid SERIAL PRIMARY KEY,
     userid INT NOT NULL,
     productid VARCHAR(100) NOT NULL,
-    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    addedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Reconcile older shapes that used wishlistid/createdat.
+ALTER TABLE wishlistitems ADD COLUMN IF NOT EXISTS wishlistitemid SERIAL;
+ALTER TABLE wishlistitems ADD COLUMN IF NOT EXISTS addedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 CREATE TABLE IF NOT EXISTS addresses (
     addressid SERIAL PRIMARY KEY,
@@ -187,11 +193,17 @@ CREATE TABLE IF NOT EXISTS orders (
     orderid VARCHAR(100) PRIMARY KEY,
     userid INT NOT NULL,
     totalamount NUMERIC(10,2) NOT NULL,
+    orderstatus VARCHAR(50),
     paymentid VARCHAR(100),
-    paymentstatus VARCHAR(50),
     addressid INT,
-    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    order_code VARCHAR(100),
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Reconcile older shapes (paymentstatus instead of orderstatus, no updatedat/order_code).
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS orderstatus VARCHAR(50);
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS order_code VARCHAR(100);
 
 CREATE TABLE IF NOT EXISTS orderitems (
     orderitemid SERIAL PRIMARY KEY,
@@ -213,6 +225,79 @@ CREATE TABLE IF NOT EXISTS reviews (
     username VARCHAR(100),
     createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+ALTER TABLE reviews ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+-- ── Commerce support tables the application queries but the recovery never
+-- created (they previously only existed on the local reference database, so
+-- fresh Render databases 500'd on coupon/giftcard/checkout-card paths). ──
+CREATE TABLE IF NOT EXISTS usercoupons (
+    usercouponid SERIAL PRIMARY KEY,
+    userid INT NOT NULL,
+    couponid INT NOT NULL,
+    usedat TIMESTAMP,
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS usercouponid SERIAL;
+ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS usedat TIMESTAMP;
+ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE IF NOT EXISTS coupons (
+    couponid SERIAL PRIMARY KEY,
+    code VARCHAR(50),
+    description VARCHAR(255),
+    discountpercentage NUMERIC(5,2) DEFAULT 10,
+    minorderamount NUMERIC(10,2) DEFAULT 500,
+    maxdiscount NUMERIC(10,2) DEFAULT 1000,
+    maxdiscountamount NUMERIC(10,2) DEFAULT 1000,
+    minpurchaseamount NUMERIC(10,2) DEFAULT 500,
+    validfrom TIMESTAMP,
+    validuntil TIMESTAMP,
+    isactive BOOLEAN DEFAULT true,
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS maxdiscountamount NUMERIC(10,2) DEFAULT 1000;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS minpurchaseamount NUMERIC(10,2) DEFAULT 500;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS validfrom TIMESTAMP;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE IF NOT EXISTS giftcards (
+    cardid SERIAL PRIMARY KEY,
+    cardname VARCHAR(100),
+    cardcode VARCHAR(64),
+    description VARCHAR(255),
+    balance NUMERIC(10,2) DEFAULT 0,
+    currency VARCHAR(10) DEFAULT 'INR',
+    expirydate TIMESTAMP,
+    recipientname VARCHAR(100),
+    recipientemail VARCHAR(255),
+    sendername VARCHAR(100),
+    senderemail VARCHAR(255),
+    message TEXT,
+    status VARCHAR(30) DEFAULT 'ACTIVE',
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE giftcards ADD COLUMN IF NOT EXISTS recipientname VARCHAR(100);
+ALTER TABLE giftcards ADD COLUMN IF NOT EXISTS senderemail VARCHAR(100);
+ALTER TABLE giftcards ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE IF NOT EXISTS savedpaymentcards (
+    cardid SERIAL PRIMARY KEY,
+    userid INT NOT NULL,
+    cardnumber VARCHAR(64),
+    cardholdername VARCHAR(100),
+    expirymonth INT,
+    expiryyear INT,
+    cardtype VARCHAR(30),
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE savedpaymentcards ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+-- productimages/createdat is read by checkout queries.
+ALTER TABLE productimages ADD COLUMN IF NOT EXISTS createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 CREATE TABLE IF NOT EXISTS merchant_daily_metrics (
     metric_date DATE PRIMARY KEY,
