@@ -120,6 +120,31 @@ async function ensureActionLedgerColumns(): Promise<void> {
   if (ledgerColumnsEnsured) return;
   try {
     await client.query(`
+      -- The table itself may be missing entirely after a Render DB reset
+      -- (recovery only recreates it when the Phase 11B migration runs, which
+      -- the /actions page does not wait for) — create it with the expected
+      -- full shape, then reconcile columns for older shapes.
+      CREATE TABLE IF NOT EXISTS merchant_ai_actions (
+        action_id VARCHAR(64) PRIMARY KEY,
+        merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+        action_type VARCHAR(64) NOT NULL,
+        status VARCHAR(32) NOT NULL DEFAULT 'PENDING_APPROVAL',
+        product_id VARCHAR(100),
+        product_name VARCHAR(255),
+        quantity INTEGER,
+        payload JSONB NOT NULL DEFAULT '{}'::jsonb,
+        reason TEXT NOT NULL DEFAULT '',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        expires_at TIMESTAMP WITH TIME ZONE,
+        approved_at TIMESTAMP WITH TIME ZONE,
+        completed_at TIMESTAMP WITH TIME ZONE,
+        rejected_at TIMESTAMP WITH TIME ZONE,
+        approved_by VARCHAR(64),
+        execution_result JSONB,
+        failure_reason TEXT,
+        is_test BOOLEAN DEFAULT FALSE,
+        idempotency_key VARCHAR(128)
+      );
       ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS is_test BOOLEAN DEFAULT FALSE;
       ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS idempotency_key VARCHAR(128);
       ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS failure_reason TEXT;
