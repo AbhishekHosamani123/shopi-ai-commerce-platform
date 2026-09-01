@@ -94,13 +94,43 @@ function mapRowToAction(r: any): MerchantAiActionRecord {
  * Automatically marks expired pending actions as EXPIRED in the database.
  */
 export async function autoExpirePendingActions(): Promise<number> {
+  await ensureActionLedgerColumns();
   const res = await client.query(
-    `UPDATE merchant_ai_actions 
-     SET status = 'EXPIRED' 
+    `UPDATE merchant_ai_actions
+     SET status = 'EXPIRED'
      WHERE status = 'PENDING_APPROVAL' AND expires_at < CURRENT_TIMESTAMP
      RETURNING action_id`
   );
   return res.rowCount || 0;
+}
+
+/**
+ * Idempotent column guard for the action ledger tables.
+ *
+ * merchant_ai_actions can be created by several historical schema sources
+ * (CORE_SCHEMA_SQL, the older merchant-ai-schema.sql, per-module ensureSchema),
+ * and CREATE TABLE IF NOT EXISTS keeps whichever shape existed first. On
+ * Render, a database reset recreates tables from the OLDER source that lacks
+ * newer columns (observed: is_test missing → every /actions KPI query 500s).
+ * This guard reconciles the expected columns before the queries run, making
+ * the action endpoints self-healing at the exact point of failure.
+ */
+let ledgerColumnsEnsured = false;
+async function ensureActionLedgerColumns(): Promise<void> {
+  if (ledgerColumnsEnsured) return;
+  try {
+    await client.query(`
+      ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS is_test BOOLEAN DEFAULT FALSE;
+      ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS idempotency_key VARCHAR(128);
+      ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS failure_reason TEXT;
+      ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS execution_result JSONB;
+      ALTER TABLE merchant_ai_actions ADD COLUMN IF NOT EXISTS approved_by VARCHAR(64);
+      ALTER TABLE merchant_business_impact_ledger ADD COLUMN IF NOT EXISTS is_test BOOLEAN DEFAULT FALSE;
+    `);
+    ledgerColumnsEnsured = true;
+  } catch (e: any) {
+    console.warn('[ActionLedger] Column ensure skipped:', e.message);
+  }
 }
 
 /**

@@ -261,17 +261,20 @@ export class BusinessOutcomeEngine {
     const r = res.rows[0];
     const total = r.total_actions || 0;
     const evaluated = r.successful_count + r.neutral_count + r.negative_count;
-    const successRate = evaluated > 0 ? Math.round((r.successful_count / evaluated) * 1000) / 10 : 78.5;
+    const successRate = evaluated > 0 ? Math.round((r.successful_count / evaluated) * 1000) / 10 : 0;
 
+    // Grounded values only — when the ledger is empty (e.g. a freshly reset
+    // database) we report 0 rather than fabricated demo numbers. The
+    // historical-ledger seed in the DB recovery populates real rows.
     return {
-      totalAiActions: total > 0 ? total : 48,
-      successfulCount: r.successful_count > 0 ? r.successful_count : 36,
-      neutralCount: r.neutral_count > 0 ? r.neutral_count : 8,
-      negativeCount: r.negative_count > 0 ? r.negative_count : 4,
+      totalAiActions: total,
+      successfulCount: r.successful_count || 0,
+      neutralCount: r.neutral_count || 0,
+      negativeCount: r.negative_count || 0,
       inconclusiveCount: r.inconclusive_count || 0,
       pendingCount: r.pending_count || 0,
-      estimatedValueCreated: parseFloat(r.total_estimated_value) > 0 ? parseFloat(r.total_estimated_value) : 284000,
-      observedValueCreated: parseFloat(r.total_observed_value) > 0 ? parseFloat(r.total_observed_value) : 251400,
+      estimatedValueCreated: parseFloat(r.total_estimated_value) || 0,
+      observedValueCreated: parseFloat(r.total_observed_value) || 0,
       successRatePct: successRate,
       methodologyNote: 'Observed value reflects realized revenue delta in post-action window compared to captured baseline telemetry.'
     };
