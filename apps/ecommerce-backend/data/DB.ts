@@ -525,6 +525,28 @@ export async function recoverMerchantDataIfMissing(): Promise<boolean> {
       await ensureMerchantDataReady('request-empty');
       return true;
     }
+
+    // Independent ledger check: the Actions & Outcomes workspace expects a
+    // historical decision ledger. A database reset can wipe it while the
+    // shopi commerce dataset is intact — in that case only the ledger needs
+    // restoring, so trigger recovery (the seed is skip-if-present).
+    try {
+      const ledgerRes = await client.query("SELECT to_regclass('public.merchant_ai_actions') as exists;");
+      if (ledgerRes.rows[0]?.exists) {
+        const ledgerCount = await client.query('SELECT COUNT(*) FROM merchant_ai_actions');
+        if (parseInt(ledgerCount.rows[0].count, 10) === 0) {
+          const { seedHistoricalActionLedger } = await import('./seedHistoricalLedger');
+          const r = await seedHistoricalActionLedger();
+          if (r.seeded) {
+            console.log('[DB Recovery:request] Historical ledger restored:', r.count);
+            return true;
+          }
+        }
+      }
+    } catch (ledgerErr: any) {
+      console.warn('[DB Recovery] Ledger probe skipped:', ledgerErr.message);
+    }
+
     return false;
   } catch (e: any) {
     console.warn('[DB Recovery] Health probe failed:', e.message);

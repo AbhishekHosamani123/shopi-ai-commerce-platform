@@ -2152,6 +2152,24 @@ router.get(['/ai/actions', '/actions'], async (req: Request, res: Response) => {
     const limit = parseInt(req.query.limit as string || '50', 10);
     const offset = parseInt(req.query.offset as string || '0', 10);
 
+    // Ledger self-heal: a Render database reset wipes the historical action
+    // ledger while the commerce dataset re-seeds independently. When the
+    // ledger is empty, regenerate it from real catalog/order data (all rows
+    // flagged is_test=true; skip-if-present inside) so the Actions & Outcomes
+    // workspace isn't blank after a reset.
+    try {
+      const ledgerCount = await client.query('SELECT COUNT(*)::int AS n FROM merchant_ai_actions');
+      if (ledgerCount.rows[0].n === 0) {
+        const { seedHistoricalActionLedger } = await import('../data/seedHistoricalLedger');
+        const seeded = await seedHistoricalActionLedger();
+        if (seeded.seeded) {
+          console.log('[Actions] Historical ledger regenerated:', seeded.count);
+        }
+      }
+    } catch (ledgerErr: any) {
+      console.warn('[Actions] Ledger heal skipped:', ledgerErr.message);
+    }
+
     const result = await listActions({ merchantId, status, limit, offset });
     return res.json({
       success: true,
