@@ -67,6 +67,9 @@ function mapRowToAction(r: any): MerchantAiActionRecord {
     merchantId: r.merchant_id,
     actionType: r.action_type,
     status: r.status,
+    // Discloses seeded demo-history rows (is_test=true) so the UI can label
+    // them distinctly from live merchant decisions.
+    isTest: r.is_test === true,
     productId: prodId,
     productName: prodName,
     quantity: r.quantity !== null && r.quantity !== undefined ? parseInt(r.quantity, 10) : null,
@@ -273,7 +276,13 @@ export async function listActions(options: {
     const limit = Math.min(Math.max(options.limit || 50, 1), 100);
     const offset = Math.max(options.offset || 0, 0);
 
-    let whereClauses: string[] = ['(a.is_test = FALSE OR a.is_test IS NULL)'];
+    // Include seeded demo-history rows (is_test=true) in the LEDGER LISTING so
+    // the Actions & Outcomes workspace shows the historical decision record
+    // restored after a DB reset — the merchant needs to see them, each row
+    // carries is_test for frontend disclosure. The KPI tiles remain REAL-ONLY
+    // (getActionSummaryKpis still filters is_test) so seeded rows never
+    // fabricate decision metrics.
+    let whereClauses: string[] = ['1=1'];
     const params: any[] = [];
 
     if (merchantId !== 'merchant_admin') {

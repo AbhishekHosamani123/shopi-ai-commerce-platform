@@ -94,6 +94,8 @@ export interface MerchantAiActionRecord {
   merchantId: string;
   actionType: MerchantActionType;
   status: MerchantActionStatus;
+  /** true for seeded demo-history rows (post-DB-reset ledger restore). */
+  isTest?: boolean;
   productId?: number | null;
   productName?: string | null;
   quantity?: number | null;
