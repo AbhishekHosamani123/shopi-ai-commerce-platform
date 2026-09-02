@@ -160,7 +160,7 @@ export class GmailEmailProvider implements CommunicationProvider {
       let lastErr: any = null;
       for (let attempt = 1; attempt <= 3; attempt++) {
         try {
-          info = await transporter.sendMail(buildMail());
+          info = await transporter.sendMail(buildMail() as any);
           break;
         } catch (e: any) {
           lastErr = e;
