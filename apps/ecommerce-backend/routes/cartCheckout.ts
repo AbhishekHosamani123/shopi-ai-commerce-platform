@@ -221,13 +221,15 @@ const paymentCharge = 15;
 
       await conn.query('COMMIT');
       return 200;
-    } catch (error) {
-      await conn.query('ROLLBACK');
+    } catch (error: any) {
+      try { await conn.query('ROLLBACK'); } catch { /* already aborted */ }
+      console.error('[createCashOrder] transaction failed:', error?.message || error);
       return 500;
     } finally {
       conn.release();
     }
-  } catch (error) {
+  } catch (error: any) {
+    console.error('[createCashOrder] pre-transaction failure:', error?.message || error);
     return 500;
   }
 }
@@ -338,9 +340,9 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
 
       await conn.query('COMMIT');
       return 200;
-    } catch (error) {
-      await conn.query('ROLLBACK');
-      console.error('Error creating order:', error);
+    } catch (error: any) {
+      try { await conn.query('ROLLBACK'); } catch { /* already aborted */ }
+      console.error('[createCardOrder] transaction failed:', error?.message || error);
       return 500;
     } finally {
       conn.release();
