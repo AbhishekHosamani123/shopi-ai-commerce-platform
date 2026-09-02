@@ -406,10 +406,14 @@ router.post('/user/insert/cartitem',cartItemSchema,async(req:Request,res:Respons
     if(result.isEmpty()){
         const { userID, productID, quantity, sizeID, colorID } = matchedData(req);
         
+        // IS NOT DISTINCT FROM: chatbot-added items carry NULL sizeid/colorid,
+        // and plain = never matches NULL — so every re-add of the same
+        // chatbot item created a DUPLICATE cart row instead of incrementing
+        // the existing one.
         const checkQuery = `
             SELECT cartitemid, quantity 
             FROM cartitems 
-            WHERE userid = $1 AND productid = $2 AND sizeid = $3 AND colorid = $4
+            WHERE userid = $1 AND productid = $2 AND sizeid IS NOT DISTINCT FROM $3 AND colorid IS NOT DISTINCT FROM $4
         `;
         const checkValues = [userID, productID, sizeID, colorID];
     
