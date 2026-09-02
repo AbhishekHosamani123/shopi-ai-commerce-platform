@@ -1,3 +1,11 @@
+// IPv4-first DNS for ALL outbound connections (SMTP to smtp.gmail.com,
+// Evolution gateway, etc.). Render free instances have no IPv6 egress, and
+// dual-stack hosts' AAAA records otherwise produce
+// 'connect ENETUNREACH 2607:f8b0:...:465' on every SMTP send. Must run
+// before any connection is made, hence the very first import-side effect.
+import dns from 'dns';
+dns.setDefaultResultOrder('ipv4first');
+
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';

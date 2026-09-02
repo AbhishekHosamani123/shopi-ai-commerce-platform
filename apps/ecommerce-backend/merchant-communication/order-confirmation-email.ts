@@ -329,13 +329,13 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
       return { sent: false, error: 'No valid recipient email' };
     }
 
-    // service:'gmail' resolves smtp.gmail.com, whose AAAA record makes
-    // nodemailer dial IPv6 first — Render free instances have NO IPv6
-    // egress ('connect ENETUNREACH 2607:f8b0:...:465'). Force the IPv4
-    // literal host + family 4 so the SMTP dial uses IPv4 only.
+    // service:'gmail' resolves smtp.gmail.com, whose AAAA record can make
+    // Node dial IPv6 first — hosts without IPv6 egress (Render free tier)
+    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. The explicit
+    // host/port pins the transport; IPv4-first dialing is enforced globally
+    // via NODE_OPTIONS=--dns-result-order=ipv4first in the environment.
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      family: 4,
       port: 465,
       secure: true,
       auth: { user: email, pass: password },

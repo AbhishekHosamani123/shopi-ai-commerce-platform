@@ -100,12 +100,12 @@ export class GmailEmailProvider implements CommunicationProvider {
 
     // 6. Build Nodemailer Gmail SMTP Transport
     try {
-      // IPv4 forced: Render free instances have no IPv6 egress, and
-      // smtp.gmail.com's AAAA record otherwise triggers
-      // 'connect ENETUNREACH 2607:f8b0:...:465'.
+      // IPv4-first dialing is enforced via NODE_OPTIONS=--dns-result-
+      // order=ipv4first in the environment (Render free instances have no
+      // IPv6 egress; smtp.gmail.com's AAAA record otherwise triggers
+      // 'connect ENETUNREACH 2607:f8b0:...:465').
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
-        family: 4,
         port: 465,
         secure: true,
         auth: {
