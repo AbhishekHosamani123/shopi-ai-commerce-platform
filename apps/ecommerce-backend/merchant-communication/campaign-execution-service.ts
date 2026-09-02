@@ -210,7 +210,10 @@ export class CampaignExecutionService {
     // 4. Product Stock & Catalog Verification
     // Checks the canonical shopi_products catalog first; falls back to the
     // legacy products table so campaigns targeting either catalog still
-    // enforce the out-of-stock block.
+    // enforce the out-of-stock block. NOTE: the legacy products.productid is
+    // VARCHAR while shopi_products.product_id is INT — each query casts its
+    // array to its column's type (a shared ::int[] made the legacy lookup
+    // fail with 'operator does not exist: character varying = integer').
     const productIds = campaign.targetProducts.map(p => p.productId);
     if (productIds.length > 0) {
       const shopiRes = await client.query(`
@@ -218,8 +221,8 @@ export class CampaignExecutionService {
         FROM shopi_products WHERE product_id = ANY($1::int[])
       `, [productIds]);
       const legacyRes = await client.query(`
-        SELECT productid, title, price, stock FROM products WHERE productid = ANY($1::int[])
-      `, [productIds]);
+        SELECT productid, title, price, stock FROM products WHERE productid = ANY($1::text[])
+      `, [productIds.map(String)]);
       const found = new Map<number, any>();
       for (const row of [...legacyRes.rows, ...shopiRes.rows]) {
         found.set(parseInt(row.productid, 10), row);

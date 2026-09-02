@@ -222,16 +222,17 @@ export class CommunicationEligibilityService {
           };
         }
       } else {
-        // Legacy orders (userid is an integer)
+        // Legacy orders (userid is an integer; orderitems.productid is VARCHAR
+        // — text[] cast, an ::int[] throws 'character varying = integer').
         const purchaseRes = await client.query(`
           SELECT o.orderid, o.createdat
           FROM orders o
           JOIN orderitems oi ON o.orderid = oi.orderid
           WHERE o.userid = $1
-            AND oi.productid = ANY($2::int[])
+            AND oi.productid = ANY($2::text[])
             AND o.orderstatus NOT IN ('CANCELLED', 'Cancelled')
           LIMIT 1;
-        `, [customerId, targetProductIds]);
+        `, [customerId, targetProductIds.map(String)]);
 
         if (purchaseRes.rows.length > 0) {
           return {

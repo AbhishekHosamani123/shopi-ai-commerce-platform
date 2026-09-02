@@ -29,9 +29,11 @@ export class CouponService {
 
     // 2. Validate product catalog existence & stock
     if (params.targetProductIds.length > 0) {
+      // products.productid is VARCHAR — cast to text[] (an ::int[] here
+      // throws 'operator does not exist: character varying = integer').
       const prodCheck = await client.query(`
-        SELECT productid, title, price, stock FROM products WHERE productid = ANY($1::int[])
-      `, [params.targetProductIds]);
+        SELECT productid, title, price, stock FROM products WHERE productid = ANY($1::text[])
+      `, [params.targetProductIds.map(String)]);
 
       if (prodCheck.rows.length === 0) {
         return { isValid: false, reason: 'Target product not found in catalog.' };
@@ -86,9 +88,10 @@ export class CouponService {
 
     // 2. Product stock verification
     if (couponSpec.eligibleProducts.length > 0) {
+      // VARCHAR productid — text[] (see catalog check above).
       const stockRes = await client.query(`
-        SELECT stock FROM products WHERE productid = ANY($1::int[])
-      `, [couponSpec.eligibleProducts]);
+        SELECT stock FROM products WHERE productid = ANY($1::text[])
+      `, [couponSpec.eligibleProducts.map(String)]);
 
       const isOutOfStock = stockRes.rows.some(r => parseInt(r.stock, 10) <= 0);
       if (isOutOfStock) {
