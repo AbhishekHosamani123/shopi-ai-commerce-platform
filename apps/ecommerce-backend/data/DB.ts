@@ -180,17 +180,38 @@ CREATE TABLE IF NOT EXISTS banners (
     link VARCHAR(255)
 );
 
--- Legacy coupons shape kept for tables that already exist from older
--- deployments; the full application shape (code, description, maxdiscount-
--- amount, minpurchaseamount, validfrom, validuntil...) is CREATEd + ALTERed
--- further below. The ALTERs here reconcile the columns fetchCoupons
--- (routes/userDetails.ts) queries so a table left in the legacy shape from
--- a previous recovery run still answers user-coupon queries.
+-- Coupons is created ONCE here with the full application shape (the shape
+-- every user-coupon query uses: code, description, maxdiscountamount,
+-- minpurchaseamount, validfrom, validuntil). An earlier fix replaced this
+-- CREATE with bare ALTERs — correct for DBs already carrying the legacy
+-- shape, but FATAL on a fully wiped database where coupons does not exist:
+-- the leading ALTER failed and aborted the ENTIRE core-schema batch, so
+-- recovery could never rebuild anything (observed on Render).
+CREATE TABLE IF NOT EXISTS coupons (
+    couponid SERIAL PRIMARY KEY,
+    couponcode VARCHAR(50) UNIQUE,
+    code VARCHAR(50),
+    description VARCHAR(255),
+    discountpercentage NUMERIC(5,2) DEFAULT 10,
+    minorderamount NUMERIC(10,2) DEFAULT 500,
+    maxdiscount NUMERIC(10,2) DEFAULT 1000,
+    maxdiscountamount NUMERIC(10,2) DEFAULT 1000,
+    minpurchaseamount NUMERIC(10,2) DEFAULT 500,
+    validfrom TIMESTAMP,
+    validuntil TIMESTAMP,
+    isactive BOOLEAN DEFAULT true,
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+-- Reconcile legacy-shape tables that already exist from older deployments
+-- (couponcode-only): the columns fetchCoupons queries are added idempotently.
 ALTER TABLE coupons ADD COLUMN IF NOT EXISTS code VARCHAR(50);
 ALTER TABLE coupons ADD COLUMN IF NOT EXISTS description VARCHAR(255);
 ALTER TABLE coupons ADD COLUMN IF NOT EXISTS maxdiscountamount NUMERIC(10,2) DEFAULT 1000;
 ALTER TABLE coupons ADD COLUMN IF NOT EXISTS minpurchaseamount NUMERIC(10,2) DEFAULT 500;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS validfrom TIMESTAMP;
 ALTER TABLE coupons ADD COLUMN IF NOT EXISTS validuntil TIMESTAMP;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 CREATE TABLE IF NOT EXISTS orders (
     orderid VARCHAR(100) PRIMARY KEY,
@@ -287,25 +308,7 @@ ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS usercouponid SERIAL;
 ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS usedat TIMESTAMP;
 ALTER TABLE usercoupons ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
-CREATE TABLE IF NOT EXISTS coupons (
-    couponid SERIAL PRIMARY KEY,
-    code VARCHAR(50),
-    description VARCHAR(255),
-    discountpercentage NUMERIC(5,2) DEFAULT 10,
-    minorderamount NUMERIC(10,2) DEFAULT 500,
-    maxdiscount NUMERIC(10,2) DEFAULT 1000,
-    maxdiscountamount NUMERIC(10,2) DEFAULT 1000,
-    minpurchaseamount NUMERIC(10,2) DEFAULT 500,
-    validfrom TIMESTAMP,
-    validuntil TIMESTAMP,
-    isactive BOOLEAN DEFAULT true,
-    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-ALTER TABLE coupons ADD COLUMN IF NOT EXISTS maxdiscountamount NUMERIC(10,2) DEFAULT 1000;
-ALTER TABLE coupons ADD COLUMN IF NOT EXISTS minpurchaseamount NUMERIC(10,2) DEFAULT 500;
-ALTER TABLE coupons ADD COLUMN IF NOT EXISTS validfrom TIMESTAMP;
-ALTER TABLE coupons ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+-- (coupons is created with its full shape once, earlier in this script.)
 
 CREATE TABLE IF NOT EXISTS giftcards (
     cardid SERIAL PRIMARY KEY,
