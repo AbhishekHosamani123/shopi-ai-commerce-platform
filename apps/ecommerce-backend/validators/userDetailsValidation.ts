@@ -154,7 +154,7 @@ const cartItemSchema = checkSchema({
     sizeID: {
         in: ['body'],
         // Optional: variant-less additions (default variant) carry null.
-        optional: { nullable: true },
+        optional: true,
         isInt:true,
         isLength:{options:{min:1,max:10}},
         errorMessage: 'The sizeID must be provided',
@@ -164,7 +164,7 @@ const cartItemSchema = checkSchema({
     colorID: {
         in: ['body'],
         // Optional: variant-less additions (default variant) carry null.
-        optional: { nullable: true },
+        optional: true,
         isInt:true,
         errorMessage: 'The colorID must be provided',
         isLength:{options:{min:1,max:10}},
