@@ -299,19 +299,29 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
   }
 
   try {
-    // 2. Fetch product & address details
-    // 2. Fetch product price
+    // 2. Fetch product & address details — NULL-variant tolerant (chatbot
+    // checkout links can carry no color/size; falls back to first variant).
     const productQuery = `
-      SELECT p.discount
+      SELECT p.discount,
+             COALESCE(pc.colorid, pc2.colorid) AS colorid,
+             COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
       FROM products p
-      JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-      JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+      LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN LATERAL (
+        SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+      ) pc2 ON TRUE
+      LEFT JOIN LATERAL (
+        SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+      ) ps2 ON TRUE
       WHERE p.productid = $1
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
     if (productResult.rows.length === 0) {
       return res.status(404).json({ error: 'Product not found' });
     }
+    const effectiveColorid = productResult.rows[0].colorid;
+    const effectiveSizeid = productResult.rows[0].sizeid;
 
     const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
     const addressResult = await client.query(addressQuery, [userid]);

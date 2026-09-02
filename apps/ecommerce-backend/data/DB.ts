@@ -276,10 +276,18 @@ CREATE TABLE IF NOT EXISTS orderitems (
     orderid VARCHAR(100) NOT NULL,
     productid VARCHAR(100) NOT NULL,
     quantity INT DEFAULT 1,
-    price NUMERIC(10,2) NOT NULL,
+    -- price is nullable in practice: the checkout transactions INSERT
+    -- (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid)
+    -- WITHOUT price — a NOT NULL price made every order 500 after a reset.
+    price NUMERIC(10,2),
     sizeid INT,
-    colorid INT
+    colorid INT,
+    shippingid INT,
+    paymentid INT
 );
+-- Reconcile legacy orderitems shapes from older recoveries.
+ALTER TABLE orderitems ADD COLUMN IF NOT EXISTS shippingid INT;
+ALTER TABLE orderitems ADD COLUMN IF NOT EXISTS paymentid INT;
 
 CREATE TABLE IF NOT EXISTS reviews (
     reviewid SERIAL PRIMARY KEY,

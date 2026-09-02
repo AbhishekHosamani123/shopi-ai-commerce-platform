@@ -149,12 +149,24 @@ async function createCashOrder(userid:string,productid:string, colorid:string, s
   const deliveryDate = getDateTimeFiveDaysFromNow();
 const paymentCharge = 15;
   try {
-    // Check if product with given productid, colorid, and sizeid exists
+    // Resolve the price. Chatbot-added cart items carry NULL colorid/sizeid
+    // (auto-resolved defaults); an INNER JOIN on NULL never matches and the
+    // item silently 404'd, failing the whole COD order. LEFT JOIN + COALESCE
+    // falls back to the product's first variant (same fix the checkout
+    // product-details endpoint received).
     const productQuery = `
-      SELECT p.discount
+      SELECT p.discount,
+             COALESCE(pc.colorid, pc2.colorid) AS colorid,
+             COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
       FROM products p
-      JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-      JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+      LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN LATERAL (
+        SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+      ) pc2 ON TRUE
+      LEFT JOIN LATERAL (
+        SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+      ) ps2 ON TRUE
       WHERE p.productid = $1
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
@@ -162,6 +174,9 @@ const paymentCharge = 15;
     if (productResult.rows.length === 0) {
       return 404;
     }
+    // Effective variant ids (NULL cart rows adopt the product's first variant).
+    const effectiveColorid = productResult.rows[0].colorid;
+    const effectiveSizeid = productResult.rows[0].sizeid;
     const addressQuery = `
       SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
     `;
@@ -200,7 +215,7 @@ const paymentCharge = 15;
 
       await conn.query(
         `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-        [orderid, productid, quantity, shippingid, paymentid, colorid, sizeid]
+        [orderid, productid, quantity, shippingid, paymentid, effectiveColorid, effectiveSizeid]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
@@ -254,12 +269,22 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
   const transactionid = `TS-${randomUUID()}`;
   const deliveryDate = getDateTimeFiveDaysFromNow();
   try {
-    // Check if product with given productid, colorid, and sizeid exists
+    // Resolve the price with the same NULL-variant fallback as createCashOrder
+    // (chatbot-added cart items carry NULL colorid/sizeid; an INNER JOIN on
+    // NULL never matches and the item silently 404'd).
     const productQuery = `
-      SELECT p.discount
+      SELECT p.discount,
+             COALESCE(pc.colorid, pc2.colorid) AS colorid,
+             COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
       FROM products p
-      JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-      JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+      LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+      LEFT JOIN LATERAL (
+        SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+      ) pc2 ON TRUE
+      LEFT JOIN LATERAL (
+        SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+      ) ps2 ON TRUE
       WHERE p.productid = $1
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
@@ -267,6 +292,8 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
     if (productResult.rows.length === 0) {
       return 404;
     }
+    const effectiveColorid = productResult.rows[0].colorid;
+    const effectiveSizeid = productResult.rows[0].sizeid;
     const addressQuery = `
       SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
     `;
@@ -305,7 +332,7 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
 
       await conn.query(
         `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-        [orderid, productid, quantity, shippingid, paymentID, colorid, sizeid]
+        [orderid, productid, quantity, shippingid, paymentID, effectiveColorid, effectiveSizeid]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 

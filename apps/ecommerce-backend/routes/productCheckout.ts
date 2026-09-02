@@ -47,11 +47,21 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
     const paymentCharge = 15;
     try {
       // Check if product with given productid, colorid, and sizeid exists
-      const productQuery = `
-        SELECT p.discount
+            const productQuery = `
+        // NULL-variant tolerant (chatbot-added items carry no color/size; falls
+        // back to the product's first variant like the cart COD/card paths).
+        SELECT p.discount,
+               COALESCE(pc.colorid, pc2.colorid) AS colorid,
+               COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
         FROM products p
-        JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-        JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+        LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+        LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+        LEFT JOIN LATERAL (
+          SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+        ) pc2 ON TRUE
+        LEFT JOIN LATERAL (
+          SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+        ) ps2 ON TRUE
         WHERE p.productid = $1
       `;
       const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
@@ -138,11 +148,21 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
     const shippingcharge = 99;
     try {
       // Check if product with given productid, colorid, and sizeid exists
-      const productQuery = `
-        SELECT p.discount
+            const productQuery = `
+        // NULL-variant tolerant (chatbot-added items carry no color/size; falls
+        // back to the product's first variant like the cart COD/card paths).
+        SELECT p.discount,
+               COALESCE(pc.colorid, pc2.colorid) AS colorid,
+               COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
         FROM products p
-        JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-        JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+        LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+        LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+        LEFT JOIN LATERAL (
+          SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+        ) pc2 ON TRUE
+        LEFT JOIN LATERAL (
+          SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+        ) ps2 ON TRUE
         WHERE p.productid = $1
       `;
       const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
