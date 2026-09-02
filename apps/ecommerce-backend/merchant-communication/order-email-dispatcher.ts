@@ -14,29 +14,67 @@ import { sendOrderConfirmationEmail, OrderConfirmationEmailData, OrderEmailItem 
 
 /** Loads item data for a set of legacy order ids (strings — orderid is VARCHAR). */
 async function loadLegacyOrderItems(orderIds: string[]): Promise<OrderEmailItem[]> {
-  const res = await client.query(`
-    SELECT oi.productid, oi.quantity,
-           p.title, p.imgid, p.price, p.discount,
-           pc.colorname, ps.sizename
+  // Read raw order items first; product enrichment happens per item so a
+  // product missing from the legacy products table (live catalog only) still
+  // shows in the email — the old INNER JOIN products dropped such orders
+  // entirely ('No order items found for orders 13 — skipped' in production).
+  const raw = await client.query(`
+    SELECT oi.productid, oi.quantity, oi.colorid, oi.sizeid
     FROM orderitems oi
-    JOIN products p ON p.productid = oi.productid
-    LEFT JOIN productcolors pc ON pc.productid = oi.productid AND pc.colorid = oi.colorid
-    LEFT JOIN productsizes ps ON ps.productid = oi.productid AND ps.sizeid = oi.sizeid
     WHERE oi.orderid = ANY($1::text[]);
   `, [orderIds]);
 
   const items: OrderEmailItem[] = [];
-  for (const r of res.rows) {
-    // discount holds the effective unit price in this schema
-    const unitPrice = parseFloat(r.discount ?? r.price ?? 0) || 0;
+  for (const r of raw.rows) {
+    let title = String(r.productid);
+    let unitPrice = 0;
+    let imgid: string | null = null;
+    let colorName: string | null = null;
+    let sizeName: string | null = null;
+
+    // Legacy products row first (carries canonical price + variant names).
+    try {
+      const p = await client.query(`
+        SELECT p.title, p.imgid, p.price, p.discount,
+               pc.colorname, ps.sizename
+        FROM products p
+        LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+        LEFT JOIN productsizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+        WHERE p.productid = $1
+      `, [r.productid, r.colorid, r.sizeid]);
+      if (p.rows.length > 0) {
+        title = p.rows[0].title || title;
+        unitPrice = parseFloat(p.rows[0].discount ?? p.rows[0].price ?? 0) || 0;
+        imgid = p.rows[0].imgid;
+        colorName = p.rows[0].colorname || null;
+        sizeName = p.rows[0].sizename != null ? String(p.rows[0].sizename) : null;
+      }
+    } catch { /* per-item legacy lookup is best-effort */ }
+
+    // Catalog fallback when the legacy row is absent.
+    if (unitPrice === 0 || title === String(r.productid)) {
+      try {
+        const { default: ShopiCatalogService } = await import('../data/shopiCatalogService');
+        const supProd = await ShopiCatalogService.getProduct(String(r.productid));
+        if (supProd) {
+          title = supProd.title || title;
+          unitPrice = parseFloat(String(supProd.selling_price ?? supProd.discount ?? supProd.price ?? 0)) || unitPrice;
+          const c = supProd.colors?.find((x: any) => Number(x.colorid) === Number(r.colorid));
+          const s = supProd.sizes?.find((x: any) => Number(x.sizeid) === Number(r.sizeid));
+          colorName = colorName || (c?.colorname ?? supProd.colors?.[0]?.colorname ?? null);
+          sizeName = sizeName || (s?.sizename ?? supProd.sizes?.[0]?.sizename ?? null);
+        }
+      } catch { /* catalog fallback is best-effort */ }
+    }
+
     items.push({
       productId: r.productid,
-      title: r.title || 'Shopi Product',
-      imageUrl: r.imgid ? `https://picsum.photos/seed/${encodeURIComponent(String(r.imgid))}/160/160` : null,
+      title: title || 'Shopi Product',
+      imageUrl: imgid ? `https://picsum.photos/seed/${encodeURIComponent(String(imgid))}/160/160` : null,
       quantity: parseInt(r.quantity, 10) || 1,
       unitPrice,
-      colorName: r.colorname || null,
-      sizeName: r.sizename !== undefined && r.sizename !== null ? String(r.sizename) : null
+      colorName,
+      sizeName
     });
   }
   return items;

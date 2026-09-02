@@ -389,16 +389,39 @@ router.post('/user/orders',userTokenSchema,async (req: Request, res: Response) =
         const { userIDToken } = matchedData(req);
         const query = `SELECT orders.orderid,orders.totalamount,orders.orderstatus,orders.createdat,shipping.deliveredat,products.title,productimages.imglink,productimages.imgalt,products.description,products.discount,orders.order_code,products.productid 
         FROM orders
-         INNER JOIN orderitems on orders.orderid = orderitems.orderid INNER JOIN products ON products.productid = orderitems.productid
-          INNER JOIN productimages ON products.productid = productimages.productid 
-          INNER JOIN shipping on orderitems.shippingid = shipping.shippingid
-          WHERE orders.userid = $1 AND productimages.isprimary = true ORDER BY orders.createdat DESC`
+         INNER JOIN orderitems on orders.orderid = orderitems.orderid 
+         LEFT JOIN products ON products.productid = orderitems.productid
+         LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
+         INNER JOIN shipping on orderitems.shippingid = shipping.shippingid
+         WHERE orders.userid = $1 ORDER BY orders.createdat DESC`
         try {
             const userID = jwt.verify(userIDToken,JWT_SECRET) as JwtPayload;
             const values = [userID.userID];
             const result = await client.query(query,values);
+            // Catalog enrichment for orders whose product exists only in the
+            // live catalog (legacy products row absent → title/price NULL from
+            // the LEFT JOIN). The order must still appear in the customer's
+            // order list with real title/price/image.
+            const enriched = await Promise.all(result.rows.map(async (row: any) => {
+                if (row.title) return row;
+                try {
+                    const supProd = await ShopiCatalogService.getProduct(String(row.productid));
+                    if (supProd) {
+                        return {
+                            ...row,
+                            productid: supProd.sku || row.productid,
+                            title: supProd.title,
+                            description: supProd.description || row.description,
+                            discount: supProd.selling_price ?? row.discount,
+                            imglink: supProd.imglink || row.imglink,
+                            imgalt: supProd.title || row.imgalt
+                        };
+                    }
+                } catch { /* per-order enrichment best-effort */ }
+                return { ...row, title: row.title || 'Shopi Product', imglink: row.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg', imgalt: row.imgalt || 'Shopi Product' };
+            }));
             res.status(200).json(
-                {data:result.rows}
+                {data:enriched}
             );
         } catch (error) {
             res.status(500).json({ error: 'Server error' });
