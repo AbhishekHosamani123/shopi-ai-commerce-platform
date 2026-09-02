@@ -104,7 +104,10 @@ const AddressInsertSchema = checkSchema({
     },
     postalCode: {
         in: ['body'],
-        isPostalCode: true,
+        // 'any' locale: without an explicit locale express-validator passes
+        // undefined to validator.isPostalCode, which THROWS ('Invalid locale
+        // undefined') and 500s every address insert on production.
+        isPostalCode: { options: 'any' },
         isString: true,
         notEmpty: true,
         escape:true,
