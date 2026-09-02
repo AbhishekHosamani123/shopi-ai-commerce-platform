@@ -129,13 +129,17 @@ const cartItemSchema = checkSchema({
     },
     productID: {
         in: ['body'],
-        isInt:true,
-        isLength:{options:{min:1,max:15}},
+        // Products are identified EITHER by numeric catalog ids (shopi
+        // products — the chatbot path sends a number) OR by SKU strings
+        // ('SPORTS-SHOE-001' — the product page sends the SKU). A strict
+        // isInt rejected every product-page add-to-cart with 'Validation
+        // error' while the UI showed its ✓ — the cart was never persisted.
+        // Accept both shapes.
         errorMessage: 'The productID must be provided',
-        notEmpty:true,
-        isNumeric:true,
-        trim:true,
-        escape:true
+        notEmpty: true,
+        trim: true,
+        escape: true,
+        isLength: { options: { min: 1, max: 64 } }
     },
     quantity: {
         in: ['body'],
@@ -149,21 +153,21 @@ const cartItemSchema = checkSchema({
     },
     sizeID: {
         in: ['body'],
+        // Optional: variant-less additions (default variant) carry null.
+        optional: { nullable: true },
         isInt:true,
         isLength:{options:{min:1,max:10}},
         errorMessage: 'The sizeID must be provided',
-        notEmpty:true,
-        isNumeric:true,
         trim:true,
         escape:true
     },
     colorID: {
         in: ['body'],
+        // Optional: variant-less additions (default variant) carry null.
+        optional: { nullable: true },
         isInt:true,
         errorMessage: 'The colorID must be provided',
         isLength:{options:{min:1,max:10}},
-        notEmpty:true,
-        isNumeric:true,
         trim:true,
         escape:true
     }
@@ -212,13 +216,13 @@ const wishlistActionSchema = checkSchema({
     },
     productID: {
         in: ['body'],
+        // Numeric catalog ids AND SKU strings are both valid (see
+        // cartItemSchema.productID).
         errorMessage: 'The product id must be provided',
-        isInt:true,
-        isLength:{options:{min:1,max:15}},
-        notEmpty:true,
-        isNumeric:true,
-        trim:true,
-        escape:true
+        notEmpty: true,
+        isLength: { options: { min: 1, max: 64 } },
+        trim: true,
+        escape: true
     }
 });
 const wishlistRemoveSchema = checkSchema({

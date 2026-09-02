@@ -241,6 +241,17 @@ const ProductDialogs = ({dialogType,setdialogType,setloading,productID,selectedR
             </DialogPanel>
             </div>
         </Dialog>
+        <Dialog open={dialogType==='cartAddFailed'} onClose={() => setdialogType(null)} className="relative z-50">
+            <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+            <DialogPanel className="max-w-lg space-y-4 border p-6 rounded-xl text-center drop-shadow-custom-xl bg-red-400 text-white">
+                <DialogTitle className="font-bold">Couldn't add to cart</DialogTitle>
+                <Description>The item was not added — the server rejected the request. Please try again.</Description>
+                <div className="flex justify-center gap-4">
+                    <button className='border-[1.5px] hover:bg-white transition-colors duration-300 hover:text-black py-2 px-6 rounded-xl' onClick={() => setdialogType(null)}>OK</button>
+                </div>
+            </DialogPanel>
+            </div>
+        </Dialog>
     </div>
     </>
   )

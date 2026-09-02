@@ -250,12 +250,30 @@ const ProductPage = () => {
 
       switch (key) {
         case 'cart':
-        isLogged && await cartAddHandler({cartItemID:listID.cartItemID,userID:defaultAccount.userID,productID:data.productid,productPrice:parseInt(data.discountedprice),colorID:selectedColor.colorid,sizeID:selectedSize.sizeid,quantity})
+        if (isLogged) {
+          // Honest feedback: only commit the cart to the UI when the server
+          // actually persisted it. Previously the ✓ showed and Redux updated
+          // even when the backend rejected the insert (e.g. validation
+          // error), so the cart "succeeded" until the next page load.
+          const res = await cartAddHandler({cartItemID:listID.cartItemID,userID:defaultAccount.userID,productID:data.productid,productPrice:parseInt(data.discountedprice),colorID:selectedColor.colorid,sizeID:selectedSize.sizeid,quantity});
+          if (res.status !== 200) {
+            setbtnLoading(false);
+            setdialogType('cartAddFailed');
+            return;
+          }
+        }
         dispatch(addItemToCart(currentCartPayload));
         setbtnLoading(false)
           break;
         case 'wishlist':
-        isLogged && await wishlistAddHandler({wishlistItemID:listID.wishlistItemID,userID:defaultAccount.userID,productID:data.productid})
+        if (isLogged) {
+          const res = await wishlistAddHandler({wishlistItemID:listID.wishlistItemID,userID:defaultAccount.userID,productID:data.productid});
+          if (res.status !== 200) {
+            setbtnLoading(false);
+            setdialogType('cartAddFailed');
+            return;
+          }
+        }
         dispatch(addItemToWishlist(wishlistItem));
         setbtnLoading(false);
           break;
