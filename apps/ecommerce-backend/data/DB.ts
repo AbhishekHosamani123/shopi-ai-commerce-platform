@@ -228,6 +228,31 @@ CREATE TABLE IF NOT EXISTS orders (
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS orderstatus VARCHAR(50);
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS order_code VARCHAR(100);
+-- Legacy orders tables (older recoveries / merchant-ai-schema era) carry
+-- orderid WITHOUT a default, so the checkout INSERT (which omits orderid)
+-- failed with 'null value in column orderid violates not-null constraint'
+-- (observed on Render). Attach an auto-id sequence when the column has no
+-- default. Sequence starts past the largest NUMERIC orderid present
+-- (non-numeric legacy ids like UUIDs cannot collide with an integer
+-- sequence that starts above every existing numeric id; if none are
+-- numeric it starts at 1).
+DO $$
+DECLARE
+  max_numeric BIGINT;
+  seq_name TEXT;
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name = 'orders' AND column_name = 'orderid' AND column_default IS NULL
+  ) THEN
+    CREATE SEQUENCE IF NOT EXISTS orders_orderid_seq;
+    SELECT COALESCE(MAX(orderid::bigint), 0) INTO max_numeric
+      FROM (SELECT orderid FROM orders WHERE orderid ~ '^[0-9]+$') numeric_ids;
+    PERFORM setval('orders_orderid_seq', max_numeric + 1, false);
+    seq_name := 'orders_orderid_seq';
+    EXECUTE format('ALTER TABLE orders ALTER COLUMN orderid SET DEFAULT nextval(%L)', seq_name);
+  END IF;
+END $$;
 
 -- ── Checkout-transaction tables ────────────────────────────────────────────
 -- The cart/product checkout transactions INSERT into shipping, payments and
