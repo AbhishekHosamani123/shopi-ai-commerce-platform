@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { client } from '../data/DB';
 import crypto, { randomUUID } from 'crypto';
 import axios from 'axios';
+import ShopiCatalogService from '../data/shopiCatalogService';
 
 const router = express.Router();
 
@@ -10,6 +11,45 @@ const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'mock_razorpay_se
 import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 
 const RAZORPAY_WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || 'mock_razorpay_webhook_secret_2026';
+
+/**
+ * Resolve a product's authoritative price for checkout transactions.
+ *
+ * The live catalog is served from shopi_products (via ShopiCatalogService);
+ * the legacy `products` table is sparsely populated and lacks catalog-only
+ * SKUs, so checkout paths that resolve price with an INNER JOIN on it return
+ * 'Product not found' / 'Cart is empty' even though the storefront just sold
+ * the item. COD/card checkout in cartCheckout.ts already falls back to the
+ * catalog — this extends the same fallback to every Razorpay path so the
+ * payment flow cannot 404 on a perfectly orderable product.
+ *
+ * Returns { discount, title } on success or null when the product genuinely
+ * does not exist in either source.
+ */
+async function resolveCheckoutProduct(productid: string) {
+  const legacy = await client.query(
+    'SELECT productid, title, discount FROM products WHERE productid = $1',
+    [productid]
+  );
+  if (legacy.rows.length > 0) {
+    const row = legacy.rows[0];
+    if (row.discount !== null && row.discount !== undefined && parseFloat(String(row.discount)) > 0) {
+      return { discount: parseFloat(String(row.discount)), title: row.title };
+    }
+  }
+  try {
+    const supProd = await ShopiCatalogService.getProduct(String(productid));
+    if (supProd) {
+      const price = (supProd as any).selling_price ?? (supProd as any).discount ?? (supProd as any).price;
+      if (price !== undefined && price !== null && parseFloat(String(price)) > 0) {
+        return { discount: parseFloat(String(price)), title: supProd.title };
+      }
+    }
+  } catch (err: any) {
+    console.warn('[razorpay] catalog fallback failed for', productid, err?.message);
+  }
+  return null;
+}
 
 /**
  * Ensures the checkout-transaction schema (shipping, payments, orders,
@@ -147,17 +187,11 @@ router.post('/create-order', async (req: Request, res: Response) => {
   }
 
   try {
-    // 1. Fetch verified product price from database (Never trust client price)
-    const productQuery = `
-      SELECT p.productid, p.title, p.price, p.discount
-      FROM products p
-      JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-      JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
-      WHERE p.productid = $1
-    `;
-    const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
-
-    if (productResult.rows.length === 0) {
+    // 1. Fetch verified product price (Never trust client price). Resolves
+    // from the legacy products table first, then the live shopi catalog —
+    // catalog-only SKUs must be orderable too.
+    const product = await resolveCheckoutProduct(productid);
+    if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
 
@@ -169,9 +203,8 @@ router.post('/create-order', async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Default delivery address required before checkout' });
     }
 
-    const product = productResult.rows[0];
     const shippingCharge = 99; // Standard express shipping ₹99
-    const totalRupees = parseFloat(product.discount) + shippingCharge;
+    const totalRupees = product.discount + shippingCharge;
     const amountInPaise = Math.round(totalRupees * 100);
 
     const receipt = `rcpt_${productid}_${Date.now()}`;
@@ -210,16 +243,31 @@ router.post('/create-cart-order', async (req: Request, res: Response) => {
   }
 
   try {
-    // 1. Fetch user's cart items from database
+    // 1. Fetch user's cart items from database. Legacy-table rows resolve
+    // directly; catalog-only SKUs fall back to ShopiCatalogService — the old
+    // INNER JOIN on the sparse `products` table dropped them and checkout
+    // failed with 'Cart is empty' while the cart was full.
     const cartQuery = `
       SELECT c.productid, c.quantity, p.title, p.discount
       FROM cartitems c
-      JOIN products p ON c.productid = p.productid
+      LEFT JOIN products p ON c.productid = p.productid
       WHERE c.userid = $1
     `;
     const cartResult = await client.query(cartQuery, [userid]);
 
     if (cartResult.rows.length === 0) {
+      return res.status(404).json({ error: 'Cart is empty' });
+    }
+
+    const cartItems: { productid: string; quantity: number; title: string; discount: number }[] = [];
+    for (const row of cartResult.rows) {
+      const resolved = await resolveCheckoutProduct(row.productid);
+      if (!resolved) {
+        return res.status(404).json({ error: `Product ${row.productid} is no longer available` });
+      }
+      cartItems.push({ productid: row.productid, quantity: Number(row.quantity), title: resolved.title, discount: resolved.discount });
+    }
+    if (cartItems.length === 0) {
       return res.status(404).json({ error: 'Cart is empty' });
     }
 
@@ -233,14 +281,14 @@ router.post('/create-cart-order', async (req: Request, res: Response) => {
 
     // 3. Server-side cart total calculation
     const shippingCharge = 99;
-    const subtotal = cartResult.rows.reduce((sum, item) => sum + (parseFloat(item.discount) * item.quantity), 0);
+    const subtotal = cartItems.reduce((sum, item) => sum + (item.discount * item.quantity), 0);
     const totalRupees = subtotal + shippingCharge;
     const amountInPaise = Math.round(totalRupees * 100);
 
     const receipt = `rcpt_cart_${userid}_${Date.now()}`;
     const razorpayOrder = await createRazorpayOrder(amountInPaise, receipt, {
       userid,
-      itemCount: cartResult.rows.length,
+      itemCount: cartItems.length,
       checkoutType: 'cart'
     });
 
@@ -250,7 +298,7 @@ router.post('/create-cart-order', async (req: Request, res: Response) => {
       razorpayOrderId: razorpayOrder.id,
       amount: razorpayOrder.amount, // in paise
       currency: 'INR',
-      itemCount: cartResult.rows.length,
+      itemCount: cartItems.length,
       subtotalRupees: subtotal.toFixed(2),
       totalRupees: totalRupees.toFixed(2),
       shippingCost: shippingCharge
@@ -299,9 +347,16 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
   }
 
   try {
-    // 2. Fetch product & address details — NULL-variant tolerant (chatbot
-    // checkout links can carry no color/size; falls back to first variant).
-    const productQuery = `
+    // 2. Resolve the authoritative price — legacy products table first, then
+    // the live shopi catalog (catalog-only SKUs must be orderable; the old
+    // products-only lookup 404'd AFTER the customer had already paid).
+    // NULL-variant tolerant: chatbot checkout links can carry no color/size;
+    // falls back to the product's first variant.
+    let productAmount: number;
+    let effectiveColorid: number | null = colorid;
+    let effectiveSizeid: number | null = sizeid;
+
+    const legacyQuery = `
       SELECT p.discount,
              COALESCE(pc.colorid, pc2.colorid) AS colorid,
              COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
@@ -316,12 +371,26 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
       ) ps2 ON TRUE
       WHERE p.productid = $1
     `;
-    const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
-    if (productResult.rows.length === 0) {
-      return res.status(404).json({ error: 'Product not found' });
+    const legacyResult = await client.query(legacyQuery, [productid, colorid, sizeid]);
+    if (legacyResult.rows.length > 0) {
+      productAmount = parseFloat(String(legacyResult.rows[0].discount));
+      effectiveColorid = legacyResult.rows[0].colorid;
+      effectiveSizeid = legacyResult.rows[0].sizeid;
+    } else {
+      const supProd = await ShopiCatalogService.getProduct(String(productid)).catch(() => null);
+      if (!supProd) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+      const price = (supProd as any).selling_price ?? (supProd as any).discount ?? (supProd as any).price;
+      productAmount = parseFloat(String(price));
+      const cColor = (supProd as any).colors?.find((c: any) => Number(c.colorid) === Number(colorid));
+      const cSize = (supProd as any).sizes?.find((s: any) => Number(s.sizeid) === Number(sizeid));
+      effectiveColorid = cColor?.colorid ?? (supProd as any).colors?.[0]?.colorid ?? null;
+      effectiveSizeid = cSize?.sizeid ?? (supProd as any).sizes?.[0]?.sizeid ?? null;
     }
-    const effectiveColorid = productResult.rows[0].colorid;
-    const effectiveSizeid = productResult.rows[0].sizeid;
+    if (!Number.isFinite(productAmount) || productAmount <= 0) {
+      return res.status(404).json({ error: 'Product price could not be resolved' });
+    }
 
     const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
     const addressResult = await client.query(addressQuery, [userid]);
@@ -330,8 +399,7 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
     }
 
     const addressid = addressResult.rows[0].addressid;
-    const productAmount = productResult.rows[0].discount;
-    const totalAmount = (parseFloat(productAmount) + shippingCharge).toFixed(2);
+    const totalAmount = (productAmount + shippingCharge).toFixed(2);
 
     const conn = await client.connect();
     try {
@@ -363,7 +431,7 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
       // 6. Create order items
       await conn.query(
         `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [orderid, productid, 1, shippingid, paymentid, colorid, sizeid, productAmount]
+        [orderid, productid, 1, shippingid, paymentid, effectiveColorid, effectiveSizeid, productAmount]
       );
 
       // 7. Increment product sales
@@ -439,16 +507,42 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
   }
 
   try {
-    // 2. Fetch cart items
+    // 2. Fetch cart items. Legacy-table rows resolve directly; catalog-only
+    // SKUs fall back to ShopiCatalogService for the authoritative price (the
+    // old INNER JOIN on the sparse `products` table dropped them AFTER the
+    // customer had already paid).
     const cartQuery = `
-      SELECT c.productid, c.colorid, c.sizeid, c.quantity, p.discount
+      SELECT c.productid, c.colorid, c.sizeid, c.quantity
       FROM cartitems c
-      JOIN products p ON c.productid = p.productid
       WHERE c.userid = $1
     `;
     const cartResult = await client.query(cartQuery, [userid]);
 
     if (cartResult.rows.length === 0) {
+      return res.status(404).json({ error: 'Cart is empty' });
+    }
+
+    const cartItems: { productid: string; colorid: any; sizeid: any; quantity: number; discount: number }[] = [];
+    for (const row of cartResult.rows) {
+      const resolved = await resolveCheckoutProduct(row.productid);
+      if (!resolved) {
+        return res.status(404).json({ error: `Product ${row.productid} is no longer available` });
+      }
+      // Resolve effective variant ids (NULL-variant chatbot items fall back
+      // to the product's first variant so orderitems never carry unmatched
+      // variant references).
+      let effColor = row.colorid ?? null;
+      let effSize = row.sizeid ?? null;
+      if (effColor === null || effSize === null) {
+        const supProd = await ShopiCatalogService.getProduct(String(row.productid)).catch(() => null);
+        if (supProd) {
+          if (effColor === null) effColor = (supProd as any).colors?.[0]?.colorid ?? null;
+          if (effSize === null) effSize = (supProd as any).sizes?.[0]?.sizeid ?? null;
+        }
+      }
+      cartItems.push({ productid: row.productid, colorid: effColor, sizeid: effSize, quantity: Number(row.quantity), discount: resolved.discount });
+    }
+    if (cartItems.length === 0) {
       return res.status(404).json({ error: 'Cart is empty' });
     }
 
@@ -466,8 +560,8 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
       const createdOrderIds: number[] = [];
 
       // 3. Create order for each item in the cart
-      for (const item of cartResult.rows) {
-        const itemTotal = (parseFloat(item.discount) * item.quantity + shippingCharge).toFixed(2);
+      for (const item of cartItems) {
+        const itemTotal = (item.discount * item.quantity + shippingCharge).toFixed(2);
 
         const orderRes = await conn.query(
           `INSERT INTO orders (userid, totalamount, orderstatus, order_code) VALUES ($1, $2, $3, $4) RETURNING orderid`,
@@ -486,13 +580,13 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
         const paymentRes = await conn.query(
           `INSERT INTO payments (orderid, paymentmethod, paymentstatus, amount, transactionid, billingaddress, paymentgateway_id, razorpay_order_id, razorpay_payment_id, razorpay_signature)
            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING paymentid`,
-          [orderid, 'Razorpay', 'Confirmed', parseFloat(item.discount) * item.quantity, razorpay_payment_id, addressid, razorpay_payment_id, razorpay_order_id, razorpay_payment_id, razorpay_signature]
+          [orderid, 'Razorpay', 'Confirmed', item.discount * item.quantity, razorpay_payment_id, addressid, razorpay_payment_id, razorpay_order_id, razorpay_payment_id, razorpay_signature]
         );
         const paymentid = paymentRes.rows[0].paymentid;
 
         await conn.query(
           `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-          [orderid, item.productid, item.quantity, shippingid, paymentid, item.colorid, item.sizeid, parseFloat(item.discount) * item.quantity]
+          [orderid, item.productid, item.quantity, shippingid, paymentid, item.colorid, item.sizeid, item.discount * item.quantity]
         );
 
         await conn.query(`UPDATE productparams SET sold = sold + $1 WHERE productid = $2`, [item.quantity, item.productid]);

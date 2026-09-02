@@ -135,6 +135,8 @@ export interface MessageDeliveryRecord {
   productId?: number;
   channel: 'EMAIL' | 'WHATSAPP';
   provider: string;
+  /** Actual email/phone the provider was asked to deliver to. */
+  recipient?: string;
   idempotencyKey: string;
   status: MessageExecutionStatus;
   createdAt: string;

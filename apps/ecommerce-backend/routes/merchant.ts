@@ -1163,12 +1163,62 @@ router.post('/campaigns/:id/approve', async (req: Request, res: Response) => {
         failedCount: execution.failedCount,
         isDryRun: execution.isDryRun,
         eligibleCount: execution.eligibleCount,
-        suppressedCount: execution.suppressedCount
+        suppressedCount: execution.suppressedCount,
+        messages: (execution.messages || []).map((m: any) => ({
+          recipient: m.recipient,
+          customerId: m.customerId,
+          status: m.status,
+          provider: m.provider,
+          providerMessageId: m.providerMessageId,
+          isSimulated: m.status === 'SIMULATED' || m.status === 'SIMULATED_DELIVERED',
+          failureReason: m.failureReason || null
+        }))
       } : null,
       campaign: result.campaign
     });
   } catch (error: any) {
     console.error('Campaign approve error:', error);
+    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+  }
+});
+
+/**
+ * GET /api/merchant/campaigns/:id/delivery
+ * Persisted delivery audit for an approved campaign (recipient, status, provider).
+ */
+router.get('/campaigns/:id/delivery', async (req: Request, res: Response) => {
+  try {
+    const campaignId = req.params.id;
+    const merchantId = (req.query.merchantId as string) || 'default_merchant';
+    const q = await client.query(
+      `SELECT message_id, campaign_id, customer_id, recipient, channel, provider, status,
+              provider_message_id, failure_reason, sent_at, created_at, attribution
+       FROM merchant_campaign_messages
+       WHERE campaign_id = $1 AND merchant_id = $2
+       ORDER BY created_at DESC`,
+      [campaignId, merchantId]
+    );
+    return res.json({
+      success: true,
+      campaignId,
+      count: q.rows.length,
+      messages: q.rows.map((row: any) => ({
+        messageId: row.message_id,
+        campaignId: row.campaign_id,
+        customerId: row.customer_id,
+        recipient: row.recipient || row.attribution?.recipient || null,
+        channel: row.channel,
+        provider: row.provider,
+        status: row.status,
+        providerMessageId: row.provider_message_id,
+        failureReason: row.failure_reason,
+        sentAt: row.sent_at,
+        createdAt: row.created_at,
+        isSimulated: row.status === 'SIMULATED' || row.status === 'SIMULATED_DELIVERED'
+      }))
+    });
+  } catch (error: any) {
+    console.error('Campaign delivery audit error:', error);
     return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
   }
 });
@@ -1247,7 +1297,7 @@ router.get('/communication/status', (req: Request, res: Response) => {
   try {
     const info = campaignExecutionService.getActiveEmailProviderInfo();
     const commMode = process.env.COMMUNICATION_MODE || 'DRY_RUN';
-    const isTestMode = process.env.EMAIL_TEST_MODE !== 'false';
+    const isTestMode = process.env.EMAIL_TEST_MODE === 'true';
     const storefrontUrl = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
 
     return res.json({

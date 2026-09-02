@@ -6,9 +6,53 @@ import Stripe from 'stripe';
 import {orderCreationSchema,orderCreationSchema2,checkoutSchema,OrderIDSchema,createPaymentIntent} from '../validators/productCheckoutValidator';
 import { matchedData, validationResult } from 'express-validator';
 import { randomUUID } from 'crypto';
+import ShopiCatalogService from '../data/shopiCatalogService';
 const router = express.Router();
 const stripeApiKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder_mock_stripe_key_2026';
 const stripe = new Stripe(stripeApiKey);
+
+/**
+ * Resolve the single-product checkout price + effective variant ids.
+ * Legacy products table first, then the live shopi catalog — catalog-only SKUs
+ * are orderable (the old products-only lookup 404'd them). NULL-variant
+ * tolerant: chatbot-added items carry no color/size; falls back to the
+ * product's first variant so orderitems never carry unmatched references.
+ */
+async function resolveSingleProductCheckout(productid: string, colorid: any, sizeid: any) {
+  const productQuery = `
+    SELECT p.discount,
+           COALESCE(pc.colorid, pc2.colorid) AS colorid,
+           COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
+    FROM products p
+    LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
+    LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
+    LEFT JOIN LATERAL (
+      SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
+    ) pc2 ON TRUE
+    LEFT JOIN LATERAL (
+      SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
+    ) ps2 ON TRUE
+    WHERE p.productid = $1
+  `;
+  const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
+  if (productResult.rows.length > 0) {
+    const row = productResult.rows[0];
+    if (row.discount !== null && row.discount !== undefined && parseFloat(String(row.discount)) > 0) {
+      return { amount: String(row.discount), colorid: row.colorid, sizeid: row.sizeid };
+    }
+  }
+  const supProd = await ShopiCatalogService.getProduct(String(productid)).catch(() => null);
+  if (!supProd) return null;
+  const price = (supProd as any).selling_price ?? (supProd as any).discount ?? (supProd as any).price;
+  const cColor = (supProd as any).colors?.find((c: any) => Number(c.colorid) === Number(colorid));
+  const cSize = (supProd as any).sizes?.find((s: any) => Number(s.sizeid) === Number(sizeid));
+  return {
+    amount: String(price),
+    colorid: cColor?.colorid ?? (supProd as any).colors?.[0]?.colorid ?? null,
+    sizeid: cSize?.sizeid ?? (supProd as any).sizes?.[0]?.sizeid ?? null
+  };
+}
+
 function getDateTimeFiveDaysFromNow():string {
   const today = new Date();
   const fiveDaysFromNow = new Date(today);
@@ -46,27 +90,10 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
     const deliveryDate = getDateTimeFiveDaysFromNow();
     const paymentCharge = 15;
     try {
-      // Check if product with given productid, colorid, and sizeid exists
-            const productQuery = `
-        // NULL-variant tolerant (chatbot-added items carry no color/size; falls
-        // back to the product's first variant like the cart COD/card paths).
-        SELECT p.discount,
-               COALESCE(pc.colorid, pc2.colorid) AS colorid,
-               COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
-        FROM products p
-        LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-        LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
-        LEFT JOIN LATERAL (
-          SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
-        ) pc2 ON TRUE
-        LEFT JOIN LATERAL (
-          SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
-        ) ps2 ON TRUE
-        WHERE p.productid = $1
-      `;
-      const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
-
-      if (productResult.rows.length === 0) {
+      // Resolve price + effective variants (legacy products table first,
+      // then the live shopi catalog so catalog-only SKUs are orderable).
+      const resolved = await resolveSingleProductCheckout(productid, colorid, sizeid);
+      if (!resolved) {
         return res.status(404).json({ error: 'Product not found' });
       }
       const addressQuery = `
@@ -78,7 +105,7 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
         return res.status(404).json({ error: 'Address not found' });
       }
       const addressid = addressResult.rows[0].addressid;
-      const amount = productResult.rows[0].discount;
+      const amount = resolved.amount;
       const shippingcharge = 99;
       const totalAmount = (shippingcharge+paymentCharge+parseFloat(amount)).toFixed(2);
 
@@ -106,7 +133,7 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
 
         await conn.query(
           `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-          [orderid, productid, 1, shippingid, paymentid, colorid, sizeid, amount]
+          [orderid, productid, 1, shippingid, paymentid, resolved.colorid, resolved.sizeid, amount]
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');
@@ -147,27 +174,10 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
     const deliveryDate = getDateTimeFiveDaysFromNow();
     const shippingcharge = 99;
     try {
-      // Check if product with given productid, colorid, and sizeid exists
-            const productQuery = `
-        // NULL-variant tolerant (chatbot-added items carry no color/size; falls
-        // back to the product's first variant like the cart COD/card paths).
-        SELECT p.discount,
-               COALESCE(pc.colorid, pc2.colorid) AS colorid,
-               COALESCE(ps.sizeid, ps2.sizeid) AS sizeid
-        FROM products p
-        LEFT JOIN productcolors pc ON pc.productid = p.productid AND pc.colorid = $2
-        LEFT JOIN productSizes ps ON ps.productid = p.productid AND ps.sizeid = $3
-        LEFT JOIN LATERAL (
-          SELECT colorid FROM productcolors WHERE productid = p.productid ORDER BY colorid ASC LIMIT 1
-        ) pc2 ON TRUE
-        LEFT JOIN LATERAL (
-          SELECT sizeid FROM productsizes WHERE productid = p.productid ORDER BY sizeid ASC LIMIT 1
-        ) ps2 ON TRUE
-        WHERE p.productid = $1
-      `;
-      const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
-
-      if (productResult.rows.length === 0) {
+      // Resolve price + effective variants (legacy products table first,
+      // then the live shopi catalog so catalog-only SKUs are orderable).
+      const resolved = await resolveSingleProductCheckout(productid, colorid, sizeid);
+      if (!resolved) {
         return res.status(404).json({ error: 'Product not found' });
       }
       const addressQuery = `
@@ -179,7 +189,7 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
         return res.status(404).json({ error: 'Address not found' });
       }
       const addressid = addressResult.rows[0].addressid;
-      const amount = productResult.rows[0].discount;
+      const amount = resolved.amount;
       const totalAmount = (shippingcharge+parseFloat(amount)).toFixed(2);
 
       const conn = await client.connect();
@@ -206,7 +216,7 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
 
         await conn.query(
           `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-          [orderid, productid, 1, shippingid, paymentID, colorid, sizeid, amount]
+          [orderid, productid, 1, shippingid, paymentID, resolved.colorid, resolved.sizeid, amount]
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');

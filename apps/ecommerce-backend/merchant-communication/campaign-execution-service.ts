@@ -23,7 +23,7 @@ import { rateLimiterService } from './rate-limiter';
 import { renderCampaignEmail } from './email-templates';
 import { whatsAppService } from '../whatsapp/whatsapp-service';
 import { whatsAppMessageBuilderService } from '../whatsapp/whatsapp-message-builder';
-import { client as dbClient } from '../data/DB';
+import { client } from '../data/DB';
 
 /** Valid delivery channels a merchant can select for a campaign. */
 export type DeliveryChannel = 'EMAIL' | 'WHATSAPP';
@@ -113,6 +113,7 @@ export class CampaignExecutionService {
       CREATE INDEX IF NOT EXISTS idx_camp_msg_customer ON merchant_campaign_messages(customer_id, merchant_id);
       CREATE INDEX IF NOT EXISTS idx_camp_msg_campaign ON merchant_campaign_messages(campaign_id);
     `);
+    await client.query(`ALTER TABLE merchant_campaign_messages ADD COLUMN IF NOT EXISTS recipient TEXT`);
 
     this.tablesInitialized = true;
   }
@@ -443,6 +444,7 @@ export class CampaignExecutionService {
         utmMedium: channel.toLowerCase(),
         utmCampaign: campaignId
       };
+      (attribution as any).recipient = recipient.recipient;
 
       const targetProduct = campaign.targetProducts[0];
       const targetAudienceMember = campaign.targetAudience.find(a => a.customerId === recipient.customerId);
@@ -624,6 +626,13 @@ export class CampaignExecutionService {
           failureCategory: providerSend.failureCategory,
           providerName: provider.name
         };
+        // Never report a simulated provider response as a real PRODUCTION send.
+        if (mode === 'PRODUCTION' && providerSend.isSimulated) {
+          sendResult.success = false;
+          sendResult.status = 'FAILED';
+          sendResult.error = 'Email provider simulated the send instead of delivering. Real dispatch did not occur.';
+          sendResult.failureCategory = 'PROVIDER_ERROR';
+        }
       }
 
       const record: MessageDeliveryRecord = {
@@ -636,6 +645,7 @@ export class CampaignExecutionService {
         productId: campaign.targetProducts[0]?.productId,
         channel,
         provider: sendResult.providerName || provider.name,
+        recipient: recipient.recipient,
         idempotencyKey,
         status: sendResult.status,
         createdAt: executedAt,
@@ -666,10 +676,10 @@ export class CampaignExecutionService {
       await client.query(`
         INSERT INTO merchant_campaign_messages (
           message_id, merchant_id, campaign_id, recommendation_id, opportunity_id,
-          customer_id, product_id, channel, provider, idempotency_key, status,
+          customer_id, product_id, channel, provider, recipient, idempotency_key, status,
           created_at, sent_at, delivered_at, failed_at, failure_reason, failure_category,
           provider_message_id, campaign_version, attribution
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)
         ON CONFLICT (idempotency_key) DO NOTHING;
       `, [
         record.messageId,
@@ -681,6 +691,7 @@ export class CampaignExecutionService {
         record.productId || null,
         record.channel,
         record.provider,
+        record.recipient || null,
         record.idempotencyKey,
         record.status,
         record.createdAt,
@@ -754,7 +765,7 @@ export class CampaignExecutionService {
       messages,
       suppressionSummary,
       executedAt,
-      isDryRun: mode === 'DRY_RUN',
+      isDryRun: mode === 'DRY_RUN' || messages.some(m => m.status === 'SIMULATED' || m.status === 'SIMULATED_DELIVERED'),
       // Channel-level delivery results (email status never overwritten by WhatsApp)
       deliveryChannels,
       channelResults: {
@@ -813,12 +824,12 @@ export class CampaignExecutionService {
     const finSim = row.financial_simulation || {};
 
     // 2. Resolve Customer from Snapshot or Canonical Supabase DB
-    const isTestMode = process.env.EMAIL_TEST_MODE !== 'false';
+    const isTestMode = process.env.EMAIL_TEST_MODE === 'true';
     const authorizedTestRecipient = (process.env.EMAIL_TEST_RECIPIENT || '').toLowerCase().trim();
     
     let customer = audienceData.eligibleCustomers?.[0];
     if (!customer) {
-      const custId = audienceData.customerId || 'CUST-0021';
+      const custId = audienceData.customerId;
       const custLookup = await client.query('SELECT customer_id, first_name, last_name, email FROM shopi_customers WHERE customer_id = $1', [custId]);
       if (custLookup.rows.length > 0) {
         const cRow = custLookup.rows[0];
@@ -828,15 +839,23 @@ export class CampaignExecutionService {
           email: cRow.email
         };
       } else {
-        customer = {
-          customerId: custId,
-          customerName: 'Valued Customer',
-          email: 'customer@example.com'
+        return {
+          success: false,
+          error: 'Campaign has no target customer email in audience data or customer directory.',
+          failureCategory: 'INVALID_RECIPIENT'
         };
       }
     }
 
-    const targetRecipient = (options?.testRecipient || customer.email || '').toLowerCase().trim();
+    if (!customer || !customer.email) {
+      return {
+        success: false,
+        error: 'Campaign has no valid target customer email.',
+        failureCategory: 'INVALID_RECIPIENT'
+      };
+    }
+
+    const targetRecipient = (customer.email || '').toLowerCase().trim();
     const execVersion = options?.executionVersion || 1;
     const idempotencyKey = `${campaignId}:${targetRecipient}:v${execVersion}`;
 
@@ -951,7 +970,7 @@ export class CampaignExecutionService {
     }
 
     // 6c. Subsequent Purchase Live Check
-    const custId = customer.customerId || 'CUST-0021';
+    const custId = customer.customerId;
     const subsqOrders = await client.query(`
       SELECT o.order_id, o.order_placed_at
       FROM shopi_orders o
@@ -990,7 +1009,7 @@ export class CampaignExecutionService {
       ? `Your cart is waiting for you — Special offer on ${customerFacingTitle}`
       : (messagePreview.subject || `Special offer on ${customerFacingTitle}`);
 
-    const customerName = customer.customerName || 'Ishaan Sharma';
+    const customerName = customer.customerName || 'Valued Customer';
     const originalPrice = prodData.sellingPrice !== undefined ? parseFloat(prodData.sellingPrice) : null;
     const discountedPrice = offerData.discountedPrice !== undefined
       ? parseFloat(offerData.discountedPrice)

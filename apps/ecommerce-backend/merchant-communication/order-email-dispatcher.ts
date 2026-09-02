@@ -180,7 +180,28 @@ export async function dispatchOrderConfirmationEmail(
       ...extra
     };
 
-    void sendOrderConfirmationEmail(data);
+    const sendResult = await sendOrderConfirmationEmail(data);
+    try {
+      await client.query(`
+        CREATE TABLE IF NOT EXISTS order_confirmation_emails (
+          id SERIAL PRIMARY KEY,
+          order_id TEXT NOT NULL,
+          user_id INT NOT NULL,
+          recipient TEXT NOT NULL,
+          sent BOOLEAN NOT NULL,
+          message_id TEXT,
+          error TEXT,
+          created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+        )
+      `);
+      await client.query(
+        `INSERT INTO order_confirmation_emails (order_id, user_id, recipient, sent, message_id, error)
+          VALUES ($1, $2, $3, $4, $5, $6)`,
+        [String(orderIds[0]), userid, customerEmail, sendResult.sent, sendResult.messageId || null, sendResult.error || null]
+      );
+    } catch (auditErr: any) {
+      console.warn('[OrderEmail] audit persist failed:', auditErr.message);
+    }
   } catch (err: any) {
     console.error('[OrderEmail] dispatchOrderConfirmationEmail failed (checkout unaffected):', err.message);
   }

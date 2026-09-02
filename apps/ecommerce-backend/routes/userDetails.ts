@@ -630,8 +630,8 @@ router.get('/user/order-detail/:userIDToken/:orderID',orderSchema,async (req:Req
         INNER JOIN orderitems ON orders.orderid = orderitems.orderid
         INNER JOIN shipping ON orderitems.shippingid = shipping.shippingid
         INNER JOIN payments ON orderitems.paymentid = payments.paymentid
-        INNER JOIN products ON orderitems.productid = products.productid
-        INNER JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
+        LEFT JOIN products ON orderitems.productid = products.productid
+        LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
         WHERE orders.orderid = $1 AND orders.userid = $2;`
         try {
             const userID = jwt.verify(userIDToken,JWT_SECRET) as JwtPayload;

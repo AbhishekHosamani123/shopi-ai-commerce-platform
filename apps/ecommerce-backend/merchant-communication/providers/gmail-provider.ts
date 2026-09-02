@@ -13,65 +13,17 @@ export class GmailEmailProvider implements CommunicationProvider {
   readonly isProductionReady = true;
 
   /**
-   * Dispatches email via Gmail SMTP using authenticated Google App Password or validates in DRY_RUN / TEST mode.
+   * Dispatches email via Gmail SMTP to `message.recipient`.
+   *
+   * DRY_RUN simulation is owned by DryRunCommunicationProvider — if this
+   * provider is selected, a real send is intended. Never rewrite the
+   * recipient to EMAIL_TEST_RECIPIENT and never report a simulated success
+   * as a real delivery.
    */
   async send(message: OutboundMessagePayload): Promise<ProviderSendResult> {
     const timestamp = new Date().toISOString();
-    const commMode = (process.env.COMMUNICATION_MODE || 'DRY_RUN').toUpperCase();
 
-    // 1. Dry Run Mode Protection (Simulated delivery, zero network traffic)
-    if (commMode === 'DRY_RUN') {
-      return {
-        success: true,
-        provider: this.name,
-        providerMessageId: `sim_gmail_${Date.now()}`,
-        status: 'SIMULATED',
-        timestamp,
-        isSimulated: true
-      };
-    }
-
-    // 2. Unrestricted Production Mode Protection (Strictly disabled in Phase 8C)
-    if (commMode === 'PRODUCTION') {
-      return {
-        success: false,
-        provider: this.name,
-        status: 'FAILED',
-        timestamp,
-        error: 'Unrestricted production email dispatch is disabled in Phase 8C. Use TEST mode with TEST_EMAIL_RECIPIENT.',
-        failureCategory: 'PROVIDER_ERROR'
-      };
-    }
-
-    // 3. Test Mode Validation (Strictly requires EMAIL_TEST_RECIPIENT)
-    if (commMode === 'TEST' || commMode === 'CONTROLLED_TEST' || process.env.EMAIL_TEST_MODE === 'true') {
-      const allowedTestRecipient = (process.env.EMAIL_TEST_RECIPIENT || process.env.TEST_EMAIL_RECIPIENT || '').trim().toLowerCase();
-      const targetRecipient = (message.recipient || '').trim().toLowerCase();
-
-      if (!allowedTestRecipient) {
-        return {
-          success: false,
-          provider: this.name,
-          status: 'FAILED',
-          timestamp,
-          error: 'TEST mode is active but EMAIL_TEST_RECIPIENT is not configured in environment.',
-          failureCategory: 'TEST_MODE_RECIPIENT_BLOCKED'
-        };
-      }
-
-      if (targetRecipient !== allowedTestRecipient) {
-        return {
-          success: false,
-          provider: this.name,
-          status: 'FAILED',
-          timestamp,
-          error: `Audience recipient "${message.recipient}" is blocked in TEST mode. Only EMAIL_TEST_RECIPIENT (${allowedTestRecipient}) is permitted.`,
-          failureCategory: 'TEST_MODE_RECIPIENT_BLOCKED'
-        };
-      }
-    }
-
-    // 4. Credential Verification (Fail closed on missing credentials)
+    // Credential Verification (Fail closed on missing credentials)
     const email = (process.env.EMAIL || process.env.SMTP_USER || '').trim();
     const password = (process.env.PASSWORD || process.env.SMTP_PASS || '').trim();
 
