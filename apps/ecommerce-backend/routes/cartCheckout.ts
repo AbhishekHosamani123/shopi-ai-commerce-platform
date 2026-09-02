@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 import { client } from '../data/DB';
+import ShopiCatalogService from '../data/shopiCatalogService';
 import { ensureCheckoutSchemaReady } from './razorpay';
 import { paymentCreationSchema, userIDSchema } from '../validators/cartCheckoutValidation';
 import Stripe from 'stripe';
@@ -86,7 +87,32 @@ async function fetchProductData(productid:string,colorid:string,sizeid:string,qu
     const productResult = await client.query(productQuery, [productid, sizeid, colorid]);
 
     if (productResult.rows.length === 0) {
-      return []
+      // The legacy products table is sparsely populated (the live catalog is
+      // served by ShopiCatalogService). Fall back to the catalog so a cart
+      // item whose product only exists there still renders at checkout —
+      // previously the endpoint returned an empty entry (products:[[]]) and
+      // the checkout page showed the item with blank price / NaN totals.
+      try {
+        const supProd = await ShopiCatalogService.getProduct(String(productid));
+        if (supProd) {
+          const color = supProd.colors?.find((c: any) => Number(c.colorid) === Number(colorid));
+          const size = supProd.sizes?.find((s: any) => Number(s.sizeid) === Number(sizeid));
+          return {
+            title: supProd.title,
+            price: supProd.price,
+            discount: supProd.selling_price ?? supProd.discount ?? supProd.price,
+            sizename: size?.sizename || supProd.sizes?.[0]?.sizename || 'Standard',
+            colorname: color?.colorname || supProd.colors?.[0]?.colorname || 'Standard',
+            imglink: supProd.imglink,
+            imgalt: supProd.title,
+            shippingcost: 10,
+            quantity
+          };
+        }
+      } catch (catalogErr: any) {
+        console.warn('[checkout-cart] catalog fallback failed for', productid, catalogErr?.message);
+      }
+      return [];
     }
 
     const productDetails = productResult.rows[0];
@@ -180,12 +206,30 @@ const paymentCharge = 15;
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
 
+    // Resolve price + effective variants. When the product only exists in the
+    // live catalog (legacy products table is sparsely populated), fall back
+    // to ShopiCatalogService so the item is still orderable (see
+    // fetchProductData for the display-side equivalent).
+    let amount: string | number;
+    let effectiveColorid: number | null;
+    let effectiveSizeid: number | null;
     if (productResult.rows.length === 0) {
-      return 404;
+      try {
+        const supProd = await ShopiCatalogService.getProduct(String(productid));
+        if (!supProd) return 404;
+        const cColor = supProd.colors?.find((c: any) => Number(c.colorid) === Number(colorid)) || supProd.colors?.[0];
+        const cSize = supProd.sizes?.find((s: any) => Number(s.sizeid) === Number(sizeid)) || supProd.sizes?.[0];
+        amount = supProd.selling_price ?? supProd.discount ?? supProd.price;
+        effectiveColorid = cColor?.colorid ?? null;
+        effectiveSizeid = cSize?.sizeid ?? null;
+      } catch {
+        return 404;
+      }
+    } else {
+      amount = productResult.rows[0].discount;
+      effectiveColorid = productResult.rows[0].colorid;
+      effectiveSizeid = productResult.rows[0].sizeid;
     }
-    // Effective variant ids (NULL cart rows adopt the product's first variant).
-    const effectiveColorid = productResult.rows[0].colorid;
-    const effectiveSizeid = productResult.rows[0].sizeid;
     const addressQuery = `
       SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
     `;
@@ -195,9 +239,8 @@ const paymentCharge = 15;
       return 404;
     }
     const addressid = addressResult.rows[0].addressid;
-    const amount = productResult.rows[0].discount;
     const orderShipping = shippingcharge;
-    const totalAmount = (orderShipping+paymentCharge+parseFloat(amount)*quantity).toFixed(2);
+    const totalAmount = (orderShipping+paymentCharge+parseFloat(String(amount))*quantity).toFixed(2);
 
     const conn = await client.connect();
     try {
@@ -218,13 +261,13 @@ const paymentCharge = 15;
 
       const paymentRes = await conn.query(
         `INSERT INTO payments (orderid, paymentmethod, paymentstatus, amount, transactionid, billingaddress) VALUES ($1, $2, $3, $4, $5, $6) RETURNING paymentid`,
-        [orderid, 'Payment on Delivery', 'Pending', parseFloat(amount)*quantity, transactionid, addressid]
+        [orderid, 'Payment on Delivery', 'Pending', parseFloat(String(amount))*quantity, transactionid, addressid]
       );
       const paymentid = paymentRes.rows[0].paymentid;
 
       await conn.query(
         `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [orderid, productid, quantity, shippingid, paymentid, effectiveColorid, effectiveSizeid, parseFloat(amount) * quantity]
+        [orderid, productid, quantity, shippingid, paymentid, effectiveColorid, effectiveSizeid, parseFloat(String(amount)) * quantity]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
@@ -303,11 +346,28 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
 
+    // Resolve price + effective variants (catalog fallback — see
+    // createCashOrder).
+    let amount: string | number;
+    let effectiveColorid: number | null;
+    let effectiveSizeid: number | null;
     if (productResult.rows.length === 0) {
-      return 404;
+      try {
+        const supProd = await ShopiCatalogService.getProduct(String(productid));
+        if (!supProd) return 404;
+        const cColor = supProd.colors?.find((c: any) => Number(c.colorid) === Number(colorid)) || supProd.colors?.[0];
+        const cSize = supProd.sizes?.find((s: any) => Number(s.sizeid) === Number(sizeid)) || supProd.sizes?.[0];
+        amount = supProd.selling_price ?? supProd.discount ?? supProd.price;
+        effectiveColorid = cColor?.colorid ?? null;
+        effectiveSizeid = cSize?.sizeid ?? null;
+      } catch {
+        return 404;
+      }
+    } else {
+      amount = productResult.rows[0].discount;
+      effectiveColorid = productResult.rows[0].colorid;
+      effectiveSizeid = productResult.rows[0].sizeid;
     }
-    const effectiveColorid = productResult.rows[0].colorid;
-    const effectiveSizeid = productResult.rows[0].sizeid;
     const addressQuery = `
       SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
     `;
@@ -317,9 +377,8 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
       return 404;
     }
     const addressid = addressResult.rows[0].addressid;
-    const amount = productResult.rows[0].discount;
     const orderShipping = shippingcharge;
-    const totalAmount = (orderShipping+parseFloat(amount)*quantity).toFixed(2);
+    const totalAmount = (orderShipping+parseFloat(String(amount))*quantity).toFixed(2);
 
     const conn = await client.connect();
     try {
@@ -340,13 +399,13 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
 
       const paymentRes = await conn.query(
         `INSERT INTO payments (orderid, paymentmethod, paymentstatus, amount, transactionid, billingaddress, paymentgateway_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING paymentid`,
-        [orderid, 'Card', paymentState, parseFloat(amount)*quantity, transactionid, addressid, paymentid]
+        [orderid, 'Card', paymentState, parseFloat(String(amount))*quantity, transactionid, addressid, paymentid]
       );
       const paymentID = paymentRes.rows[0].paymentid;
 
       await conn.query(
         `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-        [orderid, productid, quantity, shippingid, paymentID, effectiveColorid, effectiveSizeid, parseFloat(amount) * quantity]
+        [orderid, productid, quantity, shippingid, paymentID, effectiveColorid, effectiveSizeid, parseFloat(String(amount)) * quantity]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
