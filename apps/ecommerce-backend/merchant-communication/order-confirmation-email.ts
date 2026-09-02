@@ -329,8 +329,15 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
       return { sent: false, error: 'No valid recipient email' };
     }
 
+    // service:'gmail' resolves smtp.gmail.com, whose AAAA record makes
+    // nodemailer dial IPv6 first — Render free instances have NO IPv6
+    // egress ('connect ENETUNREACH 2607:f8b0:...:465'). Force the IPv4
+    // literal host + family 4 so the SMTP dial uses IPv4 only.
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      family: 4,
+      port: 465,
+      secure: true,
       auth: { user: email, pass: password },
       tls: { rejectUnauthorized: true }
     });
