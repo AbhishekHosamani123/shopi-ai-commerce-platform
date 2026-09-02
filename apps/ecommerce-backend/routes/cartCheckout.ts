@@ -302,6 +302,10 @@ router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Re
       if (results.some(r => typeof r === 'number')) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
+      // Clear the fulfilled cart (the Razorpay verify path always cleared
+      // it; the COD path didn't — the customer could re-order the same items
+      // and duplicate orders).
+      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [userID]);
       // Transactional confirmation email — best-effort, never blocks checkout.
       // Uses the EXACT orderids created above (the old "latest orders" query
       // sorted VARCHAR orderids lexicographically, so past order 9 the email
@@ -440,6 +444,8 @@ router.post('/cart-card/create-order',paymentCreationSchema, async (req:Request,
       if (results.some(r => typeof r === 'number')) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
+      // Clear the fulfilled cart (see COD route).
+      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [userID]);
       // Exact created ids (see COD route comment).
       const createdOrderIds = results as string[];
       void dispatchOrderConfirmationEmail(userID, createdOrderIds).catch(() => {});

@@ -387,7 +387,7 @@ router.post('/user/orders',userTokenSchema,async (req: Request, res: Response) =
     const result = validationResult(req);
     if(result.isEmpty()){
         const { userIDToken } = matchedData(req);
-        const query = `SELECT orders.orderid,orders.totalamount,orders.orderstatus,orders.createdat,shipping.deliveredat,products.title,productimages.imglink,productimages.imgalt,products.description,products.discount,orders.order_code,products.productid 
+        const query = `SELECT orders.orderid,orders.totalamount,orders.orderstatus,orders.createdat,shipping.deliveredat,products.title,productimages.imglink,productimages.imgalt,products.description,products.discount,orders.order_code,orderitems.productid AS item_productid,products.productid 
         FROM orders
          INNER JOIN orderitems on orders.orderid = orderitems.orderid 
          LEFT JOIN products ON products.productid = orderitems.productid
@@ -404,12 +404,15 @@ router.post('/user/orders',userTokenSchema,async (req: Request, res: Response) =
             // order list with real title/price/image.
             const enriched = await Promise.all(result.rows.map(async (row: any) => {
                 if (row.title) return row;
+                // Catalog-only product (legacy row absent → products.* NULL).
+                // item_productid is the real ordered product id; products.productid
+                // is NULL for such rows.
                 try {
-                    const supProd = await ShopiCatalogService.getProduct(String(row.productid));
+                    const supProd = await ShopiCatalogService.getProduct(String(row.item_productid));
                     if (supProd) {
                         return {
                             ...row,
-                            productid: supProd.sku || row.productid,
+                            productid: supProd.sku || row.item_productid,
                             title: supProd.title,
                             description: supProd.description || row.description,
                             discount: supProd.selling_price ?? row.discount,
@@ -418,7 +421,7 @@ router.post('/user/orders',userTokenSchema,async (req: Request, res: Response) =
                         };
                     }
                 } catch { /* per-order enrichment best-effort */ }
-                return { ...row, title: row.title || 'Shopi Product', imglink: row.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg', imgalt: row.imgalt || 'Shopi Product' };
+                return { ...row, productid: row.item_productid || row.productid, title: row.title || 'Shopi Product', imglink: row.imglink || 'https://ogppkxqvfzsusdawqbzx.supabase.co/storage/v1/object/public/shopi-product-images/placeholder.jpg', imgalt: row.imgalt || 'Shopi Product' };
             }));
             res.status(200).json(
                 {data:enriched}
