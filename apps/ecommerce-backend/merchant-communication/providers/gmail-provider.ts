@@ -103,10 +103,15 @@ export class GmailEmailProvider implements CommunicationProvider {
       // IPv4-first dialing is enforced globally at startup (Render free
       // instances have no IPv6 egress). Port 587 + STARTTLS: the implicit-TLS
       // 465 route timed out from Render's egress; 587 is the Gmail MSA port.
+      // The 587 dial is INTERMITTENT on Render's free egress, so sendMail is
+      // retried with backoff (mirrors the order-confirmation email).
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
         secure: false,
+        connectionTimeout: 20000,
+        greetingTimeout: 20000,
+        socketTimeout: 30000,
         auth: {
           user: email,
           pass: password
@@ -119,7 +124,7 @@ export class GmailEmailProvider implements CommunicationProvider {
       const senderName = process.env.SMTP_SENDERNAME || 'Razorpay AI Commerce';
       const senderAddress = `"${senderName}" <${email}>`;
 
-      const info = await transporter.sendMail({
+      const buildMail = () => ({
         from: senderAddress,
         to: message.recipient,
         replyTo: message.replyTo || email,
@@ -150,6 +155,19 @@ export class GmailEmailProvider implements CommunicationProvider {
           'X-Tracking-ID': message.attribution?.trackingId || `trk_${message.messageId}`
         }
       });
+
+      let info: any = null;
+      let lastErr: any = null;
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          info = await transporter.sendMail(buildMail());
+          break;
+        } catch (e: any) {
+          lastErr = e;
+          if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+        }
+      }
+      if (!info) throw lastErr;
 
       return {
         success: true,

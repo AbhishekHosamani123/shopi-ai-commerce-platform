@@ -335,23 +335,42 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
     // dialing is enforced globally at startup (dns.setDefaultResultOrder).
     // Port 587 + STARTTLS: the implicit-TLS 465 route timed out from Render's
     // egress ('Connection timeout' in logs); 587 is the Gmail MSA port.
+    // The 587 dial is INTERMITTENT on Render's free egress (one observed
+    // success among timeouts), so sendMail is retried with backoff.
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
       secure: false,
+      connectionTimeout: 20000,
+      greetingTimeout: 20000,
+      socketTimeout: 30000,
       auth: { user: email, pass: password },
       tls: { rejectUnauthorized: true }
     });
 
     const { html, text } = renderOrderConfirmationEmail(data);
 
-    const info = await transporter.sendMail({
+    const mail = {
       from: `"${process.env.SMTP_SENDERNAME || 'Shopi Store'}" <${email}>`,
       to: data.customerEmail,
       subject: `Order confirmed #${data.orderId} — your Shopi package is on its way 🚚`,
       text,
       html
-    });
+    };
+
+    let info: any = null;
+    let lastErr: any = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        info = await transporter.sendMail(mail);
+        break;
+      } catch (e: any) {
+        lastErr = e;
+        console.warn(`[OrderEmail] order #${data.orderId} send attempt ${attempt}/3 failed: ${e.message}`);
+        if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+      }
+    }
+    if (!info) throw lastErr;
 
     console.log(`[OrderEmail] Confirmation sent for order #${data.orderId} to ${data.customerEmail} (${info.messageId})`);
     return { sent: true, messageId: info.messageId };
