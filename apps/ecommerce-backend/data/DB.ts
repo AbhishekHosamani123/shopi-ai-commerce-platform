@@ -310,9 +310,12 @@ CREATE TABLE IF NOT EXISTS orderitems (
     shippingid INT,
     paymentid INT
 );
--- Reconcile legacy orderitems shapes from older recoveries.
+-- Reconcile legacy orderitems shapes from older recoveries: they made price
+-- NOT NULL while the checkout INSERTs don't provide it (price is derivable
+-- from the product at order time), and they lack shippingid/paymentid.
 ALTER TABLE orderitems ADD COLUMN IF NOT EXISTS shippingid INT;
 ALTER TABLE orderitems ADD COLUMN IF NOT EXISTS paymentid INT;
+ALTER TABLE orderitems ALTER COLUMN price DROP NOT NULL;
 
 CREATE TABLE IF NOT EXISTS reviews (
     reviewid SERIAL PRIMARY KEY,

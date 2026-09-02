@@ -362,8 +362,8 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
 
       // 6. Create order items
       await conn.query(
-        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-        [orderid, productid, 1, shippingid, paymentid, colorid, sizeid]
+        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [orderid, productid, 1, shippingid, paymentid, colorid, sizeid, productAmount]
       );
 
       // 7. Increment product sales
@@ -491,8 +491,8 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
         const paymentid = paymentRes.rows[0].paymentid;
 
         await conn.query(
-          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-          [orderid, item.productid, item.quantity, shippingid, paymentid, item.colorid, item.sizeid]
+          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [orderid, item.productid, item.quantity, shippingid, paymentid, item.colorid, item.sizeid, parseFloat(item.discount) * item.quantity]
         );
 
         await conn.query(`UPDATE productparams SET sold = sold + $1 WHERE productid = $2`, [item.quantity, item.productid]);

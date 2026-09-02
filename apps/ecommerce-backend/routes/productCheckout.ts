@@ -105,8 +105,8 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
         const paymentid = paymentRes.rows[0].paymentid;
 
         await conn.query(
-          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-          [orderid, productid, 1, shippingid, paymentid, colorid, sizeid]
+          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [orderid, productid, 1, shippingid, paymentid, colorid, sizeid, amount]
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');
@@ -205,8 +205,8 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
         const paymentID = paymentRes.rows[0].paymentid;
 
         await conn.query(
-          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-          [orderid, productid, 1, shippingid, paymentID, colorid, sizeid]
+          `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [orderid, productid, 1, shippingid, paymentID, colorid, sizeid, amount]
         );
         await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
         await conn.query('COMMIT');

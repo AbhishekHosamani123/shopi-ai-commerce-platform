@@ -214,8 +214,8 @@ const paymentCharge = 15;
       const paymentid = paymentRes.rows[0].paymentid;
 
       await conn.query(
-        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-        [orderid, productid, quantity, shippingid, paymentid, effectiveColorid, effectiveSizeid]
+        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [orderid, productid, quantity, shippingid, paymentid, effectiveColorid, effectiveSizeid, parseFloat(amount) * quantity]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
@@ -333,8 +333,8 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
       const paymentID = paymentRes.rows[0].paymentid;
 
       await conn.query(
-        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-        [orderid, productid, quantity, shippingid, paymentID, effectiveColorid, effectiveSizeid]
+        `INSERT INTO orderitems (orderid, productid, quantity, shippingid, paymentid, colorid, sizeid, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [orderid, productid, quantity, shippingid, paymentID, effectiveColorid, effectiveSizeid, parseFloat(amount) * quantity]
       );
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
