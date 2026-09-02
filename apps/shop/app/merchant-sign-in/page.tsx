@@ -19,7 +19,17 @@ export default function MerchantSignInPage() {
     const password = (form.elements.namedItem('password') as HTMLInputElement).value;
 
     try {
-      const res = await merchantLoginHandler({ identifier, password });
+      let res = await merchantLoginHandler({ identifier, password });
+      // Backend 503 + recovering=true = Render free Postgres was wiped and
+      // the self-heal is rebuilding. Auto-retry instead of dead-ending.
+      if (res.status === 503 && (res.data as any)?.recovering) {
+        setError('Account system is being restored — retrying automatically…');
+        for (let retry = 0; retry < 2; retry++) {
+          await new Promise(r => setTimeout(r, 15000));
+          res = await merchantLoginHandler({ identifier, password });
+          if (res.status !== 503 || !(res.data as any)?.recovering) break;
+        }
+      }
       if (res.status === 200) {
         router.push('/merchant');
         router.refresh();
@@ -27,6 +37,8 @@ export default function MerchantSignInPage() {
         setError(res.data?.error || 'This account does not have merchant access.');
       } else if (res.status === 401) {
         setError(res.data?.error || 'Invalid credentials. Please check your username/email and password.');
+      } else if (res.status === 503) {
+        setError('The account database is being restored after a provider reset. This usually completes within a minute — please try again shortly.');
       } else {
         setError('Unable to reach the merchant service. Please try again.');
       }

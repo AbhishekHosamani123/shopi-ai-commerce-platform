@@ -60,9 +60,26 @@ const useAuth = () => {
   };
 
   const checkLogin = async (form: { email: string; password: string }, remember: boolean,setloading:React.Dispatch<React.SetStateAction<boolean>>) => {
+    // Backend returns 503 + {recovering:true} when Render's free Postgres was
+    // wiped and the self-heal is rebuilding it (~15-40s). Retry automatically
+    // instead of dead-ending the user with the generic "Down Time" dialog.
+    const attemptLogin = async (): Promise<{ status: number; data?: any }> => {
+      try {
+        return await signInHandler({email:form.email,password:form.password,remember});
+      } catch (err: any) {
+        return { status: 500 };
+      }
+    };
     try {
-      // const res = await axios.post('/api/signin', { email: form.email, password: form.password, remember });
-      const res = await signInHandler({email:form.email,password:form.password,remember})
+      let res = await attemptLogin();
+      if (res.status === 503 && res.data?.recovering) {
+        // Backend is rebuilding the account system — wait and retry (2 tries).
+        for (let retry = 0; retry < 2; retry++) {
+          await new Promise(r => setTimeout(r, 15000));
+          res = await attemptLogin();
+          if (res.status !== 503 || !res.data?.recovering) break;
+        }
+      }
       switch (res.status) {
         case 200:
           try {

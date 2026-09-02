@@ -26,6 +26,9 @@ interface JwtPayload {
 // If auth queries start failing because the users table lost its columns or
 // the schema is missing entirely, kick off the same recovery the merchant
 // routes use (single-flight guarded) and tell the client to retry.
+// The recovery path is watchdog-guarded (DB.ts) so this always settles; if
+// the recovery ran but the users table is STILL missing, we log it loudly
+// and tell the client honestly that it is a persistent failure.
 async function healDbIfMissingRelation(res: Response, errMsg: string): Promise<boolean> {
     if (!/relation "[a-z_]+" does not exist|column "[a-z_]+" of relation/i.test(errMsg || '')) {
         return false;
@@ -33,9 +36,28 @@ async function healDbIfMissingRelation(res: Response, errMsg: string): Promise<b
     console.warn(`[Auth Self-Heal] Missing relation/column (${errMsg}) — starting recovery...`);
     try {
         const { recoverMerchantDataIfMissing } = await import('../data/DB');
-        void recoverMerchantDataIfMissing().catch((e: any) =>
-            console.error('[Auth Self-Heal] recovery failed:', e.message)
-        );
+        try {
+            await recoverMerchantDataIfMissing();
+        } catch (recErr: any) {
+            console.error('[Auth Self-Heal] recovery threw:', recErr?.message);
+        }
+        // Verify the table actually came back before promising "a few seconds".
+        try {
+            const verify = await (await import('../data/DB')).client.query(
+                "SELECT to_regclass('public.users') as exists;"
+            );
+            if (!verify.rows[0]?.exists) {
+                console.error('[Auth Self-Heal] recovery ran but users table STILL missing — persistent DB failure.');
+                res.status(503).json({
+                    error: 'Account system is being restored — please try again in a few seconds.',
+                    recovering: true
+                });
+                return true;
+            }
+            console.log('[Auth Self-Heal] users table verified after recovery.');
+        } catch (verifyErr: any) {
+            console.warn('[Auth Self-Heal] verification probe failed:', verifyErr?.message);
+        }
         res.status(503).json({
             error: 'Account system is being restored — please try again in a few seconds.',
             recovering: true

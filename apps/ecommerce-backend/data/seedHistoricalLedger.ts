@@ -19,6 +19,90 @@ import { client } from './DB';
  */
 export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; count: number }> {
   try {
+    // Self-bootstrap the tables this seed writes to. Older databases carry a
+    // merchant_business_impact_ledger whose impact_id INTEGER PRIMARY KEY has
+    // NO default — CREATE IF NOT EXISTS won't fix that shape and every INSERT
+    // then fails with 'null value in column impact_id violates not-null
+    // constraint' (observed on Render + local). Reconcile before seeding.
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS merchant_ai_actions (
+        action_id VARCHAR(64) PRIMARY KEY,
+        merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+        action_type VARCHAR(64) NOT NULL,
+        status VARCHAR(32) NOT NULL DEFAULT 'PENDING_APPROVAL',
+        product_id VARCHAR(100),
+        product_name VARCHAR(255),
+        quantity INTEGER,
+        payload JSONB NOT NULL DEFAULT '{}'::jsonb,
+        reason TEXT NOT NULL DEFAULT '',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        expires_at TIMESTAMP WITH TIME ZONE,
+        approved_at TIMESTAMP WITH TIME ZONE,
+        completed_at TIMESTAMP WITH TIME ZONE,
+        rejected_at TIMESTAMP WITH TIME ZONE,
+        approved_by VARCHAR(64),
+        execution_result JSONB,
+        failure_reason TEXT,
+        is_test BOOLEAN DEFAULT FALSE,
+        idempotency_key VARCHAR(128)
+      );
+      CREATE TABLE IF NOT EXISTS merchant_action_audits (
+        audit_id SERIAL PRIMARY KEY,
+        action_id VARCHAR(64),
+        merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+        event_type VARCHAR(64) NOT NULL,
+        performed_by VARCHAR(64) NOT NULL,
+        details JSONB DEFAULT '{}'::jsonb,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+      CREATE TABLE IF NOT EXISTS merchant_business_impact_ledger (
+        impact_id SERIAL PRIMARY KEY,
+        action_id VARCHAR(64),
+        merchant_id VARCHAR(64) NOT NULL DEFAULT 'default_merchant',
+        observation_window_days INTEGER DEFAULT 14,
+        baseline_metrics JSONB DEFAULT '{}'::jsonb,
+        post_action_metrics JSONB DEFAULT '{}'::jsonb,
+        expected_impact JSONB DEFAULT '{}'::jsonb,
+        actual_impact JSONB DEFAULT '{}'::jsonb,
+        impact_delta_pct NUMERIC(8,2) DEFAULT 0.00,
+        confidence_at_recommendation NUMERIC(5,2) DEFAULT 0.85,
+        final_outcome VARCHAR(32) DEFAULT 'PENDING',
+        outcome_status VARCHAR(32) DEFAULT 'OBSERVING',
+        negative_analysis JSONB DEFAULT '{}'::jsonb,
+        evaluated_at TIMESTAMP WITH TIME ZONE
+      );
+      DO $$
+      DECLARE
+        seq_name TEXT;
+      BEGIN
+        IF EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'merchant_business_impact_ledger'
+            AND column_name = 'impact_id'
+            AND column_default IS NULL
+        ) THEN
+          -- If no sequence is attached to impact_id (legacy INTEGER PRIMARY KEY
+          -- shape from merchant-ai-schema.sql), create one seeded above the
+          -- current max, then attach it as the column default.
+          IF pg_get_serial_sequence('merchant_business_impact_ledger', 'impact_id') IS NULL THEN
+            CREATE SEQUENCE IF NOT EXISTS merchant_business_impact_ledger_impact_id_seq;
+            PERFORM setval(
+              'merchant_business_impact_ledger_impact_id_seq',
+              COALESCE((SELECT MAX(impact_id) FROM merchant_business_impact_ledger), 0) + 1,
+              false
+            );
+            seq_name := 'merchant_business_impact_ledger_impact_id_seq';
+          ELSE
+            seq_name := pg_get_serial_sequence('merchant_business_impact_ledger', 'impact_id');
+          END IF;
+          EXECUTE format(
+            'ALTER TABLE merchant_business_impact_ledger ALTER COLUMN impact_id SET DEFAULT nextval(%L)',
+            seq_name
+          );
+        END IF;
+      END $$;
+    `);
+
     // Skip if a history already exists (never duplicate).
     const existing = await client.query('SELECT COUNT(*)::int AS n FROM merchant_ai_actions');
     if (existing.rows[0].n > 0) {
