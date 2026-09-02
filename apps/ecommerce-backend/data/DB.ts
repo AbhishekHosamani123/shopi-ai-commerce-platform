@@ -180,14 +180,17 @@ CREATE TABLE IF NOT EXISTS banners (
     link VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS coupons (
-    couponid SERIAL PRIMARY KEY,
-    couponcode VARCHAR(50) UNIQUE,
-    discountpercentage NUMERIC(5,2) DEFAULT 10,
-    minorderamount NUMERIC(10,2) DEFAULT 500,
-    maxdiscount NUMERIC(10,2) DEFAULT 1000,
-    isactive BOOLEAN DEFAULT true
-);
+-- Legacy coupons shape kept for tables that already exist from older
+-- deployments; the full application shape (code, description, maxdiscount-
+-- amount, minpurchaseamount, validfrom, validuntil...) is CREATEd + ALTERed
+-- further below. The ALTERs here reconcile the columns fetchCoupons
+-- (routes/userDetails.ts) queries so a table left in the legacy shape from
+-- a previous recovery run still answers user-coupon queries.
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS code VARCHAR(50);
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS description VARCHAR(255);
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS maxdiscountamount NUMERIC(10,2) DEFAULT 1000;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS minpurchaseamount NUMERIC(10,2) DEFAULT 500;
+ALTER TABLE coupons ADD COLUMN IF NOT EXISTS validuntil TIMESTAMP;
 
 CREATE TABLE IF NOT EXISTS orders (
     orderid VARCHAR(100) PRIMARY KEY,
