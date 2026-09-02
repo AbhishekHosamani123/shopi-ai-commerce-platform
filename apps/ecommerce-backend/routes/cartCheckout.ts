@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 import { client } from '../data/DB';
+import { ensureCheckoutSchemaReady } from './razorpay';
 import { paymentCreationSchema, userIDSchema } from '../validators/cartCheckoutValidation';
 import Stripe from 'stripe';
 import { validationResult,matchedData } from 'express-validator';
@@ -135,6 +136,10 @@ router.get('/checkout-cart/product-details/:userID',userIDSchema, async (req:Req
   }
 });
 async function createCashOrder(userid:string,productid:string, colorid:string, sizeid:string,quantity:number){
+  // Rebuild checkout tables if a provider DB reset wiped them (shipping,
+  // payments were never created by the old recovery — COD order creation
+  // failed with the transaction error after every reset).
+  if (!(await ensureCheckoutSchemaReady())) return 503;
   const orderid = randomUUID();
   const shippingid = randomUUID();
   const paymentid = randomUUID();
@@ -243,6 +248,8 @@ router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Re
   }
 });
 async function createCardOrder(userid:string, productid:string, colorid:string, sizeid:string, paymentid:string , paymentStatus:string,quantity:number){
+  // See createCashOrder: ensure the transaction tables exist first.
+  if (!(await ensureCheckoutSchemaReady())) return 503;
   const paymentState = paymentStatus==='Succeeded' ? 'Confirmed' : 'Pending';
   const transactionid = `TS-${randomUUID()}`;
   const deliveryDate = getDateTimeFiveDaysFromNow();

@@ -198,31 +198,21 @@ export default function MerchantActionsPage() {
       const data = await res.json();
       if (res.ok && data.success) {
         handleCampaignUpdated(campaignId, 'APPROVED', data.message || 'Campaign approved successfully.');
-        // Auto-execute in DRY_RUN so the merchant sees deliveries immediately (demo flow).
-        try {
-          setFeedbackToast({ message: 'Approved. Dispatching campaign (dry-run)…', type: 'success' });
-          const execRes = await merchantFetch(`/api/merchant/campaigns/${campaignId}/dry-run`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'x-merchant-id': 'default_merchant' },
-            body: JSON.stringify({ deliveryChannels: selectedChannels })
-          });
-          const execData = await execRes.json();
-          if (execRes.ok && execData.success) {
-            const result = execData.result || {};
-            const emailRes = result.channelResults?.EMAIL;
-            const waRes = result.channelResults?.WHATSAPP;
-            const parts: string[] = [`Audience: ${result.simulatedAudienceCount ?? 0}`];
-            if (selectedChannels.includes('EMAIL')) {
-              parts.push(`Email: ${emailRes?.sent ?? 0} sent${emailRes?.skipped ? `, ${emailRes.skipped} skipped` : ''}`);
-            }
-            if (selectedChannels.includes('WHATSAPP')) {
-              parts.push(`WhatsApp: ${waRes?.sent ?? 0} sent${waRes?.skipped ? `, ${waRes.skipped} skipped (no valid phone)` : ''}`);
-            }
-            handleCampaignUpdated(campaignId, 'COMPLETED' as any, `Campaign executed (dry-run) — ${parts.join(' · ')}`);
+        // The backend now executes the campaign IN REAL TIME on approval
+        // (PRODUCTION mode) — the dispatch results are already in this
+        // response, so no follow-up dry-run call is made.
+        const exec = data.execution || null;
+        if (exec) {
+          const parts: string[] = [];
+          if (selectedChannels.includes('EMAIL')) parts.push(`Email: ${exec.sentCount ?? 0} sent${exec.failedCount ? `, ${exec.failedCount} failed` : ''}`);
+          if (selectedChannels.includes('WHATSAPP')) parts.push(`WhatsApp: ${exec.sentCount ?? 0} dispatched${exec.failedCount ? `, ${exec.failedCount} failed` : ''}`);
+          if (exec.isDryRun) parts.push('(simulated — providers not LIVE-configured)');
+          if (parts.length) {
+            setFeedbackToast({ message: `Campaign dispatched — ${parts.join(' · ')}`, type: 'success' });
+            handleCampaignUpdated(campaignId, 'COMPLETED' as any, `Campaign executed — ${parts.join(' · ')}`);
           }
-        } catch (execErr: any) {
-          // Execution is best-effort after approval; the approval itself already succeeded.
-          console.warn('Post-approval dry-run failed:', execErr?.message);
+        } else {
+          setFeedbackToast({ message: 'Approved. Dispatch result unavailable — check the campaign status.', type: 'success' });
         }
       } else {
         setFeedbackToast({ message: data.error || 'Campaign approval failed.', type: 'error' });

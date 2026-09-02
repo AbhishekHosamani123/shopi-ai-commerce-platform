@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-email-dispatcher';
 import { client } from '../data/DB';
+import { ensureCheckoutSchemaReady } from './razorpay';
 import Stripe from 'stripe';
 import {orderCreationSchema,orderCreationSchema2,checkoutSchema,OrderIDSchema,createPaymentIntent} from '../validators/productCheckoutValidator';
 import { matchedData, validationResult } from 'express-validator';
@@ -26,6 +27,15 @@ router.post('/payment-on-delivery/create-order',orderCreationSchema, async (req:
   const result = validationResult(req);
   if(result.isEmpty()){
     const { userid, productid, colorid, sizeid} = matchedData(req);
+
+    // Rebuild checkout tables if a provider DB reset wiped them (shipping/
+    // payments were never created by the old recovery).
+    if (!(await ensureCheckoutSchemaReady())) {
+      return res.status(503).json({
+        error: 'Checkout database is being restored after a provider reset — please retry in a few seconds.',
+        recovering: true
+      });
+    }
 
     const orderid = randomUUID();
     const shippingid = randomUUID();
@@ -115,6 +125,13 @@ router.post('/card/create-order',orderCreationSchema2, async (req:Request, res:R
   const result = validationResult(req);
   if(result.isEmpty()){
     const { userid, productid, colorid, sizeid, paymentid , paymentStatus} = matchedData(req);
+    // See COD route above: ensure the transaction tables exist first.
+    if (!(await ensureCheckoutSchemaReady())) {
+      return res.status(503).json({
+        error: 'Checkout database is being restored after a provider reset — please retry in a few seconds.',
+        recovering: true
+      });
+    }
     const paymentState = paymentStatus==='Succeeded' ? 'Confirmed' : 'Pending';
     const transactionid = `TS-${randomUUID()}`;
     const deliveryDate = getDateTimeFiveDaysFromNow();

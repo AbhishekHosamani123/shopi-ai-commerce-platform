@@ -188,13 +188,22 @@ const CartCheckout = () => {
                 },
                 handler: async (response) => {
                     setPaying(true);
-                    // 3. Verify Razorpay cryptographic signature on backend
-                    const verifyRes = await verifyRazorpayCartPaymentHandler({
-                        userid: genUserData.current.userID,
-                        razorpay_order_id: response.razorpay_order_id,
-                        razorpay_payment_id: response.razorpay_payment_id,
-                        razorpay_signature: response.razorpay_signature
-                    });
+                    // 3. Verify Razorpay cryptographic signature on backend.
+                    // A 503 {recovering:true} means the checkout DB schema is
+                    // being rebuilt (provider reset) — the payment IS captured,
+                    // so retry the verify until the transaction can commit.
+                    let verifyRes: any;
+                    for (let attempt = 0; attempt < 3; attempt++) {
+                        verifyRes = await verifyRazorpayCartPaymentHandler({
+                            userid: genUserData.current.userID,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_signature: response.razorpay_signature
+                        });
+                        if (verifyRes.status !== 503 || !verifyRes.data?.recovering) break;
+                        setErrorMessage('Finalizing your order — the checkout database is being restored, one moment…');
+                        await new Promise(r => setTimeout(r, 12000));
+                    }
 
                     if (verifyRes.status === 200 && verifyRes.data?.orderid) {
                         router.push(`/order-confirmation/${verifyRes.data.orderid}?payment_id=${response.razorpay_payment_id}&cart=true`);

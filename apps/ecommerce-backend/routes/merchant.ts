@@ -1118,10 +1118,53 @@ router.post('/campaigns/:id/approve', async (req: Request, res: Response) => {
       return res.status(400).json({ success: false, error: result.error });
     }
 
+    // Approval IS the send. The previous flow only flipped the status to
+    // APPROVED and required a separate /execute call nobody made, so
+    // approving a campaign never delivered anything. Now the freshly
+    // APPROVED campaign is executed immediately in PRODUCTION mode
+    // (COMMUNICATION_MODE env is overridden because it defaults to DRY_RUN
+    // — the merchant explicitly authorizing the dispatch here IS the
+    // production intent). Full safety revalidation + consent checks +
+    // suppression still run inside executeCampaign; failures are reported
+    // honestly below and never fabricated.
+    let execution: any = null;
+    try {
+      const { campaignExecutionService } = await import('../merchant-communication/campaign-execution-service');
+      execution = await campaignExecutionService.executeCampaign(campaignId, merchantId, 'PRODUCTION', deliveryChannels);
+      console.log(`[Campaign Approve] ${campaignId} executed:`, JSON.stringify({
+        status: execution?.status,
+        sentCount: execution?.sentCount,
+        failedCount: execution?.failedCount,
+        isDryRun: execution?.isDryRun
+      }));
+    } catch (execError: any) {
+      console.error(`[Campaign Approve] execution failed for ${campaignId}:`, execError?.message);
+      execution = { finalStatus: 'EXECUTION_FAILED', error: execError?.message };
+    }
+
+    const dispatchedCount = execution?.sentCount ?? 0;
+    const failedCount = execution?.failedCount ?? 0;
+    const note = execution?.finalStatus === 'EXECUTION_FAILED'
+      ? ` However, dispatch FAILED: ${execution?.error || 'unknown error'} — the campaign is approved but nothing was sent.`
+      : dispatchedCount > 0 && !execution?.isDryRun
+        ? ` Dispatched to ${dispatchedCount} recipient(s) via ${deliveryChannels.join(' + ')}${failedCount ? ` (${failedCount} failed)` : ''}.`
+        : dispatchedCount > 0 && execution?.isDryRun
+          ? ` Simulated (no real send) for ${dispatchedCount} recipient(s) — providers not configured for LIVE sending.`
+          : ' No eligible recipients were dispatched (audience rules or consent checks excluded everyone).';
+
     return res.json({
       success: true,
-      message: `Campaign approved successfully with channels: ${deliveryChannels.join(' + ')}. Staged in DRY_RUN mode (zero customer dispatches).`,
+      message: `Campaign approved.${note}`,
       deliveryChannels,
+      execution: execution ? {
+        status: execution.status,
+        mode: execution.mode,
+        sentCount: execution.sentCount,
+        failedCount: execution.failedCount,
+        isDryRun: execution.isDryRun,
+        eligibleCount: execution.eligibleCount,
+        suppressedCount: execution.suppressedCount
+      } : null,
       campaign: result.campaign
     });
   } catch (error: any) {

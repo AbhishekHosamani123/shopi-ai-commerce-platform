@@ -208,6 +208,48 @@ ALTER TABLE orders ADD COLUMN IF NOT EXISTS orderstatus VARCHAR(50);
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS order_code VARCHAR(100);
 
+-- ── Checkout-transaction tables ────────────────────────────────────────────
+-- The cart/product checkout transactions INSERT into shipping, payments and
+-- orderitems. shipping and payments were NEVER created by this recovery, so
+-- after every Render DB reset the checkout 500'd with 'Database transaction
+-- error' (the transaction aborted on the first INSERT INTO shipping) and the
+-- order-confirmation email — which fires only AFTER a successful commit —
+-- never sent. Shapes mirror the application reference database exactly.
+CREATE TABLE IF NOT EXISTS shipping (
+    shippingid SERIAL PRIMARY KEY,
+    orderid VARCHAR(100),
+    addressid INT,
+    shippingmethod VARCHAR(50),
+    shippingcost NUMERIC(10,2),
+    trackingnumber VARCHAR(100),
+    shippedat TIMESTAMP,
+    deliveredat TIMESTAMP,
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS payments (
+    paymentid SERIAL PRIMARY KEY,
+    orderid VARCHAR(100),
+    paymentmethod VARCHAR(50),
+    paymentstatus VARCHAR(50),
+    amount NUMERIC(10,2) NOT NULL,
+    transactionid VARCHAR(100),
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    billingaddress INT,
+    paymentgateway_id VARCHAR(100),
+    razorpay_order_id VARCHAR(100),
+    razorpay_payment_id VARCHAR(100),
+    razorpay_signature VARCHAR(255)
+);
+
+-- productparams: the checkout transaction increments the sold counter,
+-- which older recovery shapes lacked — reconcile it (plus views/rating
+-- used by product listing queries).
+ALTER TABLE productparams ADD COLUMN IF NOT EXISTS sold INT DEFAULT 0;
+ALTER TABLE productparams ADD COLUMN IF NOT EXISTS views INT DEFAULT 0;
+ALTER TABLE productparams ADD COLUMN IF NOT EXISTS rating INT DEFAULT 0;
+
 CREATE TABLE IF NOT EXISTS orderitems (
     orderitemid SERIAL PRIMARY KEY,
     orderid VARCHAR(100) NOT NULL,
@@ -805,4 +847,4 @@ const connectDB = async () => {
   }
 };
 
-export { client, connectDB };
+export { client, connectDB, CORE_SCHEMA_SQL };

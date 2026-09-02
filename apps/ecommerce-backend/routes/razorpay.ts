@@ -11,6 +11,50 @@ import { dispatchOrderConfirmationEmail } from '../merchant-communication/order-
 
 const RAZORPAY_WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || 'mock_razorpay_webhook_secret_2026';
 
+/**
+ * Ensures the checkout-transaction schema (shipping, payments, orders,
+ * orderitems, productparams.sold) exists BEFORE a payment transaction
+ * starts. Render's free Postgres resets wipe these tables while the app
+ * keeps running, and a missing table aborts the transaction AFTER the
+ * customer already paid (500 'Database transaction error' with the money
+ * captured). This pre-check rebuilds the schema (idempotent) and returns
+ * false — the caller should ask the client to retry — only when recovery
+ * itself failed.
+ */
+export async function ensureCheckoutSchemaReady(): Promise<boolean> {
+  try {
+    const probe = await client.query(`
+      SELECT to_regclass('public.shipping') AS shipping_t,
+             to_regclass('public.payments') AS payments_t,
+             to_regclass('public.orders') AS orders_t,
+             to_regclass('public.orderitems') AS orderitems_t;
+    `);
+    const r = probe.rows[0] || {};
+    if (r.shipping_t && r.payments_t && r.orders_t && r.orderitems_t) {
+      return true;
+    }
+    console.warn('[Checkout Schema] missing tables — running recovery...',
+      { shipping: !!r.shipping_t, payments: !!r.payments_t, orders: !!r.orders_t, orderitems: !!r.orderitems_t });
+    // Run the schema SQL directly. A full recoverMerchantDataIfMissing can
+    // take the fast path (users + shopi_orders healthy → skip) while the
+    // checkout tables are still missing, because the wipe may be partial —
+    // exactly the Render incident shape. CORE_SCHEMA_SQL is idempotent and
+    // cheap; it re-creates only what is absent.
+    const { CORE_SCHEMA_SQL } = await import('../data/DB');
+    await client.query(CORE_SCHEMA_SQL);
+    const verify = await client.query(`
+      SELECT to_regclass('public.shipping') AS s, to_regclass('public.payments') AS p;
+    `);
+    const ok = !!(verify.rows[0]?.s && verify.rows[0]?.p);
+    if (!ok) console.error('[Checkout Schema] schema ensure ran but shipping/payments STILL missing.');
+    else console.log('[Checkout Schema] checkout tables restored (shipping + payments).');
+    return ok;
+  } catch (e: any) {
+    console.error('[Checkout Schema] pre-check failed:', e?.message);
+    return false;
+  }
+}
+
 function getDateTimeFiveDaysFromNow(): string {
   const today = new Date();
   const fiveDaysFromNow = new Date(today);
@@ -244,7 +288,18 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
   const shippingCharge = 99;
   const deliveryDate = getDateTimeFiveDaysFromNow();
 
+  // See verify-cart-payment: ensure the transaction tables exist BEFORE the
+  // paid transaction starts so a provider DB reset can't abort it.
+  const schemaReady = await ensureCheckoutSchemaReady();
+  if (!schemaReady) {
+    return res.status(503).json({
+      error: 'Checkout database is being restored after a provider reset — please retry in a few seconds.',
+      recovering: true
+    });
+  }
+
   try {
+    // 2. Fetch product & address details
     // 2. Fetch product price
     const productQuery = `
       SELECT p.discount
@@ -318,9 +373,16 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
         currency: 'INR',
         message: 'Order created and paid successfully'
       });
-    } catch (txError) {
-      await conn.query('ROLLBACK');
-      console.error('Transaction error in verify-payment:', txError);
+    } catch (txError: any) {
+      try { await conn.query('ROLLBACK'); } catch { /* connection already aborted */ }
+      console.error('Transaction error in verify-payment:', txError?.message || txError);
+      if (/relation "[a-z_]+" does not exist|column "[a-z_]+" (of relation )?does not exist/i.test(txError?.message || '')) {
+        void ensureCheckoutSchemaReady().catch(() => {});
+        return res.status(503).json({
+          error: 'Checkout database was restored after a provider reset — payment NOT captured, please retry.',
+          recovering: true
+        });
+      }
       return res.status(500).json({ error: 'Database transaction error' });
     } finally {
       conn.release();
@@ -354,6 +416,17 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
 
   const shippingCharge = 99;
   const deliveryDate = getDateTimeFiveDaysFromNow();
+
+  // Rebuild the checkout schema if a provider reset wiped it (before the
+  // paid transaction starts), and re-check after a missing-table abort so a
+  // transient wipe self-heals instead of dead-ending a paid cart.
+  const schemaReady = await ensureCheckoutSchemaReady();
+  if (!schemaReady) {
+    return res.status(503).json({
+      error: 'Checkout database is being restored after a provider reset — please retry in a few seconds.',
+      recovering: true
+    });
+  }
 
   try {
     // 2. Fetch cart items
@@ -433,9 +506,18 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
         currency: 'INR',
         message: 'Cart orders placed and paid successfully via Razorpay'
       });
-    } catch (txError) {
-      await conn.query('ROLLBACK');
-      console.error('Transaction error in verify-cart-payment:', txError);
+    } catch (txError: any) {
+      try { await conn.query('ROLLBACK'); } catch { /* connection already aborted */ }
+      console.error('Transaction error in verify-cart-payment:', txError?.message || txError);
+      // A missing relation/column here means the DB was wiped mid-flight
+      // (Render free tier). Kick the recovery so the NEXT attempt succeeds.
+      if (/relation "[a-z_]+" does not exist|column "[a-z_]+" (of relation )?does not exist/i.test(txError?.message || '')) {
+        void ensureCheckoutSchemaReady().catch(() => {});
+        return res.status(503).json({
+          error: 'Checkout database was restored after a provider reset — payment NOT captured, please retry.',
+          recovering: true
+        });
+      }
       return res.status(500).json({ error: 'Database transaction error during cart checkout' });
     } finally {
       conn.release();

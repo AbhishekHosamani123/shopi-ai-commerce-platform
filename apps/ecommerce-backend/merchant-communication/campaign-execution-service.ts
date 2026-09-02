@@ -443,6 +443,8 @@ export class CampaignExecutionService {
 
       const targetProduct = campaign.targetProducts[0];
       const targetAudienceMember = campaign.targetAudience.find(a => a.customerId === recipient.customerId);
+      // Recipient's display name for the personalized banner + email body.
+      const customerName = targetAudienceMember?.customerName || 'Valued Customer';
       const baseOrigin = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
       const ctaUrl = campaign.message.email.ctaUrl || `${baseOrigin}/products/${targetProduct?.productId || 'shop'}`;
 
