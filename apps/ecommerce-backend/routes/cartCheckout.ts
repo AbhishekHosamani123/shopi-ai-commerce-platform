@@ -135,7 +135,16 @@ router.get('/checkout-cart/product-details/:userID',userIDSchema, async (req:Req
       res.status(500).json({ message: 'Validation error' });
   }
 });
-async function createCashOrder(userid:string,productid:string, colorid:string, sizeid:string,quantity:number){
+/**
+ * Creates one COD order inside its own transaction.
+ * Returns the created orderid on success, or a numeric HTTP-like error code
+ * (404/500/503) on failure. Returning the exact orderid (instead of the old
+ * 200 + a later "latest orders" guess) keeps the confirmation email tied to
+ * the orders this call actually created — the old guess sorted VARCHAR
+ * orderids as strings ('9' > '12'), attaching the WRONG orders to the email
+ * once ids passed single digits.
+ */
+async function createCashOrder(userid:string,productid:string, colorid:string, sizeid:string,quantity:number): Promise<number | string> {
   // Rebuild checkout tables if a provider DB reset wiped them (shipping,
   // payments were never created by the old recovery — COD order creation
   // failed with the transaction error after every reset).
@@ -220,7 +229,7 @@ const paymentCharge = 15;
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
       await conn.query('COMMIT');
-      return 200;
+      return orderid;
     } catch (error: any) {
       try { await conn.query('ROLLBACK'); } catch { /* already aborted */ }
       console.error('[createCashOrder] transaction failed:', error?.message || error);
@@ -246,16 +255,17 @@ router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Re
       }
       
       const results = await Promise.all(cartItems.rows.map(each=>createCashOrder(userID,each.productid,each.colorid,each.sizeid,each.quantity)));
-      if (results.some(r => r !== 200)) {
+      // Error codes (404/500/503) are numbers; created orderids are strings.
+      if (results.some(r => typeof r === 'number')) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
       // Transactional confirmation email — best-effort, never blocks checkout.
-      try {
-        const ordRes = await client.query(`SELECT orderid FROM orders WHERE userid = $1 ORDER BY orderid DESC LIMIT ${cartItems.rows.length}`, [userID]);
-        const orderIds = ordRes.rows.map((r: any) => r.orderid);
-        void dispatchOrderConfirmationEmail(userID, orderIds);
-      } catch { /* email best-effort */ }
-      res.status(200).json({message:'Successfully created orders'});
+      // Uses the EXACT orderids created above (the old "latest orders" query
+      // sorted VARCHAR orderids lexicographically, so past order 9 the email
+      // could reference the wrong — older — orders).
+      const createdOrderIds = results as string[];
+      void dispatchOrderConfirmationEmail(userID, createdOrderIds).catch(() => {});
+      res.status(200).json({message:'Successfully created orders', orderIds: createdOrderIds});
     } catch (error) {
       res.status(500).json({error:'Server Internal Server'});
     }
@@ -264,7 +274,9 @@ router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Re
       res.status(500).json({ message: 'Validation error' });
   }
 });
-async function createCardOrder(userid:string, productid:string, colorid:string, sizeid:string, paymentid:string , paymentStatus:string,quantity:number){
+// Returns the created orderid on success (see createCashOrder contract) or a
+// numeric error code.
+async function createCardOrder(userid:string, productid:string, colorid:string, sizeid:string, paymentid:string , paymentStatus:string,quantity:number): Promise<number | string>{
   // See createCashOrder: ensure the transaction tables exist first.
   if (!(await ensureCheckoutSchemaReady())) return 503;
   const paymentState = paymentStatus==='Succeeded' ? 'Confirmed' : 'Pending';
@@ -339,7 +351,7 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
       await conn.query(`UPDATE productparams SET sold = sold + 1 WHERE productid = $1`, [productid]);
 
       await conn.query('COMMIT');
-      return 200;
+      return orderid;
     } catch (error: any) {
       try { await conn.query('ROLLBACK'); } catch { /* already aborted */ }
       console.error('[createCardOrder] transaction failed:', error?.message || error);
@@ -347,7 +359,8 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
     } finally {
       conn.release();
     }
-  } catch (error) {
+  } catch (error: any) {
+    console.error('[createCardOrder] pre-transaction failure:', error?.message || error);
     return 500;
   }
 }
@@ -364,16 +377,14 @@ router.post('/cart-card/create-order',paymentCreationSchema, async (req:Request,
       }
       
       const results = await Promise.all(cartItems.rows.map(each=>createCardOrder(userID,each.productid,each.colorid,each.sizeid,paymentid,paymentstatus,each.quantity)));
-      if (results.some(r => r !== 200)) {
+      // Error codes are numbers; created orderids are strings.
+      if (results.some(r => typeof r === 'number')) {
         return res.status(500).json({ error: 'One or more orders failed to create' });
       }
-      // Transactional confirmation email — best-effort, never blocks checkout.
-      try {
-        const ordRes = await client.query(`SELECT orderid FROM orders WHERE userid = $1 ORDER BY orderid DESC LIMIT ${cartItems.rows.length}`, [userID]);
-        const orderIds = ordRes.rows.map((r: any) => r.orderid);
-        void dispatchOrderConfirmationEmail(userID, orderIds);
-      } catch { /* email best-effort */ }
-      res.status(200).json({message:'Successfully created orders'});
+      // Exact created ids (see COD route comment).
+      const createdOrderIds = results as string[];
+      void dispatchOrderConfirmationEmail(userID, createdOrderIds).catch(() => {});
+      res.status(200).json({message:'Successfully created orders', orderIds: createdOrderIds});
     } catch (error) {
       res.status(500).json({error:'Server Internal Server'});
     }
