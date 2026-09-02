@@ -65,8 +65,11 @@ const Checkout = () => {
     const found = useRef(false);
     const [onlinePayment, setonlinePayment] = useState(true);
     const router = useRouter();
+    // Product in STATE (see CartCheckout): a bare ref mutation never
+    // re-rendered, leaving the page stuck on the empty first render.
     const dataVar = useRef<ProductDetails>(emptyProductDetails);
-    const data = dataVar.current;
+    const [product, setProduct] = useState<ProductDetails>(emptyProductDetails);
+    const data = product;
     const genUserData = useRef<Account>({
         userID: 0,
         userName: '',
@@ -114,6 +117,7 @@ const Checkout = () => {
         switch (response.status) {
             case 200:
                 dataVar.current = response.data;
+                setProduct(response.data);
                 found.current = true;
                 break;
             case 500:

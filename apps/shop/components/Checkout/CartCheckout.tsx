@@ -55,8 +55,14 @@ const CartCheckout = () => {
     const found = useRef(false);
     const [onlinePayment, setonlinePayment] = useState(true);
     const router = useRouter();
+    // Products live in STATE, not a ref: mutating dataVar.current never
+    // re-rendered the page, so /cart-checkout showed 'Items in Cart (0)'
+    // even after the server cart loaded (the totals were computed from the
+    // stale first render). The ref is kept for the payment handlers which
+    // read the latest products through it.
     const dataVar = useRef<ProductDetails[]>([]);
-    const data = dataVar.current;
+    const [products, setProducts] = useState<ProductDetails[]>([]);
+    const data = products;
     const genUserData = useRef<Account>({
         userID: 0,
         userName: '',
@@ -102,6 +108,7 @@ const CartCheckout = () => {
         switch (response.status) {
             case 200:
                 dataVar.current = response.data.products;
+                setProducts(response.data.products);
                 found.current = true;
                 break;
             case 500:
