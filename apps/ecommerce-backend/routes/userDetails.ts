@@ -58,8 +58,14 @@ const fetchSize = async (productID: number) => {
 
 const fetchCartItems = async (userID: number) => {
     try {
+        // DISTINCT ON keeps ONE row per cart item: if a product has multiple
+        // isprimary=true image rows (production data drift), the plain LEFT
+        // JOIN multiplied each cart item into one entry PER primary image —
+        // the same cartitemid appeared several times in all-data and the
+        // client-side cart showed duplicated items.
         const cartQuery = `
-            SELECT cartitems.productid, cartitems.quantity, cartitems.colorid, cartitems.sizeid,
+            SELECT DISTINCT ON (cartitems.cartitemid)
+                   cartitems.productid, cartitems.quantity, cartitems.colorid, cartitems.sizeid,
                    products.title, products.discount, cartitems.cartitemid, 
                    productimages.imglink, productimages.imgalt,
                    productcolors.colorname, productcolors.colorclass,
@@ -149,12 +155,15 @@ const fetchWishlistItems = async (userID: number) => {
     // Tolerant fetch (see fetchAddresses): degrade to [] instead of 500-ing
     // the whole /user/all-data response.
     try {
+        // DISTINCT ON — see fetchCartItems: multiple primary image rows must
+        // never multiply a wishlist item into duplicates.
         const query = `
-            SELECT wishlistitems.productid, products.title, products.discount, wishlistitems.wishlistitemid,
+            SELECT DISTINCT ON (wishlistitems.wishlistitemid)
+                   wishlistitems.productid, products.title, products.discount, wishlistitems.wishlistitemid,
                    productimages.imglink, productimages.imgalt
             FROM wishlistitems
             LEFT JOIN products ON wishlistitems.productid = products.productid
-            LEFT JOIN productimages ON products.productid = productimages.productid AND productimages.isprimary = true
+            LEFT JOIN productimages ON wishlistitems.productid = productimages.productid AND productimages.isprimary = true
             WHERE wishlistitems.userid = $1;
         `;
         const values = [userID];
