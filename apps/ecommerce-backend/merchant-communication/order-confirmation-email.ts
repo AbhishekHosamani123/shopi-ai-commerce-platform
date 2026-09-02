@@ -331,13 +331,14 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
 
     // service:'gmail' resolves smtp.gmail.com, whose AAAA record can make
     // Node dial IPv6 first — hosts without IPv6 egress (Render free tier)
-    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. The explicit
-    // host/port pins the transport; IPv4-first dialing is enforced globally
-    // via NODE_OPTIONS=--dns-result-order=ipv4first in the environment.
+    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. IPv4-first
+    // dialing is enforced globally at startup (dns.setDefaultResultOrder).
+    // Port 587 + STARTTLS: the implicit-TLS 465 route timed out from Render's
+    // egress ('Connection timeout' in logs); 587 is the Gmail MSA port.
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
       auth: { user: email, pass: password },
       tls: { rejectUnauthorized: true }
     });

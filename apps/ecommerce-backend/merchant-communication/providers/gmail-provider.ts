@@ -100,14 +100,13 @@ export class GmailEmailProvider implements CommunicationProvider {
 
     // 6. Build Nodemailer Gmail SMTP Transport
     try {
-      // IPv4-first dialing is enforced via NODE_OPTIONS=--dns-result-
-      // order=ipv4first in the environment (Render free instances have no
-      // IPv6 egress; smtp.gmail.com's AAAA record otherwise triggers
-      // 'connect ENETUNREACH 2607:f8b0:...:465').
+      // IPv4-first dialing is enforced globally at startup (Render free
+      // instances have no IPv6 egress). Port 587 + STARTTLS: the implicit-TLS
+      // 465 route timed out from Render's egress; 587 is the Gmail MSA port.
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
+        port: 587,
+        secure: false,
         auth: {
           user: email,
           pass: password
