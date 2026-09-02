@@ -370,12 +370,17 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
         if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
       }
     }
-    if (!info) throw lastErr;
+    if (!info) {
+      // Log the recipient even on failure so we can verify dynamic addressing
+      // without depending on SMTP delivery success.
+      console.warn(`[OrderEmail] Failed to send confirmation for order #${data.orderId} to ${data.customerEmail}: ${lastErr?.message}`);
+      return { sent: false, error: lastErr?.message };
+    }
 
     console.log(`[OrderEmail] Confirmation sent for order #${data.orderId} to ${data.customerEmail} (${info.messageId})`);
     return { sent: true, messageId: info.messageId };
   } catch (err: any) {
-    console.error(`[OrderEmail] Failed to send confirmation for order #${data.orderId}:`, err.message);
+    console.error(`[OrderEmail] Failed to send confirmation for order #${data.orderId} to ${data.customerEmail}:`, err.message);
     return { sent: false, error: err.message };
   }
 }
