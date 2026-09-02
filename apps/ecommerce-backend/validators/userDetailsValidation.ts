@@ -68,14 +68,16 @@ const AddressInsertSchema = checkSchema({
     addressLine2: {
         in: ['body'],
         isString: true,
-        // Skip validation when empty/absent — the UI's optional "Address
-        // Line 2" field submits "" and plain optional:true still validated
-        // the empty string against min:2, 500ing every address save without
-        // a second line.
-        optional: { values: 'falsy' },
-        isLength:{options:{min:2,max:128}},
-        trim:true,
-        errorMessage: 'address must be a non-empty string'
+        // The UI's optional "Address Line 2" submits an empty string;
+        // optional:true only skips UNDEFINED fields, so a custom validator
+        // passes empty and still length-checks non-empty values (plain
+        // isLength min:2 500ed every address without a second line).
+        optional: true,
+        custom: {
+            options: (value: any) => !value || (typeof value === 'string' && value.trim().length >= 2 && value.length <= 128),
+            errorMessage: 'address must be a non-empty string'
+        },
+        trim: true
     },
     city: {
         in: ['body'],
