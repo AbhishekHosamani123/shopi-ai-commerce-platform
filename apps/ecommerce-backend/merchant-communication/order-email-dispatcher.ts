@@ -12,8 +12,8 @@ import { sendOrderConfirmationEmail, OrderConfirmationEmailData, OrderEmailItem 
  *   productcolors(colorname) · productsizes(sizename)
  */
 
-/** Loads item data for a set of legacy order ids. */
-async function loadLegacyOrderItems(orderIds: number[]): Promise<OrderEmailItem[]> {
+/** Loads item data for a set of legacy order ids (strings — orderid is VARCHAR). */
+async function loadLegacyOrderItems(orderIds: string[]): Promise<OrderEmailItem[]> {
   const res = await client.query(`
     SELECT oi.productid, oi.quantity,
            p.title, p.imgid, p.price, p.discount,
@@ -22,7 +22,7 @@ async function loadLegacyOrderItems(orderIds: number[]): Promise<OrderEmailItem[
     JOIN products p ON p.productid = oi.productid
     LEFT JOIN productcolors pc ON pc.productid = oi.productid AND pc.colorid = oi.colorid
     LEFT JOIN productsizes ps ON ps.productid = oi.productid AND ps.sizeid = oi.sizeid
-    WHERE oi.orderid = ANY($1::int[]);
+    WHERE oi.orderid = ANY($1::text[]);
   `, [orderIds]);
 
   const items: OrderEmailItem[] = [];
@@ -74,6 +74,8 @@ export async function dispatchOrderConfirmationEmail(
     if (!orderIds || orderIds.length === 0) return;
     const numericIds = orderIds.map(o => parseInt(String(o), 10)).filter(n => Number.isFinite(n));
     if (numericIds.length === 0) return;
+    // orderid columns are VARCHAR — pass string ids for ::text[] comparison.
+    const idStrings = numericIds.map(String);
 
     // Customer email + name
     const custRes = await client.query(
@@ -88,7 +90,7 @@ export async function dispatchOrderConfirmationEmail(
     }
 
     // Items
-    const items = await loadLegacyOrderItems(numericIds);
+    const items = await loadLegacyOrderItems(idStrings);
     if (items.length === 0) {
       console.warn(`[OrderEmail] No order items found for orders ${numericIds.join(',')} — skipped.`);
       return;
@@ -100,9 +102,9 @@ export async function dispatchOrderConfirmationEmail(
              s.addressid
       FROM orders o
       JOIN shipping s ON s.orderid = o.orderid
-      WHERE o.orderid = ANY($1::int[])
+      WHERE o.orderid = ANY($1::text[])
       ORDER BY o.orderid
-    `, [numericIds]);
+    `, [idStrings]);
     if (ordRes.rows.length === 0) return;
 
     const totalAmount = ordRes.rows.reduce((sum: number, r: any) => sum + parseFloat(r.totalamount || 0), 0);
