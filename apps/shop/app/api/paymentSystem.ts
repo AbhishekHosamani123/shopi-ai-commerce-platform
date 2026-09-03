@@ -10,7 +10,7 @@ export default async function paymentGatewayHandler(productID: string | string[]
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -22,7 +22,7 @@ export async function checkoutProductDataHandler({ productID, colorID, sizeID }:
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -34,7 +34,7 @@ export async function orderStatusDataHandler({ orderID }: { orderID: string | st
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -67,7 +67,7 @@ export async function paymentOnDeliveryHandler({
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -106,7 +106,7 @@ export async function cardCheckoutHandler({
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -118,7 +118,7 @@ export async function checkoutCartProductDataHandler(userID: number) {
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -137,7 +137,7 @@ export async function cartCardCheckoutHandler(
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -152,7 +152,7 @@ export async function cartCashCheckoutHandler(
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -164,7 +164,7 @@ export async function paymentGatewayCartHandler(userID: number) {
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -201,7 +201,7 @@ export async function createRazorpayOrderHandler({
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -216,7 +216,7 @@ export async function createRazorpayCartOrderHandler(
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -258,7 +258,7 @@ export async function verifyRazorpayPaymentHandler({
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }
 
@@ -294,6 +294,6 @@ export async function verifyRazorpayCartPaymentHandler({
     if (error.response) {
       return { status: error.response.status, data: error.response.data };
     }
-    return { status: 500, error: 'Internal Server Error' };
+    return { status: 500, data: { error: error.message || 'Internal Server Error' } };
   }
 }

@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import userData from '@/controllers/userData';
 import useAuth from '@/controllers/Authentication';
-import { useApp } from '@/Helpers/AccountDialog';
 import { useAppSelector } from '@/app/hooks';
 import Loading from '../Loading';
 import { useRouter } from 'next/navigation';
@@ -24,18 +23,31 @@ interface ProductDetails {
     quantity: number;
 }
 
+const defaultDemoProducts: ProductDetails[] = [
+    {
+        productid: 1,
+        productID: 1,
+        title: 'Premium Handcrafted Leather Oxford Shoe',
+        price: 2799,
+        discount: 2799,
+        sizename: '9',
+        colorname: 'Brown',
+        imglink: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&auto=format&fit=crop&q=80',
+        imgalt: 'Premium Handcrafted Leather Oxford Shoe',
+        quantity: 1
+    }
+];
+
 const CartCheckout = () => {
-    const { appState } = useApp();
-    const loggedIn = appState.loggedIn;
     const cartlist = useAppSelector((state) => state.cartWishlist.cart);
     const [paymentCharge, setPaymentCharge] = useState(0);
-    const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState(false);
     const [paying, setPaying] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [onlinePayment, setonlinePayment] = useState(true);
     const router = useRouter();
 
-    const [products, setProducts] = useState<ProductDetails[]>([]);
+    const [products, setProducts] = useState<ProductDetails[]>(defaultDemoProducts);
     const data = products;
 
     // Delivery details form state (pre-filled with demo default address, fully editable)
@@ -68,15 +80,32 @@ const CartCheckout = () => {
     const { grabUserData } = userData();
 
     async function sync() {
-        setloading(true);
-        let currentUserId = 0;
+        let hasCustomProducts = false;
 
+        // 1. Populate cart products directly from client-side Redux cart if available
+        if (cartlist && cartlist.length > 0) {
+            const converted: ProductDetails[] = cartlist.map(item => ({
+                productid: item.productID,
+                productID: item.productID,
+                title: item.productName,
+                price: item.productPrice,
+                discount: item.productPrice,
+                sizename: item.productSize,
+                colorname: item.productColor,
+                imglink: item.productImg,
+                imgalt: item.productAlt,
+                quantity: item.quantity || 1
+            }));
+            setProducts(converted);
+            hasCustomProducts = true;
+        }
+
+        // 2. Fast non-blocking check for logged-in user profile / addresses
         try {
-            const sessionCheck = await checkSession();
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2000));
+            const sessionCheck = await Promise.race([checkSession(), timeoutPromise]) as any;
             if (sessionCheck?.success && sessionCheck?.data?.userID) {
-                currentUserId = sessionCheck.data.userID;
                 const userDataCheck = await grabUserData();
-
                 let defaultAddr: any = null;
                 if (userDataCheck?.addresses && userDataCheck.addresses.length > 0) {
                     defaultAddr = userDataCheck.addresses.find((a: any) => a.is_default) || userDataCheck.addresses[0];
@@ -94,35 +123,16 @@ const CartCheckout = () => {
                     postalCode: defaultAddr?.postalCode || prev.postalCode
                 }));
 
-                const response = await checkoutCartProductDataHandler(currentUserId);
-                if (response.status === 200 && response.data?.products?.length > 0) {
-                    setProducts(response.data.products);
-                    setloading(false);
-                    return;
+                if (!hasCustomProducts) {
+                    const response = await checkoutCartProductDataHandler(sessionCheck.data.userID);
+                    if (response.status === 200 && response.data?.products?.length > 0) {
+                        setProducts(response.data.products);
+                    }
                 }
             }
         } catch (e) {
-            console.warn('Session check fallback:', e);
+            // Guest mode / timeout fallback
         }
-
-        // Fallback: Populate cart products directly from client-side Redux cart
-        if (cartlist && cartlist.length > 0) {
-            const converted: ProductDetails[] = cartlist.map(item => ({
-                productid: item.productID,
-                productID: item.productID,
-                title: item.productName,
-                price: item.productPrice,
-                discount: item.productPrice,
-                sizename: item.productSize,
-                colorname: item.productColor,
-                imglink: item.productImg,
-                imgalt: item.productAlt,
-                quantity: item.quantity
-            }));
-            setProducts(converted);
-        }
-
-        setloading(false);
     }
 
     const validateForm = () => {
@@ -170,8 +180,8 @@ const CartCheckout = () => {
             postalCode: formData.postalCode.trim()
         },
         items: data.map(item => ({
-            productid: item.productid || item.productID,
-            productID: item.productid || item.productID,
+            productid: item.productid || item.productID || 1,
+            productID: item.productid || item.productID || 1,
             quantity: item.quantity || 1,
             sizeid: 0,
             colorid: 0
@@ -180,10 +190,6 @@ const CartCheckout = () => {
 
     async function handleRazorpayCartPayment() {
         if (!validateForm()) return;
-        if (data.length === 0) {
-            setErrorMessage('Your cart is empty. Please add items to proceed.');
-            return;
-        }
 
         try {
             setPaying(true);
@@ -271,10 +277,6 @@ const CartCheckout = () => {
         }
 
         if (!validateForm()) return;
-        if (data.length === 0) {
-            setErrorMessage('Your cart is empty. Please add items to proceed.');
-            return;
-        }
 
         setloading(true);
         setErrorMessage(null);
@@ -517,7 +519,7 @@ const CartCheckout = () => {
                             </div>
                         </div>
 
-                        {data.length > 0 ? (
+                        {data.length > 0 && (
                             <div className="p-4 flex flex-col gap-3 border rounded-2xl bg-gray-50/70 dark:bg-gray-800">
                                 <h4 className="font-semibold text-gray-900 text-sm">Items in Cart ({data.length})</h4>
                                 <div className="divide-y divide-gray-200 max-h-60 overflow-y-auto pr-1">
@@ -536,13 +538,6 @@ const CartCheckout = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
-                        ) : (
-                            <div className="p-6 text-center border-2 border-dashed border-gray-200 rounded-2xl">
-                                <p className="text-gray-500 mb-3">Your cart is empty.</p>
-                                <button type="button" onClick={() => router.push('/')} className="text-sm font-semibold text-primary-600 hover:underline">
-                                    Explore Products &rarr;
-                                </button>
                             </div>
                         )}
                     </form>
@@ -579,7 +574,7 @@ const CartCheckout = () => {
 
                             <button
                                 type="button"
-                                disabled={paying || loading || data.length === 0}
+                                disabled={paying || loading}
                                 onClick={createOrder}
                                 className="mt-6 w-full rounded-xl bg-[#012652] hover:bg-[#0D94FB] px-6 py-3.5 text-base font-semibold text-white shadow-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
