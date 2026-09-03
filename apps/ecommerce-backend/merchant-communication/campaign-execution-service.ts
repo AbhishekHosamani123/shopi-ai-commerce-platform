@@ -23,7 +23,7 @@ import { rateLimiterService } from './rate-limiter';
 import { renderCampaignEmail } from './email-templates';
 import { whatsAppService } from '../whatsapp/whatsapp-service';
 import { whatsAppMessageBuilderService } from '../whatsapp/whatsapp-message-builder';
-import { client } from '../data/DB';
+import { whatsAppAllowlistService } from '../whatsapp/whatsapp-allowlist-service';
 
 /** Valid delivery channels a merchant can select for a campaign. */
 export type DeliveryChannel = 'EMAIL' | 'WHATSAPP';
@@ -613,9 +613,10 @@ export class CampaignExecutionService {
           campaignType: campaign.campaignType
         });
 
-        const effectivePhone = (process.env.WHATSAPP_TEST_RECIPIENT?.trim())
-          || recipient.phone
-          || recipient.recipient
+        const configuredTestPhone = (process.env.WHATSAPP_TEST_RECIPIENT || process.env.WHATSAPP_ALLOWED_RECIPIENTS || '').split(',')[0].trim();
+        const effectivePhone = configuredTestPhone
+          || (recipient.phone && whatsAppAllowlistService.isRecipientAllowed(recipient.phone) ? recipient.phone : null)
+          || (recipient.recipient && whatsAppAllowlistService.isRecipientAllowed(recipient.recipient) ? recipient.recipient : null)
           || '+916366475180';
 
         const discountTier = Math.round(campaign.offer.discountValue || 25);
