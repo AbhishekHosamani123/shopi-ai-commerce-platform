@@ -613,18 +613,13 @@ export class CampaignExecutionService {
           campaignType: campaign.campaignType
         });
 
-        let bannerImageSource = bannerPublicUrl;
-        if (bannerAttachment?.content) {
-          const buf = Buffer.isBuffer(bannerAttachment.content)
-            ? bannerAttachment.content
-            : Buffer.from(bannerAttachment.content);
-          bannerImageSource = `data:image/png;base64,${buf.toString('base64')}`;
-        }
-
         const effectivePhone = (process.env.WHATSAPP_TEST_RECIPIENT?.trim())
           || recipient.phone
           || recipient.recipient
           || '+916366475180';
+
+        const discountTier = Math.round(campaign.offer.discountValue || 25);
+        const effectiveBannerUrl = bannerPublicUrl || `https://shopi-ai-commerce-platform-shop-two.vercel.app/campaign-banners/banner_${discountTier}.png`;
 
         const waOutcome = await whatsAppService.sendMessage({
           campaignId,
@@ -632,7 +627,7 @@ export class CampaignExecutionService {
           customerName,
           customerPhone: effectivePhone,
           text: waText,
-          imageUrl: bannerImageSource || bannerPublicUrl,
+          imageUrl: effectiveBannerUrl,
           mode: mode === 'DRY_RUN' ? 'DRY_RUN' : 'LIVE'
         });
         sendResult = {
