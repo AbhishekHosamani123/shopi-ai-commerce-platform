@@ -210,8 +210,7 @@ export async function getActionSummaryKpis(merchantId: string = 'default_merchan
       COUNT(*) FILTER (WHERE status = 'EXPIRED')::int as expired_count,
       COUNT(*) FILTER (WHERE status = 'ROLLED_BACK')::int as rolled_back_count
     FROM merchant_ai_actions
-    WHERE (merchant_id = $1 OR $1 = 'merchant_admin')
-      AND (is_test = FALSE OR is_test IS NULL);
+    WHERE (merchant_id = $1 OR $1 = 'merchant_admin');
   `;
 
   const impactQuery = `
@@ -222,8 +221,7 @@ export async function getActionSummaryKpis(merchantId: string = 'default_merchan
       COUNT(CASE WHEN outcome_status = 'POSITIVE' THEN 1 END)::int as positive_count,
       COUNT(CASE WHEN outcome_status IN ('POSITIVE', 'NEUTRAL', 'NEGATIVE') THEN 1 END)::int as evaluated_count
     FROM merchant_business_impact_ledger
-    WHERE (merchant_id = $1 OR $1 = 'merchant_admin')
-      AND (is_test = FALSE OR is_test IS NULL);
+    WHERE (merchant_id = $1 OR $1 = 'merchant_admin');
   `;
 
   const [res, impactRes] = await Promise.all([

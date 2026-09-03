@@ -103,9 +103,10 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
       END $$;
     `);
 
-    // Skip if a history already exists (never duplicate).
+    // Ensure active PENDING_APPROVAL actions exist alongside historical ones.
+    const pendingCountRes = await client.query("SELECT COUNT(*)::int AS n FROM merchant_ai_actions WHERE status = 'PENDING_APPROVAL' AND expires_at > CURRENT_TIMESTAMP");
     const existing = await client.query('SELECT COUNT(*)::int AS n FROM merchant_ai_actions');
-    if (existing.rows[0].n > 0) {
+    if (existing.rows[0].n > 0 && pendingCountRes.rows[0].n > 0) {
       return { seeded: false, count: existing.rows[0].n };
     }
 
@@ -141,10 +142,11 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
     `);
 
     const statuses: Array<{ status: string; weight: number }> = [
-      { status: 'EXPIRED', weight: 58 },
-      { status: 'COMPLETED', weight: 15 },
-      { status: 'REJECTED', weight: 20 },
-      { status: 'ROLLED_BACK', weight: 7 }
+      { status: 'PENDING_APPROVAL', weight: 25 },
+      { status: 'COMPLETED', weight: 35 },
+      { status: 'EXPIRED', weight: 20 },
+      { status: 'REJECTED', weight: 15 },
+      { status: 'ROLLED_BACK', weight: 5 }
     ];
 
     let seeded = 0;
@@ -165,7 +167,8 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
         if (roll < acc) { status = s.status; break; }
       }
 
-      const daysAgo = 1 + (i * 13) % 28; // spread across the last 4 weeks
+      const isPending = status === 'PENDING_APPROVAL';
+      const daysAgo = isPending ? 0 : 1 + (i * 13) % 28; // spread across the last 4 weeks
       const actionType = isRestock ? 'RESTOCK' : (i % 2 === 0 ? 'DISCOUNT' : 'PROMOTION');
       const reason = isRestock
         ? `Sales velocity analysis on "${p.title}" indicated stock depletion risk; proposed restock of ${Math.max(50, (p.units_30d || 2) * 30)} units.`
@@ -182,15 +185,15 @@ export async function seedHistoricalActionLedger(): Promise<{ seeded: boolean; c
         ) VALUES (
           $1::varchar, 'default_merchant', $2::varchar, $3::varchar, $4::int, $5::varchar,
           $6::int, $7::jsonb, $8::text,
-          CURRENT_TIMESTAMP - ($9 || ' days')::interval,
-          CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '7 days',
+          CASE WHEN $3 = 'PENDING_APPROVAL' THEN CURRENT_TIMESTAMP - ($9 || ' hours')::interval ELSE CURRENT_TIMESTAMP - ($9 || ' days')::interval END,
+          CASE WHEN $3 = 'PENDING_APPROVAL' THEN CURRENT_TIMESTAMP + INTERVAL '7 days' ELSE CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '7 days' END,
           CASE WHEN $3 IN ('COMPLETED','ROLLED_BACK') THEN CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '1 day' END,
           CASE WHEN $3 = 'COMPLETED' THEN CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '2 days' END,
           CASE WHEN $3 = 'REJECTED' THEN CURRENT_TIMESTAMP - ($9 || ' days')::interval + INTERVAL '1 day' END,
           CASE WHEN $3 IN ('COMPLETED','ROLLED_BACK') THEN 'merchant_admin' END,
           CASE WHEN $3 = 'COMPLETED' THEN jsonb_build_object('executed', true, 'is_test', true) END,
           TRUE
-        ) ON CONFLICT (action_id) DO NOTHING;
+        ) ON CONFLICT (action_id) DO UPDATE SET status = EXCLUDED.status, expires_at = EXCLUDED.expires_at;
       `, [
         actionId,
         actionType,

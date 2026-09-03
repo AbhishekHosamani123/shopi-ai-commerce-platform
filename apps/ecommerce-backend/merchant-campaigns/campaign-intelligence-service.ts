@@ -263,7 +263,8 @@ export class CampaignIntelligenceService {
       offer.productId,
       offer.createdAt,
       merchantId,
-      batch
+      batch,
+      campaignType
     );
 
     // 3. Status Determination: If audience is 0 eligible, status is SUPPRESSED
@@ -406,13 +407,16 @@ export class CampaignIntelligenceService {
     productId: number,
     detectedAt: string,
     merchantId: string,
-    batch?: { stockByProduct: Map<number, number>; suppressedPairs: Set<string> }
+    batch?: { stockByProduct: Map<number, number>; suppressedPairs: Set<string> },
+    campaignType?: CampaignType
   ): Promise<AudienceBreakdown> {
     let cust: { customer_id: string; name: string; email: string; phone: string | null };
     let purchaseSuppressed = false;
     let consentVerified = true;
     let cooldownSatisfied = true;
     let eligible = true;
+
+    const isRetention = campaignType === 'VIP_RETENTION' || campaignType === 'REPEAT_CUSTOMER_REWARD' || campaignType === 'DORMANT_REACTIVATION' || campaignType === 'PRODUCT_INTEREST_REENGAGEMENT';
 
     if (batch) {
       // Batched path: one customer lookup for the offer set is unavoidable,
@@ -427,7 +431,7 @@ export class CampaignIntelligenceService {
         email: `${customerId.toLowerCase()}@example.com`,
         phone: null
       };
-      purchaseSuppressed = batch.suppressedPairs.has(`${customerId}:${productId}`);
+      purchaseSuppressed = isRetention ? false : batch.suppressedPairs.has(`${customerId}:${productId}`);
       eligible = !purchaseSuppressed;
     } else {
       // Standalone path (single-campaign views / fresh revalidation on approve).
@@ -442,10 +446,10 @@ export class CampaignIntelligenceService {
         phone: null
       };
       const eligCheck = await profitSafeOfferService.checkCustomerEligibility(customerId, productId, detectedAt);
-      purchaseSuppressed = eligCheck.isSubsequentPurchaseSuppressed;
+      purchaseSuppressed = isRetention ? false : eligCheck.isSubsequentPurchaseSuppressed;
       consentVerified = eligCheck.isConsentVerified;
       cooldownSatisfied = eligCheck.isCooldownSatisfied;
-      eligible = eligCheck.isEligible;
+      eligible = isRetention ? (consentVerified && cooldownSatisfied) : eligCheck.isEligible;
     }
 
     const eligibleCustomers: AudienceBreakdown['eligibleCustomers'] = [];

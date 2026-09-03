@@ -148,6 +148,16 @@ export default function MerchantActionsPage() {
     fetchDecisionData();
   }, [fetchDecisionData]);
 
+  // Auto-retry when backend is waking up or mid-recovery
+  useEffect(() => {
+    if (dataLoadError) {
+      const timer = setTimeout(() => {
+        fetchDecisionData();
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [dataLoadError, fetchDecisionData]);
+
   // Open action or campaign modal automatically if specified in query params
   useEffect(() => {
     if (typeof window !== 'undefined') {
