@@ -25,13 +25,11 @@ services:
     region: oregon
     branch: main
     # Install npm deps + the Python/Pillow the campaign banner generator
-    # needs (Render free tier has python3 but no Pillow preinstalled; the
-    # generator logs 'No module named PIL' and the email sends WITHOUT the
-    # banner otherwise). The banner generator falls back to a Node/sharp
-    # renderer when Python is unavailable, so the email never loses the image.
-    buildCommand: |
-      npm install
-      (command -v python3 >/dev/null 2>&1 && python3 -m pip install --quiet --break-system-packages Pillow 2>/dev/null || python3 -m pip install --quiet Pillow 2>/dev/null || true)
+    # needs (Render free tier has python3 but no Pillow; the generator logs
+    # 'No module named PIL' and the email sends WITHOUT the banner otherwise).
+    # The banner generator also falls back to a Node/sharp renderer when
+    # Python is unavailable, so the email never loses the image.
+    buildCommand: npm install && (python3 -m pip install --quiet Pillow 2>/dev/null || true)
     startCommand: npm run start:render
     healthCheckPath: /health
     autoDeploy: true
