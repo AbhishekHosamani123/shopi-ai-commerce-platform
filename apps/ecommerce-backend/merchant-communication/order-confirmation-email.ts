@@ -406,15 +406,51 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
         }
       }
     }
-    if (!info) {
-      // Log the recipient even on failure so we can verify dynamic addressing
-      // without depending on SMTP delivery success.
-      console.warn(`[OrderEmail] Failed to send confirmation for order #${data.orderId} to ${data.customerEmail}: ${lastErr?.message}`);
-      return { sent: false, error: lastErr?.message };
+    if (info) {
+      console.log(`[OrderEmail] Confirmation sent for order #${data.orderId} to ${data.customerEmail} (${info.messageId})`);
+      return { sent: true, messageId: info.messageId };
     }
 
-    console.log(`[OrderEmail] Confirmation sent for order #${data.orderId} to ${data.customerEmail} (${info.messageId})`);
-    return { sent: true, messageId: info.messageId };
+    // ---- SMTP blocked/failed: Resend HTTP-API fallback ----
+    // Render's FREE tier blocks ALL outbound SMTP ports (25/465/587) at the
+    // network level (render.com/docs/free) — observed as Connection timeout
+    // on both 587 and 465 in production. Resend's REST API travels over
+    // HTTPS:443, which is never blocked, so when RESEND_API_KEY is
+    // configured the order email still delivers. Fail-open to the original
+    // SMTP error when the fallback isn't configured.
+    const resendKey = (process.env.RESEND_API_KEY || '').trim();
+    if (resendKey && !resendKey.includes('mock')) {
+      const fromAddress = process.env.EMAIL_FROM || process.env.RESEND_EMAIL_FROM || email;
+      try {
+        const res = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: `Shopi Store <${fromAddress}>`,
+            to: data.customerEmail,
+            subject: `Order confirmed #${data.orderId} — your Shopi package is on its way 🚚`,
+            text,
+            html
+          }),
+          signal: AbortSignal.timeout(20000)
+        });
+        const body: any = await res.json().catch(() => ({}));
+        if (res.ok && body.id) {
+          console.log(`[OrderEmail] Confirmation sent via Resend for order #${data.orderId} to ${data.customerEmail} (${body.id})`);
+          return { sent: true, messageId: body.id };
+        }
+        lastErr = new Error(body.message || `Resend API returned ${res.status}`);
+        console.warn(`[OrderEmail] Resend fallback failed for order #${data.orderId}: ${lastErr.message}`);
+      } catch (e: any) {
+        lastErr = e;
+        console.warn(`[OrderEmail] Resend fallback error for order #${data.orderId}: ${e.message}`);
+      }
+    }
+
+    // Log the recipient even on failure so we can verify dynamic addressing
+    // without depending on SMTP delivery success.
+    console.warn(`[OrderEmail] Failed to send confirmation for order #${data.orderId} to ${data.customerEmail}: ${lastErr?.message}`);
+    return { sent: false, error: lastErr?.message };
   } catch (err: any) {
     console.error(`[OrderEmail] Failed to send confirmation for order #${data.orderId} to ${data.customerEmail}:`, err.message);
     return { sent: false, error: err.message };
