@@ -56,7 +56,7 @@ export async function GET(
         'Content-Type': 'application/json'
       },
       cache: 'no-store',
-      signal: AbortSignal.timeout(25000)
+      signal: AbortSignal.timeout(60000)
     });
 
     const data = await backendRes.json().catch(() => ({}));
@@ -93,7 +93,7 @@ export async function POST(
       },
       body: JSON.stringify(body),
       cache: 'no-store',
-      signal: AbortSignal.timeout(30000)
+      signal: AbortSignal.timeout(60000)
     });
 
     const data = await backendRes.json().catch(() => ({}));
@@ -130,7 +130,7 @@ export async function PUT(
       },
       body: JSON.stringify(body),
       cache: 'no-store',
-      signal: AbortSignal.timeout(30000)
+      signal: AbortSignal.timeout(60000)
     });
 
     const data = await backendRes.json().catch(() => ({}));
@@ -165,7 +165,7 @@ export async function DELETE(
         'Content-Type': 'application/json'
       },
       cache: 'no-store',
-      signal: AbortSignal.timeout(25000)
+      signal: AbortSignal.timeout(60000)
     });
 
     const data = await backendRes.json().catch(() => ({}));

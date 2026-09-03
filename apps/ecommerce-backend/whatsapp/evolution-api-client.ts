@@ -56,13 +56,8 @@ export class EvolutionApiClient {
         err.response && retryableStatuses.includes(err.response.status);
       const isRetryableNetwork =
         err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'ECONNRESET';
-      if (_attempt < 4 && (isRetryableHttp || isRetryableNetwork)) {
-        // Budget: 5+8+12+18 = 43s of backoff — covers most Render cold starts
-        // while staying under the ~60s Vercel function limit per request.
-        // The route returns 503 'evolution_waking' and the frontend keeps
-        // polling every 20s, so longer cold starts still converge.
-        const backoff = [5000, 8000, 12000, 18000][_attempt];
-        await new Promise(r => setTimeout(r, backoff));
+      if (_attempt < 1 && (isRetryableHttp || isRetryableNetwork)) {
+        await new Promise(r => setTimeout(r, 1500));
         return this.call<T>(method, path, body, timeoutMs, _attempt + 1);
       }
       if (err.response) {
