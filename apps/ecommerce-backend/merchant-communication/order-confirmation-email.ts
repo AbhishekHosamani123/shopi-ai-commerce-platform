@@ -380,7 +380,7 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-api-secret': process.env.API_SECRET || 'razorpay_ai_commerce_shared_secret_2026'
+            'x-api-secret': 'razorpay_ai_commerce_shared_secret_2026'
           },
           body: JSON.stringify({
             to: data.customerEmail,

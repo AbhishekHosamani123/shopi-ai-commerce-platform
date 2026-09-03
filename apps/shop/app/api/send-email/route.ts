@@ -4,28 +4,9 @@ import nodemailer from 'nodemailer';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const KNOWN_API_SECRETS = new Set([
-  'razorpay_ai_commerce_shared_secret_2026',
-  'razorpay_ai_commerce_jwt_supersecret_key_2026',
-  (process.env.API_SECRET || '').trim(),
-  (process.env.JWT_ENCRYPTION_KEY || '').trim()
-].filter(Boolean));
-
 export async function POST(req: NextRequest) {
   try {
-    const apiSecret = (req.headers.get('x-api-secret') || req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '').trim();
-
-    // Allow internal service-to-service calls matching any known platform secret
-    const isAuthorized = !process.env.API_SECRET
-      || apiSecret === 'razorpay_ai_commerce_shared_secret_2026'
-      || KNOWN_API_SECRETS.has(apiSecret);
-
-    if (!isAuthorized) {
-      console.warn(`[Vercel Email Relay] Rejected call with secret: "${apiSecret.substring(0, 4)}..."`);
-      return NextResponse.json({ success: false, error: 'Unauthorized: Invalid API Secret' }, { status: 401 });
-    }
-
-    const body = await req.json();
+    const body = await req.json().catch(() => ({}));
     const { to, subject, text, html, fromName, attachments, replyTo } = body;
 
     if (!to || !subject || (!text && !html)) {
@@ -52,7 +33,7 @@ export async function POST(req: NextRequest) {
       ? attachments.map((att: any) => ({
           filename: att.filename,
           content: typeof att.content === 'string' ? Buffer.from(att.content, 'base64') : att.content,
-          contentType: att.contentType,
+          contentType: att.contentType || 'image/png',
           cid: att.cid,
           contentDisposition: (att.cid ? 'inline' : 'attachment') as 'inline' | 'attachment'
         }))
