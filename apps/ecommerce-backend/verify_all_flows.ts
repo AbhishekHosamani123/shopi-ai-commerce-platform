@@ -23,7 +23,7 @@ async function runEndToEndVerification() {
   console.log('🚀 RUNNING END-TO-END VERIFICATION OF SHOPPING & EMAIL FLOWS');
   console.log('================================================================\n');
 
-  const testRecipient = process.env.EMAIL_TEST_RECIPIENT || 'abhishekhosamani522@gmail.com';
+  const testRecipient = process.env.EMAIL_TEST_RECIPIENT || 'abhishekhosamani79@gmail.com';
 
   // --------------------------------------------------------------------------
   // TEST 1: Customer Order Confirmation Email Delivery (Live Send via SMTP)

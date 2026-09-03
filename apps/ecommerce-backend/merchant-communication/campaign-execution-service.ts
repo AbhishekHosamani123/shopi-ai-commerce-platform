@@ -559,13 +559,17 @@ export class CampaignExecutionService {
         unsubscribeUrl: campaign.message.email.unsubscribeUrl
       });
 
+      const effectiveRecipient = (channel === 'EMAIL' && process.env.EMAIL_TEST_RECIPIENT)
+        ? process.env.EMAIL_TEST_RECIPIENT.trim()
+        : recipient.recipient;
+
       const payload: OutboundMessagePayload = {
         messageId,
         merchantId,
         campaignId,
         customerId: recipient.customerId,
         channel,
-        recipient: recipient.recipient,
+        recipient: effectiveRecipient,
         subject: campaign.message.email.subject,
         textBody: renderedEmail.text,
         htmlBody: renderedEmail.html,
