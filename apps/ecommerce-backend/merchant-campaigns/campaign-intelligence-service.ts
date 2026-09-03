@@ -541,6 +541,63 @@ export class CampaignIntelligenceService {
   }
 
   /**
+   * Persists campaign proposals into the merchant_marketing_campaigns table.
+   * If a campaign is already APPROVED, REJECTED, or COMPLETED, its status is preserved.
+   */
+  public async persistProposalsBatch(proposals: CampaignProposal[]): Promise<void> {
+    if (!proposals || proposals.length === 0) return;
+    await this.ensureSchema();
+
+    for (const p of proposals) {
+      try {
+        await client.query(`
+          INSERT INTO merchant_marketing_campaigns (
+            campaign_id, merchant_id, recommendation_id, opportunity_id, campaign_type,
+            status, title, product_data, audience_data, offer_data, financial_simulation,
+            message_preview, explanation, is_dry_run_only, created_at, expires_at
+          ) VALUES (
+            $1, $2, $3, $4, $5,
+            $6, $7, $8::jsonb, $9::jsonb, $10::jsonb, $11::jsonb,
+            $12::jsonb, $13::jsonb, $14, $15::timestamptz, $16::timestamptz
+          )
+          ON CONFLICT (campaign_id) DO UPDATE SET
+            status = CASE 
+              WHEN merchant_marketing_campaigns.status IN ('APPROVED', 'REJECTED', 'COMPLETED', 'EXECUTING') 
+              THEN merchant_marketing_campaigns.status 
+              ELSE EXCLUDED.status 
+            END,
+            product_data = EXCLUDED.product_data,
+            audience_data = EXCLUDED.audience_data,
+            offer_data = EXCLUDED.offer_data,
+            financial_simulation = EXCLUDED.financial_simulation,
+            message_preview = EXCLUDED.message_preview,
+            explanation = EXCLUDED.explanation,
+            expires_at = EXCLUDED.expires_at;
+        `, [
+          p.campaignId,
+          p.merchantId,
+          p.recommendationId,
+          p.opportunityId,
+          p.campaignType,
+          p.status,
+          p.title,
+          JSON.stringify(p.product),
+          JSON.stringify(p.audience),
+          JSON.stringify(p.offer),
+          JSON.stringify(p.financialSimulation),
+          JSON.stringify(p.messagePreview),
+          JSON.stringify(p.explanation),
+          p.isDryRunOnly,
+          p.createdAt,
+          p.expiresAt
+        ]);
+      } catch (err: any) {
+        console.warn('[CampaignIntelligence] Error upserting proposal:', p.campaignId, err.message);
+      }
+    }
+  }
+
+  /**
    * Merchant Approval Flow with Fresh Server-Side Revalidation.
    *
    * `deliveryChannels` persists the merchant's channel selection into the
@@ -560,10 +617,19 @@ export class CampaignIntelligenceService {
         ? deliveryChannels
         : ['EMAIL'];
 
-    const campRes = await client.query(
+    let campRes = await client.query(
       'SELECT * FROM merchant_marketing_campaigns WHERE campaign_id = $1 AND merchant_id = $2',
       [campaignId, merchantId]
     );
+
+    if (campRes.rows.length === 0) {
+      // Self-heal: generate proposals to populate DB table if missed
+      await this.generateCampaignProposals(merchantId);
+      campRes = await client.query(
+        'SELECT * FROM merchant_marketing_campaigns WHERE campaign_id = $1 AND merchant_id = $2',
+        [campaignId, merchantId]
+      );
+    }
 
     if (campRes.rows.length === 0) {
       return { success: false, error: `Campaign ${campaignId} not found.` };
