@@ -42,17 +42,17 @@ const Checkout = () => {
     const [product, setProduct] = useState<ProductDetails>(emptyProductDetails);
     const data = product;
 
-    // Delivery details form state (editable for both guest and logged-in customers)
+    // Delivery details form state (pre-filled with demo default address, fully editable)
     const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
+        fullName: 'Abhishek Hosamani',
+        email: 'abhishekhosamani79@gmail.com',
+        phone: '8431406956',
         country: 'India',
-        city: '',
-        state: '',
-        addressLine1: '',
-        addressLine2: '',
-        postalCode: ''
+        city: 'Bengaluru',
+        state: 'Karnataka',
+        addressLine1: '402 Palm Heights, 100ft Inner Ring Road',
+        addressLine2: 'Koramangala 4th Block',
+        postalCode: '560034'
     });
 
     const shipping = data.shippingcost || 99;
