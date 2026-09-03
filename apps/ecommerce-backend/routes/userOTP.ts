@@ -22,12 +22,13 @@ router.post('/user/send-forgot-otp',EmailSchema,async (req:Request,res:Response)
     const result = validationResult(req);
     if(result.isEmpty()){
         const {email} = matchedData(req);
+        const normalizedEmail = String(email).trim().toLowerCase();
         try {
-            // Check if the email exists
+            // Check if the email exists (case-insensitive — see signin)
             const query = `
-                SELECT * FROM "${userTable}" WHERE email = $1;
+                SELECT * FROM "${userTable}" WHERE LOWER(email) = LOWER($1);
             `;
-            const values = [email];
+            const values = [normalizedEmail];
             const result = await client.query(query, values);
     
             if (result.rows.length === 0) {
@@ -40,8 +41,8 @@ router.post('/user/send-forgot-otp',EmailSchema,async (req:Request,res:Response)
             const expiryMs = Date.now() + 5 * 60 * 1000; // 5 minutes from now
             const randomOTP = `${GeneratedOTP}:${expiryMs}`;
             try {
-                const query2 = `UPDATE "${userTable}" SET otp = $1 WHERE email = $2`;
-                const values2 = [randomOTP, email];
+                const query2 = `UPDATE "${userTable}" SET otp = $1 WHERE LOWER(email) = LOWER($2)`;
+                const values2 = [randomOTP, normalizedEmail];
                 await client.query(query2,values2);
             } catch (error) {
                 return res.status(500).json({ error: 'Server error' });
@@ -77,9 +78,10 @@ router.post('/user/reset-password',EmailPasswordOtpSchema,async (req:Request,res
     const result = validationResult(req);
     if(result.isEmpty()){
         const { email,password,otp } = matchedData(req);
+        const normalizedEmail = String(email).trim().toLowerCase();
         // Stored OTP format is "CODE:expiryEpochMs"
-        const query = `SELECT otp FROM "${userTable}" WHERE email = $1`;
-        const values = [email]
+        const query = `SELECT otp FROM "${userTable}" WHERE LOWER(email) = LOWER($1)`;
+        const values = [normalizedEmail]
         try {
             const result = await client.query(query,values);
             if (result.rows.length === 0) {
@@ -99,10 +101,10 @@ router.post('/user/reset-password',EmailPasswordOtpSchema,async (req:Request,res
         } catch (error) {
             return res.status(500).json({error:'Server error'});
         }
-        const query2 = `UPDATE "${userTable}" SET password = $1 WHERE email = $2`;
+        const query2 = `UPDATE "${userTable}" SET password = $1 WHERE LOWER(email) = LOWER($2)`;
         try {
             const hash = await bcrypt.hash(password, saltRounds);
-            const values2 = [hash, email];
+            const values2 = [hash, normalizedEmail];
             await client.query(query2,values2);
             return res.status(200).json({message:'Successfully Changed Password'});
         } catch (error) {

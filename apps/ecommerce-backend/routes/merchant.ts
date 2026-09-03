@@ -174,7 +174,20 @@ async function computeOverview(period: string, merchantId: string, salesInterval
       dailyBriefingEngine.generateDailyBriefing(merchantId).catch((err) => { console.error('Daily briefing error:', err); return null; }),
       financialPolicyService.getEffectivePolicy(merchantId).catch(() => null),
       businessHealthScoreEngine.computeHealthScore(merchantId).catch(() => null),
-      campaignIntelligenceService.generateCampaignProposals(merchantId).catch(() => [])
+      // Campaign proposals feed the Overview "campaigns" cards. On engine
+      // failure fall back to the PERSISTED merchant_marketing_campaigns rows
+      // instead of returning [] (an empty-but-200 made Overview look healthy
+      // while the Actions workspace silently showed nothing on Render).
+      campaignIntelligenceService
+        .generateCampaignProposals(merchantId)
+        .catch(async (err: any) => {
+          console.error('Overview campaign proposals failed:', err?.message);
+          try {
+            return await campaignBuilderService.listCampaigns(merchantId);
+          } catch {
+            return [];
+          }
+        })
     ]);
 
     const activeCriticalAlerts = alerts.filter(a => a.severity === 'CRITICAL').length;
@@ -1035,15 +1048,64 @@ router.get('/campaigns/recommendations', async (req: Request, res: Response) => 
     // generateCampaignProposals runs ~185 offers × 4 sequential DB queries
     // (~1.8s, ~740 queries). Cache the full proposal list per merchant; the
     // approve/reject/dry-run mutations invalidate this key explicitly.
-    const all = await ttlCache.get(
-      `campaigns:${merchantId}`,
-      () => campaignIntelligenceService.generateCampaignProposals(merchantId)
-    ).catch(err => {
-      console.warn('generateCampaignProposals warning:', err.message);
-      return [];
-    });
+    //
+    // Failure honesty: an engine error must NEVER be reported as "0
+    // campaigns" — the Actions page then renders an empty workspace and the
+    // merchant cannot tell a genuinely empty pipeline from a broken one
+    // (observed on Render: DB reset mid-compute → catch(()=>[]) → cached
+    // empty → page silently shows 0 pending decisions). On error we (a) log
+    // loudly, (b) DO NOT cache the failure, and (c) fall back to the
+    // PERSISTED merchant_marketing_campaigns rows so previously generated
+    // proposals remain visible; only when both sources are empty AND an
+    // error occurred do we return the error with a retryable status.
+    let engineError: string | null = null;
+    let campaigns: any[] = [];
+    try {
+      const all = await ttlCache.get(
+        `campaigns:${merchantId}`,
+        async () => {
+          const proposals = await campaignIntelligenceService.generateCampaignProposals(merchantId);
+          // Never cache an empty result: an empty-but-successful compute is
+          // possible, but an intermittent DB failure also produces [] —
+          // caching either would pin "0 campaigns" for the whole TTL.
+          if (proposals.length === 0) {
+            throw new Error('empty-proposals-not-cached');
+          }
+          return proposals;
+        }
+      );
+      campaigns = (all as any[]) || [];
+    } catch (cacheErr: any) {
+      const msg = cacheErr?.message || String(cacheErr);
+      if (msg === 'empty-proposals-not-cached') {
+        // Engine completed but produced nothing. This may be legitimate (no
+        // opportunities) or a degraded DB. Try the persisted rows before
+        // declaring empty, and record which source served the data.
+        engineError = 'engine-produced-no-proposals';
+      } else {
+        console.error('generateCampaignProposals failed:', msg);
+        engineError = msg;
+      }
+      campaigns = [];
+    }
 
-    let campaigns = (all as any[]) || [];
+    let source = 'engine';
+    if (campaigns.length === 0) {
+      // Fall back to persisted proposals (previously generated & upserted
+      // into merchant_marketing_campaigns by the engine). This keeps the
+      // Actions workspace populated across transient engine failures and
+      // DB resets that don't wipe the campaigns table.
+      try {
+        const persisted = await campaignBuilderService.listCampaigns(merchantId);
+        if (Array.isArray(persisted) && persisted.length > 0) {
+          campaigns = persisted as any[];
+          source = 'persisted';
+        }
+      } catch (fbErr: any) {
+        console.warn('Persisted-campaign fallback failed:', fbErr?.message);
+      }
+    }
+
     if (status) campaigns = campaigns.filter(c => c.status === status);
     if (limit && limit > 0) campaigns = campaigns.slice(0, limit);
 
@@ -1061,11 +1123,17 @@ router.get('/campaigns/recommendations', async (req: Request, res: Response) => 
     return res.json({
       success: true,
       count: campaigns.length,
-      campaigns
+      campaigns,
+      source,
+      engineError: engineError && campaigns.length === 0 ? engineError : undefined
     });
   } catch (error: any) {
     console.error('Campaign recommendations error:', error);
-    return res.json({ success: true, count: 0, campaigns: [] });
+    return res.status(503).json({
+      success: false,
+      error: error?.message || 'Campaign engine temporarily unavailable — retry shortly.',
+      retryable: true
+    });
   }
 });
 

@@ -84,12 +84,18 @@ router.post('/user/signup/:promotional',signUpSchema, async (req: Request, res: 
             mobile_number,
             dob
         } = matchedData(req);
+        // Emails are case-insensitive identities: browsers/autofill may send
+        // mixed case, and a case-sensitive UNIQUE column would then allow
+        // duplicate "accounts" while signin (case-insensitive) matched the
+        // wrong one. Normalize at the boundary so stored emails are always
+        // lowercase and lookups agree.
+        const normalizedEmail = String(email).trim().toLowerCase();
         try {
-            // Check if email or mobile number already exists
+            // Check if email or mobile number already exists (case-insensitive)
             const checkQuery = `
-                SELECT * FROM "${userTable}" WHERE email = $1 OR mobile_number = $2;
+                SELECT * FROM "${userTable}" WHERE LOWER(email) = LOWER($1) OR mobile_number = $2;
             `;
-            const checkValues = [email, mobile_number];
+            const checkValues = [normalizedEmail, mobile_number];
             const result = await client.query(checkQuery, checkValues);
     
             if (result.rows.length > 0) {
@@ -105,7 +111,7 @@ router.post('/user/signup/:promotional',signUpSchema, async (req: Request, res: 
                 INSERT INTO "${userTable}" (userID, userName, email, password, mobile_number, dob, creation_ip, role, update_ip, promotional) 
                 VALUES ($1, $2, $3, $4, $5, $6, $7, 'customer', $7, $8);
             `;
-            const insertValues = [userID, userName, email, hash, mobile_number, dob, creationIP, dbPromotional];
+            const insertValues = [userID, userName, normalizedEmail, hash, mobile_number, dob, creationIP, dbPromotional];
     
             await client.query(insertQuery, insertValues);
             const token = jwt.sign(
@@ -132,11 +138,16 @@ router.post('/user/signin/:remember',signInSchema, async (req: Request, res: Res
         const { email, password } = matchedData(req);
         const {remember} = matchedData(req);
         try {
-            // Check if the email exists
+            // Check if the email exists — case-insensitive. Emails are
+            // stored lowercase (see signup), but accounts created before that
+            // normalization or via other flows may hold mixed case; a
+            // case-sensitive = comparison made those users permanently
+            // "Invalid credentials" whenever their browser auto-capitalized
+            // the address.
             const query = `
-                SELECT * FROM "${userTable}" WHERE email = $1;
+                SELECT * FROM "${userTable}" WHERE LOWER(email) = LOWER($1);
             `;
-            const values = [email];
+            const values = [String(email).trim()];
             const result = await client.query(query, values);
 
             if (result.rows.length === 0) {
@@ -227,9 +238,10 @@ router.post('/user/merchant-login',merchantLoginSchema, async (req: Request, res
     }
     const { identifier, password } = matchedData(req);
     try {
-        // Accept either the merchant username or email in a single field.
+        // Accept either the merchant username or email in a single field
+        // (case-insensitive on both).
         const query = `
-            SELECT * FROM "${userTable}" WHERE email = $1 OR LOWER(username) = LOWER($1) LIMIT 1;
+            SELECT * FROM "${userTable}" WHERE LOWER(email) = LOWER($1) OR LOWER(username) = LOWER($1) LIMIT 1;
         `;
         const dbResult = await client.query(query, [identifier]);
         const user = dbResult.rows[0];
@@ -305,11 +317,11 @@ router.post('/native/auth/google',googleAuthSchemaNative,async (req:Request,res:
     if(result.isEmpty()){
         const {email} = matchedData(req);
         try {
-            // Check if the email exists
+            // Check if the email exists (case-insensitive — see signin)
             const query = `
-                SELECT * FROM "${userTable}" WHERE email = $1;
+                SELECT * FROM "${userTable}" WHERE LOWER(email) = LOWER($1);
             `;
-            const values = [email];
+            const values = [String(email).trim()];
             const result = await client.query(query, values);
 
             if (result.rows.length === 0) {

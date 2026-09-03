@@ -65,6 +65,10 @@ export default function MerchantActionsPage() {
   const [isCopilotOpen, setIsCopilotOpen] = useState<boolean>(false);
   const [feedbackToast, setFeedbackToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [isFetching, setIsFetching] = useState<boolean>(true);
+  // Data-load failure state: surfaced INSTEAD of letting a failed backend call
+  // render as a healthy-but-empty workspace ("0 pending decisions"). The
+  // merchant must be able to tell "pipeline empty" from "pipeline broken".
+  const [dataLoadError, setDataLoadError] = useState<string | null>(null);
   // Merchant-selected delivery channels (Email ON by default preserves the
   // existing email workflow; WhatsApp is an independent toggle).
   const [selectedChannels, setSelectedChannels] = useState<DeliveryChannel[]>(['EMAIL']);
@@ -78,6 +82,7 @@ export default function MerchantActionsPage() {
 
   const fetchDecisionData = useCallback(async () => {
     setIsFetching(true);
+    setDataLoadError(null);
     try {
       const [actionsRes, campaignsRes] = await Promise.all([
         merchantFetch('/api/merchant/actions', { headers: { 'x-merchant-id': 'default_merchant' } }),
@@ -85,6 +90,23 @@ export default function MerchantActionsPage() {
         // renders a scrollable list so 100 is far beyond what is ever visible.
         merchantFetch('/api/merchant/campaigns/recommendations?limit=100', { headers: { 'x-merchant-id': 'default_merchant' } })
       ]);
+
+      // Backend data-load failures must NEVER render as a healthy empty
+      // workspace. 503 {recovering:true} means the Render DB is mid-recovery
+      // (free-tier reset) — show an explicit retry banner; other non-OKs show
+      // the error with a retry button.
+      const loadErrors: string[] = [];
+      if (!actionsRes.ok) {
+        const aErr = await actionsRes.json().catch(() => ({ error: `Actions API returned ${actionsRes.status}` }));
+        loadErrors.push(aErr.error || `Actions API returned ${actionsRes.status}`);
+      }
+      if (!campaignsRes.ok) {
+        const cErr = await campaignsRes.json().catch(() => ({ error: `Campaigns API returned ${campaignsRes.status}` }));
+        loadErrors.push(cErr.error || `Campaigns API returned ${campaignsRes.status}`);
+      }
+      if (loadErrors.length > 0) {
+        setDataLoadError(loadErrors.join(' · '));
+      }
 
       if (actionsRes.ok) {
         const aData = await actionsRes.json();
@@ -118,6 +140,7 @@ export default function MerchantActionsPage() {
       }
     } catch (err: any) {
       console.warn('Failed to fetch decision data:', err.message);
+      setDataLoadError(err.message || 'Failed to load decision data — the backend may be unreachable.');
     } finally {
       setIsFetching(false);
     }
@@ -302,6 +325,26 @@ export default function MerchantActionsPage() {
           <span>{feedbackToast.message}</span>
           <button onClick={() => setFeedbackToast(null)} className="underline text-xs ml-2">
             Dismiss
+          </button>
+        </div>
+      )}
+
+      {/* Data-load failure banner: an unreachable/errored backend must not
+          masquerade as an empty workspace. Shown only while the error
+          persists; dismissed automatically on a successful refetch. */}
+      {dataLoadError && (
+        <div className="p-3 rounded-md text-xs font-medium flex items-center justify-between shadow-2xs border bg-amber-500/10 text-amber-300 border-amber-500/30">
+          <span>
+            Decision data could not be fully loaded from the commerce backend: {dataLoadError}
+            {dataLoadError.includes('restored') || dataLoadError.includes('recover')
+              ? ' — the database is being restored automatically; retry in a few seconds.'
+              : ''}
+          </span>
+          <button
+            onClick={() => fetchDecisionData()}
+            className="underline text-xs ml-2 whitespace-nowrap"
+          >
+            Retry now
           </button>
         </div>
       )}
