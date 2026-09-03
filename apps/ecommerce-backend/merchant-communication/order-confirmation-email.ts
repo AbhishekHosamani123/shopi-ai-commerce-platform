@@ -366,21 +366,56 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
     // an earlier prod incident). sendMail therefore tries 587 first and, on
     // connect failure, retries the same message over 465 — two independent
     // egress routes, three attempts each.
+    const { html, text } = renderOrderConfirmationEmail(data);
+
+    // 1. Primary Render Bypass: Dispatch via Vercel HTTPS Email Relay (Port 443)
+    // Render free tier blocks outbound TCP ports 25, 465, and 587. Vercel Serverless
+    // operates on AWS Lambda with full outbound port 587 access. Routing over HTTPS:443
+    // ensures instantaneous email dispatch from Render.
+    const storefrontUrl = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
+    if (storefrontUrl.startsWith('http')) {
+      try {
+        console.log(`[OrderEmail] Attempting HTTPS email relay via ${storefrontUrl}/api/send-email...`);
+        const relayRes = await fetch(`${storefrontUrl}/api/send-email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-secret': process.env.API_SECRET || 'razorpay_ai_commerce_shared_secret_2026'
+          },
+          body: JSON.stringify({
+            to: data.customerEmail,
+            subject: `Order confirmed #${data.orderId} — your Shopi package is on its way 🚚`,
+            text,
+            html,
+            fromName: process.env.SMTP_SENDERNAME || 'Shopi Store'
+          }),
+          signal: AbortSignal.timeout(12000)
+        });
+        const relayBody: any = await relayRes.json().catch(() => ({}));
+        if (relayRes.ok && relayBody.success && relayBody.messageId) {
+          console.log(`[OrderEmail] Confirmation sent via HTTPS Relay for order #${data.orderId} to ${data.customerEmail} (${relayBody.messageId})`);
+          return { sent: true, messageId: relayBody.messageId };
+        }
+        console.warn(`[OrderEmail] HTTPS relay returned non-ok:`, relayBody?.error || relayRes.status);
+      } catch (relayErr: any) {
+        console.warn(`[OrderEmail] HTTPS relay attempt failed: ${relayErr.message}`);
+      }
+    }
+
+    // 2. Direct SMTP Transport (Local Dev / Unblocked egress)
     const smtpHost = await getGmailSmtpHost();
     const baseTransport = {
       host: smtpHost,
       auth: { user: email, pass: password },
       tls: { servername: 'smtp.gmail.com', rejectUnauthorized: true },
-      connectionTimeout: 20000,
-      greetingTimeout: 20000,
-      socketTimeout: 30000
+      connectionTimeout: 8000,
+      greetingTimeout: 8000,
+      socketTimeout: 10000
     };
     const portSequence: Array<{ port: number; secure: boolean }> = [
       { port: 587, secure: false }, // MSA + STARTTLS
       { port: 465, secure: true }   // implicit TLS
     ];
-
-    const { html, text } = renderOrderConfirmationEmail(data);
 
     const mail = {
       from: `"${process.env.SMTP_SENDERNAME || 'Shopi Store'}" <${email}>`,
@@ -394,15 +429,15 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
     let lastErr: any = null;
     outer: for (const { port, secure } of portSequence) {
       const transporter = nodemailer.createTransport({ ...baseTransport, port, secure });
-      for (let attempt = 1; attempt <= 3; attempt++) {
+      for (let attempt = 1; attempt <= 2; attempt++) {
         try {
           info = await transporter.sendMail(mail);
           console.log(`[OrderEmail] sent via port ${port} (${secure ? 'implicit TLS' : 'STARTTLS'})`);
           break outer;
         } catch (e: any) {
           lastErr = e;
-          console.warn(`[OrderEmail] order #${data.orderId} send attempt ${attempt}/3 via port ${port} failed: ${e.message}`);
-          if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+          console.warn(`[OrderEmail] order #${data.orderId} send attempt ${attempt}/2 via port ${port} failed: ${e.message}`);
+          if (attempt < 2) await new Promise(r => setTimeout(r, 2000));
         }
       }
     }

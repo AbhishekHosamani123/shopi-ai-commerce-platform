@@ -85,6 +85,55 @@ export class GmailEmailProvider implements CommunicationProvider {
       // and, on connect failure, retries the same message over 465 — two
       // independent egress routes, three attempts each (mirrors the
       // order-confirmation email).
+      // 1. Primary Render Bypass: Dispatch via Vercel HTTPS Email Relay (Port 443)
+      const storefrontUrl = (process.env.STOREFRONT_BASE_URL || process.env.FRONTEND_SERVER_ORIGIN || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
+      if (storefrontUrl.startsWith('http')) {
+        try {
+          console.log(`[GmailProvider] Attempting HTTPS email relay via ${storefrontUrl}/api/send-email...`);
+          const relayAttachments = message.inlineAttachments && message.inlineAttachments.length > 0
+            ? message.inlineAttachments.map(att => ({
+                filename: att.filename,
+                content: Buffer.isBuffer(att.content) ? att.content.toString('base64') : att.content,
+                contentType: att.contentType,
+                cid: att.cid
+              }))
+            : undefined;
+
+          const relayRes = await fetch(`${storefrontUrl}/api/send-email`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-api-secret': process.env.API_SECRET || 'razorpay_ai_commerce_shared_secret_2026'
+            },
+            body: JSON.stringify({
+              to: message.recipient,
+              subject: message.subject || 'Special offer from your favorite store',
+              text: message.textBody,
+              html: message.htmlBody || `<p>${message.textBody}</p>`,
+              fromName: process.env.SMTP_SENDERNAME || 'Razorpay AI Commerce',
+              replyTo: message.replyTo || email,
+              attachments: relayAttachments
+            }),
+            signal: AbortSignal.timeout(15000)
+          });
+          const relayBody: any = await relayRes.json().catch(() => ({}));
+          if (relayRes.ok && relayBody.success && relayBody.messageId) {
+            console.log(`[GmailProvider] Campaign email sent via HTTPS Relay to ${message.recipient} (${relayBody.messageId})`);
+            return {
+              success: true,
+              provider: this.name,
+              providerMessageId: relayBody.messageId,
+              status: 'SENT',
+              timestamp
+            };
+          }
+          console.warn(`[GmailProvider] HTTPS relay returned non-ok:`, relayBody?.error || relayRes.status);
+        } catch (relayErr: any) {
+          console.warn(`[GmailProvider] HTTPS relay attempt failed: ${relayErr.message}`);
+        }
+      }
+
+      // 2. Direct SMTP Transport (Local Dev / Unblocked egress)
       const smtpHost = await getGmailSmtpHost();
       const baseTransport = {
         host: smtpHost,
@@ -96,9 +145,9 @@ export class GmailEmailProvider implements CommunicationProvider {
           servername: 'smtp.gmail.com',
           rejectUnauthorized: true
         },
-        connectionTimeout: 20000,
-        greetingTimeout: 20000,
-        socketTimeout: 30000
+        connectionTimeout: 8000,
+        greetingTimeout: 8000,
+        socketTimeout: 10000
       };
       const portSequence: Array<{ port: number; secure: boolean }> = [
         { port: 587, secure: false }, // MSA + STARTTLS
@@ -115,10 +164,6 @@ export class GmailEmailProvider implements CommunicationProvider {
         subject: message.subject || 'Special offer from your favorite store',
         text: message.textBody,
         html: message.htmlBody || `<p>${message.textBody}</p>`,
-        // Inline CID images travel with the MIME message itself — Gmail/Outlook
-        // display them without any external fetch (no localhost URLs, which a
-        // real recipient could never load). Omitted entirely for emails built
-        // without inline assets, keeping legacy behavior unchanged.
         ...(message.inlineAttachments && message.inlineAttachments.length > 0
           ? {
               attachments: message.inlineAttachments.map((att) => ({
@@ -126,8 +171,7 @@ export class GmailEmailProvider implements CommunicationProvider {
                 content: att.content,
                 contentType: att.contentType,
                 cid: att.cid,
-                contentDisposition: 'inline',
-                encoding: 'binary' as const
+                contentDisposition: 'inline'
               }))
             }
           : {}),
@@ -144,13 +188,13 @@ export class GmailEmailProvider implements CommunicationProvider {
       let lastErr: any = null;
       outer: for (const { port, secure } of portSequence) {
         const transporter = nodemailer.createTransport({ ...baseTransport, port, secure });
-        for (let attempt = 1; attempt <= 3; attempt++) {
+        for (let attempt = 1; attempt <= 2; attempt++) {
           try {
             info = await transporter.sendMail(buildMail() as any);
             break outer;
           } catch (e: any) {
             lastErr = e;
-            if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+            if (attempt < 2) await new Promise(r => setTimeout(r, 2000));
           }
         }
       }

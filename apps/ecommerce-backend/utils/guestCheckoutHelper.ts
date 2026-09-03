@@ -66,21 +66,30 @@ export async function resolveOrCreateCustomer(
       customerEmail = `customer_${Date.now()}@shopi.store`;
     }
     try {
-      const existingUser = await client.query('SELECT userid, username, email FROM users WHERE email = $1 LIMIT 1', [customerEmail]);
+      const existingUser = await client.query(
+        'SELECT userid, username, email FROM users WHERE email = $1 OR (mobile_number IS NOT NULL AND mobile_number = $2) LIMIT 1',
+        [customerEmail, customerPhone || '']
+      );
       if (existingUser.rows.length > 0) {
         userId = existingUser.rows[0].userid;
       } else {
         const insertUser = await client.query(
           `INSERT INTO users (username, email, mobile_number, role, is_verified)
-           VALUES ($1, $2, $3, 'customer', true) RETURNING userid`,
+           VALUES ($1, $2, $3, 'customer', true)
+           ON CONFLICT (email) DO UPDATE SET username = EXCLUDED.username
+           RETURNING userid`,
           [customerName, customerEmail, customerPhone || null]
         );
-        userId = insertUser.rows[0].userid;
+        userId = insertUser.rows[0]?.userid || 1;
       }
     } catch (e: any) {
       console.warn('[guestCheckout] user creation fallback:', e?.message);
-      // Fallback to demo user ID 1
-      userId = 1;
+      try {
+        const userByMobile = await client.query('SELECT userid FROM users WHERE mobile_number = $1 LIMIT 1', [customerPhone]);
+        userId = userByMobile.rows[0]?.userid || 1;
+      } catch {
+        userId = 1;
+      }
     }
   }
 
