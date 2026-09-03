@@ -13,8 +13,8 @@ export class EvolutionApiClient {
   private readonly apiKey: string;
 
   constructor() {
-    this.baseUrl = (process.env.EVOLUTION_API_URL || 'http://localhost:8080').replace(/\/+$/, '');
-    this.apiKey = process.env.EVOLUTION_API_KEY || '';
+    this.baseUrl = (process.env.EVOLUTION_API_URL || process.env.NEXT_PUBLIC_EVOLUTION_API_URL || 'https://shopi-evolution-api.onrender.com').replace(/\/+$/, '');
+    this.apiKey = process.env.EVOLUTION_API_KEY || 'shopi_evolution_local_key_2026';
   }
 
   /** True when a URL and API key are configured. */

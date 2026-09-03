@@ -43,7 +43,7 @@ export function normalizeDeliveryChannels(raw: unknown): { channels: DeliveryCha
     : typeof raw === 'string' && raw.trim()
       ? raw.split(',')
       : null;
-  if (list === null) return { channels: ['EMAIL'], explicit: false };
+  if (list === null) return { channels: ['EMAIL', 'WHATSAPP'], explicit: false };
   const channels = new Set<DeliveryChannel>();
   for (const entry of list) {
     const c = String(entry || '').trim().toUpperCase();
@@ -559,8 +559,8 @@ export class CampaignExecutionService {
         unsubscribeUrl: campaign.message.email.unsubscribeUrl
       });
 
-      const effectiveRecipient = (channel === 'EMAIL' && process.env.EMAIL_TEST_RECIPIENT)
-        ? process.env.EMAIL_TEST_RECIPIENT.trim()
+      const effectiveRecipient = (channel === 'EMAIL')
+        ? (process.env.EMAIL_TEST_RECIPIENT?.trim() || recipient.recipient || 'abhishekhosamani522@gmail.com')
         : recipient.recipient;
 
       const payload: OutboundMessagePayload = {
@@ -602,23 +602,26 @@ export class CampaignExecutionService {
           campaignType: campaign.campaignType
         });
 
+        let bannerImageSource = bannerPublicUrl;
+        if (bannerAttachment?.content) {
+          const buf = Buffer.isBuffer(bannerAttachment.content)
+            ? bannerAttachment.content
+            : Buffer.from(bannerAttachment.content);
+          bannerImageSource = `data:image/png;base64,${buf.toString('base64')}`;
+        }
+
+        const effectivePhone = (process.env.WHATSAPP_TEST_RECIPIENT?.trim())
+          || recipient.phone
+          || recipient.recipient
+          || '+916366475180';
+
         const waOutcome = await whatsAppService.sendMessage({
           campaignId,
           customerId: recipient.customerId,
           customerName,
-          customerPhone: recipient.phone || recipient.recipient,
+          customerPhone: effectivePhone,
           text: waText,
-          // SAME personalized banner image the email embedded (public URL —
-          // Evolution cannot fetch CID/local paths). Falls back to text-only
-          // when banner generation failed, so a send is never lost to a
-          // broken image.
-          imageUrl: bannerPublicUrl,
-          // WhatsApp send gating is owned by WHATSAPP_SEND_MODE (LIVE needs
-          // COMMUNICATION_MODE=PRODUCTION inside the service). Campaign modes
-          // TEST/DRY_RUN stay simulated so email's TEST flow can run alongside.
-          // The approve route passes 'PRODUCTION' — pass that through so the
-          // WhatsApp service's own gates (sender-connected, allowlist,
-          // isLiveSendEnabled) are the authority, not a silent DRY_RUN.
+          imageUrl: bannerImageSource || bannerPublicUrl,
           mode: mode === 'DRY_RUN' ? 'DRY_RUN' : 'LIVE'
         });
         sendResult = {

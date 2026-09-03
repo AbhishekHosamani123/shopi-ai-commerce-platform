@@ -48,22 +48,18 @@ export type WhatsAppSendOutcome = {
  *    trail; a WhatsApp failure never throws into the campaign loop.
  */
 export class WhatsAppService {
-  /** Current send mode; defaults to DRY_RUN for safety. */
+  /** Current send mode; defaults to LIVE when in PRODUCTION mode. */
   getSendMode(): WhatsAppSendMode {
-    const mode = (process.env.WHATSAPP_SEND_MODE || 'DRY_RUN').toUpperCase();
+    const mode = (process.env.WHATSAPP_SEND_MODE || (process.env.COMMUNICATION_MODE === 'PRODUCTION' ? 'LIVE' : 'DRY_RUN')).toUpperCase();
     return mode === 'LIVE' ? 'LIVE' : 'DRY_RUN';
   }
 
   /**
-   * Live send requires the explicit WHATSAPP_SEND_MODE=LIVE plus an explicit
-   * real-send comm mode. PRODUCTION is the unrestricted mode; TEST is accepted
-   * because WhatsApp dispatch is already harder-gated than email's TEST mode —
-   * every recipient must be on the Buildathon allowlist regardless.
+   * Live send requires the explicit WHATSAPP_SEND_MODE=LIVE or COMMUNICATION_MODE=PRODUCTION.
    */
   private isLiveSendEnabled(): boolean {
     const commMode = (process.env.COMMUNICATION_MODE || 'DRY_RUN').toUpperCase();
-    const commModeAllowsRealSend = commMode === 'PRODUCTION' || commMode === 'TEST';
-    return this.getSendMode() === 'LIVE' && commModeAllowsRealSend;
+    return this.getSendMode() === 'LIVE' || commMode === 'PRODUCTION';
   }
 
   /** Sanitized runtime description (zero secrets). */

@@ -104,7 +104,7 @@ export function CampaignDetailModal({
           'Content-Type': 'application/json',
           'x-merchant-id': campaign.merchantId || 'default_merchant'
         },
-        body: JSON.stringify({ approvedBy: 'executive_merchant_lead' })
+        body: JSON.stringify({ approvedBy: 'executive_merchant_lead', deliveryChannels: ['EMAIL', 'WHATSAPP'] })
       });
       const data = await res.json();
       if (!res.ok || !data.success) {

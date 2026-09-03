@@ -69,9 +69,7 @@ export default function MerchantActionsPage() {
   // render as a healthy-but-empty workspace ("0 pending decisions"). The
   // merchant must be able to tell "pipeline empty" from "pipeline broken".
   const [dataLoadError, setDataLoadError] = useState<string | null>(null);
-  // Merchant-selected delivery channels (Email ON by default preserves the
-  // existing email workflow; WhatsApp is an independent toggle).
-  const [selectedChannels, setSelectedChannels] = useState<DeliveryChannel[]>(['EMAIL']);
+  const [selectedChannels, setSelectedChannels] = useState<DeliveryChannel[]>(['EMAIL', 'WHATSAPP']);
   const [whatsAppStatus, setWhatsAppStatus] = useState<any>(null);
 
   const handleToggleChannel = useCallback((channel: DeliveryChannel) => {
