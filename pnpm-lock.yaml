@@ -65,6 +65,9 @@ importers:
       rate-limiter-flexible:
         specifier: ^11.1.0
         version: 11.2.0
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
       stripe:
         specifier: ^22.1.1
         version: 22.5.0(@types/node@22.19.2)
