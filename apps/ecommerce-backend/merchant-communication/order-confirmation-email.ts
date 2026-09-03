@@ -1,4 +1,28 @@
 import nodemailer from 'nodemailer';
+import dns from 'dns';
+
+/**
+ * Resolve smtp.gmail.com to an IPv4 address.
+ * Render free instances have no IPv6 egress, and nodemailer uses dns.resolve
+ * (not dns.lookup) internally, so the global dns.setDefaultResultOrder
+ * ('ipv4first') has no effect on its connections. Passing the resolved IPv4
+ * address directly in the transport host forces IPv4 dialing.
+ */
+let gmailSmtpHost: string | null = null;
+async function getGmailSmtpHost(): Promise<string> {
+  if (gmailSmtpHost) return gmailSmtpHost;
+  try {
+    const addresses = await dns.promises.resolve4('smtp.gmail.com');
+    if (addresses.length > 0) {
+      gmailSmtpHost = addresses[0]; // e.g. 142.250.99.108
+      console.log(`[SMTP] Resolved smtp.gmail.com → ${gmailSmtpHost} (IPv4 force)`);
+      return gmailSmtpHost;
+    }
+  } catch (err: any) {
+    console.warn(`[SMTP] IPv4 resolution failed, falling back to hostname: ${err.message}`);
+  }
+  return 'smtp.gmail.com'; // fallback
+}
 
 /**
  * Transactional order confirmation emails.
@@ -331,14 +355,17 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
 
     // service:'gmail' resolves smtp.gmail.com, whose AAAA record can make
     // Node dial IPv6 first — hosts without IPv6 egress (Render free tier)
-    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. IPv4-first
-    // dialing is enforced globally at startup (dns.setDefaultResultOrder).
+    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. The transport
+    // host is therefore resolved to an explicit IPv4 address (nodemailer
+    // uses dns.resolve internally, which ignores the global
+    // dns.setDefaultResultOrder('ipv4first')).
     // Port 587 + STARTTLS: the implicit-TLS 465 route timed out from Render's
     // egress ('Connection timeout' in logs); 587 is the Gmail MSA port.
     // The 587 dial is INTERMITTENT on Render's free egress (one observed
     // success among timeouts), so sendMail is retried with backoff.
+    const smtpHost = await getGmailSmtpHost();
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      host: smtpHost,
       port: 587,
       secure: false,
       connectionTimeout: 20000,

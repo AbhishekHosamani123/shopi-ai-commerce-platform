@@ -490,11 +490,17 @@ export class CampaignExecutionService {
             content: banner.content
           };
           // Public URL for the WhatsApp provider (Evolution fetches it).
-          const bannerOrigin = (process.env.STOREFRONT_BASE_URL_FOR_BANNERS
-            || process.env.PUBLIC_BACKEND_URL
+          // The /campaign-banners/:filename route is served by the BACKEND
+          // (index.ts:62), NOT the Vercel storefront. Prefer the explicit
+          // PUBLIC_BACKEND_URL / STOREFRONT_BASE_URL_FOR_BANNERS env vars
+          // over the storefront URL so the WhatsApp image fetch resolves.
+          // Fall back to the storefront only when nothing else is configured
+          // (the Vercel project should have a /campaign-banners proxy route).
+          const bannerOrigin = (process.env.PUBLIC_BACKEND_URL
+            || process.env.STOREFRONT_BASE_URL_FOR_BANNERS
             || process.env.STOREFRONT_BASE_URL
             || process.env.FRONTEND_SERVER_ORIGIN
-            || 'https://shopi-backend-ono3.onrender.com').split(',')[0].trim().replace(/\/+$/, '');
+            || 'https://shopi-ai-commerce-platform-shop-two.vercel.app').split(',')[0].trim().replace(/\/+$/, '');
           bannerPublicUrl = `${bannerOrigin}/campaign-banners/${banner.filename}`;
           bannerAudit = {
             generated: true,
@@ -606,7 +612,10 @@ export class CampaignExecutionService {
           // WhatsApp send gating is owned by WHATSAPP_SEND_MODE (LIVE needs
           // COMMUNICATION_MODE=PRODUCTION inside the service). Campaign modes
           // TEST/DRY_RUN stay simulated so email's TEST flow can run alongside.
-          mode: mode === 'TEST' && whatsAppService.getSendMode() === 'LIVE' ? 'LIVE' : undefined
+          // The approve route passes 'PRODUCTION' — pass that through so the
+          // WhatsApp service's own gates (sender-connected, allowlist,
+          // isLiveSendEnabled) are the authority, not a silent DRY_RUN.
+          mode: mode === 'DRY_RUN' ? 'DRY_RUN' : 'LIVE'
         });
         sendResult = {
           success: waOutcome.success,

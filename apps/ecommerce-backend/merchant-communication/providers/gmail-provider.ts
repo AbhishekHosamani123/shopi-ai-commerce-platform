@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import dns from 'dns';
 import { CommunicationProvider } from './provider-interface';
 import {
   OutboundMessagePayload,
@@ -6,6 +7,29 @@ import {
   MessageExecutionStatus,
   WebhookProcessingResult
 } from '../communication-types';
+
+/**
+ * Resolve smtp.gmail.com to an IPv4 address. Render free instances have no
+ * IPv6 egress; nodemailer uses dns.resolve internally (the global
+ * dns.setDefaultResultOrder('ipv4first') only affects dns.lookup), so the
+ * connection would dial the IPv6 AAAA record and fail ENETUNREACH. Passing
+ * an explicit IPv4 address in the transport host forces IPv4 dialing.
+ */
+let gmailSmtpHost: string | null = null;
+async function getGmailSmtpHost(): Promise<string> {
+  if (gmailSmtpHost) return gmailSmtpHost;
+  try {
+    const addresses = await dns.promises.resolve4('smtp.gmail.com');
+    if (addresses.length > 0) {
+      gmailSmtpHost = addresses[0];
+      console.log(`[SMTP] Resolved smtp.gmail.com → ${gmailSmtpHost} (IPv4 force)`);
+      return gmailSmtpHost;
+    }
+  } catch (err: any) {
+    console.warn(`[SMTP] IPv4 resolution failed, falling back to hostname: ${err.message}`);
+  }
+  return 'smtp.gmail.com'; // fallback
+}
 
 export class GmailEmailProvider implements CommunicationProvider {
   readonly name = 'PRODUCTION_EMAIL_GMAIL';
@@ -53,12 +77,16 @@ export class GmailEmailProvider implements CommunicationProvider {
     // 6. Build Nodemailer Gmail SMTP Transport
     try {
       // IPv4-first dialing is enforced globally at startup (Render free
-      // instances have no IPv6 egress). Port 587 + STARTTLS: the implicit-TLS
-      // 465 route timed out from Render's egress; 587 is the Gmail MSA port.
+      // instances have no IPv6 egress). The transport host is ALSO resolved
+      // to an explicit IPv4 address because nodemailer uses dns.resolve
+      // internally — the global dns.setDefaultResultOrder('ipv4first') only
+      // affects dns.lookup. Port 587 + STARTTLS: the implicit-TLS 465 route
+      // timed out from Render's egress; 587 is the Gmail MSA port.
       // The 587 dial is INTERMITTENT on Render's free egress, so sendMail is
       // retried with backoff (mirrors the order-confirmation email).
+      const smtpHost = await getGmailSmtpHost();
       const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: smtpHost,
         port: 587,
         secure: false,
         connectionTimeout: 20000,

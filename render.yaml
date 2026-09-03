@@ -24,7 +24,14 @@ services:
     plan: free
     region: oregon
     branch: main
-    buildCommand: npm install
+    # Install npm deps + the Python/Pillow the campaign banner generator
+    # needs (Render free tier has python3 but no Pillow preinstalled; the
+    # generator logs 'No module named PIL' and the email sends WITHOUT the
+    # banner otherwise). The banner generator falls back to a Node/sharp
+    # renderer when Python is unavailable, so the email never loses the image.
+    buildCommand: |
+      npm install
+      (command -v python3 >/dev/null 2>&1 && python3 -m pip install --quiet --break-system-packages Pillow 2>/dev/null || python3 -m pip install --quiet Pillow 2>/dev/null || true)
     startCommand: npm run start:render
     healthCheckPath: /health
     autoDeploy: true
@@ -67,8 +74,13 @@ services:
       # --- Email delivery (Gmail SMTP) ---
       - key: EMAIL_PROVIDER
         value: GMAIL_SMTP
+      # TEST allows controlled sends restricted to EMAIL_TEST_RECIPIENT;
+      # PRODUCTION is the unrestricted live mode required for real campaign
+      # emails AND real WhatsApp sends (WHATSAPP_SEND_MODE=LIVE below is
+      # additionally gated on this). The merchant approving a campaign is
+      # explicit authorization to dispatch — see routes/merchant.ts.
       - key: COMMUNICATION_MODE
-        value: DRY_RUN        # TEST for controlled sends; PRODUCTION only when going live
+        value: PRODUCTION
       - key: EMAIL
         sync: false
       - key: PASSWORD
@@ -102,7 +114,11 @@ services:
       - key: EVOLUTION_API_KEY
         sync: false
       - key: WHATSAPP_SEND_MODE
-        value: DRY_RUN
+        # LIVE enables real WhatsApp sends through the QR-connected sender
+        # account (the sender is already connected, state: open on prod).
+        # COMMUNICATION_MODE=PRODUCTION is also required by isLiveSendEnabled.
+        # Recipients are still restricted to WHATSAPP_ALLOWED_RECIPIENTS.
+        value: LIVE
       - key: WHATSAPP_SENDER_INSTANCE
         value: shopi-buildathon-whatsapp
       - key: WHATSAPP_ALLOWED_RECIPIENTS
