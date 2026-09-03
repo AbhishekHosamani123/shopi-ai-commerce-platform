@@ -140,16 +140,28 @@ export class WhatsAppService {
     }
 
     const connectRes = await evolutionApiClient.connectInstance(instanceName);
-    if (!connectRes.ok || !connectRes.data) {
-      return { success: false, instanceName, error: connectRes.error || 'Failed to retrieve QR code from Evolution API.' };
+    let qr = connectRes.ok ? connectRes.data : null;
+
+    if (!qr || (!qr.base64 && !qr.qrcode?.base64)) {
+      console.log('[WhatsAppService] Recreating instance for fresh QR generation...');
+      await evolutionApiClient.deleteInstance(instanceName);
+      const createRes = await evolutionApiClient.createInstance(instanceName);
+      if (createRes.ok && createRes.data) {
+        qr = createRes.data.qrcode || createRes.data;
+      }
     }
-    const qr = connectRes.data;
+
+    const qrBase64 = qr?.base64 || qr?.qrcode?.base64;
+    if (!qrBase64) {
+      return { success: false, instanceName, error: 'Failed to retrieve QR code from WhatsApp gateway.' };
+    }
+
     return {
       success: true,
       instanceName,
-      state,
-      qrCodeBase64: qr.base64 ?? undefined,
-      pairingCode: qr.pairingCode ?? null
+      state: 'connecting',
+      qrCodeBase64: qrBase64,
+      pairingCode: qr?.pairingCode ?? null
     };
   }
 

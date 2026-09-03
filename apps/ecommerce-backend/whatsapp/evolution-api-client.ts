@@ -95,9 +95,18 @@ export class EvolutionApiClient {
    * Raw connection state for an instance.
    */
   async getConnectionState(instanceName: string): Promise<string | null> {
+    try {
+      const res = await this.call<any>('get', `/instance/connectionState/${encodeURIComponent(instanceName)}`, undefined, 8000);
+      if (res.ok && res.data?.instance?.state) {
+        return String(res.data.instance.state).toLowerCase();
+      }
+    } catch {
+      // fallback to list check
+    }
     const instance = await this.fetchInstanceByName(instanceName);
     if (!instance) return null;
-    return instance.connectionStatus || instance.state || instance.instance?.state || 'open';
+    const st = instance.connectionStatus || instance.state || instance.instance?.state;
+    return st ? String(st).toLowerCase() : 'close';
   }
 
   /**
