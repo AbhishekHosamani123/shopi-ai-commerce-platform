@@ -60,22 +60,14 @@ const MenuType = () => {
     };
     const AccBtns = [
         {
-            name: 'loggedIn',
+            name: 'customerLinks',
             isExtendable: true,
             extendables: [
-                { title: 'Settings', link: '/account-settings' },
-                { title: 'Orders', link: '/orders' },
-            ]
-        },
-        {
-            name: 'login',
-            isExtendable: true,
-            extendables: [
-                { title: 'Register', link: '/sign-up' },
-                { title: 'Sign In', link: '/sign-in' },
+                { title: 'Track Orders', link: '/orders' },
+                { title: 'Shopping Cart', link: '/cart-checkout' },
+                { title: 'Delivery Address', link: '/account-settings' },
             ]
         }
-        // Add other nav buttons here if needed
     ];
     function signOut(){
         signOutHandler();
@@ -130,26 +122,19 @@ const MenuType = () => {
             <div className='w-[90%] border-t-[1px]'>
                 {AccBtns.map((each,index)=> 
                 <div key={index}>
-                    <div key={index}
-                        className={`transition-[max-height] duration-[400ms] ease-linear overflow-hidden ${
-                            'max-h-[160px]'
-                        }`}>
+                    <div
+                        className="transition-[max-height] duration-[400ms] ease-linear overflow-hidden max-h-[160px]">
                             <div className='pb-2 flex flex-col gap-2 pt-5 '>
-                                {each.extendables.map((link, linkIndex) => loggedIn ? each.name === 'loggedIn' &&
+                                {each.extendables.map((link, linkIndex) => (
                                     <a href={link.link} key={linkIndex} className='flex justify-between mt-1 items-center text-gray-700 border-b-[1px] pb-4 hover:text-black'>
                                         <p className='tracking-[1px]'>{link.title}</p>
                                     </a>
-                                    : each.name === 'login' &&
-                                    <a href={link.link} key={linkIndex} className='flex justify-between mt-1 items-center text-gray-700 border-b-[1px] pb-4 hover:text-black'>
-                                        <p className='tracking-[1px]'>{link.title}</p>
-                                    </a>
-                                )}
-                                
+                                ))}
                             </div>
                     </div>
                 </div>
                 )}
-                {loggedIn && <button onClick={signOut} className='flex justify-between mt-1 items-center text-gray-700  pb-4 hover:text-black'>Sign Out</button>}
+                {loggedIn && <button onClick={signOut} className='flex justify-between mt-1 items-center text-gray-700 pb-4 hover:text-black'>Sign Out</button>}
             </div>
     </>
   )

@@ -42,15 +42,26 @@ export async function paymentOnDeliveryHandler({
   userid,
   productid,
   colorid,
-  sizeid
+  sizeid,
+  customerInfo,
+  addressInfo
 }: {
-  userid: number;
+  userid?: number;
   productid: string | string[];
   colorid: string | string[];
   sizeid: string | string[];
+  customerInfo?: any;
+  addressInfo?: any;
 }) {
   try {
-    const response = await backendClient.post(`/api/payment-on-delivery/create-order`, { userid, productid, colorid, sizeid });
+    const response = await backendClient.post(`/api/payment-on-delivery/create-order`, {
+      userid,
+      productid,
+      colorid,
+      sizeid,
+      customerInfo,
+      addressInfo
+    });
     return { status: response.status, data: response.data };
   } catch (error: any) {
     if (error.response) {
@@ -66,17 +77,30 @@ export async function cardCheckoutHandler({
   colorid,
   sizeid,
   paymentid,
-  paymentStatus
+  paymentStatus,
+  customerInfo,
+  addressInfo
 }: {
-  userid: number;
+  userid?: number;
   productid: string | string[];
   colorid: string | string[];
   sizeid: string | string[];
-  paymentid: string;
-  paymentStatus: string;
+  paymentid?: string;
+  paymentStatus?: string;
+  customerInfo?: any;
+  addressInfo?: any;
 }) {
   try {
-    const response = await backendClient.post(`/api/card/create-order`, { userid, productid, colorid, sizeid, paymentid, paymentStatus });
+    const response = await backendClient.post(`/api/card/create-order`, {
+      userid,
+      productid,
+      colorid,
+      sizeid,
+      paymentid,
+      paymentStatus,
+      customerInfo,
+      addressInfo
+    });
     return { status: response.status, data: response.data };
   } catch (error: any) {
     if (error.response) {
@@ -98,9 +122,16 @@ export async function checkoutCartProductDataHandler(userID: number) {
   }
 }
 
-export async function cartCardCheckoutHandler(userID: number, paymentid: string, paymentstatus: string) {
+export async function cartCardCheckoutHandler(
+  payload: number | { userID?: number; paymentid?: string; paymentstatus?: string; customerInfo?: any; addressInfo?: any; items?: any[] },
+  paymentidArg?: string,
+  paymentstatusArg?: string
+) {
   try {
-    const response = await backendClient.post(`/api/cart-card/create-order`, { userID, paymentid, paymentstatus });
+    const body = typeof payload === 'object'
+      ? payload
+      : { userID: payload, paymentid: paymentidArg, paymentstatus: paymentstatusArg };
+    const response = await backendClient.post(`/api/cart-card/create-order`, body);
     return { status: response.status, data: response.data };
   } catch (error: any) {
     if (error.response) {
@@ -110,9 +141,12 @@ export async function cartCardCheckoutHandler(userID: number, paymentid: string,
   }
 }
 
-export async function cartCashCheckoutHandler(userID: number) {
+export async function cartCashCheckoutHandler(
+  payload: number | { userID?: number; customerInfo?: any; addressInfo?: any; items?: any[] }
+) {
   try {
-    const response = await backendClient.post(`/api/cart-payment-on-delivery/create-order`, { userID });
+    const body = typeof payload === 'object' ? payload : { userID: payload };
+    const response = await backendClient.post(`/api/cart-payment-on-delivery/create-order`, body);
     return { status: response.status, data: response.data };
   } catch (error: any) {
     if (error.response) {
@@ -142,19 +176,25 @@ export async function createRazorpayOrderHandler({
   userid,
   productid,
   colorid,
-  sizeid
+  sizeid,
+  customerInfo,
+  addressInfo
 }: {
-  userid: number;
+  userid?: number;
   productid: string | string[];
   colorid: string | string[];
   sizeid: string | string[];
+  customerInfo?: any;
+  addressInfo?: any;
 }) {
   try {
     const response = await backendClient.post(`/api/razorpay/create-order`, {
       userid,
       productid,
       colorid,
-      sizeid
+      sizeid,
+      customerInfo,
+      addressInfo
     });
     return { status: response.status, data: response.data };
   } catch (error: any) {
@@ -165,9 +205,12 @@ export async function createRazorpayOrderHandler({
   }
 }
 
-export async function createRazorpayCartOrderHandler(userid: number) {
+export async function createRazorpayCartOrderHandler(
+  payload: number | { userid?: number; customerInfo?: any; addressInfo?: any; items?: any[] }
+) {
   try {
-    const response = await backendClient.post(`/api/razorpay/create-cart-order`, { userid });
+    const body = typeof payload === 'object' ? payload : { userid: payload };
+    const response = await backendClient.post(`/api/razorpay/create-cart-order`, body);
     return { status: response.status, data: response.data };
   } catch (error: any) {
     if (error.response) {
@@ -184,15 +227,19 @@ export async function verifyRazorpayPaymentHandler({
   sizeid,
   razorpay_order_id,
   razorpay_payment_id,
-  razorpay_signature
+  razorpay_signature,
+  customerInfo,
+  addressInfo
 }: {
-  userid: number;
+  userid?: number;
   productid: string | string[];
   colorid: string | string[];
   sizeid: string | string[];
   razorpay_order_id: string;
   razorpay_payment_id: string;
   razorpay_signature: string;
+  customerInfo?: any;
+  addressInfo?: any;
 }) {
   try {
     const response = await backendClient.post(`/api/razorpay/verify-payment`, {
@@ -202,7 +249,9 @@ export async function verifyRazorpayPaymentHandler({
       sizeid,
       razorpay_order_id,
       razorpay_payment_id,
-      razorpay_signature
+      razorpay_signature,
+      customerInfo,
+      addressInfo
     });
     return { status: response.status, data: response.data };
   } catch (error: any) {
@@ -217,19 +266,28 @@ export async function verifyRazorpayCartPaymentHandler({
   userid,
   razorpay_order_id,
   razorpay_payment_id,
-  razorpay_signature
+  razorpay_signature,
+  customerInfo,
+  addressInfo,
+  items
 }: {
-  userid: number;
+  userid?: number;
   razorpay_order_id: string;
   razorpay_payment_id: string;
   razorpay_signature: string;
+  customerInfo?: any;
+  addressInfo?: any;
+  items?: any[];
 }) {
   try {
     const response = await backendClient.post(`/api/razorpay/verify-cart-payment`, {
       userid,
       razorpay_order_id,
       razorpay_payment_id,
-      razorpay_signature
+      razorpay_signature,
+      customerInfo,
+      addressInfo,
+      items
     });
     return { status: response.status, data: response.data };
   } catch (error: any) {

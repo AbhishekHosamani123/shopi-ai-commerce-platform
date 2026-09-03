@@ -7,6 +7,7 @@ import { paymentCreationSchema, userIDSchema } from '../validators/cartCheckoutV
 import Stripe from 'stripe';
 import { validationResult,matchedData } from 'express-validator';
 import { randomUUID } from 'crypto';
+import { resolveOrCreateCustomer } from '../utils/guestCheckoutHelper';
 const router = express.Router();
 const stripeApiKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder_mock_stripe_key_2026';
 const stripe = new Stripe(stripeApiKey);
@@ -170,25 +171,14 @@ router.get('/checkout-cart/product-details/:userID',userIDSchema, async (req:Req
  * orderids as strings ('9' > '12'), attaching the WRONG orders to the email
  * once ids passed single digits.
  */
-async function createCashOrder(userid:string,productid:string, colorid:string, sizeid:string,quantity:number): Promise<number | string> {
+async function createCashOrder(userid:string,productid:string, colorid:string, sizeid:string,quantity:number, addressidOverride?: number): Promise<number | string> {
   // Rebuild checkout tables if a provider DB reset wiped them (shipping,
   // payments were never created by the old recovery — COD order creation
   // failed with the transaction error after every reset).
   if (!(await ensureCheckoutSchemaReady())) return 503;
-  const orderid = randomUUID();
-  const shippingid = randomUUID();
-  const paymentid = randomUUID();
-  const transactionid = `TS-${randomUUID()}`;
-  const orderitemid = randomUUID();
-  const trackingnumber = `IN-${orderid}`;
   const deliveryDate = getDateTimeFiveDaysFromNow();
-const paymentCharge = 15;
+  const paymentCharge = 15;
   try {
-    // Resolve the price. Chatbot-added cart items carry NULL colorid/sizeid
-    // (auto-resolved defaults); an INNER JOIN on NULL never matches and the
-    // item silently 404'd, failing the whole COD order. LEFT JOIN + COALESCE
-    // falls back to the product's first variant (same fix the checkout
-    // product-details endpoint received).
     const productQuery = `
       SELECT p.discount,
              COALESCE(pc.colorid, pc2.colorid) AS colorid,
@@ -206,10 +196,6 @@ const paymentCharge = 15;
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
 
-    // Resolve price + effective variants. When the product only exists in the
-    // live catalog (legacy products table is sparsely populated), fall back
-    // to ShopiCatalogService so the item is still orderable (see
-    // fetchProductData for the display-side equivalent).
     let amount: string | number;
     let effectiveColorid: number | null;
     let effectiveSizeid: number | null;
@@ -230,17 +216,22 @@ const paymentCharge = 15;
       effectiveColorid = productResult.rows[0].colorid;
       effectiveSizeid = productResult.rows[0].sizeid;
     }
-    const addressQuery = `
-      SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
-    `;
-    const addressResult = await client.query(addressQuery, [userid]);
 
-    if (addressResult.rows.length === 0) {
-      return 404;
+    let addressid = addressidOverride;
+    if (!addressid) {
+      const addressQuery = `
+        SELECT addressid FROM addresses WHERE userid = $1 ORDER BY is_default DESC, addressid DESC LIMIT 1
+      `;
+      const addressResult = await client.query(addressQuery, [userid]);
+      if (addressResult.rows.length === 0) {
+        return 404;
+      }
+      addressid = addressResult.rows[0].addressid;
     }
-    const addressid = addressResult.rows[0].addressid;
+
     const orderShipping = shippingcharge;
     const totalAmount = (orderShipping+paymentCharge+parseFloat(String(amount))*quantity).toFixed(2);
+    const transactionid = `TS-${randomUUID()}`;
 
     const conn = await client.connect();
     try {
@@ -285,54 +276,73 @@ const paymentCharge = 15;
     return 500;
   }
 }
-router.post('/cart-payment-on-delivery/create-order',userIDSchema, async (req:Request, res:Response) => {
-  const result = validationResult(req);
-  if(result.isEmpty()){
-    const data = matchedData(req);
-    const userID = data.userID;
-    try {
+router.post('/cart-payment-on-delivery/create-order', async (req:Request, res:Response) => {
+  try {
+    const rawUserId = req.body.userID || req.body.userid;
+    const customerInfo = req.body.customerInfo;
+    const addressInfo = req.body.addressInfo;
+    const items = req.body.items;
+
+    const customer = await resolveOrCreateCustomer(rawUserId, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
+
+    let cartItemsRows: any[] = [];
+    if (effectiveUserId > 0) {
       const cartlistQuery = `SELECT productid,sizeid,colorid,quantity FROM cartitems WHERE userid = $1`;
-      const cartItems = await client.query(cartlistQuery,[userID]);
-      if(cartItems.rows.length===0){
-        return res.status(404).json({ error: 'cart items not found' });
-      }
-      
-      const results = await Promise.all(cartItems.rows.map(each=>createCashOrder(userID,each.productid,each.colorid,each.sizeid,each.quantity)));
-      // Error codes (404/500/503) are numbers; created orderids are strings.
-      if (results.some(r => typeof r === 'number')) {
-        return res.status(500).json({ error: 'One or more orders failed to create' });
-      }
-      // Clear the fulfilled cart (the Razorpay verify path always cleared
-      // it; the COD path didn't — the customer could re-order the same items
-      // and duplicate orders).
-      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [userID]);
-      // Transactional confirmation email — best-effort, never blocks checkout.
-      // Uses the EXACT orderids created above (the old "latest orders" query
-      // sorted VARCHAR orderids lexicographically, so past order 9 the email
-      // could reference the wrong — older — orders).
-      const createdOrderIds = results as string[];
-      void dispatchOrderConfirmationEmail(userID, createdOrderIds).catch(() => {});
-      res.status(200).json({message:'Successfully created orders', orderIds: createdOrderIds});
-    } catch (error) {
-      res.status(500).json({error:'Server Internal Server'});
+      const cartItems = await client.query(cartlistQuery, [effectiveUserId]);
+      cartItemsRows = cartItems.rows;
     }
-  }else
-  {
-      res.status(500).json({ message: 'Validation error' });
+
+    if (cartItemsRows.length === 0 && Array.isArray(items) && items.length > 0) {
+      cartItemsRows = items.map((i: any) => ({
+        productid: i.productID || i.productid || i.productId,
+        sizeid: i.sizeID || i.sizeid || i.sizeId || 0,
+        colorid: i.colorID || i.colorid || i.colorId || 0,
+        quantity: i.quantity || 1
+      }));
+    }
+
+    if (cartItemsRows.length === 0) {
+      return res.status(404).json({ error: 'Cart items not found' });
+    }
+
+    const results = await Promise.all(
+      cartItemsRows.map(each =>
+        createCashOrder(String(effectiveUserId), each.productid, each.colorid, each.sizeid, each.quantity, customer.addressId)
+      )
+    );
+
+    if (results.some(r => typeof r === 'number')) {
+      return res.status(500).json({ error: 'One or more orders failed to create' });
+    }
+
+    if (effectiveUserId > 0) {
+      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [effectiveUserId]).catch(() => {});
+    }
+
+    const createdOrderIds = results as string[];
+    void dispatchOrderConfirmationEmail(effectiveUserId, createdOrderIds, {
+      customerEmail: customer.customerEmail,
+      customerName: customer.customerName
+    }).catch((err) => {
+      console.warn('[OrderEmail] COD confirmation dispatch failed:', err?.message);
+    });
+
+    res.status(200).json({ message: 'Successfully created orders', orderIds: createdOrderIds, orderid: createdOrderIds[0] });
+  } catch (error: any) {
+    console.error('Cart COD error:', error);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 });
 // Returns the created orderid on success (see createCashOrder contract) or a
 // numeric error code.
-async function createCardOrder(userid:string, productid:string, colorid:string, sizeid:string, paymentid:string , paymentStatus:string,quantity:number): Promise<number | string>{
+async function createCardOrder(userid:string, productid:string, colorid:string, sizeid:string, paymentid:string , paymentStatus:string,quantity:number, addressidOverride?: number): Promise<number | string>{
   // See createCashOrder: ensure the transaction tables exist first.
   if (!(await ensureCheckoutSchemaReady())) return 503;
   const paymentState = paymentStatus==='Succeeded' ? 'Confirmed' : 'Pending';
   const transactionid = `TS-${randomUUID()}`;
   const deliveryDate = getDateTimeFiveDaysFromNow();
   try {
-    // Resolve the price with the same NULL-variant fallback as createCashOrder
-    // (chatbot-added cart items carry NULL colorid/sizeid; an INNER JOIN on
-    // NULL never matches and the item silently 404'd).
     const productQuery = `
       SELECT p.discount,
              COALESCE(pc.colorid, pc2.colorid) AS colorid,
@@ -350,8 +360,6 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
     `;
     const productResult = await client.query(productQuery, [productid, colorid, sizeid]);
 
-    // Resolve price + effective variants (catalog fallback — see
-    // createCashOrder).
     let amount: string | number;
     let effectiveColorid: number | null;
     let effectiveSizeid: number | null;
@@ -372,15 +380,19 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
       effectiveColorid = productResult.rows[0].colorid;
       effectiveSizeid = productResult.rows[0].sizeid;
     }
-    const addressQuery = `
-      SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true
-    `;
-    const addressResult = await client.query(addressQuery, [userid]);
 
-    if (addressResult.rows.length === 0) {
-      return 404;
+    let addressid = addressidOverride;
+    if (!addressid) {
+      const addressQuery = `
+        SELECT addressid FROM addresses WHERE userid = $1 ORDER BY is_default DESC, addressid DESC LIMIT 1
+      `;
+      const addressResult = await client.query(addressQuery, [userid]);
+      if (addressResult.rows.length === 0) {
+        return 404;
+      }
+      addressid = addressResult.rows[0].addressid;
     }
-    const addressid = addressResult.rows[0].addressid;
+
     const orderShipping = shippingcharge;
     const totalAmount = (orderShipping+parseFloat(String(amount))*quantity).toFixed(2);
 
@@ -427,36 +439,61 @@ async function createCardOrder(userid:string, productid:string, colorid:string, 
     return 500;
   }
 }
-router.post('/cart-card/create-order',paymentCreationSchema, async (req:Request, res:Response) => {
-  const result = validationResult(req);
-  if(result.isEmpty()){
-    const data = matchedData(req);
-    const { userID,paymentid,paymentstatus } = data;
-    try {
+router.post('/cart-card/create-order', async (req:Request, res:Response) => {
+  try {
+    const rawUserId = req.body.userID || req.body.userid;
+    const paymentid = req.body.paymentid || `card_${Date.now()}`;
+    const paymentstatus = req.body.paymentstatus || 'Succeeded';
+    const customerInfo = req.body.customerInfo;
+    const addressInfo = req.body.addressInfo;
+    const items = req.body.items;
+
+    const customer = await resolveOrCreateCustomer(rawUserId, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
+
+    let cartItemsRows: any[] = [];
+    if (effectiveUserId > 0) {
       const cartlistQuery = `SELECT productid,sizeid,colorid,quantity FROM cartitems WHERE userid = $1`;
-      const cartItems = await client.query(cartlistQuery,[userID]);
-      if(cartItems.rows.length===0){
-        return res.status(404).json({ error: 'cart items not found' });
-      }
-      
-      const results = await Promise.all(cartItems.rows.map(each=>createCardOrder(userID,each.productid,each.colorid,each.sizeid,paymentid,paymentstatus,each.quantity)));
-      // Error codes are numbers; created orderids are strings.
-      if (results.some(r => typeof r === 'number')) {
-        return res.status(500).json({ error: 'One or more orders failed to create' });
-      }
-      // Clear the fulfilled cart (see COD route).
-      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [userID]);
-      // Exact created ids (see COD route comment).
-      const createdOrderIds = results as string[];
-      void dispatchOrderConfirmationEmail(userID, createdOrderIds).catch(() => {});
-      res.status(200).json({message:'Successfully created orders', orderIds: createdOrderIds});
-    } catch (error) {
-      res.status(500).json({error:'Server Internal Server'});
+      const cartItems = await client.query(cartlistQuery, [effectiveUserId]);
+      cartItemsRows = cartItems.rows;
     }
-  }else
-  {
-      console.log(result);
-      res.status(500).json({ message: 'Validation error' });
+
+    if (cartItemsRows.length === 0 && Array.isArray(items) && items.length > 0) {
+      cartItemsRows = items.map((i: any) => ({
+        productid: i.productID || i.productid || i.productId,
+        sizeid: i.sizeID || i.sizeid || i.sizeId || 0,
+        colorid: i.colorID || i.colorid || i.colorId || 0,
+        quantity: i.quantity || 1
+      }));
+    }
+
+    if (cartItemsRows.length === 0) {
+      return res.status(404).json({ error: 'cart items not found' });
+    }
+    
+    const results = await Promise.all(
+      cartItemsRows.map(each =>
+        createCardOrder(String(effectiveUserId), each.productid, each.colorid, each.sizeid, paymentid, paymentstatus, each.quantity, customer.addressId)
+      )
+    );
+
+    if (results.some(r => typeof r === 'number')) {
+      return res.status(500).json({ error: 'One or more orders failed to create' });
+    }
+
+    if (effectiveUserId > 0) {
+      await client.query(`DELETE FROM cartitems WHERE userid = $1`, [effectiveUserId]).catch(() => {});
+    }
+
+    const createdOrderIds = results as string[];
+    void dispatchOrderConfirmationEmail(effectiveUserId, createdOrderIds, {
+      customerEmail: customer.customerEmail,
+      customerName: customer.customerName
+    }).catch(() => {});
+
+    res.status(200).json({ message: 'Successfully created orders', orderIds: createdOrderIds, orderid: createdOrderIds[0] });
+  } catch (error: any) {
+    res.status(500).json({ error: error?.message || 'Server Internal Error' });
   }
 });
 

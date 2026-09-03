@@ -3,6 +3,7 @@ import { client } from '../data/DB';
 import crypto, { randomUUID } from 'crypto';
 import axios from 'axios';
 import ShopiCatalogService from '../data/shopiCatalogService';
+import { resolveOrCreateCustomer } from '../utils/guestCheckoutHelper';
 
 const router = express.Router();
 
@@ -177,30 +178,24 @@ function verifyRazorpaySignature(razorpayOrderId: string, razorpayPaymentId: str
 }
 
 // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // 1. Create Razorpay Order for Single Product Checkout
 // -----------------------------------------------------------------------------
 router.post('/create-order', async (req: Request, res: Response) => {
-  const { userid, productid, colorid, sizeid } = req.body;
+  const { userid, productid, colorid, sizeid, customerInfo, addressInfo } = req.body;
 
-  if (!userid || !productid || !colorid || !sizeid) {
-    return res.status(400).json({ error: 'Missing required parameters (userid, productid, colorid, sizeid)' });
+  if (!productid) {
+    return res.status(400).json({ error: 'Missing required productid parameter' });
   }
 
   try {
-    // 1. Fetch verified product price (Never trust client price). Resolves
-    // from the legacy products table first, then the live shopi catalog —
-    // catalog-only SKUs must be orderable too.
+    const customer = await resolveOrCreateCustomer(userid, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
+
+    // 1. Fetch verified product price (Never trust client price).
     const product = await resolveCheckoutProduct(productid);
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
-    }
-
-    // 2. Validate default shipping address exists
-    const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
-    const addressResult = await client.query(addressQuery, [userid]);
-
-    if (addressResult.rows.length === 0) {
-      return res.status(400).json({ error: 'Default delivery address required before checkout' });
     }
 
     const shippingCharge = 99; // Standard express shipping ₹99
@@ -209,10 +204,10 @@ router.post('/create-order', async (req: Request, res: Response) => {
 
     const receipt = `rcpt_${productid}_${Date.now()}`;
     const razorpayOrder = await createRazorpayOrder(amountInPaise, receipt, {
-      userid,
+      userid: effectiveUserId,
       productid,
-      colorid,
-      sizeid,
+      colorid: colorid || 0,
+      sizeid: sizeid || 0,
       checkoutType: 'single_product'
     });
 
@@ -224,7 +219,8 @@ router.post('/create-order', async (req: Request, res: Response) => {
       currency: 'INR',
       productTitle: product.title,
       totalRupees: totalRupees.toFixed(2),
-      shippingCost: shippingCharge
+      shippingCost: shippingCharge,
+      userId: effectiveUserId
     });
   } catch (error) {
     console.error('Error creating Razorpay single order:', error);
@@ -236,58 +232,56 @@ router.post('/create-order', async (req: Request, res: Response) => {
 // 2. Create Razorpay Order for Cart Checkout
 // -----------------------------------------------------------------------------
 router.post('/create-cart-order', async (req: Request, res: Response) => {
-  const userid = req.body.userid || req.body.userID;
-
-  if (!userid) {
-    return res.status(400).json({ error: 'Missing required parameter (userid or userID)' });
-  }
+  const rawUserId = req.body.userid || req.body.userID;
+  const customerInfo = req.body.customerInfo;
+  const addressInfo = req.body.addressInfo;
+  const items = req.body.items;
 
   try {
-    // 1. Fetch user's cart items from database. Legacy-table rows resolve
-    // directly; catalog-only SKUs fall back to ShopiCatalogService — the old
-    // INNER JOIN on the sparse `products` table dropped them and checkout
-    // failed with 'Cart is empty' while the cart was full.
-    const cartQuery = `
-      SELECT c.productid, c.quantity, p.title, p.discount
-      FROM cartitems c
-      LEFT JOIN products p ON c.productid = p.productid
-      WHERE c.userid = $1
-    `;
-    const cartResult = await client.query(cartQuery, [userid]);
+    const customer = await resolveOrCreateCustomer(rawUserId, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
 
-    if (cartResult.rows.length === 0) {
-      return res.status(404).json({ error: 'Cart is empty' });
-    }
-
-    const cartItems: { productid: string; quantity: number; title: string; discount: number }[] = [];
-    for (const row of cartResult.rows) {
-      const resolved = await resolveCheckoutProduct(row.productid);
-      if (!resolved) {
-        return res.status(404).json({ error: `Product ${row.productid} is no longer available` });
+    // 1. Fetch user's cart items from database or client payload
+    let cartItems: { productid: string; quantity: number; title: string; discount: number }[] = [];
+    if (effectiveUserId > 0) {
+      const cartQuery = `
+        SELECT c.productid, c.quantity, p.title, p.discount
+        FROM cartitems c
+        LEFT JOIN products p ON c.productid = p.productid
+        WHERE c.userid = $1
+      `;
+      const cartResult = await client.query(cartQuery, [effectiveUserId]);
+      for (const row of cartResult.rows) {
+        const resolved = await resolveCheckoutProduct(row.productid);
+        if (resolved) {
+          cartItems.push({ productid: row.productid, quantity: Number(row.quantity), title: resolved.title, discount: resolved.discount });
+        }
       }
-      cartItems.push({ productid: row.productid, quantity: Number(row.quantity), title: resolved.title, discount: resolved.discount });
     }
+
+    if (cartItems.length === 0 && Array.isArray(items) && items.length > 0) {
+      for (const item of items) {
+        const pid = item.productID || item.productid || item.productId;
+        const resolved = await resolveCheckoutProduct(pid);
+        if (resolved) {
+          cartItems.push({ productid: pid, quantity: Number(item.quantity || 1), title: resolved.title, discount: resolved.discount });
+        }
+      }
+    }
+
     if (cartItems.length === 0) {
       return res.status(404).json({ error: 'Cart is empty' });
     }
 
-    // 2. Validate default shipping address exists
-    const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
-    const addressResult = await client.query(addressQuery, [userid]);
-
-    if (addressResult.rows.length === 0) {
-      return res.status(400).json({ error: 'Default delivery address required before checkout' });
-    }
-
-    // 3. Server-side cart total calculation
+    // 2. Server-side cart total calculation
     const shippingCharge = 99;
     const subtotal = cartItems.reduce((sum, item) => sum + (item.discount * item.quantity), 0);
     const totalRupees = subtotal + shippingCharge;
     const amountInPaise = Math.round(totalRupees * 100);
 
-    const receipt = `rcpt_cart_${userid}_${Date.now()}`;
+    const receipt = `rcpt_cart_${effectiveUserId}_${Date.now()}`;
     const razorpayOrder = await createRazorpayOrder(amountInPaise, receipt, {
-      userid,
+      userid: effectiveUserId,
       itemCount: cartItems.length,
       checkoutType: 'cart'
     });
@@ -301,7 +295,8 @@ router.post('/create-cart-order', async (req: Request, res: Response) => {
       itemCount: cartItems.length,
       subtotalRupees: subtotal.toFixed(2),
       totalRupees: totalRupees.toFixed(2),
-      shippingCost: shippingCharge
+      shippingCost: shippingCharge,
+      userId: effectiveUserId
     });
   } catch (error) {
     console.error('Error creating Razorpay cart order:', error);
@@ -320,10 +315,12 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
     sizeid,
     razorpay_order_id,
     razorpay_payment_id,
-    razorpay_signature
+    razorpay_signature,
+    customerInfo,
+    addressInfo
   } = req.body;
 
-  if (!userid || !productid || !colorid || !sizeid || !razorpay_order_id || !razorpay_payment_id) {
+  if (!productid || !razorpay_order_id || !razorpay_payment_id) {
     return res.status(400).json({ error: 'Missing required payment verification details' });
   }
 
@@ -336,8 +333,6 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
   const shippingCharge = 99;
   const deliveryDate = getDateTimeFiveDaysFromNow();
 
-  // See verify-cart-payment: ensure the transaction tables exist BEFORE the
-  // paid transaction starts so a provider DB reset can't abort it.
   const schemaReady = await ensureCheckoutSchemaReady();
   if (!schemaReady) {
     return res.status(503).json({
@@ -347,11 +342,10 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
   }
 
   try {
-    // 2. Resolve the authoritative price — legacy products table first, then
-    // the live shopi catalog (catalog-only SKUs must be orderable; the old
-    // products-only lookup 404'd AFTER the customer had already paid).
-    // NULL-variant tolerant: chatbot checkout links can carry no color/size;
-    // falls back to the product's first variant.
+    const customer = await resolveOrCreateCustomer(userid, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
+    const addressid = customer.addressId;
+
     let productAmount: number;
     let effectiveColorid: number | null = colorid;
     let effectiveSizeid: number | null = sizeid;
@@ -392,13 +386,6 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
       return res.status(404).json({ error: 'Product price could not be resolved' });
     }
 
-    const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
-    const addressResult = await client.query(addressQuery, [userid]);
-    if (addressResult.rows.length === 0) {
-      return res.status(400).json({ error: 'Default address not found' });
-    }
-
-    const addressid = addressResult.rows[0].addressid;
     const totalAmount = (productAmount + shippingCharge).toFixed(2);
 
     const conn = await client.connect();
@@ -408,7 +395,7 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
       // 3. Create confirmed order
       const orderRes = await conn.query(
         `INSERT INTO orders (userid, totalamount, orderstatus, order_code) VALUES ($1, $2, $3, $4) RETURNING orderid`,
-        [userid, totalAmount, 'Confirmed', 'IN']
+        [effectiveUserId, totalAmount, 'Confirmed', 'IN']
       );
       const orderid = orderRes.rows[0].orderid;
       const trackingnumber = `IN-${orderid}`;
@@ -439,8 +426,14 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
 
       await conn.query('COMMIT');
 
-      // Transactional confirmation email — fire-and-forget, never blocks checkout.
-      void dispatchOrderConfirmationEmail(userid, [orderid], { totalAmount: parseFloat(totalAmount) });
+      // Transactional confirmation email
+      void dispatchOrderConfirmationEmail(effectiveUserId, [orderid], {
+        totalAmount: parseFloat(totalAmount),
+        customerEmail: customer.customerEmail,
+        customerName: customer.customerName
+      }).catch((err) => {
+        console.warn('[OrderEmail] Razorpay confirmation dispatch failed:', err?.message);
+      });
 
       return res.status(200).json({
         success: true,
@@ -454,13 +447,6 @@ router.post('/verify-payment', async (req: Request, res: Response) => {
     } catch (txError: any) {
       try { await conn.query('ROLLBACK'); } catch { /* connection already aborted */ }
       console.error('Transaction error in verify-payment:', txError?.message || txError);
-      if (/relation "[a-z_]+" does not exist|column "[a-z_]+" (of relation )?does not exist/i.test(txError?.message || '')) {
-        void ensureCheckoutSchemaReady().catch(() => {});
-        return res.status(503).json({
-          error: 'Checkout database was restored after a provider reset — payment NOT captured, please retry.',
-          recovering: true
-        });
-      }
       return res.status(500).json({ error: 'Database transaction error' });
     } finally {
       conn.release();
@@ -479,10 +465,13 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
     userid,
     razorpay_order_id,
     razorpay_payment_id,
-    razorpay_signature
+    razorpay_signature,
+    customerInfo,
+    addressInfo,
+    items
   } = req.body;
 
-  if (!userid || !razorpay_order_id || !razorpay_payment_id) {
+  if (!razorpay_order_id || !razorpay_payment_id) {
     return res.status(400).json({ error: 'Missing required cart payment verification details' });
   }
 
@@ -495,9 +484,6 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
   const shippingCharge = 99;
   const deliveryDate = getDateTimeFiveDaysFromNow();
 
-  // Rebuild the checkout schema if a provider reset wiped it (before the
-  // paid transaction starts), and re-check after a missing-table abort so a
-  // transient wipe self-heals instead of dead-ending a paid cart.
   const schemaReady = await ensureCheckoutSchemaReady();
   if (!schemaReady) {
     return res.status(503).json({
@@ -507,52 +493,47 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
   }
 
   try {
-    // 2. Fetch cart items. Legacy-table rows resolve directly; catalog-only
-    // SKUs fall back to ShopiCatalogService for the authoritative price (the
-    // old INNER JOIN on the sparse `products` table dropped them AFTER the
-    // customer had already paid).
-    const cartQuery = `
-      SELECT c.productid, c.colorid, c.sizeid, c.quantity
-      FROM cartitems c
-      WHERE c.userid = $1
-    `;
-    const cartResult = await client.query(cartQuery, [userid]);
+    const customer = await resolveOrCreateCustomer(userid, customerInfo, addressInfo);
+    const effectiveUserId = customer.userId;
+    const addressid = customer.addressId;
 
-    if (cartResult.rows.length === 0) {
-      return res.status(404).json({ error: 'Cart is empty' });
-    }
-
-    const cartItems: { productid: string; colorid: any; sizeid: any; quantity: number; discount: number }[] = [];
-    for (const row of cartResult.rows) {
-      const resolved = await resolveCheckoutProduct(row.productid);
-      if (!resolved) {
-        return res.status(404).json({ error: `Product ${row.productid} is no longer available` });
-      }
-      // Resolve effective variant ids (NULL-variant chatbot items fall back
-      // to the product's first variant so orderitems never carry unmatched
-      // variant references).
-      let effColor = row.colorid ?? null;
-      let effSize = row.sizeid ?? null;
-      if (effColor === null || effSize === null) {
-        const supProd = await ShopiCatalogService.getProduct(String(row.productid)).catch(() => null);
-        if (supProd) {
-          if (effColor === null) effColor = (supProd as any).colors?.[0]?.colorid ?? null;
-          if (effSize === null) effSize = (supProd as any).sizes?.[0]?.sizeid ?? null;
+    // 2. Fetch cart items from DB or client payload
+    let cartItems: { productid: string; colorid: any; sizeid: any; quantity: number; discount: number }[] = [];
+    if (effectiveUserId > 0) {
+      const cartQuery = `
+        SELECT c.productid, c.colorid, c.sizeid, c.quantity
+        FROM cartitems c
+        WHERE c.userid = $1
+      `;
+      const cartResult = await client.query(cartQuery, [effectiveUserId]);
+      for (const row of cartResult.rows) {
+        const resolved = await resolveCheckoutProduct(row.productid);
+        if (resolved) {
+          cartItems.push({ productid: row.productid, colorid: row.colorid || null, sizeid: row.sizeid || null, quantity: Number(row.quantity), discount: resolved.discount });
         }
       }
-      cartItems.push({ productid: row.productid, colorid: effColor, sizeid: effSize, quantity: Number(row.quantity), discount: resolved.discount });
     }
+
+    if (cartItems.length === 0 && Array.isArray(items) && items.length > 0) {
+      for (const item of items) {
+        const pid = item.productID || item.productid || item.productId;
+        const resolved = await resolveCheckoutProduct(pid);
+        if (resolved) {
+          cartItems.push({
+            productid: pid,
+            colorid: item.colorID || item.colorid || null,
+            sizeid: item.sizeID || item.sizeid || null,
+            quantity: Number(item.quantity || 1),
+            discount: resolved.discount
+          });
+        }
+      }
+    }
+
     if (cartItems.length === 0) {
       return res.status(404).json({ error: 'Cart is empty' });
     }
 
-    const addressQuery = `SELECT addressid FROM addresses WHERE userid = $1 AND is_default = true`;
-    const addressResult = await client.query(addressQuery, [userid]);
-    if (addressResult.rows.length === 0) {
-      return res.status(400).json({ error: 'Default address not found' });
-    }
-
-    const addressid = addressResult.rows[0].addressid;
     const conn = await client.connect();
 
     try {
@@ -565,7 +546,7 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
 
         const orderRes = await conn.query(
           `INSERT INTO orders (userid, totalamount, orderstatus, order_code) VALUES ($1, $2, $3, $4) RETURNING orderid`,
-          [userid, itemTotal, 'Confirmed', 'IN']
+          [effectiveUserId, itemTotal, 'Confirmed', 'IN']
         );
         const orderid = orderRes.rows[0].orderid;
         createdOrderIds.push(orderid);
@@ -593,12 +574,19 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
       }
 
       // 4. Clear the customer's cart
-      await conn.query(`DELETE FROM cartitems WHERE userid = $1`, [userid]);
+      if (effectiveUserId > 0) {
+        await conn.query(`DELETE FROM cartitems WHERE userid = $1`, [effectiveUserId]).catch(() => {});
+      }
 
       await conn.query('COMMIT');
 
-      // Transactional confirmation email — one summary email for the whole cart.
-      void dispatchOrderConfirmationEmail(userid, createdOrderIds);
+      // Transactional confirmation email — one summary email for the whole cart
+      void dispatchOrderConfirmationEmail(effectiveUserId, createdOrderIds, {
+        customerEmail: customer.customerEmail,
+        customerName: customer.customerName
+      }).catch((err) => {
+        console.warn('[OrderEmail] Razorpay cart confirmation dispatch failed:', err?.message);
+      });
 
       return res.status(200).json({
         success: true,
@@ -613,15 +601,6 @@ router.post('/verify-cart-payment', async (req: Request, res: Response) => {
     } catch (txError: any) {
       try { await conn.query('ROLLBACK'); } catch { /* connection already aborted */ }
       console.error('Transaction error in verify-cart-payment:', txError?.message || txError);
-      // A missing relation/column here means the DB was wiped mid-flight
-      // (Render free tier). Kick the recovery so the NEXT attempt succeeds.
-      if (/relation "[a-z_]+" does not exist|column "[a-z_]+" (of relation )?does not exist/i.test(txError?.message || '')) {
-        void ensureCheckoutSchemaReady().catch(() => {});
-        return res.status(503).json({
-          error: 'Checkout database was restored after a provider reset — payment NOT captured, please retry.',
-          recovering: true
-        });
-      }
       return res.status(500).json({ error: 'Database transaction error during cart checkout' });
     } finally {
       conn.release();

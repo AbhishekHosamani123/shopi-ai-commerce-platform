@@ -116,12 +116,18 @@ export async function dispatchOrderConfirmationEmail(
     const idStrings = numericIds.map(String);
 
     // Customer email + name
-    const custRes = await client.query(
-      `SELECT email, username FROM users WHERE userid = $1`,
-      [userid]
-    );
-    const customerEmail = custRes.rows[0]?.email;
-    const customerName = (custRes.rows[0]?.username || '').trim() || 'Valued Customer';
+    let customerEmail = extra?.customerEmail;
+    let customerName = extra?.customerName;
+
+    if (!customerEmail || !customerName) {
+      const custRes = await client.query(
+        `SELECT email, username FROM users WHERE userid = $1`,
+        [userid]
+      ).catch(() => ({ rows: [] as any[] }));
+      customerEmail = customerEmail || custRes.rows[0]?.email;
+      customerName = customerName || (custRes.rows[0]?.username || '').trim() || 'Valued Customer';
+    }
+
     if (!customerEmail || !/.+@.+\..+/.test(customerEmail)) {
       console.warn(`[OrderEmail] User ${userid} has no valid email — confirmation skipped.`);
       return;

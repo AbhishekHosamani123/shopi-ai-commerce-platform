@@ -151,19 +151,13 @@ export default function Cart() {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                        {isLogged ? <Link
-                        href={`/cart-checkout`}
+                        <Link
+                          href={`/cart-checkout`}
+                          onClick={toggleCart}
                           className="flex items-center justify-center rounded-md border border-transparent bg-[#012652] hover:bg-[#0D94FB] px-6 py-3 text-base font-medium text-white shadow-sm transition-colors duration-200"
                         >
                           Checkout
-                        </Link>:
-                        <Link
-                        href={'/sign-in'}
-                          className="flex items-center justify-center rounded-md border border-transparent bg-[#012652] hover:bg-[#0D94FB] px-6 py-3 text-base font-medium text-white shadow-sm transition-colors duration-200"
-                        >
-                          Login to Checkout
                         </Link>
-                        }
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

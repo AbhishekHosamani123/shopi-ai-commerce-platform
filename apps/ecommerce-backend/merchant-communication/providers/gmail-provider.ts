@@ -19,14 +19,14 @@ let gmailSmtpHost: string | null = null;
 async function getGmailSmtpHost(): Promise<string> {
   if (gmailSmtpHost) return gmailSmtpHost;
   try {
-    const addresses = await dns.promises.resolve4('smtp.gmail.com');
-    if (addresses.length > 0) {
-      gmailSmtpHost = addresses[0];
+    const lookupRes = await dns.promises.lookup('smtp.gmail.com', { family: 4 });
+    if (lookupRes && lookupRes.address) {
+      gmailSmtpHost = lookupRes.address;
       console.log(`[SMTP] Resolved smtp.gmail.com → ${gmailSmtpHost} (IPv4 force)`);
       return gmailSmtpHost;
     }
   } catch (err: any) {
-    console.warn(`[SMTP] IPv4 resolution failed, falling back to hostname: ${err.message}`);
+    console.warn(`[SMTP] IPv4 lookup failed, falling back to hostname: ${err.message}`);
   }
   return 'smtp.gmail.com'; // fallback
 }
@@ -93,6 +93,7 @@ export class GmailEmailProvider implements CommunicationProvider {
           pass: password
         },
         tls: {
+          servername: 'smtp.gmail.com',
           rejectUnauthorized: true
         },
         connectionTimeout: 20000,
