@@ -2339,12 +2339,12 @@ router.get(['/ai/actions', '/actions'], async (req: Request, res: Response) => {
     // flagged is_test=true; skip-if-present inside) so the Actions & Outcomes
     // workspace isn't blank after a reset.
     try {
-      const ledgerCount = await client.query('SELECT COUNT(*)::int AS n FROM merchant_ai_actions');
-      if (ledgerCount.rows[0].n === 0) {
+      const pendingCountRes = await client.query("SELECT COUNT(*)::int AS n FROM merchant_ai_actions WHERE status = 'PENDING_APPROVAL' AND expires_at > CURRENT_TIMESTAMP");
+      if (pendingCountRes.rows[0].n === 0) {
         const { seedHistoricalActionLedger } = await import('../data/seedHistoricalLedger');
         const seeded = await seedHistoricalActionLedger();
         if (seeded.seeded) {
-          console.log('[Actions] Historical ledger regenerated:', seeded.count);
+          console.log('[Actions] Historical ledger regenerated with pending actions:', seeded.count);
         }
       }
     } catch (ledgerErr: any) {
