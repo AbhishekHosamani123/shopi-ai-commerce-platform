@@ -147,9 +147,14 @@ def generate(base_path, out_path, name, font_dir, preview=False):
 
 
 def main():
+    # NOTE: Python 3.14's argparse raises "ValueError: badly formed help
+    # string" when a help/description string contains a literal '%' followed
+    # by characters it tries to interpolate (observed on Render's Python
+    # 3.14.3 with the '<N>% OFF' help text below). Keep help strings
+    # %-sign-free; the overlay logic is unaffected.
     ap = argparse.ArgumentParser(description="Shopi banner name overlay (Option C)")
     ap.add_argument("--name", required=True, help="Campaign recipient customer name")
-    ap.add_argument("--base", required=True, help="Pre-baked discount base image (already contains '<N>% OFF')")
+    ap.add_argument("--base", required=True, help="Pre-baked discount base image (already contains the discount text)")
     ap.add_argument("--font-dir", default=None)
     ap.add_argument("--out", required=True)
     ap.add_argument("--preview", action="store_true")

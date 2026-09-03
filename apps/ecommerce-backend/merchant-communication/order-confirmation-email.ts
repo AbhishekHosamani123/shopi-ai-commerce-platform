@@ -355,25 +355,30 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
 
     // service:'gmail' resolves smtp.gmail.com, whose AAAA record can make
     // Node dial IPv6 first — hosts without IPv6 egress (Render free tier)
-    // then fail with 'connect ENETUNREACH 2607:f8b0:...:465'. The transport
+    // then fail with 'connect ENETUNREACH 2607:f8b0:...:587'. The transport
     // host is therefore resolved to an explicit IPv4 address (nodemailer
     // uses dns.resolve internally, which ignores the global
-    // dns.setDefaultResultOrder('ipv4first')).
-    // Port 587 + STARTTLS: the implicit-TLS 465 route timed out from Render's
-    // egress ('Connection timeout' in logs); 587 is the Gmail MSA port.
-    // The 587 dial is INTERMITTENT on Render's free egress (one observed
-    // success among timeouts), so sendMail is retried with backoff.
+    // dns.setDefaultResultOrder('ipv4first')). Verified in production logs:
+    // "[SMTP] Resolved smtp.gmail.com → 142.251.188.108 (IPv4 force)".
+    //
+    // Port strategy: BOTH Gmail ports are intermittent from Render's shared
+    // egress (587 STARTTLS timed out in prod; 465 implicit TLS timed out in
+    // an earlier prod incident). sendMail therefore tries 587 first and, on
+    // connect failure, retries the same message over 465 — two independent
+    // egress routes, three attempts each.
     const smtpHost = await getGmailSmtpHost();
-    const transporter = nodemailer.createTransport({
+    const baseTransport = {
       host: smtpHost,
-      port: 587,
-      secure: false,
+      auth: { user: email, pass: password },
+      tls: { rejectUnauthorized: true },
       connectionTimeout: 20000,
       greetingTimeout: 20000,
-      socketTimeout: 30000,
-      auth: { user: email, pass: password },
-      tls: { rejectUnauthorized: true }
-    });
+      socketTimeout: 30000
+    };
+    const portSequence: Array<{ port: number; secure: boolean }> = [
+      { port: 587, secure: false }, // MSA + STARTTLS
+      { port: 465, secure: true }   // implicit TLS
+    ];
 
     const { html, text } = renderOrderConfirmationEmail(data);
 
@@ -387,14 +392,18 @@ export async function sendOrderConfirmationEmail(data: OrderConfirmationEmailDat
 
     let info: any = null;
     let lastErr: any = null;
-    for (let attempt = 1; attempt <= 3; attempt++) {
-      try {
-        info = await transporter.sendMail(mail);
-        break;
-      } catch (e: any) {
-        lastErr = e;
-        console.warn(`[OrderEmail] order #${data.orderId} send attempt ${attempt}/3 failed: ${e.message}`);
-        if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+    outer: for (const { port, secure } of portSequence) {
+      const transporter = nodemailer.createTransport({ ...baseTransport, port, secure });
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          info = await transporter.sendMail(mail);
+          console.log(`[OrderEmail] sent via port ${port} (${secure ? 'implicit TLS' : 'STARTTLS'})`);
+          break outer;
+        } catch (e: any) {
+          lastErr = e;
+          console.warn(`[OrderEmail] order #${data.orderId} send attempt ${attempt}/3 via port ${port} failed: ${e.message}`);
+          if (attempt < 3) await new Promise(r => setTimeout(r, 5000 * attempt));
+        }
       }
     }
     if (!info) {
