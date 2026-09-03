@@ -99,7 +99,20 @@ export function expectedBannerDiscountText(discountValue: number): string {
 }
 
 function baseImagePath(discountPercent: number): string {
-  return path.join(BASES_DIR, `banner_${Math.round(discountPercent)}.png`);
+  const exact = path.join(BASES_DIR, `banner_${Math.round(discountPercent)}.png`);
+  if (fs.existsSync(exact)) return exact;
+
+  const supported = [5, 10, 15, 25, 30, 50];
+  let closest = 25;
+  let minDiff = Math.abs(discountPercent - closest);
+  for (const s of supported) {
+    const diff = Math.abs(discountPercent - s);
+    if (diff < minDiff) {
+      minDiff = diff;
+      closest = s;
+    }
+  }
+  return path.join(BASES_DIR, `banner_${closest}.png`);
 }
 
 /**

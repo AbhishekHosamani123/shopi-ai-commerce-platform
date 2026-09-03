@@ -295,9 +295,15 @@ export class WhatsAppService {
       // SAME image the email embedded (served from /campaign-banners/) is
       // attached here with the offer text as caption — never a different one.
       const target = recipientCheck.canonicalNumber!.replace('+', '');
-      const res = params.imageUrl
+      let res = params.imageUrl
         ? await evolutionApiClient.sendImage(instanceName, target, params.imageUrl, params.text)
         : await evolutionApiClient.sendText(instanceName, target, params.text);
+
+      if (!res.ok && params.imageUrl) {
+        console.warn(`[WhatsAppService] sendImage failed (${res.error}), falling back to sendText...`);
+        res = await evolutionApiClient.sendText(instanceName, target, params.text);
+      }
+
       if (!res.ok) {
         return {
           success: false,

@@ -21,13 +21,12 @@ export interface BannerProps {
  * static public asset for local preview only.)
  */
 export function renderBanner(props?: BannerProps | null): string {
-  if (props?.bannerImage === null) return '';
-
-  const raw = props?.bannerImage || '';
-  const altText = escapeHtml(props?.altText || 'Special Shopi offer');
+  const defaultBannerUrl = 'https://shopi-ai-commerce-platform-shop-two.vercel.app/campaign-banners/banner_25.png';
+  const raw = props?.bannerImage || defaultBannerUrl;
+  const altText = escapeHtml(props?.altText || 'Special Shopi promotional offer');
 
   // CID inline banner — travels with the MIME message.
-  if (raw.startsWith('cid:')) {
+  if (raw && raw.startsWith('cid:')) {
     const cid = escapeHtml(raw.slice(4));
     return `
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #ffffff;">
@@ -45,10 +44,7 @@ export function renderBanner(props?: BannerProps | null): string {
     `.trim();
   }
 
-  // Remote URL banner (kept for local dev preview / dry-run inspection only).
-  const defaultBannerUrl = process.env.BANNER_IMG_URL || '';
   const bannerUrl = sanitizeImageUrl(raw) || defaultBannerUrl;
-  if (!bannerUrl) return '';
 
   return `
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #ffffff;">

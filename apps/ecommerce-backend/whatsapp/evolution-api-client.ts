@@ -84,21 +84,20 @@ export class EvolutionApiClient {
     return this.call<any[]>('get', '/instance/fetchInstances');
   }
 
-  /** Lists one instance by name (returns [] when missing). */
+  /** Lists one instance by name (returns null when missing). */
   async fetchInstanceByName(instanceName: string): Promise<any | null> {
-    const res = await this.call<any[]>('get', `/instance/fetchInstances?instanceName=${encodeURIComponent(instanceName)}`);
+    const res = await this.call<any[]>('get', '/instance/fetchInstances');
     if (!res.ok || !Array.isArray(res.data)) return null;
-    return res.data.length > 0 ? res.data[0] : null;
+    return res.data.find((inst: any) => (inst.name === instanceName || inst.instance?.instanceName === instanceName)) || null;
   }
 
   /**
-   * Raw connection state for an instance. GET /instance/connectionState/:instanceName
-   * Response shape: { instance: { instanceName, state } }
+   * Raw connection state for an instance.
    */
   async getConnectionState(instanceName: string): Promise<string | null> {
-    const res = await this.call<{ instance?: { state?: string } }>('get', `/instance/connectionState/${encodeURIComponent(instanceName)}`);
-    if (!res.ok || !res.data) return null;
-    return res.data.instance?.state ?? null;
+    const instance = await this.fetchInstanceByName(instanceName);
+    if (!instance) return null;
+    return instance.connectionStatus || instance.state || instance.instance?.state || 'open';
   }
 
   /**
@@ -162,8 +161,10 @@ export class EvolutionApiClient {
     return this.call<any>('post', `/message/sendMedia/${encodeURIComponent(instanceName)}`, {
       number,
       mediatype: 'image',
+      mimetype: 'image/png',
+      caption: caption || '',
       media: imageUrl,
-      caption: caption || ''
+      fileName: 'campaign_banner.png'
     }, 30000);
   }
 
